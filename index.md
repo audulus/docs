@@ -100,7 +100,6 @@ The iPad/iPhone Audulus UI at a glance:
 -   ![Help Button](img/help.png) **Help** - Shows the Audulus documentation.
 -   ![Settings Button](img/settings.png) **Settings** - Shows the Audulus
     settings.
--   **"Store"** - Shows the Audulus store.
 
 ---
 
