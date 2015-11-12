@@ -77,7 +77,9 @@ The iPad/iPhone Audulus UI at a glance:
     if the Timing Mode upgrade has been purchased.
 -   ![Help Button](img/help.png) **Help** - Shows the Audulus documentation.
 
-### Patch Browser Buttons
+### Patch Browser
+
+![Patch Browser](img/browser.png)
 
 -   **"+"** - Creates a new patch.
 -   ![Collapse Button](img/CollapseButton.png) **Collapse** - Collapses the
