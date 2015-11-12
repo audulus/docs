@@ -69,6 +69,8 @@ The iPad/iPhone Audulus UI at a glance:
 
 ### Patch Editor
 
+The patch editor is Audulus's main view. It consists of an infinite canvas for creating patches, and a toolbar at the bottom primarily for adding new modules to your patch.
+
 ![Patch Editor](img/editor.png)
 
 -   ![Lock Mode Button](img/Lock.png) **Lock Mode** - Locks the nodes in
@@ -80,6 +82,8 @@ The iPad/iPhone Audulus UI at a glance:
 -   ![Help Button](img/help.png) **Help** - Shows the Audulus documentation.
 
 ### Patch Browser
+
+The patch browser allows you to create, delete, duplicate, and share patches.
 
 ![Patch Browser](img/browser.png)
 
