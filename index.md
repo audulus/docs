@@ -72,12 +72,6 @@ The iPad/iPhone Audulus UI at a glance:
 
 ### Patch Editor Buttons
 
--   ![Connection Mode Button](img/Connect.png) **Connection Mode** - Tap
-    this button to enable and disable Connection Mode. While connection
-    mode is enabled, Audulus will show the names of inputs and outputs.
-    To make a connection, drag from an Output to an Input. Connection
-    Mode will snap to the nearest Output, allowing you to make
-    connections even while zoomed out.
 -   ![Delete Button](img/Delete.png) **Delete** - Deletes selected nodes.
 -   ![Lock Mode Button](img/Lock.png) **Lock Mode** - Locks the nodes in
     place. This is useful for performing.
