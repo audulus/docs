@@ -67,7 +67,9 @@ The iPad/iPhone Audulus UI at a glance:
 -   Audulus will automatically detect your MIDI keyboard or control
     surface.
 
-### Patch Editor Buttons
+### Patch Editor
+
+![Patch Editor](img/editor.png)
 
 -   ![Lock Mode Button](img/Lock.png) **Lock Mode** - Locks the nodes in
     place. This is useful for performing.
