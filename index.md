@@ -62,25 +62,19 @@ The iPad/iPhone Audulus UI at a glance:
 -   Double-tap on the background to zoom out and see your entire patch.
 -   Many operations use context menus - tap and hold to bring up the
 -   context menu.
--   To create a new node, tap and hold on the background.
 -   To make a connection, zoom in and drag from an output to an input.
 -   To disconnect, drag from an input.
--   Use connection mode to make connections even while zoomed out.
--   Tap the keyboard button to bring up the on-screen keyboard.
 -   Audulus will automatically detect your MIDI keyboard or control
     surface.
 
 ### Patch Editor Buttons
 
--   ![Delete Button](img/Delete.png) **Delete** - Deletes selected nodes.
 -   ![Lock Mode Button](img/Lock.png) **Lock Mode** - Locks the nodes in
     place. This is useful for performing.
 -   ![Timing Mode Button](img/Stopwatch.png) **Timing Mode** - Toggles
     timing mode. Timing Mode shows the percentage of CPU time each node
     in your patch takes to compute. The Timing Mode button is only shown
     if the Timing Mode upgrade has been purchased.
--   ![Show Keyboard Button](img/ShowKeyboard.png) **Show Keyboard** - Shows
-    the on-screen keyboard.
 -   ![Help Button](img/help.png) **Help** - Shows the Audulus documentation.
 
 ### Patch Browser Buttons
