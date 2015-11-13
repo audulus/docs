@@ -71,8 +71,6 @@ combination of the \#Random node and the \#LowPass node.
 
 ![icon](img/icons/osc.png)
 
-<img src="img/osc.png" alt="Oscillator" style="max-width: 200px;"/>
-
 The **Osc**illator node is the foundation of most synthesizers -- it's
 where the sound begins. An oscillator produces a periodic waveform, a
 waveform that repeats. The length of the period determines the pitch of
@@ -80,40 +78,15 @@ the sound.
 
 Use the waveform menu to select the type of wave:
 
--   *sine*
--   *triangle*
--   *square*
--   *sawtooth*
+-   *sine* - A neutral waveform with no harmonics.
+-   *triangle* - A mellow waveform with a hollow character due to odd harmonics.
+-   *square* - The Square waveform has a hollow character like the triangle, due to
+only odd harmonics being present. However the harmonics are much louder,
+so the sound is brighter.
+-   *sawtooth* - A bright-sounding waveform. This sounds especially nice when several are mixed together, all detuned slightly.
 
 To see what these waveforms look like, set the oscillator's **pitch**
 input to 1 and attach the **out** output to a \#Waveform node.
-
-#### Sine Wave
-
-A neutral waveform with no harmonics.
-
-![Sine Wave Example](img/sine.png)
-
-#### Triangle Wave
-
-A mellow waveform with a hollow character due to odd harmonics.
-
-![Triangle Wave Example](img/triangle.png)
-
-#### Square Wave
-
-The Square waveform has a hollow character like the triangle, due to
-only odd harmonics being present. However the harmonics are much louder,
-so the sound is brighter.
-
-![Square Wave Example](img/square.png)
-
-#### Sawtooth Wave
-
-A bright-sounding waveform. This sounds especially nice when several are
-mixed together, all detuned slightly.
-
-![Sawtooth Wave Example](img/sawtooth.png)
 
 #### Inputs
 
