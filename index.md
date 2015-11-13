@@ -54,7 +54,7 @@ We're here to help!
 
 ![Patch Editor](img/editor.png)
 
-The patch editor is Audulus's main view. It consists of an infinite canvas for creating patches, with toolbar at the bottom primarily for adding new modules to your patch. Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button (also used for exiting sub-patches).
+The Patch Editor is Audulus's main view. It consists of an infinite canvas for creating patches, with toolbar at the bottom primarily for adding new modules to your patch. Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button (also used for exiting sub-patches).
 
 The iPad/iPhone Audulus UI at a glance:
 
@@ -80,7 +80,7 @@ Toolbar buttons:
 
 ### Patch Browser
 
-The patch browser allows you to create, delete, duplicate, and share patches.
+The Patch Browser allows you to create, delete, duplicate, and share patches.
 
 ![Patch Browser](img/browser.png)
 
@@ -98,7 +98,6 @@ The patch browser allows you to create, delete, duplicate, and share patches.
     selected patches when in selection mode.
 -   ![Delete Patch Button](img/Delete.png) **Delete** - Deletes selected
     patches when in selection mode.
--   ![Help Button](img/help.png) **Help** - Shows the Audulus documentation.
 -   ![Settings Button](img/settings.png) **Settings** - Shows the Audulus
     settings.
 
@@ -106,21 +105,15 @@ The patch browser allows you to create, delete, duplicate, and share patches.
 
 ## UI Basics (Mac/Windows)
 
-<div class="responsive-container">
-<iframe src="http://player.vimeo.com/video/41123473" width="600" height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-</div>
-
 The Desktop Audulus UI at a glance:
 
 -   many operations use right-click context menus (control click if you
     have one button)
 -   to create a new node, right-click on the background, and select "Create"
--   to zoom use the mouse wheel or two fingers on your trackpad
--   to pan, drag the background
+-   to zoom, use the mouse wheel or two fingers on your trackpad
+-   to pan, use two fingers on your trackpad, or hold the Option/Alt key and drag
 -   to select a node just click on it
 -   to select multiple nodes, hold shift while clicking
--   to select all the nodes required to compute a node's output,
-    command-click on the node
 -   to make a connection between nodes, drag from an output to an input
 -   to disconnect, drag from an input
 -   to get help on a node, right click and select "Help"
