@@ -37,8 +37,6 @@ h4 {
 
 ![icon](img/icons/adsr.png)
 
-<img src="img/ADSRNode.png" alt="ADSR" style="max-width: 300px;"/>
-
 The ADSR (**A**ttack **D**ecay **S**ustain **R**elease) node controls
 the envelope of a note. The control signal can be used for the note's
 volume, or to vary some other parameter such as a filter cutoff.
@@ -359,8 +357,6 @@ The **Random** node outputs random numbers in the range [0, 1].
 
 ![icon](img/icons/keyboard.png)
 
-<img src="img/keyboard.png" alt="Keyboard Node" style="max-width: 300px;"/>
-
 The keyboard node converts MIDI note messages as well as interaction
 with its on-screen keyboard into **pitch** and **velocity** signals.
 
@@ -397,8 +393,6 @@ the MIDI key, select *Unassign Note* from the button's right-click menu.
 
 ![icon](img/icons/delay.png)
 
-<img src="img/delay.png" alt="Delay" style="max-width: 300px;"/>
-
 The **Delay** node time-delays the input signal by a duration specified
 by the **Time** knob, in seconds. Time may be modulated.
 
@@ -424,8 +418,6 @@ amp and commence rocking.
 ### Filter
 
 ![icon](img/icons/filter.png)
-
-<img src="img/filter.png" alt="Filter Node" style="max-width: 300px;"/>
 
 The **Filter** node is a 12db/octave low-pass filter with resonance. To
 change the filter cutoff frequency and resonance, drag on the filter
@@ -482,9 +474,7 @@ and release.
 
 ![icon](img/icons/level.png)
 
-The **Level** node adjusts the level of its input. For example:
-
-![Level Node diagram](img/LevelNode.png)
+The **Level** node applies gain to its input.
 
 ### Mapper
 
