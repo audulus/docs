@@ -90,13 +90,15 @@ input to 1 and attach the **out** output to a \#Waveform node.
 
 #### Inputs
 
-The **pitch** input is in units of Hertz.
+The **Hz** input controls the pitch of the oscillator.
+
+The **amp** input controls the oscillator amplitude.
 
 The **sync** input will reset the oscillator whenever it crosses 0. To
 see this in action, hook another low-frequency oscillator to the sync
 input and watch the waveform node.
 
-The **semitones** and **cents** knobs shift the input pitch.
+The **shape** input controls the pulse width of the square wave, and the de-phasing of the sawtooth wave. Modulate this for a fatter sound.
 
 ### Phasor
 
