@@ -50,9 +50,11 @@ We're here to help!
 
 ## UI Basics (iPad/iPhone)
 
-<div class="responsive-container">
-<iframe src="http://player.vimeo.com/video/89969814" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-</div>
+### Patch Editor
+
+![Patch Editor](img/editor.png)
+
+The patch editor is Audulus's main view. It consists of an infinite canvas for creating patches, with toolbar at the bottom primarily for adding new modules to your patch. Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button (also used for exiting sub-patches).
 
 The iPad/iPhone Audulus UI at a glance:
 
@@ -60,18 +62,13 @@ The iPad/iPhone Audulus UI at a glance:
 -   Drag on the background or with two fingers to pan.
 -   Double-tap on a node to zoom in for editing.
 -   Double-tap on the background to zoom out and see your entire patch.
--   Many operations use context menus - tap and hold to bring up the
--   context menu.
+-   Many operations use context menus - tap and hold to bring up the context menu.
 -   To make a connection, zoom in and drag from an output to an input.
 -   To disconnect, drag from an input.
 -   Audulus will automatically detect your MIDI keyboard or control
     surface.
 
-### Patch Editor
-
-The patch editor is Audulus's main view. It consists of an infinite canvas for creating patches, and a toolbar at the bottom primarily for adding new modules to your patch.
-
-![Patch Editor](img/editor.png)
+Toolbar buttons:
 
 -   ![Lock Mode Button](img/Lock.png) **Lock Mode** - Locks the nodes in
     place. This is useful for performing.
@@ -95,7 +92,7 @@ The patch browser allows you to create, delete, duplicate, and share patches.
     in selection mode, tapping on a patch thumbnail will select the
     patch and activate the Share, Duplicate, and Delete buttons.
     Multiple patches may be selected.
--   ![Share Patch Button](img/share.png).**Share** - Shares selected patches
+-   ![Share Patch Button](img/share.png) **Share** - Shares selected patches
     via email when in selection mode.
 -   ![Duplicate Patch Button](img/duplicate.png) **Duplicate** - Duplicates
     selected patches when in selection mode.
