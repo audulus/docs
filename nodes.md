@@ -144,6 +144,51 @@ The **FeedbackDelay** node controls where a delay occurs in a feedback
 loop. Audulus indicates where a feedback delay occurs with a "z" in an
 input.
 
+### Speaker
+
+![icon](img/icons/speaker.png)
+
+The **Speaker** node sends two channels of audio to the speakers or
+plugin outputs. If multiple speaker nodes are present in a patch,
+then the output of each node is mixed together equally.
+
+### Mic
+
+![icon](img/icons/mic.png)
+
+The **Mic** node recieves two channels of audio input from your audio device or plugin audio input.
+
+### Text
+
+![icon](img/icons/text.png)
+
+**Text** is editable text that can be used to label things and write
+comments. To edit the text, invoke the context menu on the text.
+
+### Timer
+
+![icon](img/icons/timer.png)
+
+The **Timer** node outputs the time (in seconds) after its input is
+triggered.
+
+To see how it works, connect a \#Trigger node to its input and a \#Value
+node to its output.
+
+### ZeroCross
+
+![icon](img/icons/zerocross.png)
+
+The **ZeroCross** node can be used to detect the pitch of a simple
+waveform. It outputs the frequency of zero-crossings of its input signal
+in Hertz.
+
+To see how it works, connect a \#Osc node to its input and a \#Value
+node to its output. The zero-cross will esitmate the pitch of the
+oscillator.
+
+## Poly
+
 ### MonoToQuad
 
 ![icon](img/icons/mono%20to%20quad.png)
@@ -185,45 +230,6 @@ four monophonic signals. It is the inverse of the \#MonoToQuad Node.
 The **StereoToMono** node converts a stereo signal to two mono signals.
 Use the \#MonoToStereo node to convert two mono signals to stereo.
 
-### Speaker
-
-![icon](img/icons/speaker.png)
-
-The **Speaker** node sends two channels of audio to the speakers or
-plugin outputs. If multiple speaker nodes are present in a patch,
-then the output of each node is mixed together equally.
-
-### Text
-
-![icon](img/icons/text.png)
-
-**Text** is editable text that can be used to label things and write
-comments. To edit the text, invoke the context menu on the text.
-
-### Timer
-
-![icon](img/icons/timer.png)
-
-The **Timer** node outputs the time (in seconds) after its input is
-triggered.
-
-To see how it works, connect a \#Trigger node to its input and a \#Value
-node to its output.
-
-### ZeroCross
-
-![icon](img/icons/zerocross.png)
-
-The **ZeroCross** node can be used to detect the pitch of a simple
-waveform. It outputs the frequency of zero-crossings of its input signal
-in Hertz.
-
-To see how it works, connect a \#Osc node to its input and a \#Value
-node to its output. The zero-cross will esitmate the pitch of the
-oscillator.
-
----
-
 ## Sub-Patches
 
 ### Patch
@@ -250,6 +256,12 @@ It creates an input on the front-panel of the patch node.
 
 The **Output** node is only used within sub-patches.
 It creates an output on the front-panel of the patch node.
+
+### Knob
+
+![icon](img/icons/knobsubpatch.png)
+
+The **Knob** node creates a knob on the front-panel of the patch node.
 
 ## Math
 
@@ -385,7 +397,11 @@ To assign the button to a MIDI key, right-click on the button, select
 *Learn Midi Note* and then press a key on your controller. To unassign
 the MIDI key, select *Unassign Note* from the button's right-click menu.
 
----
+### Pitch Bend
+
+![icon](img/icons/pitch bend.png)
+
+The **Pitch Bend** node outputs the current MIDI pitch bend value.
 
 ## Effects
 
@@ -542,6 +558,13 @@ be used to vary the level of each channel prior to mixing.
 
 The **Light** node will light up when its input has a value greater than
 zero.
+
+### RGBLight
+
+![icon](img/icons/rgblight.png)
+
+The **RGBLight** node will display a color according to its inputs. Each color
+channel is in the range [0,1].
 
 ### Meter
 
