@@ -399,7 +399,7 @@ the MIDI key, select *Unassign Note* from the button's right-click menu.
 
 ### Pitch Bend
 
-![icon](img/icons/pitch bend.png)
+![icon](img/icons/pitch%20bend.png)
 
 The **Pitch Bend** node outputs the current MIDI pitch bend value.
 
