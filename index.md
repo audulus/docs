@@ -216,7 +216,7 @@ To quickly see what widget on the patch node corresponds to a sub-patch widget, 
 
 ## Audulus Audio Unit (Mac Only)
 
-[Download Audio Unit](http://content.audulus.com/Audulus%20Audio%20Unit%202.9.pkg)
+[Download Audio Unit](http://content.audulus.com/Audulus%20Audio%20Unit%203.0.pkg)
 
 To install Audulus as an Audio Unit plugin, download the installer
 package above.
