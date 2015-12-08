@@ -36,7 +36,7 @@ Welcome to **Audulus**! With Audulus you can build synthesizers
 from first principles, design new sounds, or process audio. All with
 real-time low-latency processing suitable for live performance.
     
-To get started, view the UI Basics video for your platform (<a href="#ui-basics-ipadiphone">iOS</a> or <a href="#ui-basics-mac">Mac</a>).
+To get started, begin with the UI Basics for your platform (<a href="#ui-basics-ipadiphone">iOS</a> or <a href="#ui-basics-mac">Mac</a>).
 
 Be sure to sign up [here](http://eepurl.com/-8vkP) for the Audulus mailing list.
 
