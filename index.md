@@ -170,25 +170,19 @@ down by the [**PolyToMono**](/nodes/#polytomono) node.
 
 ## Custom Nodes
 
-Using the **Custom Nodes** upgrade, you can design your own node user interfaces.
+Using **Custom Nodes**, you can design your own node user interfaces.
 
-After purchasing the upgrade, use the following steps to create your own node UI.
+Use the following steps to create your own node UI.
 
 1. Create a sub-patch using the Patch Node (Utilities -> Patch)
 2. Enter the sub-patch by double-tapping (or double-clicking) on the Patch Node
-3. Create a node such as a Constant node (Level -> Constant)
-4. Open the context menu on the Constant Node's knob and Select Expose
+3. Create a Knob node.
 5. Exit the sub-patch and you'll see your knob on the front panel.
 6. Open the context menu on the Patch Node and select Edit UI
 7. Drag the knob to where you'd like it.
 8. Open the Path Node's context menu again and select Lock UI to finish editing the UI.
 
-Knobs aren't the only widgets that can be exposed. You can also expose inputs, outputs,
-ADSR evenlopes, filter graphs (Filter node), mapper curves (Mapper node), triggers, lights, and
-splines (Spline Node).
-
-To quickly see what widget on the patch node corresponds to a sub-patch widget, use the
-**Show Exposed** command in the widget's context menu.
+Knobs aren't the only widgets that can be exposed. Various nodes have an "Expose" option in their context menus.
 
 ---
 
