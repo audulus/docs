@@ -150,31 +150,6 @@ Sign up [here](http://eepurl.com/-8vkP) for the Audulus mailing list. You'll get
 *  New Patches
 *  And more!
 
----
-
-## Presets (Mac Only)
-
-**Note: Mac only.**
-
-Presets enable rapid switching between different networks. You might use
-presets for switching between sounds during a performance or
-experimenting with different ideas within a single patch.
-
-To store a preset, hold the option key and press one of the number keys.
-To load a preset press one of the number keys.
-
-Because connections in Audulus fade in/out when connected/disconnected,
-you can set up your patch so there are no clicks or pops when changing
-presets.
-
-Also, sharing nodes between presets enables things like delay spillover.
-
-A MIDI program change message will call up a preset, so presets can be
-used with your MIDI foot controller. This is particularly useful for
-guitar rigs.
-
----
-
 ## Polyphony
 
 Polyphonic processing in Audulus works seamlessly. A connection between
