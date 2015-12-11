@@ -112,7 +112,7 @@ The Desktop Audulus UI at a glance:
 -   to create a new node, right-click on the background
 -   to zoom, use the mouse wheel or pinch with two fingers on your trackpad
 -   to pan, use two fingers on your trackpad, or hold the Option/Alt key and drag
--   Apple Magic Mouse users: swipe on the mouse to pan, hold the Control key and swipe vertically to zoom.
+-   Apple Magic Mouse users: swipe on the mouse to pan, hold the Control key and swipe vertically to zoom. (Note: you may need to turn off "Use scroll gesture with modifier keys to zoom", in the Zoom section of the Accessibility control panel in System Preferences.)
 -   to select a node just click on it
 -   to select multiple nodes, hold shift while clicking, or drag on the background to lasso-select.
 -   to make a connection between nodes, drag from an output to an input
