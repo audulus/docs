@@ -109,8 +109,8 @@ The Desktop Audulus UI at a glance:
 
 -   many operations use right-click context menus (control click if you
     have one button)
--   to create a new node, right-click on the background, and select "Create"
--   to zoom, use the mouse wheel or two fingers on your trackpad
+-   to create a new node, right-click on the background
+-   to zoom, use the mouse wheel or pinch with two fingers on your trackpad
 -   to pan, use two fingers on your trackpad, or hold the Option/Alt key and drag
 -   to select a node just click on it
 -   to select multiple nodes, hold shift while clicking
