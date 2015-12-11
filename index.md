@@ -198,11 +198,8 @@ user-specific (`~/Library/Audio/Plug-Ins/Components`) or a system-wide
 (`/Library/Audio/Plug-Ins/Components`) location.
 
 The Audulus Audio Unit will appear under the manufacturer name
-"Subatomic". Both 32-bit and 64-bit versions are included in the plugin.
+"Audulus". Both 32-bit and 64-bit versions are included in the plugin.
 
-The Audulus Audio Unit needs to know the location of the purchased
-Audulus.app. By default it will look in the Applications folder. If
-Audulus.app is not in the Applications folder, you will see a button to
-locate it in the plugin window.
+Audulus.app must be present in the Applications folder for the Audio Unit to work.
 
 
