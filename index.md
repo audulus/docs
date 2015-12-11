@@ -120,16 +120,19 @@ The Desktop Audulus UI at a glance:
 
 ---
 
-## Building a Synth from Scratch
-
-This Audulus tutorial video shows how to build a subtractive synthesizer
-with some interesting modulations.
+## Intro videos
 
 <div class="responsive-container">
-<iframe src="http://player.vimeo.com/video/45484364" width="480" height="270" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+<iframe src="http://player.vimeo.com/video/148324131" width="480" height="270" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 </div>
 
----
+<div class="responsive-container">
+<iframe src="http://player.vimeo.com/video/148319769" width="480" height="270" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</div>
+
+<div class="responsive-container">
+<iframe src="http://player.vimeo.com/video/148358980" width="480" height="270" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</div>
 
 ## Getting Help
 
