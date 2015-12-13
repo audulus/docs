@@ -59,12 +59,14 @@ The Patch Editor is Audulus's main view. It consists of an infinite canvas for c
 The iPad/iPhone Audulus UI at a glance:
 
 -   Pinch with two fingers to zoom in and out of your patch.
--   Drag on the background or with two fingers to pan.
+-   Drag with two fingers to pan.
+-   Drag on the background to lasso-select multiple nodes.
 -   Double-tap on a node to zoom in for editing.
 -   Double-tap on the background to zoom out and see your entire patch.
 -   Many operations use context menus - tap and hold to bring up the context menu.
 -   To make a connection, zoom in and drag from an output to an input.
 -   To disconnect, drag from an input.
+-   To make a long connection, drag to to the edge of the screen. Audulus will zoom out, allowing you to see more modules. Move away from the edge of the screen, and Audulus will zoom back in, centering around your finger, so you can place the connection.
 -   Audulus will automatically detect your MIDI keyboard or control
     surface.
 
