@@ -33,8 +33,8 @@ li {
 ![Audulus Logo](img/logo.png)
 
 Welcome to **Audulus**! With Audulus you can build synthesizers
-from first principles, design new sounds, or process audio. All with
-real-time low-latency processing suitable for live performance.
+from first principles, design new sounds, or process audio - all with
+real-time, low-latency processing suitable for live performance.
     
 To get started, begin with the UI Basics for your platform (<a href="#ui-basics-ipadiphone">iOS</a> or <a href="#ui-basics-mac">Mac</a>).
 
@@ -44,7 +44,13 @@ If you need help or have found a bug, please contact us at:
 
 ![Support Email Address](img/support.png)
 
-We're here to help!
+We will respond within 24 hours.  When making a bug report, please: 
+
+-	attach whatever patch you were working on when Audulus crashed.
+-  give as much detailed information as you can about how to reproduce the bug. If a bug is not reproduceable, it is difficult to know what to fix.
+-  Crash reports are sent automatically and do not need to be included.
+
+We are also available to help you "debug" your patches. If Audulus is working fine, but your patch is not, do not contact us through our support email, but rather, please post it on the forum under the "Help" heading. We will download it, fix it, and reupload it to the forum for you, with an explanation of what we did to fix it. This can be a very educational process that benefits all our forum members.
 
 ---
 
