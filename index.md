@@ -36,21 +36,23 @@ Welcome to **Audulus**! With Audulus you can build synthesizers
 from first principles, design new sounds, or process audio - all with
 real-time, low-latency processing suitable for live performance.
     
-To get started, begin with the UI Basics for your platform (<a href="#ui-basics-ipadiphone">iOS</a> or <a href="#ui-basics-mac">Mac</a>).
+To get started, begin with the UI Basics for your platform (<a href="#ui-basics-ipadiphone">iOS</a> or <a href="#ui-basics-mac">Mac/Windows</a>).
 
-Be sure to sign up [here](http://eepurl.com/-8vkP) for the Audulus mailing list.
+##Be sure to sign up [here](http://eepurl.com/-8vkP) for the Audulus mailing list! 
 
-If you need help or have found a bug, please contact us at:
+- **We will send no more than 1 email per month** - the newsletter is mostly a round-up of all the new patches and discussions happening over the forum - an excellent resource if you do not want to participate in the forum yourself but still want to have all the latest Audulus modules to play with.
+
+##If you need help or have found a bug, please contact us at:
 
 ![Support Email Address](img/support.png)
 
-We will respond within 24 hours.  When making a bug report, please: 
+**We will respond within 24 hours - often sooner.**  When making a bug report, please: 
 
 -	attach whatever patch you were working on when Audulus crashed.
--  give as much detailed information as you can about how to reproduce the bug. If a bug is not reproduceable, it is difficult to know what to fix.
+-  give as much detailed information as you can about how to reproduce the bug. **If a bug is not reproduceable, it is difficult to know what to fix.**
 -  Crash reports are sent automatically and do not need to be included.
 
-We are also available to help you "debug" your patches. If Audulus is working fine, but your patch is not, do not contact us through our support email, but rather, please post it on the forum under the "Help" heading. We will download it, fix it, and reupload it to the forum for you, with an explanation of what we did to fix it. This can be a very educational process that benefits all our forum members.
+**We are also available to help you "debug" your patches.** If Audulus is working fine, but your patch is not, please do not contact us through our support email - instead, post it on the forum under the "Help" heading along with a description of how you **think** your should be working. We will download it, fix it, and reupload it to the forum for you, with a detailed explanation of what we did to fix it. This can be a very educational process that benefits all our forum members, and that is why we would prefer this kind of help to happen over at the forum.
 
 ---
 
@@ -60,7 +62,9 @@ We are also available to help you "debug" your patches. If Audulus is working fi
 
 ![Patch Editor](img/editor.png)
 
-The Patch Editor is Audulus's main view. It consists of an infinite canvas for creating patches, with toolbar at the bottom primarily for adding new modules to your patch. Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button (also used for exiting sub-patches).
+The Patch Editor is Audulus's main view. It consists of an infinite canvas for creating patches, with toolbar at the bottom primarily for adding new modules to your patch. The canvas grows and shrinks to fit the size of the patch.  If you have just one small element in a patch, you will not be able to zoom out - you need to add at least 2 nodes or modules and space them apart to give yourself some "breathing room."
+
+Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button (also used for exiting sub-patches).
 
 The iPad/iPhone Audulus UI at a glance:
 
