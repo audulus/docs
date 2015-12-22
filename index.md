@@ -62,11 +62,15 @@ To get started, begin with the UI Basics for your platform (<a href="#ui-basics-
 
 ![Patch Editor](img/editor.png)
 
-The Patch Editor is Audulus's main view. It consists of an infinite canvas for creating patches, with toolbar at the bottom primarily for adding new modules to your patch. The canvas grows and shrinks to fit the size of the patch.  If you have just one small element in a patch, you will not be able to zoom out - you need to add at least 2 nodes or modules and space them apart to give yourself some "breathing room."
+The Patch Editor is Audulus's main view. It consists of an infinite canvas for creating patches, with toolbar at the bottom.  
+
+- The canvas grows and shrinks to fit the size of the patch.  If you have just one small node in a patch, you will not be able to zoom out - you need to add at least 2 nodes or modules and space them apart to give yourself some "breathing room."
 
 Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button (also used for exiting sub-patches).
 
-The iPad/iPhone Audulus UI at a glance:
+- The toolbar is primarily for adding new modules to your patch, but it also contains the node browser and an on-screen multi-touch keyboard. **We highly recommend that new users create patches with modules** - working with nodes can be cumbersome and slow, and this was one of the reasons the Module Library was created. Most of the nodes are non-functional as-is.  For example, a crossfade node needs a 0-1 knob attached the input "C" to access its basic function.  The Crossfade Module, however, comes with indicator lights, a knob, and even a switch!  As you can see, modules are much more useful "out-of-the-box" than nodes.  You can think of nodes as the "atoms" of Audulus.  Modules are more like molecules - nodes put together in a way that is more immediately useful.
+ 
+##The iPad/iPhone Audulus UI at a glance:
 
 -   Pinch with two fingers to zoom in and out of your patch.
 -   Drag with two fingers to pan.
