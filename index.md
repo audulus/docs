@@ -83,7 +83,7 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 -   Many operations use context menus - tap and hold to bring up the context menu.
 -   To make a connection, zoom in and drag from an output to an input. Connections can *only* be made from an output to an input.
 -   To disconnect, drag the connection away from an input.
--   To "hot swap" or live patch, keep your finger held down and wave the output wire over an input. This is similar to performing with patch cables on a modular, but you'll never wear out your switch connectors in Audulus! Audulus is also optimized to prevent clicking/popping connection noise.
+-   To "hot swap" or live patch, keep your finger held down and wave the output wire over an input or knob. This is similar to performing with patch cables on a modular, but you'll never wear out your switch connectors in Audulus!  Audulus is also optimized to prevent clicking/popping connection noise, so go crazy with it!
 -   To make a long connection, drag to to the edge of the screen. Audulus will zoom out, widening your field of view. Move your finger away from the edge of the screen, and Audulus will zoom back in, centering around your finger, so you can place the connection.
 -   Audulus will automatically detect your MIDI keyboard or control surface.
 -   To map a knob or a trigger to MIDI, press and hold the element you want to map and select "Learn Midi CC," then twist/press the corresponding knob/button on your control surface, and the controls will thereafter be linked.
@@ -97,8 +97,7 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
     place. This is useful for performing.
 -   ![Timing Mode Button](img/Stopwatch.png) **Timing Mode** - Toggles
     timing mode. Timing Mode shows the percentage of CPU time each node
-    in your patch takes to compute. The Timing Mode button is only shown
-    if the Timing Mode upgrade has been purchased.
+    in your patch takes to compute.
 -   ![Help Button](img/help.png) **Help** - Shows the Audulus documentation.
 
 ### Patch Browser
@@ -107,21 +106,22 @@ The Patch Browser allows you to create, delete, duplicate, and share patches.
 
 ![Patch Browser](img/browser.png)
 
--   **"+"** - Creates a new patch.
+-   **"+"** - Upper left corner - Creates a new patch.
 -   ![Collapse Button](img/CollapseButton.png) **Collapse** - Collapses the
     patch thumbnails down to just their names, for browsing large
     collections of patches by name.
--   **"Select"** - Toggles the Path Browser's **Selection Mode** - When
+-   **"Select"** - Toggles the Patch Browser's **Selection Mode** - When
     in selection mode, tapping on a patch thumbnail will select the
     patch and activate the Share, Duplicate, and Delete buttons.
-    Multiple patches may be selected.
+    Multiple patches may be selected. 
+    - **Note:** *It is very common to forget to exit this mode - you will not be able to create or enter a patch while in* **Selection Mode**.
 -   ![Share Patch Button](img/share.png) **Share** - Shares selected patches
-    via email when in selection mode.
+    via email when in **Selection Mode.**
 -   ![Duplicate Patch Button](img/duplicate.png) **Duplicate** - Duplicates
-    selected patches when in selection mode.
+    selected patches when in **Selection Mode.**
 -   ![Delete Patch Button](img/Delete.png) **Delete** - Deletes selected
-    patches when in selection mode.
--   ![Settings Button](img/settings.png) **Settings** - Shows the Audulus
+    patches when in **Selection Mode.**
+-   ![Settings Button](img/settings.png) **Settings** - Shows Audulus'
     settings.
 
 ---
