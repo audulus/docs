@@ -52,7 +52,7 @@ To get started, begin with the UI Basics for your platform (<a href="#ui-basics-
 -  give as much detailed information as you can about how to reproduce the bug. **If a bug is not reproduceable, it is difficult to know what to fix.**
 -  Crash reports are sent automatically and do not need to be included.
 
-**We are also available to help you "debug" your patches.** If Audulus is working fine, but your patch is not, please do not contact us through our support email - instead, post it on the forum under the "Help" heading along with a description of how you **think** your should be working. We will download it, fix it, and reupload it to the forum for you, with a detailed explanation of what we did to fix it. This can be a very educational process that benefits all our forum members, and that is why we would prefer this kind of help to happen over at the forum.
+**We are also available to help you "debug" your patches.** If Audulus is working fine, but your patch is not, please do not contact us through our support email - instead, post it on the forum under the "Help" heading along with a description of how you *think* your should be working. We will download it, fix it, and reupload it to the forum for you, with a detailed explanation of what we did to fix it. This can be a very educational process that benefits all our forum members, and that is why we would prefer this kind of help to happen over at the forum.
 
 ---
 
@@ -69,7 +69,7 @@ The Patch Editor is Audulus's main view. It consists of an infinite canvas for c
 Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) chevron buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button. This button is also used to exit a subpatch.  To enter a subpatch, double click/tap on a blank space on the UI of a module.
 
 - The toolbar is primarily for adding new modules to your patch, but it also contains the node browser and an on-screen multi-touch keyboard. 
-- **We highly recommend that new users create patches with modules** - working with nodes can be cumbersome and slow, and to speed up patch construction was one of the primary reasons the Module Library was created. Most of the nodes are non-functional as-is.  For example: a crossfade node needs a knob attached to the input "C" to access the node's basic function.  The Crossfade Module, however, comes with indicator lights, a knob, and even a switch!  As you can see, modules are much more useful "out-of-the-box" than nodes are.  
+- *We highly recommend that new users create patches with modules* - working with nodes can be cumbersome and slow, and to speed up patch construction was one of the primary reasons the Module Library was created. Most of the nodes are non-functional as-is.  For example: a crossfade node needs a knob attached to the input "C" to access the node's basic function.  The Crossfade Module, however, comes with indicator lights, a knob, and even a switch!  As you can see, modules are much more useful "out-of-the-box" than nodes are.  
 - You can think of nodes as the "atoms" of Audulus.  Modules are more like molecules.  If you know anything about chemistry, you will know that working with elements alone does not lead to much interesting chemistry.  
 - That said, some nodes, like the expression node or the light node, cannot be built up into a module and must be used as nodes.
  
@@ -77,17 +77,18 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 
 -   Pinch with two fingers to zoom in and out of your patch.
 -   Drag with two fingers to pan.
--   Drag with one finger on the background to lasso-select multiple nodes. (See note below)*
+-   Drag with one finger on the background to lasso-select multiple nodes. ( *See note below* )
 -   Double-tap on a node to zoom in for editing.
 -   Double-tap on the background to zoom out and see your entire patch.
--   Many operations use context menus - tap and hold to bring up the context menu.
--   To make a connection, zoom in and drag from an output to an input.
--   To disconnect, drag from an input.
+-   Many operations use context menus - tap and hold to bring up the radial context menu.
+-   To make a connection, zoom in and drag from an output to an input. Connections can *only* be made from an output to an input.
+-   To disconnect, drag the connection away from an input.
+-   To "hot swap" or live patch, keep your finger held down and wave the output wire over an input. This is similar to performing with patch cables on a modular, but you'll never wear out your switch connectors!
 -   To make a long connection, drag to to the edge of the screen. Audulus will zoom out, allowing you to see more modules. Move away from the edge of the screen, and Audulus will zoom back in, centering around your finger, so you can place the connection.
 -   Audulus will automatically detect your MIDI keyboard or control
     surface.
     
-'*' The lasso tool - new in Audulus 3 - works in a somewhat unique way. The lasso can do much more than rope an entire area into selection. As it is, the lasso gives you surgical control over what you select, allowing you to accurately clip out portions of others' designs for use in your own. It is worth your time to get to know how the lasso in Audulus 3 works, as doing so will make your workflow much more efficient.
+**Note:** The lasso tool - new in Audulus 3 - works in a somewhat unique way. The lasso can do much more than rope an entire area into selection. As it is, the lasso gives you surgical control over what you select, allowing you to accurately clip out portions of others' designs for use in your own. It is worth your time to get to know how the lasso in Audulus 3 works, as doing so will make your workflow much more efficient.
 
 ##Toolbar buttons:
 
