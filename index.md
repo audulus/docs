@@ -77,7 +77,7 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 
 -   Pinch with two fingers to zoom in and out of your patch.
 -   Drag with two fingers to pan.
--   Drag on the background to lasso-select multiple nodes.
+-   Drag with one finger on the background to lasso-select multiple nodes.*
 -   Double-tap on a node to zoom in for editing.
 -   Double-tap on the background to zoom out and see your entire patch.
 -   Many operations use context menus - tap and hold to bring up the context menu.
@@ -86,6 +86,8 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 -   To make a long connection, drag to to the edge of the screen. Audulus will zoom out, allowing you to see more modules. Move away from the edge of the screen, and Audulus will zoom back in, centering around your finger, so you can place the connection.
 -   Audulus will automatically detect your MIDI keyboard or control
     surface.
+    
+'*' The way the lasso in Audulus works is somewhat unique. The lasso can do much more than rope an entire area into seelction.  The lasso actually gives you very precise control of what you select, allowing you to surgically clip out portions of a design.  It is worth your time to get to know how it works, as doing so will make your workflow much more efficient.
 
 Toolbar buttons:
 
