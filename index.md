@@ -80,15 +80,16 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 -   Drag with one finger on the background to lasso-select multiple nodes. ( *See note below* )
 -   Double-tap on a node to zoom in for editing.
 -   Double-tap on the background to zoom out and see your entire patch.
--   Many operations use context menus - tap and hold to bring up the radial context menu.
+-   Many operations use context menus - tap and hold to bring up the context menu.
 -   To make a connection, zoom in and drag from an output to an input. Connections can *only* be made from an output to an input.
 -   To disconnect, drag the connection away from an input.
--   To "hot swap" or live patch, keep your finger held down and wave the output wire over an input. This is similar to performing with patch cables on a modular, but you'll never wear out your switch connectors!
--   To make a long connection, drag to to the edge of the screen. Audulus will zoom out, allowing you to see more modules. Move away from the edge of the screen, and Audulus will zoom back in, centering around your finger, so you can place the connection.
--   Audulus will automatically detect your MIDI keyboard or control
-    surface.
-    
-**Note:** The lasso tool - new in Audulus 3 - works in a somewhat unique way. The lasso can do much more than rope an entire area into selection. As it is, the lasso gives you surgical control over what you select, allowing you to accurately clip out portions of others' designs for use in your own. It is worth your time to get to know how the lasso in Audulus 3 works, as doing so will make your workflow much more efficient.
+-   To "hot swap" or live patch, keep your finger held down and wave the output wire over an input. This is similar to performing with patch cables on a modular, but you'll never wear out your switch connectors in Audulus! Audulus is also optimized to prevent clicking/popping connection noise.
+-   To make a long connection, drag to to the edge of the screen. Audulus will zoom out, widening your field of view. Move your finger away from the edge of the screen, and Audulus will zoom back in, centering around your finger, so you can place the connection.
+-   Audulus will automatically detect your MIDI keyboard or control surface.
+-   To map a knob or a trigger to MIDI, press and hold the element you want to map and select "Learn Midi CC," then twist/press the corresponding knob/button on your control surface, and the controls will thereafter be linked.
+
+       
+**Note:** The lasso tool - new in Audulus 3 - works in a somewhat unique way. The lasso can do much more than rope an entire area into selection. As it is, the lasso gives you surgical control over what you select, allowing you to accurately clip out portions of others' designs for use in your own. Much of the progress that is made in the Audulus community happens when people leapfrog with shared knowledge.  The new lasso tool in Audulus 3 just makes that process a *lot* easier.  As you can see, it is worth your time to get to know how the lasso works, as doing so will make your workflow much more efficient.
 
 ##Toolbar buttons:
 
