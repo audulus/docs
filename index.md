@@ -77,7 +77,7 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 
 -   Pinch with two fingers to zoom in and out of your patch.
 -   Drag with two fingers to pan.
--   Drag with one finger on the background to lasso-select multiple nodes. ^*
+-   Drag with one finger on the background to lasso-select multiple nodes. (See note below)*
 -   Double-tap on a node to zoom in for editing.
 -   Double-tap on the background to zoom out and see your entire patch.
 -   Many operations use context menus - tap and hold to bring up the context menu.
@@ -87,9 +87,9 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 -   Audulus will automatically detect your MIDI keyboard or control
     surface.
     
-'*' The way the lasso in Audulus works is somewhat unique. The lasso can do much more than rope an entire area into seelction.  The lasso actually gives you very precise control of what you select, allowing you to surgically clip out portions of a design.  It is worth your time to get to know how it works, as doing so will make your workflow much more efficient.
+'*' The lasso tool - new in Audulus 3 - works in a somewhat unique way. The lasso can do much more than rope an entire area into selection. As it is, the lasso gives you surgical control over what you select, allowing you to accurately clip out portions of others' designs for use in your own. It is worth your time to get to know how the lasso in Audulus 3 works, as doing so will make your workflow much more efficient.
 
-Toolbar buttons:
+##Toolbar buttons:
 
 -   ![Lock Mode Button](img/Lock.png) **Lock Mode** - Locks the nodes in
     place. This is useful for performing.
