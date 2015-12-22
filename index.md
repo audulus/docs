@@ -77,7 +77,7 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 
 -   Pinch with two fingers to zoom in and out of your patch.
 -   Drag with two fingers to pan.
--   Drag with one finger on the background to lasso-select multiple nodes.*
+-   Drag with one finger on the background to lasso-select multiple nodes. ^*
 -   Double-tap on a node to zoom in for editing.
 -   Double-tap on the background to zoom out and see your entire patch.
 -   Many operations use context menus - tap and hold to bring up the context menu.
