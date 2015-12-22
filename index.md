@@ -66,9 +66,12 @@ The Patch Editor is Audulus's main view. It consists of an infinite canvas for c
 
 - The canvas grows and shrinks to fit the size of the patch.  If you have just one small node in a patch, you will not be able to zoom out - you need to add at least 2 nodes or modules and space them apart to give yourself some "breathing room."
 
-Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button (also used for exiting sub-patches).
+Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) chevron buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button. This button is also used to exit a subpatch.  To enter a subpatch, double click/tap on a blank space on the UI of a module.
 
-- The toolbar is primarily for adding new modules to your patch, but it also contains the node browser and an on-screen multi-touch keyboard. **We highly recommend that new users create patches with modules** - working with nodes can be cumbersome and slow, and this was one of the reasons the Module Library was created. Most of the nodes are non-functional as-is.  For example, a crossfade node needs a 0-1 knob attached the input "C" to access its basic function.  The Crossfade Module, however, comes with indicator lights, a knob, and even a switch!  As you can see, modules are much more useful "out-of-the-box" than nodes.  You can think of nodes as the "atoms" of Audulus.  Modules are more like molecules - nodes put together in a way that is more immediately useful.
+- The toolbar is primarily for adding new modules to your patch, but it also contains the node browser and an on-screen multi-touch keyboard. 
+- **We highly recommend that new users create patches with modules** - working with nodes can be cumbersome and slow, and to speed up patch construction was one of the primary reasons the Module Library was created. Most of the nodes are non-functional as-is.  For example: a crossfade node needs a knob attached to the input "C" to access the node's basic function.  The Crossfade Module, however, comes with indicator lights, a knob, and even a switch!  As you can see, modules are much more useful "out-of-the-box" than nodes are.  
+- You can think of nodes as the "atoms" of Audulus.  Modules are more like molecules.  If you know anything about chemistry, you will know that working with elements alone does not lead to much interesting chemistry.  
+- That said, some nodes, like the expression node or the light node, cannot be built up into a module and must be used as nodes.
  
 ##The iPad/iPhone Audulus UI at a glance:
 
