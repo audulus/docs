@@ -102,6 +102,7 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
  
 ## The iPad/iPhone Audulus UI at a glance:
 
+-   Overall signal flow is left-to-right (you can reverse the direction with a Via Tab).
 -   Pinch with two fingers to zoom in and out of your patch.
 -   Drag with two fingers to pan.
 -   Drag with one finger on the background to lasso-select multiple nodes. ( *See note 1 below* )
@@ -161,15 +162,16 @@ The Patch Browser allows you to create, delete, duplicate, and share patches.
 
 The Desktop Audulus UI at a glance:
 
+-   Overall signal flow is left-to-right (you can reverse the direction with a Via Tab).
 -   Many operations use right-click context menus (or control+click if you
     have one button)
 -   To create a new node, right-click on the background. A menu will pop up that gives you access to all the nodes and Modules.  The Module Library is found at the bottom of the menu. ( *See Note 1* )
 -   To zoom, use the mouse wheel or pinch with two fingers on your trackpad.
 -   To pan, use two fingers on your trackpad, or hold the Option/Alt key and drag.  You can also zoom out, hover your mouse over a new focal point, and zoom back in - this may seem an odd way to navigate at first, but it is much faster than simply panning because it requires less mouse movement.
 -   *Apple Magic Mouse users:* swipe on the mouse to pan, hold the Control key and swipe vertically to zoom. You may need to turn off "Use scroll gesture with modifier keys to zoom," in the Zoom section of the Accessibility control panel in System Preferences.
--   to select a node just click on it
--   to select multiple nodes, hold shift while clicking, or drag on the background to lasso-select.
--   to make a connection between nodes, drag from an output to an input
+-   To select a node/module, just click on it!
+-   To select multiple nodes/modules, hold shift while clicking each one, or use the lasso tool as described above.
+-   To make a connection between nodes/modules, drag a connection from an output to an input. You *cannot* draw a connection from an input to an output.
 -   to disconnect, drag from an input
 -   to get help on a node, right click and select "Help"
 
