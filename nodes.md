@@ -522,11 +522,7 @@ control.
 
 -   To create a control point, double tap on the function area.
 -   To move a control point, drag it.
--   To delete a control point, double tap on it
-
-The value boxes on the left control the min and max value of the
-function. Control for the scale of the x-axis will be added in a future
-version.
+-   To delete a control point, double tap on it.
 
 The red dot shows the current input and output values.
 
