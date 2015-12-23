@@ -112,7 +112,8 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 -   To disconnect, drag the connection away from an input.
 -   To "hot swap" or live patch, keep your finger held down and wave the output wire over an input or knob. This is similar to performing with patch cables on a modular, but you'll never wear out your inputs in Audulus!  Audulus is also optimized to prevent clicking/popping connection noise, so go crazy with it!
 -   To make a long connection, drag to to the edge of the screen. Audulus will zoom out, widening your field of view. Move your finger away from the edge of the screen, and Audulus will zoom back in, centering around your finger, so you can place the connection.
--   If you are zoomed too far out to make a connection, the inputs and outputs will visibly "lock" or "close." Zoom back in and they will "open" again, and you can now make and break connections as well as turn knobs.  If you have knobs and triggers mapped to MIDI, this is a non-issue.-   Audulus will automatically detect your MIDI keyboard or control surface. ( *See note 2 below* )
+-   If you are zoomed too far out to make a connection, the inputs and outputs will visibly "lock" or "close." Zoom back in and they will "open" again, and you can now make and break connections as well as turn knobs.  If you have knobs and triggers mapped to MIDI, this is a non-issue. ( *See note 2 below* )
+-   Speaking of mapping and controllers: Audulus will automatically detect your MIDI keyboard or control surface. 
 -   To map a knob or a trigger to MIDI, press and hold the element you want to map and select "Learn Midi CC," then twist/press the corresponding knob/button on your control surface, and the controls will thereafter be linked.
 
        
