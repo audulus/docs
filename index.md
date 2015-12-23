@@ -21,6 +21,10 @@ h4 {
  color: white;
 }
 
+em {
+  color: #2a9fd6;
+}
+
 li {
   list-style-image: url(img/bullet.png);
 }
@@ -32,7 +36,7 @@ li {
 
 ![Audulus Logo](img/logo.png)
 
-Welcome to **Audulus**! With Audulus you can build synthesizers
+Welcome to *Audulus*! With Audulus you can build synthesizers
 from first principles, design new sounds, or process audio - all with
 real-time, low-latency processing suitable for live performance.
     
@@ -40,19 +44,19 @@ To get started, begin with the UI Basics for your platform (<a href="#ui-basics-
 
 ### Be sure to sign up [here](http://eepurl.com/-8vkP) for the Audulus mailing list!
 
-**We will send no more than 1 email per month** - the newsletter is mostly a round-up of all the new patches and discussions happening over the forum - an excellent resource if you do not want to participate in the forum yourself but still want to have all the latest Audulus modules to play with.
+*We will send no more than 1 email per month* - the newsletter is mostly a round-up of all the new patches and discussions happening over the forum - an excellent resource if you do not want to participate in the forum yourself but still want to have all the latest Audulus modules to play with.
 
 ### If you need help or have found a bug, please contact us at:
 
 ![Support Email Address](img/support.png)
 
-**We will respond within 24 hours - often sooner.**  When making a bug report, please: 
+*We will respond within 24 hours - often sooner.*  When making a bug report, please: 
 
 -	attach whatever patch you were working on when Audulus crashed.
 -  give as much detailed information as you can about how to reproduce the bug. **If a bug is not reproduceable, it is difficult to know what to fix.**
 -  Crash reports are sent automatically and do not need to be included.
 
-**We are also available to help you "debug" your patches.** If Audulus is working fine, but your patch is not, please do not contact us through our support email - instead, post it on the forum under the "Help" heading along with a description of how you *think* your should be working. We will download it, fix it, and reupload it to the forum for you, with a detailed explanation of what we did to fix it. This can be a very educational process that benefits all our forum members, and that is why we would prefer this kind of help to happen over at the forum.
+*We are also available to help you "debug" your patches.* If Audulus is working fine, but your patch is not, please do not contact us through our support email - instead, post it on the forum under the "Help" heading along with a description of how you *think* your should be working. We will download it, fix it, and reupload it to the forum for you, with a detailed explanation of what we did to fix it. This can be a very educational process that benefits all our forum members, and that is why we would prefer this kind of help to happen over at the forum.
 
 ---
 
