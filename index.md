@@ -38,11 +38,11 @@ real-time, low-latency processing suitable for live performance.
     
 To get started, begin with the UI Basics for your platform (<a href="#ui-basics-ipadiphone">iOS</a> or <a href="#ui-basics-mac">Mac/Windows</a>).
 
-##Be sure to sign up [here](http://eepurl.com/-8vkP) for the Audulus mailing list! 
+### Be sure to sign up [here](http://eepurl.com/-8vkP) for the Audulus mailing list!
 
-- **We will send no more than 1 email per month** - the newsletter is mostly a round-up of all the new patches and discussions happening over the forum - an excellent resource if you do not want to participate in the forum yourself but still want to have all the latest Audulus modules to play with.
+**We will send no more than 1 email per month** - the newsletter is mostly a round-up of all the new patches and discussions happening over the forum - an excellent resource if you do not want to participate in the forum yourself but still want to have all the latest Audulus modules to play with.
 
-##If you need help or have found a bug, please contact us at:
+### If you need help or have found a bug, please contact us at:
 
 ![Support Email Address](img/support.png)
 
@@ -73,7 +73,7 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 - You can think of nodes as the "atoms" of Audulus.  Modules are more like molecules.  If you know anything about chemistry, you will know that working with elements alone does not lead to much interesting chemistry.  
 - That said, some nodes, like the expression node or the light node, cannot be built up into a module and must be used as nodes.
  
-##The iPad/iPhone Audulus UI at a glance:
+## The iPad/iPhone Audulus UI at a glance:
 
 -   Pinch with two fingers to zoom in and out of your patch.
 -   Drag with two fingers to pan.
