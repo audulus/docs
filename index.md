@@ -164,7 +164,7 @@ The Desktop Audulus UI at a glance:
 -   Many operations use right-click context menus (or control+click if you
     have one button)
 -   To create a new node, right-click on the background. A menu will pop up that gives you access to all the nodes and Modules.  The Module Library is found at the bottom of the menu. ( *See Note 1* )
--   to zoom, use the mouse wheel or pinch with two fingers on your trackpad
+-   To zoom, use the mouse wheel or pinch with two fingers on your trackpad
 -   to pan, use two fingers on your trackpad, or hold the Option/Alt key and drag
 -   Apple Magic Mouse users: swipe on the mouse to pan, hold the Control key and swipe vertically to zoom. (Note: you may need to turn off "Use scroll gesture with modifier keys to zoom", in the Zoom section of the Accessibility control panel in System Preferences.)
 -   to select a node just click on it
@@ -173,7 +173,7 @@ The Desktop Audulus UI at a glance:
 -   to disconnect, drag from an input
 -   to get help on a node, right click and select "Help"
 
-
+*Note 1:* The Module Library is named *The Library of Babel* after a Borges story that imagines a mystical library that contains not only every book ever written, but every book that could ever *be* written. You are perhaps more familiar with the Biblical story of the the Tower of Babel, which, mythically, the Babylonians were building as a kind of space-elevator to Heaven.  Jehovah grew afraid of the power of people working together, and destroyed the project by cursing its workers to speak in a multitude of languages, unable to communicate.  This is the Judeo-Christian origin story that explains why all people do not speak the same language.  If you are not familiar with the Borges story itself, perhaps you are familiar with the concept through Neil Gaiman's *The Sandman*, where the library is referred to as the *Library of Dreams* which contains all the unfinished potential work of every author living & dead.  *So, what does any of this have to do with Audulus?* Well, I, Mark Boyd, the Module Library creator, wanted to convey the sense of infinite possibility that Audulus 3 now holds, and most of all, what can be accomplished when people all over the world - even through language barriers ( 日本人こんにちは！) - can do when they work together. Every module and patch from version 3 and onward will be backwards compatible - meaning nothing will ever be lost or forgotten. While some more established digital modulars exist, you are entering this program at the beginning of something very special, and *you* get to be a founding creator. That said - yes, I understand that it is currently a maze of menus. Know that we are working very hard to streamline both the iOS and computer navigation of this library.  Just stick with it for now and know that it will get better and faster soon - it will *have* to when eventually the module library contains 1000+ modules.
 
 ---
 
