@@ -117,9 +117,9 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 -   To map a knob or a trigger to MIDI, press and hold the element you want to map and select "Learn Midi CC," then twist/press the corresponding knob/button on your control surface, and the controls will thereafter be linked.
 
        
-**Note 1:** The lasso tool - new in Audulus 3 - works in a somewhat unique way. The lasso can do much more than rope an entire area into selection. As it is, the lasso gives you surgical control over what you select, allowing you to accurately clip out portions of others' designs for use in your own. Much of the progress that is made in the Audulus community happens when people leapfrog with shared knowledge.  The new lasso tool in Audulus 3 just makes that process *much* easier.  As you can see, it is worth your time to get to know how the lasso works, as doing so will make your workflow much more efficient.
+*Note 1:* The lasso tool - new in Audulus 3 - works in a somewhat unique way. The lasso can do much more than rope an entire area into selection. As it is, the lasso gives you surgical control over what you select, allowing you to accurately clip out portions of others' designs for use in your own. Much of the progress that is made in the Audulus community happens when people leapfrog with shared knowledge.  The new lasso tool in Audulus 3 just makes that process *much* easier.  As you can see, it is worth your time to get to know how the lasso works, as doing so will make your workflow much more efficient.
 
-**Note 2:** This is not how the zoom worked in Audulus 2, and unfortunately, it does make detailed work on iOS a little more time-consuming (though surely this is made up for by having the Module Library at your disposal). It has to be this way, however, to be compliant with Apple's iOS touch standards. Apple probably never envisioned an app like Audulus when making this rule, and perhaps this requirement will be relaxed in the future.  For now though - it *does* have a side benefit of preventing accidental disconnections when zoomed out - a nightmare when working on a complicated patch on iOS.  In Audulus 2, you could easily accidentally swipe a connection away, and if you're not working on a patch that is making sound, you might not notice the disconnection for a long time.  *The best thing you can do to improve your Audulus 3 workflow is invest in a conductive stylus (pen).*  Fingers are still great - even superior - for performance, but detailed, precise "assembly" work is much easier with a stylus - a suitable one can often be found for $10 or less.
+*Note 2:* This is not how the zoom worked in Audulus 2, and unfortunately, it does make detailed work on iOS a little more time-consuming (though surely this is made up for by having the Module Library at your disposal). It has to be this way, however, to be compliant with Apple's iOS touch standards. Apple probably never envisioned an app like Audulus when making this rule, and perhaps this requirement will be relaxed in the future.  For now though - it *does* have a side benefit of preventing accidental disconnections when zoomed out - a nightmare when working on a complicated patch on iOS.  In Audulus 2, you could easily accidentally swipe a connection away, and if you're not working on a patch that is making sound, you might not notice the disconnection for a long time.  *The best thing you can do to improve your Audulus 3 workflow is invest in a conductive stylus (pen).*  Fingers are still great - even superior - for performance, but detailed, precise "assembly" work is much easier with a stylus - a suitable one can often be found for $10 or less.
 
 
 ##Toolbar buttons:
@@ -137,14 +137,14 @@ The Patch Browser allows you to create, delete, duplicate, and share patches.
 
 ![Patch Browser](img/browser.png)
 
--   **"+"** - Upper left corner - Creates a new patch.
+-   *"+"* - Upper left corner - Creates a new patch.
 -   ![Collapse Button](img/CollapseButton.png) **Collapse** - Collapses the
     patch thumbnails down to just their names, for browsing large
     collections of patches by name.
 -   **"Select"** - Toggles the Patch Browser's **Selection Mode** - When
-    in selection mode, tapping on a patch thumbnail will select the
+    in Selection Mode, tapping on a patch thumbnail will select the
     patch and activate the Share, Duplicate, and Delete buttons.
-    Multiple patches may be selected. 
+    Multiple patches may be selected at once. 
     - **Note:** *It is very common to forget to exit this mode - you will not be able to create or enter a patch while in* **Selection Mode**.
 -   ![Share Patch Button](img/share.png) **Share** - Shares selected patches
     via email when in **Selection Mode.**
@@ -161,9 +161,9 @@ The Patch Browser allows you to create, delete, duplicate, and share patches.
 
 The Desktop Audulus UI at a glance:
 
--   many operations use right-click context menus (control click if you
+-   Many operations use right-click context menus (or control+click if you
     have one button)
--   to create a new node, right-click on the background
+-   To create a new node, right-click on the background. A menu will pop up that gives you access to all the nodes and Modules.  The Module Library is found at the bottom of the menu. ( *See Note 1* )
 -   to zoom, use the mouse wheel or pinch with two fingers on your trackpad
 -   to pan, use two fingers on your trackpad, or hold the Option/Alt key and drag
 -   Apple Magic Mouse users: swipe on the mouse to pan, hold the Control key and swipe vertically to zoom. (Note: you may need to turn off "Use scroll gesture with modifier keys to zoom", in the Zoom section of the Accessibility control panel in System Preferences.)
@@ -172,6 +172,8 @@ The Desktop Audulus UI at a glance:
 -   to make a connection between nodes, drag from an output to an input
 -   to disconnect, drag from an input
 -   to get help on a node, right click and select "Help"
+
+
 
 ---
 
