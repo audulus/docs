@@ -36,7 +36,9 @@ li {
 
 ![Audulus Logo](img/logo.png)
 
-Welcome to *Audulus*! With Audulus you can build synthesizers
+Welcome to *Audulus!*  
+
+With Audulus, you can build synthesizers
 from first principles, design new sounds, or process audio - all with
 real-time, low-latency processing suitable for live performance.
     
@@ -65,7 +67,7 @@ To get started, begin with the UI Basics for your platform (<a href="#ui-basics-
 
 <!--End mc_embed_signup-->
 
-*We will send no more than 1 email per month* - the newsletter is mostly a round-up of all the new patches and discussions happening over the forum - an excellent resource if you do not want to participate in the forum yourself but still want to have all the latest Audulus modules to play with.
+*We will send no more than 1 email per month* - the newsletter is mostly a round-up of all the new patches and discussions happening over the forum - an excellent resource if you do not want to participate in the forum yourself but still want to keep up with all the new patches and the latest techniques.
 
 ### If you need help or have found a bug, please contact us at:
 
@@ -77,7 +79,7 @@ To get started, begin with the UI Basics for your platform (<a href="#ui-basics-
 -  give as much detailed information as you can about how to reproduce the bug. **If a bug is not reproduceable, it is difficult to know what to fix.**
 -  Crash reports are sent automatically and do not need to be included.
 
-*We are also available to help you "debug" your patches.* If Audulus is working fine, but your patch is not, please do not contact us through our support email - instead, post it on the forum under the "Help" heading along with a description of how you *think* your should be working. We will download it, fix it, and reupload it to the forum for you, with a detailed explanation of what we did to fix it. This can be a very educational process that benefits all our forum members, and that is why we would prefer this kind of help to happen over at the forum.
+*We are also available to help you "debug" your patches.* If Audulus is working fine, but your patch is not, please do not contact us through our support email - instead, post it on the forum under the "Help" heading along with a description of how you *think* your patch should be working. We will download it, fix it, and reupload it to the forum for you, with a detailed explanation of what we did to fix it. This can be a very educational process that benefits all our forum members, and that is why we would prefer this kind of help to happen over at the forum.
 
 ---
 
@@ -91,7 +93,7 @@ The Patch Editor is Audulus's main view. It consists of an infinite canvas for c
 
 - The canvas grows and shrinks to fit the size of the patch.  If you have just one small node in a patch, you will not be able to zoom out - you need to add at least 2 nodes or modules and space them apart to give yourself some "breathing room."
 
-Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) chevron buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button. This button is also used to exit a subpatch.  To enter a subpatch, double click/tap on a blank space on the UI of a module.
+Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) chevron buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button. This button is also used to exit a subpatch.  To enter a subpatch, double tap in a blank space on the UI of a module.
 
 - The toolbar is primarily for adding new modules to your patch, but it also contains the node browser and an on-screen multi-touch keyboard. 
 - *We highly recommend that new users create patches with modules* - working with nodes can be cumbersome and slow, and to speed up patch construction was one of the primary reasons the Module Library was created. Most of the nodes are non-functional as-is.  For example: a crossfade node needs a knob attached to the input "C" to access the node's basic function.  The Crossfade Module, however, comes with indicator lights, a knob, and even a switch!  As you can see, modules are much more useful "out-of-the-box" than nodes are.  
@@ -102,19 +104,22 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 
 -   Pinch with two fingers to zoom in and out of your patch.
 -   Drag with two fingers to pan.
--   Drag with one finger on the background to lasso-select multiple nodes. ( *See note below* )
+-   Drag with one finger on the background to lasso-select multiple nodes. ( *See note 1 below* )
 -   Double-tap on a node to zoom in for editing.
--   Double-tap on the background to zoom out and see your entire patch.
+-   Double-tap on the background and Audulus will zoom to fit the entire patch comfortably in view.
 -   Many operations use context menus - tap and hold to bring up the context menu.
 -   To make a connection, zoom in and drag from an output to an input. Connections can *only* be made from an output to an input.
 -   To disconnect, drag the connection away from an input.
--   To "hot swap" or live patch, keep your finger held down and wave the output wire over an input or knob. This is similar to performing with patch cables on a modular, but you'll never wear out your switch connectors in Audulus!  Audulus is also optimized to prevent clicking/popping connection noise, so go crazy with it!
+-   To "hot swap" or live patch, keep your finger held down and wave the output wire over an input or knob. This is similar to performing with patch cables on a modular, but you'll never wear out your inputs in Audulus!  Audulus is also optimized to prevent clicking/popping connection noise, so go crazy with it!
 -   To make a long connection, drag to to the edge of the screen. Audulus will zoom out, widening your field of view. Move your finger away from the edge of the screen, and Audulus will zoom back in, centering around your finger, so you can place the connection.
--   Audulus will automatically detect your MIDI keyboard or control surface.
+-   If you are zoomed too far out to make a connection, the inputs and outputs will visibly "lock" or "close." Zoom back in and they will "open" again, and you can now make and break connections as well as turn knobs.  If you have knobs and triggers mapped to MIDI, this is a non-issue.-   Audulus will automatically detect your MIDI keyboard or control surface. ( *See note 2 below* )
 -   To map a knob or a trigger to MIDI, press and hold the element you want to map and select "Learn Midi CC," then twist/press the corresponding knob/button on your control surface, and the controls will thereafter be linked.
 
        
-**Note:** The lasso tool - new in Audulus 3 - works in a somewhat unique way. The lasso can do much more than rope an entire area into selection. As it is, the lasso gives you surgical control over what you select, allowing you to accurately clip out portions of others' designs for use in your own. Much of the progress that is made in the Audulus community happens when people leapfrog with shared knowledge.  The new lasso tool in Audulus 3 just makes that process a *lot* easier.  As you can see, it is worth your time to get to know how the lasso works, as doing so will make your workflow much more efficient.
+**Note 1:** The lasso tool - new in Audulus 3 - works in a somewhat unique way. The lasso can do much more than rope an entire area into selection. As it is, the lasso gives you surgical control over what you select, allowing you to accurately clip out portions of others' designs for use in your own. Much of the progress that is made in the Audulus community happens when people leapfrog with shared knowledge.  The new lasso tool in Audulus 3 just makes that process *much* easier.  As you can see, it is worth your time to get to know how the lasso works, as doing so will make your workflow much more efficient.
+
+**Note 2:** This is not how the zoom worked in Audulus 2, and unfortunately, it does make detailed work on iOS a little more time-consuming (though surely this is made up for by having the Module Library at your disposal). It has to be this way, however, to be compliant with Apple's iOS touch standards. Apple probably never envisioned an app like Audulus when making this rule, and perhaps this requirement will be relaxed in the future.  For now though - it *does* have a side benefit of preventing accidental disconnections when zoomed out - a nightmare when working on a complicated patch on iOS.  In Audulus 2, you could easily accidentally swipe a connection away, and if you're not working on a patch that is making sound, you might not notice the disconnection for a long time.  *The best thing you can do to improve your Audulus 3 workflow is invest in a conductive stylus (pen).*  Fingers are still great - even superior - for performance, but detailed, precise "assembly" work is much easier with a stylus - a suitable one can often be found for $10 or less.
+
 
 ##Toolbar buttons:
 
