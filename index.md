@@ -170,12 +170,12 @@ The Desktop Audulus UI at a glance:
 -   To pan, use two fingers on your trackpad, or hold the Option/Alt key and drag.  You can also zoom out, hover your mouse over a new focal point, and zoom back in - this may seem an odd way to navigate at first, but it is much faster than simply panning because it requires less mouse movement.
 -   *Apple Magic Mouse users:* swipe on the mouse to pan, hold the Control key and swipe vertically to zoom. You may need to turn off "Use scroll gesture with modifier keys to zoom," in the Zoom section of the Accessibility control panel in System Preferences.
 -   To select a node/module, just click on it!
--   To select multiple nodes/modules, hold shift while clicking each one, or use the lasso tool as described above.
+-   To select multiple nodes/modules, hold shift while clicking each one individually, or use the lasso tool as described above.
 -   To make a connection between nodes/modules, drag a connection from an output to an input. You *cannot* draw a connection from an input to an output.
 -   to disconnect, drag from an input
 -   to get help on a node, right click and select "Help"
 
-*Note 1:* (By Mark Boyd, Chief Evangelist and Creator/Curator of the Module Library) - The Module Library is named *The Library of Babel* after a Jorge Luis Borges story, which imagines a mystical library that contains not only every book ever written, but every book that could ever *be* written. You are perhaps more familiar with the Biblical story of the the Tower of Babel, which, mythically, the Babylonians were building as a kind of space-elevator to Heaven.  Jehovah grew afraid of the power of people working together, and destroyed the project by cursing its workers to speak in a multitude of languages. Unable to communicate, the project came to a hault, and the tower eventually crumbled.  This is the Judeo-Christian explanation for why all people do not speak the same language.  Perhaps you are familiar with the concept through Neil Gaiman's *The Sandman*, where Borges's library is referred to as the *Library of Dreams* which contains all the unfinished potential work of every author living and dead.  *So, what does any of this have to do with Audulus?* Well, I wanted to convey the sense of infinite possibility that Audulus 3 now holds - and most of all, what can be accomplished when people all over the world - even through language barriers ( 日本人こんにちは！) - can do when they work together. Audulus, in a sense, is its own universal language. Anyone can, with enough time and probing, understand how any module works without needing to ask its creator.  Also, every module and patch from version 3 and onward will be backwards compatible - meaning nothing will ever be lost or forgotten. While some more established digital modulars exist, you are entering this program at the beginning of something very special, and *you* get to be a founding creator. That said - yes, I understand that it is currently a maze of menus. Know that we are working very hard to streamline both the iOS and computer navigation of this library.  Just stick with it for now and know that it will get better and faster soon - it will *have* to when eventually the module library contains 1000+ modules.
+*Note 1:* (By Mark Boyd, Chief Evangelist and Creator/Curator of the Module Library) - The Module Library is named *The Library of Babel* after a Jorge Luis Borges story, which imagines a mystical library that contains not only every book ever written, but every book that could ever *be* written. You are perhaps more familiar with the Biblical story of the the Tower of Babel, which, mythically, the Babylonians were building as a kind of space-elevator to Heaven.  Jehovah grew afraid of the power of people working together, and destroyed the project by cursing its workers to speak in a multitude of languages. Unable to communicate, the project came to a hault, and the tower eventually crumbled.  This is the Judeo-Christian explanation for why all people do not speak the same language.  Perhaps you are familiar with the concept through Neil Gaiman's *The Sandman*, where Borges's library is referred to as the *Library of Dreams* which contains all the unfinished potential work of every author living and dead.  *So, what does any of this have to do with Audulus?* Well, I wanted to convey the sense of infinite possibility that Audulus 3 now holds - and most of all, what can be accomplished when people all over the world - even through language barriers ( 日本人こんにちは！) - can do when they work together. *Audulus, in a sense, is its own universal language*. Anyone can, with enough time and probing, understand how any module works without needing to ask its creator.  Also, every module and patch from version 3 and onward will be backwards compatible - meaning nothing will ever be lost or forgotten. While some more established digital modulars exist, you are entering this program at the beginning of something very special, and *you* get to be a founding creator. That said - yes, I understand that it is currently a maze of menus. Know that we are working very hard to streamline both the iOS and computer navigation of this library.  Just stick with it for now and know that it will get better and faster soon - it will *have* to when eventually the module library contains 1000+ modules.
 
 ---
 
@@ -210,38 +210,40 @@ Sign up [here](http://eepurl.com/-8vkP) for the Audulus mailing list. You'll get
 *  Updates for new versions of Audulus
 *  Tutorials
 *  New Patches
-*  And more!
+*  ...and more!
 
 ## Polyphony
 
 Polyphonic processing in Audulus works seamlessly. A connection between
-nodes is polyphonic if it is rendered thicker. Nodes are automatically
+nodes is polyphonic if it is rendered thicker. It also ceases oscillating between red/blue, for obvious reasons.  Nodes are automatically
 capable of polyphonic processing. So for example, feed a **Distortion**
 node with a polyphonic connection and the distortion will be applied
 separately to each voice in the connection.
 
-A good example of polyphonic processing is the **Subtractive** example.
-Set the [**Keyboard**](/nodes/#keyboard) node to "poly" and note the
-thicker polyphonic connections. That is, up until the voices are mixed
-down by the [**PolyToMono**](/nodes/#polytomono) node.
+Currently, you can only access the first 4 notes held with the PolyToMono node, though this will change in the future - the PolyToMono node will have an arbitrary number of internal channels in a future version of Audulus 3.X.  To reassemble 4 signals into one Poly signal, use the MonoToPoly node.  Again, in a future version of Audulus 3.X, MonoToPoly will have an arbitrary number of inputs.
 
 ---
 
-## Custom Nodes
+## Building Custom Modules
 
-Using **Custom Nodes**, you can design your own node user interfaces.
+Starting with the Patch node, you can create your own custom modules for Audulus.  You can think of the Patch node as an enclosure - the box or faceplate that the "circuit" of your synth sits in. You can create as many layers as you want - it has been tested down to 250 layers, but usually 3-5 will suffice for even the most mind-bogglingly complex designs.
 
-Use the following steps to create your own node UI.
-
-1. Create a sub-patch using the Patch Node (Utilities -> Patch)
-2. Enter the sub-patch by double-tapping (or double-clicking) on the Patch Node
+1. Create a sub-patch using the Patch Node (Subpatch -> Patch)
+2. Enter the sub-patch with double-tap/click on the Patch node.
 3. Create a Knob node.
-5. Exit the sub-patch and you'll see your knob on the front panel.
-6. Open the context menu on the Patch Node and select Edit UI
-7. Drag the knob to where you'd like it.
-8. Open the Path Node's context menu again and select Lock UI to finish editing the UI.
+5. Exit the sub-patch and you'll see your knob on the front panel - knobs are exposed automatically by default.  If you need an "internal trimpot," use the Constant node, which is not exposable.
+6. Enter the sub-patch again and add a Light node, then bring up the context menu on the Light node and tap/click "Expose."
+7. Exit the sub patch and now you'll see the knob and the light occupying the same space on the UI.
+6. Open the context menu on the Patch node by pressing/clicking on a blank spot of the Patch node, and select Edit UI.
+7. Arrange the Knob and Light nodes where you want them.  Notice how the boundaries of the patch grow to accomodate the elements it contains.
+8. Open the Path Node's context menu again and select "Lock UI" to finish editing the UI. *Remember to lock your UI and clear your history before uploading your patch to the forum!*
+9. When arranging many UI elements at once, they may all be in a jumble on top of one another.  It may be best to expose elements one at a time, especially when placing multiple Light nodes.  Audulus cannot read your mind and needs to be told explicitly where to put UI elements.  This is sometimes a long process, but the great thing is you only have to do it once per module. If you want to bring an element on "top" of another (say, a knob that has a waveform node in the background, as the Waveform Via does), you have to know that the last element created is the one that is "on top."  To "bring to front," as you might in Photoshop, you have to select the node you want to be on top, delete it, and then re-create it. It is now the last thing created, and thus, the element that is most "on top."
+10. Also, try this: create a Patch node, then add any module from the library next to it.  Enter the module you picked out and select all of its contents, call up the context menu and select "Copy."  Exit the module and then enter the Patch node you just created, and paste what you copied. Exit the Patch node and you will see that all of the UI elements are already neatly arranged!  Use this to your advantage.
+11. Also, *this cannot be stressed enough*: Design your instrument or effect using the modules in the Module Library *not* the nodes. Unless you have a specific reason to, the nodes will only slow you down - not only physically, but creatively.  Also, in some sense, if you are not using the Module Library, you have paid for Audulus 3, but are still using Audulus 2. Taylor, the developer and creator of Audulus, did many, many things to improve Audulus - the greatest of these achievements was totally rewriting Audulus from the ground up in C++ (Audulus 2 and below were written in Lua).  However, the Module Library represents a true paradigm shift in the way you can approach Audulus as a musician and synthesist, and allows you to design complex modules in a way that, especially when used in conjunction with the lasso tool, is about 100-1000 times as fast, depending on what you are doing.  Remember the node/module:atom/molecule analogy. *You can do better, braver, and more powerful synthesis "chemistry" with modules than you can with nodes.*  That said, if you just want to learn Audulus from the ground up, by all means - design with nodes.  Eventually, you will start to use the library as you gain knowledge of the program.
+12. Finally, *Again, remember to lock your UI and clear your history before uploading your patch to the forum!*
 
-Knobs aren't the only widgets that can be exposed. Various nodes have an "Expose" option in their context menus.
+See you at the forum!  Happy patching!
+
 
 ---
 
