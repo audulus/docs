@@ -25,6 +25,10 @@ em {
   color: #2a9fd6;
 }
 
+blockquote {
+  font-size: 12px;
+}
+
 li {
   list-style-image: url(img/bullet.png);
 }
