@@ -29,6 +29,10 @@ blockquote {
   font-size: 12px;
 }
 
+blockquote p {
+  font-size: 12px;
+}
+
 li {
   list-style-image: url(img/bullet.png);
 }
