@@ -122,7 +122,7 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 -   Speaking of mapping and controllers: Audulus will automatically detect your MIDI keyboard or control surface. 
 -   To map a knob or a trigger to MIDI, press and hold the element you want to map and select "Learn Midi CC," then twist/press the corresponding knob/button on your control surface, and the controls will thereafter be linked.
 
-> *Note 1:* The lasso tool - new in Audulus 3 - works in a somewhat unique way. The lasso can do much more than rope an entire area into selection. As it is, the lasso gives you surgical control over what you select, allowing you to accurately clip out portions of others' designs for use in your own. Much of the progress that is made in the Audulus community happens when people leapfrog with shared knowledge.  The new lasso tool in Audulus 3 just makes that process *much* easier.  As you can see, it is worth your time to get to know how the lasso works, as doing so will make your workflow much more efficient.
+> *Note 1:* The lasso gives you surgical control over what you select, allowing you to accurately clip out portions of others' designs for use in your own. Much of the progress that is made in the Audulus community happens when people leapfrog with shared knowledge.  The lasso tool makes that process *much* easier.
 
 ### Toolbar buttons
 
