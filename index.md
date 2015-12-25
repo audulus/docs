@@ -80,7 +80,7 @@ To get started, begin with the UI Basics for your platform (<a href="#ui-basics-
 -  give as much detailed information as you can about how to reproduce the bug. *If a bug is not reproduceable, it is difficult to know what needs to be fixed.*
 -  Crash reports are sent automatically and do not need to be included.
 
-*We are also available to help you "debug" your Audulus patches.* If Audulus is working fine, but your patch is not, please do not contact us through our support email - instead, post it on the forum under the "Help" heading along with a description of how you *think* your patch should be working. We will download it, fix it, and reupload it to the forum for you, with a detailed explanation of what we did to fix it. This can be a very educational process that benefits all our forum members, and that is why we would prefer this kind of help to happen over at the forum.  
+*We are also available to help you "debug" your Audulus patches.* If Audulus is working fine, but your patch is not, please post it on the [Audulus forum](http://forum.audulus.com) and we'll do our best to help you fix it! 
 
 ---
 
@@ -94,14 +94,14 @@ The Patch Editor is Audulus's main view. It consists of an infinite canvas for c
 
 - The canvas grows and shrinks to fit the size of the patch.  If you have just one small node in a patch, you will not be able to zoom out.  You need to add at least 2 nodes or modules and space them apart to give yourself some "breathing room."
 
-Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) chevron buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button. This button is also used to exit a subpatch.  To enter a subpatch, double tap in a blank space on the UI of a module.
+Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) chevron buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button. (This button is also used to exit a subpatch. More on that below.)
 
 - The toolbar exists primarily for adding new modules to your patch, but it also contains the node browser and an on-screen multi-touch keyboard. 
 - *We highly recommend that new users create patches with modules* - working with nodes can be cumbersome and slow, and to speed up patch construction was one of the primary reasons the Module Library was created. Most of the nodes are non-functional as-is.  For example: a Crossfade node needs a knob attached to the input "C" to access the node's basic function.  The Crossfade Module, however, comes with indicator lights, a knob, and even a switch!  As you can see, modules are much more useful "out-of-the-box" than nodes are.  
 - You can think of nodes as the "atoms" of Audulus.  Modules are more like molecules.  If you know anything about chemistry, you will know that working with elements alone does not lead to much interesting results when compared to, say, what is possible with organic chemistry.  
 - That said, some nodes, like the expression node or the light node, cannot be built up into a module and must be used as nodes.
  
-## The iPad/iPhone Audulus UI at a glance:
+### The iPad/iPhone Audulus UI at a glance
 
 -   Overall signal flow is left-to-right (you can reverse the direction with a Via Tab).
 -   Pinch with two fingers to zoom in and out of your patch.
@@ -118,13 +118,12 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 -   Speaking of mapping and controllers: Audulus will automatically detect your MIDI keyboard or control surface. 
 -   To map a knob or a trigger to MIDI, press and hold the element you want to map and select "Learn Midi CC," then twist/press the corresponding knob/button on your control surface, and the controls will thereafter be linked.
 
-       
-*Note 1:* The lasso tool - new in Audulus 3 - works in a somewhat unique way. The lasso can do much more than rope an entire area into selection. As it is, the lasso gives you surgical control over what you select, allowing you to accurately clip out portions of others' designs for use in your own. Much of the progress that is made in the Audulus community happens when people leapfrog with shared knowledge.  The new lasso tool in Audulus 3 just makes that process *much* easier.  As you can see, it is worth your time to get to know how the lasso works, as doing so will make your workflow much more efficient.
+> *Note 1:* The lasso tool - new in Audulus 3 - works in a somewhat unique way. The lasso can do much more than rope an entire area into selection. As it is, the lasso gives you surgical control over what you select, allowing you to accurately clip out portions of others' designs for use in your own. Much of the progress that is made in the Audulus community happens when people leapfrog with shared knowledge.  The new lasso tool in Audulus 3 just makes that process *much* easier.  As you can see, it is worth your time to get to know how the lasso works, as doing so will make your workflow much more efficient.
 
-*Note 2:* This is not how the zoom worked in Audulus 2, and unfortunately, it does make detailed work on iOS a little more time-consuming (though surely this is made up for by having the Module Library at your disposal). It has to be this way, however, to be compliant with Apple's iOS touch standards. Apple probably never envisioned an app like Audulus when making this rule, and perhaps this requirement will be relaxed in the future.  For now though - it *does* have a side benefit of preventing accidental disconnections when zoomed out - a nightmare when working on a complicated patch on iOS.  In Audulus 2, you could easily accidentally swipe a connection away, and if you are not working on a patch that is making sound, you might not notice the disconnection for a long time.  *The easist thing you can do to improve your iOS Audulus 3 workflow is invest in a conductive stylus (pen).*  Fingers are still great - even superior - for performance, but detailed, precise "assembly" work is much easier with a stylus, mostly because your finger and hand occludes part of the patch as you make connections. A suitable stylus can often be found for $10 or less.
+> *Note 2:* This is not how the zoom worked in Audulus 2, and unfortunately, it does make detailed work on iOS a little more time-consuming (though surely this is made up for by having the Module Library at your disposal). It has to be this way, however, to be compliant with Apple's iOS touch standards. Apple probably never envisioned an app like Audulus when making this rule, and perhaps this requirement will be relaxed in the future.  For now though - it *does* have a side benefit of preventing accidental disconnections when zoomed out - a nightmare when working on a complicated patch on iOS.  In Audulus 2, you could easily accidentally swipe a connection away, and if you are not working on a patch that is making sound, you might not notice the disconnection for a long time.  *The easist thing you can do to improve your iOS Audulus 3 workflow is invest in a conductive stylus (pen).*  Fingers are still great - even superior - for performance, but detailed, precise "assembly" work is much easier with a stylus, mostly because your finger and hand occludes part of the patch as you make connections. A suitable stylus can often be found for $10 or less.
 
 
-##Toolbar buttons:
+### Toolbar buttons
 
 -   ![Lock Mode Button](img/Lock.png) **Lock Mode** - Locks the nodes in
     place. This is useful for performing.
@@ -178,11 +177,11 @@ The Desktop Audulus UI at a glance:
 -   To learn more about how to use a particular node, right click and select "Help."
 
 
-*Note 1:*
+> *Note 1:*
 
-By Mark Boyd, Chief Evangelist and Creator/Curator of the Module Library:
+> By Mark Boyd, Chief Evangelist and Creator/Curator of the Module Library:
 
-- The Module Library is named *The Library of Babel* after a Jorge Luis Borges story, which imagines a mystical library that contains not only every book ever written, but every book that could ever *be* written. You are perhaps more familiar with the Biblical story of the the Tower of Babel, which, mythically, the Babylonians were building as a kind of space-elevator to Heaven.  Jehovah grew afraid of the power of people working together, and destroyed the project by cursing its workers to speak in a multitude of languages. Unable to communicate, the project came to a halt, and the tower eventually crumbled.  This is the Judeo-Christian explanation for why all people do not speak the same language.  Perhaps you are familiar with Borges' Library through Neil Gaiman's *The Sandman*, where it is referred to as the *Library of Dreams*, which contains all the unfinished potential work of every author living and dead.  *So, what does any of this have to do with Audulus?* Well, I wanted to convey the sense of infinite possibility that Audulus 3 now holds - and most of all, what can be accomplished when people all over the world - even through language barriers ( 日本人こんにちは！) - can do when they work together. *Audulus, in a sense, is its own universal language*. Anyone can, with enough time and probing, understand how any module works without needing to ask its creator.  Also, every module and patch from version 3 and onward will be backwards compatible - meaning nothing will ever be lost or forgotten. While some more established digital modulars exist, you are entering this program at the beginning of something very special, and *you get to be a founding creator.* That said - yes, I understand that it is currently a maze of menus. We are working very hard to streamline both the iOS and computer navigation of this library.  Just stick with it for now and know that it will get better and faster soon - it will have to when eventually the module library contains 1000+ modules.
+> The Module Library is named *The Library of Babel* after a Jorge Luis Borges story, which imagines a mystical library that contains not only every book ever written, but every book that could ever *be* written. You are perhaps more familiar with the Biblical story of the the Tower of Babel, which, mythically, the Babylonians were building as a kind of space-elevator to Heaven.  Jehovah grew afraid of the power of people working together, and destroyed the project by cursing its workers to speak in a multitude of languages. Unable to communicate, the project came to a halt, and the tower eventually crumbled.  This is the Judeo-Christian explanation for why all people do not speak the same language.  Perhaps you are familiar with Borges' Library through Neil Gaiman's *The Sandman*, where it is referred to as the *Library of Dreams*, which contains all the unfinished potential work of every author living and dead.  *So, what does any of this have to do with Audulus?* Well, I wanted to convey the sense of infinite possibility that Audulus 3 now holds - and most of all, what can be accomplished when people all over the world - even through language barriers ( 日本人こんにちは！) - can do when they work together. *Audulus, in a sense, is its own universal language*. Anyone can, with enough time and probing, understand how any module works without needing to ask its creator.  Also, every module and patch from version 3 and onward will be backwards compatible - meaning nothing will ever be lost or forgotten. While some more established digital modulars exist, you are entering this program at the beginning of something very special, and *you get to be a founding creator.* That said - yes, I understand that it is currently a maze of menus. We are working very hard to streamline both the iOS and computer navigation of this library.  Just stick with it for now and know that it will get better and faster soon - it will have to when eventually the module library contains 1000+ modules.
 
 ---
 
@@ -212,12 +211,33 @@ We're here to help!
 
 ## Audulus Mailing List
 
-Sign up [here](http://eepurl.com/-8vkP) for the Audulus mailing list. You'll get:
+Please sign up for the Audulus mailing list. You'll get:
 
 *  Updates for new versions of Audulus
 *  Tutorials
 *  New Patches
 *  ...and more!
+
+<!-- Begin MailChimp Signup Form -->
+<div id="mc_embed_signup">
+<form action="//audulus.us9.list-manage.com/subscribe/post?u=2c81276aefb1edcfbb9934c74&amp;id=aae8478e6c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	
+<div class="mc-field-group">
+	<label for="mce-EMAIL">Email Address </label>
+	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+</div>
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2c81276aefb1edcfbb9934c74_aae8478e6c" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
 
 ## Polyphony
 
@@ -227,7 +247,7 @@ capable of polyphonic processing. So for example, feed a **Distortion**
 node with a polyphonic connection and the distortion will be applied
 separately to each voice in the connection.
 
-Currently, you can only access the first 4 notes held with the PolyToMono node, though this will change in the future - the PolyToMono node will have an arbitrary number of internal channels in a future version of Audulus 3.X.  To reassemble 4 signals into one Poly signal, use the MonoToPoly node.  Again, in a future version of Audulus 3.X, MonoToPoly will have an arbitrary number of inputs.
+Currently, you can only access the first 4 notes held with the QuadToMono node, though this will change in the future - the QuadToMono node will have an arbitrary number of internal channels in a future version of Audulus 3.X.  To reassemble 4 signals into one Poly signal, use the MonoToPoly node.  Again, in a future version of Audulus 3.X, MonoToPoly will have an arbitrary number of inputs.
 
 ---
 
@@ -247,15 +267,12 @@ Starting with the Patch node, you can create your own custom modules for Audulus
 8. Open the Path Node's context menu again and select "Lock UI" to finish editing the UI. *Remember to lock your UI and clear your history before uploading your patch to the forum!*
 9. When arranging many UI elements at once, they may all be in a jumble on top of one another.  It may be best to expose elements one at a time, especially when placing multiple Light nodes.  Audulus cannot read your mind and needs to be told explicitly where to put UI elements.  This is sometimes a long process, but the great thing is you only have to do it once per module. If you want to bring an element on "top" of another (say, a knob that has a waveform node in the background, as the Waveform Via does), you have to know that the last element created is the one that is "on top."  To "bring to front," as you might in Photoshop, you have to select the node you want to be on top, delete it, and then re-create it. It is now the last thing created, and thus, the element that is most "on top."
 10. Also, try this: create a Patch node, then add any module from the library next to it.  Enter the module you picked out and select all of its contents, call up the context menu and select "Copy."  Exit the module and then enter the Patch node you just created, and paste what you copied. Exit the Patch node and you will see that all of the UI elements are already neatly arranged!  Use this to your advantage.
-11. Also, *this cannot be stressed enough*: Design your instrument or effect using the modules in the Module Library *not* the nodes. Unless you have a specific reason to, the nodes will only slow you down - not only physically, but creatively.  Also, in some sense, if you are not using the Module Library, you have paid for Audulus 3, but are still using Audulus 2. Taylor, the developer and creator of Audulus, did many, many things to improve Audulus - the greatest of these achievements was totally rewriting Audulus from the ground up in C++ (Audulus 2 and below were written in Lua).  However, the Module Library represents a true paradigm shift in the way you can approach Audulus as a musician and synthesist, and allows you to design complex modules in a way that, especially when used in conjunction with the lasso tool, is about 100-1000 times as fast, depending on what you are doing.  Remember the node/module:atom/molecule analogy. *You can do better, braver, and more powerful synthesis "chemistry" with modules than you can with nodes.*  That said, if you just want to learn Audulus from the ground up, by all means - design with nodes.  Eventually, you will start to use the library as you gain knowledge of the program.
+11. Also, *this cannot be stressed enough*: Design your instrument or effect using the modules in the Module Library *not* the nodes. Unless you have a specific reason to, the nodes will only slow you down - not only physically, but creatively. That said, if you just want to learn Audulus from the ground up, by all means - design with nodes.  Eventually, you will start to use the library as you gain knowledge of the program.
 12. Finally, *Again, remember to lock your UI and clear your history before uploading your patch to the forum!*
 
-*Note 1:* In very, very large designs, it becomes necessary to use patches to lighten the GUI load, especially if you are working on iOS. In complex, low-level patches built with thousands of expression nodes (necessary for complex filters, sequencers, and non-linear distortion modeling), you will usually hit a GUI wall before you hit a CPU wall.  Hiding these elements in multiple subpatches eases the burden on your graphics card, because every visual element in the Audulus environment is being constantly redrawn - meaning, the more you see, the harder your graphics card is working. This is why your device might become unusually hot. iOS devices have no fans and rely solely on conductive cooling (iPads are made out of aluminum for this very reason).  If this heat gets too uncomfortable, consider buying a case.
-
-
+> *Note 1:* In very, very large designs, it becomes necessary to use patches to lighten the GUI load, especially if you are working on iOS. In complex, low-level patches built with thousands of expression nodes (necessary for complex filters, sequencers, and non-linear distortion modeling), you will usually hit a GUI wall before you hit a CPU wall.  Hiding these elements in multiple subpatches eases the burden on your graphics card, because every visual element in the Audulus environment is being constantly redrawn - meaning, the more you see, the harder your graphics card is working. This is why your device might become unusually hot. iOS devices have no fans and rely solely on conductive cooling (iPads are made out of aluminum for this very reason).  If this heat gets too uncomfortable, consider buying a case.
 
 See you at the forum!  Happy patching!
-
 
 ---
 
