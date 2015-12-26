@@ -11,14 +11,17 @@ img, video {
 
 h2 {
   color: #2a9fd6;
+  font-family: 'Input Sans', sans-serif;
 }
 
 h3 {
  color: white;
+ font-family: 'Input Sans', sans-serif;
 }
 
 h4 {
  color: white;
+ font-family: 'Input Sans', sans-serif;
 }
 
 em {
@@ -63,9 +66,8 @@ from first principles, design new sounds, or process audio - all with
 real-time, low-latency processing suitable for live performance.
 </div>
 
-<p>
+<br>
 To get started, begin with the UI Basics for your platform (<a href="#ui-basics-ipadiphone">iOS</a> or <a href="#ui-basics-mac">Mac/Windows</a>).
-</p>
 
 ### Audulus Mailing List
 
