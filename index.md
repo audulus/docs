@@ -104,9 +104,8 @@ If you need help or have found a bug, contact us at:
 
 *We will respond within 24 hours - often sooner.*  When making a bug report, please: 
 
--	attach whatever patch you were working on when Audulus crashed.
--  give as much detailed information as you can about how to reproduce the bug. *If a bug is not reproduceable, it is difficult to know what needs to be fixed.*
--  Crash reports are sent automatically and do not need to be included.
+-	Gttach the patch you were working on when you encountered the bug.
+-  Give as much detailed information as you can about how to reproduce the bug. (If a bug is not reproduceable, it is difficult to know what needs to be fixed.)
 
 *We are also available to help you "debug" your Audulus patches.* If Audulus is working fine, but your patch is not, please post it on the [Audulus forum](http://forum.audulus.com) and we'll do our best to help you fix it! 
 
