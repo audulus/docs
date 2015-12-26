@@ -125,8 +125,8 @@ The Patch Editor is Audulus's main view. It consists of an infinite canvas for c
 Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) chevron buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button. (This button is also used to exit a subpatch. More on that below.)
 
 - The toolbar exists primarily for adding new modules to your patch, but it also contains the node browser and an on-screen multi-touch keyboard. 
-- *We highly recommend that new users create patches with modules* - working with nodes can be cumbersome and slow, and to speed up patch construction was one of the primary reasons the Audulus Module Library was created. Most of the nodes are non-functional as-is.  For example: a Crossfade node needs a knob attached to the input "C" to access the node's basic function.  The Crossfade Module, however, comes with indicator lights, a knob, and even a switch!  As you can see, modules are much more useful "out-of-the-box" than nodes are.  
-- You can think of nodes as the "atoms" of Audulus. Modules are more like molecules. 
+- *We highly recommend that new users create patches with modules* from the Audulus Module library, in order to speed up patch construction.
+- You can think of nodes as the "atoms" of Audulus. Modules are more like molecules.
 - That said, some nodes, like the expression node or the light node, cannot be built up into a module and must be used as nodes.
  
 ### The iPad/iPhone Audulus UI at a glance
