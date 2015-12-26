@@ -37,6 +37,15 @@ li {
   list-style-image: url(img/bullet.png);
 }
 
+.tagline {
+  font-size: 18px;
+}
+
+.welcome {
+  font-size: 24pt;
+  color: white;
+}
+
 .responsive-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; }
 .responsive-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
@@ -44,16 +53,23 @@ li {
 
 ![Audulus Logo](img/logo.png)
 
-##Welcome to *Audulus!*  
+<div class="welcome">
+Welcome to Audulus!
+</div>  
 
-*With Audulus, you can build synthesizers
+<div class="tagline">
+With Audulus, you can build synthesizers
 from first principles, design new sounds, or process audio - all with
-real-time, low-latency processing suitable for live performance.*
+real-time, low-latency processing suitable for live performance.
+</div>
 
-
+<p>
 To get started, begin with the UI Basics for your platform (<a href="#ui-basics-ipadiphone">iOS</a> or <a href="#ui-basics-mac">Mac/Windows</a>).
+</p>
 
-### First, be sure to sign up for the Audulus mailing list!
+### Audulus Mailing List
+
+First, be sure to sign up for the Audulus mailing list!
 
 <!-- Begin MailChimp Signup Form -->
 <div id="mc_embed_signup">
@@ -78,7 +94,9 @@ To get started, begin with the UI Basics for your platform (<a href="#ui-basics-
 
 *We will send no more than 1 email per month* - the newsletter is mostly a round-up of all the new patches and discussions happening over the forum - an excellent resource if you do not want to participate in the forum yourself but still want to keep up with all the new patches and the latest techniques.
 
-### If you need help or have found a bug, please contact us at:
+### Getting help
+
+If you need help or have found a bug, contact us at:
 
 ![Support Email Address](img/support.png)
 
