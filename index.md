@@ -256,7 +256,7 @@ Currently, you can only access the first 4 notes held with the QuadToMono node, 
 
 ## Building Custom Modules
 
-Starting with the Patch node, you can create your own custom modules for Audulus.  You can think of the Patch node as an enclosure - the box or faceplate that the "circuit" of your synth sits in. You can create as many layers as you want - it has been tested down to 250 layers, but usually 3-5 will suffice for even the most mind-bogglingly complex designs. ( *See Note 1* )
+Starting with the Patch node, you can create your own custom modules for Audulus.  You can think of the Patch node as an enclosure - the box or faceplate that the "circuit" of your synth sits in. You can create as many layers as you want, but usually 3-5 will suffice for even the most mind-bogglingly complex designs. ( *See Note 1* )
 
 
 1. Create a sub-patch using the Patch Node (Subpatch -> Patch)
