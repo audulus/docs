@@ -69,7 +69,7 @@ real-time, low-latency processing suitable for live performance.
 <br>
 To get started, begin with the UI Basics for your platform (<a href="#ui-basics-ipadiphone">iOS</a> or <a href="#ui-basics-mac">Mac/Windows</a>).
 
-### Audulus Mailing List
+### Join the Audulus Mailing List
 
 First, be sure to sign up for the Audulus mailing list!
 
@@ -96,7 +96,7 @@ First, be sure to sign up for the Audulus mailing list!
 
 *We will send no more than 1 email per month* - the newsletter is mostly a round-up of all the new patches and discussions happening over the forum - an excellent resource if you do not want to participate in the forum yourself but still want to keep up with all the new patches and the latest techniques.
 
-### Getting help
+### Get Help
 
 If you need help or have found a bug, contact us at:
 
