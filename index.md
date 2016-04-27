@@ -1,7 +1,8 @@
 <style>
 body {
   background-color: black;
-  color: rgb(136, 136, 136);
+  color: white;
+  /* color: rgb(136, 136, 136); */
   font-family: 'Input Sans', sans-serif;
 }
 
@@ -61,9 +62,10 @@ Welcome to Audulus!
 </div>  
 
 <div class="tagline">
-With Audulus, you can build synthesizers
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With Audulus, you can build synthesizers
 from first principles, design new sounds, or process audio - all with
 real-time, low-latency processing suitable for live performance.
+Audulus. Modular audio processing app for iPad, iPhone, Mac, Linux, and Windows. Created by developer Taylor Holliday. Promoted by Mark Boyd, Audulus Evangelist.
 </div>
 
 <br>
