@@ -62,7 +62,7 @@ Welcome to Audulus!
 </div>  
 
 <div class="tagline">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Audulus. A modular audio processing app for iPad, iPhone, Mac, Linux, and Windows. Created by Developer Taylor Holliday. Promoted by Mark Boyd, Audulus Evangelist.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Audulus. A Modular Audio Processing app for iPad, iPhone, Mac, Linux, and Windows. Created by Developer Taylor Holliday. Promoted by Mark Boyd, Audulus Evangelist.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With Audulus, you can build synthesizers
 from first principles, design new sounds, or process audio &mdash; all with
 real-time, low-latency processing suitable for live performance.
@@ -96,7 +96,7 @@ First, be sure to sign up for the Audulus mailing list!
 
 <!--End mc_embed_signup-->
 
-*We will send no more than 1 email per month* - the newsletter is mostly a round-up of all the new patches and discussions happening over the forum - an excellent resource if you do not want to participate in the forum yourself but still want to keep up with all the new patches and the latest techniques.
+We will send you information about new Audulus features, and updates from the Audulus community.
 
 ### Get Help
 
