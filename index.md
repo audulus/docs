@@ -106,7 +106,7 @@ If you need help or have found a bug, contact us at:
 
 *We will respond within 24 hours - often sooner.*  When making a bug report, please: 
 
--	Gttach the patch you were working on when you encountered the bug.
+-	Attach the patch you were working on when you encountered the bug.
 -  Give as much detailed information as you can about how to reproduce the bug.
 
 *We are also available to help you "debug" your Audulus patches.* If Audulus is working fine, but your patch is not, please post it on the [Audulus forum](http://forum.audulus.com) and we'll do our best to help you fix it! 
