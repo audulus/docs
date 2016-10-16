@@ -262,7 +262,7 @@ See you at the forum!  Happy patching!
 
 ## Audulus Audio Unit (Mac Only)
 
-[Download Audio Unit](http://content.audulus.com/Audulus%20Audio%20Unit%203.0.pkg)
+[Download Audio Unit](http://content.audulus.com/Audulus%20Audio%20Unit%203.3.pkg)
 
 To install Audulus as an Audio Unit plugin, download the installer
 package above.
