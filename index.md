@@ -1,65 +1,10 @@
-<style>
-body {
-  background-color: black;
-  color: white;
-  /* color: rgb(136, 136, 136); */
-  font-family: 'Input Sans', sans-serif;
-}
-
-img, video {
-  max-width: 100%;
-}
-
-h2 {
-  color: #2a9fd6;
-  font-family: 'Input Sans', sans-serif;
-}
-
-h3 {
- color: white;
- font-family: 'Input Sans', sans-serif;
-}
-
-h4 {
- color: white;
- font-family: 'Input Sans', sans-serif;
-}
-
-em {
-  color: #2a9fd6;
-}
-
-blockquote {
-  font-size: 12px;
-}
-
-blockquote p {
-  font-size: 12px;
-}
-
-li {
-  list-style-image: url(img/bullet.png);
-}
-
-.tagline {
-  font-size: 18px;
-}
-
-.welcome {
-  font-size: 24pt;
-  color: white;
-}
-
-.responsive-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; }
-.responsive-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-</style>
+<link href="docs.css" rel="stylesheet"></link>
 
 ![Audulus Logo](img/logo.png)
 
 <div class="welcome">
 Welcome to Audulus!
-</div>  
+</div>
 
 <div class="tagline">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Audulus. A Modular Audio Processing App for iPad, iPhone, Mac, Linux, and Windows. Created by Developer Taylor Holliday. Promoted by Mark Boyd, Audulus Evangelist.<br>
@@ -204,8 +149,6 @@ The Desktop Audulus UI at a glance:
 
 
 > *Note 1:*
-
-> With the Audulus Module Library, we wanted to convey the sense of infinite possibility that Audulus 3 holds - and most of all, what can be accomplished when people all over the world - even through language barriers ( 日本人こんにちは！) - can do when they work together. *Audulus, in a sense, is its own universal language*. Anyone can, with enough time and probing, understand how any module works without needing to ask its creator.  Also, every module and patch from version 3 and onward will be backwards compatible - meaning nothing will ever be lost or forgotten. While some more established digital modulars exist, you are entering this program at the beginning of something very special, and *you get to be a founding creator.*
 
 ---
 
