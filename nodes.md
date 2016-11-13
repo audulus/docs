@@ -35,28 +35,74 @@ h4 {
 
 ### ADSR
 
+**Input** - Gate  
+**Output** - Control Signal  
+**Signal Range** - 0 to Gate Height  
+
+**Knobs** - Attack, Decay, Sustain, & Release  
+**Default Knob Range** - 0 to 1 seconds (Attack, Decay, Release); 0 to 1 (Sustain)  
+**Maximum Knob Range** - 0 to >1 hour (Attack, Decay, Release); 0 to 1 (Sustain)
+
+**Exposable Element** - Envelope shape  
+
+**Warnings** - Do not apply negative numbers to any control.  Sustain values >1 will cause distortion of envelope shape.
+
+**Typical Use** - Modulating volume of oscillators and their filters' cutoff frequencies.
+
+**Symbol**
+
 ![icon](img/icons/adsr.png)
 
-The ADSR (**A**ttack **D**ecay **S**ustain **R**elease) node controls
-the envelope of a note. The control signal can be used for the note's
-volume, or to vary some other parameter such as a filter cutoff.
+**Node**
+
+![Node](XXX.png)
+
+The ADSR (**A**ttack **D**ecay **S**ustain **R**elease) node generates an envelope signal. Envelopes are often used to modulate the volume of an oscillator. With different envelope settings you can make an oscillator sound like a drum, organ, or violin. The trick is all in knowing how to set the Attack, Decay, Sustain, and Release.
 
 ![ADSR Envelope Diagram](img/adsr.png)
 
-The envelope starts when the **gate** input becomes greater than
-zero and decays when the gate returns to zero. The envelope goes
-through four stages of *attack, decay, sustain,* and *release* each
-controlled by a knob.
+The ADSR node creates a signal that begins at 0, increases to the gate height, dips to a constant level, and (once the gate goes low) tapers off back to 0. To test the ADSR node, attach a MIDI Trigger node to its input, then attach both a Waveform and Value node to its output as pictured below. Tap the trigger a few times, hold it down, and adjust the ADSR node's settings to see how they react.
 
-- The **Attack** knob specifies how long in seconds until the note reaches
-full volume after the gate becomes greater than zero.
+![ADSR Waveform Demo](XXX.png)
 
-- The **Decay** knob specifies how long until (in seconds) the note fades
-to the sustain level which is, in turn, controlled by the **Sustain**
-knob.
+The ADSR node creates a control signal, meaning the ADSR node does not create sound by itself.
 
-- The **Release** knob specifies how long (in seconds) until the note
-fades after the gate returns to zero.
+In its most common use, an ADSR signal is like an invisible hand turning the volume control on an oscillator.
+
+![ADSR Level Node Modulation](XXX.png)
+
+Those familiar with hardware modular synthesis might note the absence of a VCA, or Voltage Controlled Amplifier. VCAs are unnecessary in Audulus because their functions can be replicated in several different ways (see below).
+
+![ADSR Look Ma No VCAs](XXX.png)
+
+The maximum gate height used in the Audulus Module Library is 1.  The ADSR node will accept larger gates, but it typically makes more sense to create a 0-1 envelope, and then multiply the envelope signal into the range you need it to be.
+
+![ADSR Multiply Filter](XXX.png)
+
+Despite its illustration, the output of the ADSR node is linear. This means the ADR periods have linear slopes to them (see below).
+
+![ADSR Linear Output](XXX.png)
+
+Many instruments, especially percussive ones, have non-linear volume envelopes. The easiest way to make a non-linear envelope is to square the ADSR's output with a Multiplication node (see below).
+
+![ADSR Squared](XXX.png)
+
+You have to have a little release.
+
+**Suggested ADSR settings for various instrument analogs**
+
+Instrument        | A / D / S / R Values
+:------------- | :-------------
+Snare   | `0.01 / 0.1 / 0 / 0.15`
+Kick / Tom   | `0.01 / 0.1 / 0 / 0.75`
+Hi-Hat (Closed)   | `0.01 / 0.15 / 0 / 0.2`
+Hi-Hat (Open)     | `0.01 / 0.9 / 0 / 0.2`
+Violin (Bowed)     | `2 / 0 / 1 / 1` 
+Organ     | `0.01 / 0 / 1 / 0.01` 
+Horn Stab     | `0.05 / 0.15 / 0.3 / 0.5` 
+
+The ADSR node can also be used to modulate filter cutoff frequencies.
+
 
 ### Noise
 
