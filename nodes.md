@@ -266,7 +266,7 @@ Things get more interesting, however, if we use one oscillator to trigger the sy
 
 The main oscillator is called the master oscillator and the oscillator being triggered at the sync input is called the slave oscillator.
 
-If both oscillators are running at the same frequency and they are both set to the same wave shape, nothing happens.
+If both oscillators are running at the same frequency and they are both set sine, nothing happens.
 
 ![Osc Sync No Dice](img/nodes/OSC/Osc-Sync-No-Dice.png)  
 
@@ -286,11 +286,106 @@ If we want to hear what these oscillators sound like, we'll have to adjust them 
 
 The knob and expression controlling the second oscillator's frequency will dramatically shift the harmonic content of the sound.
 
-![Osc Sync On Fire](img/nodes/OSC/Osc-Sync-Detune-Knob.png)  
+![Osc Sync Detune Knob](img/nodes/OSC/Osc-Sync-Detune-Knob.png)  
 
 Better still, do away with the detune knob and attach the volume envelope to the sync oscillator's frequency input like so:
 
-![Osc Sync On Fire](img/nodes/OSC/Osc-Sync-ADSR.png)  
+![Osc Sync ADSR](img/nodes/OSC/Osc-Sync-ADSR.png)  
+
+The shp (shape) input only affects the saw and square waves.
+
+Its input range is 0 to 1 which means any default knob node can attach directly to it. You can also send it envelopes as well.
+
+For the square wave, the shape control is the pulse-width modulation (PWM) control. This determines the duty cycle, i.e., the wave's proportion of high (positive) to low (negative) time (see below).  Notice that when the shape knob is turned all the way up that the wave disappears entirely.
+
+![Osc Sync Shape Square](img/nodes/OSC/Osc-Shape-Square.png)
+
+For the saw wave, the shape control de-phases the wave in way similar to two hard-synced saw oscillators that are locked to the same pitch, but vary in phase. When the shape knob is turned all the way up, the waveform has effectively doubled its period, causing an octave shift (with a loss of some amplitude - see below).
+
+![Osc Sync Shape Saw](img/nodes/OSC/Osc-Shape-Saw.png)
+
+The Osc node is anti-aliased. This means it is optimized to be an audio oscillator. However, this also may not always work well as an LFO or control signal oscillator. 
+
+To understand why this is, first we have to understand what aliasing is; and to understand aliasing, we first have to understand sampling.
+
+When Audulus outputs audio, it does so at the speed of the host's sampling rate. The default for the standalone application is 44.1kHz, or 44,100 samples per second. Each sample is a 32-bit number between -1 and 1.  
+
+At this sampling rate, a saw wave with an amplitude of 1 and a period of 1Hz is represented by a string of 44,100 numbers that begins at -1 and ends at 1.
+
+At the same sampling rate, a saw wave with an amplitude of 1 and a period of 2Hz is reproduced in 22,050 samples.
+
+As you can see in the table below, every time we double to frequency, the number of samples per period of the wave is halved.
+
+Hz  (Limit of Hearing)      | # Samples @ 44.1kHz
+:------------- | :-------------
+`1`   | `44,100`
+`2` | `22,050`
+`4` | `11,025`
+`8` | `5625`
+`16` | `2812`
+`20` (Lower) | `2205`
+`32` | `1406`
+`64`  | `703`
+`128` | `351`
+`512` | `175`
+`1,024` | `87`
+`2,048` | `43`
+`4,096` | `21`
+`8,192` | `10`
+`16,384` | `5`
+`20,000` (Upper) | `2`
+`44,100` | `1`
+
+For a wave to be represented digitally, it needs at least 2 samples - a high sample (speaker pushed out) and a low sample (speaker pulled in). This was determined by Harry Nyquist (below, left) who worked on high-speed telegraphs in the early 1900s, and Claude Shannon (below, right), who helped the world transistion from analog to digital signal communication.  The Nyquist-Shannon sampling theorem, as this rule is so-called, was that bridge.
+
+![Osc Harry Nyquist](img/nodes/OSC/Osc-Harry-Nyquist.jpg) ![Osc Claude Shannon](img/nodes/OSC/Osc-Claude-Shannon.png)  
+source: Wikipedia 1, 2
+
+Now that we understand sampling and its limits, we can understand what happens when those limits are broken - namely, aliasing.
+
+Aliasing is a type of distortion that happens when an inadequately high sample rate is used to accurately reproduce a frequency.
+
+To hear what aliasing sounds like, you can create a patch like the one below (or download it here at the forum). This patch reduces the sampling rate of the wave as it passes through from 20kHz all the way down to 20Hz.  As you approach 10kHz and below, the notes on the keyboard will begin to disappear, unable to be reproduced by the inadequate sampling rate.
+
+![Osc Claude Shannon](img/nodes/OSC/Osc-Rate-Reduction.png)    
+
+Without going into the mathematical *why* of it, at a sampling rate of 44.1kHz, frequencies above 22.05kHz are "reflected" or "mirrored" below it. If these frequencies have enough amplitude and fall within the range of human hearing, we percieve them as inharmonic, ugly-sounding distortion.
+
+Now, finally, we can return to the anti-aliased property of the Osc node. The Osc node is band-limited, meaning it sharply cuts off harmonics above the 20kHz point.  Unlike a low-pass filter, which attenuates higher frequencies at a rate of a particular number of decibels or dB per octave, band-limiting is like taking scissors and snipping off the higher frequencies.
+
+This bandlimiting is what causes the "ringing" that you may have noticed in some of the screenshots (see below).
+
+![Osc Anti-Alias](img/nodes/OSC/Osc-Anti-Alias.png) 
+
+
+This is now a flaw, but a feature of an anti-aliased digital oscillator. If you scroll way back up to the beginning of the Osc entry, you'll see this peak forming in the saw wave with 50 harmonics animation.
+
+This ringing is referred to as the Gibbs Phenomenon - a property of Fourier series discovered by Henry Wilbraham (photo not available) in 1848 and re-discovered by J. Willard Gibbs (below) in 1899.
+
+![Osc J Willy](img/nodes/OSC/Osc-J-Willy.jpg)
+
+When you stop and think about it, the presence of this ringing makes sense.  For a square wave to move from high to low pressure instantaneously (as it does in its idealized form), you would need an infinite series of harmonics. The maximum frequency that air can reproduce is around 5MHz, or 5,000,000Hz. 
+
+https://www.researchgate.net/publication/230702229_Reproduction_of_Virtual_Sound_Sources_Moving_at_Supersonic_Speeds_in_Wave_Field_Synthesis
+
+Five million Hertz may seem really fast, but in reality, 5Mhz is infinitely closer to 0Hz than it is to infinity Hz. 
+
+Yeah, take a second and think about that one.
+
+As a parting note on the Osc node, the Gibbs Phenomenon can become a problem when you're using a square or saw wave as control signal, and it is why you should use a Phasor-based LFO for all of your LFO needs.
+
+Even if you offset and attenuate the output of the Osc node to be between 0 and 1, the transitions will ring both lower and higher than 0 and 1, which can cause problems for time-based parameters (which can't be negative) and resonance (which can't be more than 100%).
+
+Also, if you are using a square oscillator as an on/off switch, the ringing can cause the switch to flip open and closed rapidly.  This is a phenomenon that has to be accounted for in digital computer chips as well.
+
+
+
+
+
+
+
+
+
 
 
 
