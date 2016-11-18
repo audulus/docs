@@ -35,13 +35,17 @@ h4 {
 
 ### ADSR
 
-**Input** - Gate  
-**Output** - Control Signal  
-**Signal Range** - 0 to Gate Height  
+Input        | Signal Range (Default / Maximum)
+:------------- | :-------------
+gate   | `Gate`
+Attack (knob 1)   | `0 to 1 second / 0 to >1 (hour)`
+Decay (knob 2)   | `0 to 1 second / 0 to >1 (hour)`
+Sustain (knob 3)   | `0 to 1`
+Release (knob 4)   | `0 to 1 second / 0 to >1 (hour)`
 
-**Knobs** - Attack, Decay, Sustain, & Release  
-**Default Knob Range** - 0 to 1 seconds (Attack, Decay, Release); 0 to 1 (Sustain)  
-**Maximum Knob Range** - 0 to >1 hour (Attack, Decay, Release); 0 to 1 (Sustain)
+Output        | Signal Range
+:------------- | :-------------
+Control Signal   | `0 to Gate Height`
 
 **Exposable Element** - Envelope shape  
 
@@ -61,7 +65,7 @@ The ADSR (**A**ttack **D**ecay **S**ustain **R**elease) node generates an envelo
 
 ![ADSR Envelope Diagram](img/adsr.png)
 
-The ADSR node creates a signal that begins at 0, increases to the gate height, dips to a constant level, and finally, once the gate goes low (e.g., when the key is released), it tapers off back to 0. 
+The ADSR node creates a signal that begins at 0, increases to the gate height (Attack), dips (Decay) to a constant level (Sustain), and finally, once the gate goes low (e.g., when the key is released), it tapers off back to 0 (Release).
 
 To test the ADSR node, attach a MIDI Trigger node to its input, then attach both a Waveform and Value node to its output as pictured below. Tap the trigger a few times, hold it down, and adjust the ADSR node's settings to see how they react.
 
@@ -122,24 +126,80 @@ Also note the added volume control before the Speaker node, which you'll need to
 
 ### Osc
 
+Input        | Signal Range
+:------------- | :-------------
+Hz (Frequency)   | `0 to 20,000`
+amp (Amplitude)   | `0 to any positive 32-bit number*`
+sync   | `Gate`
+shp (Shape)   | `0 to 1 (only modifies saw and square waves)`
+*note - the maximum audio output for Audulus is -1 to 1. Beyond that range causes hard clipping.
+
+Output        | Signal Range
+:------------- | :-------------
+Anti-Aliased Waveform   | `-amp to +amp`
+
+**Exposable Element** - Wave shape
+
+**Warnings** - It is generally best to keep the amplitude signal at or below 1, as the maximum output level of Audulus is -1 to 1. Larger amplitudes will cause output clipping.
+
+**Typical Use** - Creating the voice of the synthesizer, i.e., the origin of the audio signal.
+
+**iOS Symbol**
+
 ![icon](img/icons/osc.png)
 
-The **Osc**illator node is the foundation of most synthesizers -- it's
-where the sound begins. An oscillator produces a periodic waveform, a
-waveform that repeats. The length of the period determines the pitch of
-the sound.
+**Node**
 
-Use the waveform menu to select the type of wave:
+![Node](img/nodes/OSC/Osc-Node.png)
 
--   *sine* - A neutral waveform with no harmonics.
--   *triangle* - A mellow waveform with a hollow character due to odd harmonics.
--   *square* - The Square waveform has a hollow character like the triangle, due to
-only odd harmonics being present. However the harmonics are much louder,
-so the sound is brighter.
--   *sawtooth* - A bright-sounding waveform. This sounds especially nice when several are mixed together, all detuned slightly.
+The **Osc**illator is the foundation most synthesizers. It is like the vocal chords of the synthesizer - the vibrating portion that creates the sound.
 
-To see what these waveforms look like, set the oscillator's **pitch**
-input to 1 and attach the **out** output to a \#Waveform node.
+The Osc node has four waveforms - sine, triangle, saw, and square. The saw and square wave shapes are also variable using the shp control. Each waveform has a distinct characteristic sound.
+
+![Node](img/nodes/OSC/Osc-Wave-Shapes.png)
+
+To hear how different each wave sounds, match a patch like the one below and cycle through the wave shapes by tapping or clicking on the wave icon.
+
+![Node](img/nodes/OSC/Osc-Wave-Sounds.png)
+
+To understand why each wave sounds different, we have to understand a little bit about Fourier analysis.
+
+![Node](img/nodes/OSC/Osc-Fourier.jpg)  
+*source:* Wikipedia
+
+Joseph Fourier was a French mathematician born in the 1700s.  He discovered that all sound waves, no matter how complex, are composed of sine waves of different but related frequencies.
+
+There is a lot of heavy math behind why this is, but you don't need to understand the math to see what's going on.
+
+First, let's have a look at the diagram below to see how a series of sine waves added together can start transforming into a square wave.
+
+![Node](img/nodes/OSC/Osc-Fourier-Series-Square.svg)  
+*source:* Wikipedia
+
+The first sine wave oscillates at the fundamental frequency, while each additional sine wave oscillates at a interval or harmonic of that frequency.
+
+If you still can't picture what is going on, have a look at this animation (ignore the math if it's confusing):
+
+![Node](img/nodes/OSC/Osc-Fourier-Series-Transform.gif)  
+*source:* Wikipedia
+
+The animation first shows the square wave superimposed on a series of the 6 sine waves. When these sine waves are added together, they create the square(-ish) wave that you see.
+
+The animation then separates these sine waves and creates a bar graph out of the ampitudes of each sine wave.  The first bar on the left is the fundamental frequency, while the other bars are all harmonic frequencies, related to the fundamental.
+
+Below you can see the same transformation happening with a saw wave - this time with 50 sine waves added together.
+
+![Node](img/nodes/OSC/Osc-Synthesis-Sawtooth-LucasVB.gif)  
+*source:* Wikipedia
+
+As you can see, the more sine waves you add, the closer your approximation of the idealized waveform becomes.
+
+
+
+
+
+
+
 
 #### Inputs
 
