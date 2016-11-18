@@ -45,7 +45,7 @@ Release (knob 4)   | `0 to 1 second / 0 to >1 (hour)`
 
 Output        | Signal Range
 :------------- | :-------------
-Control Signal   | `0 to Gate Height`
+Control Signal (Envelope)   | `0 to Gate Height`
 
 **Exposable Element** - Envelope shape  
 
@@ -61,7 +61,7 @@ Control Signal   | `0 to Gate Height`
 
 ![Node](img/nodes/ADSR/ADSR-Node.png)
 
-The ADSR (**A**ttack **D**ecay **S**ustain **R**elease) node generates an envelope signal. Envelopes are often used to modulate the volume of an oscillator. With different envelope settings you can make an oscillator sound like a drum, organ, or violin. The trick is all in knowing how to set the Attack, Decay, Sustain, and Release.
+The ADSR (Attack, Decay, Sustain, Release) node generates a special type of control signal called an envelope. Envelopes are often used to modulate the volume of an oscillator. With different envelope settings you can make an oscillator sound like a drum, organ, or violin. The trick is all in knowing how to set the Attack, Decay, Sustain, and Release.
 
 ![ADSR Envelope Diagram](img/adsr.png)
 
@@ -140,7 +140,7 @@ Anti-Aliased Waveform   | `-amp to +amp`
 
 **Exposable Element** - Wave shape
 
-**Warnings** - It is generally best to keep the amplitude signal at or below 1, as the maximum output level of Audulus is -1 to 1. Larger amplitudes will cause output clipping.
+**Warnings** - Because this is an anti-aliased oscillator, its best use is as an audio oscillator (20Hz-20kHz).  To create LFOs (oscillators that generate control signals) use a Phasor node-based oscillator. Phasor-based oscillators use much less CPU and do not ring at their transitions (see: Gibbs Phenomenon).
 
 **Typical Use** - Creating the voice of the synthesizer, i.e., the origin of the audio signal.
 
@@ -152,7 +152,7 @@ Anti-Aliased Waveform   | `-amp to +amp`
 
 ![Node](img/nodes/OSC/Osc-Node.png)
 
-The **Osc**illator is the foundation most synthesizers. It is like the vocal chords of the synthesizer - the vibrating portion that creates the sound.
+The oscillator is the foundation most synthesizers. It is like the vocal chords of the synthesizer - the vibrating portion that creates the sound.
 
 The Osc node has four waveforms - sine, triangle, saw, and square. The saw and square wave shapes are also variable using the shp control. Each waveform has a distinct characteristic sound.
 
@@ -176,7 +176,7 @@ First, let's have a look at the diagram below to see how a series of sine waves 
 ![Node](img/nodes/OSC/Osc-Fourier-Series-Square.svg)  
 *source:* Wikipedia
 
-The first sine wave oscillates at the fundamental frequency, while each additional sine wave oscillates at a interval or harmonic of that frequency.
+The first sine wave oscillates at the fundamental frequency, while each additional sine wave oscillates at a multiple or harmonic of that frequency.
 
 If you still can't picture what is going on, have a look at this animation (ignore the math if it's confusing):
 
@@ -185,7 +185,7 @@ If you still can't picture what is going on, have a look at this animation (igno
 
 The animation first shows the square wave superimposed on a series of the 6 sine waves. When these sine waves are added together, they create the square(-ish) wave that you see.
 
-The animation then separates these sine waves and creates a bar graph out of the ampitudes of each sine wave.  The first bar on the left is the fundamental frequency, while the other bars are all harmonic frequencies, related to the fundamental.
+The animation then separates these sine waves and creates a bar graph out of the amplitudes of each sine wave.  The first bar on the left is the fundamental frequency (1st harmonic), while the other bars are the 2nd-6th harmonic, related to the fundamental.
 
 Below you can see the same transformation happening with a saw wave - this time with 50 sine waves added together.
 
@@ -193,6 +193,25 @@ Below you can see the same transformation happening with a saw wave - this time 
 *source:* Wikipedia
 
 As you can see, the more sine waves you add, the closer your approximation of the idealized waveform becomes.
+
+What makes wave shapes sound different are the relative loudness of their harmonics. 
+
+A harmonic is a wave that vibrates at an integer multiple (x1, x2, x3, x4, ...etc.) of a fundamental frequency (see below).
+
+![Node](img/nodes/OSC/Osc-Harmonics.png)  
+
+If we take as our base a note that vibrates at 440Hz, then its second harmonic would be at 880Hz (440x2), its third at 1320Hz (440x3), and its fourth at 1760Hz (440x4).
+
+A sine only has one harmonic (the 1st or fundamental). Saw waves contain all harmonics, while triangle and square waves have only odd-order harmonics (3rd, 5th, 7th, ...etc.).
+
+Download the patch pictured below from the forum to see and listen to the first six harmonics of a saw wave.
+
+![Node](img/nodes/OSC/Osc-Saw-Harmonics.png)  
+
+
+
+
+
 
 
 
