@@ -35,6 +35,8 @@ h4 {
 
 ### ADSR
 
+![Node](img/nodes/ADSR/ADSR-Node.png)  
+
 Input        | Signal Range (Default / Maximum)
 :------------- | :-------------
 gate   | `Gate`
@@ -47,19 +49,17 @@ Output        | Signal Range
 :------------- | :-------------
 Control Signal (Envelope)   | `0 to Gate Height`
 
-**Exposable Element** - Envelope shape  
-
-**Warnings** - Do not apply negative numbers to any control.  Sustain values >1 will cause distortion of envelope shape.
-
-**Typical Use** - Modulating volume of oscillators and their filters' cutoff frequencies.
-
 **iOS Symbol**
 
 ![icon](img/icons/adsr.png)
 
-**Node**
+**Exposable Element** - Envelope shape  
 
-![Node](img/nodes/ADSR/ADSR-Node.png)
+![ADSR Exposed](img/nodes/ADSR/ADSR-Exposed.png)  
+
+**Warnings** - Do not apply negative numbers to any control.  Sustain values >1 will cause distortion of envelope shape.
+
+**Typical Use** - Modulating volume of oscillators and their filters' cutoff frequencies.
 
 The ADSR (Attack, Decay, Sustain, Release) node generates a special type of control signal called an envelope. Envelopes are often used to modulate the volume of an oscillator. With different envelope settings you can make an oscillator sound like a drum, organ, or violin. The trick is all in knowing how to set the Attack, Decay, Sustain, and Release.
 
@@ -126,19 +126,25 @@ Also note the added volume control before the Speaker node, which you'll need to
 
 ### Osc
 
+![Node](img/nodes/OSC/Osc-Node.png)  
+
 Input        | Signal Range
 :------------- | :-------------
-Hz (Frequency)   | `0 to 20,000`
+Hz (Hertz / Frequency)   | `0 to 20,000`
 amp (Amplitude)   | `0 to any positive 32-bit number*`
-sync   | `Gate`
+sync   | `Gate (rising edge only)`
 shp (Shape)   | `0 to 1 (only modifies saw and square waves)`
-*note - the maximum audio output for Audulus is -1 to 1. Beyond that range causes hard clipping.
+Wave Shape   | `Click/tap to cycle - sine, square, triangle, saw`
+* - the maximum audio output for Audulus is -1 to 1. Beyond that range causes hard clipping.
+
 
 Output        | Signal Range
 :------------- | :-------------
 Anti-Aliased Waveform   | `-amp to +amp`
 
 **Exposable Element** - Wave shape
+
+![Osc Exposed](img/nodes/OSC/Osc-Exposed.png)  
 
 **Warnings** - Because this is an anti-aliased oscillator, its best use is as an audio oscillator (20Hz-20kHz).  To create LFOs (oscillators that generate control signals) use a Phasor node-based oscillator. Phasor-based oscillators use much less CPU and do not ring at their transitions (see: Gibbs Phenomenon).
 
@@ -148,19 +154,26 @@ Anti-Aliased Waveform   | `-amp to +amp`
 
 ![icon](img/icons/osc.png)
 
-**Node**
+The oscillator is the foundation most types of synthesis. It is like the vocal chords of the synthesizer - the vibrating portion that creates the sound.
 
-![Node](img/nodes/OSC/Osc-Node.png)
+The Osc node has four waveforms - sine, triangle, saw, and square. The saw and square wave shapes are also variable using the shp control. Each waveform has a characteristic sound.
 
-The oscillator is the foundation most synthesizers. It is like the vocal chords of the synthesizer - the vibrating portion that creates the sound.
+![Osc Wave Shapes](img/nodes/OSC/Osc-Wave-Shapes.png)
 
-The Osc node has four waveforms - sine, triangle, saw, and square. The saw and square wave shapes are also variable using the shp control. Each waveform has a distinct characteristic sound.
+A waveform is a graph of amplitude over time.  As a sound wave travels through the air, it creates alternating bands of high and low pressure.
 
-![Node](img/nodes/OSC/Osc-Wave-Shapes.png)
+In the animation below, the darker bands represent densely packed air molecules while the lighter bands represent sparsely packed air molecules.
 
-To hear how different each wave sounds, match a patch like the one below and cycle through the wave shapes by tapping or clicking on the wave icon.
+![Node](img/nodes/OSC/Osc-Spherical-Sound-Waves.gif)  
+*source:* Wikipedia
 
-![Node](img/nodes/OSC/Osc-Wave-Sounds.png)
+The dense portion of the wave is the positive part of the oscillation (0 to 1), and the sparse portion of the wave is the negative portion of the oscillation (0 to -1).
+
+When a speaker cone is pushing out, it creates the high pressure (positive) portion of the wave.  When a speaker cone is pulling in, it creates a low pressure (negative) portion of the wave.  Animagraffs has an excellent animated illustration of how a speaker works here: http://animagraffs.com/loudspeaker/
+
+To hear how different each wave sounds, create a patch like the one below and cycle through the wave shapes by tapping or clicking on the wave icon.
+
+![Osc Wave Sounds](img/nodes/OSC/Osc-Wave-Sounds.png)
 
 To understand why each wave sounds different, we have to understand a little bit about Fourier analysis.
 
@@ -169,7 +182,7 @@ To understand why each wave sounds different, we have to understand a little bit
 
 Joseph Fourier was a French mathematician born in the 1700s.  He discovered that all sound waves, no matter how complex, are composed of sine waves of different but related frequencies.
 
-There is a lot of heavy math behind why this is, but you don't need to understand the math to see what's going on.
+There is a lot of heavy math behind why this is, but you don't need to understand the math to see how it works.
 
 First, let's have a look at the diagram below to see how a series of sine waves added together can start transforming into a square wave.
 
@@ -204,7 +217,7 @@ If we take as our base a note that vibrates at 440Hz, then its second harmonic w
 
 A sine only has one harmonic (the 1st or fundamental). Saw waves contain all harmonics, while triangle and square waves have only odd-order harmonics (3rd, 5th, 7th, ...etc.).
 
-Download the patch pictured below from the forum to see and listen to the first six harmonics of a saw wave.
+Download the patch pictured below from the Audulus Forum to see and listen to the first six harmonics of a saw wave.
 
 ![Node](img/nodes/OSC/Osc-Saw-Harmonics.png)  
 
