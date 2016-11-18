@@ -217,14 +217,23 @@ If we take as our base a note that vibrates at 440Hz, then its second harmonic w
 
 A sine only has one harmonic (the 1st or fundamental). Saw waves contain all harmonics, while triangle and square waves have only odd-order harmonics (3rd, 5th, 7th, ...etc.).
 
+The ratio of the amplitude of each harmonic is 1/N where N = the harmonic number. This means the amplitude of the 1st harmonic is 1/1; the 2nd is 1/2; the 3rd is 1/3; the 4th is 1/4; ...etc. (see below).
+
+![Node](img/nodes/OSC/Osc-Integral-Harmonics.png)  
+
 Download the patch pictured below from the Audulus Forum to see and listen to the first six harmonics of a saw wave.
 
 ![Node](img/nodes/OSC/Osc-Saw-Harmonics.png)  
 
+Adding sine wave harmonics together like this is called additive synthesis. You can make all sorts of complex sounds by varying the amplitude of each harmonic or even applying different volume envelopes to each oscillator.
 
+A simpler place to start, however - now that we know what harmonics are and what they sound like - is subtractive synthesis.
 
+Subtractive synthesis is a technique that starts with a harmonically rich waveform, like a saw or square wave, and uses a filter to attenuate or subtract frequencies.
 
+Subtractive synthesis is covered in more depth under the Filter node heading, but you can look below to see the basic setup of a subtractive synthesizer. You can also download this patch at the Audulus Forum.
 
+![Node](img/nodes/OSC/Osc-Subtractive-Synth.png)  
 
 
 
