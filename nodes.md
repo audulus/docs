@@ -49,45 +49,51 @@ h4 {
 
 **Typical Use** - Modulating volume of oscillators and their filters' cutoff frequencies.
 
-**Symbol**
+**iOS Symbol**
 
 ![icon](img/icons/adsr.png)
 
 **Node**
 
-![Node](XXX.png)
+![Node](img/nodes/ADSR/ADSR-Node.png)
 
 The ADSR (**A**ttack **D**ecay **S**ustain **R**elease) node generates an envelope signal. Envelopes are often used to modulate the volume of an oscillator. With different envelope settings you can make an oscillator sound like a drum, organ, or violin. The trick is all in knowing how to set the Attack, Decay, Sustain, and Release.
 
 ![ADSR Envelope Diagram](img/adsr.png)
 
-The ADSR node creates a signal that begins at 0, increases to the gate height, dips to a constant level, and (once the gate goes low) tapers off back to 0. To test the ADSR node, attach a MIDI Trigger node to its input, then attach both a Waveform and Value node to its output as pictured below. Tap the trigger a few times, hold it down, and adjust the ADSR node's settings to see how they react.
+The ADSR node creates a signal that begins at 0, increases to the gate height, dips to a constant level, and finally, once the gate goes low (e.g., when the key is released), it tapers off back to 0. 
 
-![ADSR Waveform Demo](XXX.png)
+To test the ADSR node, attach a MIDI Trigger node to its input, then attach both a Waveform and Value node to its output as pictured below. Tap the trigger a few times, hold it down, and adjust the ADSR node's settings to see how they react.
+
+![ADSR Waveform Demo](img/nodes/ADSR/ADSR-Waveform-Demo.png)
 
 The ADSR node creates a control signal, meaning the ADSR node does not create sound by itself.
 
 In its most common use, an ADSR signal is like an invisible hand turning the volume control on an oscillator.
 
-![ADSR Level Node Modulation](XXX.png)
+![ADSR Level Node Modulation](img/nodes/ADSR/ADSR-Level-Node-Modulation.png)
 
-Those familiar with hardware modular synthesis might note the absence of a VCA, or Voltage Controlled Amplifier. VCAs are unnecessary in Audulus because their functions can be replicated in several different ways (see below).
+Those familiar with hardware modular synthesis might note the absence of a VCA, or Voltage Controlled Amplifier. Separate VCA modules are unnecessary in Audulus because their functions can be replicated in several different ways (see below).
 
-![ADSR Look Ma No VCAs](XXX.png)
+![ADSR Look Ma No VCAs](img/nodes/ADSR/ADSR-Look-Ma-No-VCAs.png)
 
 The maximum gate height used in the Audulus Module Library is 1.  The ADSR node will accept larger gates, but it typically makes more sense to create a 0-1 envelope, and then multiply the envelope signal into the range you need it to be.
 
-![ADSR Multiply Filter](XXX.png)
+![ADSR Multiply Filter](img/nodes/ADSR/ADSR-Multiply-Filter.png)
 
-Despite its illustration, the output of the ADSR node is linear. This means the ADR periods have linear slopes to them (see below).
-
-![ADSR Linear Output](XXX.png)
+Despite its illustration, the output of the ADSR node is linear. This means the ADR periods have linear slopes to them.
 
 Many instruments, especially percussive ones, have non-linear volume envelopes. The easiest way to make a non-linear envelope is to square the ADSR's output with a Multiplication node (see below).
 
-![ADSR Squared](XXX.png)
+![ADSR Squared](img/nodes/ADSR/ADSR-Squared.png)
 
-You have to have a little release.
+You can also use the Mapper and Spline nodes to create unique envelope shapes (see below).
+
+![ADSR Mapper and Spline](img/nodes/ADSR/ADSR-Mapper-and-Spline.png)
+
+If the Attack, Decay, or Release settings are set to 0, they may sometimes cause an audible clicking noise.  To prevent this from happening, you can adjust their ranges with an expression node (see below) or set their value ranges directly by clicking or tapping on the knob.  Any small non-zero value will do.
+
+![ADSR Click Prevention](img/nodes/ADSR/ADSR-Click-Prevention.png)
 
 **Suggested ADSR settings for various instrument analogs**
 
@@ -99,17 +105,20 @@ Hi-Hat (Closed)   | `0.01 / 0.15 / 0 / 0.2`
 Hi-Hat (Open)     | `0.01 / 0.9 / 0 / 0.2`
 Violin (Bowed)     | `2 / 0 / 1 / 1` 
 Organ     | `0.01 / 0 / 1 / 0.01` 
-Horn Stab     | `0.05 / 0.15 / 0.3 / 0.5` 
+Horn Stab     | `0.05 / 0.15 / 0.3 / 0.5`
+Ocean Surf     | `4 / 4 / 0 / 4` (Env^2)
 
-The ADSR node can also be used to modulate filter cutoff frequencies.
+Often you will find two different envelopes in a patch - one controlling the oscillator's volume and the other controlling a filter's cutoff frequency.
 
+Using two different envelopes allows you to create an enormous variety of sounds. Try creating a patch like the one pictured below and play around with different ADSR settings for each node. Make sure you use a harmonic-rich waveform like the square or saw wave to really hear what's happening.
 
-### Noise
+![ADSR Oscillator and Filter](img/nodes/ADSR/ADSR-Oscillator-and-Filter.png)
 
-![icon](img/icons/noise.png)
+You might find you want to add some more control to the filter's sweep range. The patch above makes the filter move through its entire range. To make the envelope move the filter between two set frequencies, you can make a patch like the one pictured below (available HERE on the Audulus Forum). Go ahead and also attach a knob to the resonance setting and play around with that (just be careful you don't leave it set all the way up or it will squeal in self-oscillation).
 
-The **Noise** node outputs filtered noise. It is a convenient
-combination of the \#Random node and the \#LowPass node.
+Also note the added volume control before the Speaker node, which you'll need to prevent clipping your output.
+
+![ADSR Oscillator and Filter Adjustments](img/nodes/ADSR/ADSR-Oscillator-and-Filter-Adjustments.png)
 
 ### Osc
 
