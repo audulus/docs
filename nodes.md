@@ -53,7 +53,7 @@ Control Signal (Envelope)   | `0 to Gate Height`
 
 ![icon](img/icons/adsr.png)
 
-**Exposable Element** - Envelope shape  
+**Exposable Element** - Envelope shape.  Note: you cannot change the envelope shape directly - you must use knobs or modulation signals connected to the ADSR knob inputs.
 
 ![ADSR Exposed](img/nodes/ADSR/ADSR-Exposed.png)  
 
@@ -142,17 +142,17 @@ Output        | Signal Range
 :------------- | :-------------
 Anti-Aliased Waveform   | `-amp to +amp`
 
-**Exposable Element** - Wave shape
+**iOS Symbol**
+
+![icon](img/icons/osc.png)
+
+**Exposable Element**
 
 ![Osc Exposed](img/nodes/OSC/Osc-Exposed.png)  
 
 **Warnings** - Because this is an anti-aliased oscillator, its best use is as an audio oscillator (20Hz-20kHz).  To create LFOs (oscillators that generate control signals) use a Phasor node-based oscillator. Phasor-based oscillators use much less CPU and do not ring at their transitions (see: Gibbs Phenomenon).
 
 **Typical Use** - Creating the voice of the synthesizer, i.e., the origin of the audio signal.
-
-**iOS Symbol**
-
-![icon](img/icons/osc.png)
 
 The oscillator is the foundation most types of synthesis. It is like the vocal chords of the synthesizer - the vibrating portion that creates the sound.
 
@@ -167,7 +167,7 @@ In the animation below, the darker bands represent densely packed air molecules 
 ![Node](img/nodes/OSC/Osc-Spherical-Sound-Waves.gif)  
 *source:* Wikipedia
 
-The dense portion of the wave is the positive part of the oscillation (0 to 1), and the sparse portion of the wave is the negative portion of the oscillation (0 to -1).
+The dense portion of the wave is the positive part of the oscillation (0 to 1), and the sparse portion of the wave is the negative portion of the oscillation (0 to -1). A value of 0 represents the average ambient air pressure of the space.
 
 When a speaker cone is pushing out, it creates the high pressure (positive) portion of the wave.  When a speaker cone is pulling in, it creates a low pressure (negative) portion of the wave.  Animagraffs has an excellent animated illustration of how a speaker works here: http://animagraffs.com/loudspeaker/
 
@@ -220,6 +220,8 @@ A sine only has one harmonic (the 1st or fundamental). Saw waves contain all har
 Download the patch pictured below from the Audulus Forum to see and listen to the first six harmonics of a saw wave.
 
 ![Node](img/nodes/OSC/Osc-Saw-Harmonics.png)  
+
+
 
 
 
