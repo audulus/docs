@@ -236,7 +236,7 @@ Subtractive synthesis is covered in more depth under the Filter node heading, bu
 
 ![Osc Subtractive Synth](img/nodes/OSC/Osc-Subtractive-Synth.png)  
 
-The sync input of the Osc node is useful for several reasons - the most important being that it's great for making fat-sounding synthesizers!
+Syncing two or more oscillators together is a great way to add even more complex harmonics to your sound.
 
 ![Osc Hard Sync](img/nodes/OSC/Osc-Hard-Sync.png)   
 
@@ -244,18 +244,53 @@ To understand what syncing does, first we have to understand what phase relation
 
 When you create two oscillators in Audulus, the chances of them being perfectly in phase are slim. Look at the patch below - these are two oscillators created at two different times.  Notice how their waves do not overlap perfectly.
 
-![Osc Sync Synth](img/nodes/OSC/Osc-Out-of-Phase.png)  
+![Osc Out of Phase](img/nodes/OSC/Osc-Out-of-Phase.png)
 
-To fix this, we could save the patch, exit, and reopen the patch, and the oscillators would then be in sync. This would be like a hard reset on the entire patch, but it's also unnecessary.
+Phase is measured in degrees (θ) from 0 to 360.
+
+![Osc Wave Phase](img/nodes/OSC/Osc-Wave-Phase.png)  
+
+A wave with a 0 degree phase shift from another wave is in phase. If two identical in-phase waves are added together, their waveform is preserved and their amplitude is doubled.
+
+A wave that is shifted 180 degrees is completely out of phase - a mirror image. When two completely out-of-phase waves are added, they cancel one another totally.
+
+When waves are between 0 and 180 degrees out of phase from one another, they will cancel some frequencies but not others. This phenomenon is at the heart of several time-based effects like phasing, flanging, and chorus, and it also affects the sound of synced oscillators.
+
+Back to the two oscillator patch above - to sync these we could save the patch, exit, and reopen the patch, and the oscillators would then be in sync. This would be like a hard reset on the entire patch, but it's not very useful for creating a hard-synced oscillator synthesizer!
 
 To syncronize these oscillators without having to restart the patch, we need to pulse their sync inputs at the same time with the rising edge of a gate signal. A Trigger node will work nicely for this. Notice how the waves went from out of sync to suddenly in sync after the trigger was first pressed (see below).
 
-![Osc Sync Synth](img/nodes/OSC/Osc-In-Phase.png)  
+![Osc in Phase](img/nodes/OSC/Osc-in-Phase.png)  
 
+Things get more interesting, however, if we use one oscillator to trigger the sync input of the other.
 
+The main oscillator is called the master oscillator and the oscillator being triggered at the sync input is called the slave oscillator.
 
+If both oscillators are running at the same frequency and they are both set to the same wave shape, nothing happens.
 
-![Osc Sync Synth](img/nodes/OSC/Osc-Sync-Synth.png)  
+![Osc Sync No Dice](img/nodes/OSC/Osc-Sync-No-Dice.png)  
+
+If the slave oscillator is running at a slightly different speed, however, look at what happens:
+
+![Osc Sync Cooking with Gas](img/nodes/OSC/Osc-Sync-Cooking-with-Gas.png)
+
+As you can see above, the waves start in phase with one another, but because the master oscillator is running faster, it moves out of phase with the slave oscillator.  If we mix these oscillators together, we get interesting phase cancellations that add to harmonic complexity (see below).
+
+![Osc Sync On Fire](img/nodes/OSC/Osc-Sync-on-Fire.png)  
+
+Now look what happens when we mix different wave shapes together:
+
+![Osc Sync On Fire](img/nodes/OSC/Osc-Sync-the-Nuclear-Option.png)  
+
+If we want to hear what these oscillators sound like, we'll have to adjust them so they're operating in the audible range. Make a patch like the one pictured below, or just download the example at the Audulus Forum.
+
+The knob and expression controlling the second oscillator's frequency will dramatically shift the harmonic content of the sound.
+
+![Osc Sync On Fire](img/nodes/OSC/Osc-Sync-Detune-Knob.png)  
+
+Better still, do away with the detune knob and attach the volume envelope to the sync oscillator's frequency input like so:
+
+![Osc Sync On Fire](img/nodes/OSC/Osc-Sync-ADSR.png)  
 
 
 
