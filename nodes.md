@@ -164,7 +164,7 @@ A waveform is a graph of amplitude over time.  As a sound wave travels through t
 
 In the animation below, the darker bands represent densely packed air molecules while the lighter bands represent sparsely packed air molecules.
 
-![Node](img/nodes/OSC/Osc-Spherical-Sound-Waves.gif)  
+![Osc Spherical Sound Waves](img/nodes/OSC/Osc-Spherical-Sound-Waves.gif)  
 *source:* Wikipedia
 
 The dense portion of the wave is the positive part of the oscillation (0 to 1), and the sparse portion of the wave is the negative portion of the oscillation (0 to -1). A value of 0 represents the average ambient air pressure of the space.
@@ -175,9 +175,9 @@ To hear how different each wave sounds, create a patch like the one below and cy
 
 ![Osc Wave Sounds](img/nodes/OSC/Osc-Wave-Sounds.png)
 
-To understand why each wave sounds different, we have to understand a little bit about Fourier analysis.
+To understand why each wave sounds different, we have to understand a little bit about Fourier transformations.
 
-![Node](img/nodes/OSC/Osc-Fourier.jpg)  
+![Osc Fourier](img/nodes/OSC/Osc-Fourier.png)  
 *source:* Wikipedia
 
 Joseph Fourier was a French mathematician born in the 1700s.  He discovered that all sound waves, no matter how complex, are composed of sine waves of different but related frequencies.
@@ -186,14 +186,14 @@ There is a lot of heavy math behind why this is, but you don't need to understan
 
 First, let's have a look at the diagram below to see how a series of sine waves added together can start transforming into a square wave.
 
-![Node](img/nodes/OSC/Osc-Fourier-Series-Square.svg)  
+![Osc Fourier Series Square](img/nodes/OSC/Osc-Fourier-Series-Square.svg)  
 *source:* Wikipedia
 
 The first sine wave oscillates at the fundamental frequency, while each additional sine wave oscillates at a multiple or harmonic of that frequency.
 
 If you still can't picture what is going on, have a look at this animation (ignore the math if it's confusing):
 
-![Node](img/nodes/OSC/Osc-Fourier-Series-Transform.gif)  
+![Osc Fourier Series Transform](img/nodes/OSC/Osc-Fourier-Series-Transform.gif)  
 *source:* Wikipedia
 
 The animation first shows the square wave superimposed on a series of the 6 sine waves. When these sine waves are added together, they create the square(-ish) wave that you see.
@@ -202,7 +202,7 @@ The animation then separates these sine waves and creates a bar graph out of the
 
 Below you can see the same transformation happening with a saw wave - this time with 50 sine waves added together.
 
-![Node](img/nodes/OSC/Osc-Synthesis-Sawtooth-LucasVB.gif)  
+![Osc Synthesis Sawtooth LucasVB](img/nodes/OSC/Osc-Synthesis-Sawtooth-LucasVB.gif)  
 *source:* Wikipedia
 
 As you can see, the more sine waves you add, the closer your approximation of the idealized waveform becomes.
@@ -211,7 +211,7 @@ What makes wave shapes sound different are the relative loudness of their harmon
 
 A harmonic is a wave that vibrates at an integer multiple (x1, x2, x3, x4, ...etc.) of a fundamental frequency (see below).
 
-![Node](img/nodes/OSC/Osc-Harmonics.png)  
+![Osc Harmonics](img/nodes/OSC/Osc-Harmonics.png)  
 
 If we take as our base a note that vibrates at 440Hz, then its second harmonic would be at 880Hz (440x2), its third at 1320Hz (440x3), and its fourth at 1760Hz (440x4).
 
@@ -219,11 +219,12 @@ A sine only has one harmonic (the 1st or fundamental). Saw waves contain all har
 
 The ratio of the amplitude of each harmonic is 1/N where N = the harmonic number. This means the amplitude of the 1st harmonic is 1/1; the 2nd is 1/2; the 3rd is 1/3; the 4th is 1/4; ...etc. (see below).
 
-![Node](img/nodes/OSC/Osc-Integral-Harmonics.png)  
+![Osc Integral Harmonics](img/nodes/OSC/Osc-Integral-Harmonics.png)
+*source:* Wikipedia
 
 Download the patch pictured below from the Audulus Forum to see and listen to the first six harmonics of a saw wave.
 
-![Node](img/nodes/OSC/Osc-Saw-Harmonics.png)  
+![Osc Saw Harmonics](img/nodes/OSC/Osc-Saw-Harmonics.png)  
 
 Adding sine wave harmonics together like this is called additive synthesis. You can make all sorts of complex sounds by varying the amplitude of each harmonic or even applying different volume envelopes to each oscillator.
 
@@ -233,28 +234,31 @@ Subtractive synthesis is a technique that starts with a harmonically rich wavefo
 
 Subtractive synthesis is covered in more depth under the Filter node heading, but you can look below to see the basic setup of a subtractive synthesizer. You can also download this patch at the Audulus Forum.
 
-![Node](img/nodes/OSC/Osc-Subtractive-Synth.png)  
+![Osc Subtractive Synth](img/nodes/OSC/Osc-Subtractive-Synth.png)  
+
+The sync input of the Osc node is useful for several reasons - the most important being that it's great for making fat-sounding synthesizers!
+
+![Osc Hard Sync](img/nodes/OSC/Osc-Hard-Sync.png)   
+
+To understand what syncing does, first we have to understand what phase relationships are.
+
+When you create two oscillators in Audulus, the chances of them being perfectly in phase are slim. Look at the patch below - these are two oscillators created at two different times.  Notice how their waves do not overlap perfectly.
+
+![Osc Sync Synth](img/nodes/OSC/Osc-Out-of-Phase.png)  
+
+To fix this, we could save the patch, exit, and reopen the patch, and the oscillators would then be in sync. This would be like a hard reset on the entire patch, but it's also unnecessary.
+
+To syncronize these oscillators without having to restart the patch, we need to pulse their sync inputs at the same time with the rising edge of a gate signal. A Trigger node will work nicely for this. Notice how the waves went from out of sync to suddenly in sync after the trigger was first pressed (see below).
+
+![Osc Sync Synth](img/nodes/OSC/Osc-In-Phase.png)  
 
 
 
 
+![Osc Sync Synth](img/nodes/OSC/Osc-Sync-Synth.png)  
 
 
 
-
-
-
-#### Inputs
-
-The **Hz** input controls the pitch of the oscillator.
-
-The **amp** input controls the oscillator amplitude.
-
-The **sync** input will reset the oscillator whenever it crosses 0. To
-see this in action, hook another low-frequency oscillator to the sync
-input and watch the waveform node.
-
-The **shape** input controls the pulse width of the square wave, and the de-phasing of the sawtooth wave. Modulate this for a fatter sound.
 
 ### Phasor
 
