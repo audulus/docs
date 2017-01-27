@@ -532,18 +532,6 @@ S & H is often used to generate stair-step functions by sampling a LFO
 or random (noise) waveform and periodic intervals. It can also be used
 for syncronization of notes with a master clock.
 
-### Seq16
-
-![icon](img/icons/seq16.png)
-
-The **Seq16** is a simple 16 step sequencer which cycles through its
-inputs. When the clock input receives a signal increasing across zero
-(the rising edge), it moves to the next input.
-
-The **step** output indicates the current step.
-
-The **reset** input resets the sequencer back to step 1 whenever it is
-greater than zero.
 
 ---
 
