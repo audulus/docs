@@ -522,15 +522,45 @@ Like the Osc node, the Phasor also has a sync input. When the sync input sees th
 
 ### Sample & Hold
 
-![icon](img/icons/sample%20and%20hold.png)
+![S&H Node](img/nodes/Sample-and-Hold/SH-Node.png)
 
-The **Sample & Hold** (S & H) node samples a value from its input when
-its trigger input increases across zero (the positive edge). The current
-sampled value is written to the output.
 
-S & H is often used to generate stair-step functions by sampling a LFO
-or random (noise) waveform and periodic intervals. It can also be used
-for syncronization of notes with a master clock.
+Input        | Signal Range
+:------------- | :-------------
+trigger   | `Gate`
+in   | `any 32-bit number`
+
+Output        | Signal Range
+:------------- | :-------------
+Sample   | `any 32-bit number`
+
+**iOS Symbol**
+
+![icon](img/icons/sample%20and%20hold.png) 
+
+**Exposable Element** - N/A 
+
+**Warnings** - When using the Sample & Hold node in a feedback configuration (such as a counter) it may be necessary to use the Feedback Delay node to ensure stable functionality.
+
+**Typical Use** - Sampling incoming random values and using those values to modulate filter cutoff, pitch, or volume. Also great for creating downsampling distortion.
+
+When triggered by a Gate signal, the Sample & Hold node will capture the value at its input and hold that value at its output until the node is triggered again. Below, you can see how the Sample & Hold node works with both a noise source and an oscillator.
+
+![S&H Demo](img/nodes/Sample-and-Hold/SH-Demo.png)
+
+Sample & Hold is most recognizable as a kind of sci-fi bleep-bloop noisemaker. By scaling the output of a sampled noise source to audible Hz values, you can make "computer hard at work" sounds (see below).
+
+![S&H Bleep Bloop](img/nodes/Sample-and-Hold/SH-Bleep-Bloop.png)
+
+To make things even more interesting, you can add a filter and use a separate random Sample & Hold source to modulate its cutoff (sounds best with a high resonance value - see below).
+
+![S&H Bleep Bloop Filter](img/nodes/Sample-and-Hold/SH-Bleep-Bloop-Filter.png)
+
+If you want to take it a step further, square the output of the random node a couple times and watch how the filter will tend to stay in the lower pitches more often. You can download this patch at the forum here.
+
+![S&H Bleep Bloop Bias](img/nodes/Sample-and-Hold/SH-Bleep-Bloop-Bias.png)
+
+Sample & Hold can be used for much more than just adding randomness to your patches.
 
 
 ---
