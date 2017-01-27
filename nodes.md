@@ -447,17 +447,61 @@ A phasor node can be used to create multiple waveshapes with some simple math. O
 
 If you take the sine of the output of the Phasor node, you get a sine wave - go figure, right? But why is this?
 
-Well, remember SOH-CAH-TOA? As pictured below, the sine of angle ⍺ (alpha) is the ratio: `Opposite/Hypotenuse`
+Well, remember SOH-CAH-TOA? As pictured below, the sine of angle ⍺ (alpha) is the ratio: `Opposite/Hypotenuse`.
 
 ![Sine Angle](img/nodes/Phasor/Sine-Angle.png)
 
+Since we're using the Unit Circle, the hypotenuse always equals 1 (it's the radius of the circle). This makes the math really easy: `Opposite/1 = Opposite`.
+
+The length of this opposite side becomes the set of y coordinates that make up the unit circle. The x coordinates of the unit circle are the solutions of the cosine (`Adjacent/Hypotenuse`).
+
+When we solve the equation `y = sin(x)` (which is the same as `sin(Phasor)` in Audulus) we get an undulating line.
+
+![Sine Quadrants](img/nodes/Phasor/Sine-Quadrant.png)
+
+The animation below illustrates the relationship of the sine and cosine waves. Sonically, they are identical, but they are phase-shifted by 90 degrees (~1.57 radians).
+
+![Sine Cosine](img/nodes/Phasor/Sin-Cos.gif)
+
+When creating a multi-output LFO, you might find it useful to use `cos(Phasor)` instead of `sin(Phasor)`.  This is because the cosine of the Phasor node is in phase with the saw wave and other waves you'll create (see below).
+
+![Cosine LFO](img/nodes/Phasor/Cosine-LFO.png)
+
+To create a square wave LFO using the Phasor node, we need to use a logic expression. 
+
+In the image below, the Phasor output has been translated from its normal 0 to 2π range into a 0 to 1 range. All LFOs should operate in a range of 0 to 1 because so many inputs (knobs, crossfade input, level node) all work from 0 to 1 by default.
+
+The expression `Phasor/(2*pi)>.5` is true (outputs a 1) when the 0 to 1 output of the `Phasor/(2*pi)` expression is greater than 0.5. When the output of `Phasor/(2*pi)` is less than 0.5, the expression is false (outputs a 0).
+
+![Square LFO](img/nodes/Phasor/Phasor-Square.png)
+
+To add pulse-width modulation to this LFO, all we need to do is add a Knob node (see below).
+
+![Square LFO PWM 1](img/nodes/Phasor/Phasor-Square-PWM1.png)
+
+In the above example, the expression `Phasor/(2*pi)>Knob` is only true for a small period of time.  However, in the example below, the expression is true for a longer period.
+
+![Square LFO PWM 2](img/nodes/Phasor/Phasor-Square-PWM2.png)
+
+To create a triangle LFO, we need to use some simple algebra.
+
+First, we have to shift the saw LFO downwards so that half of its oscillation is negative.  `Phasor/(2*pi)-.5` shifts the 0 to 1 saw wave down by 0.5, making it oscillate between -0.5 and +0.5.
+
+![Triangle LFO Shift](img/nodes/Phasor/Phasor-Triangle-Shift.png)
+
+The `abs(x)` expression returns the absolute value of x - usually notated as `|x|`.
+
+`abs(Phasor/(2*pi)-.5)` takes the absolute value of that shifted expression and turns the saw wave into a triangle wave.
+
+![Triangle LFO Abs](img/nodes/Phasor/Phasor-Triangle-Abs.png)
+
+We can then take this 0 to 0.5 wave and multiply it by 2 to get a triangle wave that oscillates between 0 and 1.
+
+![Triangle LFO](img/nodes/Phasor/Phasor-Triangle.png)
+
+**Fun Fact:** *Another name for the absolute value is the "modulus," which was the original name of Audulus in an early beta!*
 
 
-
-
-![Phasor Animation](img/nodes/Phasor/Complex-Sine-Animation.gif)
-
-We can use the 
 
 
 
