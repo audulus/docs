@@ -389,7 +389,7 @@ This is a phenomenon that has to be accounted for in digital computer chips as w
 Input        | Signal Range
 :------------- | :-------------
 sync   | `Gate`
-frequency   | `0 to Sample Rate`
+frequency   | `0 to Sample Rate/2`
 
 Output        | Signal Range
 :------------- | :-------------
@@ -406,7 +406,7 @@ Radians   | `0 to 2π (~6.28)`
 **Typical Use** - Creating low-CPU modulation sources.
 
 
-The **Phasor** node outputs a sawtooth wave that ranges from 0 to 2π.
+The **Phasor** node outputs a sawtooth wave that ranges from 0 to 2π. It's used to create oscillators, and is most useful as an LFO (low frequency oscillator).
 
 ![Phasor Wave](img/nodes/Phasor/Phasor-Wave.png)
 
@@ -501,9 +501,23 @@ We can then take this 0 to 0.5 wave and multiply it by 2 to get a triangle wave 
 
 **Fun Fact:** *Another name for the absolute value is the "modulus," which was the original name of Audulus in an early beta!*
 
+So that's how you can use the Phasor node to create all of the basic LFO shapes.
 
+![LFO Shapes](img/nodes/Phasor/Phasor-LFO-Shapes.png)
 
+Why go through all the trouble of making a Phasor LFO? There are two reasons:
 
+1) The Phasor node is much more CPU-efficient than the Osc node is. This CPU savings can make a big difference in patches like the one below with multiple LFOs.
+
+![Multiple LFOs](img/nodes/Phasor/Phasor-Multiple-LFOs.png)
+
+2) The Phasor node creates waves that are not bandlimited, meaning they are "idealized" forms of each wave. This is useful for triggering switches. The little spike you see on the anti-aliased Osc node may cause a logic expression like `x>0` to trigger multiple times. (To understand why this is, refer back to the Osc node description.)
+
+![Phasor Trigger](img/nodes/Phasor/Phasor-Trigger.png)
+
+Like the Osc node, the Phasor also has a sync input. When the sync input sees the rising edge of Gate signal, the Phasor resets to 0. This can be used to create more complex waves when used in tandem with another Phasor node (see below).
+
+![Phasor Sync](img/nodes/Phasor/Phasor-Sync.png)
 
 
 ### Sample & Hold
