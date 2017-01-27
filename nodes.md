@@ -372,32 +372,41 @@ Five million Hertz may seem really fast, but in reality, 5Mhz is infinitely clos
 
 Yeah, take a second and think about that one.
 
-As a parting note on the Osc node, the Gibbs Phenomenon can become a problem when you're using a square or saw wave as control signal, and it is why you should use a Phasor-based LFO for all of your LFO needs.
+As a parting note on the Osc node, the Gibbs Phenomenon can become a problem when you're using a square or saw wave as control signal, and it is why you should use a Phasor-node based LFO for all of your LFO needs, which outputs an idealized digital waveform.
 
 Even if you offset and attenuate the output of the Osc node to be between 0 and 1, the transitions will ring both lower and higher than 0 and 1, which can cause problems for time-based parameters (which can't be negative) and resonance (which can't be more than 100%).
 
-Also, if you are using a square oscillator as an on/off switch, the ringing can cause the switch to flip open and closed rapidly.  This is a phenomenon that has to be accounted for in digital computer chips as well.
+Also, if you are using a square oscillator as an on/off switch, the ringing can cause the switch to flip open and closed rapidly. The patch below illustrates the problem with two counters. These should be exactly in sync, but as you can see, one switch is triggering the counter twice as often as the other.
 
+![Osc J Willy](img/nodes/OSC/Osc-Ringing-VS-Debounced.png)
 
-
-
-
-
-
-
-
-
-
-
+This is a phenomenon that has to be accounted for in digital computer chips as well. The solution to this problem is called debouncing - filtering that can be done either with analog components or in software code.
 
 ### Phasor
 
+![Node](img/nodes/Phasor/Phasor-Node.png)  
+
+Input        | Signal Range
+:------------- | :-------------
+sync   | `Gate`
+frequency   | `0 to Sample Rate`
+
+Output        | Signal Range
+:------------- | :-------------
+Radians   | `0 to 2π (~6.28)`
+
+**iOS Symbol**
+
 ![icon](img/icons/phasorsynth.png)
 
-The **Phasor** node outputs a sawtooth wave that ranges from 0 to 2π. To
-create a sin oscillator, connect the Phasor to a Sin node. Or connect
-the Phasor to a Math Expression Node (\#Expr) to create your own
-oscillator or LFO.
+**Exposable Element** - None
+
+**Warnings** - Because the Phasor node is not bandlimited, using it as an audio oscillator will result in aliasing distortion.
+
+**Typical Use** - Creating low-CPU modulation sources.
+
+
+The **Phasor** node outputs a sawtooth wave that ranges from 0 to 2π. 
 
 ### Sample & Hold
 
