@@ -419,11 +419,45 @@ For starters, the Phasor node is *not* a phaser effect.
 ![These Are Not The Phasers You're Looking For](img/nodes/Phasor/MXR-Phaser.png)  
 source: Wikipedia
 
-"Phasor" is a combination of the words "phase" and "vector." A vector is a type of line that has a direction and a beginning and end point (as opposed to a ray, which has a beginning but no end).
+"Phasor" is a combination of the words "phase" and "vector." A vector is a type of line that has a beginning point, an end point, and a direction (as opposed to a ray, which has a beginning but no end).
 
 ![Vector](img/nodes/Phasor/Vector.png)
 
-Phase is the measure of 
+Phase is the measure of a point in a wave cycle at a given time. A sine wave like the one below begins at 0 degrees, rises to 90 degrees, falls to 270 degrees, and completes the cycle at 360 degrees.
+
+![Phase](img/nodes/Phasor/Phase.gif)
+
+When we combine these two concepts - phase and vector, we get something like this:
+
+![Phasor Animation](img/nodes/Phasor/Phasor-Animation.gif)
+
+The circle pictured above is the Unit Circle - a circle with a radius of 1, centered at the origin point (0,0). The Phasor node outputs the value of the length of the arc between the point (1,0) and the vector. This measurement is called a radian.
+
+Because the circumference of a circle is `2*pi*radius`, and the radius of the Unit Circle is 1, we get a total possible range of values of 0 to 2π.
+
+If you're still having trouble visualizing this, watch the the animation below:
+
+![Radian Animation](img/nodes/Phasor/Radian-Animation.gif)
+
+So now that you understand *why* the Phasor node outputs the range 0 to 2π, we can look at why this range is useful for creating all kinds of waves.
+
+A phasor node can be used to create multiple waveshapes with some simple math. Of course, it naturally outputs a sawtooth wave, but how do we create a sine wave? It's easy:
+
+![Phasor Sine](img/nodes/Phasor/Phasor-Sine.png)
+
+If you take the sine of the output of the Phasor node, you get a sine wave - go figure, right? But why is this?
+
+Well, remember SOH-CAH-TOA? As pictured below, the sine of angle ⍺ (alpha) is the ratio: `Opposite/Hypotenuse`
+
+![Sine Angle](img/nodes/Phasor/Sine-Angle.png)
+
+
+
+
+
+![Phasor Animation](img/nodes/Phasor/Complex-Sine-Animation.gif)
+
+We can use the 
 
 
 
