@@ -401,12 +401,32 @@ Radians   | `0 to 2π (~6.28)`
 
 **Exposable Element** - None
 
-**Warnings** - Because the Phasor node is not bandlimited, using it as an audio oscillator will result in aliasing distortion.
+**Warnings** - Because the Phasor node is not bandlimited, using it as an audio oscillator will result in aliasing distortion. Also NOTE: This is NOT a "Phaser" effect!
 
 **Typical Use** - Creating low-CPU modulation sources.
 
 
-The **Phasor** node outputs a sawtooth wave that ranges from 0 to 2π. 
+The **Phasor** node outputs a sawtooth wave that ranges from 0 to 2π.
+
+![Phasor Wave](img/nodes/Phasor/Phasor-Wave.png)
+
+As you can see in the image above, the expression `Phasor/(2*pi)` is used to bring the 0 to 2π range into a 0 to 1 range that we can see on the Waveform node. So why does the Phasor node output a signal of 0 to 2π? Wouldn't it be easier to work with if it just output a signal of 0 to 1?
+
+Before we answer that question, let's look more deeply at what a phasor is.
+
+For starters, the Phasor node is *not* a phaser effect.
+
+![These Are Not The Phasers You're Looking For](img/nodes/Phasor/MXR-Phaser.png)  
+source: Wikipedia
+
+"Phasor" is a combination of the words "phase" and "vector." A vector is a type of line that has a direction and a beginning and end point (as opposed to a ray, which has a beginning but no end).
+
+![Vector](img/nodes/Phasor/Vector.png)
+
+Phase is the measure of 
+
+
+
 
 ### Sample & Hold
 
