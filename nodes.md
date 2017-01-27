@@ -556,11 +556,22 @@ To make things even more interesting, you can add a filter and use a separate ra
 
 ![S&H Bleep Bloop Filter](img/nodes/Sample-and-Hold/SH-Bleep-Bloop-Filter.png)
 
-If you want to take it a step further, square the output of the random node a couple times and watch how the filter will tend to stay in the lower pitches more often. You can download this patch at the forum here.
+If you want to take it a step further, square the output of the random node a couple times and watch how the filter will tend to stay in the lower pitches more often. 
+
+(Click here to download the patch below.)
 
 ![S&H Bleep Bloop Bias](img/nodes/Sample-and-Hold/SH-Bleep-Bloop-Bias.png)
 
-Sample & Hold can be used for much more than just adding randomness to your patches.
+Sample & Hold can be used for much more than just adding randomness to your patches. 
+
+In fact, it is one of the most powerful nodes available to you.
+
+Below is a flip-flop. Flip-flops are a fundamental building blocks of computers. They can store information as a 0 or 1.
+
+![S&H Flip-Flop](img/nodes/Sample-and-Hold/SH-Flip-Flop.gif)
+
+
+
 
 
 ---
