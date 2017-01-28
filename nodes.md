@@ -586,11 +586,19 @@ Another use for the Sample & Hold node is as a counter. Below is an example of a
 
 ![S&H Step Sample](img/nodes/Sample-and-Hold/SH-Count-Up.gif)
 
-The Sample & Hold node can also be configured to detect change in an incoming signal. The `!=` operation means "does not equal." So if the signal that is coming from the knob (or any other modulation source) does not equal the sampled signal, it will resample the incoming signal until they are equal.
+The Sample & Hold node can also be configured to detect change in an incoming signal. In the Delta change detector configuration below, the `!=` operation means "does not equal." So if the signal that is coming from the knob (or any other modulation source) does not equal the sampled signal, it will resample the incoming signal until they are equal.
 
 This can be useful for adding a gates to a random sequencer - it would create a gate signal with each new note that could be used to trigger a volume envelope.
 
 ![S&H Delta](img/nodes/Sample-and-Hold/SH-Delta.png)
+
+With a similar configuration, the Sample and Hold node can detect the high and low values of an incoming signal.
+
+![S&H Delta](img/nodes/Sample-and-Hold/SH-High-Low.png)
+
+There are so many more uses for the Sample & Hold node - you're really only limited by your imagination. Below is an example of the Pulse Looper module, which uses Sample & Hold nodes in an array formation to capture the rhythm of button presses.
+
+![S&H Delta](img/nodes/Sample-and-Hold/SH-Pulse-Looper.png)
 
 ---
 
