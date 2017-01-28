@@ -751,19 +751,61 @@ oscillator.
 
 ## Poly
 
-### MonoToQuad
+### MonoToQuad / QuadToMono / MonoToStereo / StereoToMono
 
-![icon](img/icons/mono%20to%20quad.png)
+![Node](img/nodes/Poly/Poly-Nodes.png)  
+
+MonoToQuad Input        | Signal Range
+:------------- | :-------------
+in1   | `any 32-bit number`
+in2   | `any 32-bit number`
+in3   | `any 32-bit number`
+in4   | `any 32-bit number`
+
+MonoToQuad Output        | Signal Range
+:------------- | :-------------
+Poly Signal   | `4x any 32-bit number`
+
+QuadToMono Input        | Signal Range
+:------------- | :-------------
+Poly Signal   | `4x any 32-bit number`
+
+QuadToMono Output        | Signal Range
+:------------- | :-------------
+out1   | `any 32-bit number`
+out2   | `any 32-bit number`
+out3   | `any 32-bit number`
+out4   | `any 32-bit number`
+
+MonoToStereo Input        | Signal Range
+:------------- | :-------------
+in1   | `any 32-bit number`
+in2   | `any 32-bit number`
+
+MonoToStereo Output        | Signal Range
+:------------- | :-------------
+Poly Signal   | `2x any 32-bit number`
+
+StereoToMono Input        | Signal Range
+:------------- | :-------------
+Poly Signal   | `2x any 32-bit number`
+
+StereoToMono Output        | Signal Range
+:------------- | :-------------
+out1   | `any 32-bit number`
+out2   | `any 32-bit number`
+
+
+**iOS Symbol**
+
+![icon](img/icons/zerocross.png)
+
+**Exposable Element** - None.
+
+**Typical Use** - Pitch detecting an incoming instrument (like a guitar) to control the pitch of an oscillator or filter cutoff.
 
 The **MonoToQuad** node converts four mono signals to one four-channel
 polyphonic signal. It is the inverse of the \#QuadToMono Node.
-
-### MonoToStereo
-
-![icon](img/icons/mono%20to%20stereo.png)
-
-The **MonoToStereo** node converts two mono signals to a stereo signal.
-Use the \#StereoToMono node to convert back.
 
 ### PolyToMono
 
@@ -778,19 +820,6 @@ only a single voice needs to be processed. On the other hand, nonlinear
 effects, such as \#Distortion will have quite a different effect if
 placed before the PolyToMono versus after.
 
-### QuadToMono
-
-![icon](img/icons/quad%20to%20mono.png)
-
-The **QuadToMono** node converts a four-channel polyphonic signal to
-four monophonic signals. It is the inverse of the \#MonoToQuad Node.
-
-### StereoToMono
-
-![icon](img/icons/stereo%20to%20mono.png)
-
-The **StereoToMono** node converts a stereo signal to two mono signals.
-Use the \#MonoToStereo node to convert two mono signals to stereo.
 
 ## Sub-Patches
 
