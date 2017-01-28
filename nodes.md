@@ -570,7 +570,17 @@ Below is a flip-flop. Flip-flops are a fundamental building blocks of computers.
 
 ![S&H Flip-Flop](img/nodes/Sample-and-Hold/SH-Flip-Flop.gif)
 
+Flip-flops can be used as clock dividers, and when they are cascaded, they become a shift register. Each flip-flop divides the incoming clock speed in half.
 
+![S&H Shift Register](img/nodes/Sample-and-Hold/SH-Shift-Register.gif)
+
+You can also use Sample & Hold nodes in an array configuration to store multiple 32-bit numbers. This means you can build a sequencer with any number of steps and only need 2 knobs (Step Select and Value) and 1 button (Print Value to Current Step) to program it.
+
+Below is an example of how this would work with only 4 steps for simplicity's sake. The Mono-to-Quad and Quad-to-Mono nodes help compress the patch visually - imagine there are 4 separate Sample & Hold nodes there, one for each step. The light indicates which step is selected. (If it's confusing, jump to the section on Mono-to-Quad/Quad-to-Mono.)
+
+![S&H Shift Register](img/nodes/Sample-and-Hold/SH-Step-Sample.png)
+
+The only downside to this is that the Sample & Hold node is cleared of its values when the patch is reset (i.e., when you close and reopen the patch). In a future version of Audulus, we will introduce a Data node that will allow you to store values more permanently.
 
 
 
