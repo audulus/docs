@@ -39,7 +39,7 @@ h4 {
 
 Input        | Signal Range (Default / Maximum)
 :------------- | :-------------
-gate   | `Gate`
+Gate   | `Gate (rising edge)`
 Attack (knob 1)   | `0 to 1 second / 0 to >1 (hour)`
 Decay (knob 2)   | `0 to 1 second / 0 to >1 (hour)`
 Sustain (knob 3)   | `0 to 1`
@@ -146,11 +146,11 @@ Anti-Aliased Waveform   | `-amp to +amp`
 
 ![icon](img/icons/osc.png)
 
-**Exposable Element**
+**Exposable Element** - Wave shape.
 
 ![Osc Exposed](img/nodes/OSC/Osc-Exposed.png)  
 
-**Warnings** - Because this is an anti-aliased oscillator, its best use is as an audio oscillator (20Hz-20kHz).  To create LFOs (oscillators that generate control signals) use a Phasor node-based oscillator. Phasor-based oscillators use much less CPU and do not ring at their transitions (see: Gibbs Phenomenon).
+**Warnings** - Because this is an anti-aliased oscillator, its best use is as an audio oscillator (20Hz-20kHz).  To create LFOs (oscillators that generate control signals) use a Phasor node-based oscillato. Phasor-based oscillators use much less CPU and do not ring at their transitions (see: Gibbs Phenomenon).
 
 **Typical Use** - Creating the voice of the synthesizer, i.e., the origin of the audio signal.
 
@@ -399,7 +399,7 @@ Radians   | `0 to 2π (~6.28)`
 
 ![icon](img/icons/phasorsynth.png)
 
-**Exposable Element** - None
+**Exposable Element** - None.
 
 **Warnings** - Because the Phasor node is not bandlimited, using it as an audio oscillator will result in aliasing distortion. Also NOTE: This is NOT a "Phaser" effect!
 
@@ -538,7 +538,7 @@ Sample   | `any 32-bit number`
 
 ![icon](img/icons/sample%20and%20hold.png) 
 
-**Exposable Element** - N/A 
+**Exposable Element** - None. 
 
 **Warnings** - When using the Sample & Hold node in a feedback configuration (such as a counter) it may be necessary to use the Feedback Delay node to ensure stable functionality.
 
@@ -620,7 +620,7 @@ Signal   | `any 32-bit number`
 
 ![icon](img/icons/feedbackdelay.png)
 
-**Exposable Element** - None
+**Exposable Element** - None.
 
 **Warnings** - The Feedback Delay node is *not* used for audio or signal delays. If you want to delay something in time, use the Delay node.
 
@@ -637,18 +637,18 @@ input.
 
 Input        | Signal Range
 :------------- | :-------------
-Right (Top Input)   | `-1 to 1`
-Left (Bottom Input)   | `-1 to 1`
+Top - Right / Audio Output 2   | `-1 to 1`
+Bottom - Left / Audio Output 1    | `-1 to 1`
 
 **iOS Symbol**
 
 ![icon](img/icons/speaker.png)
 
-**Exposable Element** - N/A
+**Exposable Element** - None.
 
-**Warnings** - Modular synthesis can create suddenly loud sounds if you don't know what you're doing.  The #1 culprit of this is connecting a large signal to a filter's resonance input. Protect your hearing, and be careful when experimenting with headphones on or speakers turned up high.  Also, signals beyond the range of -1 to 1 will be clipped, causing distortion. It is generally best to keep outputs at 50-75% of maximum.
+**Warnings** - Modular synthesis can cause sudden and *painful* spikes in volume if you don't know what you're doing. The #1 culprit of this is connecting a large signal to a filter's resonance input. Protect your hearing, and be careful when experimenting with headphones on or speakers turned up high.  Also, signals beyond the range of -1 to 1 will be clipped, causing distortion. It is generally best to keep outputs at 50-75% of maximum.
 
-**Typical Use** - Sending audio and/or control signals out of Audulus.
+**Typical Use** - Sending audio and/or control voltages out of Audulus.
 
 
 The **Speaker** node sends two channels of audio to the speakers or
@@ -657,20 +657,62 @@ then the output of each node is mixed together equally.
 
 ### Mic
 
+![Node](img/nodes/Mic/Mic.png)  
+
+Output        | Signal Range
+:------------- | :-------------
+Top - Right / Audio Input 2   | `-1 to 1`
+Bottom - Left / Audio Input 1   | `-1 to 1`
+
+**iOS Symbol**
+
 ![icon](img/icons/mic.png)
+
+**Exposable Element** - None.
+
+**Warnings** - If a Mic node is connected to a Speaker node, it is possible to create a painfully loud feedback loop, especially on iOS. You must isolate the Mic node input from the Speaker node output (usually by plugging in headphones).
+
+**Typical Use** - Routing audio and/or control voltages into Audulus.
 
 The **Mic** node recieves two channels of audio input from your audio device or plugin audio input.
 
 ### Text
 
+![Node](img/nodes/Text/Text-Node.png)  
+
+**iOS Symbol**
+
 ![icon](img/icons/text.png)
+
+**Exposable Element** - The text itself. Note: The text will move the bounding of a subpatch to how it is formatted internally.
+
+![Text Exposed](img/nodes/Text/Text-Exposed.png)  
+
+**Typical Use** - Labeling controls and creating visual accents on modules as well as adding patch commentary.
 
 **Text** is editable text that can be used to label things and write
 comments. To edit the text, invoke the context menu on the text.
 
 ### Timer
 
+![Node](img/nodes/Timer/Timer-Node.png)  
+
+Input        | Signal Range
+:------------- | :-------------
+Reset   | `Gate (rising edge)`
+
+Output        | Signal Range
+:------------- | :-------------
+Seconds Since Last Reset   | `0 to 68 years`
+
+**iOS Symbol**
+
 ![icon](img/icons/timer.png)
+
+**Exposable Element** - None.
+
+**Typical Use** - Usually used in conjunction with a logic expression that gives a command after n-seconds have passed, e.g., `Timer>10`.
+
 
 The **Timer** node outputs the time (in seconds) after its input is
 triggered.
@@ -680,7 +722,24 @@ node to its output.
 
 ### ZeroCross
 
+![Node](img/nodes/Zero-Cross/Zero-Cross-Node.png)  
+
+Input        | Signal Range
+:------------- | :-------------
+Audio   | `-1 to 1`
+
+Output        | Signal Range
+:------------- | :-------------
+Fundamental Pitch of the Audio in Hz   | `0 to 20,000`
+
+**iOS Symbol**
+
 ![icon](img/icons/zerocross.png)
+
+**Exposable Element** - None.
+
+**Typical Use** - Pitch detecting an incoming instrument (like a guitar) to control the pitch of an oscillator or filter cutoff.
+
 
 The **ZeroCross** node can be used to detect the pitch of a simple
 waveform. It outputs the frequency of zero-crossings of its input signal
