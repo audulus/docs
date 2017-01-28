@@ -645,12 +645,12 @@ The Signal input changes from 0 to 1.  Audulus calculates the inequality between
 `Module Output = 1`
 
 **Buffer 2**  
-The Signal input changes from 1 to 2.  The FeedbackDelay node releases the signal from the inequality.  The output of the inequality from the last chunk triggers the Sample & Hold node.  The Sample & Hold node captures the signal input and holds the value at its output.  Audulus calculates the inequality between the Signal and Sample inputs again.  Both the Signal and Sample match, so the inequality outputs a 0.  Again, the Feedback Delay node halts the value until the next buffer.
+The Signal input changes from 1 to 2.  The FeedbackDelay node releases the signal from the inequality.  The output of the inequality from the last buffer triggers the Sample & Hold node.  The Sample & Hold node captures the signal input and holds the value at its output.  Audulus calculates the inequality between the Signal and Sample inputs again.  Both the Signal and Sample match, so the inequality outputs a 0.  Again, the Feedback Delay node halts the value until the next buffer.
 
 `Module Output = 0`
 
 **Buffer 3**  
-The Signal input changes from 2 to 3.  The FeedbackDelay node releases the 0 signal and the trigger of the Sample & Hold node goes low.  Audulus calculates the inequality again.  The sampled value from chunk 2 doesn't match the Signal input from chunk 3.  The inequality outputs a 1.  The FeedbackDelay node halts the value until the next buffer.
+The Signal input changes from 2 to 3.  The FeedbackDelay node releases the 0 signal and the trigger of the Sample & Hold node goes low.  Audulus calculates the inequality again.  The sampled value from buffer 2 doesn't match the Signal input from buffer 3.  The inequality outputs a 1.  The FeedbackDelay node halts the value until the next buffer.
 
 `Module Output = 1`
 
@@ -682,7 +682,9 @@ The Signal input changes from 2 to 3.  The Feedback Delay node releases the Samp
 
 `Module Output = 1`
 
-...and so on. If you understood that, then great! You'll be able to use that knowledge in your designs. If you didn't understand, don't worry. If you ever come across a situation where you are using feedback and something seems to work at first, but when you close and reenter the patch, it no longer works, that means you just need to play around with inserting the FeedbackDelay node at different points within your feedback loop to see what works. What happened was when you were putting it together, Audulus put the feedback delay in the correct position. But when you reopened the patch, the feedback delay jumped to another spot where it no longer works.
+...and so on. If you understood that, then great! You'll be able to use that knowledge in your designs. If you didn't understand, don't worry. If you ever come across a situation where you are using feedback and something seems to work at first, but when you close and reenter the patch, it no longer works, that just means you need to play around with inserting the FeedbackDelay node at different points within your feedback loop to see what works. 
+
+What happened was when you were putting it together, Audulus put the feedback delay in the correct position. But when you reopened the patch, the feedback delay reset and jumped to another spot where it no longer works.
 
 And of course, if you're having trouble with a patch that uses feedback, you can always put your question to the community at the Audulus forum!
 
