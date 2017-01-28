@@ -604,17 +604,52 @@ There are so many more uses for the Sample & Hold node - you're really only limi
 
 ## Utilities
 
-### FeedbackDelay
+### Feedback Delay
+
+![Node](img/nodes/Feedback-Delay/Feedback-Delay-Node.png)  
+
+Input        | Signal Range
+:------------- | :-------------
+Signal   | `any 32-bit number`
+
+Output        | Signal Range
+:------------- | :-------------
+Signal   | `any 32-bit number`
+
+**iOS Symbol**
 
 ![icon](img/icons/feedbackdelay.png)
 
-The **FeedbackDelay** node controls where a delay occurs in a feedback
+**Exposable Element** - None
+
+**Warnings** - The Feedback Delay node is *not* used for audio or signal delays. If you want to delay something in time, use the Delay node.
+
+**Typical Use** - Defining precise point of a processing delay in a feedback loop when critical to a patch's functionality.
+
+
+The **Feedback Delay** node controls where a delay occurs in a feedback
 loop. Audulus indicates where a feedback delay occurs with a "z" in an
 input.
 
 ### Speaker
 
+![Node](img/nodes/Speaker/Speaker-Node.png)  
+
+Input        | Signal Range
+:------------- | :-------------
+Right (Top Input)   | `-1 to 1`
+Left (Bottom Input)   | `-1 to 1`
+
+**iOS Symbol**
+
 ![icon](img/icons/speaker.png)
+
+**Exposable Element** - N/A
+
+**Warnings** - Modular synthesis can create suddenly loud sounds if you don't know what you're doing.  The #1 culprit of this is connecting a large signal to a filter's resonance input. Protect your hearing, and be careful when experimenting with headphones on or speakers turned up high.  Also, signals beyond the range of -1 to 1 will be clipped, causing distortion. It is generally best to keep outputs at 50-75% of maximum.
+
+**Typical Use** - Sending audio and/or control signals out of Audulus.
+
 
 The **Speaker** node sends two channels of audio to the speakers or
 plugin outputs. If multiple speaker nodes are present in a patch,
