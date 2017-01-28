@@ -604,9 +604,9 @@ There are so many more uses for the Sample & Hold node - you're really only limi
 
 ## Utilities
 
-### Feedback Delay
+### FeedbackDelay
 
-![Node](img/nodes/Feedback-Delay/Feedback-Delay-Node.png)  
+![Node](img/nodes/FeedbackDelay/FeedbackDelay-Node.png)  
 
 Input        | Signal Range
 :------------- | :-------------
@@ -622,14 +622,70 @@ Signal   | `any 32-bit number`
 
 **Exposable Element** - None.
 
-**Warnings** - The Feedback Delay node is *not* used for audio or signal delays. If you want to delay something in time, use the Delay node.
+**Warnings** - The FeedbackDelay node is *not* used for audio or signal delays. If you want to delay something in time, use the Delay node.
 
 **Typical Use** - Defining precise point of a processing delay in a feedback loop when critical to a patch's functionality.
 
 
-The **Feedback Delay** node controls where a delay occurs in a feedback
-loop. Audulus indicates where a feedback delay occurs with a "z" in an
-input.
+The **FeedbackDelay** node controls where a delay occurs in a feedback loop. Audulus indicates where a feedback delay occurs with a "z" in an input (indicating a Z-transform). If no FeedbackDelay node is present, Audulus will automatically decide where the delay occurs. While this is fine for many applications, in some situations, a misplaced feedback delay will break the patch's functionality.
+
+But why does a feedback delay even need to exist? The answer is simple, but can be hard to visualize at first: a computer cannot process a value before it has been created. 
+
+Audulus computes the values at two different speeds: frames and buffers. Frames run at audio rate (44.1kHz) while buffers are executed in groups of 128 frames (~345Hz). Unless you explicitly tell Audulus to process a value sample-by-sample (see the z-1 node), Audulus will process operations in buffers. The feedback delay node is a way of marking explicitly where the order of operations during 1 buffer stops and waits until the next buffer.
+
+To understand more deeply why the FeedbackDelay node is necessary in some cases, first follow along with the steps of a correctly made Delta Change Detector module, and then look at what happens when the module is made incorrectly.  
+
+![Node](img/nodes/FeedbackDelay/FeedbackDelay-Correct.png)  
+
+**Correctly Made Delta Change Detector Module**
+
+**Buffer 1**  
+The Signal input changes from 0 to 1.  Audulus calculates the inequality between the Signal and Sample inputs.  The values are different so the output is 1.  The FeedbackDelay node is between the output and the Sample & Hold trigger.  It prevents the inequality from triggering the node during this buffer.
+
+`Module Output = 1`
+
+**Buffer 2**  
+The Signal input changes from 1 to 2.  The FeedbackDelay node releases the signal from the inequality.  The output of the inequality from the last chunk triggers the Sample & Hold node.  The Sample & Hold node captures the signal input and holds the value at its output.  Audulus calculates the inequality between the Signal and Sample inputs again.  Both the Signal and Sample match, so the inequality outputs a 0.  Again, the Feedback Delay node halts the value until the next buffer.
+
+`Module Output = 0`
+
+**Buffer 3**  
+The Signal input changes from 2 to 3.  The FeedbackDelay node releases the 0 signal and the trigger of the Sample & Hold node goes low.  Audulus calculates the inequality again.  The sampled value from chunk 2 doesn't match the Signal input from chunk 3.  The inequality outputs a 1.  The FeedbackDelay node halts the value until the next buffer.
+
+`Module Output = 1`
+
+**Buffer 4**  
+The Signal input stays at 3.  The FeedbackDelay node releases the 1 and the trigger of the Sample & Hold node goes high.  The Sample & Hold captures the signal input and holds the value at its output.  Audulus calculates the inequality again.  The Signal and Sample match, so the inequality outputs a 0.  The Feedback Delay node halts the value until the next buffer.
+
+`Module Output = 0`
+
+**Buffer 5**  
+The Signal input stays at 3.  The Feedback Delay node releases the 0 and the trigger of the Sample & Hold node goes low.  Audulus calculates the inequality again.  The Signal and Sample match, so the inequality outputs a 0.
+
+`Module Output = 0`
+
+![Node](img/nodes/FeedbackDelay/FeedbackDelay-Incorrect.png)  
+**Incorrectly Made Delta Change Detector Module**
+
+**Buffer 1**  
+The Signal input changes from 0 to 1.  Audulus calculates the inequality between the Signal and Sample inputs.  The values are different so the output is 1.  The output triggers the Sample & Hold node.  The Sample & Hold node captures the Signal input value and holds it at its output.  The Feedback Delay node halts the value until the next buffer.
+
+`Module Output = 1`
+
+**Buffer 2**  
+The Signal input changes from 1 to 2.  The Feedback Delay node releases the Sample signal.  Audulus calculates the inequality.  The inequality is still true because the Sample (1) and the Signal (2) are still different.  The Sample & Hold node retains the same sample.  The Feedback Delay node halts the output value until the next buffer.
+
+`Module Output = 1`
+
+**Buffer 3**  
+The Signal input changes from 2 to 3.  The Feedback Delay node releases the Sample signal. Audulus calculates the inequality.  The inequality is still true because the Sample (1) and the Signal (3) are still different.  The Sample & Hold node retains the same sample.  The Feedback Delay node halts the output value until the next buffer.
+
+`Module Output = 1`
+
+...and so on. If you understood that, then great! You'll be able to use that knowledge in your designs. If you didn't understand, don't worry. If you ever come across a situation where you are using feedback and something seems to work at first, but when you close and reenter the patch, it no longer works, that means you just need to play around with inserting the FeedbackDelay node at different points within your feedback loop to see what works. What happened was when you were putting it together, Audulus put the feedback delay in the correct position. But when you reopened the patch, the feedback delay jumped to another spot where it no longer works.
+
+And of course, if you're having trouble with a patch that uses feedback, you can always put your question to the community at the Audulus forum!
+
 
 ### Speaker
 
@@ -796,20 +852,39 @@ out1   | `any 32-bit number`
 out2   | `any 32-bit number`
 
 
-**iOS Symbol**
+**iOS Symbols**
 
-![icon](img/icons/zerocross.png)
+![icon](img/icons/mono%20to%20quad.png)
+![icon](img/icons/quad%20to%20mono.png)
+![icon](img/icons/mono%20to%20stereo.png)
+![icon](img/icons/stereo%20to%20mono.png)
 
 **Exposable Element** - None.
 
-**Typical Use** - Pitch detecting an incoming instrument (like a guitar) to control the pitch of an oscillator or filter cutoff.
+**Typical Use** - Condensing complex, repetitive designs into smaller packages for a tidier look that can also be easier on your GPU.
 
 The **MonoToQuad** node converts four mono signals to one four-channel
 polyphonic signal. It is the inverse of the \#QuadToMono Node.
 
 ### PolyToMono
 
+![Node](img/nodes/Poly/PolyToMono-Node.png)  
+
+Input        | Signal Range
+:------------- | :-------------
+Poly Signal   | `2x to 16x any 32-bit number`
+
+Output        | Signal Range
+:------------- | :-------------
+Mono Signal   | `any 32-bit number`
+
+**iOS Symbol**
+
 ![icon](img/icons/poly%20to%20mono.png)
+
+**Exposable Element** - None.
+
+**Typical Use** - Collapsing a poly signal into a mono signal to save downstream CPU.
 
 The **PolyToMono** node mixes a polyphonic input (denoted by a thick
 wire) to a monophonic output (thin wire). Each voice is mixed equally.
