@@ -578,11 +578,19 @@ You can also use Sample & Hold nodes in an array configuration to store multiple
 
 Below is an example of how this would work with only 4 steps for simplicity's sake. The Mono-to-Quad and Quad-to-Mono nodes help compress the patch visually - imagine there are 4 separate Sample & Hold nodes there, one for each step. The light indicates which step is selected. (If it's confusing, jump to the section on Mono-to-Quad/Quad-to-Mono.)
 
-![S&H Shift Register](img/nodes/Sample-and-Hold/SH-Step-Sample.png)
+![S&H Step Sample](img/nodes/Sample-and-Hold/SH-Step-Sample.png)
 
 The only downside to this is that the Sample & Hold node is cleared of its values when the patch is reset (i.e., when you close and reopen the patch). In a future version of Audulus, we will introduce a Data node that will allow you to store values more permanently.
 
+Another use for the Sample & Hold node is as a counter. Below is an example of a counter that counts up to a specified integer, resets to 0, and then counts up again. Counters are essential for creating step sequencers in Audulus. 
 
+![S&H Step Sample](img/nodes/Sample-and-Hold/SH-Count-Up.gif)
+
+The Sample & Hold node can also be configured to detect change in an incoming signal. The `!=` operation means "does not equal." So if the signal that is coming from the knob (or any other modulation source) does not equal the sampled signal, it will resample the incoming signal until they are equal.
+
+This can be useful for adding a gates to a random sequencer - it would create a gate signal with each new note that could be used to trigger a volume envelope.
+
+![S&H Delta](img/nodes/Sample-and-Hold/SH-Delta.png)
 
 ---
 
