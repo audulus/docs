@@ -734,6 +734,36 @@ There are many ways to make an equal power pan, but this is the most simple. The
 
 ![Node](img/nodes/Speaker/Speaker-Unit-Circle.png)
 
+An output overload detector is useful to have on an audio output. A overload detector will flash when the incoming audio or control signal level exceeds the node's maximum -1 to 1 range.  Creating one is easy.
+
+![Node](img/nodes/Speaker/Speaker-OL.png)
+
+The expression `abs(Audio)>1` translates to "If the absolute value of the audio signal is greater than 1, then output a 1." When this expression outputs a 1, it will turn the RGB node red. We use the absolute value because it's possible for an audio signal to clip an output only in its negative sweep. Using the absolute value of the audio input will detect peaks in both the positive and negative portions of the wave.
+
+The only problem with this setup is that output overload peaks can happen very quickly - too quickly to see the red light flash. We can turn the on/off flash into a on/fade-out flash with some extra nodes.
+
+![Node](img/nodes/Speaker/Speaker-OL-Fade.png)
+
+In the above example, when an overloaded audio signal is detected by `abs(Audio)>1`, it triggers the Timer node to restart from 0. The Timer node signal is then inverted by the `1-Timer` expression so that it starts at 1 and counts down in seconds. The `clamp(~)` portion of the `clamp(1-Timer,0,1)` expression constrains the output of the `Timer-1` expression to a range of 0 to 1. This ultimately turns the on/off flash into an on/fade-out flash that takes 1 second to disappear.
+
+We then have to use an Add node to sum the output of the `abs(Audio)>1` signal and the `clamp(1-Timer,0,1)` signal so that if the output is constantly overloaded, the red light will stay constantly lit.
+
+The Speaker node can send both audio and control voltages out of Audulus. To send control voltages to a modular synthesizer, you'll need to use a DC-coupled audio interface like the Expert Sleepers ES-8.
+
+![Node](img/nodes/Speaker/Speaker-ES8.jpg)
+
+Most audio interfaces are AC-coupled which prevents a constant offset DC voltage from damaging speakers (to understand why this is, look at the DCBlocker node). However, because AC-coupled interfaces cannot output static voltages, they are useless for sending 1 volt-per-octave pitch signals and LFOs.
+
+The Expert Sleepers ES-8 and other DC-coupled audio interfaces will allow you to send accurate pitch and modulation signals from Audulus to your modular. The ES-8 is a particularly good interface to use because its maximum voltage swing of -10 to 10 volts scales easily with the -1 to 1 output range of Audulus. This means that every 0.1 step in Audulus is equal to 1 volt.
+
+Although as of this writing, you can only use the first two inputs and outputs of the ES-8, we will soon implement arbitrary I/O that expands to the number of available inputs and outputs of whatever audio interface you have selected. This also means that if you are using Audulus on a computer and have multiple ES-8 modules, you will be able to create an aggregate device to take advantage of all of their inputs and outputs.
+
+SPECIAL OFFER: If you buy an Expert Sleepers ES-8 from Century Sound Labs, you'll recieve a free copy of Audulus on the platform of your choice! 
+
+https://reverb.com/item/3437313-expert-sleepers-es-8-dc-coupled-audio-interface-free-audulus-3-copy
+
+For a more in-depth discussion on how to integrate Audulus with your analog synthesizers using DC-coupled audio interfaces, refer to the Analog Audulus documentation.
+
 
 
 ### Mic
