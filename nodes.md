@@ -801,7 +801,7 @@ If the output track is monophonic (or you just want to use a monophonic effect),
 
 There are all kinds of effects you can create in Audulus, but one of the most simple is a tremolo. A tremolo effect modulates the volume of a signal, most often with a triangle or sine LFO.
 
-Below is an example of a tremolo created with a Phasor-based LFO with speed and depth controls.
+Below is an example of a tremolo with speed and depth controls.
 
 ![Node](img/nodes/Mic/Mic-Tremolo.png)
 
@@ -821,8 +821,27 @@ Below is an example of a tremolo created with a Phasor-based LFO with speed and 
 
 **Typical Use** - Labeling controls and creating visual accents on modules as well as adding patch commentary.
 
-**Text** is editable text that can be used to label things and write
-comments. To edit the text, invoke the context menu on the text.
+The **Text** node is an editable text block that can be used to label things and write comments. To edit the text, right click or tap on the text and an edit window will appear.
+
+Below is an example of a patch with extensive commentary. Though most advanced users of Audulus can simply "read" a patch and understand what is happening, labeling nodes in a step-by-step manner greatly increases the chance that someone will understand your patch, learn from it, and create their own patches using the principles you've outlined.
+
+![Text Exposed](img/nodes/Text/Text-Commentary.png)  
+
+Commentary text is displayed in a sans-serif font while text that is exposed to the surface of a subpatch is displayed in a serif font.
+
+![Text Exposed](img/nodes/Text/Text-Serif-Sans-Serif.png)  
+
+You can change the size of a text block by tapping or clicking on the text and moving the green dot on the right.
+
+![Text Exposed](img/nodes/Text/Text-Sized.png)  
+
+Knob nodes, input nodes, and output nodes can all be labeled directly by clicking or tapping on the node itself. However, there are times when you may want to condense the labels for a tighter design. Below is an example of two 8-step sequencers - one labeled directly, and one labeled with Text nodes.
+
+![Text Exposed](img/nodes/Text/Text-Sequencer.png)  
+
+You can get really creative with Text nodes and integrate them into the aesthetic of a module that you create like the sequencer below, where dashes mark different subdivisions of a Spline node.
+
+![Text Exposed](img/nodes/Text/Text-Creative.png)  
 
 ### Timer
 
