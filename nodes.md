@@ -762,13 +762,13 @@ SPECIAL OFFER: If you buy an Expert Sleepers ES-8 from Century Sound Labs, you'l
 
 https://reverb.com/item/3437313-expert-sleepers-es-8-dc-coupled-audio-interface-free-audulus-3-copy
 
-For a more in-depth discussion on how to integrate Audulus with your analog synthesizers using DC-coupled audio interfaces, refer to the Analog Audulus documentation.
+For a more in-depth discussion on how to integrate Audulus with your analog synthesizers using DC-coupled audio interfaces, refer to the Analog Audulus documentation (coming soon).
 
 
 
 ### Mic
 
-![Node](img/nodes/Mic/Mic.png)  
+![Node](img/nodes/Mic/Mic-Node.png)  
 
 Output        | Signal Range
 :------------- | :-------------
@@ -785,7 +785,27 @@ Bottom - Left / Audio Input 1   | `-1 to 1`
 
 **Typical Use** - Routing audio and/or control voltages into Audulus.
 
-The **Mic** node recieves two channels of audio input from your audio device or plugin audio input.
+The **Mic** node recieves two channels of audio input from your audio device or plugin audio input. If you want to route audio or control voltages from an external instrument into Audulus, you need to use the Mic node.
+
+For example, if you are using Audulus on iOS in an AUM or Audiobus FX slot to create a stereo delay, you would create a patch that looks something like this:
+
+![Node](img/nodes/Mic/Mic-Stereo-Delay.png)
+
+If the audio input to Audulus is monophonic, it will usually enter through the bottom (left) input, which is input 1.
+
+![Node](img/nodes/Mic/Mic-Mono-to-Stereo-Delay.png)
+
+If the output track is monophonic (or you just want to use a monophonic effect), just insert the effect between Mic node input 1 and Speaker node output 1.
+
+![Node](img/nodes/Mic/Mic-Mono-Delay.png)
+
+There are all kinds of effects you can create in Audulus, but one of the most simple is a tremolo. A tremolo effect modulates the volume of a signal, most often with a triangle or sine LFO.
+
+Below is an example of a tremolo created with a Phasor-based LFO with speed and depth controls.
+
+![Node](img/nodes/Mic/Mic-Tremolo.png)
+
+
 
 ### Text
 
