@@ -710,10 +710,14 @@ Bottom - Left / Audio Output 1    | `-1 to 1`
 
 **Typical Use** - Sending audio and/or control voltages out of Audulus.
 
+The **Speaker** node sends two channels of audio to the speakers or plugin outputs. If multiple speaker nodes are present in a patch, then the output of each node is mixed together equally.
 
-The **Speaker** node sends two channels of audio to the speakers or
-plugin outputs. If multiple speaker nodes are present in a patch,
-then the output of each node is mixed together equally.
+![Node](img/nodes/Speaker/Speaker-Sum.png)
+
+It is generally a good practice to put a Level node before the Speaker node to create a master output volume control. You can do this for both mono and stereo signals (see below).
+
+![Node](img/nodes/Speaker/Speaker-Mono-Stereo.png)
+
 
 ### Mic
 
