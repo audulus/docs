@@ -861,14 +861,32 @@ Seconds Since Last Reset   | `0 to 68 years`
 
 **Exposable Element** - None.
 
-**Typical Use** - Usually used in conjunction with a logic expression that gives a command after n-seconds have passed, e.g., `Timer>10`.
+**Typical Use** - Lane automation, or used in conjunction with a logic expression that gives a command after n-seconds have passed, e.g., `Timer>10`.
+
+The **Timer** node outputs the time (in seconds) after its input is triggered. You can see how it works by attaching a Trigger node to its input and a Value node to its output. In the example below, approximately 8 seconds passed since the last trigger event.
+
+![Text Exposed](img/nodes/Timer/Timer-Trigger.png)  
+
+The Timer node may not appear very useful at first, but there are some pretty amazing things you can do with it.
+
+The first and most simple implementation is to turn the Spline node into an automation lane. With enough Spline nodes, you can modulate parameters to mix instrument levels, start and stop clocks, and modulate parameters - all synced to one master Timer node.
+
+The image shows the basic idea: Take the output of the Timer node, divide it by the number of seconds of automation you want, feed the output of that expression to a Spline node, then feed the output of the Spline node to the parameter(s) you wish to automate.
+
+![Text Exposed](img/nodes/Timer/Timer-Spline.png)
+
+If you want this automation to loop, simply add an Expression node in a feedback configuration with the Timer node's input and write `Timer>=[Max Loop Time]`. When the Timer node's output is greater than or equal to the time you want to loop, this expression will reset the Timer node. If you also use a variable for the `Timer/[Max Loop Time]` expression, you can change just one number to affect the speed of the automation and its loop point.
+
+![Text Exposed](img/nodes/Timer/Timer-Loop.png)
+
+To add a button to toggle the looping function on and off, simply place a Mult node between the output of the `Timer>=MaxLoopTime` expression and the input of the Timer node's reset input with a Trigger node in toggle mode. You can even go a step further and add an indicator light.
+
+![Text Exposed](img/nodes/Timer/Timer-Loop-Switch.png)
 
 
-The **Timer** node outputs the time (in seconds) after its input is
-triggered.
 
-To see how it works, connect a \#Trigger node to its input and a \#Value
-node to its output.
+
+  
 
 ### ZeroCross
 
