@@ -714,9 +714,26 @@ The **Speaker** node sends two channels of audio to the speakers or plugin outpu
 
 ![Node](img/nodes/Speaker/Speaker-Sum.png)
 
-It is generally a good practice to put a Level node before the Speaker node to create a master output volume control. You can do this for both mono and stereo signals (see below).
+However, it's better to use a single Speaker node with a master volume control to prevent output clipping.
+
+To create a master output volume control, attach one (mono) or two (stereo) Level nodes to the Speaker node's input. A single Knob node can be used to control both Level nodes for a stereo output.
 
 ![Node](img/nodes/Speaker/Speaker-Mono-Stereo.png)
+
+A quick way to create a master output pan control for a stereo signal is to use the same stereo configuration as above, but invert the Knob signal before it attaches to one of the level nodes.
+
+![Node](img/nodes/Speaker/Speaker-Pan.gif)
+
+The above solution is fine for many situations, but you'll notice it has a dip in volume towards the center (50%). The dip in volume happens because the knob signal in the example above is linear, but our perception of volume is logarithmic. A logarithmic or equal power pan will appear equal in volume across the entire stereo spectrum.
+
+If you watch the example above, both of the level nodes are at 50% in the same moment, whereas in the example below, if one node is at 50%, the other is somewhere near 75%.
+
+![Node](img/nodes/Speaker/Speaker-Equal-Power-Pan.gif)
+
+There are many ways to make an equal power pan, but this is the most simple. The first equation creates a sweep equal to 1/4 of the Unit Circle. Taking the sine and cosine of this output will result in two logarithmic curves that are 90 degrees out of phase with one another.
+
+![Node](img/nodes/Speaker/Speaker-Unit-Circle.png)
+
 
 
 ### Mic
