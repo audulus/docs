@@ -908,7 +908,7 @@ You can read all about how it works inside the module, but in short, when you ta
 
 ### ZeroCross
 
-![Node](img/nodes/Zero-Cross/Zero-Cross-Node.png)  
+![Node](img/nodes/ZeroCross/ZeroCross-Node.png)  
 
 Input        | Signal Range
 :------------- | :-------------
@@ -916,7 +916,7 @@ Audio   | `-1 to 1`
 
 Output        | Signal Range
 :------------- | :-------------
-Fundamental Pitch of the Audio in Hz   | `0 to 20,000`
+Fundamental Pitch of the Audio in Hz   | `0 to ~20,000`
 
 **iOS Symbol**
 
@@ -926,14 +926,41 @@ Fundamental Pitch of the Audio in Hz   | `0 to 20,000`
 
 **Typical Use** - Pitch detecting an incoming instrument (like a guitar) to control the pitch of an oscillator or filter cutoff.
 
+The **ZeroCross** node can be used to detect the pitch of a simple waveform. It outputs the frequency of zero-crossings of its input signal in Hertz (cycles per second, or Hz).
 
-The **ZeroCross** node can be used to detect the pitch of a simple
-waveform. It outputs the frequency of zero-crossings of its input signal
-in Hertz.
+A zero-crossing is the moment where a wave crosses from positive to negative or negative to positive. The ZeroCross node counts these crossings and divides them by 2 to get the Hz value.
 
-To see how it works, connect a \#Osc node to its input and a \#Value
-node to its output. The zero-cross will esitmate the pitch of the
-oscillator.
+![Node](img/nodes/ZeroCross/ZeroCross-Waveform.png)  
+
+As you can see in the example below, the Value node displays almost exactly the correct Hz value. 
+
+![Node](img/nodes/ZeroCross/ZeroCross-1Hz.png) 
+
+This margin of error is small at low Hz values, but grows with higher Hz values (notice the ~2000Hz difference in the readouts between these two oscillators).
+
+![Node](img/nodes/ZeroCross/ZeroCross-10000Hz.png) 
+
+The good thing is, the entire range of a piano is from about 27Hz to about 4186Hz, with most instruments falling somewhere in the middle. In the example below, the margin of error for the highest note of a piano is only 5-6%, versus the previous example's error of 20+%.
+
+![Node](img/nodes/ZeroCross/ZeroCross-4186Hz.png) 
+
+The reason for this margin of error has to do with sample rate. At a sample rate of 44.1kHz (the default for Audulus in standalone mode), the ZeroCross node has 44,100 samples per second to evaluate the zero-crossings of a 1Hz wave, whereas it only has 4.41 samples per second to evalute the zero-crossings of a 10,000Hz wave.
+
+The ZeroCross node will also have a harder time estimating the pitch of an incoming signal that is harmonically rich, like a distorted electric guitar (to understand harmonics, refer back to the additive synthesis portion of the Osc node documentation). An easy way to make the ZeroCross node track more accurately with guitars, saxophones, and voice is to place a Filter node before it like in the example below.
+
+![Node](img/nodes/ZeroCross/ZeroCross-Filter.png) 
+
+The Filter node is a low-pass filter (LPF), meaning it passes frequencies below its cutoff point unaffected while attenuating frequencies above the cutoff point. An ideal pitch detector would analyze an incoming instrument and only return the fundamental frequency (i.e., the note being played). Inserting an LPF before the ZeroCross node helps the ZeroCross node ignore the high frequency content of a harmonically-rich sound source that inhibits accurate pitch detection.
+
+Another critical point to understand is that the ZeroCross node can only track one note at a time - not chords. The output of the ZeroCross node is a single Hz value. There is no "polyphony" option because you'd need a much more sophisticated algorithm to parse a chord than simply counting the number of times the incoming wave crosses zero. This kind of technology exists, but the software that does it is proprietary.
+
+Now, the reason we've so far only discussed the limitations of the ZeroCross node is to give you a better idea of what to expect from it and how to work with its quirks. Some instruments will work better than others, and even with an LPF inserted before it, it will never track perfectly - but you can still create some amazing sounds with it.
+
+
+
+
+
+
 
 ## Poly
 
