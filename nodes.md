@@ -952,15 +952,35 @@ The ZeroCross node will also have a harder time estimating the pitch of an incom
 
 The Filter node is a low-pass filter (LPF), meaning it passes frequencies below its cutoff point unaffected while attenuating frequencies above the cutoff point. An ideal pitch detector would analyze an incoming instrument and only return the fundamental frequency (i.e., the note being played). Inserting an LPF before the ZeroCross node helps the ZeroCross node ignore the high frequency content of a harmonically-rich sound source that inhibits accurate pitch detection.
 
-Another critical point to understand is that the ZeroCross node can only track one note at a time - not chords. The output of the ZeroCross node is a single Hz value. There is no "polyphony" option because you'd need a much more sophisticated algorithm to parse a chord than simply counting the number of times the incoming wave crosses zero. This kind of technology exists, but the software that does it is proprietary.
+Another critical point to understand is that the ZeroCross node can only track one note at a time - not chords. The output of the ZeroCross node is a single Hz value. There is no "polyphony" option because you'd need a much more sophisticated algorithm to parse a chord than simply counting the number of times the incoming wave crosses zero. There are programs that do this, but their algorithms are proprietary.
 
-Now, the reason we've so far only discussed the limitations of the ZeroCross node is to give you a better idea of what to expect from it and how to work with its quirks. Some instruments will work better than others, and even with an LPF inserted before it, it will never track perfectly - but you can still create some amazing sounds with it.
+Now, the reason we've so far only discussed the limitations of the ZeroCross node is to give you a better idea of what to expect from it and how to work with its quirks. Some instruments will work better than others, and even with an LPF inserted before it, the ZeroCross node will never track perfectly - but you can still create some amazing sounds with it.
 
+For the sake of these examples, let's assume you want to make a bass guitar synthesizer. (Bass guitars track pretty accurately with the ZeroCross node.) 
 
+Below is an example of the most basic configuration you can make - a single oscillator that uses an EnvFollow node to gate its amplitude.
 
+![Node](img/nodes/ZeroCross/ZeroCross-Bass1.png) 
 
+This sounds OK, but we can make the envelope following sound smoother by adding a Filter node after the EnvFollow node.
 
+![Node](img/nodes/ZeroCross/ZeroCross-Bass2.png) 
 
+To make this synth a little more dynamic, we can add an enveloped filter, gated by an amplitude threshold trigger.
+
+![Node](img/nodes/ZeroCross/ZeroCross-Bass3.png)
+
+To get an even fatter sound, we can add a second oscillator set an octave above the first. Simply multiply the output of the ZeroCross node by 2 and feed that result into the second oscillator's Hz input. The example below goes a step further an adds a detune control, which can widen the sound even more.
+
+![Node](img/nodes/ZeroCross/ZeroCross-Bass4.png)
+
+Finally, we can add a mix control that allows you to dial in the balance of dry, unaffected bass guitar with the synthesizer sound we've created by using a Crossfade Node.
+
+![Node](img/nodes/ZeroCross/ZeroCross-Bass5.png)
+
+You can also use a similar configuration to play your analog synthesizers if you have an Expert Sleepers ES-8 DC-Coupled Audio Interface. You just need to convert the Hz signal into Audulus's standardized Octave signal, and send it through the ES-8 interface module with the o2v (Octave signal to 1 Volt Per Octave) converter - or just use this equation: `(log2(Hz/[ReferencePitch])+4)/10`.
+
+![Node](img/nodes/ZeroCross/ZeroCross-ES8.png)
 
 ## Poly
 
