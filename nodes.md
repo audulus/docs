@@ -805,7 +805,13 @@ Below is an example of a tremolo with speed and depth controls.
 
 ![Node](img/nodes/Mic/Mic-Tremolo.png)
 
+You can also make creative use of the mic node by attaching it to the amplitude input of an oscillator. Using an EnvFollow node will prevent the amplitude value from going negative.
 
+![Node](img/nodes/Mic/Mic-Osc-Amplitude.png)
+
+Taking this idea further, you can use the Mic node with a threshold control to trigger an Envelope node to create drum sounds. If you set the threshold control just right, you can lay your iOS device on a table and slap the table to trigger the drum.
+
+![Node](img/nodes/Mic/Mic-Noise-Drum.png)
 
 ### Text
 
@@ -869,7 +875,7 @@ The **Timer** node outputs the time (in seconds) after its input is triggered. Y
 
 The Timer node may not appear very useful at first, but there are some pretty amazing things you can do with it.
 
-The first and most simple implementation is to turn the Spline node into an automation lane. With enough Spline nodes, you can modulate parameters to mix instrument levels, start and stop clocks, and modulate parameters - all synced to one master Timer node.
+One of the most useful implementations of the Timer node is to use it to turn the Spline node into an automation lane. With enough Spline nodes, you can modulate parameters to mix instrument levels, start and stop clocks, and modulate parameters - all synced to one master Timer node.
 
 The image shows the basic idea: Take the output of the Timer node, divide it by the number of seconds of automation you want, feed the output of that expression to a Spline node, then feed the output of the Spline node to the parameter(s) you wish to automate.
 
@@ -883,10 +889,22 @@ To add a button to toggle the looping function on and off, simply place a Mult n
 
 ![Text Exposed](img/nodes/Timer/Timer-Loop-Switch.png)
 
+Another use for the Timer node is to create a fade effect on RGB nodes. To fade a light up, use the expression `Timer/[FadeTime]` and connect the output of the expression to the inputs of an RGB node. In the example below, the light will turn all the way on after 3 seconds.
 
+![Text Exposed](img/nodes/Timer/Timer-Fade-In.png)
 
+To make a light fade out, just invert the `Timer/[FadeTime]` expression. The light will flash on immediately and then fade out. This is how the overload indicator featured in the Speaker node section is made.
 
-  
+![Text Exposed](img/nodes/Timer/Timer-Fade-Out.png)
+
+The Timer node can also be used to create a very low-CPU Pulse Looper. The Pulse Looper module allows you to tap in and loop a rhythm using a Trigger node. You can do something similar with a Delay node, but the Delay node has a maximum loop time of 2 seconds. The Pulse Looper has an arbitrarily long maximum loop time, and they can be chained together.
+
+![Text Exposed](img/nodes/Timer/Timer-Pulse-Looper.png)
+
+You can read all about how it works inside the module, but in short, when you tap or click the button on the module, it samples the current time value (which is looping from 0 to 4 seconds), and when the loop returns around and the sampled value matches the current time, a gate is generated.
+
+![Text Exposed](img/nodes/Timer/Timer-Pulse-Looper-Explanation.png)
+
 
 ### ZeroCross
 
