@@ -978,7 +978,7 @@ Finally, we can add a mix control that allows you to dial in the balance of dry,
 
 ![Node](img/nodes/ZeroCross/ZeroCross-Bass5.png)
 
-You can also use a similar configuration to play your analog synthesizers if you have an Expert Sleepers ES-8 DC-Coupled Audio Interface. You just need to convert the Hz signal into Audulus's standardized Octave signal, and send it through the ES-8 interface module with the o2v (Octave signal to 1 Volt Per Octave) converter - or just use this equation: `(log2(Hz/[ReferencePitch])+4)/10`.
+You can also use a similar configuration to play your analog synthesizers if you have an Expert Sleepers ES-8 DC-coupled audio interface. You just need to convert the Hz signal into Audulus's standardized Octave signal, and send it through the ES-8 interface output module with the o2v (Octave signal to 1 Volt Per Octave) converter - or just use this equation: `(log2(Hz/[ReferencePitch])+4)/10`. In the example below, we can use both the pitch and the filter envelope.
 
 ![Node](img/nodes/ZeroCross/ZeroCross-ES8.png)
 
@@ -1040,8 +1040,17 @@ out2   | `any 32-bit number`
 
 **Typical Use** - Condensing complex, repetitive designs into smaller packages for a tidier look that can also be easier on your GPU.
 
-The **MonoToQuad** node converts four mono signals to one four-channel
-polyphonic signal. It is the inverse of the \#QuadToMono Node.
+The **MonoToQuad** node converts four mono signals to one four-channel polyphonic signal. It is the inverse of the **QuadToMono** node. The **MonoToStereo** node converts two signals to one two-channel polyphonic signal. It is the inverse of the **StereoToMono** node.
+
+People often think these nodes are labeled backwards - they are not! If it helps, think of them as "Mono Signals to Polyphonic Signal" and "Polyphonic Signal to Mono Signals."
+
+Below is an example of a typical use where a stereo signal is routed into one Filter node. Instead of summing the left and right channels, the MonoToStereo and StereoToMono. This allows for parallel processing
+
+These nodes make your designs more condensed and explicit. 
+
+You cannot stack these nodes together to condense more mono signals into a larger polyphonic signal.
+
+
 
 ### PolyToMono
 
@@ -1063,14 +1072,21 @@ Mono Signal   | `any 32-bit number`
 
 **Typical Use** - Collapsing a poly signal into a mono signal to save downstream CPU.
 
-The **PolyToMono** node mixes a polyphonic input (denoted by a thick
-wire) to a monophonic output (thin wire). Each voice is mixed equally.
+The **PolyToMono** node mixes a polyphonic input (denoted by a thick wire) to a monophonic output (thin wire). Each voice is mixed equally.
 
-Typically, you'll want to place linear effects (reverb, delay, EQ) after
-the PolyToMono, since it will sound the same as placing them before but
-only a single voice needs to be processed. On the other hand, nonlinear
-effects, such as \#Distortion will have quite a different effect if
-placed before the PolyToMono versus after.
+![Node](img/nodes/Poly/PolyToMono-Mix.png)
+
+Typically, you'll want to place linear effects (reverb, delay, EQ) after the PolyToMono, since it will sound the same as placing them before but only a single voice needs to be processed. A linear effect is one that does not change its character based on amplitude or frequency response (i.e., loud & soft, and high & low pitches are all effected equally). 
+
+On the other hand, nonlinear effects, such as the Distortion node, will have quite a different effect if placed before the PolyToMono versus after.
+
+![Node](img/nodes/Poly/PolyToMono-LinearNonLinear.png)
+
+It's also a good idea to use a PolyToMono node before your audio output to accurately control the volume of your output.
+
+![Node](img/nodes/Poly/PolyToMono-Speaker.png)
+
+
 
 
 ## Sub-Patches
@@ -1218,7 +1234,7 @@ with its on-screen keyboard into **pitch** and **velocity** signals.
 Pitch is expressed as the fundamental frequency of the note in Hertz.
 MIDI note velocities are scaled to a zero-to-one range.
 
-The keybaord has two modes:
+The keyboard has two modes:
 
 -   *Legato*. Only one note at a time, and notes will not be
     re-triggered.
@@ -1342,13 +1358,6 @@ The **Level** node applies gain to its input.
 The **Mapper** node transforms input according to a curve. Three control
 points manipulate the curve. For the more technically inclined among
 you, the curve is a quadratic Bezier.
-
-### Range
-
-![icon](img/icons/range.png)
-
-The **Range** clamps its input within a range specified by the **min**
-and **max** inputs.
 
 ### Spline
 
@@ -1482,8 +1491,6 @@ at a higher rate.
 
 ![icon](img/icons/unitdelay.png)
 
-**WARNING: This node is currently in beta. CPU usage will be considerably higher when it is present.**
-
 The **UnitDelay** node is a single-sample delay. Like the
 [FeedbackDelay](#Feedbackdelay) node, the UnitDelay can be used to determine where a delay occurs in a feedback loop.
 
@@ -1496,8 +1503,6 @@ y[n] = a * x[n] + b * y[n-1]
 The `y[n-1]` term is the output delayed by one sample, fed back into the input.
 
 Many types of digital filters (those that incorporate feedback) require using a UnitDelay. 
-
-The presence of a UnitDelay node in the patch causes Audulus to switch into single-sample processing mode. This requires considerably more CPU.
 
 ---
 
