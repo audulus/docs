@@ -1102,7 +1102,7 @@ It's also a good idea to use a PolyToMono node before your audio output to accur
 **Typical Use** - Creating modules, simplifying larger patches by condensing portions of patches into smaller elements.
 
 
-The **Sub-Patch** node is a patch within a patch (or a *sub-patch*). The Sub-Patch node's inputs and outputs correspond to the Input and Output nodes within the Sub-Patch.
+The **Sub-Patch** node allows you to contain a patch within a patch. You can even have Sub-Patch nodes within Sub-Patch nodes. Sub-Patches are great for condensing otherwise large and unruly patches so that they are easy to "read" and understand what is going on. They're also great for creating your own custom-packed modules, synthesizers, and effects with UIs that have only the relevant controls exposed to the surface of the Sub-Patch.
 
 To enter the Sub-Patch, tap on the node and then tap "Open" (iOS - you may need to tap the `>` button to expand the menu), or double-click on node (computer). To exit, tap on the icon in the upper left corner (iOS) or press the Escape key (computer).
 
@@ -1112,13 +1112,29 @@ To edit the arrangement of a Sub-Patch's elements, tap or right-click on an empt
 
 To lock the Sub-Patch, tap or right-click on an empty space again and select "Lock UI." Until you lock the Sub-Patch, you will not be able to manipulate knobs or buttons.
 
+You can use Sub-Patches to create your own custom modules and save them to your module library. On iOS, simply tap on a Sub-Patch and select "Enter Into Library." On a computer (in the standalone app only, not the AU/VST plugin), save the module as a separate file into your Audulus library folder, and it will appear in the right click context menu.
+
 It is generally best to not place text or un-truncated Value nodes at the perimeter of a Sub-Patch node because they can cause the edge of the patch to bounce when zooming in or out, or when values change.
 
-Below, we'll create an example module using a Sub-Patch a multi-shape LFO using the Phasor node. We'll
+Below, we'll create an example module using a Sub-Patch a multi-shape LFO using the Phasor node. We'll follow the conventions for Sub-Patch module design laid out in the Audulus Module library, but feel free to get creative with your own module UIs.
 
+The Phasor node is great way to make an LFO, but it can feel repetitive building a Phasor-based LFO from scratch every time you need one.
 
+Once you've created a basic 0 to 1 Phasor saw wave LFO and attached a Waveform node to its output, select all of the nodes and then tap on one of the nodes and select "Group" (iOS) or right-click and select "Group."
 
+![Node](img/nodes/Subpatch/Sub-Patch-LFO1.png)
 
+The patch will disappear and be replaced by a Knob node contained within a Sub-Patch node.
+
+![Node](img/nodes/Subpatch/Sub-Patch-LFO2.png)
+
+Enter the Sub-Patch and you'll see the Phasor LFO there. Now go ahead and tap/click on the waveform node and select "Expose."
+
+![Node](img/nodes/Subpatch/Sub-Patch-LFO3.png)
+
+When you exit the Sub-Patch, you'll see that the size of the Sub-Patch has grown to accomodate the exposed Waveform node. 
+
+![Node](img/nodes/Subpatch/Sub-Patch-LFO4.png)
 
 ### Input/Output
 
