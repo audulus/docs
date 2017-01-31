@@ -1087,34 +1087,49 @@ It's also a good idea to use a PolyToMono node before your audio output to accur
 ![Node](img/nodes/Poly/PolyToMono-Speaker.png)
 
 
-
-
 ## Sub-Patches
 
-### Patch
+### Sub-Patch
+
+![Node](img/nodes/Subpatch/Subpatch-Node.png)
+
+**iOS Symbol**
 
 ![icon](img/icons/patch.png)
 
-The **Patch** node is a patch within a patch (or a *sub-patch*). The
-patch node's inputs and outputs correspond to the input and output nodes
-within the sub-patch.
+**Exposable Element** - None.
 
-To enter the sub-patch, double-click on the patch node. To exit, select
-"Exit Sub-Patch" from the View menu.
+**Typical Use** - Creating modules, simplifying larger patches by condensing portions of patches into smaller elements.
 
-### Input
+
+The **Sub-Patch** node is a patch within a patch (or a *sub-patch*). The Sub-Patch node's inputs and outputs correspond to the Input and Output nodes within the Sub-Patch.
+
+To enter the Sub-Patch, tap on the node and then tap "Open" (iOS - you may need to tap the `>` button to expand the menu), or double-click on node (computer). To exit, tap on the icon in the upper left corner (iOS) or press the Escape key (computer).
+
+The Sub-Patch node will automatically conform to the dimensions of the elements placed furthest to the top, bottom, left and right. 
+
+To edit the arrangement of a Sub-Patch's elements, tap or right-click on an empty space in the Sub-Patch and press "Edit UI" (User-Interface). You can now move controls, inputs and outputs, and other visual elements around on the patch.
+
+To lock the Sub-Patch, tap or right-click on an empty space again and select "Lock UI." Until you lock the Sub-Patch, you will not be able to manipulate knobs or buttons.
+
+It is generally best to not place text or un-truncated Value nodes at the perimeter of a Sub-Patch node because they can cause the edge of the patch to bounce when zooming in or out, or when values change.
+
+Below, we'll create an example module using a Sub-Patch a multi-shape LFO using the Phasor node. We'll
+
+
+
+
+
+### Input/Output
 
 ![icon](img/icons/input.png)
-
-The **Input** node is only used within sub-patches.
-It creates an input on the front-panel of the patch node.
-
-### Output
-
 ![icon](img/icons/output.png)
 
-The **Output** node is only used within sub-patches.
-It creates an output on the front-panel of the patch node.
+The **Input** and **Output** nodes allow you to route a signal into and out of a Sub-Patch node. They are only useful if placed inside of a Sub-Patch node. They are *not* audio input and outputs - to route audio and/or control signals into and out of Audulus, use the Mic and Speaker nodes.
+
+
+
+
 
 ### Knob
 
