@@ -1170,6 +1170,63 @@ Next, use Text nodes to label the inputs and outputs according to the convention
 
 ![Node](img/nodes/Patch/Patch-LFO11.png)
 
+To separate the waveforms but keep a compact UI, we can scale the inputs to the Waveform nodes so that they are separated top to bottom. This does not affect the output of the LFO expression nodes, which remains in a 0 to 1 range. We want them to each take up about a 1/4 of the "screen" on the module. The entire range of the Waveform node is from -1 to 1, so if we divide each wave by 2 and then shift the wave up or down in increments of .5, we can spread them out evenly.
+
+![Node](img/nodes/Patch/Patch-LFO12.png)
+
+If you exit the Patch you'll see that the waveforms are now separated.
+
+![Node](img/nodes/Patch/Patch-LFO13.png)
+
+Now is a good time to start laying out the module. Put the knobs on the left with the sync Input node, its label, and light node, and put the modulation Output nodes, their labels, and RGB nodes on the right.
+
+![Node](img/nodes/Patch/Patch-LFO14.png)
+
+It's relatively easy to tell which RGB node fits with what waveshape, but the Output nodes could be mixed up. Go back into the Patch node and temporarily label them so you can arrange them correctly.
+
+![Node](img/nodes/Patch/Patch-LFO15.png)
+
+We can now arrange the outputs correctly.
+
+![Node](img/nodes/Patch/Patch-LFO16.png)
+
+But we don't need to keep the labels because it's obvious which wave they go with. Once you've arranged them, enter the Patch node again and delete the names of the outputs.
+
+Since we'll be labeling the Knob nodes inside their perimeter rather than directly below, delete the name of the Knob nodes. You can easily tell which knob is which by how they affect the waveforms when you turn them. Place the speed (Hz) knob on top (because it's the primary control), and the PWM knob below it (it only affects the square wave).
+
+![Node](img/nodes/Patch/Patch-LFO17.png)
+
+Now let's label both knobs and scale the output of the Hz knob. The expression `Hz^2*20` will scale the Knob to work between 0 and 20Hz in an exponential curve, meaning when the Knob is set to 50%, the Hz output will not be 10 (linear) but 5 (exponential). This makes it easier to dial in slower LFO speeds. 
+
+Attach Value nodes to the output of this Expression node and to the PWM knob directly.
+
+![Node](img/nodes/Patch/Patch-LFO18.png)
+
+If we go back out to the UI of the Patch node, we'll see that the Value nodes look a little messy. The value nodes will display a high precision number, but that's not very useful in this situation.
+
+![Node](img/nodes/Patch/Patch-LFO19.png)
+
+To adjust the value nodes so they only display the digits we want, we can use a `floor(x)` expression. This expression discards the decimal portion of an incoming signal. We want to turn the PWM readout to 1 to 100 in steps of 1. To do this, we need to first multiply the PWM value by 100, then floor the result - written as `floor(PWM*100)`.
+
+For the Hz readout, we want a definition to the hundredths place. To do this, we need to multiply the Hz output by 100, floor that value, then divide that floored value by 100 - written as `floor(Hz*100)/100`.
+
+![Node](img/nodes/Patch/Patch-LFO20.png)
+
+Now when we exit the Patch node, we'll see that the Value nodes read in a much more useful range.
+
+![Node](img/nodes/Patch/Patch-LFO21.png)
+
+It's generally best to place value readouts far enough below a Knob node so that when the Knob grows as you turn it, the value won't be covered.
+
+Finally, give the module a title. It's a good idea to place the title of a module somewhere in the middle above the patch.
+
+![Node](img/nodes/Patch/Patch-LFO22.png)
+
+On the UI, it fits nicely over here by the Knob nodes.
+
+![Node](img/nodes/Patch/Patch-LFO23.png)
+
+
 
 
 ### Input/Output
