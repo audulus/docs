@@ -1231,13 +1231,24 @@ On the UI, it fits nicely over here by the Knob nodes.
 
 ### Input/Output
 
+![Node](img/nodes/IO/IO-Nodes.png)  
+
+**iOS Symbol**
+
 ![icon](img/icons/input.png)
 ![icon](img/icons/output.png)
 
+**Exposable Element** - Input/Output port.
+
+![ADSR Exposed](img/nodes/IO/IO-Exposed.png)  
+
+**Warnings** - These are not Audio/CV/MIDI Input/Outputs. These nodes only do anything when placed inside of a Patch node. They allow you to send signals into and out of Patch nodes.
+
+**Typical Use** - Sending signals into and out of Patch nodes.
+
 The **Input** and **Output** nodes allow you to route a signal into and out of a Sub-Patch node. They are only useful if placed inside of a Sub-Patch node. They are *not* audio input and outputs - to route audio and/or control signals into and out of Audulus, use the Mic and Speaker nodes.
 
-
-
+For more on how to use Input and Output nodes, refer back to the Patch node step-by-step example module.
 
 
 ### Knob
