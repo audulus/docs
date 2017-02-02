@@ -1089,9 +1089,9 @@ It's also a good idea to use a PolyToMono node before your audio output to accur
 
 ## Sub-Patches
 
-### Sub-Patch
+### Patch
 
-![Node](img/nodes/Subpatch/Subpatch-Node.png)
+![Node](img/nodes/Patch/Patch-Node.png)
 
 **iOS Symbol**
 
@@ -1102,39 +1102,75 @@ It's also a good idea to use a PolyToMono node before your audio output to accur
 **Typical Use** - Creating modules, simplifying larger patches by condensing portions of patches into smaller elements.
 
 
-The **Sub-Patch** node allows you to contain a patch within a patch. You can even have Sub-Patch nodes within Sub-Patch nodes. Sub-Patches are great for condensing otherwise large and unruly patches so that they are easy to "read" and understand what is going on. They're also great for creating your own custom-packed modules, synthesizers, and effects with UIs that have only the relevant controls exposed to the surface of the Sub-Patch.
+The **Patch** node allows you to contain a patch within a patch. You can even have Sub-Patch nodes within Sub-Patch nodes. Patches are great for condensing otherwise large and unruly patches so that they are easy to "read" and understand what is going on. They're also great for creating your own custom-packed modules, synthesizers, and effects with UIs that have only the relevant controls exposed to the surface of the Patch.
 
-To enter the Sub-Patch, tap on the node and then tap "Open" (iOS - you may need to tap the `>` button to expand the menu), or double-click on node (computer). To exit, tap on the icon in the upper left corner (iOS) or press the Escape key (computer).
+To enter the Patch, tap on the node and then tap "Open" (iOS - you may need to tap the `>` button to expand the menu), or double-click on node (computer). To exit, tap on the icon in the upper left corner (iOS) or press the Escape key (computer).
 
-The Sub-Patch node will automatically conform to the dimensions of the elements placed furthest to the top, bottom, left and right. 
+The Patch node will automatically conform to the dimensions of the elements placed furthest to the top, bottom, left and right. 
 
-To edit the arrangement of a Sub-Patch's elements, tap or right-click on an empty space in the Sub-Patch and press "Edit UI" (User-Interface). You can now move controls, inputs and outputs, and other visual elements around on the patch.
+To edit the arrangement of a Patch's elements, tap or right-click on an empty space in the Patch and press "Edit UI" (User-Interface). You can now move controls, inputs and outputs, and other visual elements around on the patch.
 
-To lock the Sub-Patch, tap or right-click on an empty space again and select "Lock UI." Until you lock the Sub-Patch, you will not be able to manipulate knobs or buttons.
+To lock the Patch, tap or right-click on an empty space again and select "Lock UI." Until you lock the Patch, you will not be able to manipulate knobs or buttons.
 
-You can use Sub-Patches to create your own custom modules and save them to your module library. On iOS, simply tap on a Sub-Patch and select "Enter Into Library." On a computer (in the standalone app only, not the AU/VST plugin), save the module as a separate file into your Audulus library folder, and it will appear in the right click context menu.
+You can use Patches to create your own custom modules and save them to your module library. On iOS, simply tap on a Patch and select "Enter Into Library." On a computer (in the standalone app only, not the AU/VST plugin), save the module as a separate file into your Audulus library folder, and it will appear in the right click context menu.
 
-It is generally best to not place text or un-truncated Value nodes at the perimeter of a Sub-Patch node because they can cause the edge of the patch to bounce when zooming in or out, or when values change.
+It is generally best to not place text or un-truncated Value nodes at the perimeter of a Patch node because they can cause the edge of the patch to bounce when zooming in or out, or when values change.
 
-Below, we'll create an example module using a Sub-Patch a multi-shape LFO using the Phasor node. We'll follow the conventions for Sub-Patch module design laid out in the Audulus Module library, but feel free to get creative with your own module UIs.
+Below, we'll create an example module using a Patch a multi-shape LFO using the Phasor node. We'll follow the conventions for Patch module design laid out in the Audulus Module library, but feel free to get creative with your own module UIs.
 
 The Phasor node is great way to make an LFO, but it can feel repetitive building a Phasor-based LFO from scratch every time you need one.
 
 Once you've created a basic 0 to 1 Phasor saw wave LFO and attached a Waveform node to its output, select all of the nodes and then tap on one of the nodes and select "Group" (iOS) or right-click and select "Group."
 
-![Node](img/nodes/Subpatch/Sub-Patch-LFO1.png)
+![Node](img/nodes/Patch/Patch-LFO1.png)
 
-The patch will disappear and be replaced by a Knob node contained within a Sub-Patch node.
+The patch will disappear and be replaced by a Knob node contained within a Patch node.
 
-![Node](img/nodes/Subpatch/Sub-Patch-LFO2.png)
+![Node](img/nodes/Patch/Patch-LFO2.png)
 
-Enter the Sub-Patch and you'll see the Phasor LFO there. Now go ahead and tap/click on the waveform node and select "Expose."
+Enter the Patch and you'll see the Phasor LFO there. Now go ahead and tap/click on the waveform node and select "Expose."
 
-![Node](img/nodes/Subpatch/Sub-Patch-LFO3.png)
+![Node](img/nodes/Patch/Patch-LFO3.png)
 
-When you exit the Sub-Patch, you'll see that the size of the Sub-Patch has grown to accomodate the exposed Waveform node. 
+When you exit the Patch, you'll see that the size of the Patch has grown to accomodate the exposed Waveform node. 
 
-![Node](img/nodes/Subpatch/Sub-Patch-LFO4.png)
+![Node](img/nodes/Patch/Patch-LFO4.png)
+
+Now add the rest of the LFO shapes (for more on this, refer back to the Phasor node). It's usually quicker to copy and paste nodes from ones you already have rather than menu-diving to grab new ones. If you copy the `Phasor/(2*pi)` expression and the Waveform node attached to it, you can paste it repeatedly and then simply modify the equations as necessary.
+
+![Node](img/nodes/Patch/Patch-LFO5.png)
+
+Exit the Patch and you'll notice that the Waveform nodes are all stacked on one another. Whenever you expose an element of a node to a Patch node, that element will appear at the Patch node's (0,0) origin point.
+
+![Node](img/nodes/Patch/Patch-LFO6.png)
+
+If you open an Audulus file in textEdit, you can see how Audulus keeps track of node position by using coordinates.
+
+![Node](img/nodes/Patch/Patch-LFO7.png)
+
+When creating a module, it can be useful to move exposed elements up and away from this origin point. This is because if you want to add more exposed elements later they may wind up inconveniently in the middle of your carefully arranged UI.
+
+Now go back into the Patch node and attach an Input node to the Phasor sync input, and attach Output nodes to the outputs of each LFO Expression nodes.
+
+![Node](img/nodes/Patch/Patch-LFO8.png)
+
+If you exit the Patch node, you'll see that once again the Input and Output nodes have all stacked at the origin point. The nodes stack on one another in the order that they were created. This means the Waveform nodes are "below" the Knob node, and the Knob node is "below" the Input/Output (I/O) nodes, and the Input node is the one "on top" of everything else.
+
+![Node](img/nodes/Patch/Patch-LFO9.png)
+
+To make any exposed element jump to the "top layer," highlight the node and use a Cut/Paste command series. This is the easiest way to rearrange which exposed element is on top.
+
+Now enter the patch again and attach RGB nodes to the LFO Expression node outputs, and attach a Light node to the sync input of the Phasor node. If you create one RGB node, expose it, then copy and paste it to use with the other LFO outputs (instead of calling up new RGB nodes), the pasted RGB nodes will also be exposed. This is another trick to save you some time from having to individually expose each node 
+
+*Note: the distortion in the Waveform nodes in the image below is from when the Patch node was entered - this transition causes a brief pause in rendering the Waveform node, which then catches up to the current value - this does not affect the actual output of the Expression nodes themselves).*
+
+![Node](img/nodes/Patch/Patch-LFO10.png)
+
+Next, use Text nodes to label the inputs and outputs according to the convention in the module library (g = 0 or 1 gate signal, m = 0 to 1 modulation signal). Expose the Text nodes, and arrange them on the inside of the Patch node so they are near each I/O node for clarity.
+
+![Node](img/nodes/Patch/Patch-LFO11.png)
+
+
 
 ### Input/Output
 
