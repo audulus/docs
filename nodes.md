@@ -1253,19 +1253,59 @@ For more on how to use Input and Output nodes, refer back to the Patch node step
 
 ### Knob
 
+![Node](img/nodes/Knob/Knob-Node.png)  
+
+Input        | Signal Range (Default / Maximum)
+:------------- | :-------------
+Wire   | `Any 32-bit Number`
+
+Output        | Signal Range
+:------------- | :-------------
+Signal (Unspecified)   | `Any 32-bit Number`
+
+**iOS Symbol**
+
 ![icon](img/icons/knobsubpatch.png)
 
+**Exposable Element** - Knob.
+
+![ADSR Exposed](img/nodes/Knob/Knob-Exposed.png)  
+
+**Warnings** - Knob nodes will accept any wire signal, including ones that are outside the defined range of the knob. If the Knob is ranged 0 to 1 and you send an audio signal of -1 to 1, the audio signal will pass uneffected, but the wave will only appear to animate the knob for half of the wave cycle.
+
+**Typical Use** - Creating an interactive parameter that can be dialed in directly by tap/click and drag, assigned a MIDI CC, or modulated directly with a wire.
+
 The **Knob** node creates a knob on the front-panel of the patch node.
+
+
+
+
 
 ## Math
 
 ### Add
 
+![Node](img/nodes/Add/Add-Node.png)  
+
+Input        | Signal Range (Default / Maximum)
+:------------- | :-------------
+Signal A (Top, Unspecified)   | `Any 32-bit Number`
+Signal B (Bottom, Unspecified)   | `Any 32-bit Number`
+
+Output        | Signal Range
+:------------- | :-------------
+Signal `A+B` (Unspecified)   | `Any 32-bit Number`
+
 ![icon](img/icons/add.png)
 
-The **add** node adds its two inputs, **a** and **b**. Addition of
-signals is the same as mixing, so the add node can also be used to mix
-signals (equally).
+The **Add** node combines its two inputs, **a** and **b**. Addition of signals is the same as mixing. Another word for this is "summing."
+
+While you can use the Expression node to sum two signals with the expression `A+B` 
+
+You can make a small 2-input mixer using two Level nodes attached to the two inputs of the Add node.
+
+![Node](img/nodes/Add/Add-Mixer.png)  
+
 
 ### Expr
 
