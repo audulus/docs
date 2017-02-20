@@ -1275,7 +1275,17 @@ Signal (Unspecified)   | `Any 32-bit Number`
 
 **Typical Use** - Creating an interactive parameter that can be dialed in directly by tap/click and drag, assigned a MIDI CC, or modulated directly with a wire.
 
-The **Knob** node creates a knob on the front-panel of the patch node.
+The **Knob** node creates a knob on the front-panel of the Patch node.
+
+Knobs are by default 0-1.
+
+Best to keep knobs 0-1 and do math inside.
+
+This is to interface with m signals.
+
+However, if you want to edit them, tap/click, etc.
+
+
 
 
 
@@ -1296,11 +1306,19 @@ Output        | Signal Range
 :------------- | :-------------
 Signal `A+B` (Unspecified)   | `Any 32-bit Number`
 
+**iOS Symbol**
+
 ![icon](img/icons/add.png)
+
+**Exposable Element** - None.
+
+**Warnings** - The output of the Add node will not register correctly if the sum of inputs A and B exceeds the 32-bit maximum output value (`2^32` or 2,147,483,647).
+
+**Typical Use** - Combining two signals equally.
 
 The **Add** node combines its two inputs, **a** and **b**. Addition of signals is the same as mixing. Another word for this is "summing."
 
-While you can use the Expression node to sum two signals with the expression `A+B` 
+While you can use the Expression node to sum two signals with the expression `A+B`, the Add node can be a nice, simple, and explicit way to combine two signals.
 
 You can make a small 2-input mixer using two Level nodes attached to the two inputs of the Add node.
 
@@ -1403,8 +1421,7 @@ The **Random** node outputs random numbers in the range [0, 1].
 
 ![icon](img/icons/keyboard.png)
 
-The keyboard node converts MIDI note messages as well as interaction
-with its on-screen keyboard into **pitch** and **velocity** signals.
+The keyboard node converts MIDI note messages as well as interaction with its on-screen keyboard into **Hz** and **velocity** signals.
 
 Pitch is expressed as the fundamental frequency of the note in Hertz.
 MIDI note velocities are scaled to a zero-to-one range.
