@@ -1,5 +1,3 @@
-<link href="docs.css" rel="stylesheet"></link>
-
 <img src="img/Audulus_logo.svg" style="width: 200px;"/>
 
 <div class="welcome">
