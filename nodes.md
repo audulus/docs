@@ -1283,6 +1283,8 @@ You can drag the knob left/right or up/down to decrease/increase the knob's valu
 
 When created inside a Patch node, the Knob node exposes a knob to the front-panel of the Patch node.
 
+To rename a Knob node, tap or click on a blank space inside the node (but not directly on the knob itself) then select `Rename.` A dialogue box will appear where you can rename the knob. You can also leave the name blank if you want an unnamed knob, or if you wish to identify the knob with a Text or SVG node inside the perimeter of the knob.
+
 When a Knob node is created, its default range is 0 to 1. To change the default range, click or tap on the knob itself and select either `Set Min` or `Set Max`.
 
 A better way to range your knobs is to leave the Knob node at its default 0 to 1 range and use ranging expressions instead.
@@ -1335,23 +1337,11 @@ To apply a more extreme curve to a knob, use multiple square or square root func
 
 In some cases, you may want to be able to smoothly fade between a linear and an exponential or logarithmic response.
 
-The most common application for this would be to fine tune the shape of the output of an envelope.
+The most common application for this would be to fine tune how a filter's frequency knob responds to modulation.
 
+To do this, use a Knob node with a Crossfade node to fade between the A (linear) knob output and the B (shaped) knob output.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Knob nodes can attach to other knob nodes only when one of the knobs is inside another patch. You can use this technique to draw a control out from a patch-within-a-patch.
 
 
 ## Math
@@ -1393,7 +1383,7 @@ You can make a small 2-input mixer using two Level nodes attached to the two inp
 ![icon](img/icons/expr.png)
 
 The Math Expression Node (**Expr**) allows the entry of a textual
-mathematical expression, like `2*x + y + z`. The node creates an input
+mathematical expression, like `2*x+y^z`. The node creates an input
 for each variable and a single output for the result of the expression.
 
 It has a variety of uses, including: unit conversion, control-signal
@@ -1401,7 +1391,7 @@ mapping, wave-shaping or building custom oscillators.
 
 For example, to convert from MIDI note numbers to Hz, use `(440 / 32) * pow(2, (x - 9) / 12)`.
 
-To edit the expression, use "Set Expression" from the node's context menu.
+To edit the expression, tap or click on the node and select `Set Expression` from the node's context menu.
 
 The Math Expression Node includes the following operators and functions:
 
@@ -1426,9 +1416,9 @@ Trigonometric functions (angles are in radians)
 
 Syntax         | Semantics
 :------------- | :-------------
-`sin(angle)`   | sine
-`cos(angle)`   | cosine
-`tan(angle)`   | tangent
+`sin(x)`   | sine
+`cos(x)`   | cosine
+`tan(x)`   | tangent
 `asin(x)`      | arc sine
 `acos(x)`      | arc cosing
 `atan(x)`      | arc tangent
@@ -1466,7 +1456,7 @@ Syntax                | Semantics
 Syntax                | Semantics
 :-------------------- | :------------------------------------------------
 `pi`                  | [&pi;](http://en.wikipedia.org/wiki/Pi)
-`e`                   | [e](http://en.wikipedia.org/wiki/E_(mathematical_constant))
+`e`                   | [e](http://en.wikipedia.org/wiki/E_(mathematical_constant)
 
 ### Mult
 
