@@ -9,7 +9,7 @@ img, video {
   max-width: 100%;
 }
 
-img[alt=icon] { 
+img[alt=icon] {
   width: 100px;
   border: 2px solid #293E4D;
   border-radius: 5px;
@@ -107,8 +107,8 @@ Snare   | `0.01 / 0.1 / 0 / 0.15`
 Kick / Tom   | `0.01 / 0.1 / 0 / 0.75`
 Hi-Hat (Closed)   | `0.01 / 0.15 / 0 / 0.2`
 Hi-Hat (Open)     | `0.01 / 0.9 / 0 / 0.2`
-Violin (Bowed)     | `2 / 0 / 1 / 1` 
-Organ     | `0.01 / 0 / 1 / 0.01` 
+Violin (Bowed)     | `2 / 0 / 1 / 1`
+Organ     | `0.01 / 0 / 1 / 0.01`
 Horn Stab     | `0.05 / 0.15 / 0.3 / 0.5`
 Ocean Surf     | `4 / 4 / 0 / 4` (Env^2)
 
@@ -207,7 +207,7 @@ Below you can see the same transformation happening with a saw wave - this time 
 
 As you can see, the more sine waves you add, the closer your approximation of the idealized waveform becomes.
 
-What makes wave shapes sound different are the relative loudness of their harmonics. 
+What makes wave shapes sound different are the relative loudness of their harmonics.
 
 A harmonic is a wave that vibrates at an integer multiple (x1, x2, x3, x4, ...etc.) of a fundamental frequency (see below).
 
@@ -304,7 +304,7 @@ For the saw wave, the shape control de-phases the wave in way similar to two har
 
 ![Osc Sync Shape Saw](img/nodes/OSC/Osc-Shape-Saw.png)
 
-The Osc node is anti-aliased. This means it is optimized to be an audio oscillator. However, this also may not always work well as an LFO or control signal oscillator. 
+The Osc node is anti-aliased. This means it is optimized to be an audio oscillator. However, this also may not always work well as an LFO or control signal oscillator.
 
 To understand why this is, first we have to understand what aliasing is; and to understand aliasing, we first have to understand sampling.
 
@@ -355,7 +355,7 @@ Now, finally, we can return to the anti-aliased property of the Osc node. The Os
 
 This bandlimiting is what causes the "ringing" that you may have noticed in some of the screenshots (see below).
 
-![Osc Anti-Alias](img/nodes/OSC/Osc-Anti-Alias.png) 
+![Osc Anti-Alias](img/nodes/OSC/Osc-Anti-Alias.png)
 
 
 This is now a flaw, but a feature of an anti-aliased digital oscillator. If you scroll way back up to the beginning of the Osc entry, you'll see this peak forming in the saw wave with 50 harmonics animation.
@@ -364,11 +364,11 @@ This ringing is referred to as the Gibbs Phenomenon - a property of Fourier seri
 
 ![Osc J Willy](img/nodes/OSC/Osc-J-Willy.jpg)
 
-When you stop and think about it, the presence of this ringing makes sense.  For a square wave to move from high to low pressure instantaneously (as it does in its idealized form), you would need an infinite series of harmonics. The maximum frequency that air can reproduce is around 5MHz, or 5,000,000Hz. 
+When you stop and think about it, the presence of this ringing makes sense.  For a square wave to move from high to low pressure instantaneously (as it does in its idealized form), you would need an infinite series of harmonics. The maximum frequency that air can reproduce is around 5MHz, or 5,000,000Hz.
 
 https://www.researchgate.net/publication/230702229_Reproduction_of_Virtual_Sound_Sources_Moving_at_Supersonic_Speeds_in_Wave_Field_Synthesis
 
-Five million Hertz may seem really fast, but in reality, 5Mhz is infinitely closer to 0Hz than it is to infinity Hz. 
+Five million Hertz may seem really fast, but in reality, 5Mhz is infinitely closer to 0Hz than it is to infinity Hz.
 
 Yeah, take a second and think about that one.
 
@@ -467,7 +467,7 @@ When creating a multi-output LFO, you might find it useful to use `cos(Phasor)` 
 
 ![Cosine LFO](img/nodes/Phasor/Cosine-LFO.png)
 
-To create a square wave LFO using the Phasor node, we need to use a logic expression. 
+To create a square wave LFO using the Phasor node, we need to use a logic expression.
 
 In the image below, the Phasor output has been translated from its normal 0 to 2π range into a 0 to 1 range. All LFOs should operate in a range of 0 to 1 because so many inputs (knobs, crossfade input, level node) all work from 0 to 1 by default.
 
@@ -536,9 +536,9 @@ Sample   | `any 32-bit number`
 
 **iOS Symbol**
 
-![icon](img/icons/sample%20and%20hold.png) 
+![icon](img/icons/sample%20and%20hold.png)
 
-**Exposable Element** - None. 
+**Exposable Element** - None.
 
 **Warnings** - When using the Sample & Hold node in a feedback configuration (such as a counter) it may be necessary to use the Feedback Delay node to ensure stable functionality.
 
@@ -556,13 +556,13 @@ To make things even more interesting, you can add a filter and use a separate ra
 
 ![S&H Bleep Bloop Filter](img/nodes/Sample-and-Hold/SH-Bleep-Bloop-Filter.png)
 
-If you want to take it a step further, square the output of the random node a couple times and watch how the filter will tend to stay in the lower pitches more often. 
+If you want to take it a step further, square the output of the random node a couple times and watch how the filter will tend to stay in the lower pitches more often.
 
 (Click here to download the patch below.)
 
 ![S&H Bleep Bloop Bias](img/nodes/Sample-and-Hold/SH-Bleep-Bloop-Bias.png)
 
-Sample & Hold can be used for much more than just adding randomness to your patches. 
+Sample & Hold can be used for much more than just adding randomness to your patches.
 
 In fact, it is one of the most powerful nodes available to you.
 
@@ -582,7 +582,7 @@ Below is an example of how this would work with only 4 steps for simplicity's sa
 
 The only downside to this is that the Sample & Hold node is cleared of its values when the patch is reset (i.e., when you close and reopen the patch). In a future version of Audulus, we will introduce a Data node that will allow you to store values more permanently.
 
-Another use for the Sample & Hold node is as a counter. Below is an example of a counter that counts up to a specified integer, resets to 0, and then counts up again. Counters are essential for creating step sequencers in Audulus. 
+Another use for the Sample & Hold node is as a counter. Below is an example of a counter that counts up to a specified integer, resets to 0, and then counts up again. Counters are essential for creating step sequencers in Audulus.
 
 ![S&H Step Sample](img/nodes/Sample-and-Hold/SH-Count-Up.gif)
 
@@ -629,7 +629,7 @@ Signal   | `any 32-bit number`
 
 The **FeedbackDelay** node controls where a delay occurs in a feedback loop. Audulus indicates where a feedback delay occurs with a "z" in an input (indicating a Z-transform). If no FeedbackDelay node is present, Audulus will automatically decide where the delay occurs. While this is fine for many applications, in some situations, a misplaced feedback delay will break the patch's functionality.
 
-But why does a feedback delay even need to exist? The answer is simple, but can be hard to visualize at first: a computer cannot process a value before it has been created. 
+But why does a feedback delay even need to exist? The answer is simple, but can be hard to visualize at first: a computer cannot process a value before it has been created.
 
 Audulus computes the values at two different speeds: frames and buffers. Frames run at audio rate (44.1kHz) while buffers are executed in groups of 128 frames (~345Hz). Unless you explicitly tell Audulus to process a value sample-by-sample (see the z-1 node), Audulus will process operations in buffers. The feedback delay node is a way of marking explicitly where the order of operations during 1 buffer stops and waits until the next buffer.
 
@@ -684,7 +684,7 @@ The Signal input changes from 2 to 3.  The Feedback Delay node releases the Samp
 
 `Module Output = 1`
 
-...and so on. If you understood that, then great! You'll be able to use that knowledge in your designs. If you didn't understand, don't worry. If you ever come across a situation where you are using feedback and something seems to work at first, but when you close and reenter the patch, it no longer works, that just means you need to play around with inserting the FeedbackDelay node at different points within your feedback loop to see what works. 
+...and so on. If you understood that, then great! You'll be able to use that knowledge in your designs. If you didn't understand, don't worry. If you ever come across a situation where you are using feedback and something seems to work at first, but when you close and reenter the patch, it no longer works, that just means you need to play around with inserting the FeedbackDelay node at different points within your feedback loop to see what works.
 
 What happened was when you were putting it together, Audulus put the feedback delay in the correct position. But when you reopened the patch, the feedback delay reset and jumped to another spot where it no longer works.
 
@@ -758,7 +758,7 @@ The Expert Sleepers ES-8 and other DC-coupled audio interfaces will allow you to
 
 Although as of this writing, you can only use the first two inputs and outputs of the ES-8, we will soon implement arbitrary I/O that expands to the number of available inputs and outputs of whatever audio interface you have selected. This also means that if you are using Audulus on a computer and have multiple ES-8 modules, you will be able to create an aggregate device to take advantage of all of their inputs and outputs.
 
-SPECIAL OFFER: If you buy an Expert Sleepers ES-8 from Century Sound Labs, you'll recieve a free copy of Audulus on the platform of your choice! 
+SPECIAL OFFER: If you buy an Expert Sleepers ES-8 from Century Sound Labs, you'll recieve a free copy of Audulus on the platform of your choice!
 
 https://reverb.com/item/3437313-expert-sleepers-es-8-dc-coupled-audio-interface-free-audulus-3-copy
 
@@ -932,23 +932,23 @@ A zero-crossing is the moment where a wave crosses from positive to negative or 
 
 ![Node](img/nodes/ZeroCross/ZeroCross-Waveform.png)  
 
-As you can see in the example below, the Value node displays almost exactly the correct Hz value. 
+As you can see in the example below, the Value node displays almost exactly the correct Hz value.
 
-![Node](img/nodes/ZeroCross/ZeroCross-1Hz.png) 
+![Node](img/nodes/ZeroCross/ZeroCross-1Hz.png)
 
 This margin of error is small at low Hz values, but grows with higher Hz values (notice the ~2000Hz difference in the readouts between these two oscillators).
 
-![Node](img/nodes/ZeroCross/ZeroCross-10000Hz.png) 
+![Node](img/nodes/ZeroCross/ZeroCross-10000Hz.png)
 
 The good thing is, the entire range of a piano is from about 27Hz to about 4186Hz, with most instruments falling somewhere in the middle. In the example below, the margin of error for the highest note of a piano is only 5-6%, versus the previous example's error of 20+%.
 
-![Node](img/nodes/ZeroCross/ZeroCross-4186Hz.png) 
+![Node](img/nodes/ZeroCross/ZeroCross-4186Hz.png)
 
 The reason for this margin of error has to do with sample rate. At a sample rate of 44.1kHz (the default for Audulus in standalone mode), the ZeroCross node has 44,100 samples per second to evaluate the zero-crossings of a 1Hz wave, whereas it only has 4.41 samples per second to evalute the zero-crossings of a 10,000Hz wave.
 
 The ZeroCross node will also have a harder time estimating the pitch of an incoming signal that is harmonically rich, like a distorted electric guitar (to understand harmonics, refer back to the additive synthesis portion of the Osc node documentation). An easy way to make the ZeroCross node track more accurately with guitars, saxophones, and voice is to place a Filter node before it like in the example below.
 
-![Node](img/nodes/ZeroCross/ZeroCross-Filter.png) 
+![Node](img/nodes/ZeroCross/ZeroCross-Filter.png)
 
 The Filter node is a low-pass filter (LPF), meaning it passes frequencies below its cutoff point unaffected while attenuating frequencies above the cutoff point. An ideal pitch detector would analyze an incoming instrument and only return the fundamental frequency (i.e., the note being played). Inserting an LPF before the ZeroCross node helps the ZeroCross node ignore the high frequency content of a harmonically-rich sound source that inhibits accurate pitch detection.
 
@@ -956,15 +956,15 @@ Another critical point to understand is that the ZeroCross node can only track o
 
 Now, the reason we've so far only discussed the limitations of the ZeroCross node is to give you a better idea of what to expect from it and how to work with its quirks. Some instruments will work better than others, and even with an LPF inserted before it, the ZeroCross node will never track perfectly - but you can still create some amazing sounds with it.
 
-For the sake of these examples, let's assume you want to make a bass guitar synthesizer. (Bass guitars track pretty accurately with the ZeroCross node.) 
+For the sake of these examples, let's assume you want to make a bass guitar synthesizer. (Bass guitars track pretty accurately with the ZeroCross node.)
 
 Below is an example of the most basic configuration you can make - a single oscillator that uses an EnvFollow node to gate its amplitude.
 
-![Node](img/nodes/ZeroCross/ZeroCross-Bass1.png) 
+![Node](img/nodes/ZeroCross/ZeroCross-Bass1.png)
 
 This sounds OK, but we can make the envelope following sound smoother by adding a Filter node after the EnvFollow node.
 
-![Node](img/nodes/ZeroCross/ZeroCross-Bass2.png) 
+![Node](img/nodes/ZeroCross/ZeroCross-Bass2.png)
 
 To make this synth a little more dynamic, we can add an enveloped filter, gated by an amplitude threshold trigger.
 
@@ -1046,7 +1046,7 @@ People often think these nodes are labeled backwards - they are not! If it helps
 
 Below is an example of a typical use where a stereo signal is routed into one Filter node. Instead of summing the left and right channels, the MonoToStereo and StereoToMono. This allows for parallel processing
 
-These nodes make your designs more condensed and explicit. 
+These nodes make your designs more condensed and explicit.
 
 You cannot stack these nodes together to condense more mono signals into a larger polyphonic signal.
 
@@ -1076,7 +1076,7 @@ The **PolyToMono** node mixes a polyphonic input (denoted by a thick wire) to a 
 
 ![Node](img/nodes/Poly/PolyToMono-Mix.png)
 
-Typically, you'll want to place linear effects (reverb, delay, EQ) after the PolyToMono, since it will sound the same as placing them before but only a single voice needs to be processed. A linear effect is one that does not change its character based on amplitude or frequency response (i.e., loud & soft, and high & low pitches are all effected equally). 
+Typically, you'll want to place linear effects (reverb, delay, EQ) after the PolyToMono, since it will sound the same as placing them before but only a single voice needs to be processed. A linear effect is one that does not change its character based on amplitude or frequency response (i.e., loud & soft, and high & low pitches are all effected equally).
 
 On the other hand, nonlinear effects, such as the Distortion node, will have quite a different effect if placed before the PolyToMono versus after.
 
@@ -1106,7 +1106,7 @@ The **Patch** node allows you to contain a patch within a patch. You can even ha
 
 To enter the Patch, tap on the node and then tap "Open" (iOS - you may need to tap the `>` button to expand the menu), or double-click on node (computer). To exit, tap on the icon in the upper left corner (iOS) or press the Escape key (computer).
 
-The Patch node will automatically conform to the dimensions of the elements placed furthest to the top, bottom, left and right. 
+The Patch node will automatically conform to the dimensions of the elements placed furthest to the top, bottom, left and right.
 
 To edit the arrangement of a Patch's elements, tap or right-click on an empty space in the Patch and press "Edit UI" (User-Interface). You can now move controls, inputs and outputs, and other visual elements around on the patch.
 
@@ -1132,7 +1132,7 @@ Enter the Patch and you'll see the Phasor LFO there. Now go ahead and tap/click 
 
 ![Node](img/nodes/Patch/Patch-LFO3.png)
 
-When you exit the Patch, you'll see that the size of the Patch has grown to accomodate the exposed Waveform node. 
+When you exit the Patch, you'll see that the size of the Patch has grown to accomodate the exposed Waveform node.
 
 ![Node](img/nodes/Patch/Patch-LFO4.png)
 
@@ -1160,7 +1160,7 @@ If you exit the Patch node, you'll see that once again the Input and Output node
 
 To make any exposed element jump to the "top layer," highlight the node and use a Cut/Paste command series. This is the easiest way to rearrange which exposed element is on top.
 
-Now enter the patch again and attach RGB nodes to the LFO Expression node outputs, and attach a Light node to the sync input of the Phasor node. If you create one RGB node, expose it, then copy and paste it to use with the other LFO outputs (instead of calling up new RGB nodes), the pasted RGB nodes will also be exposed. This is another trick to save you some time from having to individually expose each node 
+Now enter the patch again and attach RGB nodes to the LFO Expression node outputs, and attach a Light node to the sync input of the Phasor node. If you create one RGB node, expose it, then copy and paste it to use with the other LFO outputs (instead of calling up new RGB nodes), the pasted RGB nodes will also be exposed. This is another trick to save you some time from having to individually expose each node
 
 *Note: the distortion in the Waveform nodes in the image below is from when the Patch node was entered - this transition causes a brief pause in rendering the Waveform node, which then catches up to the current value - this does not affect the actual output of the Expression nodes themselves).*
 
@@ -1196,7 +1196,7 @@ Since we'll be labeling the Knob nodes inside their perimeter rather than direct
 
 ![Node](img/nodes/Patch/Patch-LFO17.png)
 
-Now let's label both knobs and scale the output of the Hz knob. The expression `Hz^2*20` will scale the Knob to work between 0 and 20Hz in an exponential curve, meaning when the Knob is set to 50%, the Hz output will not be 10 (linear) but 5 (exponential). This makes it easier to dial in slower LFO speeds. 
+Now let's label both knobs and scale the output of the Hz knob. The expression `Hz^2*20` will scale the Knob to work between 0 and 20Hz in an exponential curve, meaning when the Knob is set to 50%, the Hz output will not be 10 (linear) but 5 (exponential). This makes it easier to dial in slower LFO speeds.
 
 Attach Value nodes to the output of this Expression node and to the PWM knob directly.
 
@@ -1242,11 +1242,11 @@ On the UI, it fits nicely over here by the Knob nodes.
 
 ![ADSR Exposed](img/nodes/IO/IO-Exposed.png)  
 
-**Warnings** - These are not Audio/CV/MIDI Input/Outputs. These nodes only do anything when placed inside of a Patch node. They allow you to send signals into and out of Patch nodes.
+**Warnings** - These are not Audio/CV/MIDI Input/Outputs.
 
 **Typical Use** - Sending signals into and out of Patch nodes.
 
-The **Input** and **Output** nodes allow you to route a signal into and out of a Sub-Patch node. They are only useful if placed inside of a Sub-Patch node. They are *not* audio input and outputs - to route audio and/or control signals into and out of Audulus, use the Mic and Speaker nodes.
+The **Input** and **Output** nodes allow you to route a signal into and out of a Patch node. They are only useful if placed inside of a Patch node. They are *not* audio input and outputs - to route audio and/or control signals into and out of Audulus, use the Mic and Speaker nodes, or the ADC/DAC nodes.
 
 For more on how to use Input and Output nodes, refer back to the Patch node step-by-step example module.
 
@@ -1275,15 +1275,78 @@ Signal (Unspecified)   | `Any 32-bit Number`
 
 **Typical Use** - Creating an interactive parameter that can be dialed in directly by tap/click and drag, assigned a MIDI CC, or modulated directly with a wire.
 
-The **Knob** node creates a knob on the front-panel of the Patch node.
+The Knob node is the primary interactive node in Audulus. When paired with other nodes, knobs can sweep a filter, change volume, and even act as a switch.
 
-Knobs are by default 0-1.
+Knobs can be turned with your finger or mouse by tapping or clicking and holding on the knob.
 
-Best to keep knobs 0-1 and do math inside.
+You can drag the knob left/right or up/down to decrease/increase the knob's value.
 
-This is to interface with m signals.
+When created inside a Patch node, the Knob node exposes a knob to the front-panel of the Patch node.
 
-However, if you want to edit them, tap/click, etc.
+When a Knob node is created, its default range is 0 to 1. To change the default range, click or tap on the knob itself and select either `Set Min` or `Set Max`.
+
+A better way to range your knobs is to leave the Knob node at its default 0 to 1 range and use ranging expressions instead.
+
+The reason for this is that the standardized modulation (m) and gate (g) signals have a range of 0 to 1. If you keep your knobs in their default 0 to 1 range, you can attach m and g signals directly to your knobs and get a predictable and easily controllable behavior.
+
+Below are examples of ways to manipulate Knob node signals using math. The variable `Knob` should be read as the signal from a Knob node with the default range of 0 to 1.
+
+These ranging expressions can be created with either Multiply and Add nodes, or with an Expression node
+
+To create a knob that has a range of 0 to 2, multiply the output of the knob by 2.
+
+`Knob*2` = `0*2 to 1*2` = `0 to 2`
+
+To create a knob that has a range of 1 to 2, add 1 to the output of the knob.
+
+`Knob+1` = `0+1 to 1+1` = `1 to 2`
+
+To create a knob that has a range of 1 to 3, first multiply the output of the knob by 2, then add 1.
+
+`Knob*2+1` = `0*2+1 to 1*2+1` = `0+1 to 2+1` = `1 to 3`
+
+To create a knob that has a range of -1 to 1, first multiply the output of the knob by 2, then subtract 1.
+
+`Knob*2-1` = `0*2-1 to 1*2-1` = `0-1 to 2-1` = `-1 to 1`
+
+By default, the knob has a linear response. You may find it useful to give some knobs an exponential or logarithmic response.
+
+The halfway point of a linear 0 to 1 knob will be 0.5. The halfway point for a 0 to 1 exponential knob will be less than 0.5, while the halfway point for a 0 to 1 logarithmic knob will be greater than 0.5.
+
+Exponential knobs are good for controlling filter cutoff and other frequency (Hz) controlled parameters like pitch.
+
+Logarithmic knobs are good for giving volume faders a smooth response.
+
+You should always apply a curve to a knob before ranging it.
+
+To create an exponential knob, square the output of the knob.
+
+`Knob^2` = `exponential Knob response`
+
+To create a logarithmic knob, square root the output of the knob.
+
+`sqrt(Knob)` = `logarithmic Knob response`
+
+To apply a more extreme curve to a knob, use multiple square or square root functions.
+
+`Knob^2^2^2` = `extremely exponential Knob response`
+
+`sqrt(sqrt(sqrt(Knob)))` = `extremely logarithmic Knob reponse`
+
+In some cases, you may want to be able to smoothly fade between a linear and an exponential or logarithmic response.
+
+The most common application for this would be to fine tune the shape of the output of an envelope.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1694,7 +1757,7 @@ y[n] = a * x[n] + b * y[n-1]
 
 The `y[n-1]` term is the output delayed by one sample, fed back into the input.
 
-Many types of digital filters (those that incorporate feedback) require using a UnitDelay. 
+Many types of digital filters (those that incorporate feedback) require using a UnitDelay.
 
 ---
 
