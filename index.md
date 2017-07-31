@@ -58,6 +58,11 @@ If you need help or have found a bug, contact us at:
 
 ---
 
+## Contents
+
+* Will be replaced with the ToC, excluding the "Contents" header
+{:toc}
+
 ## UI Basics (iPad/iPhone)
 
 ### Patch Editor
