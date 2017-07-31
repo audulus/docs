@@ -1,6 +1,6 @@
 <link href="docs.css" rel="stylesheet"></link>
 
-![Audulus Logo](img/logo.png)
+<img src="img/Audulus_logo.svg" style="width: 200px;"/>
 
 <div class="welcome">
 Welcome to Audulus!
