@@ -1,8 +1,6 @@
 <img src="img/Audulus_logo.svg" style="width: 200px;"/>
 
-<div class="welcome">
-Welcome to Audulus!
-</div>
+*Welcome to Audulus!*
 
 <div class="tagline">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Audulus. A Modular Audio Processing App for iPad, iPhone, Mac, Linux, and Windows. Created by Developer Taylor Holliday. Promoted by Mark Boyd, Audulus Evangelist.<br>
