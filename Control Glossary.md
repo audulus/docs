@@ -1,34 +1,3 @@
-<style>
-body {
-  background-color: black;
-  color: rgb(136, 136, 136);
-  font-family: 'Input Sans', sans-serif;
-}
-
-img, video {
-  max-width: 100%;
-}
-
-img[alt=icon] { 
-  width: 100px;
-  border: 2px solid #293E4D;
-  border-radius: 5px;
-}
-
-h2 {
- color: #2a9fd6;
-}
-
-h3 {
- color: white;
-}
-
-h4 {
- color: white;
-}
-
-</style>
-
 # Control Glossary
 
 ## Control Glossary
