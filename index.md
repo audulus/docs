@@ -65,16 +65,16 @@ If you need help or have found a bug, contact us at:
 
 ![Patch Editor](img/editor.png)
 
-The Patch Editor is Audulus's main view. It consists of an infinite canvas for creating patches, with toolbar at the bottom.  
+The Patch Editor is Audulus' main view. It consists of an infinite canvas for creating patches, with a toolbar at the bottom.  
 
-- The canvas grows and shrinks to fit the size of the patch.  If you have just one small node in a patch, you will not be able to zoom out.  You need to add at least 2 nodes or modules and space them apart to give yourself some "breathing room."
+- The canvas grows and shrinks to fit the size of the patch.  If you have just one small node in a patch, you will not be able to zoom out.  You need to add at least 2 nodes or modules and space them apart to give yourself some "breathing room".
 
-Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) chevron buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button. (This button is also used to exit a subpatch. More on that below.)
+Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) chevron buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button (this button is also used to exit a subpatch; more on that below).
 
-- The toolbar exists primarily for adding new modules to your patch, but it also contains the node browser and an on-screen multi-touch keyboard. 
+- The toolbar exists primarily for adding new modules to your patch, but it also contains the node browser and on-screen multi-touch keyboard. 
 - *We highly recommend that new users create patches with modules* from the Audulus Module library, in order to speed up patch construction.
 - You can think of nodes as the "atoms" of Audulus. Modules are more like molecules.
-- That said, some nodes, like the expression node or the light node, cannot be built up into a module and must be used as nodes.
+- That said, some nodes - like the expression node or the light node - cannot be built up into a module and must be used as nodes.
  
 ### The iPad/iPhone Audulus UI at a glance
 
@@ -88,10 +88,10 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 -   To make a connection, zoom in and drag from an output to an input. *Connections can only be made from an output to an input.*
 -   To disconnect, drag the connection away from the input.
 -   To "hot swap" or live patch, keep your finger held down and wave the output wire over an input or knob. This is similar to performing with patch cables on a modular, but you'll never wear out your inputs in Audulus!  Audulus is also optimized to prevent clicking/popping connection noise, so go crazy with it!
--   To make a long connection, drag to the edge of the screen. Audulus will zoom out, widening your field of view. Move your finger away from the edge of the screen, and Audulus will zoom back in, centering around your finger, so you can place the connection.
--   If you are zoomed too far out to make a connection, the inputs and outputs will visibly "lock" or "close." Zoom back in and they will "open" again, and you can now make and break connections as well as turn knobs.  If you have knobs and triggers mapped to MIDI, this is a non-issue.
+-   To make a long connection, drag to the edge of the screen. Audulus will zoom out, widening your field of view. Move your finger away from the edge of the screen and Audulus will zoom back in, centering around your finger so you can place the connection.
+-   If you are zoomed out too far to make a connection, the inputs and outputs will visibly "lock" or "close". Zoom back in and they will "open" again. You can now make and break connections as well as turn knobs. If you have knobs and triggers mapped to MIDI, this is a non-issue.
 -   Speaking of mapping and controllers: Audulus will automatically detect your MIDI keyboard or control surface. 
--   To map a knob or a trigger to MIDI, press and hold the element you want to map and select "Learn Midi CC," then twist/press the corresponding knob/button on your control surface, and the controls will thereafter be linked.
+-   To map a knob or a trigger to MIDI, press and hold the element you want to map and select "Learn Midi CC", then twist/press the corresponding knob/button on your control surface and the controls will thereafter be linked.
 
 > *Note 1:* The lasso gives you surgical control over what you select, allowing you to accurately clip out portions of others' designs for use in your own. Much of the progress that is made in the Audulus community happens when people leapfrog with shared knowledge.  The lasso tool makes that process *much* easier.
 
@@ -137,16 +137,16 @@ The Desktop Audulus UI at a glance:
 
 -   Overall signal flow is left-to-right (you can reverse the direction with a Via Tab).
 -   Many operations use right-click context menus (or control+click if you
-    have one button)
--   To create a new node/module, right-click on the background. A menu will pop up that gives you access to all the nodes and modules.  The Module Library is found at the bottom of the menu. ( *See Note 1* )
+    have one button).
+-   To create a new node/module, right-click on the background. A menu will pop up that gives you access to all nodes and modules.  The Module Library is found at the bottom of the menu. ( *See Note 1* )
 -   To zoom, use the mouse wheel or pinch with two fingers on your trackpad.
--   To pan, use two fingers on your trackpad, or hold the Option/Alt key and drag.  You can also zoom out, hover your mouse over a new focal point, and zoom back in - this may seem an odd way to navigate at first, but it is much faster than simply panning because it requires less mouse movement.
+-   To pan, use two fingers on your trackpad or hold the Option/Alt key and drag.  You can also zoom out, hover your mouse over a new focal point, and zoom back in - this may seem an odd way to navigate at first, but it is much faster than simply panning because it requires less mouse movement.
 -   *Apple Magic Mouse users:* swipe on the mouse to pan, hold the Control key and swipe vertically to zoom. You may need to turn off "Use scroll gesture with modifier keys to zoom," in the Zoom section of the Accessibility control panel in System Preferences.
 -   To select a node/module, just click on it!
 -   To select multiple nodes/modules, hold shift while clicking each one individually, or use the lasso tool as described above.
 -   To make a connection between nodes/modules, drag a connection from an output to an input. You *cannot* draw a connection from an input to an output.
 -   To disconnect, drag a connection away from an input.
--   To learn more about how to use a particular node, right click and select "Help."
+-   To learn more about how to use a particular node, right click and select "Help".
 
 
 > *Note 1:*
@@ -170,31 +170,31 @@ The Desktop Audulus UI at a glance:
 ## Polyphony
 
 Polyphonic processing in Audulus works seamlessly. A connection between
-nodes is polyphonic if it is rendered thicker. It also ceases oscillating between red/blue, for obvious reasons.  Nodes are automatically
-capable of polyphonic processing. So for example, feed a **Distortion**
+nodes is polyphonic if it is rendered thicker. It also ceases oscillating between red/blue. Nodes are automatically
+capable of polyphonic processing. For example, feed a **Distortion**
 node with a polyphonic connection and the distortion will be applied
 separately to each voice in the connection.
 
-Currently, you can only access the first 4 notes held with the QuadToMono node, though this will change in the future - the QuadToMono node will have an arbitrary number of internal channels in a future version of Audulus 3.X.  To reassemble 4 signals into one Poly signal, use the MonoToPoly node.  Again, in a future version of Audulus 3.X, MonoToPoly will have an arbitrary number of inputs.
+Currently, you can only access the first 4 notes held with the QuadToMono node, though this will change in the future - the QuadToMono node will have an arbitrary number of internal channels in a future version of Audulus 3.X. To reassemble 4 signals into one Poly signal, use the MonoToPoly node.  Again, in a future version of Audulus 3.X, MonoToPoly will have an arbitrary number of inputs.
 
 ---
 
 ## Building Custom Modules
 
-Starting with the Patch node, you can create your own custom modules for Audulus.  You can think of the Patch node as an enclosure - the box or faceplate that the "circuit" of your synth sits in. You can create as many layers as you want, but usually 3-5 will suffice for even the most mind-bogglingly complex designs. ( *See Note 1* )
+Starting with the Patch node, you can create your own custom modules for Audulus. You can think of the Patch node as an enclosure - the box or faceplate that the "circuit" of your synth sits in. You can create as many layers as you want, but usually 3-5 will suffice for even the most mind-bogglingly complex designs. ( *See Note 1* )
 
 
-1. Create a sub-patch using the Patch Node (Subpatch -> Patch)
+1. Create a sub-patch using the Patch Node (Subpatch -> Patch).
 2. Enter the sub-patch with double-tap/click on the Patch node.
 3. Create a Knob node.
 5. Exit the sub-patch and you'll see your knob on the front panel - knobs are exposed automatically by default.  If you need an "internal trimpot," use the Constant node, which is not exposable.
-6. Enter the sub-patch again and add a Light node, then bring up the context menu on the Light node and tap/click "Expose."
+6. Enter the sub-patch again and add a Light node, then bring up the context menu on the Light node and tap/click "Expose".
 7. Exit the sub patch and now you'll see the knob and the light occupying the same space on the UI.
 6. Open the context menu on the Patch node by pressing/clicking on a blank spot of the Patch node, and select Edit UI.
-7. Arrange the Knob and Light nodes where you want them.  Notice how the boundaries of the patch grow to accomodate the elements it contains.
+7. Arrange the Knob and Light nodes where you want them. Notice how the boundaries of the patch grow to accomodate the elements it contains.
 8. Open the Path Node's context menu again and select "Lock UI" to finish editing the UI.
-9. When arranging many UI elements at once, they may all be in a jumble on top of one another.  It may be best to expose elements one at a time, especially when placing multiple Light nodes.  Audulus cannot read your mind and needs to be told explicitly where to put UI elements.  This is sometimes a long process, but the great thing is you only have to do it once per module. If you want to bring an element on "top" of another (say, a knob that has a waveform node in the background, as the Waveform Via does), you have to know that the last element created is the one that is "on top."  To "bring to front," as you might in Photoshop, you have to select the node you want to be on top, delete it, and then re-create it. It is now the last thing created, and thus, the element that is most "on top."
-10. Also, try this: create a Patch node, then add any module from the library next to it.  Enter the module you picked out and select all of its contents, call up the context menu and select "Copy."  Exit the module and then enter the Patch node you just created, and paste what you copied. Exit the Patch node and you will see that all of the UI elements are already neatly arranged!  Use this to your advantage.
+9. When arranging many UI elements at once, they may all be in a jumble on top of one another. It may be best to expose elements one at a time, especially when placing multiple Light nodes. Audulus cannot read your mind and must be told explicitly where to put UI elements. This is sometimes a long process, but the great thing is you only have to do it once per module. If you want to bring an element on "top" of another (e.g. a knob that has a waveform node in the background, as the Waveform Via does), you should be aware that the last element created is the one that is "on top".  To "bring to front," as you might in Photoshop, you have to select the node you want to be on top, delete it, and then re-create it. It is now the last thing created, and thus, the element that is most "on top".
+10. Also, try this: create a Patch node, then add any module from the library next to it.  Enter the module you picked out and select all of its contents, call up the context menu and select "Copy".  Exit the module and then enter the Patch node you just created, and paste what you copied. Exit the Patch node and you will see that all of the UI elements are already neatly arranged! Use this to your advantage.
 11. If you're a beginner, try designing your instrument or effect using the modules in the Module Library rather than the nodes. The Modules are designed to be easier to use. The nodes are precise building blocks, more appropriate for advanced users.
 12. Finally, *remember to clear your history before uploading your patch to the forum!*
 
