@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Audulus - Add Node</title>
+<link rel="stylesheet" href="help.css" type="text/css"/>
+</head>
+<body><h3>Keyboard</h3>
+<p><img alt="icon" src="img/icons/keyboard.png" /></p>
+<p>The keyboard node converts MIDI note messages as well as interaction
+with its on-screen keyboard into <strong>pitch</strong> and <strong>velocity</strong> signals.</p>
+<p>Pitch is expressed as the fundamental frequency of the note in Hertz.
+MIDI note velocities are scaled to a zero-to-one range.</p>
+<p>The keybaord has two modes:</p>
+<ul>
+<li><em>Legato</em>. Only one note at a time, and notes will not be
+    re-triggered.</li>
+<li><em>Poly (2-16)</em>. Polyphonic - multiple notes can be played simultaneously. The number of voices is specified in parenthesis: 2, 4, 8, or 16.</li>
+</ul>
+<p>When in poly mode, the keybaord's pitch and velocity outputs become
+polyphonic, shown as thicker connections. Polyphonic processing can consume considerably more CPU time than monophoic processing. To support polyphony
+efficiently in your patch, use the #PolyToMono node, which will mix the
+polyphonic signals to monophonic. Also, don't use more voices than you need.</p></body>

@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Audulus - Add Node</title>
+<link rel="stylesheet" href="help.css" type="text/css"/>
+</head>
+<body><h3>BiQuad</h3>
+<p><img alt="icon" src="img/icons/biquad.png" /></p>
+<p>The <strong>BiQuad</strong> node implements a bi-quadratic filter using following
+equation:</p>
+<p><code>out[n] = a1 * in[n] + a2 * in[n-1] + a3 * in[n-2]
+       - ( b1 * out[n-1] + b2 * out[n-2] )</code></p>
+<p>The coefficients <code>a1</code>, <code>a2</code>, <code>a3</code>, <code>b1</code> and <code>b2</code> are inputs, allowing the filter
+to be modulated at audio rate.</p>
+<p>Cookbook formulas for using the <strong>BiQuad</strong> can be found <a href="http://content.audulus.com/Audio-EQ-Cookbook.txt">here</a>.</p></body>

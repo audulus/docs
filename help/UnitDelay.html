@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Audulus - Add Node</title>
+<link rel="stylesheet" href="help.css" type="text/css"/>
+</head>
+<body><h3>UnitDelay</h3>
+<p><img alt="icon" src="img/icons/unitdelay.png" /></p>
+<p><strong>WARNING: This node is currently in beta. CPU usage will be considerably higher when it is present.</strong></p>
+<p>The <strong>UnitDelay</strong> node is a single-sample delay. Like the
+<a href="#Feedbackdelay">FeedbackDelay</a> node, the UnitDelay can be used to determine where a delay occurs in a feedback loop.</p>
+<p>A UnitDelay is required whenever you need to express feedback with a single sample. For example, implementing the following recurrance requires using a UnitDelay:</p>
+<p><code>y[n] = a * x[n] + b * y[n-1]</code></p>
+<p>The <code>y[n-1]</code> term is the output delayed by one sample, fed back into the input.</p>
+<p>Many types of digital filters (those that incorporate feedback) require using a UnitDelay. </p>
+<p>The presence of a UnitDelay node in the patch causes Audulus to switch into single-sample processing mode. This requires considerably more CPU.</p>
+<hr /></body>

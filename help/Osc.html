@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Audulus - Add Node</title>
+<link rel="stylesheet" href="help.css" type="text/css"/>
+</head>
+<body><h3>Osc</h3>
+<p><img alt="icon" src="img/icons/osc.png" /></p>
+<p>The <strong>Osc</strong>illator node is the foundation of most synthesizers -- it's
+where the sound begins. An oscillator produces a periodic waveform, a
+waveform that repeats. The length of the period determines the pitch of
+the sound.</p>
+<p>Use the waveform menu to select the type of wave:</p>
+<ul>
+<li><em>sine</em> - A neutral waveform with no harmonics.</li>
+<li><em>triangle</em> - A mellow waveform with a hollow character due to odd harmonics.</li>
+<li><em>square</em> - The Square waveform has a hollow character like the triangle, due to
+only odd harmonics being present. However the harmonics are much louder,
+so the sound is brighter.</li>
+<li><em>sawtooth</em> - A bright-sounding waveform. This sounds especially nice when several are mixed together, all detuned slightly.</li>
+</ul>
+<p>To see what these waveforms look like, set the oscillator's <strong>pitch</strong>
+input to 1 and attach the <strong>out</strong> output to a #Waveform node.</p>
+<h4>Inputs</h4>
+<p>The <strong>Hz</strong> input controls the pitch of the oscillator.</p>
+<p>The <strong>amp</strong> input controls the oscillator amplitude.</p>
+<p>The <strong>sync</strong> input will reset the oscillator whenever it crosses 0. To
+see this in action, hook another low-frequency oscillator to the sync
+input and watch the waveform node.</p>
+<p>The <strong>shape</strong> input controls the pulse width of the square wave, and the de-phasing of the sawtooth wave. Modulate this for a fatter sound.</p></body>

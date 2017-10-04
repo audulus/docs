@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Audulus - Add Node</title>
+<link rel="stylesheet" href="help.css" type="text/css"/>
+</head>
+<body><h3>Expr</h3>
+<p><img alt="icon" src="img/icons/expr.png" /></p>
+<p>The Math Expression Node (<strong>Expr</strong>) allows the entry of a textual
+mathematical expression, like <code>2*x + y + z</code>. The node creates an input
+for each variable and a single output for the result of the expression.</p>
+<p>It has a variety of uses, including: unit conversion, control-signal
+mapping, wave-shaping or building custom oscillators.</p>
+<p>For example, to convert from MIDI note numbers to Hz, use <code>(440 / 32) * pow(2, (x - 9) / 12)</code>.</p>
+<p>To edit the expression, use "Set Expression" from the node's context menu.</p>
+<p>The Math Expression Node includes the following operators and functions:</p>
+<h4>Operators</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Sytax</th>
+<th>Semantics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>(x)</code></td>
+<td>parenthetical grouping</td>
+</tr>
+<tr>
+<td align="left"><code>-x</code></td>
+<td>negation</td>
+</tr>
+<tr>
+<td align="left"><code>x^y</code></td>
+<td>exponentiation</td>
+</tr>
+<tr>
+<td align="left"><code>x * y, x / y</code></td>
+<td>multiplication, division</td>
+</tr>
+<tr>
+<td align="left"><code>x + y, x - y</code></td>
+<td>addition, subtraction</td>
+</tr>
+<tr>
+<td align="left"><code>x &lt; y, x &gt; y</code></td>
+<td>less, greater. 1 if true, 0 if false</td>
+</tr>
+<tr>
+<td align="left"><code>x &lt;= y, x &gt;= y</code></td>
+<td>less than or equal, greater than or equal. 1 if true, 0 if false.</td>
+</tr>
+<tr>
+<td align="left"><code>x == y</code></td>
+<td>equality. 1 if true, 0 if false</td>
+</tr>
+<tr>
+<td align="left"><code>x ? a : b</code></td>
+<td>conditional. b if x is 0, otherwise a</td>
+</tr>
+</tbody>
+</table>
+<h4>Functions</h4>
+<p>Trigonometric functions (angles are in radians)</p>
+<table>
+<thead>
+<tr>
+<th align="left">Syntax</th>
+<th>Semantics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>sin(angle)</code></td>
+<td>sine</td>
+</tr>
+<tr>
+<td align="left"><code>cos(angle)</code></td>
+<td>cosine</td>
+</tr>
+<tr>
+<td align="left"><code>tan(angle)</code></td>
+<td>tangent</td>
+</tr>
+<tr>
+<td align="left"><code>asin(x)</code></td>
+<td>arc sine</td>
+</tr>
+<tr>
+<td align="left"><code>acos(x)</code></td>
+<td>arc cosing</td>
+</tr>
+<tr>
+<td align="left"><code>atan(x)</code></td>
+<td>arc tangent</td>
+</tr>
+</tbody>
+</table>
+<p>Exponential functions</p>
+<table>
+<thead>
+<tr>
+<th align="left">Syntax</th>
+<th>Semantics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>pow(x,y)</code></td>
+<td><code>x^y</code></td>
+</tr>
+<tr>
+<td align="left"><code>exp(x)</code></td>
+<td><code>e^x</code></td>
+</tr>
+<tr>
+<td align="left"><code>ln(x)</code></td>
+<td>Natural logarithm</td>
+</tr>
+<tr>
+<td align="left"><code>log2(x)</code></td>
+<td>Base-2 logarithm</td>
+</tr>
+<tr>
+<td align="left"><code>log10(x)</code></td>
+<td>Base-10 logarithm</td>
+</tr>
+<tr>
+<td align="left"><code>exp2(x)</code></td>
+<td><code>2^x</code></td>
+</tr>
+<tr>
+<td align="left"><code>sqrt(x)</code></td>
+<td>square root</td>
+</tr>
+</tbody>
+</table>
+<p>Common functions</p>
+<table>
+<thead>
+<tr>
+<th align="left">Syntax</th>
+<th>Semantics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>abs(x)</code></td>
+<td>absolute value</td>
+</tr>
+<tr>
+<td align="left"><code>floor(x)</code></td>
+<td>rounds down to the nearest integer</td>
+</tr>
+<tr>
+<td align="left"><code>ceil(x)</code></td>
+<td>rounds up to the nearest integer</td>
+</tr>
+<tr>
+<td align="left"><code>fract(x)</code></td>
+<td>x - floor(x)</td>
+</tr>
+<tr>
+<td align="left"><code>mod(x,y)</code></td>
+<td>remainder of x / y</td>
+</tr>
+<tr>
+<td align="left"><code>min(x,y)</code></td>
+<td>returns the lesser of x and y</td>
+</tr>
+<tr>
+<td align="left"><code>max(x,y)</code></td>
+<td>returns the greater of x and y</td>
+</tr>
+<tr>
+<td align="left"><code>clamp(x,a,b)</code></td>
+<td>restricts x to the interval [a, b]</td>
+</tr>
+<tr>
+<td align="left"><code>step(x, edge)</code></td>
+<td>1 if x > edge, otherwise 0. Hard step.</td>
+</tr>
+<tr>
+<td align="left"><code>smoothstep(x, a, b)</code></td>
+<td>smooth step from 0 to 1 on the interval [a, b]</td>
+</tr>
+</tbody>
+</table>
+<h4>Constants</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Syntax</th>
+<th>Semantics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>pi</code></td>
+<td><a href="http://en.wikipedia.org/wiki/Pi">&pi;</a></td>
+</tr>
+<tr>
+<td align="left"><code>e</code></td>
+<td><a href="http://en.wikipedia.org/wiki/E_(mathematical_constant)">e</a></td>
+</tr>
+</tbody>
+</table></body>
