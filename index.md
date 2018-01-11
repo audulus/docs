@@ -50,7 +50,7 @@ If you need help or have found a bug, contact us at:
 -	Attach the patch you were working on when you encountered the bug.
 -  Give as much detailed information as you can about how to reproduce the bug.
 
-*We are also available to help you "debug" your Audulus patches.* If Audulus is working fine, but your patch is not, please post it on the [Audulus forum](http://forum.audulus.com) and we'll do our best to help you fix it! 
+*We are also available to help you debug your Audulus patches.* If Audulus is working fine, but your patch is not, please post it on the [Audulus forum](http://forum.audulus.com) and we'll do our best to help you fix it! 
 
 ---
 
@@ -60,21 +60,6 @@ If you need help or have found a bug, contact us at:
 {:toc}
 
 ## UI Basics (iPad/iPhone)
-
-### Patch Editor
-
-![Patch Editor](img/editor.png)
-
-The Patch Editor is Audulus's main view. It consists of an infinite canvas for creating patches, with toolbar at the bottom.  
-
-- The canvas grows and shrinks to fit the size of the patch.  If you have just one small node in a patch, you will not be able to zoom out.  You need to add at least 2 nodes or modules and space them apart to give yourself some "breathing room."
-
-Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.png) chevron buttons. Exit to the patch browser using the ![Exit](img/Exit.png) button. (This button is also used to exit a subpatch. More on that below.)
-
-- The toolbar exists primarily for adding new modules to your patch, but it also contains the node browser and an on-screen multi-touch keyboard. 
-- *We highly recommend that new users create patches with modules* from the Audulus Module library, in order to speed up patch construction.
-- You can think of nodes as the "atoms" of Audulus. Modules are more like molecules.
-- That said, some nodes, like the expression node or the light node, cannot be built up into a module and must be used as nodes.
  
 ### The iPad/iPhone Audulus UI at a glance
 
@@ -87,7 +72,7 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 -   Many operations use context menus - tap and hold to bring up the context menu.
 -   To make a connection, zoom in and drag from an output to an input. *Connections can only be made from an output to an input.*
 -   To disconnect, drag the connection away from the input.
--   To "hot swap" or live patch, keep your finger held down and wave the output wire over an input or knob. This is similar to performing with patch cables on a modular, but you'll never wear out your inputs in Audulus!  Audulus is also optimized to prevent clicking/popping connection noise, so go crazy with it!
+-   To hot-swap or live patch, keep your finger held down and wave the output wire over an input or knob. This is similar to performing with patch cables on a modular, but you'll never wear out your inputs in Audulus!  Audulus is also optimized to prevent clicking/popping connection noise, so go crazy with it!
 -   To make a long connection, drag to the edge of the screen. Audulus will zoom out, widening your field of view. Move your finger away from the edge of the screen, and Audulus will zoom back in, centering around your finger, so you can place the connection.
 -   If you are zoomed too far out to make a connection, the inputs and outputs will visibly "lock" or "close." Zoom back in and they will "open" again, and you can now make and break connections as well as turn knobs.  If you have knobs and triggers mapped to MIDI, this is a non-issue.
 -   Speaking of mapping and controllers: Audulus will automatically detect your MIDI keyboard or control surface. 
@@ -95,39 +80,81 @@ Open and close the toolbar using the ![Show](img/Show.png) and ![Hide](img/Hide.
 
 > *Note 1:* The lasso gives you surgical control over what you select, allowing you to accurately clip out portions of others' designs for use in your own. Much of the progress that is made in the Audulus community happens when people leapfrog with shared knowledge.  The lasso tool makes that process *much* easier.
 
-### Toolbar buttons
-
--   ![Lock Mode Button](img/Lock.png) **Lock Mode** - Locks the nodes in
-    place. This is useful for performing.
--   ![Timing Mode Button](img/Stopwatch.png) **Timing Mode** - Toggles
-    timing mode. Timing Mode shows the percentage of CPU time each node
-    in your patch takes to compute.
--   ![Help Button](img/help.png) **Help** - Shows the Audulus documentation.
 
 ### Patch Browser
 
-The Patch Browser allows you to create, delete, duplicate, and share patches.
+The Patch Browser allows you to create, delete, duplicate, sort, and share patches.
 
-![Patch Browser](img/browser.png)
+The Patch Browser has two views accessible by tabs at the bottom of the screen: Recents and Browse.
 
--   *"+"* - Upper left corner - Creates a new patch.
+The Patch Browser (and Audulus as a whole, on both iPhone and iPad) can be viewed in either landscape or portrait mode. In landscape mode, extra menu options are open by default on the left. In portrait mode, you have to tap the Browse icon again to make them appear.
 
--   ![Collapse Button](img/CollapseButton.png) **Collapse** - Collapses the
-    patch thumbnails down to just their names, for browsing large
-    collections of patches by name.
--   **"Select"** - Toggles the Patch Browser's **Selection Mode** - When
-    in Selection Mode, tapping on a patch thumbnail will select the
-    patch and activate the Share, Duplicate, and Delete buttons.
-    Multiple patches may be selected at once. 
-    - **Note:** *It is very common to forget to exit this mode - you will not be able to create or enter a patch while in* **Selection Mode**.
--   ![Share Patch Button](img/share.png) **Share** - Shares selected patches
-    via email when in **Selection Mode.**
--   ![Duplicate Patch Button](img/duplicate.png) **Duplicate** - Duplicates
-    selected patches when in **Selection Mode.**
--   ![Delete Patch Button](img/Delete.png) **Delete** - Deletes selected
-    patches when in **Selection Mode.**
--   ![Settings Button](img/settings.png) **Settings** - Shows Audulus'
-    settings.
+The last patches opened will appear under the Recents tab pictured below. Since this is your first time opening Audulus, nothing will appear here.
+
+![Patch Browser Recents](img/Index/iOS/PatchBrowserRecents.png)
+
+The Browse tab, pictured below, will allow you to access example patches and tutorials, as well as organize patches you create using the integrated iOS 11 Files features.
+
+![Patch Browser Recents](img/Index/iOS/PatchBrowserOnMyiPad.png)
+
+It is recommended that you turn on iCloud Drive access for Audulus. iCloud will automatically backup and sync your Audulus patches across all of your devices.
+
+You can sort by name, date, size, and tags. Tap twice to sort by ascending or descending. You may need to pull down on the browser to reveal the sort options.
+
+You can also sort by icon or list view using the list icon in the upper right below the Search Bar.
+
+The Wrench icon will allow you turn Background Audio on or off. If you wish to use Audulus with other apps, this must be enabled.
+
+Select On My iPad under Locations and open the Audulus 3 folder by tapping on it. You will be presented with a new screen where you can create new patches, new folders, sort, rename, and organize.
+
+![Patch Browser Recents](img/Index/iOS/PatchBrowserOnMyiPadAudulus3Folder.PNG)
+
+You can create a new Audulus patch by tapping Create Document, or by tapping the + symbol in the upper right corner next to Select.
+
+When you tap on either, you will be presented with a screen that contains example patches, tutorials, and an option to create a new Empty Patch at the top.
+
+![Patch Browser Recents](img/Index/iOS/NewPatchBrowser.png)
+
+**NOTE: Some of the example patches may be too processor intensive for you to use on your hardware - especially if you are using an older iPad or iPhone. If you hear any crackling while using a patch, this is not a bug. It just means that the patch is too processor intensive. There are plenty of examples and tutorials that will work on all platforms though.**
+
+When you tap on an option, that patch will be created in the Patch Browser. 
+
+![Patch Browser Recents](img/Index/iOS/NewPatch.png)
+
+To rename the patch or access a number of other functions, long press on the patch and release. A context menu pictured below will appear.
+
+![Patch Browser Recents](img/Index/iOS/BrowserContextMenu.png)
+
+### Patch Editor
+
+Tap on it to open the patch. If you created a new patch, it will look like this when you do.
+
+![Patch Browser Recents](img/Index/iOS/EmptyPatch.PNG)
+
+In the top right of the screen is the Patch Browser icon. Tap it to exit the patch and return to the Patch Browser.
+
+In the bottom right is a CPU usage meter. This will display the amount of CPU time your patch is using. This CPU meter does not monitor other apps, so if you have more apps open, do not expect it to accurately reflect the total CPU time usage.
+
+The clock icon will reveal how much of the total CPU time each node or module is using as a percentage.
+
+Tap the background to reveal a context menu with the option Create. You can also reveal the Module & Node Browser by tapping the + symbol in the upper right corner.
+
+![Patch Browser Recents](img/Index/iOS/ContextMenu.PNG)
+
+The menu that appears is the Module Library and Node browser. On iPad, it will be on the right side of the screen, but on iPhone, it will take up the entire screen. On iPad, it will stay open until you close it by pressing Done, but on iPhone, it will close each time you create something.
+
+![Patch Browser Recents](img/Index/iOS/ModuleBrowser.PNG)
+
+The Module Library is a good starting place for people who want to quickly make a modular synth patch. All the modules presented are created using nodes. Building with nodes is recommended only for advanced users of Audulus, or those who want to start learning how to make their own modules from scratch.
+
+That said, to do an Audulus version of "Hello, world!" tap on the node tab at the bottom of the browser. Create a Keyboard node, an Oscillator node, a Delay node, a Level node, and a Speaker node, then wire them up as pictured below. Once they are wired together, close the Node Browser and open the onscreen keyboard by tapping the chevron (arrow) in the bottom left corner. Play with the delay parameters and tap on the oscillator waveshape to 
+
+![Patch Browser Recents](img/Index/iOS/BasicPatch.PNG)
+
+For an introduction to modular synthesis using modules found in the module library and an introduction to how to create your own modules using nodes, [refer to this Audulus forum post] (http://forum.audulus.com/discussion/1524/audulus-tutorial-livestream-modular-synthesis-101-with-audulus-pt-1/p1). 
+
+The video was captured on the computer version of Audulus, but the right-click menu you see is identical to the structure of the Module Library. The forum post contains a patch that you can play with while you watch the video (login required).
+
 
 ---
 
@@ -149,59 +176,6 @@ The Desktop Audulus UI at a glance:
 -   To learn more about how to use a particular node, right click and select "Help."
 
 
-> *Note 1:*
-
----
-
-## Intro videos
-
-<div class="responsive-container">
-<iframe src="http://player.vimeo.com/video/148324131" width="480" height="270" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-</div>
-
-<div class="responsive-container">
-<iframe src="http://player.vimeo.com/video/148319769" width="480" height="270" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-</div>
-
-<div class="responsive-container">
-<iframe src="http://player.vimeo.com/video/148358980" width="480" height="270" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-</div>
-
-## Polyphony
-
-Polyphonic processing in Audulus works seamlessly. A connection between
-nodes is polyphonic if it is rendered thicker. It also ceases oscillating between red/blue, for obvious reasons.  Nodes are automatically
-capable of polyphonic processing. So for example, feed a **Distortion**
-node with a polyphonic connection and the distortion will be applied
-separately to each voice in the connection.
-
-Currently, you can only access the first 4 notes held with the QuadToMono node, though this will change in the future - the QuadToMono node will have an arbitrary number of internal channels in a future version of Audulus 3.X.  To reassemble 4 signals into one Poly signal, use the MonoToPoly node.  Again, in a future version of Audulus 3.X, MonoToPoly will have an arbitrary number of inputs.
-
----
-
-## Building Custom Modules
-
-Starting with the Patch node, you can create your own custom modules for Audulus.  You can think of the Patch node as an enclosure - the box or faceplate that the "circuit" of your synth sits in. You can create as many layers as you want, but usually 3-5 will suffice for even the most mind-bogglingly complex designs. ( *See Note 1* )
-
-
-1. Create a sub-patch using the Patch Node (Subpatch -> Patch)
-2. Enter the sub-patch with double-tap/click on the Patch node.
-3. Create a Knob node.
-5. Exit the sub-patch and you'll see your knob on the front panel - knobs are exposed automatically by default.  If you need an "internal trimpot," use the Constant node, which is not exposable.
-6. Enter the sub-patch again and add a Light node, then bring up the context menu on the Light node and tap/click "Expose."
-7. Exit the sub patch and now you'll see the knob and the light occupying the same space on the UI.
-6. Open the context menu on the Patch node by pressing/clicking on a blank spot of the Patch node, and select Edit UI.
-7. Arrange the Knob and Light nodes where you want them.  Notice how the boundaries of the patch grow to accomodate the elements it contains.
-8. Open the Path Node's context menu again and select "Lock UI" to finish editing the UI.
-9. When arranging many UI elements at once, they may all be in a jumble on top of one another.  It may be best to expose elements one at a time, especially when placing multiple Light nodes.  Audulus cannot read your mind and needs to be told explicitly where to put UI elements.  This is sometimes a long process, but the great thing is you only have to do it once per module. If you want to bring an element on "top" of another (say, a knob that has a waveform node in the background, as the Waveform Via does), you have to know that the last element created is the one that is "on top."  To "bring to front," as you might in Photoshop, you have to select the node you want to be on top, delete it, and then re-create it. It is now the last thing created, and thus, the element that is most "on top."
-10. Also, try this: create a Patch node, then add any module from the library next to it.  Enter the module you picked out and select all of its contents, call up the context menu and select "Copy."  Exit the module and then enter the Patch node you just created, and paste what you copied. Exit the Patch node and you will see that all of the UI elements are already neatly arranged!  Use this to your advantage.
-11. If you're a beginner, try designing your instrument or effect using the modules in the Module Library rather than the nodes. The Modules are designed to be easier to use. The nodes are precise building blocks, more appropriate for advanced users.
-12. Finally, *remember to clear your history before uploading your patch to the forum!*
-
-> *Note 1:* In very, very large designs, it becomes necessary to use modules to lighten the GUI load, especially if you are working on iOS.
-
-See you at the forum!  Happy patching!
-
 ---
 
 ## Audulus Audio Unit (Mac Only)
@@ -211,7 +185,7 @@ See you at the forum!  Happy patching!
 To install Audulus as an Audio Unit plugin, download the installer
 package above.
 
-The installer package will install the Audio Anit to either a
+The installer package will install the Audio Unit to either a
 user-specific (`~/Library/Audio/Plug-Ins/Components`) or a system-wide
 (`/Library/Audio/Plug-Ins/Components`) location.
 
