@@ -95,7 +95,7 @@ The last patches opened will appear under the Recents tab pictured below. Since 
 
 The Browse tab, pictured below, will allow you to access example patches and tutorials, as well as organize patches you create using the integrated iOS 11 Files features.
 
-![Patch Browser Recents](img/Index/iOS/PatchBrowserOnMyiPad.png)
+![Patch Browser On My iPad](img/Index/iOS/PatchBrowserOnMyiPad.png)
 
 It is recommended that you turn on iCloud Drive access for Audulus. iCloud will automatically backup and sync your Audulus patches across all of your devices.
 
@@ -107,29 +107,29 @@ The Wrench icon will allow you turn Background Audio on or off. If you wish to u
 
 Select On My iPad under Locations and open the Audulus 3 folder by tapping on it. You will be presented with a new screen where you can create new patches, new folders, sort, rename, and organize.
 
-![Patch Browser Recents](img/Index/iOS/PatchBrowserOnMyiPadAudulus3Folder.PNG)
+![Patch Browser On My iPad Audulus 3 Folder](img/Index/iOS/PatchBrowserOnMyiPadAudulus3Folder.png)
 
 You can create a new Audulus patch by tapping Create Document, or by tapping the + symbol in the upper right corner next to Select.
 
 When you tap on either, you will be presented with a screen that contains example patches, tutorials, and an option to create a new Empty Patch at the top.
 
-![Patch Browser Recents](img/Index/iOS/NewPatchBrowser.png)
+![New Patch Browser](img/Index/iOS/NewPatchBrowser.png)
 
 **NOTE: Some of the example patches may be too processor intensive for you to use on your hardware - especially if you are using an older iPad or iPhone. If you hear any crackling while using a patch, this is not a bug. It just means that the patch is too processor intensive. There are plenty of examples and tutorials that will work on all platforms though.**
 
 When you tap on an option, that patch will be created in the Patch Browser. 
 
-![Patch Browser Recents](img/Index/iOS/NewPatch.png)
+![New Patch](img/Index/iOS/NewPatch.png)
 
 To rename the patch or access a number of other functions, long press on the patch and release. A context menu pictured below will appear.
 
-![Patch Browser Recents](img/Index/iOS/BrowserContextMenu.png)
+![Browser Context Menu](img/Index/iOS/BrowserContextMenu.png)
 
 ### Patch Editor
 
 Tap on it to open the patch. If you created a new patch, it will look like this when you do.
 
-![Patch Browser Recents](img/Index/iOS/EmptyPatch.PNG)
+![Empty Patch](img/Index/iOS/EmptyPatch.png)
 
 In the top right of the screen is the Patch Browser icon. Tap it to exit the patch and return to the Patch Browser.
 
@@ -139,17 +139,21 @@ The clock icon will reveal how much of the total CPU time each node or module is
 
 Tap the background to reveal a context menu with the option Create. You can also reveal the Module & Node Browser by tapping the + symbol in the upper right corner.
 
-![Patch Browser Recents](img/Index/iOS/ContextMenu.PNG)
+![Context Menu](img/Index/iOS/ContextMenu.png)
 
 The menu that appears is the Module Library and Node browser. On iPad, it will be on the right side of the screen, but on iPhone, it will take up the entire screen. On iPad, it will stay open until you close it by pressing Done, but on iPhone, it will close each time you create something.
 
-![Patch Browser Recents](img/Index/iOS/ModuleBrowser.PNG)
+![Module Browser](img/Index/iOS/ModuleBrowser.png)
 
 The Module Library is a good starting place for people who want to quickly make a modular synth patch. All the modules presented are created using nodes. Building with nodes is recommended only for advanced users of Audulus, or those who want to start learning how to make their own modules from scratch.
 
-That said, to do an Audulus version of "Hello, world!" tap on the node tab at the bottom of the browser. Create a Keyboard node, an Oscillator node, a Delay node, a Level node, and a Speaker node, then wire them up as pictured below. Once they are wired together, close the Node Browser and open the onscreen keyboard by tapping the chevron (arrow) in the bottom left corner. Play with the delay parameters and tap on the oscillator waveshape to 
+You can now also search for modules and nodes by pulling down on the browser to reveal the search bar. When you tap in the search field, a keyboard will appear and you will be able to search by name.
 
-![Patch Browser Recents](img/Index/iOS/BasicPatch.PNG)
+![Module Search](img/Index/iOS/ModuleSearch.png)
+
+To do an Audulus version of "Hello, world!" tap on the Node tab at the bottom of the browser. Create a Keyboard node, an Oscillator node, a Delay node, a Level node, and a Speaker node, then wire them up as pictured below. Once they are wired together, close the Node Browser and open the onscreen keyboard by tapping the chevron (arrow) in the bottom left corner. Play with the delay parameters and tap on the oscillator waveshape to change how it sounds.
+
+![Basic Patch](img/Index/iOS/BasicPatch.png)
 
 For an introduction to modular synthesis using modules found in the module library and an introduction to how to create your own modules using nodes, [refer to this Audulus forum post] (http://forum.audulus.com/discussion/1524/audulus-tutorial-livestream-modular-synthesis-101-with-audulus-pt-1/p1). 
 
