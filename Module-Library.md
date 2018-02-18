@@ -7,10 +7,16 @@ This is an overview of all of the modules in the Audulus module library. They ar
 Attenuator modules shrink or expand, translate up or down, or otherwise modify an incoming signal. The most basic attenuator is a volume control, but attenuators can be used for many things. The most useful attenuator is the Modulation Attenuate-Offset module, which is most often use to translate LFOs and envelopes into a particular range to wiggle a knob on a filter or effect.
 
 ###Audio
+
+A collection of audio attenuators and attenuverters scaled to work properly with audio signals. Audio signals in Audulus range from a maximum of -1 to 1.
+
 **Audio Attenuverter** <br>
 Translates -1 to 1 audio signals. The * control is an attenuverter. At 0, the input audio signal is inverted. At 1, the signal is passed unaffected. In between 0 to 1 the control acts like an attenuator. The + control is an offset. It translates the entire wave up by 0 to 1. If the outgoing wave exceeds 1, the signal is clipped.
 
 ###Modulation
+
+A collection of modulation attenuators and attenuverters scaled to work properly with audio signals. Modulation signals in Audulus range from a maximum to 0 to 1.
+
 **Modulation Attenuate-Offset** <br>
 Translates the 0 to 1 modulation signal by attenuating (shrinking or expanding) and offsetting (moving up or down). This is one of the most important modules in Audulus. Use it to dial in the precise amount of modulation you want in whatever range you want. This module will clip any signal outside of the range of 0 to 1.
 
@@ -25,6 +31,8 @@ Translates 0 to 1 modulation signals into -5 to 5 octave signals. This is anothe
 Modulation to Octave Shift-Attenuate-Offset - Same as the Modulation to Octave Attenuate-Offset except it adds a control to shift the octave being played up or down. You can use this for quick easy shifts in octave that would be more difficult to program with the Modulation to Octave Attenuate-Offset alone.
 
 ###Octave
+
+A collection of octave attenuators and translators scaled to work properly with the octave signal. Audible frequencies range from about -5 to 5, though the octave signal can go both higher and lower than this.
 
 **Octave Attenuate-Offset** <br>
 Similar to the Modulation Attenuate-Offset module, but works instead with octave signals. Use it to create moving chord sequences by shifting octave signals up from the base note and sending them to another oscillator or two. Use the attenuate knob to shrink or expand the range of the incoming octave signal for interesting effects.
@@ -48,6 +56,7 @@ Binary building modules use binary numbers as a way to store information. They a
 Turns a 16 step pattern into a decimal number that can be used to create rhythmic patterns with modules like the Pattern Bank Sequencer. The module looks at the 16 beat pattern as if it were at 16 digit binary number and simply converts that binary number into a decimal. In the Pattern Bank Sequencer, the decimal is re-converted into the binary number. The binary number is then broken apart into individual 0 (skip) or 1 (hit) messages for the sequencer.
 
 ###Counter
+
 Counters are modules that count up or down in sequence when pulsed with a gate or somehow count time. They are most often used in sequencers.
 Elapsed Time - Displays the elapsed time since a timer has been reset. It converts the timer’s output of seconds into hours, minutes, seconds, and milliseconds.
 
@@ -57,116 +66,327 @@ Counts up with each incoming gate pulse from 0 to a specified number and then re
 **Up-Down Counter** <br>
 The same as the Up Counter except it counts up to a number then down back to 0 at each gate pulse. Commonly used for ping-pong mode in a sequencer.
 
-Curve - Curve modules apply a shape to the normally linear output of a knob or incoming 0 to 1 modulation signal. They are useful for adding logarithmic or exponential responses to knobs on volume controls and filter cutoffs, or shaping the output of an envelope. They can also be used as audio effects to apply distortion to incoming audio signals.
+###Curve
 
-Curve Exp-Lin-Log - Fades between an exponential, linear, and logarithmic response. Commonly used on the output of an envelope to change its response. Greatly affects the sound of VCFs and VCAs.
+Curve modules apply a shape to the normally linear output of a knob or incoming 0 to 1 modulation signal. They are useful for adding logarithmic or exponential responses to knobs on volume controls and filter cutoffs, or shaping the output of an envelope. They can also be used as audio effects to apply distortion to incoming audio signals.
 
-Curve Exponential - Fades between slightly exponential (x*x) to highly exponential (x*x*x*x).
+**Curve Exp-Lin-Log** <br>
+Fades between an exponential, linear, and logarithmic response. Commonly used on the output of an envelope to change its response. Greatly affects the sound of VCFs and VCAs.
+
+**Curve Exponential** <br>
+Fades between slightly exponential `(x*x)` to highly exponential `(x*x*x*x)`.
 
 ###Detector
-Detector modules analyze incoming signals and detect something about them. The most basic and common detector is the audio peak detector, which flashes red when an audio signal exceeds the maximum -1 to 1 output range. Another commonly used detector is the Change Detector which outputs a short pulse whenever a value change is detected at its input.
-Audio Peak Detector - Flashes red when an incoming audio signal exceeds the -1 to 1 output range. Commonly used on audio and CV output modules.
-Change Detector - Outputs a gate pulse whenever a change in value is detected at its input. A common application is to attach the detector to a knob so that whenever the knob is turning, a light will will stay illuminated. When x time has elapsed, the light will turn off. The output will be a quick burst of on/off gates, not a steady stream of on or off. To smooth out this burst of gates, use the Gate Smear module. This detector works in single-sample mode, so it is very fast and will detect changes from one sample to another.
-High-Low Detector - Detects the high and low point of an incoming signal. Very useful for ranging the output of VCO modules to the standard -1 to 1 especially when the VCO module contains multiple mixed oscillators. The reset input sets the detector back to 0 to reanalyze. The two outputs output the high (top) and low (bottom) values.
-Up-Down Detector - Similar to the Change Detector, except it analyzes whether the signal is moving from a lower value to higher value, or higher value to lower value.
-Gate - These modules output 0 to 1 gate signals most often used to trigger sequencers or events.
-1-Frame Pulse - Takes an incoming 0 to 1 gate signal and converts it into a short ~300 sample pulse. A frame is the unit of time that Audulus processes in unless explicitly told to process in single sample mode. The pulse will only last ~300 samples no matter how long the incoming gate lasts. In most cases, this is the shortest useful gate length in Audulus.
-Gate to 10ms Pulse - Translates an incoming gate into a 10ms pulse which is a standard minimum pulse length recognized by many hardware sequencers.
-Input-Output - These modules are a collection of common input and output lights, indicators, and signal clippers. Light nodes will have to be exposed and placed within the input-output on a module. If for some reason the light appears below or beneath the output, enter the module, cut the light, then paste it. This will make it appear on top.
-Clip Audio Light Output - This module is a combination of the Audio Light Output module and a clamp expression that clips the output signal if it exceeds the standard -1 to 1 range for audio signals. It is almost exclusively found in VCAs, but can be put into any module where both hard clipping and an output audio light are desired. When clipping is detected, the light will flash white.
-Audio Light Input-Output - This collection of modules serve as audio input and output lights. When the light flashes red, the signal is positive. When it flashes blue, the signal is negative. Quickly oscillating audio signals will appear as a scintillating purple. If you do not need one or the other, simply delete it.
-Gate Input-Output - This collection of modules serve as gate input and output lights. If you do not need one or the other, simply delete it.
-Modulation Input-Output - This collection of modules serve as modulation input and output lights. If you do not need one or the other, simply delete it.
-Octave Input-Output - This collection of modules serve as octave signal input and output indicators. When placed inside a module, simply expose the “o” and center it in the input or output. If you do not need one or the other, simply delete it.
-Knob - These modules are meant to be paired with 0 to 1 knobs for use inside modules. When a Knob node is created, by default, its range is 0 to 1. Thought you can change this range, it is helpful to keep them all 0 to 1 so that they can interface with 0 to 1 modulation signals. These modules translate the 0 to 1 signal from knobs into different ranges and do various other fun tricks like acting as switches or number creators.
--x to x - Attach a Knob node to the knob input and a number to the x input. The output will then range from -x to x. For example: If you attach 2 to x, the output of the module will be -2 to 2.
-0 to x - Attach a Knob node to the knob input and a number to the x input. The output will then range from 0 to x. For example: If you attach 5 to x, the output of the module will be 0 to 2.
-Center Range - Attach a Knob node to the knob input and a number to the Center(x) and Range(y) input. When the knob is centered at 0.5, the output of the module will be the value at Center(x). The Range(y) defines the entire sweep of the knob. For example: If you attach 2 to Center(x) and 6 to Range(y), the output of the module will be from -1 to 5, outputting a 2 when the knob is centered at 0.5.
-Integer Maker - Attach Knob nodes to the 100’s, 10’s, and 1’s inputs. Each knob will control the corresponding digit of a 3 digit number from 0 to 999, outputted by the module at x.
-Integers 0 to x - Attach a Knob node to the knob input and an integer to the x input. The knob will sweep from 0 to x in integer steps. For example: If you attach 9 to x, the module will output integers from 0 to 9 as you sweep the knob.
-Pulses Per Turn - Attach a Knob node to the knob input and a positive integer to the pulses per turn input. As you sweep the knob, the module will output an on/off gate pulse that many times per whole turn.
-x to y - Attach a Knob node to the knob input and two different numbers to x and y. The knob will sweep from x to y. For example: attach -1 to x and 10 to y. The module will output -1 to 10 as the knob is turned. The lower number does not need to come first, either. You could attach 100 to x and -100 to y, and the knob will sweep backwards from 100 to -100. You can also attach special numbers like pi or e to the inputs.
-x to y or z Switch - Attach a Knob node to the knob input and two numbers to x and y. The module will sweep from x to y as long as the knob’s value does not exactly equal 0 (turned all the way down). When the knob is turned all the way down, the signal present at the z input passes to the output.
-xyz Switch - Similar to the x to y or z Switch, the xyz switch will output x when the knob is turned all the way down, y when the knob is somewhere in between 0 and 1, and z when the knob is turned all the way up. A common configuration would be to attach the Knob to the knob input and the y input, with different signals attached to x and z.
-Light - These modules take an input signal and translate them into signals for the RGB light node.
-Audio Light - Analyzes an incoming -1 to 1 audio signal and displays the positive portion as red and negative portion as blue. Useful for indicating an audio output.
-Polar Light - Analyzes an incoming 0 to 1 modulation signal and displays it as blue for 0 to 0.5 and red from 0.5 to 1. Useful for light indicators on attenuverters.
-Loop - These modules create a feedback loop within a module. Feedback can be used in many different ways: to create audio or modulation distortion, or to force a portion of your design into single-sample mode.
-Force Single Sample Loop - Creates a loop that forces a portion of your module to run in single sample mode. Useful for when the operation of feedback requires faster processing than the ~300 sample frame rate.
-Octave - The octave signal is the equivalent to the 1 volt per octave linearized pitch scale standard in modular synthesizers but with a twist. Instead of 0 volts = lowest note and 10 volts = highest note, the octave signal in Audulus is centered at 0, where 0 = A4 = 440Hz. Going up or down by integers changes the octave, so 1 = A5 = 880Hz and -1 = A3 = 220Hz. The advantage of this system is that you can create synced oscillators that go far into the LFO range while still staying in tune with the master oscillator - very useful for FM synthesis. For practical purposes, VCOs are ranged from -5 to 5 to cover a standard 10 octave range.
-Octave to Hz with Linear Audio FM and Tune Controls - A basic starter kit for creating a VCO module in Audulus. This module is the same as the Octave to Hz with Octave Shift and Fine Tune Controls module with an added section for frequency modulation (FM) input that accepts -1 to 1 audio signals. Linear FM means that the frequency modulation will respond the same in low and high octaves (as opposed to exponential FM).
-Octave to Hz with Octave Shift and Fine Tune Controls - A basic starter kit for creating a VCO module in Audulus. The octave input is translated into the Hz value that the Oscillator and Phasor node needs. The octave control shifts the octave of the oscillator up or down by -5 to 5 octaves. Expose the value meter to display the octave shift on your VCO. The fine tune control shifts the oscillator down by a semitone (0) or up by a semitone (1). 
-Octave to Hz - Converts the octave signal into a Hz signal. The reference pitch can be changed inside the module. The default is A = 440.
-Presets - These modules use spline nodes to store preset values for use in other modules. Simply add spline break points inside the modules and attach outputs to the controls you want to create presets for. Attach a knob to the preset knob to bring the preset scanner onto the front panel UI of your module.
-Preset 2 -  A preset module with 2 outputs.
-Preset 4 -  A preset module with 4 outputs.
-Preset 8 -  A preset module with 8 outputs.
-Preset 16 -  A preset module with 16 outputs.
-Random - These modules create random strings of numbers which can be used as audio noise or as random modulations.
-True Random - Creates true random numbers that are not algorithmically generated like those from the Random node. The Random node creates a string of pseudo-random numbers from a starting point called a seed. The problem with this is that a patch utilizing a Random node will sound exactly the same whenever the patch is opened. This module solves that problem by using the microphone input to generate noise, which can then be sampled to create true randomness. The noise floor of an audio input is amplified by a large factor and pushed through a sine waveshaping expression to create what is essentially white noise. The audio input used by True Random can be shared with an instrument without interfering with its operation, or inducing noise into the audio path. The audio channel used can be changed inside the module at the ADC node input. By default, the noise is sampled at 20kHz. To create a true random sample & hold, just combine this module with a clocked sample and hold.
-Rectifier - These modules take incoming signals and rectify them. Rectification is a term borrowed from electronics. When you want to convert an alternating current (AC) to a direct current (DC), you use a rectifier. AC is equivalent to Audulus’ audio signal, and DC is equivalent to Audulus’ modulation signal. There are two basic types of rectification - full-wave and half-wave. Full wave rectification flips the negative portion of the wave around so that, for example, a sine wave would appear to be rolling, bouncing hills. Half wave rectification simply clips off the negative portion of the wave. Rectifiers are useful for waveshaping your modulation signals to get unique patterns you otherwise would not normally be able to get.
-Audio Rectifier - Rectifies an audio signal in 4 different ways. 
-Half + outputs the half-wave rectified positive signal. 
-Half - outputs the half-wave rectified negative signal. 
-Full + outputs the full-wave rectified positive signal. 
-Full - outputs the full-wave rectified negative signal.
-Modulation Rectifier - Converts a modulation signal to an audio signal and then rectifies it in 4 different ways. 
-Half + outputs the half-wave rectified positive signal. 
-Half - outputs the half-wave rectified negative signal, but translated into the 0 to 1 modulation range. 
-Full + outputs the full-wave rectified positive signal. 
-Full - outputs the full-wave rectified negative signal - an inverted version of the full-wave positive signal translated into the 0 to 1 modulation range.
-Rectifying Signal Reflector - Uses a set of expressions to combine two modulation signals into a unique modulation wave. When x is greater than y, the output of the module is x-y. When y is greater than x, the output of the module is y-x. When the output of the module is greater than 0.5, the module outputs a gate. The x and y knobs control the level of each modulation signal before being compared. The attenuate control attenuates the overall output of the module. The offset control does not offset the main output signal, but instead offsets the output that is located beneath the offset control. This output is meant to be looped back and attached to the x or y control to create really wild unpredictable results.
-Signal - These modules compare and create signals. The category is broad and contains modules that otherwise do not fit into any of the other building categories.
-Return Greater - Compares signals x and y and outputs whatever signal is greater.
-Return Lesser - Compares signals x and y and outputs whatever signal is lesser.
-Value Distributor - Creates eight 0 to 1 modulation signals that are distributed in a user-defined manner around linear and exponential shapes. The bal or balance control adjusts the tilt of the distribution from left to equal to right. The shape control applies an exponential curve to the distribution. The peak control changes which output has the highest peak. The gain control adjusts the total range of the value distribution. An example use of this module would be to use each 8 outputs to control the boost or cut of an 8 band equalizer.
-Spline - These are preset spline nodes mainly for use in oscillators. Driven by a 0 to 1 saw LFO, they translate the saw into whatever shape depicted on the spline. The output of the spline will have to be translated into the -1 to 1 audio range if using them as audio oscillators.
-Triangle Spline Node - A spline with a perfect triangle shape.
-Templates - These are module templates that can be used to quickly build up a custom module of your own.
-VCO Template - This is a basic VCO template that includes an octave input, audio output, and tuning controls. Just add your own custom oscillator and adjust the UI to taste.
-Translation - These modules take a one signal and transform it into another type of signal. The most common of these is the Octave to Hz translator, which converts the linearized octave pitch signal in Audulus to the exponential Hz pitch value. You will find these translator modules in every single VCO module in Audulus’ module library. Another common translation module are the truncate modules, which cut off values of a number past a certain digit. This is useful when you only want to display a value to a certain precision.
-Audio - These modules translate -1 to 1 audio signals into other signal types.
-Audio to Modulation - Translates -1 to 1 audio signals to 0 to 1 modulation signals.
-BPM - These modules translate BPM (beats per minute) signals into other signal types.
-BPM to Hz - Translates BPM signals into Hz values.
-dB - These modules translate dB (decibel) signals into other signal types.
-dB to Amplitude - Translates dBs into an amplitude signal.
-Feedback Delay - These modules translate the Feedback Delay period into other signal types.
-Feedback Delay to Seconds - Translates the Feedback Delay time into seconds.
-Hz - These modules translate Hz (hertz) signals into other signal types.
-Hz to BPM - Translates Hz into BPM.
-Hz to Note Number - Translates Hz to Note Number, as defined by an 88-note piano keyboard.
-Hz to Octave - Translates Hz into the octave signal.
-Hz to Seconds - Translates Hz into seconds.
-Modulation - These modules translate the 0 to 1 modulation signal into other signal types.
-Modulation to Audio - Translates the 0 to 1 modulation signal into a -1 to 1 audio signal.
-Modulation to Radians - Translates the 0 to 1 modulation signal into the 0 to 2pi radian signal.
-Note Number - These modules translate the note number, as defined by an 88-note piano keyboard, into other signal types.
-Note Number to Hz - Translates a note number into a Hz signal.
-Note Number to Octave - Translates a note number into the octave signal.
-Octave - These modules translate the octave signal to other signal types. The octave signal in Audulus is a linearized pitch scale. Unlike 1 volt per octave modular synth pitch scales, the octave signal has no upper or lower limit. Instead, it is centered around 0, where 0 = A4 = 440Hz. An octave signal of 1 would be 1 octave higher than A4, or A5 = 880Hz. An octave signal of -1 would be 1 octave lower than A4, or A3 = 220Hz. The reference pitch of A4 = 440Hz can be changed inside these modules.
-Octave to Hz - Translates the octave signal into a Hz signal.
-Octave to Note Number - Translates the octave signal into a note number signal.
-Radians - These modules translate radians into other signal types. The Phasor node outputs in radians.
-Radians to Audio - Translates radians into a -1 to 1 audio signal.
-Radians to Degrees - Translates radians into a 0 to 360 degrees signal.
-Radians to Modulation - Translates radians into a 0 to 1 modulation signal.
-Round - These modules round incoming signals to the closest digit specified.
-Round to Hundredths - Rounds incoming signal to the nearest hundredths place.
-Round to Integer - Rounds incoming signal to the nearest integer.
-Round to Tenths - Rounds incoming signal to the nearest tenths place.
-Round to Thousandths - Rounds incoming signal to the nearest thousandths place.
-Samples - These modules translate the time period of a sample into other signal types.
-Samples to seconds - Translates x number of samples into seconds. Smallest value is 1. For best results, use integers.
-Seconds - These modules translate seconds into other signal types.
-Seconds to samples - Translates x number of seconds into a number of samples.
-Truncate - These modules clip off trailing digits after the given decimal place.
-Truncate to Hundredths - clips off any digits after the hundredths place.
-Truncate to Tenths - clips off any digits after the tenths place.
-Truncate to Thousandths - clips off any digits after the thousandths place.
-Vias - Vias are special pass-through tabs that help arrange wires in Audulus. They are very useful for keeping the internals of modules neat and easy to read. They also serve an important function while building. You may, for example, have a single output going to multiple inputs. You want to attach a knob to test that function, but then later wish to replace it with an input or maybe even a button. If you simply attached the output of the knob to all of those inputs, you would have to delete the knob and rewire everything from scratch. However, if you wire the via first and then attach the knob to the via, you can easily clip out the knob while retaining your connections. Also, because signal flow in Audulus is by default left to right, the cable animation will not look very neat if you want to run a signal backwards in a feedback configuration. Reverse vias allow you to change the direction of a signal in Audulus while maintaining a clean look.
 
-Chaos - Chaos modules are a special class of random modules used primarily for modulation. They are not purely random like white noise (where all values have an equal possibility of being chosen), and not “filtered” random like pink noise (where lower values have a greater chance of being chosen than higher values). Instead, chaos describes a system that is highly dependent on an initial state, and often contain feedback loops, where the previous state affects the next state. For example: in choosing random numbers, the previous number does not affect the probability of the value of the next number being chosen. A filtered random system can bias the set of numbers being chosen so that more low-value numbers are chosen (like with pink noise), but the previous number chosen still does not affect what number will be chosen next. Chaos on the other hand allows for previous values to influence future values that are chosen. Chaos modules make for interesting modulation sources as they tend to have a more organic or natural feel - almost as if a human hand or the wind were turning the knob. For more information and inspiration about chaos theory and mathematics, refer to this Wikipedia article.
+Detector modules analyze incoming signals and detect something about them. The most basic and common detector is the audio peak detector, which flashes red when an audio signal exceeds the maximum -1 to 1 output range. Another commonly used detector is the Change Detector which outputs a short pulse whenever a value change is detected at its input.
+
+**Audio Peak Detector** <br>
+Flashes red when an incoming audio signal exceeds the -1 to 1 output range. Commonly used on audio and CV output modules.
+
+**Change Detector** <br>
+Outputs a gate pulse whenever a change in value is detected at its input. A common application is to attach the detector to a knob so that whenever the knob is turning, a light will will stay illuminated. When x time has elapsed, the light will turn off. The output will be a quick burst of on/off gates, not a steady stream of on or off. To smooth out this burst of gates, use the Gate Smear module. This detector works in single-sample mode, so it is very fast and will detect changes from one sample to another.
+
+**High-Low Detector** <br>
+Detects the high and low point of an incoming signal. Very useful for ranging the output of VCO modules to the standard -1 to 1 especially when the VCO module contains multiple mixed oscillators. The reset input sets the detector back to 0 to reanalyze. The two outputs output the high (top) and low (bottom) values.
+
+**Up-Down Detector** <br>
+Similar to the Change Detector, except it analyzes whether the signal is moving from a lower value to higher value, or higher value to lower value.
+
+###Gate
+
+These modules output 0 to 1 gate signals most often used to trigger sequencers or events.
+
+**1-Frame Pulse** <br>
+Takes an incoming 0 to 1 gate signal and converts it into a short ~300 sample pulse. A frame is the unit of time that Audulus processes in unless explicitly told to process in single sample mode. The pulse will only last ~300 samples no matter how long the incoming gate lasts. In most cases, this is the shortest useful gate length in Audulus.
+
+**Gate to 10ms Pulse** <br>
+Translates an incoming gate into a 10ms pulse which is a standard minimum pulse length recognized by many hardware sequencers.
+
+###Input-Output
+
+These modules are a collection of common input and output lights, indicators, and signal clippers. Light nodes will have to be exposed and placed within the input-output on a module. If for some reason the light appears below or beneath the output, enter the module, cut the light, then paste it. This will make it appear on top.
+
+**Clip Audio Light Output** <br>
+This module is a combination of the Audio Light Output module and a clamp expression that clips the output signal if it exceeds the standard -1 to 1 range for audio signals. It is almost exclusively found in VCAs, but can be put into any module where both hard clipping and an output audio light are desired. When clipping is detected, the light will flash white.
+Audio Light Input-Output - This collection of modules serve as audio input and output lights. When the light flashes red, the signal is positive. When it flashes blue, the signal is negative. Quickly oscillating audio signals will appear as a scintillating purple. If you do not need one or the other, simply delete it.
+
+**Gate Input-Output** <br>
+This collection of modules serve as gate input and output lights. If you do not need one or the other, simply delete it.
+
+**Modulation Input-Output** <br>
+This collection of modules serve as modulation input and output lights. If you do not need one or the other, simply delete it.
+
+**Octave Input-Output** <br>
+This collection of modules serve as octave signal input and output indicators. When placed inside a module, simply expose the “o” and center it in the input or output. If you do not need one or the other, simply delete it.
+
+###Knob
+
+These modules are meant to be paired with 0 to 1 knobs for use inside modules. When a Knob node is created, by default, its range is 0 to 1. Thought you can change this range, it is helpful to keep them all 0 to 1 so that they can interface with 0 to 1 modulation signals. These modules translate the 0 to 1 signal from knobs into different ranges and do various other fun tricks like acting as switches or number creators.
+
+**-x to x** <br>
+Attach a Knob node to the knob input and a number to the x input. The output will then range from -x to x. For example: If you attach 2 to x, the output of the module will be -2 to 2.
+
+**0 to x** <br>
+Attach a Knob node to the knob input and a number to the x input. The output will then range from 0 to x. For example: If you attach 5 to x, the output of the module will be 0 to 2.
+
+**Center Range** <br>
+Attach a Knob node to the knob input and a number to the Center(x) and Range(y) input. When the knob is centered at 0.5, the output of the module will be the value at Center(x). The Range(y) defines the entire sweep of the knob. For example: If you attach 2 to Center(x) and 6 to Range(y), the output of the module will be from -1 to 5, outputting a 2 when the knob is centered at 0.5.
+
+**Integer Maker** <br>
+Attach Knob nodes to the 100’s, 10’s, and 1’s inputs. Each knob will control the corresponding digit of a 3 digit number from 0 to 999, outputted by the module at x.
+
+**Integers 0 to x** <br>
+Attach a Knob node to the knob input and an integer to the x input. The knob will sweep from 0 to x in integer steps. For example: If you attach 9 to x, the module will output integers from 0 to 9 as you sweep the knob.
+
+**Pulses Per Turn** <br>
+Attach a Knob node to the knob input and a positive integer to the pulses per turn input. As you sweep the knob, the module will output an on/off gate pulse that many times per whole turn.
+
+**x to y** <br>
+Attach a Knob node to the knob input and two different numbers to x and y. The knob will sweep from x to y. For example: attach -1 to x and 10 to y. The module will output -1 to 10 as the knob is turned. The lower number does not need to come first, either. You could attach 100 to x and -100 to y, and the knob will sweep backwards from 100 to -100. You can also attach special numbers like pi or e to the inputs.
+
+**x to y or z Switch** <br>
+Attach a Knob node to the knob input and two numbers to x and y. The module will sweep from x to y as long as the knob’s value does not exactly equal 0 (turned all the way down). When the knob is turned all the way down, the signal present at the z input passes to the output.
+
+**xyz Switch** <br>
+Similar to the x to y or z Switch, the xyz switch will output x when the knob is turned all the way down, y when the knob is somewhere in between 0 and 1, and z when the knob is turned all the way up. A common configuration would be to attach the Knob to the knob input and the y input, with different signals attached to x and z.
+
+###Light
+These modules take an input signal and translate them into signals for the RGB light node.
+
+**Audio Light** <br>
+Analyzes an incoming -1 to 1 audio signal and displays the positive portion as red and negative portion as blue. Useful for indicating an audio output.
+
+**Polar Light** <br>
+Analyzes an incoming 0 to 1 modulation signal and displays it as blue for 0 to 0.5 and red from 0.5 to 1. Useful for light indicators on attenuverters.
+
+###Loop
+
+These modules create a feedback loop within a module. Feedback can be used in many different ways: to create audio or modulation distortion, or to force a portion of your design into single-sample mode.
+
+**Force Single Sample Loop** <br>
+Creates a loop that forces a portion of your module to run in single sample mode. Useful for when the operation of feedback requires faster processing than the ~300 sample frame rate.
+
+###Octave
+
+The octave signal is the equivalent to the 1 volt per octave linearized pitch scale standard in modular synthesizers but with a twist. Instead of 0 volts = lowest note and 10 volts = highest note, the octave signal in Audulus is centered at 0, where 0 = A4 = 440Hz. Going up or down by integers changes the octave, so 1 = A5 = 880Hz and -1 = A3 = 220Hz. The advantage of this system is that you can create synced oscillators that go far into the LFO range while still staying in tune with the master oscillator - very useful for FM synthesis. For practical purposes, VCOs are ranged from -5 to 5 to cover a standard 10 octave range.
+
+**Octave to Hz with Linear Audio FM and Tune Controls** <br>
+A basic starter kit for creating a VCO module in Audulus. This module is the same as the Octave to Hz with Octave Shift and Fine Tune Controls module with an added section for frequency modulation (FM) input that accepts -1 to 1 audio signals. Linear FM means that the frequency modulation will respond the same in low and high octaves (as opposed to exponential FM).
+
+**Octave to Hz with Octave Shift and Fine Tune Controls** <br>
+A basic starter kit for creating a VCO module in Audulus. The octave input is translated into the Hz value that the Oscillator and Phasor node needs. The octave control shifts the octave of the oscillator up or down by -5 to 5 octaves. Expose the value meter to display the octave shift on your VCO. The fine tune control shifts the oscillator down by a semitone (0) or up by a semitone (1). 
+
+**Octave to Hz** <br>
+Converts the octave signal into a Hz signal. The reference pitch can be changed inside the module. The default is A = 440.
+
+###Presets
+
+These modules use spline nodes to store preset values for use in other modules. Simply add spline break points inside the modules and attach outputs to the controls you want to create presets for. Attach a knob to the preset knob to bring the preset scanner onto the front panel UI of your module.
+
+**Preset 2** <br>
+A preset module with 2 outputs.
+
+**Preset 4** <br>
+A preset module with 4 outputs.
+
+**Preset 8** <br>
+A preset module with 8 outputs.
+
+**Preset 16** <br>
+A preset module with 16 outputs.
+
+###Random
+
+These modules create random strings of numbers which can be used as audio noise or as random modulations.
+
+**True Random** <br>
+Creates true random numbers that are not algorithmically generated like those from the Random node. The Random node creates a string of pseudo-random numbers from a starting point called a seed. The problem with this is that a patch utilizing a Random node will sound exactly the same whenever the patch is opened. This module solves that problem by using the microphone input to generate noise, which can then be sampled to create true randomness. The noise floor of an audio input is amplified by a large factor and pushed through a sine waveshaping expression to create what is essentially white noise. The audio input used by True Random can be shared with an instrument without interfering with its operation, or inducing noise into the audio path. The audio channel used can be changed inside the module at the ADC node input. By default, the noise is sampled at 20kHz. To create a true random sample & hold, just combine this module with a clocked sample and hold.
+
+###Rectifier
+These modules take incoming signals and rectify them. Rectification is a term borrowed from electronics. When you want to convert an alternating current (AC) to a direct current (DC), you use a rectifier. AC is equivalent to Audulus’ audio signal, and DC is equivalent to Audulus’ modulation signal. There are two basic types of rectification - full-wave and half-wave. Full wave rectification flips the negative portion of the wave around so that, for example, a sine wave would appear to be rolling, bouncing hills. Half wave rectification simply clips off the negative portion of the wave. Rectifiers are useful for waveshaping your modulation signals to get unique patterns you otherwise would not normally be able to get.
+
+**Audio Rectifier** <br>
+Rectifies an audio signal in 4 different ways. <br>
+Half + outputs the half-wave rectified positive signal. <br>
+Half - outputs the half-wave rectified negative signal. <br>
+Full + outputs the full-wave rectified positive signal. <br>
+Full - outputs the full-wave rectified negative signal. <br>
+
+**Modulation Rectifier** <br>
+Converts a modulation signal to an audio signal and then rectifies it in 4 different ways. <br>
+Half + outputs the half-wave rectified positive signal. <br>
+Half - outputs the half-wave rectified negative signal, but translated into the 0 to 1 modulation range. <br>
+Full + outputs the full-wave rectified positive signal. <br>
+Full - outputs the full-wave rectified negative signal - an inverted version of the full-wave positive signal translated into the 0 to 1 modulation range. <br>
+
+**Rectifying Signal Reflector** <br>
+Uses a set of expressions to combine two modulation signals into a unique modulation wave. When x is greater than y, the output of the module is x-y. When y is greater than x, the output of the module is y-x. When the output of the module is greater than 0.5, the module outputs a gate. The x and y knobs control the level of each modulation signal before being compared. The attenuate control attenuates the overall output of the module. The offset control does not offset the main output signal, but instead offsets the output that is located beneath the offset control. This output is meant to be looped back and attached to the x or y control to create really wild unpredictable results.
+
+###Signal
+
+These modules compare and create signals. The category is broad and contains modules that otherwise do not fit into any of the other building categories.
+
+**Return Greater** <br>
+Compares signals x and y and outputs whatever signal is greater.
+
+**Return Lesser** <br>
+Compares signals x and y and outputs whatever signal is lesser.
+
+**Value Distributor** <br>
+Creates eight 0 to 1 modulation signals that are distributed in a user-defined manner around linear and exponential shapes. The bal or balance control adjusts the tilt of the distribution from left to equal to right. The shape control applies an exponential curve to the distribution. The peak control changes which output has the highest peak. The gain control adjusts the total range of the value distribution. An example use of this module would be to use each 8 outputs to control the boost or cut of an 8 band equalizer.
+
+###Spline
+
+These are preset spline nodes mainly for use in oscillators. Driven by a 0 to 1 saw LFO, they translate the saw into whatever shape depicted on the spline. The output of the spline will have to be translated into the -1 to 1 audio range if using them as audio oscillators.
+
+**Triangle Spline Node** <br>
+A spline with a perfect triangle shape.
+
+###Templates
+These are module templates that can be used to quickly build up a custom module of your own.
+
+**VCO Template** <br>
+This is a basic VCO template that includes an octave input, audio output, and tuning controls. Just add your own custom oscillator and adjust the UI to taste.
+
+###Translation
+
+These modules take a one signal and transform it into another type of signal. The most common of these is the Octave to Hz translator, which converts the linearized octave pitch signal in Audulus to the exponential Hz pitch value. You will find these translator modules in every single VCO module in Audulus’ module library. Another common translation module are the truncate modules, which cut off values of a number past a certain digit. This is useful when you only want to display a value to a certain precision.
+
+####Audio
+
+These modules translate -1 to 1 audio signals into other signal types.
+
+**Audio to Modulation** <br>Translates -1 to 1 audio signals to 0 to 1 modulation signals.
+
+####BPM
+
+These modules translate BPM (beats per minute) signals into other signal types.
+
+**BPM to Hz** <br>Translates BPM signals into Hz values.
+
+####dB
+
+These modules translate dB (decibel) signals into other signal types.
+
+**dB to Amplitude** <br>
+Translates dBs into an amplitude signal.
+
+####Feedback Delay
+
+These modules translate the Feedback Delay period into other signal types.
+
+**Feedback Delay to Seconds** <br>
+Translates the Feedback Delay time into seconds.
+
+####Hz
+
+These modules translate Hz (hertz) signals into other signal types.
+
+**Hz to BPM** <br>
+Translates Hz into BPM.
+
+**Hz to Note Number** <br>
+Translates Hz to Note Number, as defined by an 88-note piano keyboard.
+
+**Hz to Octave** <br>
+Translates Hz into the octave signal.
+
+**Hz to Seconds** <br>
+Translates Hz into seconds.
+
+####Modulation
+
+These modules translate the 0 to 1 modulation signal into other signal types.
+
+**Modulation to Audio** <br>
+Translates the 0 to 1 modulation signal into a -1 to 1 audio signal.
+
+**Modulation to Radians** <br>
+Translates the 0 to 1 modulation signal into the 0 to 2pi radian signal.
+
+####Note Number
+
+These modules translate the note number, as defined by an 88-note piano keyboard, into other signal types.
+
+**Note Number to Hz** <br>
+Translates a note number into a Hz signal.
+
+**Note Number to Octave** <br>
+Translates a note number into the octave signal.
+
+####Octave
+
+These modules translate the octave signal to other signal types. The octave signal in Audulus is a linearized pitch scale. Unlike 1 volt per octave modular synth pitch scales, the octave signal has no upper or lower limit. Instead, it is centered around 0, where 0 = A4 = 440Hz. An octave signal of 1 would be 1 octave higher than A4, or A5 = 880Hz. An octave signal of -1 would be 1 octave lower than A4, or A3 = 220Hz. The reference pitch of A4 = 440Hz can be changed inside these modules.
+
+**Octave to Hz** <br>
+Translates the octave signal into a Hz signal.
+
+**Octave to Note Number** <br>
+Translates the octave signal into a note number signal.
+
+####Radians
+
+These modules translate radians into other signal types. The Phasor node outputs in radians.
+
+**Radians to Audio** <br>
+Translates radians into a -1 to 1 audio signal.
+
+**Radians to Degrees** <br>
+Translates radians into a 0 to 360 degrees signal.
+
+**Radians to Modulation** <br>
+Translates radians into a 0 to 1 modulation signal.
+
+####Round
+
+These modules round incoming signals to the closest digit specified.
+
+**Round to Hundredths** <br>
+Rounds incoming signal to the nearest hundredths place.
+
+**Round to Integer** <br>
+Rounds incoming signal to the nearest integer.
+
+**Round to Tenths** <br>
+Rounds incoming signal to the nearest tenths place.
+
+**Round to Thousandths** <br>
+Rounds incoming signal to the nearest thousandths place.
+
+####Samples
+
+These modules translate the time period of a sample into other signal types.
+
+**Samples to seconds** <br>
+Translates x number of samples into seconds. Smallest value is 1. For best results, use integers.
+
+**Seconds** <br>
+These modules translate seconds into other signal types.
+
+**Seconds to samples** <br>
+Translates x number of seconds into a number of samples.
+
+####Truncate
+
+These modules clip off trailing digits after the given decimal place.
+
+**Truncate to Hundredths** <br>
+Clips off any digits after the hundredths place.
+
+**Truncate to Tenths** <br>
+Clips off any digits after the tenths place.
+
+**Truncate to Thousandths** <br>
+Clips off any digits after the thousandths place.
+
+###Vias
+
+Vias are special pass-through tabs that help arrange wires in Audulus. They are very useful for keeping the internals of modules neat and easy to read. They also serve an important function while building. You may, for example, have a single output going to multiple inputs. You want to attach a knob to test that function, but then later wish to replace it with an input or maybe even a button. If you simply attached the output of the knob to all of those inputs, you would have to delete the knob and rewire everything from scratch. However, if you wire the via first and then attach the knob to the via, you can easily clip out the knob while retaining your connections. Also, because signal flow in Audulus is by default left to right, the cable animation will not look very neat if you want to run a signal backwards in a feedback configuration. Reverse vias allow you to change the direction of a signal in Audulus while maintaining a clean look.
+
+##Chaos
+
+Chaos modules are a special class of random modules used primarily for modulation. They are not purely random like white noise (where all values have an equal possibility of being chosen), and not “filtered” random like pink noise (where lower values have a greater chance of being chosen than higher values). Instead, chaos describes a system that is highly dependent on an initial state, and often contain feedback loops, where the previous state affects the next state. For example: in choosing random numbers, the previous number does not affect the probability of the value of the next number being chosen. A filtered random system can bias the set of numbers being chosen so that more low-value numbers are chosen (like with pink noise), but the previous number chosen still does not affect what number will be chosen next. Chaos on the other hand allows for previous values to influence future values that are chosen. Chaos modules make for interesting modulation sources as they tend to have a more organic or natural feel - almost as if a human hand or the wind were turning the knob. For more information and inspiration about chaos theory and mathematics, refer to this Wikipedia article.
+
 1D Chaos Decay - Creates a one-dimensional chaos modulation and envelope decay source. The module begins with a modulation output of 0.5. Each time the module is clocked, a new value is chosen. The new value will be go halfway from its current position to 1 (0.75) or 0 (0.25). Each successive clock pulse will again choose halfway to 0 or halfway to 1. So if the current position after one clock pulse is 0.75, the next position could be halfway to 1 (0.875) or halfway to 0 (0.375). The bias knob tips the balance from a 50-50 chance to go up or down to 100% chance to go down (0) or 100% chance to go up (1). The slew knob eases transitions between each new value. The range knob offers 7 discrete ranges of slew limiting. Range value of 1 is the least amount of slew limiting, good for just barely taking the edge off of transitions, and a range value of 7 offers really long and slow transitions between each new value for when you want changes to happen over the course of several minutes. The range must be used in conjunction with the speed of the incoming clock. If the range is set to 7 with a fast incoming clock speed, the module will hover very closely to 0.5 without changing much ever. So as a general rule use slow clock speeds for higher slew range values. The decay control adjusts the speed of the decay of the 8 envelope outputs from 0.01 seconds to 30 seconds. The decay cycle is triggered whenever the value of the modulation output crosses each input.
 1D Chaos Gate- Creates a one-dimensional chaos modulation and gate source. The module begins with a modulation output of 0.5. Each time the module is clocked, a new value is chosen. The new value will be go halfway from its current position to 1 (0.75) or 0 (0.25). Each successive clock pulse will again choose halfway to 0 or halfway to 1. So if the current position after one clock pulse is 0.75, the next position could be halfway to 1 (0.875) or halfway to 0 (0.375). The bias knob tips the balance from a 50-50 chance to go up or down to 100% chance to go down (0) or 100% chance to go up (1). The slew knob eases transitions between each new value. The range knob offers 7 discrete ranges of slew limiting. Range value of 1 is the least amount of slew limiting, good for just barely taking the edge off of transitions, and a range value of 7 offers really long and slow transitions between each new value for when you want changes to happen over the course of several minutes. The range must be used in conjunction with the speed of the incoming clock. If the range is set to 7 with a fast incoming clock speed, the module will hover very closely to 0.5 without changing much ever. So as a general rule use slow clock speeds for higher slew range values. The -/+ control is a positive domain attenuverter for the modulation output. The 8 gate outputs serve as both a meter and set of triggers for other modules.
 2D Chaos Decay - Essentially the same as two 1D Chaos Decay modules, but with a 2D output matrix. Map the x and y outputs to dual parameters like delay time and feedback, left and right channel volume, or filter cutoff and resonance. Use the output gates to trigger chaotic events or step sequencers.
