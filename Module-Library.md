@@ -976,7 +976,15 @@ Uses a hypertangent (tanh(x)) function to emulate the sound of a tube limiter. T
 Flangers are delay-based effects that use a delayed copy of a signal to create comb-filtering effects. They are well-known as the effect that creates the jet-engine sound on 70s-era drums.
 
 **Stereo Analog Flanger** <br>
-A mono to stereo flanger effect that uses an LPF in the feedback loop of its delay lines to simulate a real bucket brigade-style analog flanger. The LFO speed controls how quickly the sine wave modulation moves, and the time adjusts the total amount of flanging time. The skew control morphs the sine into a more saw-like sine wave, and the feedback control adjusts the amount of feedback within the delay line. The width control adjusts the phase relationship of the LFO for the left and right signals. For subtle back-and-forth stereo flanging, add just a little width. For extreme ping-pong back and forth zinging, crank it all the way up. The mix control adjusts the overall output mix. Sometimes it is best to turn the mix all the way wet, create a really heavy flanging sound, then dial it back until it is just noticeable. The lights near the outputs indicate the separation of the LFO driving the flanging effect.
+A mono to stereo flanger effect that uses an LPF in the feedback loop of its delay lines to simulate a real bucket brigade-style analog flanger. The LFO speed controls how quickly the sine wave modulation moves, and the time adjusts the total amount of flanging time. 
+
+The skew control morphs the sine into a more saw-like sine wave, and the feedback control adjusts the amount of feedback within the delay line. The width control adjusts the phase relationship of the LFO for the left and right signals. 
+
+For subtle back-and-forth stereo flanging, add just a little width. For extreme ping-pong back and forth zinging, crank it all the way up. The mix control adjusts the overall output mix. 
+
+Sometimes it is best to turn the mix all the way wet, create a really heavy flanging sound, then dial it back until it is just noticeable. The lights near the outputs indicate the separation of the LFO driving the flanging effect.
+
+![Stereo Analog Flanger](img/Library-Images/Effect/Flanger/Stereo-Analog-Flanger.png)
 
 ### Phaser
 
@@ -985,34 +993,60 @@ Phasers use chained all-pass filters to change the phase relationship of frequen
 **Phase12** <br>
 A 12 stage phaser that has no internal LFO. You can attach your own LFO, or you can also use an envelope to modulate the phaser effect. The top knob is mix to balance dry and wet signal. The feedback control adjusts how much of the signal is fed back through the allpass loop (which makes for a deeper phasing sound). The attenuate-offset controls adjust how much and in what range the incoming modulation tweaks the filter cutoff.
 
-**Stereo 1-6 Stage Pseudo Phaser** <br>
-This module is technically not a phaser, but it sounds more like a phaser than a flanger. The top two knobs control the speed of the LFO and how wide the modulation sweeps (which amounts to a kind of cutoff). The skew control morphs the sine wave into a sine-like saw wave and the feedback knob adjusts how much feedback there is within the delay lines (creating a deeper richer effect). The stage control adjusts how many delay stages the audio runs through from 1 stage to 6 stages. The more stages the audio runs through the deeper the sound, but each has its own kind of unique sound to it. The tone control is an HPF on the output of the module that can tame some of the low frequency build-up that can happen at high settings. The width control adjusts the phase relationship of the left and right output LFOs to create stereo separation, and the mix control adjusts the overall balance of the dry and wet signal. Like with the flanger, it can be beneficial to dial in a really deep sounding effect with 100% wet signal and then dial back the mix until there is just barely a little bit of the phasing sound.
+![Phase12](img/Library-Images/Effect/Phaser/Phase12.png)
 
-### Pitch Shift
+**Stereo 1-6 Stage Pseudo Phaser** <br>
+This module is technically not a phaser, but it sounds more like a phaser than a flanger. The top two knobs control the speed of the LFO and how wide the modulation sweeps (which amounts to a kind of cutoff). 
+
+The skew control morphs the sine wave into a sine-like saw wave and the feedback knob adjusts how much feedback there is within the delay lines (creating a deeper richer effect). 
+
+The stage control adjusts how many delay stages the audio runs through from 1 stage to 6 stages. The more stages the audio runs through the deeper the sound, but each has its own kind of unique sound to it. The tone control is an HPF on the output of the module that can tame some of the low frequency build-up that can happen at high settings. 
+
+The width control adjusts the phase relationship of the left and right output LFOs to create stereo separation, and the mix control adjusts the overall balance of the dry and wet signal. 
+
+Like with the flanger, it can be beneficial to dial in a really deep sounding effect with 100% wet signal and then dial back the mix until there is just barely a little bit of the phasing sound.
+
+![Stereo 1-6 Stage Pseudo Phaser](img/Library-Images/Effect/Phaser/Phase12.png)
+
+### Pitch
 
 Pitch shifters take an input audio signal and shift the pitch up or down, or create unison effects by copying and detuning the signal slightly.
-
-**Pitch Shift** <br>Uses the Pitch Shift node to create a pitch shifter that can shift incoming signals up and down to a maximum of one octave down and two octaves up.
 
 **Octave Unison** <br>
 Not an audio effect, but instead, takes an octave signal and splits it into a quad polyphonic signal for creating a unison detune effect on oscillators. Remember to use the PolyToMono node after the oscillator to collapse the poly signal into a mono signal to save on CPU processing.
 
+![Octave Unison](img/Library-Images/Effect/Pitch/Octave-Unison.png)
+
+**Pitch Shift** <br>Uses the Pitch Shift node to create a pitch shifter that can shift incoming signals up and down to a maximum of one octave down and two octaves up.
+
+![Pitch Shift](img/Library-Images/Effect/Pitch/Pitch-Shift.png)
+
 ### Reverb
 
 Reverb uses delay lines and allpass filters to create a sense of space, or of the instrument being played in a particular type of room.
-Spring Reverb - Uses short delay line and a BPF to emulate the sound of a guitar amp spring reverb. The dwell control adjusts how long the decay of the reverb is, and the mix adjusts the overall balance of dry and wet signal. The color knob adjusts the tone of the reverb and the tens or tension control adjusts the virtual tension of the spring.
+
+**Spring Reverb** <br>
+Uses short delay line and a BPF to emulate the sound of a guitar amp spring reverb. The dwell control adjusts how long the decay of the reverb is, and the mix adjusts the overall balance of dry and wet signal. The color knob adjusts the tone of the reverb and the tens or tension control adjusts the virtual tension of the spring.
+
+![Spring Reverb](img/Library-Images/Effect/Reverb/Spring-Reverb.png)
 
 **Stereo Reverb** <br>
 Uses the Reverb node to create a stereo digital-sounding reverb. To make a mono signal into a stereo signal, make sure the mono button is engaged (red). To pass a stereo signal through, make sure the mono button is disengaged (blue). The decay control adjusts how long the reverb lasts and the mix adjusts the overall dry and wet balance.
 
+![Stereo Reverb](img/Library-Images/Effect/Reverb/Stereo-Reverb.png)
+
 ### Tremolo
 Tremolo is uses amplitude modulation to give a swelling or stuttering sound to the audio. Not to be confused with vibrato, which is frequency modulation.
 
-**Sine Skew Tremolo** <br>
-Uses a Sine Skew LFO module to create a variable tremolo shape from reverse ramp-like to sine to saw-like. This tremolo has a softer sound than a saw or triangle based tremolo would, but still gives the feeling of percussiveness and reverse tremolo. The mix control balances the dry and wet signal. The LFO speed knob goes from 1.25Hz to 20Hz, and the skew control adjusts the tilt of the sine wave from reverse ramp to sine to saw.
+**Skew Sine Tremolo** <br>
+Uses a Skew Sine LFO module to create a variable tremolo shape from reverse ramp-like to sine to saw-like. This tremolo has a softer sound than a saw or triangle based tremolo would, but still gives the feeling of percussiveness and reverse tremolo. The mix control balances the dry and wet signal. The LFO speed knob goes from 1.25Hz to 20Hz, and the skew control adjusts the tilt of the sine wave from reverse ramp to sine to saw.
+
+![Skew Sine Tremolo](img/Library-Images/Effect/Tremolo/Skew-Sine-Tremolo.png)
 
 **Waveshape Tremolo** <br>
 Uses a Waveshape LFO module to create a variable shape tremolo from sine to triangle to square to saw. The mix control balances the dry and wet signal. The LFO speed knob goes from 1.25Hz to 20Hz, and the skew control adjusts the shape of the tremolo modulation from sine to triangle to square to saw.
+
+![Waveshape Tremolo](img/Library-Images/Effect/Tremolo/Waveshape-Tremolo.png)
 
 ### Wavefolder
 These modules distort waves by folding them over themselves. Wavefolding adds lots of harmonics and has a very distinct aggressive sound to it.
@@ -1020,8 +1054,12 @@ These modules distort waves by folding them over themselves. Wavefolding adds lo
 **RSWF-1 Wavefolder** <br>
 Accepts one or two modulation inputs simultaneously, and will create both an audio (top) and modulation (bottom) output. The fold knobs adjusts how much the waves are folded, and the -/+ knob is an attenuverter knob that adjusts the wave size and inversion as it enters the wavefolding expressions. The color adjusts the balance between two wavefolding algorithms.
 
+![RSWF-1 Wavefolder](img/Library-Images/Effect/Wavefolder/RSWF-1-Wavefolder.png)
+
 **SineFold** <br>
 Folds an incoming wave using a sine expression. The input wave is multiplied by a factor of 1 to 500 and fed through a sin(x) expression. Sine folding can sound a bit like frequency shifting. This module can accept modulation inputs, but it will output an audio signal as a result.
+
+![SineFold](img/Library-Images/Effect/Wavefolder/SineFold.png)
 
 ## Envelope
 
