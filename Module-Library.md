@@ -1463,18 +1463,28 @@ These modules use sample and hold techniques to create random modulations. The s
 **Att-Off Sample + Hold** <br>
 A white-noise sampling random generator with attenuate offset controls to adjust the range of modulation and a speed control from 0 to 20Hz sampling rate.
 
+![Att-Off Sample + Hold](img/Library-Images/Sample-Hold/Att-Off-Sample-and-Hold.png)
+
 **Basic Sample + Hold** <br>
 A gateable sample and hold that accepts an input signal. Perfect for grabbing samples from LFOs and other modulation sources.
+
+![Basic Sample + Hold](img/Library-Images/Sample-Hold/Basic-Sample-and-Hold.png)
 
 **Gateable Sample + Hold** <br>
 A white-noise sampling random generator that samples a new random 0 to 1 modulation value every time it is gated.
 
+![Gateable Sample + Hold](img/Library-Images/Sample-Hold/Gateable-Sample-and-Hold.png)
+
 **Modulation Threshold Random Generator** <br>
 Takes a modulation input and outputs a new random sample every time the threshold, set by the knob at the bottom, is crossed. Perfect for turning modulation and envelope waves into sample and hold triggers.
 
+![Modulation Threshold Random Generator](img/Library-Images/Sample-Hold/Modulation-Threshold-Random-Generator.png)
+
 ## Sequencer
 
-These modules are the one of the core modules of a modular synthesizer ecosystem. Although they are primarily used to generate musical notes for oscillators, they can be used to modulate any parameter you want. Most sequencers are clocked, meaning they step forward every time a clock pulse enters their gate input. Although some sequencers in Audulus have octave signal outputs, in general, they only output 0 to 1 modulation signal. To translate the modulation signal output into an octave signal, use the module found under Attenuator/Modulation/Modulation to Octave Attenuate-Offset. This module will translate the 0 to 1 modulation signal into whatever range you want it to be for your instrument. It is also helpful to use a quantizer after this translation module to easily dial in notes. Sequencers can also be used to add dynamics to gates as they enter envelopes. Simply use a Mult node or one of the Digital VCA modules to multiply the gate by the sequencer’s 0 to 1 output.
+These modules are the one of the core modules of a modular synthesizer ecosystem. Although they are primarily used to generate musical notes for oscillators, they can be used to modulate any parameter you want. Most sequencers are clocked, meaning they step forward every time a clock pulse enters their gate input. 
+
+Although some sequencers in Audulus have octave signal outputs, in general, they only output 0 to 1 modulation signal. To translate the modulation signal output into an octave signal, use the module found under Attenuator/Modulation/Modulation to Octave Attenuate-Offset. This module will translate the 0 to 1 modulation signal into whatever range you want it to be for your instrument. It is also helpful to use a quantizer after this translation module to easily dial in notes. Sequencers can also be used to add dynamics to gates as they enter envelopes. Simply use a Mult node or one of the Digital VCA modules to multiply the gate by the sequencer’s 0 to 1 output.
 
 ### 3D
 
