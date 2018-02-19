@@ -804,8 +804,10 @@ These modules alter audio signals in a variety of ways. Adding a sense of space 
 
 These modules are like a stereo tremolo effect. They pan audio back and forth between the left and right channels. Great for adding some subtle stereo depth to your music, or creating rythmic back and forth ping-ponging.
 
-**Sine Skew Autopan** <br>
+**Skew Sine Autopan** <br>
 Uses a Sine Skew LFO module to create a variable autopan shape from reverse ramp-like to sine to saw-like. This autopan has a softer sound than a saw or triangle based autopan would, but still gives the feeling of percussiveness and reverse autopan. The mix control balances the dry and wet signal. The LFO speed knob goes from 0.032Hz to 20Hz, and the skew control adjusts the tilt of the sine wave from reverse ramp to sine to saw.
+
+![Skew Sine Autopan](img/Library-Images/Effect/Autopan/Skew-Sine-Autopan.png)
 
 ### Delay
 
@@ -814,25 +816,67 @@ Delay is an effect that grabs a portion of your sound and repeats it - like an e
 **Analog Delay** <br>
 Uses an LPF inside a delay loop to create a dark-sounding delay effect. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal.
 
+![Analog Delay](img/Library-Images/Effect/Delay/Analog-Delay.png)
+
 **Art D’Echo Dub Delay** <br>
 Combines a delay effect with a spring reverb effect to recreate the vibe of famous tape echo dub effects. Time, regen, and amount are the delay time, feedback, and mix for the delay effect. The tape knob controls the amount of warbly modulation to the delay line. Drive controls the amount of drive within the delay loop. Cut is the filter cutoff for the filter within the delay loop. Tens or tension is the control for the virtual tension of the springs in the the spring reverb effect. Mix is the balance of delay/reverb, color changes the tone of the springs, and dwell is the length of the spring reverb.
+
+![Art D’Echo Dub Delay](img/Library-Images/Effect/Delay/Art-DEcho-Dub-Delay.png)
 
 **Chorus Delay** <br>
 Combines a delay effect with a chorus effect. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal. Speed controls the modulation speed of the chorus effect. Depth controls the amount of chorus modulation. Color adjusts the cutoff of the filters within the delay and chorus effect.
 
+![Chorus Delay](img/Library-Images/Effect/Delay/Chorus-Delay.png)
+
 **Clockable Tuned Delay Line** <br>
-A wild delay effect that can be used for much more than just rhythmic delays, the Clockable Tuned Delay Line can even work as an oscillator and audio chopper. Delay controls the delay time from 0 to 2 seconds. Regen controls the number of delay repeats. Mix balances the dry and wet signal. The sync button locks the delay time to musical intervals from 1/64th notes to 3/1 measures with all the dotted (D) and triplet (T) variations in between. Sync can be turned on and off remotely with a gate at the sync input. The mod knob adjusts the amount of delay time modulation - requires an external LFO at the mod input. The color knob adjusts the filter cutoff for the LPF/HPF filter. The HPF button switches the LPF/HPF filter within the delay loop into HPF mode. This mode can be remotely turned on and off at the HPF gate input. The tap button allows you to enter a tap tempo for the delay, and the clock input allows you to “tap” remotely with a clock in Audulus. The tune button turns the delay into a Karplus-Strong-like oscillator with the pitch (delay time) determined by the octave signal present at the octave input. The tune mode can also be gated at the tune input. This is a sound sample of what this module can do when rhythmically switching in and out of all of its modes - free, synced, and tuned: https://soundcloud.com/audulus/bimini-road-clockwork-groove-electrofunk
+A wild delay effect that can be used for much more than just rhythmic delays, the Clockable Tuned Delay Line can even work as an oscillator and audio chopper. 
+
+Delay controls the delay time from 0 to 2 seconds. Regen controls the number of delay repeats. Mix balances the dry and wet signal. The sync button locks the delay time to musical intervals from 1/64th notes to 3/1 measures with all the dotted (D) and triplet (T) variations in between. 
+
+Sync can be turned on and off remotely with a gate at the sync input. The mod knob adjusts the amount of delay time modulation - requires an external LFO at the mod input. The color knob adjusts the filter cutoff for the LPF/HPF filter. 
+
+The HPF button switches the LPF/HPF filter within the delay loop into HPF mode. This mode can be remotely turned on and off at the HPF gate input. The tap button allows you to enter a tap tempo for the delay, and the clock input allows you to “tap” remotely with a clock in Audulus. 
+
+The tune button turns the delay into a Karplus-Strong-like oscillator with the pitch (delay time) determined by the octave signal present at the octave input. The tune mode can also be gated at the tune input. 
+
+This is a sound sample of what this module can do when rhythmically switching in and out of all of its modes - free, synced, and tuned: https://soundcloud.com/audulus/bimini-road-clockwork-groove-electrofunk
+
+![Clockable Tuned Delay Line](img/Library-Images/Effect/Delay/Clockable-Tuned-Delay-Line.png)
 
 **Digital Delay** <br>
 A pure, high-fidelity digital delay. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal.
 
+![Digital Delay](img/Library-Images/Effect/Delay/Digital-Delay.png)
+
 **Icebox Audio Freezer** <br>
-A granular automatic audio looper that uses threshold detection to grab bits of audio and loop them infinitely until the next note overrides it. Thrsh or threshold sets the threshold that must be exceeded before a new grain is grabbed and looped. The light below thrsh illuminates when the threshold has been exceeded. Dialing in this control is essential for making it work. For guitar, you want it to be just low enough to grab notes as you play them, but high enough that fret talk does not cause the grain to be erased and replaced. Emph or emphasis controls the aggressiveness of the grain from completely choppy to a little smooth on the uptake. Grain adjusts the amount of time to be looped from 0.05 seconds to 0.55 seconds. Mix controls the balance of dry audio and frozen audio. When the env or envelope button is engaged (red), the A (attack) and D (decay) controls will fade up and out the grain as you play. An excellent and very musical guitar effect - watch a demo of it here: https://www.instagram.com/p/BV_Cca1Amv2/?taken-by=audulus
+A granular automatic audio looper that uses threshold detection to grab bits of audio and loop them infinitely until the next note overrides it. 
+
+Thrsh or threshold sets the threshold that must be exceeded before a new grain is grabbed and looped. The light below thrsh illuminates when the threshold has been exceeded. Dialing in this control is essential for making it work. 
+
+For guitar, you want it to be just low enough to grab notes as you play them, but high enough that fret talk does not cause the grain to be erased and replaced. 
+
+Emph or emphasis controls the aggressiveness of the grain from completely choppy to a little smooth on the uptake. Grain adjusts the amount of time to be looped from 0.05 seconds to 0.55 seconds. 
+
+Mix controls the balance of dry audio and frozen audio. When the env or envelope button is engaged (red), the A (attack) and D (decay) controls will fade up and out the grain as you play. 
+
+An excellent and very musical guitar effect - watch a demo of it here: https://www.instagram.com/p/BV_Cca1Amv2/?taken-by=audulus
+
+![Icebox Audio Freezer](img/Library-Images/Effect/Delay/Icebox-Audio-Freezer.png)
 
 **Multi-Tap Filter Delay** <br>
 A stereo triple delay with controls to adjust the level, pan, delay time, feedback, cutoff, Q, and filter type for each delay (from top to bottom). The dry knob at the top adjusts the level of the dry signal - not the overall mix.
-Stereo Digital Delay - A stereo delay that can accept both mono and stereo signals. For a mono to stereo effect, use the top L or left input and make sure the mono button is engaged (red). For a stereo to stereo delay effect, disengage the mono button (blue) and attach the input signals to L and R. Mix adjusts the balance of wet and dry, L and R are the delay times for the left and right channels, and the fb knob controls the amount of feedback for each delay line.
-Tape Delay - A model of a hissy broken tape delay, perfect for that lofi sound. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal.
+
+![Multi-Tap Filter Delay](img/Library-Images/Effect/Delay/Multi-Tap-Filter-Delay.png)
+
+**Stereo Digital Delay** <br>
+A stereo delay that can accept both mono and stereo signals. For a mono to stereo effect, use the top L or left input and make sure the mono button is engaged (red). For a stereo to stereo delay effect, disengage the mono button (blue) and attach the input signals to L and R. Mix adjusts the balance of wet and dry, L and R are the delay times for the left and right channels, and the fb knob controls the amount of feedback for each delay line.
+
+![Stereo Digital Delay](img/Library-Images/Effect/Delay/Stereo-Digital-Delay.png)
+
+**Tape Delay** <br>
+A model of a hissy broken tape delay, perfect for that lofi sound. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal.
+
+![Tape Delay](img/Library-Images/Effect/Delay/Tape-Delay.png)
 
 ### Distortion
 
