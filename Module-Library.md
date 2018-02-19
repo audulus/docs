@@ -1491,7 +1491,17 @@ Although some sequencers in Audulus have octave signal outputs, in general, they
 These modules use an imaginary 3-dimensional space to create sequences. They are esoteric but still very musical and interesting sequencers to play with.
 
 **3D Cube 8 Step Sequencer** <br>
-This is an 8 step sequencer that uses a cube metaphor to create non-linear sequences. The sequencer is advanced at the top left gate input. The two rows of four knobs along the bottom of the sequencer are the sequencer steps. These knobs control which vertex (point) of the cube that the sequencer references during the sequence. As you turn the knob, a blue dot will appear on the small display cube to the lower right of the sequence cube illustrating which vertex is selected. After a moment of not turning the knob, the blue dot will disappear. The min and max knobs control the minimum (green) and maximum (blue) steps of the sequencer. The current step is highlighted in red. The knobs around the sequence cube are the actual 0 to 1 modulation values that will be outputted in the upper right of the module. Under each knob is a gate output that will flash when that vertex is selected. The rs or reset input in the upper left will restart the sequencer from the minimum step when gated. The xyz knob controls adjust the coordinates for an imaginary point floating within the cube. The closer this point comes to the vertices, the steps will turn on. The thrsh or threshold control adjusts how close this point must be to the vertices to turn them on or off. If they are turned off, they count as a skip. The skip will only work if you are also using the gate output of the sequencer at the top right of the module. As you can tell, this sequencer might take a while to wrap your head around. However, it is well worth the time invested, as it can create some really amazing sequences not otherwise possible with linear 8 step sequencers. Watch a video of it in action here: https://www.instagram.com/p/BbUYm0HAujC/?taken-by=audulus 
+This is an 8 step sequencer that uses a cube metaphor to create non-linear sequences. The sequencer is advanced at the top left gate input. The two rows of four knobs along the bottom of the sequencer are the sequencer steps. These knobs control which vertex (point) of the cube that the sequencer references during the sequence. As you turn the knob, a blue dot will appear on the small display cube to the lower right of the sequence cube illustrating which vertex is selected. After a moment of not turning the knob, the blue dot will disappear. 
+
+The min and max knobs control the minimum (green) and maximum (blue) steps of the sequencer. The current step is highlighted in red. The knobs around the sequence cube are the actual 0 to 1 modulation values that will be outputted in the upper right of the module. 
+
+Under each knob is a gate output that will flash when that vertex is selected. The rs or reset input in the upper left will restart the sequencer from the minimum step when gated. The xyz knob controls adjust the coordinates for an imaginary point floating within the cube. The closer this point comes to the vertices, the steps will turn on. 
+
+The thrsh or threshold control adjusts how close this point must be to the vertices to turn them on or off. If they are turned off, they count as a skip. The skip will only work if you are also using the gate output of the sequencer at the top right of the module. 
+
+As you can tell, this sequencer might take a while to wrap your head around. However, it is well worth the time invested, as it can create some really amazing sequences not otherwise possible with linear 8 step sequencers. Watch a video of it in action here: https://www.instagram.com/p/BbUYm0HAujC/?taken-by=audulus 
+
+![3D Cube 8 Step Sequencer](img/Library-Images/Sequencer/3D/3D-Cube-8-Step-Sequencer.png)
 
 ### Algorithmic
 
@@ -1500,11 +1510,17 @@ Algorithmic sequencers output sequences based on mathematical formulae or proces
 **Euclidean Gate Sequencer** <br>
 Creates output gates using a Euclidean algorithm. Great for setting up quick dance beats or polyrhythmic hits.
 
+![Euclidean Gate Sequencer](img/Library-Images/Sequencer/Algorithmic/Euclidean-Gate-Sequencer.png)
+
 **Random Melody** <br>
 Generates random melodies based on probability curves applied by filtering white noise.
 
+![Random Melody](img/Library-Images/Sequencer/Algorithmic/Random-Melody.png)
+
 **uTuring** <br>
 An unaffiliated functionality clone of the original Music Thing Modular Turing Machine.
+
+![uTuring](img/Library-Images/Sequencer/Algorithmic/uTuring.png)
 
 ### Basic
 
@@ -1513,20 +1529,32 @@ These modules are your bread-and-butter sequencers. They are very simple and eas
 **4 Step Max Sequencer** <br>
 Same as the 4 Step Sequencer but with a control for the maximum step. Modulate this maximum control with another synced sequencer for some really awesome moving sequences.
 
+![4 Step Max Sequencer](img/Library-Images/Sequencer/Basic/4-Step-Max-Sequencer.png)
+
 **4 Step Sequencer** <br>
 The most elemental sequencer. Advance from one step to another with a gate. Once the last step has been reached, it will reset back to the first step and continue on.
+
+![4 Step Sequencer](img/Library-Images/Sequencer/Basic/4-Step-Sequencer.png)
 
 **8 Step Min Max Sequencer** <br>
 Same as the 8 Step Sequencer but with both a minimum and maximum step control. Modulate these controls with other synced sequencers for some really awesome moving sequences.
 
+![8 Step Min Max Sequencer](img/Library-Images/Sequencer/Basic/8-Step-Min-Max-Sequencer.png)
+
 **8 Step Sequencer** <br>
 Same as the 4 Step Sequencer but expanded to 8 steps total.
+
+![8 Step Sequencer](img/Library-Images/Sequencer/Basic/8-Step-Sequencer.png)
 
 **Random 4 Step Sequencer** <br>
 Same as the 4 step sequencer but instead of knobs, the sequence is randomly generated whenever the R or randomize input is gated. Try clocking the sequencer with a master clock and ping the reset input with a division of the master clock to allow patterns to develop, but keep sequences moving and growing all the time.
 
+![Random 4 Step Sequencer](img/Library-Images/Sequencer/Basic/Random-4-Step-Sequencer.png)
+
 **Random Chance 4 Step Sequencer** <br>
 Same as the Random 4 Step Sequencer, except instead of being totally randomized every time the R or random input is gated, you have knobs that set the percent chance that each step will be randomized. This allows you, for example, to anchor a sequence to the first note by setting it to 0% chance of changing, while adjusting the other notes to change more frequently.
+
+![Random Chance 4 Step Sequencer](img/Library-Images/Sequencer/Basic/Random-Chance-4-Step-Sequencer.png)
 
 ### Gate
 
@@ -1535,8 +1563,12 @@ These modules generate sequences of 0 or 1 gate signals instead of 0 to 1 modula
 **Pattern Bank Gate Sequencer** <br>
 Uses 4 banks of preset beats to generate output gates for drums and instruments.
 
+![Pattern Bank Gate Sequencer](img/Library-Images/Sequencer/Gate/Pattern-Bank-Sequencer.png)
+
 **Strip Sequencer** <br>
 Uses a series of buttons to turn steps on and off to convert a clock signal into a sequenced gate.
+
+![Strip Sequencer](img/Library-Images/Sequencer/Gate/Strip-Sequencer.png)
 
 ## Graphic
 
@@ -1545,23 +1577,73 @@ These modules use one Spline and Mapper nodes to create unusual types of sequenc
 **4 Step Mapper Sequencer** <br>
 Uses a mapper node to create a 0 to 1 modulation sequence. The sequencer follows the curve and outputs the area roughly above each red light. A great way to quickly create a gestural sequence. Tap or click and drag the green break points to adjust the shape.
 
+![4 Step Mapper Sequencer](img/Library-Images/Sequencer/Graphic/4-Step-Mapper-Sequencer.png)
+
 **8 Step Spline Sequencer** <br>
 Uses a spline node to allow you to draw a shape for a sequencer to follow. To add spline points, double tap or click on the spline area. To delete points, double tap or click on the point.
 
+![8 Step Spline Sequencer](img/Library-Images/Sequencer/Graphic/8-Step-Spline-Sequencer.png)
+
 **Arranger** <br>
+The arranger is a specialized Spline sequencer that allows you to control how many clock steps per length of spline (called Events). Gate outputs at 4, 8, 16, 32, and 64 outputs help cue events. A built in modulatable quantizer quantizes the translated modulation signal into pitches.
+
+![8 Step Spline Sequencer](img/Library-Images/Sequencer/Graphic/Arranger.png)
+
 
 ### Matrix
 
 These modules are essentially 2 dimensional sequencers. If you consider normal sequencers to be 1 dimensional sequencers (they can go forward, backwards, but not across), then matrix sequencers allow the sequence to move in a more dimensional way around a sequence field. They are a great sequencers to use when you tire of using normal linear sequencers and want to explore the more experimental dimension of music making that modular synthesis has to offer.
 
+The naming convention for some of these matrix sequencers follows this:(Signal Type) (length)x(width)x(outputs) Matrix Sequencer. So a Modulation 2x2x4 Matrix Sequencer has 2 rows, 2 columns, and 4 modulation outputs.
+
 **Chladni Sequencer** <br> 
+Using two modulation signals at the top left modulation inputs, the sequencer will fluidly move through from left to right, top to bottom, and top to bottom left to right. When the two sequences collide they create a third sequence that is sampled and held at the output. The x and y controls the maximum steps for each axes. The blank knob controls which outputs are selected or muted.
+
+Try feeding back the output of the sequencer onto the field of knobs for some real chaotic modulations!
+
+![Chladni Sequencer](img/Library-Images/Sequencer/Matrix/Chladni-Sequencer.png)
+
 **Gate 4x4x2 Matrix Sequencer** <br> 
+
+Either passes (red) or does not pass (blue) a gate as it moves over the sequence field. The sequencer can be clocked at both the x and y inputs. The x input moves the sequencer from left to right, and the y input moves the sequencer from top to bottom. Preserves the pulse width of the clock as it moves through the module.
+
+![Gate 4x4x2 Matrix Sequencer](img/Library-Images/Sequencer/Matrix/Gate-4x4x2-Sequencer.png)
+
 **Modulation 2x2x4 Matrix Sequencer** <br> 
+This sequencer has four simultaneous outputs that read the sequence left to right, top to bottom; right to left bottom to top; right to left, top to bottom; and bottom to top, right to left. Each sequence and output is color coded. It is essentially an 4 step sequencer being read in 4 different ways.
+
+![Modulation 2x2x4 Matrix Sequencer](img/Library-Images/Sequencer/Matrix/Modulation-2x2x4-Matrix-Sequencer.png)
+
 **Modulation 2x2x5 Max Matrix Sequencer** <br> 
-**Modulation 2x2x4 Matrix Sequencer** <br> 
+
+This sequencer has five simultaneous outputs that read the sequence left to right, top to bottom; right to left bottom to top; right to left, top to bottom; and bottom to top, right to left. An extra sequence in the middle is a selectable sequence, noted by the light outside each output. This control is normalled to an output of the sequencer to show how you can feedback modulate the sequence selection. Each sequence and output is color coded. Also has a max step feature.
+
+![Modulation 2x2x5 Matrix Sequencer](img/Library-Images/Sequencer/Matrix/Modulation-2x2x5-Max-Matrix-Sequencer.png)
+
+**Modulation 2x4x4 Matrix Sequencer** <br> 
+
+This sequencer has four simultaneous outputs that read the sequence left to right, top to bottom; right to left bottom to top; right to left, top to bottom; and bottom to top, right to left. Each sequence and output is color coded. It is essentially an 8 step sequencer being read in 4 different ways.
+
+![Modulation 2x4x4 Matrix Sequencer](img/Library-Images/Sequencer/Matrix/Modulation-2x4x4-Matrix-Sequencer.png)
+
+
 **Octave-Modulation 4x4x1 Matrix Sequencer** <br> 
+
+Uses two input gates to scan across a field of sequence values. Outputs both an octave and modulation signal. The sequencer can be clocked at both the x and y inputs. The x input moves the sequencer from left to right, and the y input moves the sequencer from top to bottom.
+
+![Octave-Modulation 4x4x1 Matrix Sequencer](img/Library-Images/Sequencer/Matrix/Octave-Modulation-4x4x1-Matrix-Sequencer.png)
+
 **Random Chance Modulation 2x2x4 Matrix Sequencer** <br> 
+
+This sequencer has four simultaneous outputs that read the sequence left to right, top to bottom; right to left bottom to top; right to left, top to bottom; and bottom to top, right to left. Each sequence and output is color coded. It is essentially an 4 step sequencer being read in 4 different ways. The knobs control the chance of changing whenever the R or randomize input is clocked.
+
+![Random Chance Modulation 2x2x4 Matrix Sequencer](img/Library-Images/Sequencer/Matrix/Random-Chance-Modulation-2x2x4-Matrix-Sequencer.png)
+
 **Random Modulation 2x2x4 Matrix Sequencer** <br> 
+
+This sequencer has four simultaneous outputs that read the sequence left to right, top to bottom; right to left bottom to top; right to left, top to bottom; and bottom to top, right to left. Each sequence and output is color coded. It is essentially an 4 step sequencer being read in 4 different ways. The sequence is randomized whenever the R or random input is gated.
+
+![Random Modulation 2x2x4 Matrix Sequencer](img/Library-Images/Sequencer/Matrix/Random-Modulation-2x2x4-Matrix-Sequencer.png)
 
 ### Random Non-Repeating
 
@@ -1569,11 +1651,19 @@ These modules create random sequences that are also non-repeating. Although it i
 
 **Random Non-Repeating 4 Step Sequencer** <br> 
 
+Outputs a random arrangement of 4 values every time the R or randomize input is clocked. Can be reset at the rs input.
+
+![Random Modulation 2x2x4 Matrix Sequencer](img/Library-Images/Sequencer/Random-Non-Repeating/Random-Non-Repeating-4-Step-Sequencer.png)
+
 ### Shape
 
 These modules use shape metaphors to create sequences that are a mix of linear and non-linear. They are not quite matrix sequencers but also not just a normal linear sequencer wrapped into a shape either.
 
 **5 Step Shape Gate-Trigger Sequencer** <br> 
+
+Outputs a gate based on a shape drawn by the buttons on the module. The shape rotate knob rotates the shape you create, and the max step knob adjusts the maximum step. Also has individual step gate outputs for triggering events.
+
+![5 Step Shape Gate-Trigger Sequencer](img/Library-Images/Sequencer/Shape/5-Step-Shape-Gate-Trigger-Sequencer.png)
 
 ## Slew
 
@@ -1582,34 +1672,61 @@ These modules ease sharp transitions in modulation and pitch. When using them fo
 **Slew Limiter Dual Mode** <br> 
 A slew limiter module with two modes. Equal time mode (red) will take an equal amount of time to glide between notes no matter how far apart they are. Note distance mode (blue) will take longer to glide up to higher notes, emulating the way analog slew limiters work. Slew knob adjusts the total amount of time between notes to glide.
 
+![Slew Limiter Dual Mode](img/Library-Images/Slew/Slew-Limiter-Dual-Mode.png)
+
 ## SVG
 These graphics are collection of SVGs (scaleable vector graphics) for use in Audulus. This category will be expanding greatly over time as more icons are created.
 
 **Cube** <br> 
+
+A cube SVG with labels.
+
+![Cube](img/Library-Images/SVG/Cube.png)
 
 ## Switch
 
 These modules route signals to and from other modules, or turn signals on and off. 
 
 **Chance Switch AB** <br>
-**Demux8** <br> 
-**Demux64** <br>
-**Mux8** <br>
-**Mux64** <br>
-**On-Off Switch** <br>
-**Pass Switch** <br>
-**Probability Switch** <br>
+When gated, the module will choose between the first and second modulation input (marked by a blue light) to the top output. Simultaneously, the top output will be sent to the second or third output. Knob sets the likely hood of A or B being chosen.
+
+So you can choose between a signal A or B going to a C destination, or signal A going to a D or E destination.
+
+![Chance Switch AB](img/Library-Images/Switch/Chance-Switch-AB.png)
+
 **Random Chance Switch AB** <br>
+Same as the Chance Switch AB, but with a R or randomize input gate for the A/B chance.
+
+![Random Chance Switch AB](img/Library-Images/Switch/Random-Chance-Switch-AB.png)
 
 ## Synth Voice
 
 These modules are complete synthesizers unto themselves. They have oscillators, envelope generators, filters, VCAs, and sometimes more wrapped up into a convenient package. Perfect for when you just want to quickly get a synth sound going.
 
 **Curvature Micro** <br>
+The Curvature Micro is a great all-in-one synthesizer with many controls. Watch this video for more information about it.
+
+https://www.youtube.com/watch?v=Rm2cJ3QkQRI
+
+![Curvature Micro](img/Library-Images/Synth-Voice/Curvature-Micro.png)
+
 **K35 Curved Synth** <br>
+A very basic subtractive synthesizer based around the K35 analog modelling filter. Needs an octave input signal for pitch and a gate to trigger the internal envelopes.
+
+The top four controls are for filter cutoff, Q, envelope amount, and overdrive. The envelope on the left side is the A-R cycle for the VCF, and the right is for the VCA.
+
+Controls under the envelopes shape the envelopes' response.
+
+A built in delay controls the time, mix and feedback. 
+
+The last control is an output volume. If this control is turned all the way down, the sound will output at the top right output. If it is turned up at all, it will output to the speaker.
+
+![K35 Curved Synth](img/Library-Images/Synth-Voice/K35-Curved-Synth.png)
 
 **Smol Synth** <br>
 An experiment to create one of the smallest, yet still functional and musically variable synthesizers, the Smol Synth is a VCO-VCF-VCA subtractive synthesizer. The waveform knob fades between sine, triangle, square and saw waves. The A-R envelope adjusts the attack and release of both the filter and the VCA simultaneously. The Q of the filter is fixed internally, but you can of course open it up and change it if you like.
+
+![Smol Synth](img/Library-Images/Synth-Voice/Smol-Synth.png)
 
 ## VCA
 
@@ -1618,20 +1735,32 @@ These modules are the Audulus equivalent of VCAs, or voltage controlled amplifie
 **Digital Exponential VCA** <br>
 A clean digital VCA that accepts an envelope or modulation signal and applies an exponential response to the input. Perfect for quick plucked sounds. The shape controls the degree of exponential curve from `x*x` (slightly exponential) to `x*x*x*x` (very exponential). The volume attenuator adjusts how loud the VCA will peak from an input envelope or modulation.
 
+![Digital Exponential VCA](img/Library-Images/VCA/Digital-Exponential-VCA.png)
+
 **Digital Linear VCA** <br>
 A clean digital VCA that accepts an envelope or modulation signal and applies no curve to its response. An all around good VCA, especially when you want to control the shape of the envelope elsewhere, or simply want a linear response. The volume attenuator adjusts how loud the VCA will peak from an input envelope or modulation.
+
+![Digital Linear VCA](img/Library-Images/VCA/Digital-Linear-VCA.png)
 
 **Digital Logarithmic VCA** <br>
 A clean digital VCA that accepts an envelope or modulation signal and applies a logarithmic response to the input. Perfect for punchy sounds. The shape controls the degree of logarithmic curve from sqrt(x) (slightly logarithmic) to sqrt(sqrt(sqrt(x))) (very logarithmic). The volume attenuator adjusts how loud the VCA will peak from an input envelope or modulation.
 
+![Digital Logarithmic VCA](img/Library-Images/VCA/Digital-Logarithmic-VCA.png)
+
 **Diode VCA** <br>
 An analog-modelling module that recreates the sound of a diode-based VCA. The overdrive control adjusts the amount of distortion, and the feedback control adjusts the amount of positive feedback that runs from the output of the module back to the input. These two controls in combination can create a variety of distorted sounds. 
+
+![Diode VCA](img/Library-Images/VCA/Diode-VCA.png)
 
 **JFET VCA** <br>
 An analog-modelling module that recreates the sound of a JFET (junction field effect transistor) VCA. JFETs are silicon transistors, but they have a similar sound to tubes that can be summed up as warm. The overdrive control adjusts the amount of distortion, and the feedback control adjusts the amount of positive feedback that runs from the output of the module back to the input. These two controls in combination can create a variety of distorted sounds.
 
+![JFET VCA](img/Library-Images/VCA/JFET-VCA.png)
+
 **Tube VCA** <br>
 An analog-modelling module that recreates the sound of a tube-based VCA. Tubes were the predecessors to transistors in electronics and are renown for their warm sound. The overdrive control adjusts the amount of distortion, and the feedback control adjusts the amount of negative or positive feedback that runs from the output of the module back to the input. If the feedback control is at 0.5, there is no feedback. At 0 it is total negative feedback and at 1, total positive. Negative feedback has a really harsh brittle tone to it, and positive feedback is warmer. Both are great and are highly interactive with the overdrive control.
+
+![Tube VCA](img/Library-Images/VCA/Tube-VCA.png)
 
 ## VCF
 
@@ -1644,20 +1773,32 @@ These VCFs are created using the BiQuad node. Biquad filters are very low-CPU di
 **APF** <br>
 APF or allpass filters change the phase relationship of frequencies without attenuating them. A key ingredient in phase shifters.
 
+![APF](img/Library-Images/VCF/Biquad/APF.png)
+
 **BPF** <br>
 BPF or bandpass filters attenuate frequencies lower and higher than the cutoff point.
+
+![BPF](img/Library-Images/VCF/Biquad/BPF.png)
 
 **HPF** <br>
 HPF or highpass filters attenuate frequencies lower than the cutoff point.
 
+![HPF](img/Library-Images/VCF/Biquad/HPF.png)
+
 **LP-HP** <br>
 Morphs between a lowpass filter and highpass filter.
+
+![LP-HP](img/Library-Images/VCF/Biquad/LP-HP.png)
 
 **Multimode Filter** <br>
 A filter with selectable modes. When the Hz knob is turned all the way down, the input below it turns into an octave tracking input. Width controls the bandwidth of the BPF.
 
+![Multimode Filter](img/Library-Images/VCF/Biquad/Multimode-Filter.png)
+
 **Notch** <br>
 Attenuates frequencies at the cutoff point while passing all others. Useful for creating cascaded comb filters.
+
+![Notch](img/Library-Images/VCF/Biquad/Notch.png)
 
 ### DLX
 
@@ -1666,24 +1807,42 @@ These modules are deluxe versions of other analog modelling filters in Audulus. 
 **SEM LPF DLX** <br>
 Same as the SEM LPF but with extra controls for octave pitch tracking and an attenuator that feeds back audio from the output to the cutoff.
 
+![SEM LPF DLX](img/Library-Images/VCF/DLX/SEM-LPF-DLX.png)
+
 ### LPF
 
-These modules are a collection of analog modelling lowpass filters (LPFs). LPFs are the most common and musically useful class of filters. Low pass means the filter passes low frequencies below its cutoff point relatively unaffected, while attenuating (making quieter) frequencies above the cutoff point. The Q or resonance control adjusts the amount of frequency boost that happens around the cutoff point. Some filters self-resonate with a high enough Q value, meaning they generate a tone, usually in the form of a sine wave, at the cutoff point. This can be used to your advantage by giving the sense of duophony in a monophonic patch. These filters are often based around the architecture of known famous filters (though none should be construed as officially sanctioned digital reproductions, and all trademarks are the property of their respective owners). They are also not meant to be exact 1:1 clones that do everything possible to remain faithful to the original. They sound great in their own right and have their own quirks and musicality.
+These modules are a collection of analog modelling lowpass filters (LPFs). LPFs are the most common and musically useful class of filters. Low pass means the filter passes low frequencies below its cutoff point relatively unaffected, while attenuating (making quieter) frequencies above the cutoff point. 
+
+The Q or resonance control adjusts the amount of frequency boost that happens around the cutoff point. Some filters self-resonate with a high enough Q value, meaning they generate a tone, usually in the form of a sine wave, at the cutoff point. This can be used to your advantage by giving the sense of duophony in a monophonic patch. 
+
+These filters are often based around the architecture of known famous filters (though none should be construed as officially sanctioned digital reproductions, and all trademarks are the property of their respective owners). 
+
+They are also not meant to be exact 1:1 clones that do everything possible to remain faithful to the original. They sound great in their own right and have their own quirks and musicality.
 
 **1 Pole LPF** <br>
 The smallest most lightweight available filter with no Q or resonance control, the 1 Pole filter is a soft 6dB/oct cutoff slope. A great filter for smooth sounding soft pads.
 
+![1 Pole LPF](img/Library-Images/VCF/LPF/1-Pole-LPF.png)
+
 **303 LPF** <br>
 Based around the architecture of the diode filter in the Roland TB-303 bass synthesizer, this resonant LPF is perfect for squelchy bass lines and screaming leads.
+
+![303 LPF](img/Library-Images/VCF/LPF/303-LPF.png)
 
 **K35 LPF** <br>
 Based around the architecture of the Korg 35 filter found in the famous MS-20 synthesizer, this resonant LPF is a great all around dirty sounding filter that overdrives nicely.
 
+![K35 LPF](img/Library-Images/VCF/LPF/K35-LPF.png)
+
 **Mg LPF** <br>
 Based around the architecture of the Moog Transistor Ladder filter found in the Minimoog synthesizer, this filter is a great all-rounder that sings on any kind of sound. Characteristically, the bass frequencies will be attenuated extremely as the Q value is increased.
 
+![Mg LPF](img/Library-Images/VCF/LPF/Mg-LPF.png)
+
 **SEM LPF** <br>
 Based around the architecture of the Oberheim SEM IC (integrated circuit) filter, this non-resonant filter just sings on polyphonic pads and is one of the most musical filters ever made.
+
+![SEM LPF](img/Library-Images/VCF/LPF/SEM-LPF.png)
 
 ### LPG
 
@@ -1692,12 +1851,16 @@ These modules were made famous in Buchla synthesizer systems. They are essential
 **Lowpass Gate** <br>
 A very basic lowpass gate with no Q control. There is no internal VCA, but instead has a filter that has such a low cutoff point that it in effect blocks all audio going through when closed. The cutoff knob can be raised to keep the filter open to a certain frequency, but to make sure the filter closes all the way with an incoming envelope, leave it turned down. Use the envelope level knob to adjust how high the incoming envelope modulates the filter.
 
+![Lowpass Gate](img/Library-Images/VCF/LPG/Lowpass-Gate.png)
+
 ### SVF
 
 These modules are a special class of filter that outputs several types of filters simultaneously. Most SVFs (state variable filters) have at least lowpass, highpass, and bandpass outputs. The advantage of them is that you can use them as frequency splitters, sending different frequency bands of your synthesizer to different effects or mixers.
 
 **z-1 SVF** <br>
 A state variable filter made with the z-1 node with outputs for LPF, BPF, HPF, and NOT or notch. The SVF knob fades between the filter types at the top audio output.
+
+![z-1 SVF](img/Library-Images/VCF/SVF/z-1-SVF.png)
 
 ## VCLFO
 
@@ -1710,29 +1873,47 @@ These modules are beginner-friendly LFOs with just a few additional features.
 **Basic Saw LFO** <br>
 A saw LFO with controls for speed (0 to 20Hz), and a built-in attenuate-offset control to adjust the range of modulation. The gate input resets the LFO from the start of its period.
 
+![Basic Saw LFO](img/Library-Images/VCLFO/Basic/Basic-Saw-LFO.png)
+
 **Basic Sine LFO** <br>
 A sine LFO with controls for speed (0 to 20Hz), and a built-in attenuate-offset control to adjust the range of modulation. The gate input resets the LFO from the start of its period.
+
+![Basic Sine LFO](img/Library-Images/VCLFO/Basic/Basic-Sine-LFO.png)
 
 **Basic Square LFO** <br>
 A square LFO with controls for speed (0 to 20Hz), and a built-in attenuate-offset control to adjust the range of modulation. The gate input resets the LFO from the start of its period.
 
+![Basic Square LFO](img/Library-Images/VCLFO/Basic/Basic-Square-LFO.png)
+
 **Basic Triangle LFO** <br>
 A triangle LFO with controls for speed (0 to 20Hz), and a built-in attenuate-offset control to adjust the range of modulation. The gate input resets the LFO from the start of its period.
 
+![Basic Triangle LFO](img/Library-Images/VCLFO/Basic/Basic-Triangle-LFO.png)
+
 **Phase Shift Saw LFO** <br>
-A phase shifting saw LFO with controls for speed (0 to 20Hz), and a built-in attenuate-offset control to adjust the range of modulation. The gate input resets the LFO from the start of its period. The phase shift control adjusts the starting point for the wave when reset.
+A phase shifting sine LFO with controls for speed (0 to 20Hz), and a built-in attenuate-offset control to adjust the range of modulation. The gate input resets the LFO from the start of its period. The phase shift control adjusts the starting point for the wave when reset.
+
+![Phase Shift Saw LFO](img/Library-Images/VCLFO/Basic/Phase-Shift-Saw-LFO.png)
 
 **Skew Sine LFO** <br>
 A waveshaping sine LFO with controls for speed (0 to 20Hz), and a built-in attenuate-offset control to adjust the range of modulation. The gate input resets the LFO from the start of its period. The skew control adjusts the tilt of the sine wave to reverse ramp-like to sine to saw-like.
 
+![Skew Sine LFO](img/Library-Images/VCLFO/Basic/Skew-Sine-LFO.png)
+
 **Skew Triangle LFO** <br>
 A waveshaping triangle LFO with controls for speed (0 to 20Hz), and a built-in attenuate-offset control to adjust the range of modulation. The gate input resets the LFO from the start of its period. The skew control adjusts the tilt of the triangle wave to reverse ramp to triangle to saw.
+
+![Skew Triangle LFO](img/Library-Images/VCLFO/Basic/Skew-Triangle-LFO.png)
 
 **Square PWM LFO** <br>
 A basic square wave LFO with an added pulse width control. Pulse width controls the balance between oscillator on and off time. The attenuate-offset knobs control the overall range of the LFOs’ output.
 
+![Square PWM LFO](img/Library-Images/VCLFO/Basic/Square-PWM-LFO.png)
+
 **Waveshape LFO** <br>
 A multishape LFO with controls for speed (0 to 20Hz), and a built-in attenuate-offset control to adjust the range of modulation. The gate input resets the LFO from the start of its period. The shape knob fades between sine, triangle, square, and saw waves.
+
+![Waveshape LFO](img/Library-Images/VCLFO/Basic/Waveshape-LFO.png)
 
 ### Complex
 
@@ -1741,29 +1922,47 @@ These modules go beyond basic LFO shapes to provide more interesting and varied 
 **AM Sine LFO** <br>
 AM or amplitude modulation is a synthesis method by which one oscillator’s amplitude is modulated by another’s. This module uses two sine LFOs. The top knob controls the speed of the main LFO, while the knob beneath it controls the speed of the modulating LFO. The attenuate-offset knobs control the overall range of the LFO’s output.
 
+![AM Sine LFO](img/Library-Images/VCLFO/Complex/AM-Sine-LFO.png)
+
 **Crossfade Waveshape LFO** <br>
 Crossfades between two synced LFOs of different shapes. The top right knob controls the speed of both LFOs, while top left knob controls the crossfade balance. All the way to the left is 100% oscillator 1 while all the way to the right is 100% oscillator 2. The wave shape controls beneath adjust the shape of the oscillators. The oscillator being referenced at a given time is highlighted by the green ping-ponging light. The bottom controls are the attenuate-offset knobs which control the overall range of the LFO’s output.
+
+![Crossfade Waveshape LFO](img/Library-Images/VCLFO/Complex/Crossfade-Waveshape-LFO.png)
 
 **F-AM Sine LFO** <br>
 Crossfades between FM (frequency modulation) and AM (amplitude modulation) between two sine LFOs. The top two controls are the speed of the main LFO and the speed of the modulating LFO. The F/AM control fades between all frequency modulation and all amplitude modulation. Halfway is a mixture of both types of modulation. The attenuate-offset knobs control the overall range of the LFO’s output.
 
+![F-AM Sine LFO](img/Library-Images/VCLFO/Complex/F-AM-Sine-LFO.png)
+
 **FM Dual Waveshape Syncable LFO** <br>
 FM or frequency modulation is a synthesis method by which one oscillator’s frequency is modulated by another’s. This module uses two waveshape LFOs that crossfade between sine, triangle, square, and saw. The main oscillator’s speed is on the left and the modulating oscillator’s speed is on the right. The unattenuated square output of the modulating wave is normalled to the sync input of the main LFO and fed back into its own sync input as well. You can break this connection and use a different input to reset both oscillators. The attenuate-offset knobs control the overall range of the LFO’s output.
+
+![FM Dual Waveshape Syncable LFO](img/Library-Images/VCLFO/Complex/FM-Dual-Waveshape-Syncable-LFO.png)
 
 **FM Sine LFO** <br>
 FM or frequency modulation is a synthesis method by which one oscillator’s frequency is modulated by another’s. This module uses two sine LFOs: a main oscillator and a modulating oscillator. The attenuate-offset knobs control the overall range of the LFO’s output.
 
+![FM Sine LFO](img/Library-Images/VCLFO/Complex/FM-Sine-LFO.png)
+
 **PM Sine LFO** <br>
 PM or phase modulation is a synthesis method by which one oscillator’s phase is modulated by another’s. This module uses two sine LFOs: a main oscillator and a modulating oscillator. The attenuate-offset knobs control the overall range of the LFO’s output.
+
+![PM Sine LFO](img/Library-Images/VCLFO/Complex/PM-Sine-LFO.png)
 
 **Quadrature Sine LFO** <br>
 Outputs a series of 4 sine waves that can be spread apart by the phase control under the main speed control. The attenuate-offset knobs control the overall range of the LFOs’ output.
 
+![Quadrature Sine LFO](img/Library-Images/VCLFO/Complex/Quadrature-Sine-LFO.png)
+
 **Quantized Waveshape LFO** <br>
 Combines the Waveshape LFO with a quantizer that splits the wave into 2 to 64 discrete steps. The attenuate-offset knobs control the overall range of the LFOs’ output.
 
+![Quantized Waveshape LFO](img/Library-Images/VCLFO/Complex/Quantized-Waveshape-LFO.png)
+
 **Random Amplitude Sine LFO** <br>
 A basic sine LFO that picks a new random amplitude every cycle. The attenuate-offset knobs control the overall range of the LFOs’ output.
+
+![Random Amplitude Sine LFO](img/Library-Images/VCLFO/Complex/Random-Amplitude-Sine-LFO.png)
 
 ### Long Period
 
@@ -1771,6 +1970,8 @@ These modules are super low frequency oscillators that run on the order of minut
 
 **`5*10^30` Year LFO** <br>
 More of an art piece than a real functional module, this saw LFO takes 5,000,000,000,000,000,000,000,000,000,000 years to complete one cycle. To put that into perspective, the age of the universe is approximately 13,000,000,000 years. Heat death, when (theoretically) all of the energy of the universe will be expended, will occur around 10^103 years, so there is enough time to have more than a few cycles of this LFO.
+
+![`5*10^30` Year LFO](img/Library-Images/VCLFO/Long-Period/5*10^30-Year-LFO.png)
 
 ## VCO
 
@@ -1783,24 +1984,44 @@ These modules use combinations of sine waves at different harmonics and add them
 **Chebyshev Additive VCO** <br>
 Uses a series of Chebyshev polynomials to transform a single sine wave into many harmonics. A very CPU-efficient solution to create an additive oscillator with 6 harmonics without needing to have 6 separate oscillators. The tone of this VCO is rubbery - it sounds both organic and digital at the same time. It responds really well to modulating its harmonics with LFOs.
 
+![Chebyshev Additive VCO](img/Library-Images/VCO/Additive/Chebyshev-Additive-VCO.png)
+
 ### Basic
 
 These modules are simple beginner-friendly VCOs that don’t have a lot of extra features to get bogged down in.
 
 **3ceeoh VCO mk2** <br>
-A three oscillator VCO with identical controls for each. The waveform selector switches between square, triangle, saw, and sine waves. The level controls are linked so that the output balance always hovers around -1 to 1 audio output maximum. The pulse width control adjusts the shape of the square waves and saw waves. The octave and fine tune controls adjust an offset from the input octave signal. You can get really fast sounding leads from this module by leaving the middle oscillator’s fine tune centered and offsetting the left and right oscillators just a little. The top control adjusts the amount of output distortion. 
+A three oscillator VCO with identical controls for each. The waveform selector switches between square, triangle, saw, and sine waves. The level controls are linked so that the output balance always hovers around -1 to 1 audio output maximum. 
+
+The pulse width control adjusts the shape of the square waves and saw waves. The octave and fine tune controls adjust an offset from the input octave signal. 
+
+You can get really fast sounding leads from this module by leaving the middle oscillator’s fine tune centered and offsetting the left and right oscillators just a little. The top control adjusts the amount of output distortion. 
+
+![3ceeoh VCO mk2](img/Library-Images/VCO/Basic/3ceeoh-mk2.png)
 
 **Basic VCO** <br>
 A great beginner VCO with selectable square, triangle, saw, and sine waves. The octave control sets an offset from the octave input from -4 to 4. The fine tune control adjusts the pitch of the oscillator -/+ one semitone. When this control is set to 0.5, the oscillator is in tune.
 
+![Basic VCO](img/Library-Images/VCO/Basic/Basic-VCO.png)
+
 **Crossfade Suboctave VCO** <br>
-A dual VCO with selectable square, triangle, saw, and sine waves. The top knob adjusts the balance of the top and bottom oscillators. The relative mix of the oscillators is indicated by the strength of the green light in the top right of the waveform selector. The suboctave button turns the second oscillator into an octave down oscillator when turned on (red). The octave control sets an offset from the octave input from -4 to 4. The fine tune control adjusts the pitch of the oscillator -/+ one semitone. When this control is set to 0.5, the oscillator is in tune.
+A dual VCO with selectable square, triangle, saw, and sine waves. The top knob adjusts the balance of the top and bottom oscillators. The relative mix of the oscillators is indicated by the strength of the green light in the top right of the waveform selector. 
+
+The suboctave button turns the second oscillator into an octave down oscillator when turned on (red). The octave control sets an offset from the octave input from -4 to 4. The fine tune control adjusts the pitch of the oscillator -/+ one semitone. When this control is set to 0.5, the oscillator is in tune.
+
+![Crossfade Suboctave VCO](img/Library-Images/VCO/Basic/Crossfade-Suboctave-VCO.png)
 
 **CSAW VCO** <br>
-An emulation of the Yamaha CS-80 synthesizer’s imperfect saw wave. The shape knob squares off the negative cycle of the saw wave. The color knob applies an offset to the negative portion of the wave that creates even more harmonic variation. The FM control is a linear FM input attenuator. Attach another oscillator to the audio input to modulate the frequency of the oscillator. The octave control sets an offset from the octave input from -4 to 4. The fine tune control adjusts the pitch of the oscillator -/+ one semitone. When this control is set to 0.5, the oscillator is in tune.
+An emulation of the Yamaha CS-80 synthesizer’s imperfect saw wave. The shape knob squares off the negative cycle of the saw wave. The color knob applies an offset to the negative portion of the wave that creates even more harmonic variation. The FM control is a linear FM input attenuator. 
+
+Attach another oscillator to the audio input to modulate the frequency of the oscillator. The octave control sets an offset from the octave input from -4 to 4. The fine tune control adjusts the pitch of the oscillator -/+ one semitone. When this control is set to 0.5, the oscillator is in tune.
+
+![CSAW VCO](img/Library-Images/VCO/Basic/CSAW-VCO.png)
 
 **Drift VCO** <br>
 The Drift VCO is the same as the Basic VCO but with a drift feature that creates tuning instabilities similar to poorly designed analog oscillators. The tuning instability is more pronounced in the lower octaves.
+
+![Drift VCO](img/Library-Images/VCO/Basic/Drift-VCO.png)
 
 ### FM
 
@@ -1809,8 +2030,12 @@ FM or frequency modulation synthesis is uses one oscillator to modulate the freq
 **Bahama VCO** <br>
 Loosely based on the architecture of the Noise Reap Bermuda VCO Eurorack module, this oscillator simultaneously outputs a sine, triangle, and square oscillator. The shape control adjusts the shapes of all three outputs. The octave control sets an offset from the octave input from -4 to 4. The fine tune control adjusts the pitch of the oscillator -/+ one semitone. When this control is set to 0.5, the oscillator is in tune.
 
+![Bahama VCO](img/Library-Images/VCO/FM/Bahama-VCO.png)
+
 **FM Waveshape VCO** <br>
 Morphs between sine, triangle, square, and saw waveshapes. The FM control adjusts the amount of linear FM input. The octave control sets an offset from the octave input from -4 to 4. The fine tune control adjusts the pitch of the oscillator -/+ one semitone. When this control is set to 0.5, the oscillator is in tune.
+
+![FM Waveshape VCO](img/Library-Images/VCO/FM/FM-Waveshape-VCO.png)
 
 ### Karplus-Strong
 These types of oscillators use a tuned delay line to create plucked string-like sounds. They are a type of physical modelling synthesis.
@@ -1818,8 +2043,12 @@ These types of oscillators use a tuned delay line to create plucked string-like 
 **k-s VCO** <br>
 A Karplus-Strong synthesis VCO. The brite and damp knobs adjust the tone of the oscillator and the ring adjusts the decay. This VCO must be pinged with a clock signal to make sound. It does not need an external VCA and envelope combination. The octave control sets an offset from the octave input from -4 to 4. The fine tune control adjusts the pitch of the oscillator -/+ one semitone. When this control is set to 0.5, the oscillator is in tune. 
 
+![k-s VCO](img/Library-Images/VCO/Karplus-Strong/k-s-VCO.png)
+
 **String Exciter** <br>
 A Karplus-Strong synthesis VCO that simulates a plucked string. The damp controls change the tone of the VCO. The string and pluck controls the the level of the string and plucked sounds.
+
+![k-s VCO](img/Library-Images/VCO/Karplus-Strong/String-Exciter.png)
 
 ### Noise
 These modules create audio noise. Noise is a critical component in complex sounding synth patches. Just a little bit can create a much more dynamic sound. They are also essential for creating proper sounding drum sounds, like snares.
@@ -1827,11 +2056,17 @@ These modules create audio noise. Noise is a critical component in complex sound
 **White Noise** <br>
 Outputs white noise audio signal. Output volume control can be used as a VCA by attaching modulation signals to it.
 
+![White Noise](img/Library-Images/VCO/Noise/White-Noise.png)
+
 **Wind’s Cry** <br>
 Uses noise filtered through 4 sharp bandpass filters to create a whistling-like tone. The North, South, East, and West controls are level controls for each sound. The tone controls adjust the sharpness of the filter peaks. The octave a detune controls adjust the tuning of the individual oscillators.
 
+![Wind’s Cry](img/Library-Images/VCO/Noise/Winds-Cry.png)
+
 **z-1 Pink-White Noise** <br>
 A noise module that fades between white (equal distribution) and pink (equal power vs. frequency) noise. Pink noise is a favorite for filter modulation as when it is fed through a sample and hold, lower notes are given a priority. The color light adjusts the color from pink to white.
+
+![z-1 Pink-White Noise](img/Library-Images/VCO/Noise/z-1-Pink-White-Noise.png)
 
 ### PM
 
@@ -1840,12 +2075,16 @@ These modules use a modulation source to tweak the phase of the main oscillator.
 **Phase Modulation VCO** <br>
 A simple sine, triangle, square, saw waveshape VCO with a phase modulation input. Responds really nicely when an envelope is modulating the phase.
 
+![Phase Modulation VCO](img/Library-Images/VCO/PM/Phase-Modulation-VCO.png)
+
 ### Subharmonic
 
 These modules generate subharmonic frequencies not by simply adding another VCO, but by extrapolating subharmonics from waves, usually by only passing every other wavelet. The result is a really raw and nasty sounding oscillator that is great for basslines and kicks.
 
 **Subharmonic VCO** <br>
 Derives a subharmonic from an oscillator node by passing 2nd or every 4th wavelet. Below the waveform selector is a mix control that balances the oscillator and subharmonic tones. The sub button when blue creates a 1 octave down subharmonic, and 2 octaves down when red. The octave control sets an offset from the octave input from -4 to 4. The fine tune control adjusts the pitch of the oscillator -/+ one semitone. When this control is set to 0.5, the oscillator is in tune. 
+
+![Subharmonic VCO](img/Library-Images/VCO/Subharmonic/Subharmonic-VCO.png)
 
 ### Supersaw
 
@@ -1854,20 +2093,30 @@ These VCOs are staples of trance music. They are created by adding many saws tog
 **7even Deadly Saws** <br>
 An easy to use supersaw using 7 detuned saw oscillators. Det or detune controls the amount of detuning spread between the oscillators. The shape controls an extra level of supersaw shaping, for up to 14 virtual saw oscillators. The color knob is a high pass filter on the output for adjusting the overall tone.
 
+![Subharmonic VCO](img/Library-Images/VCO/Supersaw/7even-Deadly-Saws.png)
+
 ### Waveshape
 These VCO modules combine oscillators or create them from scratch using mixing or waveshaping algorithms. Great go-to modules for unique, often aggressive and punchy sounds.
 
 **Crossfade VCO** <br>
 Quickly crossfades between two wave shapes using a third oscillator. The oct control adjusts the octave of the oscillator and wav controls adjust the two wave shapes.
 
-**Sine Skew VCO** <br>
+![Crossfade VCO](img/Library-Images/VCO/Waveshape/Crossfade-VCO.png)
+
+**Skew Sine VCO** <br>
 A waveshaping sine VCO with a linear FM input. The skew control adjusts the tilt of the sine wave to reverse ramp-like to sine to saw-like. The octave control sets an offset from the octave input from -4 to 4. The fine tune control adjusts the pitch of the oscillator -/+ one semitone. When this control is set to 0.5, the oscillator is in tune
 
-**Triangle Skew VCO** <br>
+![Skew Sine VCO](img/Library-Images/VCO/Waveshape/Skew-Sine-VCO.png)
+
+**Skew Triangle VCO** <br>
 A waveshaping triangle VCO with a linear FM input. The skew control adjusts the tilt of the sine wave to reverse ramp to triangle to saw. The octave control sets an offset from the octave input from -4 to 4. The fine tune control adjusts the pitch of the oscillator -/+ one semitone. When this control is set to 0.5, the oscillator is in tune.
+
+![Skew Triangle VCO](img/Library-Images/VCO/Waveshape/Skew-Triangle-VCO.png)
 
 **Wavebender VCO** <br>
 Uses two mapper nodes to create the positive and negative swings of an oscillator. The octave control sets an offset from the octave input from -4 to 4. The fine tune control adjusts the pitch of the oscillator -/+ one semitone. When this control is set to 0.5, the oscillator is in tune. The overdrive knobs controls the total amount of output distortion.
+
+![Wavebender VCO](img/Library-Images/VCO/Waveshape/Wavebender-VCO.png)
 
 ## Visual
 
@@ -1876,14 +2125,24 @@ These patches do not make any sound, but instead highlight the visual aspects of
 **8 Point 3D Visualizer** <br>
 An imaginary cube with xyz coordinates. As the coordinate approaches one of the 8 lights (8 vertices), they light up.
 
+![8 Point 3D Visualizer](img/Library-Images/Visual/8-Point-3D-Visualizer.png)
+
 **9 Point 3D Visualizer** <br>
 An imaginary cube with xyz coordinates. As the coordinate approaches one of the 9 lights (8 vertices and one center), they light up.
 
-**37 Point 3D Visualizer** <br>
+![9 Point 3D Visualizer](img/Library-Images/Visual/9-Point-3D-Visualizer.png)
+
+**27 Point 3D Visualizer** <br>
 An imaginary cube with xyz coordinates. As the coordinate approaches one of the 27 lights (8 vertices, one center, and multiple lights in between), they light up.
+
+![27 Point 3D Visualizer](img/Library-Images/Visual/27-Point-3D-Visualizer.png)
 
 **Pong v1** <br>
 A real, honest-to-goodness recreation of the classic Atari game Pong in Audulus built using Audulus nodes only! An amazing feat of engineering by Audulus user @alexander. Press the start button to get the ball rolling. The speed control adjusts the speed of the ball. p1 and p2 knobs control the paddles for player one and player two. Try mapping these controls to MIDI controller knobs for the classic experience of supremely terrible ergonomics of the original game.
 
+![Pong v1](img/Library-Images/Visual/Pong-v1.png)
+
 **RGB TV** <br>
 A recreation of the metaphor of how a monitor works. The Scan, Color, and Brightness inputs accepts a 0 to 1 modulation source. As the modulation scans from left to right, top to bottom, each light node will sample the values present at the brightness and color inputs and store that sample as a value. With enough patience you could sequence frames of animation! However, the best way to use this module might be as a music visualizer. Attach an LFO that you synth is using to the color input and an envelope to the brightness input and you will get pulsing, color changing lights that track the movement of your patch.
+
+![RGB TV](img/Library-Images/Visual/RGB-TV.png)
