@@ -79,6 +79,8 @@ Binary building modules use binary numbers as a way to store information. They a
 **Pattern to Decimal Code** <br>
 Turns a 16 step pattern into a decimal number that can be used to create rhythmic patterns with modules like the Pattern Bank Sequencer. The module looks at the 16 beat pattern as if it were at 16 digit binary number and simply converts that binary number into a decimal. In the Pattern Bank Sequencer, the decimal is re-converted into the binary number. The binary number is then broken apart into individual 0 (skip) or 1 (hit) messages for the sequencer.
 
+![Pattern to Decimal Code](img/Library-Images/Building/Binary/Pattern-to-Decimal-Code.png)
+
 ### Counter
 
 Counters are modules that count up or down in sequence when pulsed with a gate or somehow count time. They are most often used in sequencers.
@@ -87,8 +89,12 @@ Elapsed Time - Displays the elapsed time since a timer has been reset. It conver
 **Up Counter** <br>
 Counts up with each incoming gate pulse from 0 to a specified number and then resets. Commonly used for step sequencers.
 
+![Up Counter](img/Library-Images/Building/Counter/Up-Counter.png)
+
 **Up-Down Counter** <br>
 The same as the Up Counter except it counts up to a number then down back to 0 at each gate pulse. Commonly used for ping-pong mode in a sequencer.
+
+![Up-Down Counter](img/Library-Images/Building/Counter/Up-Down-Counter.png)
 
 ### Curve
 
@@ -97,8 +103,12 @@ Curve modules apply a shape to the normally linear output of a knob or incoming 
 **Curve Exp-Lin-Log** <br>
 Fades between an exponential, linear, and logarithmic response. Commonly used on the output of an envelope to change its response. Greatly affects the sound of VCFs and VCAs.
 
+![Curve Exp-Lin-Log](img/Library-Images/Building/Curve/Curve-Exp-Lin-Log.png)
+
 **Curve Exponential** <br>
 Fades between slightly exponential `(x*x)` to highly exponential `(x*x*x*x)`.
+
+![Curve Exponential](img/Library-Images/Building/Curve/Curve-Exponential.png)
 
 ### Detector
 
@@ -107,14 +117,22 @@ Detector modules analyze incoming signals and detect something about them. The m
 **Audio Peak Detector** <br>
 Flashes red when an incoming audio signal exceeds the -1 to 1 output range. Commonly used on audio and CV output modules.
 
+![Audio Peak Detector](img/Library-Images/Building/Detector/Audio-Peak-Detector.png)
+
 **Change Detector** <br>
 Outputs a gate pulse whenever a change in value is detected at its input. A common application is to attach the detector to a knob so that whenever the knob is turning, a light will will stay illuminated. When x time has elapsed, the light will turn off. The output will be a quick burst of on/off gates, not a steady stream of on or off. To smooth out this burst of gates, use the Gate Smear module. This detector works in single-sample mode, so it is very fast and will detect changes from one sample to another.
+
+![Change Detector](img/Library-Images/Building/Detector/Change-Detector.png)
 
 **High-Low Detector** <br>
 Detects the high and low point of an incoming signal. Very useful for ranging the output of VCO modules to the standard -1 to 1 especially when the VCO module contains multiple mixed oscillators. The reset input sets the detector back to 0 to reanalyze. The two outputs output the high (top) and low (bottom) values.
 
+![High-Low Detector](img/Library-Images/Building/Detector/High-Low-Detector.png)
+
 **Up-Down Detector** <br>
 Similar to the Change Detector, except it analyzes whether the signal is moving from a lower value to higher value, or higher value to lower value.
+
+![Up-Down Detector](img/Library-Images/Building/Detector/Up-Down-Detector.png)
 
 ### Gate
 
@@ -123,25 +141,41 @@ These modules output 0 to 1 gate signals most often used to trigger sequencers o
 **1-Frame Pulse** <br>
 Takes an incoming 0 to 1 gate signal and converts it into a short ~300 sample pulse. A frame is the unit of time that Audulus processes in unless explicitly told to process in single sample mode. The pulse will only last ~300 samples no matter how long the incoming gate lasts. In most cases, this is the shortest useful gate length in Audulus.
 
+![1-Frame Pulse](img/Library-Images/Building/Gate/1-Frame-Pulse.png)
+
 **Gate to 10ms Pulse** <br>
 Translates an incoming gate into a 10ms pulse which is a standard minimum pulse length recognized by many hardware sequencers.
+
+![Gate to 10ms Pulse](img/Library-Images/Building/Gate/Gate-to-10ms-Pulse.png)
 
 ### Input-Output
 
 These modules are a collection of common input and output lights, indicators, and signal clippers. Light nodes will have to be exposed and placed within the input-output on a module. If for some reason the light appears below or beneath the output, enter the module, cut the light, then paste it. This will make it appear on top.
 
-**Clip Audio Light Output** <br>
+**Audio Clip Light Output** <br>
 This module is a combination of the Audio Light Output module and a clamp expression that clips the output signal if it exceeds the standard -1 to 1 range for audio signals. It is almost exclusively found in VCAs, but can be put into any module where both hard clipping and an output audio light are desired. When clipping is detected, the light will flash white.
-Audio Light Input-Output - This collection of modules serve as audio input and output lights. When the light flashes red, the signal is positive. When it flashes blue, the signal is negative. Quickly oscillating audio signals will appear as a scintillating purple. If you do not need one or the other, simply delete it.
+
+![Audio Clip Light Output](img/Library-Images/Building/Input-Output/Audio-Clip-Light-Output.png)
+
+**Audio Light Input-Output** <br>
+This collection of modules serve as audio input and output lights. When the light flashes red, the signal is positive. When it flashes blue, the signal is negative. Quickly oscillating audio signals will appear as a scintillating purple. If you do not need one or the other, simply delete it.
+
+![Audio Light Input-Output](img/Library-Images/Building/Input-Output/Audio-Light-Input-Output.png)
 
 **Gate Input-Output** <br>
 This collection of modules serve as gate input and output lights. If you do not need one or the other, simply delete it.
 
+![Gate Input-Output](img/Library-Images/Building/Input-Output/Gate-Input-Output.png)
+
 **Modulation Input-Output** <br>
 This collection of modules serve as modulation input and output lights. If you do not need one or the other, simply delete it.
 
+![Modulation Input-Output](img/Library-Images/Building/Input-Output/Modulation-Input-Output.png)
+
 **Octave Input-Output** <br>
 This collection of modules serve as octave signal input and output indicators. When placed inside a module, simply expose the “o” and center it in the input or output. If you do not need one or the other, simply delete it.
+
+![Octave Input-Output](img/Library-Images/Building/Input-Output/Octave-Input-Output.png)
 
 ### Knob
 
@@ -150,29 +184,47 @@ These modules are meant to be paired with 0 to 1 knobs for use inside modules. W
 **-x to x** <br>
 Attach a Knob node to the knob input and a number to the x input. The output will then range from -x to x. For example: If you attach 2 to x, the output of the module will be -2 to 2.
 
+![-x to x](img/Library-Images/Building/Knob/-x-to-x.png)
+
 **0 to x** <br>
 Attach a Knob node to the knob input and a number to the x input. The output will then range from 0 to x. For example: If you attach 5 to x, the output of the module will be 0 to 2.
+
+![0 to x](img/Library-Images/Building/Knob/0-to-x.png)
 
 **Center Range** <br>
 Attach a Knob node to the knob input and a number to the Center(x) and Range(y) input. When the knob is centered at 0.5, the output of the module will be the value at Center(x). The Range(y) defines the entire sweep of the knob. For example: If you attach 2 to Center(x) and 6 to Range(y), the output of the module will be from -1 to 5, outputting a 2 when the knob is centered at 0.5.
 
-**Integer Maker** <br>
+![Center Range](img/Library-Images/Building/Knob/Center-Range.png)
+
+**Integer Maker 0 to 999** <br>
 Attach Knob nodes to the 100’s, 10’s, and 1’s inputs. Each knob will control the corresponding digit of a 3 digit number from 0 to 999, outputted by the module at x.
+
+![Integer Maker](img/Library-Images/Building/Knob/Integer-Maker-0-to-999.png)
 
 **Integers 0 to x** <br>
 Attach a Knob node to the knob input and an integer to the x input. The knob will sweep from 0 to x in integer steps. For example: If you attach 9 to x, the module will output integers from 0 to 9 as you sweep the knob.
 
+![Integers 0 to x](img/Library-Images/Building/Knob/Integers-0-to-x.png)
+
 **Pulses Per Turn** <br>
 Attach a Knob node to the knob input and a positive integer to the pulses per turn input. As you sweep the knob, the module will output an on/off gate pulse that many times per whole turn.
+
+![Pulses Per Turn](img/Library-Images/Building/Knob/Pulses-Per-Turn.png)
 
 **x to y** <br>
 Attach a Knob node to the knob input and two different numbers to x and y. The knob will sweep from x to y. For example: attach -1 to x and 10 to y. The module will output -1 to 10 as the knob is turned. The lower number does not need to come first, either. You could attach 100 to x and -100 to y, and the knob will sweep backwards from 100 to -100. You can also attach special numbers like pi or e to the inputs.
 
+![x to y](img/Library-Images/Building/Knob/x-to-y.png)
+
 **x to y or z Switch** <br>
 Attach a Knob node to the knob input and two numbers to x and y. The module will sweep from x to y as long as the knob’s value does not exactly equal 0 (turned all the way down). When the knob is turned all the way down, the signal present at the z input passes to the output.
 
+![x to y or z Switch](img/Library-Images/Building/Knob/x-to-y-or-z-Switch.png)
+
 **xyz Switch** <br>
 Similar to the x to y or z Switch, the xyz switch will output x when the knob is turned all the way down, y when the knob is somewhere in between 0 and 1, and z when the knob is turned all the way up. A common configuration would be to attach the Knob to the knob input and the y input, with different signals attached to x and z.
+
+![xyz Switch](img/Library-Images/Building/Knob/xyz-Switch.png)
 
 ### Light
 These modules take an input signal and translate them into signals for the RGB light node.
