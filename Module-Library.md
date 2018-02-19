@@ -367,13 +367,18 @@ These modules take a one signal and transform it into another type of signal. Th
 
 These modules translate -1 to 1 audio signals into other signal types.
 
-**Audio to Modulation** <br>Translates -1 to 1 audio signals to 0 to 1 modulation signals.
+**Audio to Modulation** <br>
+Translates -1 to 1 audio signals to 0 to 1 modulation signals.
+
+![Audio to Modulation](img/Library-Images/Building/Translation/Audio/Audio-to-Modulation.png)
 
 #### BPM
 
 These modules translate BPM (beats per minute) signals into other signal types.
 
-**BPM to Hz** <br>Translates BPM signals into Hz values.
+**BPM to Hz** <br>
+Translates BPM signals into Hz values.
+![BPM to Hz](img/Library-Images/Building/Translation/BPM/BPM-to-Hz.png)
 
 #### dB
 
@@ -382,12 +387,16 @@ These modules translate dB (decibel) signals into other signal types.
 **dB to Amplitude** <br>
 Translates dBs into an amplitude signal.
 
+![dB to Amplitude](img/Library-Images/Building/Translation/dB/dB-to-Amplitude.png)
+
 #### Feedback Delay
 
 These modules translate the Feedback Delay period into other signal types.
 
 **Feedback Delay to Seconds** <br>
 Translates the Feedback Delay time into seconds.
+
+![Feedback Delay to Seconds](img/Library-Images/Building/Translation/FeedbackDelay/Feedback-Delay-to-Seconds.png)
 
 #### Hz
 
@@ -396,14 +405,22 @@ These modules translate Hz (hertz) signals into other signal types.
 **Hz to BPM** <br>
 Translates Hz into BPM.
 
+![Hz to BPM](img/Library-Images/Building/Translation/Hz/Hz-to-BPM.png)
+
 **Hz to Note Number** <br>
 Translates Hz to Note Number, as defined by an 88-note piano keyboard.
+
+![Hz to Note Number](img/Library-Images/Building/Translation/Hz/Hz-to-Note-Number.png)
 
 **Hz to Octave** <br>
 Translates Hz into the octave signal.
 
+![Hz to Octave](img/Library-Images/Building/Translation/Hz/Hz-to-Octave.png)
+
 **Hz to Seconds** <br>
 Translates Hz into seconds.
+
+![Hz to Seconds](img/Library-Images/Building/Translation/Hz/Hz-to-Seconds.png)
 
 #### Modulation
 
@@ -412,8 +429,12 @@ These modules translate the 0 to 1 modulation signal into other signal types.
 **Modulation to Audio** <br>
 Translates the 0 to 1 modulation signal into a -1 to 1 audio signal.
 
+![Modulation to Audio](img/Library-Images/Building/Translation/Modulation/Modulation-to-Audio.png)
+
 **Modulation to Radians** <br>
 Translates the 0 to 1 modulation signal into the 0 to 2pi radian signal.
+
+![Modulation to Radians](img/Library-Images/Building/Translation/Modulation/Modulation-to-Radians.png)
 
 #### Note Number
 
@@ -422,8 +443,12 @@ These modules translate the note number, as defined by an 88-note piano keyboard
 **Note Number to Hz** <br>
 Translates a note number into a Hz signal.
 
+![Note Number to Hz](img/Library-Images/Building/Translation/NoteNumber/Note-Number-to-Hz.png)
+
 **Note Number to Octave** <br>
 Translates a note number into the octave signal.
+
+![Note Number to Octave](img/Library-Images/Building/Translation/NoteNumber/Note-Number-to-Octave.png)
 
 #### Octave
 
@@ -432,8 +457,12 @@ These modules translate the octave signal to other signal types. The octave sign
 **Octave to Hz** <br>
 Translates the octave signal into a Hz signal.
 
+![Octave to Hz](img/Library-Images/Building/Translation/Octave/Octave-to-Hz.png)
+
 **Octave to Note Number** <br>
 Translates the octave signal into a note number signal.
+
+![Octave to Note Numbers](img/Library-Images/Building/Translation/Octave/Octave-to-Note-Number.png)
 
 #### Radians
 
@@ -442,11 +471,17 @@ These modules translate radians into other signal types. The Phasor node outputs
 **Radians to Audio** <br>
 Translates radians into a -1 to 1 audio signal.
 
+![Radians to Audio](img/Library-Images/Building/Translation/Radians/Radians-to-Audio.png)
+
 **Radians to Degrees** <br>
 Translates radians into a 0 to 360 degrees signal.
 
+![Radians to Degrees](img/Library-Images/Building/Translation/Radians/Radians-to-Degrees.png)
+
 **Radians to Modulation** <br>
 Translates radians into a 0 to 1 modulation signal.
+
+![Radians to Modulation](img/Library-Images/Building/Translation/Radians/Radians-to-Modulation.png)
 
 #### Round
 
@@ -455,14 +490,22 @@ These modules round incoming signals to the closest digit specified.
 **Round to Hundredths** <br>
 Rounds incoming signal to the nearest hundredths place.
 
+![Round to Hundredths](img/Library-Images/Building/Translation/Round/Round-to-Hundredths.png)
+
 **Round to Integer** <br>
 Rounds incoming signal to the nearest integer.
+
+![Round to Integer](img/Library-Images/Building/Translation/Round/Round-to-Integer.png)
 
 **Round to Tenths** <br>
 Rounds incoming signal to the nearest tenths place.
 
+![Round to Tenths](img/Library-Images/Building/Translation/Round/Round-to-Tenths.png)
+
 **Round to Thousandths** <br>
 Rounds incoming signal to the nearest thousandths place.
+
+![Round to Thousandths](img/Library-Images/Building/Translation/Round/Round-to-Thousandths.png)
 
 #### Samples
 
@@ -471,11 +514,15 @@ These modules translate the time period of a sample into other signal types.
 **Samples to seconds** <br>
 Translates x number of samples into seconds. Smallest value is 1. For best results, use integers.
 
-**Seconds** <br>
+![Samples to seconds](img/Library-Images/Building/Translation/Samples/Samples-to-Seconds.png)
+
+#### Seconds
 These modules translate seconds into other signal types.
 
 **Seconds to samples** <br>
 Translates x number of seconds into a number of samples.
+
+![Seconds to Samples](img/Library-Images/Building/Translation/Seconds/Seconds-to-Samples.png)
 
 #### Truncate
 
@@ -484,15 +531,25 @@ These modules clip off trailing digits after the given decimal place.
 **Truncate to Hundredths** <br>
 Clips off any digits after the hundredths place.
 
+![Truncate to Hundredths](img/Library-Images/Building/Translation/Truncate/Truncate-to-Hundredths.png)
+
 **Truncate to Tenths** <br>
 Clips off any digits after the tenths place.
+
+![Truncate to Tenths](img/Library-Images/Building/Translation/Truncate/Truncate-to-Tenths.png)
 
 **Truncate to Thousandths** <br>
 Clips off any digits after the thousandths place.
 
+![Truncate to Thousandths](img/Library-Images/Building/Translation/Truncate/Truncate-to-Thousandths.png)
+
 ### Vias
 
 Vias are special pass-through tabs that help arrange wires in Audulus. They are very useful for keeping the internals of modules neat and easy to read. They also serve an important function while building. You may, for example, have a single output going to multiple inputs. You want to attach a knob to test that function, but then later wish to replace it with an input or maybe even a button. If you simply attached the output of the knob to all of those inputs, you would have to delete the knob and rewire everything from scratch. However, if you wire the via first and then attach the knob to the via, you can easily clip out the knob while retaining your connections. Also, because signal flow in Audulus is by default left to right, the cable animation will not look very neat if you want to run a signal backwards in a feedback configuration. Reverse vias allow you to change the direction of a signal in Audulus while maintaining a clean look.
+
+![Via](img/Library-Images/Building/Via.png)
+
+![Via Reversed](img/Library-Images/Building/Via-Reversed.png)
 
 ## Chaos
 
