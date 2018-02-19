@@ -902,110 +902,266 @@ A beginner’s look into how to create a self-playing Audulus patch. Beings with
 These modules take an incoming octave signal and snap them to a user-defined scale. They are one of the most important modules for creating sequencer-based music. Without a quantizer, you would have to tune individual notes by ear with each sequencer step. Quantizers allow you to dial the knob close enough and get a perfectly tuned note. Some special quantizers are also included in this collection that create chords or quantize knob and modulation outputs to specific levels.
 
 ###Chord
+
 These quantizers take an input octave signal and translate it into a chord. Requires multiple oscillators or at least collapsing the chord signal into a polyphonic chain.
 
-Neo-Reimannian Triad Transformer - Transforms an input octave signal into Neo-Reimannian Triads.
+**Neo-Reimannian Triad Transformer** <br>
+Transforms an input octave signal into Neo-Reimannian Triads.
 
-Chromatic Quantizer - The smallest, most CPU-lightweight quantizer module. Uses a simple expression to snap inputs into discrete steps of 1/12.
-Drifting Gateable Quantizer - Same as the Gateable Quantizer but adds a drift control at the bottom that applies a randomly chosen sharp or flat offset to each new note. The maximum drift is 1 semitone flat or sharp. The knob is scaled exponentially to allow you to add just a little detune. Detune is important for creating more organic-sounding synthesizers. Adding just a little can go a long way to making your music sound more harmonically interesting.
-Gateable Quantizer with Gate Output - Same as the Gateable Quantizer but with a gate output that goes high for every new note chosen. The knob at the bottom of the quantizer adjusts how long the output gate pulse stays high. A useful tool if you are not using a master clock to step a sequencer, but instead using an LFO or other modulation source translated into the octave range, but still need a gate for new notes to ping a VCA or VCF envelope.
-Gateable Quantizer - A 12 note quantizer that allows you to turn individual notes on (red) and off (blue) with buttons, or to turn the notes on and off remotely with gates. This is one of the most useful modules for creating self-playing patches. You can use gates created by logic modules or sequencers to turn notes on and off remotely to effectively change the tune being played. You can sequence chord changes while a randomly fluctuating octave signal flows through the quantizer to create a moving arpeggiator that follows a general pattern but does not really repeat itself. If no notes are engaged the quantizer becomes a chromatic quantizer by default. The current note being played is highlighted in orange-red, while the active notes are highlighted in green. Inactive notes are black.
-Modulation Quantizer - Quantizes a modulation signal into 2 to 64 steps. Will create a staircase, bitcrushing-like effect for modulation signals.
-Scales Maj-Min Quantizer - A very compact and useful quantizer that allows you to dial in which base note you want for a scale and whether you want the major (red) or minor (blue) version. The maj/min selector is gateable to allow you to modulate into one or the other scale. 
+**Chromatic Quantizer** <br>
+The smallest, most CPU-lightweight quantizer module. Uses a simple expression to snap inputs into discrete steps of 1/12.
 
-Sample + Hold - These modules use sample and hold techniques to create random modulations. The sample and hold node will sample an input signal whenever its input is gated.
-Att-Off Sample + Hold - A white-noise sampling random generator with attenuate offset controls to adjust the range of modulation and a speed control from 0 to 20Hz sampling rate.
-Basic Sample + Hold - A gateable sample and hold that accepts an input signal. Perfect for grabbing samples from LFOs and other modulation sources.
-Gateable Sample + Hold - A white-noise sampling random generator that samples a new random 0 to 1 modulation value every time it is gated.
-Modulation Threshold Random Generator - Takes a modulation input and outputs a new random sample every time the threshold, set by the knob at the bottom, is crossed. Perfect for turning modulation and envelope waves into sample and hold triggers.
+**Drifting Gateable Quantizer** <br>
+Same as the Gateable Quantizer but adds a drift control at the bottom that applies a randomly chosen sharp or flat offset to each new note. The maximum drift is 1 semitone flat or sharp. The knob is scaled exponentially to allow you to add just a little detune. Detune is important for creating more organic-sounding synthesizers. Adding just a little can go a long way to making your music sound more harmonically interesting.
 
-Sequencer - These modules are the one of the core modules of a modular synthesizer ecosystem. Although they are primarily used to generate musical notes for oscillators, they can be used to modulate any parameter you want. Most sequencers are clocked, meaning they step forward every time a clock pulse enters their gate input. Although some sequencers in Audulus have octave signal outputs, in general, they only output 0 to 1 modulation signal. To translate the modulation signal output into an octave signal, use the module found under Attenuator/Modulation/Modulation to Octave Attenuate-Offset. This module will translate the 0 to 1 modulation signal into whatever range you want it to be for your instrument. It is also helpful to use a quantizer after this translation module to easily dial in notes. Sequencers can also be used to add dynamics to gates as they enter envelopes. Simply use a Mult node or one of the Digital VCA modules to multiply the gate by the sequencer’s 0 to 1 output.
-3D - These modules use an imaginary 3-dimensional space to create sequences. They are esoteric but still very musical and interesting sequencers to play with.
-3D Cube 8 Step Sequencer - This is an 8 step sequencer that uses a cube metaphor to create non-linear sequences. The sequencer is advanced at the top left gate input. The two rows of four knobs along the bottom of the sequencer are the sequencer steps. These knobs control which vertex (point) of the cube that the sequencer references during the sequence. As you turn the knob, a blue dot will appear on the small display cube to the lower right of the sequence cube illustrating which vertex is selected. After a moment of not turning the knob, the blue dot will disappear. The min and max knobs control the minimum (green) and maximum (blue) steps of the sequencer. The current step is highlighted in red. The knobs around the sequence cube are the actual 0 to 1 modulation values that will be outputted in the upper right of the module. Under each knob is a gate output that will flash when that vertex is selected. The rs or reset input in the upper left will restart the sequencer from the minimum step when gated. The xyz knob controls adjust the coordinates for an imaginary point floating within the cube. The closer this point comes to the vertices, the steps will turn on. The thrsh or threshold control adjusts how close this point must be to the vertices to turn them on or off. If they are turned off, they count as a skip. The skip will only work if you are also using the gate output of the sequencer at the top right of the module. As you can tell, this sequencer might take a while to wrap your head around. However, it is well worth the time invested, as it can create some really amazing sequences not otherwise possible with linear 8 step sequencers. Watch a video of it in action here: https://www.instagram.com/p/BbUYm0HAujC/?taken-by=audulus 
-Algorithmic - Algorithmic sequencers output sequences based on mathematical formulae or processes. They are the ultimate happy accident sequencer modules that generate all kinds of complex melodies and rhythms with from a limited number of knobs and buttons.
-Euclidean Gate Sequencer - 
-Random Melody
-uTuring
-Basic - These modules are your bread-and-butter sequencers. They are very simple and easy to use and yet still have very musical uses and limitless potential. Take advantage of the fact that Audulus allows you to modulate any knob by applying LFOs and gates to sequencer knobs to expand their potential.
-4 Step Max Sequencer - Same as the 4 Step Sequencer but with a control for the maximum step. Modulate this maximum control with another synced sequencer for some really awesome moving sequences.
-4 Step Sequencer - The most elemental sequencer. Advance from one step to another with a gate. Once the last step has been reached, it will reset back to the first step and continue on.
-8 Step Min Max Sequencer - Same as the 8 Step Sequencer but with both a minimum and maximum step control. Modulate these controls with other synced sequencers for some really awesome moving sequences.
-8 Step Sequencer - Same as the 4 Step Sequencer but expanded to 8 steps total.
-Random 4 Step Sequencer - Same as the 4 step sequencer but instead of knobs, the sequence is randomly generated whenever the R or randomize input is gated. Try clocking the sequencer with a master clock and ping the reset input with a division of the master clock to allow patterns to develop, but keep sequences moving and growing all the time.
-Random Chance 4 Step Sequencer - Same as the Random 4 Step Sequencer, except instead of being totally randomized every time the R or random input is gated, you have knobs that set the percent chance that each step will be randomized. This allows you, for example, to anchor a sequence to the first note by setting it to 0% chance of changing, while adjusting the other notes to change more frequently.
-Gate - These modules generate sequences of 0 or 1 gate signals instead of 0 to 1 modulation signals. They are perfect for generating rhythms sent to envelopes or drum modules.
-Pattern Bank Gate Sequencer - 
-Strip Sequencer -
-Graphic - These modules use one Spline and Mapper nodes to create unusual types of sequencers that, instead of following knobs, follow curves or shapes you draw. A very fast way to generate sequences without having to turn multiple knobs.
-4 Step Mapper Sequencer - Uses a mapper node to create a 0 to 1 modulation sequence. The sequencer follows the curve and outputs the area roughly above each red light. A great way to quickly create a gestural sequence. Tap or click and drag the green break points to adjust the shape.
-8 Step Spline Sequencer - Uses a spline node to allow you to draw a shape for a sequencer to follow. To add spline points, double tap or click on the spline area. To delete points, double tap or click on the point.
-Arranger -
-Matrix - These modules are essentially 2 dimensional sequencers. If you consider normal sequencers to be 1 dimensional sequencers (they can go forward, backwards, but not across), then matrix sequencers allow the sequence to move in a more dimensional way around a sequence field. They are a great sequencers to use when you tire of using normal linear sequencers and want to explore the more experimental dimension of music making that modular synthesis has to offer.
-Chladni Sequencer - 
-Gate 4x4x2 Matrix Sequencer -
-Modulation 2x2x4 Matrix Sequencer -
-Modulation 2x2x5 Max Matrix Sequencer -
-Modulation 2x2x4 Matrix Sequencer -
-Octave-Modulation 4x4x1 Matrix Sequencer -
-Random Chance Modulation 2x2x4 Matrix Sequencer -
-Random Modulation 2x2x4 Matrix Sequencer -
-Random Non-Repeating - These modules create random sequences that are also non-repeating. Although it is statistically astronomically unlikely that a sequence generated from white noise 32-bit numbers will have two or more step values that are exactly alike, they do tend to create values that are close enough that, once put through a quantizer, they end up playing the same note. This class of sequencer solves this problem by creating equally spaced values that are less likely to result in the same note being played twice within one round of the sequence.
-Random Non-Repeating 4 Step Sequencer -
-Shape - These modules use shape metaphors to create sequences that are a mix of linear and non-linear. They are not quite matrix sequencers but also not just a normal linear sequencer wrapped into a shape either.
-5 Step Shape Gate-Trigger Sequencer -
+**Gateable Quantizer with Gate Output** <br>
+Same as the Gateable Quantizer but with a gate output that goes high for every new note chosen. The knob at the bottom of the quantizer adjusts how long the output gate pulse stays high. A useful tool if you are not using a master clock to step a sequencer, but instead using an LFO or other modulation source translated into the octave range, but still need a gate for new notes to ping a VCA or VCF envelope.
 
-Slew - These modules ease sharp transitions in modulation and pitch. When using them for pitch, they amount to a glide or slur between notes, so instead of sharply transitioning from one note to another, the pitch will glide up or sink down to the next note. Most slew limiters are essentially an LPF with a very low cutoff point.
-Slew Limiter Dual Mode - A slew limiter module with two modes. Equal time mode (red) will take an equal amount of time to glide between notes no matter how far apart they are. Note distance mode (blue) will take longer to glide up to higher notes, emulating the way analog slew limiters work. Slew knob adjusts the total amount of time between notes to glide.
+**Gateable Quantizer** <br>
+A 12 note quantizer that allows you to turn individual notes on (red) and off (blue) with buttons, or to turn the notes on and off remotely with gates. This is one of the most useful modules for creating self-playing patches. You can use gates created by logic modules or sequencers to turn notes on and off remotely to effectively change the tune being played. You can sequence chord changes while a randomly fluctuating octave signal flows through the quantizer to create a moving arpeggiator that follows a general pattern but does not really repeat itself. If no notes are engaged the quantizer becomes a chromatic quantizer by default. The current note being played is highlighted in orange-red, while the active notes are highlighted in green. Inactive notes are black.
 
-SVG - These graphics are collection of SVGs (scaleable vector graphics) for use in Audulus. This category will be expanding greatly over time as more icons are created.
-Cube -
+**Modulation Quantizer** <br>
+Quantizes a modulation signal into 2 to 64 steps. Will create a staircase, bitcrushing-like effect for modulation signals.
 
-Switch - These modules route signals to and from other modules, or turn signals on and off. 
-Chance Switch AB -
-Demux8 -
-Demux64 -
-Mux8 -
-Mux64 -
-On-Off Switch -
-Pass Switch -
-Probability Switch -
-Random Chance Switch AB -
+**Scales Maj-Min Quantizer** <br> 
+A very compact and useful quantizer that allows you to dial in which base note you want for a scale and whether you want the major (red) or minor (blue) version. The maj/min selector is gateable to allow you to modulate into one or the other scale. 
 
-Synth Voice - These modules are complete synthesizers unto themselves. They have oscillators, envelope generators, filters, VCAs, and sometimes more wrapped up into a convenient package. Perfect for when you just want to quickly get a synth sound going.
-Curvature Micro - 
-K35 Curved Synth -
-Smol Synth - An experiment to create one of the smallest, yet still functional and musically variable synthesizers, the Smol Synth is a VCO-VCF-VCA subtractive synthesizer. The waveform knob fades between sine, triangle, square and saw waves. The A-R envelope adjusts the attack and release of both the filter and the VCA simultaneously. The Q of the filter is fixed internally, but you can of course open it up and change it if you like.
+##Sample + Hold
 
-VCA - These modules are the Audulus equivalent of VCAs, or voltage controlled amplifiers. They are typically placed after a VCF (voltage controlled filter) when building a synthesizer patch, though they can also be used to combine modulation signals. Though there is no “voltage” in Audulus per se, they perform the same functions. A typical subtractive synth is made up of a VCO-VCF-VCA configuration. The reason the VCA goes after the VCF is that the filter may be self oscillating, and using an envelope to close the VCA all the way will prevent the VCF from ringing indefinitely. All of the VCAs in this collection will hard clip if their outputs exceed the -1 to 1 maximum range for audio signals. Clipping will be indicated by a white flashing light at the output.
-Digital Exponential VCA - A clean digital VCA that accepts an envelope or modulation signal and applies an exponential response to the input. Perfect for quick plucked sounds. The shape controls the degree of exponential curve from x*x (slightly exponential) to x*x*x*x (very exponential). The volume attenuator adjusts how loud the VCA will peak from an input envelope or modulation.
-Digital Linear VCA - A clean digital VCA that accepts an envelope or modulation signal and applies no curve to its response. An all around good VCA, especially when you want to control the shape of the envelope elsewhere, or simply want a linear response. The volume attenuator adjusts how loud the VCA will peak from an input envelope or modulation.
-Digital Logarithmic VCA - A clean digital VCA that accepts an envelope or modulation signal and applies a logarithmic response to the input. Perfect for punchy sounds. The shape controls the degree of logarithmic curve from sqrt(x) (slightly logarithmic) to sqrt(sqrt(sqrt(x))) (very logarithmic). The volume attenuator adjusts how loud the VCA will peak from an input envelope or modulation.
-Diode VCA - An analog-modelling module that recreates the sound of a diode-based VCA. The overdrive control adjusts the amount of distortion, and the feedback control adjusts the amount of positive feedback that runs from the output of the module back to the input. These two controls in combination can create a variety of distorted sounds. 
-JFET VCA - An analog-modelling module that recreates the sound of a JFET (junction field effect transistor) VCA. JFETs are silicon transistors, but they have a similar sound to tubes that can be summed up as warm. The overdrive control adjusts the amount of distortion, and the feedback control adjusts the amount of positive feedback that runs from the output of the module back to the input. These two controls in combination can create a variety of distorted sounds.
-Tube VCA - An analog-modelling module that recreates the sound of a tube-based VCA. Tubes were the predecessors to transistors in electronics and are renown for their warm sound. The overdrive control adjusts the amount of distortion, and the feedback control adjusts the amount of negative or positive feedback that runs from the output of the module back to the input. If the feedback control is at 0.5, there is no feedback. At 0 it is total negative feedback and at 1, total positive. Negative feedback has a really harsh brittle tone to it, and positive feedback is warmer. Both are great and are highly interactive with the overdrive control.
+These modules use sample and hold techniques to create random modulations. The sample and hold node will sample an input signal whenever its input is gated.
 
-VCF - These modules are called VCFs, or voltage controlled filters. They are a huge part of any synthesizer’s sound. The most commonly used filter type is a LPF or low pass filter. If you’re new to synthesis, use them as a starting point. Most filters in Audulus have an input attenuator and a cutoff knob that together act like an attenuate-offset module for the purposes of shaping your incoming modulation. Getting your envelope to modulate in the right frequency range is critical to it sounding musical. Combine your envelopes with LFOs by attaching an LFO to your cutoff knob for an even more dynamic sound. 
-Biquad - These VCFs are created using the BiQuad node. Biquad filters are very low-CPU digital filters. They might not sound as creamy or warm as the analog-modelling filters, but that doesn’t mean they’re not useful in their own right. They excel when their cutoff points are not modulated and are used internally in modules like phasers or analog-modelling delays. They are also great for when you want to have a high-polyphony synthesizer patch when you are working on a device that has limited CPU overhead. Although the analog modelling filters in Audulus take up as little CPU as possible, running 16 of them in one patch, plus oscillators, plus effects, plus modulators can strain a system. In general, it is up to your taste to find which ones you like the most. Biquad filters are also much simpler to build and understand than filters made with the z-1 node.
-APF - APF or allpass filters change the phase relationship of frequencies without attenuating them. A key ingredient in phase shifters.
-BPF - BPF or bandpass filters attenuate frequencies lower and higher than the cutoff point.
-HPF - HPF or highpass filters attenuate frequencies lower than the cutoff point.
-LP-HP - Morphs between a lowpass filter and highpass filter.
-Multimode Filter - A filter with selectable modes. When the Hz knob is turned all the way down, the input below it turns into an octave tracking input. Width controls the bandwidth of the BPF.
-Notch - Attenuates frequencies at the cutoff point while passing all others. Useful for creating cascaded comb filters.
-DLX - These modules are deluxe versions of other analog modelling filters in Audulus. They have more features like octave tracking, internal modulators, or audio feedback for extra distortion.
-SEM LPF DLX - Same as the SEM LPF but with extra controls for octave pitch tracking and an attenuator that feeds back audio from the output to the cutoff.
-LPF - These modules are a collection of analog modelling lowpass filters (LPFs). LPFs are the most common and musically useful class of filters. Low pass means the filter passes low frequencies below its cutoff point relatively unaffected, while attenuating (making quieter) frequencies above the cutoff point. The Q or resonance control adjusts the amount of frequency boost that happens around the cutoff point. Some filters self-resonate with a high enough Q value, meaning they generate a tone, usually in the form of a sine wave, at the cutoff point. This can be used to your advantage by giving the sense of duophony in a monophonic patch. These filters are often based around the architecture of known famous filters (though none should be construed as officially sanctioned digital reproductions, and all trademarks are the property of their respective owners). They are also not meant to be exact 1:1 clones that do everything possible to remain faithful to the original. They sound great in their own right and have their own quirks and musicality.
-1 Pole LPF - The smallest most lightweight available filter with no Q or resonance control, the 1 Pole filter is a soft 6dB/oct cutoff slope. A great filter for smooth sounding soft pads.
-303 LPF - Based around the architecture of the diode filter in the Roland TB-303 bass synthesizer, this resonant LPF is perfect for squelchy bass lines and screaming leads.
-K35 LPF - Based around the architecture of the Korg 35 filter found in the famous MS-20 synthesizer, this resonant LPF is a great all around dirty sounding filter that overdrives nicely.
-Mg LPF - Based around the architecture of the Moog Transistor Ladder filter found in the Minimoog synthesizer, this filter is a great all-rounder that sings on any kind of sound. Characteristically, the bass frequencies will be attenuated extremely as the Q value is increased.
-SEM LPF - Based around the architecture of the Oberheim SEM IC (integrated circuit) filter, this non-resonant filter just sings on polyphonic pads and is one of the most musical filters ever made.
-LPG - These modules were made famous in Buchla synthesizer systems. They are essentially a combination of a VCF and VCA. They decay in both frequency and volume in a way that mimics natural instrument decays, especially in percussive instruments like bongos and xylophones.
-Lowpass Gate - A very basic lowpass gate with no Q control. There is no internal VCA, but instead has a filter that has such a low cutoff point that it in effect blocks all audio going through when closed. The cutoff knob can be raised to keep the filter open to a certain frequency, but to make sure the filter closes all the way with an incoming envelope, leave it turned down. Use the envelope level knob to adjust how high the incoming envelope modulates the filter.
-SVF - These modules are a special class of filter that outputs several types of filters simultaneously. Most SVFs (state variable filters) have at least lowpass, highpass, and bandpass outputs. The advantage of them is that you can use them as frequency splitters, sending different frequency bands of your synthesizer to different effects or mixers.
-z-1 SVF - A state variable filter made with the z-1 node with outputs for LPF, BPF, HPF, and NOT or notch. The SVF knob fades between the filter types at the top audio output.
+**Att-Off Sample + Hold** <br>
+A white-noise sampling random generator with attenuate offset controls to adjust the range of modulation and a speed control from 0 to 20Hz sampling rate.
 
-VCLFO - VCLFOs or voltage controlled low frequency oscillators are a key ingredient in modular synthesis. They are used to modulate parameters over time. A synth patch without an LFO modulating the filter cutoff can sound rather static over time. But with just a little up and down motion from a slowly undulating triangle wave can really bring a patch to life. LFOs in Audulus all output a 0 to 1 modulation signal. This range is chosen because knobs are by default ranged 0 to 1. When creating your own modules, make sure you keep all knobs in a 0 to 1 range and use math (or one of the many Knob modules under the building section) inside the module to translate the range into one you need.
+**Basic Sample + Hold** <br>
+A gateable sample and hold that accepts an input signal. Perfect for grabbing samples from LFOs and other modulation sources.
+
+**Gateable Sample + Hold** <br>
+A white-noise sampling random generator that samples a new random 0 to 1 modulation value every time it is gated.
+
+**Modulation Threshold Random Generator** <br>
+Takes a modulation input and outputs a new random sample every time the threshold, set by the knob at the bottom, is crossed. Perfect for turning modulation and envelope waves into sample and hold triggers.
+
+##Sequencer
+
+These modules are the one of the core modules of a modular synthesizer ecosystem. Although they are primarily used to generate musical notes for oscillators, they can be used to modulate any parameter you want. Most sequencers are clocked, meaning they step forward every time a clock pulse enters their gate input. Although some sequencers in Audulus have octave signal outputs, in general, they only output 0 to 1 modulation signal. To translate the modulation signal output into an octave signal, use the module found under Attenuator/Modulation/Modulation to Octave Attenuate-Offset. This module will translate the 0 to 1 modulation signal into whatever range you want it to be for your instrument. It is also helpful to use a quantizer after this translation module to easily dial in notes. Sequencers can also be used to add dynamics to gates as they enter envelopes. Simply use a Mult node or one of the Digital VCA modules to multiply the gate by the sequencer’s 0 to 1 output.
+
+###3D
+
+These modules use an imaginary 3-dimensional space to create sequences. They are esoteric but still very musical and interesting sequencers to play with.
+
+**3D Cube 8 Step Sequencer** <br>
+This is an 8 step sequencer that uses a cube metaphor to create non-linear sequences. The sequencer is advanced at the top left gate input. The two rows of four knobs along the bottom of the sequencer are the sequencer steps. These knobs control which vertex (point) of the cube that the sequencer references during the sequence. As you turn the knob, a blue dot will appear on the small display cube to the lower right of the sequence cube illustrating which vertex is selected. After a moment of not turning the knob, the blue dot will disappear. The min and max knobs control the minimum (green) and maximum (blue) steps of the sequencer. The current step is highlighted in red. The knobs around the sequence cube are the actual 0 to 1 modulation values that will be outputted in the upper right of the module. Under each knob is a gate output that will flash when that vertex is selected. The rs or reset input in the upper left will restart the sequencer from the minimum step when gated. The xyz knob controls adjust the coordinates for an imaginary point floating within the cube. The closer this point comes to the vertices, the steps will turn on. The thrsh or threshold control adjusts how close this point must be to the vertices to turn them on or off. If they are turned off, they count as a skip. The skip will only work if you are also using the gate output of the sequencer at the top right of the module. As you can tell, this sequencer might take a while to wrap your head around. However, it is well worth the time invested, as it can create some really amazing sequences not otherwise possible with linear 8 step sequencers. Watch a video of it in action here: https://www.instagram.com/p/BbUYm0HAujC/?taken-by=audulus 
+
+###Algorithmic
+
+Algorithmic sequencers output sequences based on mathematical formulae or processes. They are the ultimate happy accident sequencer modules that generate all kinds of complex melodies and rhythms with from a limited number of knobs and buttons.
+
+**Euclidean Gate Sequencer** <br>
+Creates output gates using a Euclidean algorithm. Great for setting up quick dance beats or polyrhythmic hits.
+
+**Random Melody** <br>
+Generates random melodies based on probability curves applied by filtering white noise.
+
+**uTuring** <br>
+An unaffiliated functionality clone of the original Music Thing Modular Turing Machine.
+
+###Basic
+
+These modules are your bread-and-butter sequencers. They are very simple and easy to use and yet still have very musical uses and limitless potential. Take advantage of the fact that Audulus allows you to modulate any knob by applying LFOs and gates to sequencer knobs to expand their potential.
+
+**4 Step Max Sequencer** <br>
+Same as the 4 Step Sequencer but with a control for the maximum step. Modulate this maximum control with another synced sequencer for some really awesome moving sequences.
+
+**4 Step Sequencer** <br>
+The most elemental sequencer. Advance from one step to another with a gate. Once the last step has been reached, it will reset back to the first step and continue on.
+
+**8 Step Min Max Sequencer** <br>
+Same as the 8 Step Sequencer but with both a minimum and maximum step control. Modulate these controls with other synced sequencers for some really awesome moving sequences.
+
+**8 Step Sequencer** <br>
+Same as the 4 Step Sequencer but expanded to 8 steps total.
+
+**Random 4 Step Sequencer** <br>
+Same as the 4 step sequencer but instead of knobs, the sequence is randomly generated whenever the R or randomize input is gated. Try clocking the sequencer with a master clock and ping the reset input with a division of the master clock to allow patterns to develop, but keep sequences moving and growing all the time.
+
+**Random Chance 4 Step Sequencer** <br>
+Same as the Random 4 Step Sequencer, except instead of being totally randomized every time the R or random input is gated, you have knobs that set the percent chance that each step will be randomized. This allows you, for example, to anchor a sequence to the first note by setting it to 0% chance of changing, while adjusting the other notes to change more frequently.
+
+###Gate
+
+These modules generate sequences of 0 or 1 gate signals instead of 0 to 1 modulation signals. They are perfect for generating rhythms sent to envelopes or drum modules.
+
+**Pattern Bank Gate Sequencer** <br>
+Uses 4 banks of preset beats to generate output gates for drums and instruments.
+
+**Strip Sequencer** <br>
+Uses a series of buttons to turn steps on and off to convert a clock signal into a sequenced gate.
+
+##Graphic
+
+These modules use one Spline and Mapper nodes to create unusual types of sequencers that, instead of following knobs, follow curves or shapes you draw. A very fast way to generate sequences without having to turn multiple knobs.
+
+**4 Step Mapper Sequencer** <br>
+Uses a mapper node to create a 0 to 1 modulation sequence. The sequencer follows the curve and outputs the area roughly above each red light. A great way to quickly create a gestural sequence. Tap or click and drag the green break points to adjust the shape.
+
+**8 Step Spline Sequencer** <br>
+Uses a spline node to allow you to draw a shape for a sequencer to follow. To add spline points, double tap or click on the spline area. To delete points, double tap or click on the point.
+
+**Arranger** <br>
+
+###Matrix
+
+These modules are essentially 2 dimensional sequencers. If you consider normal sequencers to be 1 dimensional sequencers (they can go forward, backwards, but not across), then matrix sequencers allow the sequence to move in a more dimensional way around a sequence field. They are a great sequencers to use when you tire of using normal linear sequencers and want to explore the more experimental dimension of music making that modular synthesis has to offer.
+
+**Chladni Sequencer** <br> 
+**Gate 4x4x2 Matrix Sequencer** <br> 
+**Modulation 2x2x4 Matrix Sequencer** <br> 
+**Modulation 2x2x5 Max Matrix Sequencer** <br> 
+**Modulation 2x2x4 Matrix Sequencer** <br> 
+**Octave-Modulation 4x4x1 Matrix Sequencer** <br> 
+**Random Chance Modulation 2x2x4 Matrix Sequencer** <br> 
+**Random Modulation 2x2x4 Matrix Sequencer** <br> 
+
+###Random Non-Repeating
+
+These modules create random sequences that are also non-repeating. Although it is statistically astronomically unlikely that a sequence generated from white noise 32-bit numbers will have two or more step values that are exactly alike, they do tend to create values that are close enough that, once put through a quantizer, they end up playing the same note. This class of sequencer solves this problem by creating equally spaced values that are less likely to result in the same note being played twice within one round of the sequence.
+
+**Random Non-Repeating 4 Step Sequencer** <br> 
+
+###Shape
+
+These modules use shape metaphors to create sequences that are a mix of linear and non-linear. They are not quite matrix sequencers but also not just a normal linear sequencer wrapped into a shape either.
+
+** <br> 5 Step Shape Gate-Trigger Sequencer** <br> 
+
+##Slew
+
+These modules ease sharp transitions in modulation and pitch. When using them for pitch, they amount to a glide or slur between notes, so instead of sharply transitioning from one note to another, the pitch will glide up or sink down to the next note. Most slew limiters are essentially an LPF with a very low cutoff point.
+
+**Slew Limiter Dual Mode** <br> 
+A slew limiter module with two modes. Equal time mode (red) will take an equal amount of time to glide between notes no matter how far apart they are. Note distance mode (blue) will take longer to glide up to higher notes, emulating the way analog slew limiters work. Slew knob adjusts the total amount of time between notes to glide.
+
+##SVG
+These graphics are collection of SVGs (scaleable vector graphics) for use in Audulus. This category will be expanding greatly over time as more icons are created.
+
+**Cube** <br> 
+
+##Switch
+
+These modules route signals to and from other modules, or turn signals on and off. 
+
+**Chance Switch AB** <br>
+**Demux8** <br> 
+**Demux64** <br>
+**Mux8** <br>
+**Mux64** <br>
+**On-Off Switch** <br>
+**Pass Switch** <br>
+**Probability Switch** <br>
+**Random Chance Switch AB** <br>
+
+##Synth Voice
+
+These modules are complete synthesizers unto themselves. They have oscillators, envelope generators, filters, VCAs, and sometimes more wrapped up into a convenient package. Perfect for when you just want to quickly get a synth sound going.
+
+**Curvature Micro** <br>
+**K35 Curved Synth** <br>
+
+**Smol Synth** <br>
+An experiment to create one of the smallest, yet still functional and musically variable synthesizers, the Smol Synth is a VCO-VCF-VCA subtractive synthesizer. The waveform knob fades between sine, triangle, square and saw waves. The A-R envelope adjusts the attack and release of both the filter and the VCA simultaneously. The Q of the filter is fixed internally, but you can of course open it up and change it if you like.
+
+##VCA
+
+These modules are the Audulus equivalent of VCAs, or voltage controlled amplifiers. They are typically placed after a VCF (voltage controlled filter) when building a synthesizer patch, though they can also be used to combine modulation signals. Though there is no “voltage” in Audulus per se, they perform the same functions. A typical subtractive synth is made up of a VCO-VCF-VCA configuration. The reason the VCA goes after the VCF is that the filter may be self oscillating, and using an envelope to close the VCA all the way will prevent the VCF from ringing indefinitely. All of the VCAs in this collection will hard clip if their outputs exceed the -1 to 1 maximum range for audio signals. Clipping will be indicated by a white flashing light at the output.
+
+**Digital Exponential VCA** <br>
+A clean digital VCA that accepts an envelope or modulation signal and applies an exponential response to the input. Perfect for quick plucked sounds. The shape controls the degree of exponential curve from `x*x` (slightly exponential) to `x*x*x*x` (very exponential). The volume attenuator adjusts how loud the VCA will peak from an input envelope or modulation.
+
+**Digital Linear VCA** <br>
+A clean digital VCA that accepts an envelope or modulation signal and applies no curve to its response. An all around good VCA, especially when you want to control the shape of the envelope elsewhere, or simply want a linear response. The volume attenuator adjusts how loud the VCA will peak from an input envelope or modulation.
+
+**Digital Logarithmic VCA** <br>
+A clean digital VCA that accepts an envelope or modulation signal and applies a logarithmic response to the input. Perfect for punchy sounds. The shape controls the degree of logarithmic curve from sqrt(x) (slightly logarithmic) to sqrt(sqrt(sqrt(x))) (very logarithmic). The volume attenuator adjusts how loud the VCA will peak from an input envelope or modulation.
+
+**Diode VCA** <br>
+An analog-modelling module that recreates the sound of a diode-based VCA. The overdrive control adjusts the amount of distortion, and the feedback control adjusts the amount of positive feedback that runs from the output of the module back to the input. These two controls in combination can create a variety of distorted sounds. 
+
+**JFET VCA** <br>
+An analog-modelling module that recreates the sound of a JFET (junction field effect transistor) VCA. JFETs are silicon transistors, but they have a similar sound to tubes that can be summed up as warm. The overdrive control adjusts the amount of distortion, and the feedback control adjusts the amount of positive feedback that runs from the output of the module back to the input. These two controls in combination can create a variety of distorted sounds.
+
+**Tube VCA** <br>
+An analog-modelling module that recreates the sound of a tube-based VCA. Tubes were the predecessors to transistors in electronics and are renown for their warm sound. The overdrive control adjusts the amount of distortion, and the feedback control adjusts the amount of negative or positive feedback that runs from the output of the module back to the input. If the feedback control is at 0.5, there is no feedback. At 0 it is total negative feedback and at 1, total positive. Negative feedback has a really harsh brittle tone to it, and positive feedback is warmer. Both are great and are highly interactive with the overdrive control.
+
+##VCF
+
+These modules are called VCFs, or voltage controlled filters. They are a huge part of any synthesizer’s sound. The most commonly used filter type is a LPF or low pass filter. If you’re new to synthesis, use them as a starting point. Most filters in Audulus have an input attenuator and a cutoff knob that together act like an attenuate-offset module for the purposes of shaping your incoming modulation. Getting your envelope to modulate in the right frequency range is critical to it sounding musical. Combine your envelopes with LFOs by attaching an LFO to your cutoff knob for an even more dynamic sound. 
+
+###Biquad
+
+These VCFs are created using the BiQuad node. Biquad filters are very low-CPU digital filters. They might not sound as creamy or warm as the analog-modelling filters, but that doesn’t mean they’re not useful in their own right. They excel when their cutoff points are not modulated and are used internally in modules like phasers or analog-modelling delays. They are also great for when you want to have a high-polyphony synthesizer patch when you are working on a device that has limited CPU overhead. Although the analog modelling filters in Audulus take up as little CPU as possible, running 16 of them in one patch, plus oscillators, plus effects, plus modulators can strain a system. In general, it is up to your taste to find which ones you like the most. Biquad filters are also much simpler to build and understand than filters made with the z-1 node.
+
+**APF** <br>
+APF or allpass filters change the phase relationship of frequencies without attenuating them. A key ingredient in phase shifters.
+
+**BPF** <br>
+BPF or bandpass filters attenuate frequencies lower and higher than the cutoff point.
+
+**HPF** <br>
+HPF or highpass filters attenuate frequencies lower than the cutoff point.
+
+**LP-HP** <br>
+Morphs between a lowpass filter and highpass filter.
+
+**Multimode Filter** <br>
+A filter with selectable modes. When the Hz knob is turned all the way down, the input below it turns into an octave tracking input. Width controls the bandwidth of the BPF.
+
+**Notch** <br>
+Attenuates frequencies at the cutoff point while passing all others. Useful for creating cascaded comb filters.
+
+###DLX
+
+These modules are deluxe versions of other analog modelling filters in Audulus. They have more features like octave tracking, internal modulators, or audio feedback for extra distortion.
+
+**SEM LPF DLX** <br>
+Same as the SEM LPF but with extra controls for octave pitch tracking and an attenuator that feeds back audio from the output to the cutoff.
+
+###LPF
+
+These modules are a collection of analog modelling lowpass filters (LPFs). LPFs are the most common and musically useful class of filters. Low pass means the filter passes low frequencies below its cutoff point relatively unaffected, while attenuating (making quieter) frequencies above the cutoff point. The Q or resonance control adjusts the amount of frequency boost that happens around the cutoff point. Some filters self-resonate with a high enough Q value, meaning they generate a tone, usually in the form of a sine wave, at the cutoff point. This can be used to your advantage by giving the sense of duophony in a monophonic patch. These filters are often based around the architecture of known famous filters (though none should be construed as officially sanctioned digital reproductions, and all trademarks are the property of their respective owners). They are also not meant to be exact 1:1 clones that do everything possible to remain faithful to the original. They sound great in their own right and have their own quirks and musicality.
+
+**1 Pole LPF** <br>
+The smallest most lightweight available filter with no Q or resonance control, the 1 Pole filter is a soft 6dB/oct cutoff slope. A great filter for smooth sounding soft pads.
+
+**303 LPF** <br>
+Based around the architecture of the diode filter in the Roland TB-303 bass synthesizer, this resonant LPF is perfect for squelchy bass lines and screaming leads.
+
+**K35 LPF** <br>
+Based around the architecture of the Korg 35 filter found in the famous MS-20 synthesizer, this resonant LPF is a great all around dirty sounding filter that overdrives nicely.
+
+**Mg LPF** <br>
+Based around the architecture of the Moog Transistor Ladder filter found in the Minimoog synthesizer, this filter is a great all-rounder that sings on any kind of sound. Characteristically, the bass frequencies will be attenuated extremely as the Q value is increased.
+
+**SEM LPF** <br>
+Based around the architecture of the Oberheim SEM IC (integrated circuit) filter, this non-resonant filter just sings on polyphonic pads and is one of the most musical filters ever made.
+
+###LPG
+
+These modules were made famous in Buchla synthesizer systems. They are essentially a combination of a VCF and VCA. They decay in both frequency and volume in a way that mimics natural instrument decays, especially in percussive instruments like bongos and xylophones.
+
+**Lowpass Gate** <br>
+A very basic lowpass gate with no Q control. There is no internal VCA, but instead has a filter that has such a low cutoff point that it in effect blocks all audio going through when closed. The cutoff knob can be raised to keep the filter open to a certain frequency, but to make sure the filter closes all the way with an incoming envelope, leave it turned down. Use the envelope level knob to adjust how high the incoming envelope modulates the filter.
+
+###SVF
+
+These modules are a special class of filter that outputs several types of filters simultaneously. Most SVFs (state variable filters) have at least lowpass, highpass, and bandpass outputs. The advantage of them is that you can use them as frequency splitters, sending different frequency bands of your synthesizer to different effects or mixers.
+
+**z-1 SVF** <br>
+A state variable filter made with the z-1 node with outputs for LPF, BPF, HPF, and NOT or notch. The SVF knob fades between the filter types at the top audio output.
+
+##VCLFO
+
+VCLFOs or voltage controlled low frequency oscillators are a key ingredient in modular synthesis. They are used to modulate parameters over time. A synth patch without an LFO modulating the filter cutoff can sound rather static over time. But with just a little up and down motion from a slowly undulating triangle wave can really bring a patch to life. LFOs in Audulus all output a 0 to 1 modulation signal. This range is chosen because knobs are by default ranged 0 to 1. When creating your own modules, make sure you keep all knobs in a 0 to 1 range and use math (or one of the many Knob modules under the building section) inside the module to translate the range into one you need.
 Basic - These modules are beginner-friendly LFOs with just a few additional features.
 Basic Saw LFO - A saw LFO with controls for speed (0 to 20Hz), and a built-in attenuate-offset control to adjust the range of modulation. The gate input resets the LFO from the start of its period.
 Basic Sine LFO - A sine LFO with controls for speed (0 to 20Hz), and a built-in attenuate-offset control to adjust the range of modulation. The gate input resets the LFO from the start of its period.
