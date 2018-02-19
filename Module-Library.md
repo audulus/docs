@@ -1063,46 +1063,84 @@ Folds an incoming wave using a sine expression. The input wave is multiplied by 
 
 ## Envelope
 
-These modules are a critical part of making a synth sound like a synth. Typically envelope modules are used to modulate the filter cutoff and amplitude of a synthesizer. Envelopes can be shaped to give a violin-like sound with a long slow attack, or a percussive sound with a quick attack and fast decay. Attack is the time it takes to rise from 0 to 1 (or gate height); decay is the time it takes to fall to the sustain point; sustain is the level to which the envelope will settle while the incoming gate signal is still high; and release is the amount of time it takes for the envelope to return to 0 once the gate has been released. Some envelopes have more parameters like delay and hold, and others have just attack and release. Envelopes can be used to modulate anything you want - even sequencer step values. The naming conventions for these modules give you an idea of what knobs are made available. A-R is an attack release envelope with two knobs - one for attack and one for release. The AR envelope however is a one knob envelope with a single knob that controls both parameters.
+These modules are a critical part of making a synth sound like a synth. Typically envelope modules are used to modulate the filter cutoff and amplitude of a synthesizer. Envelopes can be shaped to give a violin-like sound with a long slow attack, or a percussive sound with a quick attack and fast decay. 
+
+Attack is the time it takes to rise from 0 to 1 (or gate height); decay is the time it takes to fall to the sustain point; sustain is the level to which the envelope will settle while the incoming gate signal is still high; and release is the amount of time it takes for the envelope to return to 0 once the gate has been released. 
+
+Some envelopes have more parameters like delay and hold, and others have just attack and release. Envelopes can be used to modulate anything you want - even sequencer step values. 
+
+The naming conventions for these modules give you an idea of what knobs are made available. A-R is an attack release envelope with two knobs - one for attack and one for release. The AR envelope however is a one knob envelope with a single knob that controls both parameters.
 
 **1-Shot** <br>
 Creates both a rising and falling envelope when tapped or clocked at its input. The knob controls the amount of time it takes for the envelope to complete its cycle, from 1 to 60 seconds.
 
+![1-Shot](img/Library-Images/Envelope/1-Shot.png)
+
 **A-D-S-R Natural Decay** <br>
 A typical A-D-S-R envelope but with a twist: an octave signal input that shortens the ADR periods the higher the pitch goes. This simulates the way that actual instruments decay, with higher pitch notes decaying faster.
+
+![A-D-S-R Natural Decay](img/Library-Images/Envelope/A-D-S-R-Natural-Decay.png)
 
 **A-D-S-R** <br>
 A basic envelope with all four normal envelope controls: attack, decay, sustain and release.
 
+![A-D-S-R](img/Library-Images/Envelope/A-D-S-R.png)
+
 **A-R** <br>
 A minimalist envelope with controls for only attack and release. Sustain is set to full.
+
+![A-R](img/Library-Images/Envelope/A-R.png)
 
 **ADR-S** <br>
 A minimalist two knob envelope that uses one knob to control the attack, decay, and release periods and another knob to control sustain level.
 
+![ADR-S](img/Library-Images/Envelope/ADR-S.png)
+
 **BEOC Max A-D-S-R** <br>
 An advanced envelope with gate outputs for the beginning and end of cycle (BEOC) for each stage and max time control that changes the maximum periods for the ADR controls simultaneously. By taking a gate output from the sustain beginning cycle, you can trigger an extra envelope or event that happens when the decay period is over. The beginning cycle will stay lit for the length of the parameter’s period, but the end of cycle gate will only last 0.1 seconds.
+
+![BEOC Max A-D-S-R](img/Library-Images/Envelope/BEOC-Max-A-D-S-R.png)
 
 **d-A-D-S-R** <br>
 Same as a normal A-D-S-R envelope, but with an extra parameter for delaying the initial attack rise. Great to pair with another envelope to be able to trigger the envelopes simultaneously, but have one rise later than the other.
 
+![d-A-D-S-R](img/Library-Images/Envelope/d-A-D-S-R.png)
+
 **d-A-H-D-S-R** <br>
 Same as a normal A-D-S-R envelope, but with two extra controls - one for delaying the initial attack period, and one for holding the attack period for a certain time before falling into decay and sustain. Another great complex envelope that works wonders for FM synthesis.
+
+![d-A-H-D-S-R](img/Library-Images/Envelope/d-A-H-D-S-R.png)
 
 **Looping A-R** <br>
 Same as the A-R envelope, but with a button to engage looping. A looping envelope will retrigger itself once its cycle is finished - turning it into a kind of LFO-like modulator. When looping it turned on (red) the input gate will light up to indicate that no incoming gates will be used.
 
+![Looping A-R](img/Library-Images/Envelope/Looping-A-R.png)
+
 **Looping AR** <br>
 Same as the AR envelope, but with a button to engage looping. A looping envelope will retrigger itself once its cycle is finished - turning it into a kind of LFO-like modulator. When looping it turned on (red) the input gate will light up to indicate that no incoming gates will be used.
+
+![Looping AR](img/Library-Images/Envelope/Looping-AR.png)
 
 **Looping Skew AR** <br>
 Unlike a typical envelope, this envelope is looping-only. As long as a high gate is present at the input, or the looping button is on (red), the envelope will loop. The AR controls the amount of total time the envelope has to cycle, and the skew controls the tilt from faster attack slow release to equal attack and release time, to slower attack faster release.
 
+![Looping Skew AR](img/Library-Images/Envelope/Looping-Skew-AR.png)
+
 **Max A-D-S-R** <br>
 Same as the A-D-S-R envelope, but with a control for the maximum time period for the ADR controls. A very dynamic envelope that loves rhythmic modulation on the max time period.
 
+![Max A-D-S-R](img/Library-Images/Envelope/Max-A-D-S-R.png)
+
 **Shaped Envelope** <br>
-This envelope outputs both a linear, unshaped envelope, and a shaped, non-linear envelope. It is a great module to use the linear output to modulate a VCA and shaped output to modulate a VCF. The envelope outputs both the inverted and non-inverted modulation signals. The top set of modulation outputs are the linear envelopes and the next two are the shaped modulation outputs. Both envelopes share the A-D-S-R knobs, but the shaped envelope only uses the attenuate-offset combination, as well as the shape and drive knobs. The bottom knob adjusts the multiplication factor for the ADR periods. When the mode button is engaged (red), the envelope will not accept a new incoming gate pulse until the output has fallen all the way to 0. During this cycle, the octave signal present at the octave input will be sampled and held at the octave output.
+This envelope outputs both a linear, unshaped envelope, and a shaped, non-linear envelope. It is a great module to use the linear output to modulate a VCA and shaped output to modulate a VCF. 
+
+The envelope outputs both the inverted and non-inverted modulation signals. The top set of modulation outputs are the linear envelopes and the next two are the shaped modulation outputs. 
+
+Both envelopes share the A-D-S-R knobs, but the shaped envelope only uses the attenuate-offset combination, as well as the shape and drive knobs. The bottom knob adjusts the multiplication factor for the ADR periods. 
+
+When the mode button is engaged (red), the envelope will not accept a new incoming gate pulse until the output has fallen all the way to 0. During this cycle, the octave signal present at the octave input will be sampled and held at the octave output.
+
+![Shaped Envelope](img/Library-Images/Envelope/Shaped-Envelope.png)
 
 ## EQ
 
@@ -1111,18 +1149,32 @@ Short for equalizer, these modules are used for shaping your sounds, usually aft
 **1073 EQ** <br>
 A biquad-based EQ that uses the same frequency ranges as the famed Neve 1073 EQ. Not in any way intended to be a clone of the 1073, but a lot of the musicality of that EQ comes from intelligently chosen frequency points.
 
-**High Shelf EQ** <br>
-An HPF meant to be used as a finishing EQ that will attenuate bass frequencies below the cutoff set by the Hz knob. 
-
-**High Shelf EQ** <br>
-An LPF meant to be used as a finishing EQ that will attenuate treble frequencies below the cutoff set by the Hz knob.
+![1073 EQ](img/Library-Images/EQ/1073-EQ.png)
 
 **Bass Boost** <br>
 Boosts low frequencies by a few dBs. Mix control goes from no boost to boosted.
-Peak EQ - A BPF meant to be used as a finishing EQ that will attenuate or boost a specific frequency band at the cutoff set by the Hz knob.
+
+![Bass Boost](img/Library-Images/EQ/Bass-Boost.png)
+
+**High Shelf EQ** <br>
+An HPF meant to be used as a finishing EQ that will attenuate bass frequencies below the cutoff set by the Hz knob. 
+
+![High Shelf EQ](img/Library-Images/EQ/High-Shelf-EQ.png)
+
+**Low Shelf EQ** <br>
+An LPF meant to be used as a finishing EQ that will attenuate treble frequencies below the cutoff set by the Hz knob.
+
+![Low Shelf EQ](img/Library-Images/EQ/Low-Shelf-EQ.png)
+
+**Peak EQ** <br>
+A BPF meant to be used as a finishing EQ that will attenuate or boost a specific frequency band at the cutoff set by the Hz knob.
+
+![Peak EQ](img/Library-Images/EQ/Peak-EQ.png)
 
 **Treble Boost** <br>
 Boosts high frequencies by a few dBs. Mix control goes from no boost to boosted.
+
+![Treble Boost](img/Library-Images/EQ/Treble-Boost.png)
 
 ## ES-8
 
@@ -1131,11 +1183,17 @@ The Expert Sleepers ES-8 is the officially recognized and recommended DC-coupled
 **ES-8 Audio Outputs** <br>
 A set of 8 outputs with attenuators that are scaled for fading audio in and out.
 
+![ES-8 Audio Outputs](img/Library-Images/ES-8/ES-8-Audio-Output.png)
+
 **ES-8 Linear Outputs** <br>
 A set of 8 outputs with attenuators that are scaled for fading control signals in and out.
 
+![ES-8 Linear Outputs](img/Library-Images/ES-8/ES-8-Linear-Outputs.png)
+
 **ES-8 Outputs 1-8** <br>
 A set of 8 outputs for use with your ES-8. 
+
+![ES-8 Outputs 1-8](img/Library-Images/ES-8/ES-8-Outputs-1-8.png)
 
 ## Gate
 
@@ -1143,33 +1201,57 @@ These modules create or modify gates. A gate is an on/off, yes/no, signal. Gates
 
 **3D 8 Output Gate Generator** <br>Uses an xyz coordinate system to generate gates at each of a 3D cube’s vertices. The x-y-z knobs set the coordinates of an imaginary point within the cube and the thrsh or threshold knob adjusts how close that point must be to the vertices to make the gate go high. Responds well to having multiple different LFOs or envelopes modulating the coordinate knobs, or using 3 outputs of a quadrature LFO to get the point to move in a pattern around the space.
 
+![3D 8 Output Gate Generator](img/Library-Images/Gate/3D-8-Output-Gate-Generator.png)
+
 **Chance Gate Over-Under** <br>
 Creates a gate on or off message based on a random chance set by the % knob. Each time the module is gated, a random value is sampled. If that sampled value is less than the 0 to 1 value present on the knob, then the gate will go high. Otherwise, the gate will go low. At 0.5, the gate will have a 50-50 chance of being on or off whenever it is pulsed. At 0.1, it has a 10% chance of being on. At 0.9 it has a 90% chance of being on. A nice module to add some randomness to envelopes where length of sustain is and important factor.
+
+![Chance Gate Over-Under](img/Library-Images/Gate/Chance-Gate-Over-Under.png)
 
 **Chance Gate Passthrough** <br>
 Will either pass or not pass an incoming gate (or clock) signal based on the % chance set by the knob. At 0.5, the gate will have a 50-50 chance of passing through or not. At 0.1, it has a 10% chance of passing through. At 0.9 it has a 90% chance of passing through. A nice module to add some randomness to drum machines and other clock-based patterns.
 
+![Chance Gate Passthrough](img/Library-Images/Gate/Chance-Gate-Passthrough.png)
+
 **Gate Delay** <br>
 Delays a gate signal by a given amount of time, from 0 to 2 seconds. Good for offsetting a master clock pulse slightly to achieve flamming in drums.
-Gate Smear - Keeps a gate high for a certain number of seconds so that erratic or fast gates are combined or smeared together. Smear time from 0.001 to 1.5 seconds.
+
+![Gate Delay](img/Library-Images/Gate/Gate-Delay.png)
+
+**Gate Smear** <br>
+Keeps a gate high for a certain number of seconds so that erratic or fast gates are combined or smeared together. Smear time from 0.001 to 1.5 seconds.
+
+![Gate Smear](img/Library-Images/Gate/Gate-Smear.png)
 
 **Gate Swing** <br>
 Takes an incoming gate pulse and delays every other pulse to create a swinging effect. Essential for creating really groovy music.
 
+![Gate Swing](img/Library-Images/Gate/Gate-Swing.png)
+
 **Logic Gates** <br>
 A collection of basic Boolean logic gates, from top to bottom: and, nand, or, nor, xor, xnor. The output goes high (is true) when the inputs satisfy the particular logic gate’s truth table. For example: an and gate must have both inputs high to be true. So if one or the other or neither outputs are high (1), the and output will remain low (0). A very good module for pitting two clock signals against one another to create complex rhythms.
+
+![Logic Gates](img/Library-Images/Gate/Logic-Gates.png)
 
 **Random Chance Gate Passthrough** <br>
 Same as the Chance Gate Passthrough module but with a R or randomize input that selects a random passthrough chance whenever the input is gated.
 
+![Random Chance Gate Passthrough](img/Library-Images/Gate/Random-Chance-Passthrough.png)
+
 **Random Gate Delay** <br>
 Same as the Gate Delay module but with a R or randomize input that selects a random amount of time to delay the incoming gate by whenever the input is gated.
+
+![Random Gate Delay](img/Library-Images/Gate/Random-Gate-Delay.png)
 
 **Random Gate Smear** <br>
 Same as the Gate Smear module but with a R or randomize input that selects a random amount of time over which to smear gates whenever the input is gated.
 
+![Random Gate Smear](img/Library-Images/Gate/Random-Gate-Smear.png)
+
 **Random Logic Gates** <br>
 Same as the Selectable Logic Gates module but with a R or randomize input that selects which logic gate is being referenced.
+
+![Random Logic Gates](img/Library-Images/Gate/Random-Logic-Gates.png)
 
 **Selectable Logic Gates** <br>
 A collection of basic Boolean logic gates, and, nand, or, nor, xor, xnor, selectable by a knob. The output goes high (is true) when the inputs satisfy the particular logic gate’s truth table. For example: an and gate must have both inputs high to be true. So if one or the other or neither outputs are high (1), the and output will remain low (0). A very good module for pitting two clock signals against one another to create complex rhythms.
@@ -1181,11 +1263,17 @@ These modules allow you to pass audio and control signals and into and out of Au
 **Audio Input** <br>
 A simple rehousing of the Mic node with level control for audio input. Top knob is channel 1 and bottom knob is channel 2. Contains a pre-volume knob audio peak detector to indicate when you are clipping the input with a signal that is too loud.
 
+![Audio Input](img/Library-Images/Input-Output/Audio-Input.png)
+
 **Audio Output Mono** <br>
 A simple rehousing of the Speaker node with level control for audio output. This module has a mono input that distributes the signal equally to both speakers (good for when you have a mono synth and don’t want to have to attach two wires to the left and right inputs). Contains a post-volume knob audio peak detector to indicate when you are clipping the output with a signal that is too loud. Also contains a DC-blocker node for removing any DC offset. 
 
+![Audio Output Mono](img/Library-Images/Input-Output/Audio-Output-Mono.png)
+
 **Audio Output Stereo** <br>
 A simple rehousing of the Speaker node with level control for audio output. This module has an input for left (top) and right (bottom) channels with a single volume control. Contains a post-volume knob audio peak detector to indicate when you are clipping the output with a signal that is too loud. Also contains a DC-blocker node for removing any DC offset. 
+
+![Audio Output Stereo](img/Library-Images/Input-Output/Audio-Output-Stereo.png)
 
 ## Meter
 
@@ -1198,14 +1286,22 @@ Oscilloscopes are good meters for observing change over time. They are usually u
 **Modulation x4 Scope** <br>
 Four Waveform nodes in one package scaled to meter modulation signals.
 
+![Modulation x4 Scope](img/Library-Images/Meter/Oscilloscope/Modulation-x4-Scope.png)
+
 **Octave Keyboard and Tune Meter** <br>
 Displays the current note being played by an octave signal with a sharp, in-tune, and flat indicator.
+
+![Octave Keyboard and Tune Meter](img/Library-Images/Meter/Octave-Keyboard-and-Tune-Meter.png)
 
 **Octave Keyboard Meter Horizontal** <br>
 Displays the current note being played by an octave signal, oriented horizontally.
 
+![Octave Keyboard Meter Horizontal](img/Library-Images/Meter/Octave-Keyboard-Meter-Horizontal.png)
+
 **Octave Keyboard Meter Vertical** <br>
 Displays the current note being played by an octave signal, oriented vertically.
+
+![Octave Keyboard Vertical](img/Library-Images/Meter/Octave-Keyboard-Meter-Vertical.png)
 
 ## MIDI
 
@@ -1214,11 +1310,17 @@ These modules allow you to pass MIDI signals into Audulus. Some modules have hel
 **Keyboard Input Bend Slew Velocity Slur** <br>
 A deluxe MIDI input that includes controls for bend range, slew amount and type, velocity on (red) or off (blue), and slur on (red) or off (blue). When slur is applied, new notes will not trigger a new output gate as long as another note is being held down. If slur is off, every time a new note is pressed, a new gate will be triggered.
 
+![Keyboard Input Bend Slew Velocity Slur](img/Library-Images/MIDI/Keyboard-Input-Bend-Slew Velocity-Slur.png)
+
 **Keyboard Input Velocity Slur** <br>
 A paired back keyboard input module with just velocity on/off and slur on/off buttons.
 
+![Keyboard Input Velocity Slur](img/Library-Images/MIDI/Keyboard-Input-Velocity-Slur.png)
+
 **MIDI Input** <br>
 A bare bones MIDI input with octave signal output and gate only. To change polyphony and channel settings, enter the module and adjust from the keyboard node.
+
+![MIDI Input](img/Library-Images/MIDI/MIDI-Input.png)
 
 ## Mixer
 
