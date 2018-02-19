@@ -885,25 +885,41 @@ Distortion effects change audio signals by distorting or warping the signal as i
 **Araya-Suyama Tube Overdrive** <br>
 Cribbed from a research paper describing a low-CPU way to model a tube amplifier in software, this simple distortion uses a waveshaping expression to overdrive your signal in a manner similar to how an overdriven tube amplifier would sound.
 
+![Araya-Suyama Tube Overdrive](img/Library-Images/Effect/Distortion/Araya-Suyama-Tube-Overdrive.png)
+
 **Bitcrush** <br>
 Bitcrushing is a type of distortion that limits the available definition of any given sample. The less definition the wave has, the more distorted it becomes. Heavy bitcrushing can make a smooth sine wave look like an undulating staircase. Bitcrushing is similar to sample rate reduction, but they sound a little different. Perfect distortion for really aggressive drum sounds or buzzy bass lines.
+
+![Bitcrush](img/Library-Images/Effect/Distortion/Bitcrush.png)
 
 **Cubed Overdrive** <br>
 Uses a simple x^3 expression to waveshape the audio going through it. Very CPU efficient.
 
+![Cubed Overdrive](img/Library-Images/Effect/Distortion/Cubed-Overdrive.png)
+
 **Distortion** <br>
 Uses the Distortion node in series with an overdrive module to limit the output of the module.
+
+![Distortion](img/Library-Images/Effect/Distortion/Distortion.png)
 
 **Doidic Asymmetrical Tube Overdrive** <br>
 Another distortion module taken from an audio DSP research paper, this tube overdrive simulator attempts to mimic the asymmetrical transfer function of guitar tube amplifiers. Asymmetric means that the negative and positive portions of the wave are not shaped identically. A transfer function is the shape that the sound wave is forced to follow as it moves up and down from positive to negative.
 
+![Doidic Asymmetrical Tube Overdrive](img/Library-Images/Effect/Distortion/Doidic-Asymmetrical-Overdrive.png)
+
 **Down Sample** <br>Reduces the number of samples for the audio as it comes through from the sample rate of 44.1kHz to much, much lower sample rates. The main difference between downsampling distortion and bitcrushing (which both produce staircase-like wave shapes) is that downsampling effectively limits the upper frequency range of the sound coming through it, where bitcrushing does not. This can sound awful or awfully amazing, depending on how you use it. Great for mangling drums or creating digital chaos.
 
-**Drive** <br>
-Uses a simple hyper tangent (tanh(x)) expression to emulate transistor saturation.
+![Down Sample](img/Library-Images/Effect/Distortion/Down-Sample.png)
+
+**Hypertangent Overdrive** <br>
+Uses a simple hypertangent (tanh(x)) expression to emulate transistor saturation.
+
+![Hypertangent Overdrive](img/Library-Images/Effect/Distortion/Hypertangent-Overdrive.png)
 
 **Sigmoid Overdrive A** <br>
 Uses a sigmoid transfer function that is similar to the Distortion node to distort audio. Also taken from an academic research paper.
+
+![Sigmoid Overdrive A](img/Library-Images/Effect/Distortion/Sigmoid-Overdrive-A.png)
 
 ### Dynamics
 
@@ -913,27 +929,47 @@ These modules affect the dynamics, or amplitude, of the audio as they pass throu
 
 These modules compress an audio signal’s overall dynamic range. This is done for many reasons, but the most common is to make a sound more “punchy.” It takes a while to learn how to balance the parameters of a compressor correctly, but it’s an essential ingredient for well-balanced music.
 
-**Minipress** <br>
+**miniPress** <br>
 Compresses incoming audio based on the curve drawn by the mapper node. The lookahead function allows the compressor to respond more intelligently by delaying the signal.
 
+![Sigmoid Overdrive A](img/Library-Images/Effect/Dynamics/Compressor/miniPress.png)
+
 **RMS Compressor** <br>
-RMS or root mean square compression takes the average of an incoming audio signal and compresses based on a ratio derived from that average. The threshold controls the point at which the compressor is triggered, the ratio determines how hard the sound is compressed, and the drive knob applies output distortion. The ZC/o or zero-cross/octave signal knob switch determines the method of sampling the audio signal. The ZC mode attempts to determine the pitch of the incoming signal and samples appropriately from there. The octave mode uses the oscillator’s octave signal to create a more precise sampling of the oscillator. In general, use the ZC mode for drum modules and other non-pitched instruments, and use the octave mode when you have an octave signal available. This module also works for stereo signals. The compression it creates can be rather extreme. Think of it less as a final mastering compressor and more as an effect for mangling things like drums and bass lines.
+RMS or root mean square compression takes the average of an incoming audio signal and compresses based on a ratio derived from that average. The threshold controls the point at which the compressor is triggered, the ratio determines how hard the sound is compressed, and the drive knob applies output distortion. 
+
+The ZC/o or zero-cross/octave signal knob switch determines the method of sampling the audio signal. The ZC mode attempts to determine the pitch of the incoming signal and samples appropriately from there. The octave mode uses the oscillator’s octave signal to create a more precise sampling of the oscillator. 
+
+In general, use the ZC mode for drum modules and other non-pitched instruments, and use the octave mode when you have an octave signal available. 
+
+This module also works for stereo signals. The compression it creates can be rather extreme. Think of it less as a final mastering compressor and more as an effect for mangling things like drums and bass lines.
+
+![RMS Compressor](img/Library-Images/Effect/Dynamics/Compressor/RMS-Compressor.png)
 
 **Super Simple Compressor** <br>
 This compressor is one of the simplest types of compressors you can make in Audulus. It has a threshold control for determining when compression kicks in, a ratio knob for setting the amount of compression, and a release knob for setting how long it takes for the compressor to let go.
+
+![Super Simple Compressor](img/Library-Images/Effect/Dynamics/Compressor/Super-Simple-Compressor.png)
 
 #### Ducker
 
 Duckers are a type of compressor that use a technique called side-chaining. Side-chaining is really popular at the moment, especially in dance music. The effect you hear when the kick drum sucks the rest of the music away for a moment every time it hits is ducking. Ducking allows low frequency content to burst through a mix in a dynamic way.
 
 **Ducker** <br>
-A basic ducking module that has a separate audio input for whatever instrument you want to trigger the ducking effect (usually a kick drum). The audio to compress goes through the left and right inputs, and the kick drum or other instrument triggering the compression goes into the audio input below. Threshold sets the point at which the compression begins, and release sets how long it takes for the compressor to let go. A gain reduction meter is present below the outputs. The more this meter is pushed downwards, the more compression is happening. The mix knob is essential for getting this module to sound good. First dial the mix all the way up to wet compression and set the compression to a pleasing and heavy sound, but more extreme than you would like. Then, dial back the mix knob until you can just hear the subtle pumping effect.
+A basic ducking module that has a separate audio input for whatever instrument you want to trigger the ducking effect (usually a kick drum). The audio to compress goes through the left and right inputs, and the kick drum or other instrument triggering the compression goes into the audio input below. 
+
+Threshold sets the point at which the compression begins, and release sets how long it takes for the compressor to let go. A gain reduction meter is present below the outputs. The more this meter is pushed downwards, the more compression is happening. 
+
+The mix knob is essential for getting this module to sound good. First dial the mix all the way up to wet compression and set the compression to a pleasing and heavy sound, but more extreme than you would like. Then, dial back the mix knob until you can just hear the subtle pumping effect.
+
+![Ducker](img/Library-Images/Effect/Dynamics/Ducker/Ducker.png)
 
 #### Limiter
 These modules are another type of specialized compressor. While most compressors have variable ratios from 1:1 to 1:10, a limiter is a compressor with a virtually infinite ratio. This means that the limit set by the limiter will not be exceeded at all.
 
 **Tube Limiter** <br>
 Uses a hypertangent (tanh(x)) function to emulate the sound of a tube limiter. Threshold sets the point at which compression kicks in.
+
+![Tube Limiter](img/Library-Images/Effect/Dynamics/Limiter/Tube-Limiter.png)
 
 ### Flanger
 
