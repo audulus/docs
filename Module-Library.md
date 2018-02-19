@@ -1033,7 +1033,7 @@ These modules create random sequences that are also non-repeating. Although it i
 
 These modules use shape metaphors to create sequences that are a mix of linear and non-linear. They are not quite matrix sequencers but also not just a normal linear sequencer wrapped into a shape either.
 
-** <br> 5 Step Shape Gate-Trigger Sequencer** <br> 
+**5 Step Shape Gate-Trigger Sequencer** <br> 
 
 ## Slew
 
