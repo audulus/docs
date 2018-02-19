@@ -1329,36 +1329,60 @@ These modules combine signals by adding them together. The most common mixer is 
 **3D 8 Input Mixer** <br>
 Combines 8 signals in a 3D mixing matrix. The xyz knobs control the coordinate of an imaginary point within the cube. The closer this point is to any given input, the more that input is fed to the output. The ex/lg control fades between exponential, linear, and logarithmic response. You can imagine a linear response as a kind of diamond centered around the floating coordinate, whereas logarithmic makes this diamond more ball like. The exponential response makes it so that the coordinate must be really close to an input to send it to the output. The main output attenuator adjusts the overall output.
 
+![3D 8 Input Mixer](img/Library-Images/Mixer/3D-8-Input-Mixer.png)
+
 **4x2 Stereo Output Mixer** <br>
 Accepts 4 channels of stereo or mono signals. If the input is mono, use the top input and press the mono button. The pan control sends the audio to the left or right channels, and the output attenuator adjusts the overall output loudness. To mute the output, press the red button underneath the master volume control. The left and right channels also pass through the two outputs.
+
+![4x2 Stereo Output Mixer](img/Library-Images/Mixer/4x2-Stereo-Output-Mixer.png)
 
 **8x2 Mixer** <br>
 Accepts 8 mono signals. Has level and pan controls for each channel, as well as an A and B send and return channel.
 
-**8x2 Output Mixer** <br>
+![8x2 Mixer](img/Library-Images/Mixer/8x2-Mixer.png)
+
+**8x2 Stereo Output Mixer** <br>
 Accepts 8 channels of stereo or mono signals. If the input is mono, use the top input and press the mono button. The pan control sends the audio to the left or right channels, and the output attenuator adjusts the overall output loudness. To mute the output, press the red button underneath the master volume control. The left and right channels also pass through the two outputs.
+
+![8x2 Stereo Output Mixer](img/Library-Images/Mixer/8x2-Stereo-Output-Mixer.png)
 
 **Audio 5x1 Mixer** <br>
 Accepts 5 input signals and mixes them together to one output. A master volume control is at the bottom of the module.
 
+![Audio 5x1 Mixer](img/Library-Images/Mixer/Audio-5x1-Mixer.png)
+
 **Infinite XFade** <br>
 A module for crossfading between any number of inputs. Instructions for how to use it are contained in the patch.
+
+![Infinite XFade](img/Library-Images/Mixer/Infinite-XFade.png)
 
 **Pan** <br>
 A module for panning audio to left or right outputs.
 
+![Pan](img/Library-Images/Mixer/Pan.png)
+
 **VCO Mixer 3x1** <br>
 An automatically levelling mixer that allows you to attach up to 3 VCOs and always have a consistent output (as long as the VCOs each have an amplitude of no more than 1).
+
+![VCO Mixer 3x1](img/Library-Images/Mixer/VCO-Mixer-3x1.png)
 
 **VCO Mixer 6x1** <br>
 An automatically levelling mixer that allows you to attach up to 6 VCOs and always have a consistent output (as long as the VCOs each have an amplitude of no more than 1).
 
+![VCO Mixer 6x1](img/Library-Images/Mixer/VCO-Mixer-6x1.png)
+
 ## Octave
 
-These modules generate or modify octave signals, the linearized pitch scale that Audulus uses for oscillators. The octave signal is the equivalent to the 1 volt per octave linearized pitch scale standard in modular synthesizers but with a twist. Instead of 0 volts = lowest note and 10 volts = highest note, the octave signal in Audulus is centered at 0, where 0 = A4 = 440Hz. Going up or down by integers changes the octave, so 1 = A5 = 880Hz and -1 = A3 = 220Hz. The advantage of this system is that you can create synced oscillators that go far into the LFO range while still staying in tune with the master oscillator - very useful for FM synthesis. For practical purposes, VCOs are ranged from -5 to 5 to cover a standard 10 octave range.
+These modules generate or modify octave signals, the linearized pitch scale that Audulus uses for oscillators. The octave signal is the equivalent to the 1 volt per octave linearized pitch scale standard in modular synthesizers but with a twist. 
+
+Instead of 0 volts = lowest note and 10 volts = highest note, the octave signal in Audulus is centered at 0, where 0 = A4 = 440Hz. Going up or down by integers changes the octave, so 1 = A5 = 880Hz and -1 = A3 = 220Hz. 
+
+The advantage of this system is that you can create synced oscillators that go far into the LFO range while still staying in tune with the master oscillator - very useful for FM synthesis. For practical purposes, VCOs are ranged from -5 to 5 to cover a standard 10 octave range.
 
 **Octave Shift** <br>
 Shifts an incoming octave signal up or down by octaves. Maximum translation is -10 (ten octaves down) to 10 (ten octaves up).
+
+![Octave Shift](img/Library-Images/Octave/Octave-Shift.png)
 
 ## Patches
 
@@ -1371,15 +1395,23 @@ These modules focus on different ways to use clock modules.
 **Dueling Phase Clock Logic A-R Envelopes** <br>
 This patch uses two clocks at slightly different speeds feeding a Logic Gates module to trigger 6 different A-R Envelope modules. The envelopes can then be used to modulate VCAs and VCFs or 3 to 6 synth voices.
 
+![Dueling Phase Clock Logic A-R Envelopes](img/Library-Images/Patches/Clock/Dueling-Phase-Clock-Logic-A-R-Envelopes.png)
+
 **Flip Flop Divider Random Logic** <br>
 This patch is a collection of different clock and gate signals that can be used to create all kinds of rhythms. First, the master clock is connected to a Flip Flop 256 Inverter module, providing many divided clock pulses in powers of 2 and their inverted counterparts. Then, the master clock is multiplied by 2/3, creating a triplet version of the master clock. The master clock and this fractionally divided clock pulse are then fed into a Logic Gates module, providing 6 more gate outputs. The nand and xnor outputs of this module become the two inputs of a Random Selectable Logic Gates module, which is randomized by the triplet pulse fed through a Chance Over Under module. Finally, the master clock pulse is fed through a Chance Passthrough module and used to trigger a burst generator.
+
+![Flip Flop Divider Random Logic](img/Library-Images/Patches/Clock/Flip-Flop-Divider-Random-Logic.png)
 
 ## Self-Playing
 
 These patches are songs-within-Audulus that run and play all by themselves. They can be anything from a small sample and hold generated random melody to a complex fully automated tune with every note and event perfectly planned and executed. They are meant to show you how to create music in what might be a novel way for you - outside the box, without a DAW, and with experimental modular synthesizer-based composition techniques. They are also meant to show that you don’t necessarily need a degree in music theory to make a self-playing patch that sounds great and really groovy. All that is required is a little understanding and a lot of patience to turn knobs and experiment until something great comes out!
 
 **Self Playing Subtractive Synth Template** <br>
-A beginner’s look into how to create a self-playing Audulus patch. Beings with a master clock that is stepping a Random Chance 4 Step Sequencer. The master clock pulse is being divided by 16 so that every 4 cycles of the sequencer, it has a chance to reset step values. This gives patterns a chance to develop without being totally random, and thus have nothing for your mind to latch on to and groove with. The output of the sequencer is translated from a modulation signal to an octave signal and quantized into a pentatonic scale. The pitch is sent to a basic oscillator which is being filtered by an SEM-style filter. The filter’s cutoff point is slowly modulated by a sine LFO to give the filter a little animation. The output of the quantizer is also fed into the filter to give the filter octave tracking. The master clock pulse is also used as a gate for the filter envelope. The filter’s envelope is having its max time parameter modulated by a slow LFO to give the filter some further animation. The master clock is also gating the envelope that is modulating the VCA, and finally the synth is fed through an analog delay and sent to the audio output.
+A beginner’s look into how to create a self-playing Audulus patch. Beings with a master clock that is stepping a Random Chance 4 Step Sequencer. The master clock pulse is being divided by 16 so that every 4 cycles of the sequencer, it has a chance to reset step values. This gives patterns a chance to develop without being totally random, and thus have nothing for your mind to latch on to and groove with. The output of the sequencer is translated from a modulation signal to an octave signal and quantized into a pentatonic scale. 
+
+The pitch is sent to a basic oscillator which is being filtered by an SEM-style filter. The filter’s cutoff point is slowly modulated by a sine LFO to give the filter a little animation. The output of the quantizer is also fed into the filter to give the filter octave tracking. The master clock pulse is also used as a gate for the filter envelope. The filter’s envelope is having its max time parameter modulated by a slow LFO to give the filter some further animation. The master clock is also gating the envelope that is modulating the VCA, and finally the synth is fed through an analog delay and sent to the audio output.
+
+![Self Playing Subtractive Synth Template](img/Library-Images/Patches/Self-Playing/Self-Playing-Subtractive-Synth-Template.png)
 
 ## Quantizer
 
@@ -1392,23 +1424,37 @@ These quantizers take an input octave signal and translate it into a chord. Requ
 **Neo-Reimannian Triad Transformer** <br>
 Transforms an input octave signal into Neo-Reimannian Triads.
 
+![Neo-Reimannian Triad Transformer](img/Library-Images/Quantizer/Chord/Neo-Reimannian-Triad-Transformer.png)
+
 **Chromatic Quantizer** <br>
 The smallest, most CPU-lightweight quantizer module. Uses a simple expression to snap inputs into discrete steps of 1/12.
+
+![Chromatic Quantizer](img/Library-Images/Quantizer/Chromatic-Quantizer.png)
 
 **Drifting Gateable Quantizer** <br>
 Same as the Gateable Quantizer but adds a drift control at the bottom that applies a randomly chosen sharp or flat offset to each new note. The maximum drift is 1 semitone flat or sharp. The knob is scaled exponentially to allow you to add just a little detune. Detune is important for creating more organic-sounding synthesizers. Adding just a little can go a long way to making your music sound more harmonically interesting.
 
+![Drifting Gateable Quantizer](img/Library-Images/Quantizer/Drifting-Gateable-Quantizer.png)
+
 **Gateable Quantizer with Gate Output** <br>
 Same as the Gateable Quantizer but with a gate output that goes high for every new note chosen. The knob at the bottom of the quantizer adjusts how long the output gate pulse stays high. A useful tool if you are not using a master clock to step a sequencer, but instead using an LFO or other modulation source translated into the octave range, but still need a gate for new notes to ping a VCA or VCF envelope.
+
+![Gateable Quantizer with Gate Output](img/Library-Images/Quantizer/Gateable-Quantizer-with-Gate-Output.png)
 
 **Gateable Quantizer** <br>
 A 12 note quantizer that allows you to turn individual notes on (red) and off (blue) with buttons, or to turn the notes on and off remotely with gates. This is one of the most useful modules for creating self-playing patches. You can use gates created by logic modules or sequencers to turn notes on and off remotely to effectively change the tune being played. You can sequence chord changes while a randomly fluctuating octave signal flows through the quantizer to create a moving arpeggiator that follows a general pattern but does not really repeat itself. If no notes are engaged the quantizer becomes a chromatic quantizer by default. The current note being played is highlighted in orange-red, while the active notes are highlighted in green. Inactive notes are black.
 
+![Gateable Quantizer](img/Library-Images/Quantizer/Gateable-Quantizer.png)
+
 **Modulation Quantizer** <br>
 Quantizes a modulation signal into 2 to 64 steps. Will create a staircase, bitcrushing-like effect for modulation signals.
 
+![Modulation Quantizer](img/Library-Images/Quantizer/Modulation-Quantizer.png)
+
 **Scales Maj-Min Quantizer** <br> 
 A very compact and useful quantizer that allows you to dial in which base note you want for a scale and whether you want the major (red) or minor (blue) version. The maj/min selector is gateable to allow you to modulate into one or the other scale. 
+
+![Scales Maj-Min Quantizer](img/Library-Images/Quantizer/Scales-Maj-Min-Quantizer.png)
 
 ## Sample + Hold
 
