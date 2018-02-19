@@ -557,77 +557,147 @@ Chaos modules are a special class of random modules used primarily for modulatio
 
 **1D Chaos Decay** <br>
 
-Creates a one-dimensional chaos modulation and envelope decay source. The module begins with a modulation output of 0.5. Each time the module is clocked, a new value is chosen. The new value will be go halfway from its current position to 1 (0.75) or 0 (0.25). Each successive clock pulse will again choose halfway to 0 or halfway to 1. So if the current position after one clock pulse is 0.75, the next position could be halfway to 1 (0.875) or halfway to 0 (0.375). The bias knob tips the balance from a 50-50 chance to go up or down to 100% chance to go down (0) or 100% chance to go up (1). The slew knob eases transitions between each new value. The range knob offers 7 discrete ranges of slew limiting. Range value of 1 is the least amount of slew limiting, good for just barely taking the edge off of transitions, and a range value of 7 offers really long and slow transitions between each new value for when you want changes to happen over the course of several minutes. The range must be used in conjunction with the speed of the incoming clock. If the range is set to 7 with a fast incoming clock speed, the module will hover very closely to 0.5 without changing much ever. So as a general rule use slow clock speeds for higher slew range values. The decay control adjusts the speed of the decay of the 8 envelope outputs from 0.01 seconds to 30 seconds. The decay cycle is triggered whenever the value of the modulation output crosses each input.
+Creates a one-dimensional chaos modulation and envelope decay source. The module begins with a modulation output of 0.5. Each time the module is clocked, a new value is chosen. The new value will be go halfway from its current position to 1 (0.75) or 0 (0.25). 
+
+Each successive clock pulse will again choose halfway to 0 or halfway to 1. So if the current position after one clock pulse is 0.75, the next position could be halfway to 1 (0.875) or halfway to 0 (0.375). The bias knob tips the balance from a 50-50 chance to go up or down to 100% chance to go down (0) or 100% chance to go up (1). 
+
+The slew knob eases transitions between each new value. The range knob offers 7 discrete ranges of slew limiting. Range value of 1 is the least amount of slew limiting, good for just barely taking the edge off of transitions, and a range value of 7 offers really long and slow transitions between each new value for when you want changes to happen over the course of several minutes. 
+
+The range must be used in conjunction with the speed of the incoming clock. If the range is set to 7 with a fast incoming clock speed, the module will hover very closely to 0.5 without changing much ever. 
+
+So as a general rule use slow clock speeds for higher slew range values. The decay control adjusts the speed of the decay of the 8 envelope outputs from 0.01 seconds to 30 seconds. The decay cycle is triggered whenever the value of the modulation output crosses each input.
+
+![1D Chaos Decay](img/Library-Images/Chaos/1D-Chaos-Decay.png)
 
 **1D Chaos Gate** <br>
-Creates a one-dimensional chaos modulation and gate source. The module begins with a modulation output of 0.5. Each time the module is clocked, a new value is chosen. The new value will be go halfway from its current position to 1 (0.75) or 0 (0.25). Each successive clock pulse will again choose halfway to 0 or halfway to 1. So if the current position after one clock pulse is 0.75, the next position could be halfway to 1 (0.875) or halfway to 0 (0.375). The bias knob tips the balance from a 50-50 chance to go up or down to 100% chance to go down (0) or 100% chance to go up (1). The slew knob eases transitions between each new value. The range knob offers 7 discrete ranges of slew limiting. Range value of 1 is the least amount of slew limiting, good for just barely taking the edge off of transitions, and a range value of 7 offers really long and slow transitions between each new value for when you want changes to happen over the course of several minutes. The range must be used in conjunction with the speed of the incoming clock. If the range is set to 7 with a fast incoming clock speed, the module will hover very closely to 0.5 without changing much ever. So as a general rule use slow clock speeds for higher slew range values. The -/+ control is a positive domain attenuverter for the modulation output. The 8 gate outputs serve as both a meter and set of triggers for other modules.
+Creates a one-dimensional chaos modulation and gate source. The module begins with a modulation output of 0.5. Each time the module is clocked, a new value is chosen. The new value will be go halfway from its current position to 1 (0.75) or 0 (0.25). 
+
+Each successive clock pulse will again choose halfway to 0 or halfway to 1. So if the current position after one clock pulse is 0.75, the next position could be halfway to 1 (0.875) or halfway to 0 (0.375). The bias knob tips the balance from a 50-50 chance to go up or down to 100% chance to go down (0) or 100% chance to go up (1). 
+
+The slew knob eases transitions between each new value. The range knob offers 7 discrete ranges of slew limiting. Range value of 1 is the least amount of slew limiting, good for just barely taking the edge off of transitions, and a range value of 7 offers really long and slow transitions between each new value for when you want changes to happen over the course of several minutes. 
+
+The range must be used in conjunction with the speed of the incoming clock. If the range is set to 7 with a fast incoming clock speed, the module will hover very closely to 0.5 without changing much ever. 
+
+So as a general rule use slow clock speeds for higher slew range values. The -/+ control is a positive domain attenuverter for the modulation output. The 8 gate outputs serve as both a meter and set of triggers for other modules.
+
+![1D Chaos Gate](img/Library-Images/Chaos/1D-Chaos-Gate.png)
 
 **2D Chaos Decay** <br>
 Essentially the same as two 1D Chaos Decay modules, but with a 2D output matrix. Map the x and y outputs to dual parameters like delay time and feedback, left and right channel volume, or filter cutoff and resonance. Use the output gates to trigger chaotic events or step sequencers.
 
+![2D Chaos Decay](img/Library-Images/Chaos/2D-Chaos-Decay.png)
+
 **2D Chaos Gate** <br>
 Essentially the same as two 1D Chaos Gate modules, but with a 2D output matrix. Map the x and y outputs to dual parameters like delay time and feedback, left and right channel volume, or filter cutoff and resonance. Use the output gates to trigger chaotic events or step sequencers.
 
+![2D Chaos Decay](img/Library-Images/Chaos/2D-Chaos-Gate.png)
+
 ## Clock
 
-These modules are the beating heart of any modular system. Clock modules are primarily used to advance step sequencers from one note to the next. In many hardware clock modules, clocks output a very short pulse or 10 milliseconds or less. In Audulus, however, clock modules output either a 50% pulse-width gate (equal time on and off), or have a variable control. This allows clocks to be used as gates for envelope modules or as on/off switches as well. This collection also contains clock modifiers like clock speed dividers and multipliers. Clocks output 0 or 1 gate signals.
+These modules are the beating heart of any modular system. Clock modules are primarily used to advance step sequencers from one note to the next. In many hardware clock modules, clocks output a very short pulse or 10 milliseconds or less. In Audulus, however, clock modules output either a 50% pulse-width gate (equal time on and off), or have a variable control. 
+
+This allows clocks to be used as gates for envelope modules or as on/off switches as well. This collection also contains clock modifiers like clock speed dividers and multipliers. Clocks output 0 or 1 gate signals.
 
 **BPM Clock** <br>
-Creates a clock pulse based on a beats per minute (BPM) value. The top knob controls the BPM value, which is displayed at the bottom of the module. The BPM values are fixed at integers from 60 to 220 BPM. The pulse width control adjusts the amount of on time relative to off time. The decimal value represents the pulse width percent - so 0.5 is 50% duty cycle, 0.1 is 10% duty cycle, and 0.9 is 90% duty cycle. At 0 or 1 the clock output will effectively turn off (remain low or high all the time), though internally it will still pulse. The button will turn the clock on (red) or off (blue). The input just below the button is a remote on/off gate that will work only if the button is in the off state. The gate input of the clock is a sync input which restarts the clock. Use a slower clock to reset a faster clock for some interesting rhythmic variations, or simply to sync multiple clocks to one master clock.
+Creates a clock pulse based on a beats per minute (BPM) value. The top knob controls the BPM value, which is displayed at the bottom of the module. The BPM values are fixed at integers from 60 to 220 BPM. 
+
+The pulse width control adjusts the amount of on time relative to off time. The decimal value represents the pulse width percent - so 0.5 is 50% duty cycle, 0.1 is 10% duty cycle, and 0.9 is 90% duty cycle. At 0 or 1 the clock output will effectively turn off (remain low or high all the time), though internally it will still pulse. 
+
+The button will turn the clock on (red) or off (blue). The input just below the button is a remote on/off gate that will work only if the button is in the off state. The gate input of the clock is a sync input which restarts the clock. 
+
+Use a slower clock to reset a faster clock for some interesting rhythmic variations, or simply to sync multiple clocks to one master clock.
+
+![BPM Clock](img/Library-Images/Clock/BPM-Clock.png)
 
 **Burst Generator** <br>
 Creates a stream of 1 to 32 clock pulses at a given speed whenever the input is clocked. The top knob adjusts how many clock pulses the burst generator creates. The bottom knob adjusts how fast the pulses are generated. Very useful for creating organic-sounding snare rolls.
 
+![Burst Generator](img/Library-Images/Clock/Burst-Generator.png)
+
 **Clock Divider** <br>
 Accepts an incoming clock pulse and outputs a division of the incoming clock speed from 1/1 (pass-through) to 1/64 (one clock pulse per 64 incoming clock pulses). If you have a patch with multiple clock dividers, you may find that you have to close and reopen a patch to sync them up. You only need to do this once after you have finished adding the clock dividers. This is not a bug: closing and reopening a patch resets the counters inside the clock dividers so they all start from the beginning. A unique feature to Audulus is that clock dividers modules preserve the throughput clock’s pulse width.
+
+![Clock Divider](img/Library-Images/Clock/Clock-Divider.png)
 
 **Clock Fractional Multiplier** <br>
 Accepts an incoming clock pulse at the top gate input and outputs a fractional multiplication of the incoming clock speed from 1/1 (pass through) to 8/9 (8 clock pulses per 9 incoming clock pulses). The top knob controls the numerator from 1 to 9 and the bottom number controls the denominator from 1 to 9. The momentary button resets the counter from start. The rs (reset) input will do the same, but with a remote gate control. This module can create all sorts of complex rhythmic pulses based on an incoming clock pulse. Clock multipliers in Audulus work by using a Zero Cross node to analyze the incoming speed of a clock signal. Thus, they will always need 2 initial clock pulses to begin working. If you want everything in your patches to stay totally lock step in a perfect way, it is much better to set your master clock to the fastest pulse you will use and use clock dividers to divide the master clock.
 
+![Clock Fractional Multiplier](img/Library-Images/Clock/Clock-Fractional-Multiplier.png)
+
 **Clock Multiplier** <br>
 Accepts an incoming clock pulse and outputs a division of the incoming clock speed from `1*1` (pass-through) to `1*64` (64 clock pulses per 1 incoming clock pulse). If you have a patch with many clock multipliers, you may find that you have to close and reopen a patch to sync them up. You only need to do this once after you have finished adding the clock multipliers. This is not a bug: closing and reopening a patch resets the counters inside the clock dividers so they all start from the beginning. Clock multipliers in Audulus work by using a Zero Cross node to analyze the speed of the incoming clock signal. Thus, they will always need 2 initial clock pulses to begin working. If you want everything in your patches to stay totally lock step in a perfect way, it is much better to set your master clock to the fastest pulse you will use and use clock dividers to divide the master clock.
+
+![Clock Multiplier](img/Library-Images/Clock/Clock-Multiplier.png)
 
 **Clock** <br>
 Creates a clock pulse based on a Hz value from 0 to 20Hz. The top knob controls the speed of the clock. The pulse width control adjusts the amount of on time relative to off time. The decimal value represents the pulse width percent - so 0.5 is 50% duty cycle, 0.1 is 10% duty cycle, and 0.9 is 90% duty cycle. At 0 or 1 the clock output will effectively turn off (remain low or high all the time), though internally it will still pulse. The button will turn the clock on (red) or off (blue). The input just below the button is a remote on/off gate that will work only if the button is in the off state. The gate input of the clock is a sync input which restarts the clock. Use a slower clock to reset a faster clock for some interesting rhythmic variations, or simply to sync multiple clocks to one master clock.
 
+![Clock](img/Library-Images/Clock/Clock.png)
+
 **Flip Flop 2^16** <br>
 Flip flops in Audulus are a great, low-CPU way to create a clock divider. A single flip flop will divide an incoming clock pulse by 2. Chain the flip flops together and you get more and more divisions. This chain of flip flops is also known as a SISO (serial in serial out) shift register. This module outputs the clock divisions by powers of two, from top to bottom: 1/2, 1/4, 1/8, 1/16, 1/32, 1/64, 1/128, 1/256, 1/512, 1/1024, 1/2048, 1/4096, 1/8192, 1/16384, 1/32768, and 1/65,536 (or 2^16). This is a very useful module for queuing events, especially in 4/4 time. If the master clock pulse is set to 1/64th notes, then the 1/64 divided output will become the whole note output, and the 1/512 output will become the 8 bar output. These flip flop clock dividers are fixed at a 50% pulse width by design.
+
+![Flip Flop 2^16](img/Library-Images/Clock/Flip-Flop-2^16.png)
 
 **Flip Flop 256 Inverter** <br>
 Flip flops in Audulus are a great, low-CPU way to create a clock divider. A single flip flop will divide an incoming clock pulse by 2. Chain the flip flops together and you get more and more divisions. This chain of flip flops is also known as a SISO (serial in serial out) shift register. This module outputs the clock divisions by powers of two and their inverted counterparts, from top to bottom: 1/2, -(1/2), 1/4, -(1/4), 1/8, -(1/8), 1/16, -(1/16), 1/32, -(1/32), 1/64, -(1/64), 1/128, -(1/128), 1/256, -(1/256). This is a very useful module for queuing events, especially in 4/4 time. If the master clock pulse is set to 1/64th notes, then the 1/64 divided output will become the whole note output, and the 1/256 output will become the 4 bar output. The inverted outputs offer a way to make events happen in between clock divisions. These flip flop clock dividers are fixed at a 50% pulse width by design.
 
+![Flip Flop 256 Inverter](img/Library-Images/Clock/Flip-Flop-256-Inverter.png)
+
 **Flip Flop** <br>
 Flip flops in Audulus are a great, low-CPU way to create a clock divider. A single flip flop will divide an incoming clock pulse by 2. This is a very useful module for as a kind of remote on/off switch. These flip flop clock dividers are fixed at a 50% pulse width by design.
+
+![Flip Flop](img/Library-Images/Clock/Flip-Flop.png)
 
 **Probability Clock** <br>
 A combination of a basic clock module and a chance gate passthrough module, this patch allows you to adjust the percent chance that the clock’s gate output will pass from 0% to 100% chance. A perfectly simple way to add a little variation to your sequencers or envelopes. The pulse width of the clock is preserved through the chance gate passthrough module.
 
+![Probability Clock](img/Library-Images/Clock/Probability-Clock.png)
+
 **Pulse Looper** <br>
 Tap the button to store 8 gate pulses over a maximum of ~5 seconds. The knob controls how long the recorded loop will be from 0 to ~5 seconds. This module can be chained with multiple instances through the outputs marked “v.” The Master module should have no input at the top v input. Slaved modules should have the master’s v output attached to their v input. This module will not store patterns between opening and closing your patch.
+
+![Pulse Looper](img/Library-Images/Clock/Pulse-Looper.png)
 
 **Random Clock Divider** <br>
 This module is the same as the clock divider module with an R or randomize gate input for selecting a random gate division from 1/1 to 1/64. A unique feature to Audulus is that clock dividers modules preserve the throughput clock’s pulse width.
 
+![Random Clock Divider](img/Library-Images/Clock/Random-Clock-Divider.png)
+
 **Random Clock Fractional Multiplier** <br>
 This module is the same as the clock fractional multiplier module with an R or randomize gate input for generating a random gate fractional multiplication where the numerator and denominator can be any integer 1 to 9.
+
+![Random Clock Fractional Multiplier](img/Library-Images/Clock/Random-Clock-Fractional-Multiplier.png)
 
 **Random Clock Multiplier** <br>
 This module is the same as the clock multiplier module with an R or randomize gate input for selecting a random gate multiplication from `1*1` to `1*64`.
 
+![Random Clock Multiplier](img/Library-Images/Clock/Random-Clock-Multiplier.png)
+
 **Random Clock** <br>
 This module is the same as the clock module with an R or randomize gate input for selecting clock speed from 0 to 20Hz.
+
+![Random Clock](img/Library-Images/Clock/Random-Clock.png)
 
 **Shift Register Clock** <br>
 This patch is a combination of the Clock module and the Flip Flop 256 Inverter module.
 
+![Shift Register Clock](img/Library-Images/Clock/Shift-Register-Clock.png)
+
 **Smeared Clock** <br>
 This patch is a combination of the Clock module, Chance Gate Passthrough (CGP) module, and the Gate Smear module. The CGP module passes a random number of clock gates through to the Gate Smear module which keeps the gate high if the time between the gates is lower than its threshold. Useful for creating gates to send to envelopes that stay in sync with the master clock but have random varying lengths.
+
+![Smeared Clock](img/Library-Images/Clock/Smeared-Clock.png)
 
 **Tap Tempo Clock** <br>
 Outputs a clock pulse based on a tap input and displays the clock speed in both Hz and approximate BPM. Tap Tempo speed will not be stored when closing a patch.
 
+![Tap Tempo Clock](img/Library-Images/Clock/Tap-Tempo-Clock.png)
+
 **Touch Clock** <br>
 Uses a delay node to record tapped clock pulses. Great for inputting rhythms for live performance. Tap a rhythm then wiggle the loop time knob to get distorted semi-random gates.
+
+![Touch Clock](img/Library-Images/Clock/Touch-Clock.png)
 
 ##Collections
 
