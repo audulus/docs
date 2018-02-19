@@ -733,12 +733,16 @@ These modules are different cymbal-like synthesized drum modules.
 **Sizzle Cymbal** <br>
 Creates a trashy lo-fi cymbal sound that is nice for bell rides at the right settings. D or decay controls the length of the cymbal crash, sizz or sizzle controls a filter that gives the cymbal its characteristic sound, and the BPF (band pass filter) and HPF (high pass filter) offer other tonal controls. Play around with different settings and modulate the decay to make the cymbal sound really varied.
 
+![Sizzle Cymbal](img/Library-Images/Drum/Cymbal/Sizzle-Cymbal.png)
+
 ### Kick
 
 These modules are different kick-like synthesized drum modules.
 
 **Sine Kick** <br>
 A simple no-frills sine kick sound with a few controls. The pitch knob sets the pitch of the kick and the shape controls how exponential the decay of the envelope is.
+
+![Sine Kick](img/Library-Images/Drum/Kick/Sine-Kick.png)
 
 ### Kit
 
@@ -747,8 +751,12 @@ These modules are collections of drum modules, sometimes with some added functio
 **ITS A TRAP!!** <br>
 A collection of the Sizzle Cymbal, Sine Kick, and Basic Snare in one neat package with volume controls for each sound. Has individual outputs for each sound as well as a mix output.
 
+![ITS A TRAP!!](img/Library-Images/Drum/Kit/ITS-A-TRAP.png)
+
 **Weather Patterns** <br>=
 Similar to ITS A TRAP!!, this module collects two versions of the Sizzle Cymbal, Sine Kick, and Basic Snare modules with options to randomly choose one sound or another. Each drum sound can accept a unique gate and the gA/B controls which sound is more likely to hit.
+
+![Weather Patterns](img/Library-Images/Drum/Kit/Weather-Patterns.png)
 
 ### Percussion
 
@@ -757,14 +765,22 @@ These modules are synthesized percussion sounds of various types that don’t fa
 **KarPlus** <br>
 A Karplus-Strong percussion oscillator that can create all kinds of zinging hits. The A or attack control adjusts the onset of the sound, and the D or decay control adjusts the length of the sound. The grain knob adjusts the graininess of the sound, and the FB control also contributes to the length of the decay. The level knob adjusts the output level, and the drive control adds distortion to the output.
 
+![KarPlus](img/Library-Images/Drum/Percussion/KarPlus.png)
+
 **Res Drum** <br>
 A self-oscillating filter-based resonant drum that mimic the natural sound of tight head drums like bongos and congas. The two filter cutoff points can be dragged around to create different sounds. One controls the tone of the instrument and the other controls the noise filtering. The noise knob adjusts the level of noise, the Q control adjusts the Q of the tone of the module, and the drive knob adds distortion to the output. Under the Q control is an internal envelope output that, when connected to the Q control, can add a more nonlinear sound to the drum.
+
+![Res Drum](img/Library-Images/Drum/Percussion/Res-Drum.png)
 
 **Resonant Hand Drum** <br>
 Similar to the Res drum, this module uses BPFs to create a very realistic sounding hand drum. The noise control adjusts the level of noise, and the decay control adjusts how long the sound lasts. The two filter cutoff controls adjusts the cutoff points for the internal bandpass filters and the Q control adjusts the sharpness of their peaks. The mix control adjusts the balance between the left and right filter, and the drive control adds distortion to the output.
 
-**uDing** <br>
+![Resonant Hand Drum](img/Library-Images/Drum/Percussion/Resonant-Hand-Drum.png)
+
+**uDing V1** <br>
 Bell simulator which generates multiple decaying harmonics by exciting a resonant filter. Harmonic ratios were taken from the Wikipedia article on strike tone. The pitch knob sets the pitch of the bell. The decay controls how fast the bell sound fades. The detune detunes the various harmonics for a more dissonant sound (0.5 is no detune). The tone knob controls the tone of the bell.
+
+![uDing](img/Library-Images/Drum/Percussion/uDing-V1.png)
 
 ### Snare
 
@@ -773,8 +789,12 @@ These modules are different snare-like synthesized drum modules.
 **Basic Snare** <br>
 A basic synthesized snare based on the architecture of the 909 snare. The D or decay control adjusts the length of the snare and the shape control adjusts how exponential the decay is. The snare knob adjusts the loudness of the noise component of the snare sound (similar to the metal snares underneath the snare drum), and the ring adjusts the loudness of the tone of the snare.
 
+![Basic Snare](img/Library-Images/Drum/Snare/Basic-Snare.png)
+
 **Noise Snare** <br>
 A purely noise-based snare with no tone oscillator, this snare is perfect for creating really trashy sounding snares. The cutoff controls the base frequency that the envelope will settle to once pinged, and the knob below it adjusts the speed of the sampling of the noise. At higher sample rates, the noise is more pure white, white at lower sample rates it starts to sound very crushed and digital and has fewer high frequencies. The top decay knob controls the time the filter takes to settle and the bottom decay knob controls the overall length of the sound. The overdrive knob at the bottom controls the total output distortion.
+
+![Noise Snare](img/Library-Images/Drum/Snare/Noise-Snare.png)
 
 ## Effect
 
