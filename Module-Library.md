@@ -699,15 +699,19 @@ Uses a delay node to record tapped clock pulses. Great for inputting rhythms for
 
 ![Touch Clock](img/Library-Images/Clock/Touch-Clock.png)
 
-##Collections
+##Collection
 
 These patches collect all or some of the modules in each subfolder by different types. Useful for when you want to explore everything Audulus has to offer in a particular category.
 
 **Clocks** <br>
 A collection of all of the clock modules.
 
+![Clocks](img/Library-Images/Collection/Clocks.png)
+
 **Gates** <br>
 A collection of all of the gate modules.
+
+![Gates](img/Library-Images/Collection/Gates.png)
 
 ## Controller
 
