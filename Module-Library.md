@@ -232,8 +232,12 @@ These modules take an input signal and translate them into signals for the RGB l
 **Audio Light** <br>
 Analyzes an incoming -1 to 1 audio signal and displays the positive portion as red and negative portion as blue. Useful for indicating an audio output.
 
+![Audio Light](img/Library-Images/Building/Light/Audio-Light.png)
+
 **Polar Light** <br>
 Analyzes an incoming 0 to 1 modulation signal and displays it as blue for 0 to 0.5 and red from 0.5 to 1. Useful for light indicators on attenuverters.
+
+![Polar Light](img/Library-Images/Building/Light/Polar-Light.png)
 
 ### Loop
 
@@ -242,6 +246,8 @@ These modules create a feedback loop within a module. Feedback can be used in ma
 **Force Single Sample Loop** <br>
 Creates a loop that forces a portion of your module to run in single sample mode. Useful for when the operation of feedback requires faster processing than the ~300 sample frame rate.
 
+![Force Single Sample Loop](img/Library-Images/Building/Loop/Force-Single-Sample-Loop.png)
+
 ### Octave
 
 The octave signal is the equivalent to the 1 volt per octave linearized pitch scale standard in modular synthesizers but with a twist. Instead of 0 volts = lowest note and 10 volts = highest note, the octave signal in Audulus is centered at 0, where 0 = A4 = 440Hz. Going up or down by integers changes the octave, so 1 = A5 = 880Hz and -1 = A3 = 220Hz. The advantage of this system is that you can create synced oscillators that go far into the LFO range while still staying in tune with the master oscillator - very useful for FM synthesis. For practical purposes, VCOs are ranged from -5 to 5 to cover a standard 10 octave range.
@@ -249,11 +255,17 @@ The octave signal is the equivalent to the 1 volt per octave linearized pitch sc
 **Octave to Hz with Linear Audio FM and Tune Controls** <br>
 A basic starter kit for creating a VCO module in Audulus. This module is the same as the Octave to Hz with Octave Shift and Fine Tune Controls module with an added section for frequency modulation (FM) input that accepts -1 to 1 audio signals. Linear FM means that the frequency modulation will respond the same in low and high octaves (as opposed to exponential FM).
 
+![Octave to Hz with Linear Audio FM and Tune Controls](img/Library-Images/Building/Octave/Octave-to-Hz-with-Linear-Audio-FM-and-Tune-Controls.png)
+
 **Octave to Hz with Octave Shift and Fine Tune Controls** <br>
-A basic starter kit for creating a VCO module in Audulus. The octave input is translated into the Hz value that the Oscillator and Phasor node needs. The octave control shifts the octave of the oscillator up or down by -5 to 5 octaves. Expose the value meter to display the octave shift on your VCO. The fine tune control shifts the oscillator down by a semitone (0) or up by a semitone (1). 
+A basic starter kit for creating a VCO module in Audulus. The octave input is translated into the Hz value that the Oscillator and Phasor node needs. The octave control shifts the octave of the oscillator up or down by -5 to 5 octaves. Expose the value meter to display the octave shift on your VCO. The fine tune control shifts the oscillator down by a semitone (0) or up by a semitone (1).
+
+![Octave to Hz with Octave Shift and Fine Tune Controls](img/Library-Images/Building/Octave/Octave-to-Hz-with-Octave-Shift-and-fine-Tune-Controls.png) 
 
 **Octave to Hz** <br>
 Converts the octave signal into a Hz signal. The reference pitch can be changed inside the module. The default is A = 440.
+
+![Octave to Hz](img/Library-Images/Building/Octave/Octave-to-Hz.png) 
 
 ### Presets
 
@@ -262,14 +274,19 @@ These modules use spline nodes to store preset values for use in other modules. 
 **Preset 2** <br>
 A preset module with 2 outputs.
 
+![Preset 2](img/Library-Images/Building/Presets/Preset-2.png) 
+
 **Preset 4** <br>
 A preset module with 4 outputs.
+![Preset 4](img/Library-Images/Building/Presets/Preset-4.png) 
 
 **Preset 8** <br>
 A preset module with 8 outputs.
+![Preset 8](img/Library-Images/Building/Presets/Preset-8.png) 
 
 **Preset 16** <br>
 A preset module with 16 outputs.
+![Preset 16](img/Library-Images/Building/Presets/Preset-16.png) 
 
 ### Random
 
@@ -277,6 +294,8 @@ These modules create random strings of numbers which can be used as audio noise 
 
 **True Random** <br>
 Creates true random numbers that are not algorithmically generated like those from the Random node. The Random node creates a string of pseudo-random numbers from a starting point called a seed. The problem with this is that a patch utilizing a Random node will sound exactly the same whenever the patch is opened. This module solves that problem by using the microphone input to generate noise, which can then be sampled to create true randomness. The noise floor of an audio input is amplified by a large factor and pushed through a sine waveshaping expression to create what is essentially white noise. The audio input used by True Random can be shared with an instrument without interfering with its operation, or inducing noise into the audio path. The audio channel used can be changed inside the module at the ADC node input. By default, the noise is sampled at 20kHz. To create a true random sample & hold, just combine this module with a clocked sample and hold.
+
+![True Random](img/Library-Images/Building/Random/True-Random.png) 
 
 ### Rectifier
 These modules take incoming signals and rectify them. Rectification is a term borrowed from electronics. When you want to convert an alternating current (AC) to a direct current (DC), you use a rectifier. AC is equivalent to Audulus’ audio signal, and DC is equivalent to Audulus’ modulation signal. There are two basic types of rectification - full-wave and half-wave. Full wave rectification flips the negative portion of the wave around so that, for example, a sine wave would appear to be rolling, bouncing hills. Half wave rectification simply clips off the negative portion of the wave. Rectifiers are useful for waveshaping your modulation signals to get unique patterns you otherwise would not normally be able to get.
@@ -288,6 +307,8 @@ Half - outputs the half-wave rectified negative signal. <br>
 Full + outputs the full-wave rectified positive signal. <br>
 Full - outputs the full-wave rectified negative signal. <br>
 
+![Audio Rectifier](img/Library-Images/Building/Rectifier/Audio-Rectifier.png) 
+
 **Modulation Rectifier** <br>
 Converts a modulation signal to an audio signal and then rectifies it in 4 different ways. <br>
 Half + outputs the half-wave rectified positive signal. <br>
@@ -295,8 +316,12 @@ Half - outputs the half-wave rectified negative signal, but translated into the 
 Full + outputs the full-wave rectified positive signal. <br>
 Full - outputs the full-wave rectified negative signal - an inverted version of the full-wave positive signal translated into the 0 to 1 modulation range. <br>
 
+![Modulation Rectifier](img/Library-Images/Building/Rectifier/Modulation-Rectifier.png) 
+
 **Rectifying Signal Reflector** <br>
 Uses a set of expressions to combine two modulation signals into a unique modulation wave. When x is greater than y, the output of the module is x-y. When y is greater than x, the output of the module is y-x. When the output of the module is greater than 0.5, the module outputs a gate. The x and y knobs control the level of each modulation signal before being compared. The attenuate control attenuates the overall output of the module. The offset control does not offset the main output signal, but instead offsets the output that is located beneath the offset control. This output is meant to be looped back and attached to the x or y control to create really wild unpredictable results.
+
+![Rectifying Signal Reflector](img/Library-Images/Building/Rectifier/Rectifying-Signal-Reflector.png) 
 
 ### Signal
 
@@ -305,11 +330,17 @@ These modules compare and create signals. The category is broad and contains mod
 **Return Greater** <br>
 Compares signals x and y and outputs whatever signal is greater.
 
+![Return Greater](img/Library-Images/Building/Signal/Return-Greater.png)
+
 **Return Lesser** <br>
 Compares signals x and y and outputs whatever signal is lesser.
 
+![Return Lesser](img/Library-Images/Building/Signal/Return-Lesser.png)
+
 **Value Distributor** <br>
 Creates eight 0 to 1 modulation signals that are distributed in a user-defined manner around linear and exponential shapes. The bal or balance control adjusts the tilt of the distribution from left to equal to right. The shape control applies an exponential curve to the distribution. The peak control changes which output has the highest peak. The gain control adjusts the total range of the value distribution. An example use of this module would be to use each 8 outputs to control the boost or cut of an 8 band equalizer.
+
+![Value Distributor](img/Library-Images/Building/Signal/Value-Distributor.png)
 
 ### Spline
 
@@ -318,11 +349,15 @@ These are preset spline nodes mainly for use in oscillators. Driven by a 0 to 1 
 **Triangle Spline Node** <br>
 A spline with a perfect triangle shape.
 
+![Triangle Spline Node](img/Library-Images/Building/Spline/Triangle-Spline-Node.png)
+
 ###Templates
 These are module templates that can be used to quickly build up a custom module of your own.
 
 **VCO Template** <br>
 This is a basic VCO template that includes an octave input, audio output, and tuning controls. Just add your own custom oscillator and adjust the UI to taste.
+
+![VCO Template](img/Library-Images/Building/Templates/VCO-Template.png)
 
 ### Translation
 

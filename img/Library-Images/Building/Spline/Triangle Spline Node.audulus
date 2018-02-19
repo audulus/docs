@@ -1,1 +1,0 @@
-{"version":1,"patch":{"id":"1e23f98b-9500-4c61-98aa-804dff86ba38","pan":{"x":-200.0,"y":-74.0},"zoom":2.304,"nodes":[{"type":"Spline","id":"d9f03194-8c23-47f6-ac6b-7ff2ce5f2794","position":{"x":0.0,"y":0.0},"controlPoints":[{"x":0.0,"y":0.0},{"x":0.5,"y":1.0},{"x":1.0,"y":0.0}]}],"wires":[]}}
