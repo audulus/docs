@@ -84,7 +84,11 @@ Turns a 16 step pattern into a decimal number that can be used to create rhythmi
 ### Counter
 
 Counters are modules that count up or down in sequence when pulsed with a gate or somehow count time. They are most often used in sequencers.
-Elapsed Time - Displays the elapsed time since a timer has been reset. It converts the timer’s output of seconds into hours, minutes, seconds, and milliseconds.
+
+**Elapsed Time** <br>
+Displays the elapsed time since a timer has been reset. It converts the timer’s output of seconds into hours, minutes, seconds, and milliseconds.
+
+![Elapsed Time](img/Library-Images/Building/Counter/Elapsed-Time.png)
 
 **Up Counter** <br>
 Counts up with each incoming gate pulse from 0 to a specified number and then resets. Commonly used for step sequencers.
@@ -261,11 +265,6 @@ A basic starter kit for creating a VCO module in Audulus. This module is the sam
 A basic starter kit for creating a VCO module in Audulus. The octave input is translated into the Hz value that the Oscillator and Phasor node needs. The octave control shifts the octave of the oscillator up or down by -5 to 5 octaves. Expose the value meter to display the octave shift on your VCO. The fine tune control shifts the oscillator down by a semitone (0) or up by a semitone (1).
 
 ![Octave to Hz with Octave Shift and Fine Tune Controls](img/Library-Images/Building/Octave/Octave-to-Hz-with-Octave-Shift-and-fine-Tune-Controls.png) 
-
-**Octave to Hz** <br>
-Converts the octave signal into a Hz signal. The reference pitch can be changed inside the module. The default is A = 440.
-
-![Octave to Hz](img/Library-Images/Building/Octave/Octave-to-Hz.png) 
 
 ### Presets
 
@@ -907,7 +906,8 @@ Another distortion module taken from an audio DSP research paper, this tube over
 
 ![Doidic Asymmetrical Tube Overdrive](img/Library-Images/Effect/Distortion/Doidic-Asymmetrical-Overdrive.png)
 
-**Down Sample** <br>Reduces the number of samples for the audio as it comes through from the sample rate of 44.1kHz to much, much lower sample rates. The main difference between downsampling distortion and bitcrushing (which both produce staircase-like wave shapes) is that downsampling effectively limits the upper frequency range of the sound coming through it, where bitcrushing does not. This can sound awful or awfully amazing, depending on how you use it. Great for mangling drums or creating digital chaos.
+**Down Sample** <br>
+Reduces the number of samples for the audio as it comes through from the sample rate of 44.1kHz to much, much lower sample rates. The main difference between downsampling distortion and bitcrushing (which both produce staircase-like wave shapes) is that downsampling effectively limits the upper frequency range of the sound coming through it, where bitcrushing does not. This can sound awful or awfully amazing, depending on how you use it. Great for mangling drums or creating digital chaos.
 
 ![Down Sample](img/Library-Images/Effect/Distortion/Down-Sample.png)
 
@@ -1017,7 +1017,8 @@ Not an audio effect, but instead, takes an octave signal and splits it into a qu
 
 ![Octave Unison](img/Library-Images/Effect/Pitch/Octave-Unison.png)
 
-**Pitch Shift** <br>Uses the Pitch Shift node to create a pitch shifter that can shift incoming signals up and down to a maximum of one octave down and two octaves up.
+**Pitch Shift** <br>
+Uses the Pitch Shift node to create a pitch shifter that can shift incoming signals up and down to a maximum of one octave down and two octaves up.
 
 ![Pitch Shift](img/Library-Images/Effect/Pitch/Pitch-Shift.png)
 
@@ -1095,6 +1096,16 @@ A minimalist envelope with controls for only attack and release. Sustain is set 
 A minimalist two knob envelope that uses one knob to control the attack, decay, and release periods and another knob to control sustain level.
 
 ![ADR-S](img/Library-Images/Envelope/ADR-S.png)
+
+**AR** <br>
+A minimalist one knob envelope that uses one knob to control the attack and release periods. Does not have a sustain period.
+
+![ASR](img/Library-Images/Envelope/AR.png)
+
+**ASR** <br>
+A minimalist one knob envelope that uses one knob to control the attack and release periods with a sustain period.
+
+![ASR](img/Library-Images/Envelope/ASR.png)
 
 **BEOC Max A-D-S-R** <br>
 An advanced envelope with gate outputs for the beginning and end of cycle (BEOC) for each stage and max time control that changes the maximum periods for the ADR controls simultaneously. By taking a gate output from the sustain beginning cycle, you can trigger an extra envelope or event that happens when the decay period is over. The beginning cycle will stay lit for the length of the parameter’s period, but the end of cycle gate will only last 0.1 seconds.
@@ -1199,7 +1210,8 @@ A set of 8 outputs for use with your ES-8.
 
 These modules create or modify gates. A gate is an on/off, yes/no, signal. Gates in Audulus are typically 0 or 1 signals, but an exception is made as gates enter envelope modules, in which case, the gate height from 0 to 1 allows for dynamic playing, as the attack portion will only rise to the height or value of the incoming gate. They play well with clock modules, but can also be used to either generate gates themselves, or modify gates coming from the MIDI input module.
 
-**3D 8 Output Gate Generator** <br>Uses an xyz coordinate system to generate gates at each of a 3D cube’s vertices. The x-y-z knobs set the coordinates of an imaginary point within the cube and the thrsh or threshold knob adjusts how close that point must be to the vertices to make the gate go high. Responds well to having multiple different LFOs or envelopes modulating the coordinate knobs, or using 3 outputs of a quadrature LFO to get the point to move in a pattern around the space.
+**3D 8 Output Gate Generator** <br>
+Uses an xyz coordinate system to generate gates at each of a 3D cube’s vertices. The x-y-z knobs set the coordinates of an imaginary point within the cube and the thrsh or threshold knob adjusts how close that point must be to the vertices to make the gate go high. Responds well to having multiple different LFOs or envelopes modulating the coordinate knobs, or using 3 outputs of a quadrature LFO to get the point to move in a pattern around the space.
 
 ![3D 8 Output Gate Generator](img/Library-Images/Gate/3D-8-Output-Gate-Generator.png)
 
