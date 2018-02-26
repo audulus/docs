@@ -1802,6 +1802,11 @@ Morphs between a lowpass filter and highpass filter.
 
 ![LP-HP](img/Library-Images/VCF/Biquad/LP-HP.png)
 
+**LPF** <br>
+LPF or lowpass filters attenuate frequencies higher than the cutoff point.
+
+![LPF](img/Library-Images/VCF/Biquad/LPF.png)
+
 **Multimode Filter** <br>
 A filter with selectable modes. When the Hz knob is turned all the way down, the input below it turns into an octave tracking input. Width controls the bandwidth of the BPF.
 
