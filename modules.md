@@ -1621,6 +1621,22 @@ Either passes (red) or does not pass (blue) a gate as it moves over the sequence
 
 ![Gate 4x4x2 Matrix Sequencer](img/Library-Images/Sequencer/Matrix/Gate-4x4x2-Sequencer.png)
 
+**Gate Cross 4x4x10 Matrix Sequencer** <br> 
+
+This gate sequencer uses a 4x4 grid of buttons to create a total of 10 sequences.
+
+Each row and column is its own individual 4 step sequencer. There are 4 x-axis sequencers and 4 y-axis sequencers.
+
+The x sequencers are stepped at the x gate input. Their current steps are highlighted with a red light. When the current step is on (button = red), the x clock passes to the row’s output. When the current step is off (button = blue), the clock does not pass, acting like a step skip. The pulse width of the clock is preserved as it goes through the sequencer.
+
+The y sequencers are stepped at the y gate input. Their current steps are highlighted with a blue light. When the current step is on (button = red), the y clock passes to the row’s output. When the current step is off (button = blue), the clock does not pass, acting like a step skip. The pulse width of the clock is preserved as it goes through the sequencer.
+
+At the x and y output, the gate will go high only when three conditions are met: the x input gate is high AND the y input gate is high; and the (x,y) coordinate point is located on a step that is on (button = red).
+
+At the x or y output, the gate will go high when some conditions are met: the x input gate is high OR the y input gate is high; and the (x,y) coordinate point is located on a step that is on (button = red).
+
+![Gate Cross 4x4x10 Matrix Sequencer](img/Library-Images/Sequencer/Matrix/Gate-Cross-4x4x10-Matrix-Sequencer.png)
+
 **Modulation 2x2x4 Matrix Sequencer** <br> 
 This sequencer has four simultaneous outputs that read the sequence left to right, top to bottom; right to left bottom to top; right to left, top to bottom; and bottom to top, right to left. Each sequence and output is color coded. It is essentially an 4 step sequencer being read in 4 different ways.
 
@@ -1637,6 +1653,20 @@ This sequencer has five simultaneous outputs that read the sequence left to righ
 This sequencer has four simultaneous outputs that read the sequence left to right, top to bottom; right to left bottom to top; right to left, top to bottom; and bottom to top, right to left. Each sequence and output is color coded. It is essentially an 8 step sequencer being read in 4 different ways.
 
 ![Modulation 2x4x4 Matrix Sequencer](img/Library-Images/Sequencer/Matrix/Modulation-2x4x4-Matrix-Sequencer.png)
+
+**Modulation Cross 4x4x9 Matrix Sequencer** <br> 
+
+This modulation sequencer uses a 4x4 grid of knobs to create a total of 9 sequences.
+
+Each row and column is its own individual 4 step sequencer. There are 4 x-axis sequencers and 4 y-axis sequencers.
+
+The x sequencers are stepped at the x gate input. Their current steps are highlighted in red. Their 0 to 1 modulation signal outputs are also red.
+
+The y sequencers are stepped at the y gate input. Their current steps are highlighted in blue. Their 0 to 1 modulation signal outputs are also blue.
+
+At the (x,y) output, where the x sequencer and y sequencer overlap is outputted as a 0 to 1 modulation signal, colored in purple.
+
+![Modulation 2x4x4 Matrix Sequencer](img/Library-Images/Sequencer/Matrix/Modulation-Cross-4x4x9-Matrix-Sequencer.png)
 
 
 **Octave-Modulation 4x4x1 Matrix Sequencer** <br> 
