@@ -3,13 +3,13 @@
 This is an overview of all of the modules in the Audulus module library. They are categorized by type and subcategory.
 
 
-
+<br>
 ## Attenuator
 
 Attenuator modules shrink or expand, translate up or down, or otherwise modify an incoming signal. The most basic attenuator is a volume control, but attenuators can be used for many things. The most useful attenuator is the Modulation Attenuate-Offset module, which is most often use to translate LFOs and envelopes into a particular range to wiggle a knob on a filter or effect.
 
 
-
+<br>
 ### Audio
 
 A collection of audio attenuators and attenuverters scaled to work properly with audio signals. Audio signals in Audulus range from a maximum of -1 to 1.
@@ -38,7 +38,7 @@ Knob | Function | Notes
 Translates -1 to 1 audio signals. The * control is an attenuverter. At 0, the input audio signal is inverted. At 1, the signal is passed unaffected. In between 0 to 1 the control acts like an attenuator. The + control is an offset. It translates the entire wave up by 0 to 1. If the outgoing wave exceeds 1, the signal is clipped.
 
 
-
+<br>
 ### Modulation
 
 A collection of modulation attenuators and attenuverters scaled to work properly with audio signals. Modulation signals in Audulus range from a maximum to 0 to 1.
@@ -130,12 +130,12 @@ Knob | Function | Notes
 * | Attenuate | `0 = Input*0` `0.5 = Input*2.5` `1 = Input*10` 
 + | Offset | `0 = Input-5` `0.5 = Input+0` `1 = Input+5` 
 
-Meter | Function | Notes
-:------------- | :------------- | :-------------
-Value | - | `Input` 
-Value | - | `Attenuate`
-Value | - | `Offset`
-Value | - | `Output`
+Meter | Displays
+:------------- | :-------------
+Value | `Input` 
+Value | `Attenuate`
+Value | `Offset`
+Value | `Output`
 
 
 Translates 0 to 1 modulation signals into -5 to 5 octave signals. This is another very important utility module. Use it between a 0 to 1 modulation sequencer and an oscillator to adjust the pitch range that the sequencer outputs. The attenuate control converts the 0 to 1 modulation signal into a 0 to 10 octave signal. If you want to have a sequencer output a maximum range of 2 octaves, set this control so that the multiplication factor is 2. If you want a 5 octave range, set it so that the multiplication factor is 5. The offset control translates the range of pitches up and down from -5 to 5. Combining the two controls, if you want a sequencer to play a bass line, you could set the maximum octave range to 2 on the attenuator, and shift the sequence down with the offset until it sits in the right octave for you. For a lead arpeggiator, you might set the attenuator to 4 and shift the offset down to the lowest note you want to hit in the arpeggiator.
@@ -161,19 +161,19 @@ oct | Octave Shift | `0 = Input-5` `0.5 = Input + 0` `1 = Input+5`
 * | Attenuate | `0 = Input*0` `0.5 = Input*2.5` `1 = Input*10` 
 + | Offset | `0 = Input-5` `0.5 = Input+0` `1 = Input+5` 
 
-Meter | Function | Notes
-:------------- | :------------- | :-------------
-Value | Display | `Input` 
-Value | Display | `Attenuate`
-Value | Display | `Offset`
-Value | Display | `Octave Shift`
-Value | Display | `Output`
+Meter | Displays
+:------------- | :-------------
+Value | `Input` 
+Value | `Attenuate`
+Value | `Offset`
+Value | `Octave Shift`
+Value | `Output`
 
 
 Same as the Modulation to Octave Attenuate-Offset except it adds a control to shift the octave being played up or down. You can use this for quick easy shifts in octave that would be more difficult to program with the Modulation to Octave Attenuate-Offset alone.
 
 
-
+<br>
 ### Octave
 
 A collection of octave attenuators and translators scaled to work properly with the octave signal. Audible frequencies range from about -5 to 5, though the octave signal can go both higher and lower than this.
@@ -248,16 +248,28 @@ Same as the Octave Attenuate-Offset but also includes an octave shift knob as se
 
 ![Octave Shift](img/Library-Images/Attenuator/Octave/Octave-Shift.png)
 
+Input | Signal Range
+:------------- | :-------------
+Octave | `-5 to 5`
+
+Output | Signal Range
+:------------- | :-------------
+Octave | `-5 to 5`
+
+Knob | Function | Notes
+:------------- | :------------- | :-------------
+oct | Octave Shift | `0 = Input-5` `0.5 = Input+0` `1 = Input+5` 
+
 Shifts an incoming octave signal up and down by octaves. Use it to create thick sounding leads by stacking two oscillators using the same sequence one or two octaves apart.
 
 
-
+<br>
 ## Building
 
 Building modules are not often used by themselves, but are instead used to create other modules. One of the most used building modules is the Octave to Hz converter. It takes an incoming octave signal and converts it in the Hz value to control an oscillator or filter cutoff. Another common building module is the Count Up module, which counts to a specified number each gate pulse and then resets. You will find them most often in sequencers. Another very common set of building modules are the light nodes which are used to both indicate what type of signal is inputted our outputted and to display the signal strength.
 
 
-
+<br>
 ### Binary
 
 Binary building modules use binary numbers as a way to store information. They are typically used to store chains of on/off patterns as decimals to be reconverted to binary in a pattern sequencer.
@@ -269,484 +281,837 @@ Binary building modules use binary numbers as a way to store information. They a
 
 ![Pattern to Decimal Code](img/Library-Images/Building/Binary/Pattern-to-Decimal-Code.png)
 
+Output | Signal Range
+:------------- | :-------------
+Decimal Code | `0 to 65535`
+
+Button | Function | Notes
+:------------- | :------------- | :-------------
+4x4 Button Grid | Pattern Entry | The pattern begins in the top left and goes left to right, top to bottom.
+
 Turns a 16 step pattern into a decimal number that can be used to create rhythmic patterns with modules like the Pattern Bank Sequencer. The module looks at the 16 beat pattern as if it were at 16 digit binary number and simply converts that binary number into a decimal. In the Pattern Bank Sequencer, the decimal is re-converted into the binary number. The binary number is then broken apart into individual 0 (skip) or 1 (hit) messages for the sequencer.
 
 
-
+<br>
 ### Counter
 
 Counters are modules that count up or down in sequence when pulsed with a gate or somehow count time. They are most often used in sequencers.
 
+
+---
 **Elapsed Time** <br>
-Displays the elapsed time since a timer has been reset. It converts the timer’s output of seconds into hours, minutes, seconds, and milliseconds.
 
 ![Elapsed Time](img/Library-Images/Building/Counter/Elapsed-Time.png)
 
+Input | Signal Range
+:------------- | :-------------
+Time | `0 to infinity`
+
+Output | Signal Range
+:------------- | :-------------
+Time | `0 to infinity`
+
+Meter | Displays
+:------------- | :-------------
+Value | `Elapsed Time` 
+
+Displays the elapsed time since a timer has been reset. It converts the timer’s output of seconds into hours, minutes, seconds, and milliseconds.
+
+
+
+---
 **Up Counter** <br>
-Counts up with each incoming gate pulse from 0 to a specified number and then resets. Commonly used for step sequencers.
 
 ![Up Counter](img/Library-Images/Building/Counter/Up-Counter.png)
 
+Input | Signal Range
+:------------- | :-------------
+Gate | `0 or 1`
+
+Output | Signal Range
+:------------- | :-------------
+Count | `0 to any 32-bit number`
+
+
+Counts up with each incoming gate pulse from 0 to a specified number and then resets. Commonly used for step sequencers.
+
+
+
+---
 **Up-Down Counter** <br>
-The same as the Up Counter except it counts up to a number then down back to 0 at each gate pulse. Commonly used for ping-pong mode in a sequencer.
 
 ![Up-Down Counter](img/Library-Images/Building/Counter/Up-Down-Counter.png)
 
+
+The same as the Up Counter except it counts up to a number then down back to 0 at each gate pulse. Commonly used for ping-pong mode in a sequencer.
+
+
+
+<br>
 ### Curve
 
 Curve modules apply a shape to the normally linear output of a knob or incoming 0 to 1 modulation signal. They are useful for adding logarithmic or exponential responses to knobs on volume controls and filter cutoffs, or shaping the output of an envelope. They can also be used as audio effects to apply distortion to incoming audio signals.
 
+
+
+---
 **Curve Exp-Lin-Log** <br>
-Fades between an exponential, linear, and logarithmic response. Commonly used on the output of an envelope to change its response. Greatly affects the sound of VCFs and VCAs.
 
 ![Curve Exp-Lin-Log](img/Library-Images/Building/Curve/Curve-Exp-Lin-Log.png)
 
+Fades between an exponential, linear, and logarithmic response. Commonly used on the output of an envelope to change its response. Greatly affects the sound of VCFs and VCAs.
+
+
+
+---
 **Curve Exponential** <br>
-Fades between slightly exponential `(x*x)` to highly exponential `(x*x*x*x)`.
 
 ![Curve Exponential](img/Library-Images/Building/Curve/Curve-Exponential.png)
 
+Fades between slightly exponential `(x*x)` to highly exponential `(x*x*x*x)`.
+
+
+
+<br>
 ### Detector
 
 Detector modules analyze incoming signals and detect something about them. The most basic and common detector is the audio peak detector, which flashes red when an audio signal exceeds the maximum -1 to 1 output range. Another commonly used detector is the Change Detector which outputs a short pulse whenever a value change is detected at its input.
 
+
+
+---
 **Audio Peak Detector** <br>
-Flashes red when an incoming audio signal exceeds the -1 to 1 output range. Commonly used on audio and CV output modules.
 
 ![Audio Peak Detector](img/Library-Images/Building/Detector/Audio-Peak-Detector.png)
 
+Flashes red when an incoming audio signal exceeds the -1 to 1 output range. Commonly used on audio and CV output modules.
+
+
+
+---
 **Change Detector** <br>
-Outputs a gate pulse whenever a change in value is detected at its input. A common application is to attach the detector to a knob so that whenever the knob is turning, a light will will stay illuminated. When x time has elapsed, the light will turn off. The output will be a quick burst of on/off gates, not a steady stream of on or off. To smooth out this burst of gates, use the Gate Smear module. This detector works in single-sample mode, so it is very fast and will detect changes from one sample to another.
 
 ![Change Detector](img/Library-Images/Building/Detector/Change-Detector.png)
 
+Outputs a gate pulse whenever a change in value is detected at its input. A common application is to attach the detector to a knob so that whenever the knob is turning, a light will will stay illuminated. When x time has elapsed, the light will turn off. The output will be a quick burst of on/off gates, not a steady stream of on or off. To smooth out this burst of gates, use the Gate Smear module. This detector works in single-sample mode, so it is very fast and will detect changes from one sample to another.
+
+
+
+---
 **High-Low Detector** <br>
-Detects the high and low point of an incoming signal. Very useful for ranging the output of VCO modules to the standard -1 to 1 especially when the VCO module contains multiple mixed oscillators. The reset input sets the detector back to 0 to reanalyze. The two outputs output the high (top) and low (bottom) values.
 
 ![High-Low Detector](img/Library-Images/Building/Detector/High-Low-Detector.png)
 
+Detects the high and low point of an incoming signal. Very useful for ranging the output of VCO modules to the standard -1 to 1 especially when the VCO module contains multiple mixed oscillators. The reset input sets the detector back to 0 to reanalyze. The two outputs output the high (top) and low (bottom) values.
+
+
+
+---
 **Up-Down Detector** <br>
-Similar to the Change Detector, except it analyzes whether the signal is moving from a lower value to higher value, or higher value to lower value.
 
 ![Up-Down Detector](img/Library-Images/Building/Detector/Up-Down-Detector.png)
 
+Similar to the Change Detector, except it analyzes whether the signal is moving from a lower value to higher value, or higher value to lower value.
+
+
+
+<br>
 ### Gate
 
 These modules output 0 to 1 gate signals most often used to trigger sequencers or events.
 
+
+
+---
 **1-Frame Pulse** <br>
-Takes an incoming 0 to 1 gate signal and converts it into a short ~300 sample pulse. A frame is the unit of time that Audulus processes in unless explicitly told to process in single sample mode. The pulse will only last ~300 samples no matter how long the incoming gate lasts. In most cases, this is the shortest useful gate length in Audulus.
 
 ![1-Frame Pulse](img/Library-Images/Building/Gate/1-Frame-Pulse.png)
 
+
+Takes an incoming 0 to 1 gate signal and converts it into a short ~300 sample pulse. A frame is the unit of time that Audulus processes in unless explicitly told to process in single sample mode. The pulse will only last ~300 samples no matter how long the incoming gate lasts. In most cases, this is the shortest useful gate length in Audulus.
+
+
+
+---
 **Gate to 10ms Pulse** <br>
-Translates an incoming gate into a 10ms pulse which is a standard minimum pulse length recognized by many hardware sequencers.
 
 ![Gate to 10ms Pulse](img/Library-Images/Building/Gate/Gate-to-10ms-Pulse.png)
 
+Translates an incoming gate into a 10ms pulse which is a standard minimum pulse length recognized by many hardware sequencers.
+
+
+
+<br>
 ### Input-Output
 
 These modules are a collection of common input and output lights, indicators, and signal clippers. Light nodes will have to be exposed and placed within the input-output on a module. If for some reason the light appears below or beneath the output, enter the module, cut the light, then paste it. This will make it appear on top.
 
+
+
+---
 **Audio Clip Light Output** <br>
-This module is a combination of the Audio Light Output module and a clamp expression that clips the output signal if it exceeds the standard -1 to 1 range for audio signals. It is almost exclusively found in VCAs, but can be put into any module where both hard clipping and an output audio light are desired. When clipping is detected, the light will flash white.
 
 ![Audio Clip Light Output](img/Library-Images/Building/Input-Output/Audio-Clip-Light-Output.png)
 
+This module is a combination of the Audio Light Output module and a clamp expression that clips the output signal if it exceeds the standard -1 to 1 range for audio signals. It is almost exclusively found in VCAs, but can be put into any module where both hard clipping and an output audio light are desired. When clipping is detected, the light will flash white.
+
+
+
+---
 **Audio Light Input-Output** <br>
-This collection of modules serve as audio input and output lights. When the light flashes red, the signal is positive. When it flashes blue, the signal is negative. Quickly oscillating audio signals will appear as a scintillating purple. If you do not need one or the other, simply delete it.
 
 ![Audio Light Input-Output](img/Library-Images/Building/Input-Output/Audio-Light-Input-Output.png)
 
+This collection of modules serve as audio input and output lights. When the light flashes red, the signal is positive. When it flashes blue, the signal is negative. Quickly oscillating audio signals will appear as a scintillating purple. If you do not need one or the other, simply delete it.
+
+
+
+---
 **Gate Input-Output** <br>
-This collection of modules serve as gate input and output lights. If you do not need one or the other, simply delete it.
 
 ![Gate Input-Output](img/Library-Images/Building/Input-Output/Gate-Input-Output.png)
 
+This collection of modules serve as gate input and output lights. If you do not need one or the other, simply delete it.
+
+
+
+---
 **Modulation Input-Output** <br>
-This collection of modules serve as modulation input and output lights. If you do not need one or the other, simply delete it.
 
 ![Modulation Input-Output](img/Library-Images/Building/Input-Output/Modulation-Input-Output.png)
 
+This collection of modules serve as modulation input and output lights. If you do not need one or the other, simply delete it.
+
+
+
+---
 **Octave Input-Output** <br>
-This collection of modules serve as octave signal input and output indicators. When placed inside a module, simply expose the “o” and center it in the input or output. If you do not need one or the other, simply delete it.
 
 ![Octave Input-Output](img/Library-Images/Building/Input-Output/Octave-Input-Output.png)
 
+This collection of modules serve as octave signal input and output indicators. When placed inside a module, simply expose the “o” and center it in the input or output. If you do not need one or the other, simply delete it.
+
+
+
+<br>
 ### Knob
 
 These modules are meant to be paired with 0 to 1 knobs for use inside modules. When a Knob node is created, by default, its range is 0 to 1. Thought you can change this range, it is helpful to keep them all 0 to 1 so that they can interface with 0 to 1 modulation signals. These modules translate the 0 to 1 signal from knobs into different ranges and do various other fun tricks like acting as switches or number creators.
 
+
+
+---
 **-x to x** <br>
-Attach a Knob node to the knob input and a number to the x input. The output will then range from -x to x. For example: If you attach 2 to x, the output of the module will be -2 to 2.
 
 ![-x to x](img/Library-Images/Building/Knob/-x-to-x.png)
 
+Attach a Knob node to the knob input and a number to the x input. The output will then range from -x to x. For example: If you attach 2 to x, the output of the module will be -2 to 2.
+
+
+
+---
 **0 to x** <br>
-Attach a Knob node to the knob input and a number to the x input. The output will then range from 0 to x. For example: If you attach 5 to x, the output of the module will be 0 to 2.
 
 ![0 to x](img/Library-Images/Building/Knob/0-to-x.png)
 
+Attach a Knob node to the knob input and a number to the x input. The output will then range from 0 to x. For example: If you attach 5 to x, the output of the module will be 0 to 2.
+
+
+
+---
 **Center Range** <br>
-Attach a Knob node to the knob input and a number to the Center(x) and Range(y) input. When the knob is centered at 0.5, the output of the module will be the value at Center(x). The Range(y) defines the entire sweep of the knob. For example: If you attach 2 to Center(x) and 6 to Range(y), the output of the module will be from -1 to 5, outputting a 2 when the knob is centered at 0.5.
 
 ![Center Range](img/Library-Images/Building/Knob/Center-Range.png)
 
+Attach a Knob node to the knob input and a number to the Center(x) and Range(y) input. When the knob is centered at 0.5, the output of the module will be the value at Center(x). The Range(y) defines the entire sweep of the knob. For example: If you attach 2 to Center(x) and 6 to Range(y), the output of the module will be from -1 to 5, outputting a 2 when the knob is centered at 0.5.
+
+
+
+---
 **Integer Maker 0 to 999** <br>
-Attach Knob nodes to the 100’s, 10’s, and 1’s inputs. Each knob will control the corresponding digit of a 3 digit number from 0 to 999, outputted by the module at x.
 
 ![Integer Maker](img/Library-Images/Building/Knob/Integer-Maker-0-to-999.png)
 
+Attach Knob nodes to the 100’s, 10’s, and 1’s inputs. Each knob will control the corresponding digit of a 3 digit number from 0 to 999, outputted by the module at x.
+
+
+
+---
 **Integers 0 to x** <br>
-Attach a Knob node to the knob input and an integer to the x input. The knob will sweep from 0 to x in integer steps. For example: If you attach 9 to x, the module will output integers from 0 to 9 as you sweep the knob.
 
 ![Integers 0 to x](img/Library-Images/Building/Knob/Integers-0-to-x.png)
 
+Attach a Knob node to the knob input and an integer to the x input. The knob will sweep from 0 to x in integer steps. For example: If you attach 9 to x, the module will output integers from 0 to 9 as you sweep the knob.
+
+
+
+---
 **Pulses Per Turn** <br>
-Attach a Knob node to the knob input and a positive integer to the pulses per turn input. As you sweep the knob, the module will output an on/off gate pulse that many times per whole turn.
 
 ![Pulses Per Turn](img/Library-Images/Building/Knob/Pulses-Per-Turn.png)
 
+Attach a Knob node to the knob input and a positive integer to the pulses per turn input. As you sweep the knob, the module will output an on/off gate pulse that many times per whole turn.
+
+
+
+---
 **x to y** <br>
-Attach a Knob node to the knob input and two different numbers to x and y. The knob will sweep from x to y. For example: attach -1 to x and 10 to y. The module will output -1 to 10 as the knob is turned. The lower number does not need to come first, either. You could attach 100 to x and -100 to y, and the knob will sweep backwards from 100 to -100. You can also attach special numbers like pi or e to the inputs.
 
 ![x to y](img/Library-Images/Building/Knob/x-to-y.png)
 
+Attach a Knob node to the knob input and two different numbers to x and y. The knob will sweep from x to y. For example: attach -1 to x and 10 to y. The module will output -1 to 10 as the knob is turned. The lower number does not need to come first, either. You could attach 100 to x and -100 to y, and the knob will sweep backwards from 100 to -100. You can also attach special numbers like pi or e to the inputs.
+
+
+
+---
 **x to y or z Switch** <br>
-Attach a Knob node to the knob input and two numbers to x and y. The module will sweep from x to y as long as the knob’s value does not exactly equal 0 (turned all the way down). When the knob is turned all the way down, the signal present at the z input passes to the output.
 
 ![x to y or z Switch](img/Library-Images/Building/Knob/x-to-y-or-z-Switch.png)
 
+Attach a Knob node to the knob input and two numbers to x and y. The module will sweep from x to y as long as the knob’s value does not exactly equal 0 (turned all the way down). When the knob is turned all the way down, the signal present at the z input passes to the output.
+
+
+
+---
 **xyz Switch** <br>
-Similar to the x to y or z Switch, the xyz switch will output x when the knob is turned all the way down, y when the knob is somewhere in between 0 and 1, and z when the knob is turned all the way up. A common configuration would be to attach the Knob to the knob input and the y input, with different signals attached to x and z.
 
 ![xyz Switch](img/Library-Images/Building/Knob/xyz-Switch.png)
 
+Similar to the x to y or z Switch, the xyz switch will output x when the knob is turned all the way down, y when the knob is somewhere in between 0 and 1, and z when the knob is turned all the way up. A common configuration would be to attach the Knob to the knob input and the y input, with different signals attached to x and z.
+
+
+
+<br>
 ### Light
 These modules take an input signal and translate them into signals for the RGB light node.
 
+
+
+---
 **Audio Light** <br>
-Analyzes an incoming -1 to 1 audio signal and displays the positive portion as red and negative portion as blue. Useful for indicating an audio output.
 
 ![Audio Light](img/Library-Images/Building/Light/Audio-Light.png)
 
+Analyzes an incoming -1 to 1 audio signal and displays the positive portion as red and negative portion as blue. Useful for indicating an audio output.
+
+
+
+---
 **Polar Light** <br>
-Analyzes an incoming 0 to 1 modulation signal and displays it as blue for 0 to 0.5 and red from 0.5 to 1. Useful for light indicators on attenuverters.
 
 ![Polar Light](img/Library-Images/Building/Light/Polar-Light.png)
 
+Analyzes an incoming 0 to 1 modulation signal and displays it as blue for 0 to 0.5 and red from 0.5 to 1. Useful for light indicators on attenuverters.
+
+
+
+<br>
 ### Loop
 
 These modules create a feedback loop within a module. Feedback can be used in many different ways: to create audio or modulation distortion, or to force a portion of your design into single-sample mode.
 
+
+
+---
 **Force Single Sample Loop** <br>
 Creates a loop that forces a portion of your module to run in single sample mode. Useful for when the operation of feedback requires faster processing than the ~300 sample frame rate.
 
 ![Force Single Sample Loop](img/Library-Images/Building/Loop/Force-Single-Sample-Loop.png)
 
+
+
+<br>
 ### Octave
 
 The octave signal is the equivalent to the 1 volt per octave linearized pitch scale standard in modular synthesizers but with a twist. Instead of 0 volts = lowest note and 10 volts = highest note, the octave signal in Audulus is centered at 0, where 0 = A4 = 440Hz. Going up or down by integers changes the octave, so 1 = A5 = 880Hz and -1 = A3 = 220Hz. The advantage of this system is that you can create synced oscillators that go far into the LFO range while still staying in tune with the master oscillator - very useful for FM synthesis. For practical purposes, VCOs are ranged from -5 to 5 to cover a standard 10 octave range.
 
+
+
+---
 **Octave to Hz with Linear Audio FM and Tune Controls** <br>
-A basic starter kit for creating a VCO module in Audulus. This module is the same as the Octave to Hz with Octave Shift and Fine Tune Controls module with an added section for frequency modulation (FM) input that accepts -1 to 1 audio signals. Linear FM means that the frequency modulation will respond the same in low and high octaves (as opposed to exponential FM).
 
 ![Octave to Hz with Linear Audio FM and Tune Controls](img/Library-Images/Building/Octave/Octave-to-Hz-with-Linear-Audio-FM-and-Tune-Controls.png)
 
+A basic starter kit for creating a VCO module in Audulus. This module is the same as the Octave to Hz with Octave Shift and Fine Tune Controls module with an added section for frequency modulation (FM) input that accepts -1 to 1 audio signals. Linear FM means that the frequency modulation will respond the same in low and high octaves (as opposed to exponential FM).
+
+
+
+---
 **Octave to Hz with Octave Shift and Fine Tune Controls** <br>
-A basic starter kit for creating a VCO module in Audulus. The octave input is translated into the Hz value that the Oscillator and Phasor node needs. The octave control shifts the octave of the oscillator up or down by -5 to 5 octaves. Expose the value meter to display the octave shift on your VCO. The fine tune control shifts the oscillator down by a semitone (0) or up by a semitone (1).
 
 ![Octave to Hz with Octave Shift and Fine Tune Controls](img/Library-Images/Building/Octave/Octave-to-Hz-with-Octave-Shift-and-fine-Tune-Controls.png) 
 
+A basic starter kit for creating a VCO module in Audulus. The octave input is translated into the Hz value that the Oscillator and Phasor node needs. The octave control shifts the octave of the oscillator up or down by -5 to 5 octaves. Expose the value meter to display the octave shift on your VCO. The fine tune control shifts the oscillator down by a semitone (0) or up by a semitone (1).
+
+
+
+<br>
 ### Presets
 
 These modules use spline nodes to store preset values for use in other modules. Simply add spline break points inside the modules and attach outputs to the controls you want to create presets for. Attach a knob to the preset knob to bring the preset scanner onto the front panel UI of your module.
 
+
+
+---
 **Preset 2** <br>
-A preset module with 2 outputs.
 
 ![Preset 2](img/Library-Images/Building/Presets/Preset-2.png) 
 
+A preset module with 2 outputs.
+
+
+---
 **Preset 4** <br>
-A preset module with 4 outputs.
+
 ![Preset 4](img/Library-Images/Building/Presets/Preset-4.png) 
 
+A preset module with 4 outputs.
+
+
+
+---
 **Preset 8** <br>
-A preset module with 8 outputs.
+
 ![Preset 8](img/Library-Images/Building/Presets/Preset-8.png) 
 
+A preset module with 8 outputs.
+
+
+
+---
 **Preset 16** <br>
 A preset module with 16 outputs.
 ![Preset 16](img/Library-Images/Building/Presets/Preset-16.png) 
 
+
+
+<br>
 ### Random
 
 These modules create random strings of numbers which can be used as audio noise or as random modulations.
 
+---
 **True Random** <br>
-Creates true random numbers that are not algorithmically generated like those from the Random node. The Random node creates a string of pseudo-random numbers from a starting point called a seed. The problem with this is that a patch utilizing a Random node will sound exactly the same whenever the patch is opened. This module solves that problem by using the microphone input to generate noise, which can then be sampled to create true randomness. The noise floor of an audio input is amplified by a large factor and pushed through a sine waveshaping expression to create what is essentially white noise. The audio input used by True Random can be shared with an instrument without interfering with its operation, or inducing noise into the audio path. The audio channel used can be changed inside the module at the ADC node input. By default, the noise is sampled at 20kHz. To create a true random sample & hold, just combine this module with a clocked sample and hold.
 
 ![True Random](img/Library-Images/Building/Random/True-Random.png) 
 
+Creates true random numbers that are not algorithmically generated like those from the Random node. The Random node creates a string of pseudo-random numbers from a starting point called a seed. 
+
+The problem with this is that a patch utilizing a Random node will sound exactly the same whenever the patch is opened. This module solves that problem by using the microphone input to generate noise, which can then be sampled to create true randomness. 
+
+The noise floor of an audio input is amplified by a large factor and pushed through a sine waveshaping expression to create what is essentially white noise. The audio input used by True Random can be shared with an instrument without interfering with its operation, or inducing noise into the audio path. 
+
+The audio channel used can be changed inside the module at the ADC node input. By default, the noise is sampled at 20kHz. To create a true random sample & hold, just combine this module with a clocked sample and hold.
+
+
+
+<br>
 ### Rectifier
 These modules take incoming signals and rectify them. Rectification is a term borrowed from electronics. When you want to convert an alternating current (AC) to a direct current (DC), you use a rectifier. AC is equivalent to Audulus’ audio signal, and DC is equivalent to Audulus’ modulation signal. There are two basic types of rectification - full-wave and half-wave. Full wave rectification flips the negative portion of the wave around so that, for example, a sine wave would appear to be rolling, bouncing hills. Half wave rectification simply clips off the negative portion of the wave. Rectifiers are useful for waveshaping your modulation signals to get unique patterns you otherwise would not normally be able to get.
 
+
+
+---
 **Audio Rectifier** <br>
+
+![Audio Rectifier](img/Library-Images/Building/Rectifier/Audio-Rectifier.png) 
+
 Rectifies an audio signal in 4 different ways. <br>
 Half + outputs the half-wave rectified positive signal. <br>
 Half - outputs the half-wave rectified negative signal. <br>
 Full + outputs the full-wave rectified positive signal. <br>
 Full - outputs the full-wave rectified negative signal. <br>
 
-![Audio Rectifier](img/Library-Images/Building/Rectifier/Audio-Rectifier.png) 
 
+
+---
 **Modulation Rectifier** <br>
+
+![Modulation Rectifier](img/Library-Images/Building/Rectifier/Modulation-Rectifier.png) 
+
 Converts a modulation signal to an audio signal and then rectifies it in 4 different ways. <br>
 Half + outputs the half-wave rectified positive signal. <br>
 Half - outputs the half-wave rectified negative signal, but translated into the 0 to 1 modulation range. <br>
 Full + outputs the full-wave rectified positive signal. <br>
 Full - outputs the full-wave rectified negative signal - an inverted version of the full-wave positive signal translated into the 0 to 1 modulation range. <br>
 
-![Modulation Rectifier](img/Library-Images/Building/Rectifier/Modulation-Rectifier.png) 
 
+
+---
 **Rectifying Signal Reflector** <br>
+
+![Rectifying Signal Reflector](img/Library-Images/Building/Rectifier/Rectifying-Signal-Reflector.png)
+
 Uses a set of expressions to combine two modulation signals into a unique modulation wave. When x is greater than y, the output of the module is x-y. When y is greater than x, the output of the module is y-x. When the output of the module is greater than 0.5, the module outputs a gate. The x and y knobs control the level of each modulation signal before being compared. The attenuate control attenuates the overall output of the module. The offset control does not offset the main output signal, but instead offsets the output that is located beneath the offset control. This output is meant to be looped back and attached to the x or y control to create really wild unpredictable results.
 
-![Rectifying Signal Reflector](img/Library-Images/Building/Rectifier/Rectifying-Signal-Reflector.png) 
 
+
+<br>
 ### Signal
 
 These modules compare and create signals. The category is broad and contains modules that otherwise do not fit into any of the other building categories.
 
+
+
+---
 **Return Greater** <br>
-Compares signals x and y and outputs whatever signal is greater.
 
 ![Return Greater](img/Library-Images/Building/Signal/Return-Greater.png)
 
+Compares signals x and y and outputs whatever signal is greater.
+
+
+
+---
 **Return Lesser** <br>
-Compares signals x and y and outputs whatever signal is lesser.
 
 ![Return Lesser](img/Library-Images/Building/Signal/Return-Lesser.png)
 
+Compares signals x and y and outputs whatever signal is lesser.
+
+
+
+---
 **Value Distributor** <br>
-Creates eight 0 to 1 modulation signals that are distributed in a user-defined manner around linear and exponential shapes. The bal or balance control adjusts the tilt of the distribution from left to equal to right. The shape control applies an exponential curve to the distribution. The peak control changes which output has the highest peak. The gain control adjusts the total range of the value distribution. An example use of this module would be to use each 8 outputs to control the boost or cut of an 8 band equalizer.
 
 ![Value Distributor](img/Library-Images/Building/Signal/Value-Distributor.png)
 
+Creates eight 0 to 1 modulation signals that are distributed in a user-defined manner around linear and exponential shapes. The bal or balance control adjusts the tilt of the distribution from left to equal to right. The shape control applies an exponential curve to the distribution. The peak control changes which output has the highest peak. The gain control adjusts the total range of the value distribution. An example use of this module would be to use each 8 outputs to control the boost or cut of an 8 band equalizer.
+
+
+
+<br>
 ### Spline
 
 These are preset spline nodes mainly for use in oscillators. Driven by a 0 to 1 saw LFO, they translate the saw into whatever shape depicted on the spline. The output of the spline will have to be translated into the -1 to 1 audio range if using them as audio oscillators.
 
+
+
 **Triangle Spline Node** <br>
-A spline with a perfect triangle shape.
 
 ![Triangle Spline Node](img/Library-Images/Building/Spline/Triangle-Spline-Node.png)
 
+A spline with a perfect triangle shape.
+
+
+
+<br>
 ###Templates
 These are module templates that can be used to quickly build up a custom module of your own.
 
+
+
+---
 **VCO Template** <br>
-This is a basic VCO template that includes an octave input, audio output, and tuning controls. Just add your own custom oscillator and adjust the UI to taste.
 
 ![VCO Template](img/Library-Images/Building/Templates/VCO-Template.png)
 
+This is a basic VCO template that includes an octave input, audio output, and tuning controls. Just add your own custom oscillator and adjust the UI to taste.
+
+
+
+<br>
 ### Translation
 
 These modules take a one signal and transform it into another type of signal. The most common of these is the Octave to Hz translator, which converts the linearized octave pitch signal in Audulus to the exponential Hz pitch value. You will find these translator modules in every single VCO module in Audulus’ module library. Another common translation module are the truncate modules, which cut off values of a number past a certain digit. This is useful when you only want to display a value to a certain precision.
+
+
 
 #### Audio
 
 These modules translate -1 to 1 audio signals into other signal types.
 
+
+
+---
 **Audio to Modulation** <br>
-Translates -1 to 1 audio signals to 0 to 1 modulation signals.
 
 ![Audio to Modulation](img/Library-Images/Building/Translation/Audio/Audio-to-Modulation.png)
 
+Translates -1 to 1 audio signals to 0 to 1 modulation signals.
+
+
+<br>
 #### BPM
 
 These modules translate BPM (beats per minute) signals into other signal types.
 
+
+
+---
 **BPM to Hz** <br>
-Translates BPM signals into Hz values.
+
 ![BPM to Hz](img/Library-Images/Building/Translation/BPM/BPM-to-Hz.png)
 
+Translates BPM signals into Hz values.
+
+
+
+<br>
 #### dB
 
 These modules translate dB (decibel) signals into other signal types.
 
+
+
+---
 **dB to Amplitude** <br>
-Translates dBs into an amplitude signal.
 
 ![dB to Amplitude](img/Library-Images/Building/Translation/dB/dB-to-Amplitude.png)
 
+Translates dBs into an amplitude signal.
+
+
+
+<br>
 #### Feedback Delay
 
 These modules translate the Feedback Delay period into other signal types.
 
+
+
+---
 **Feedback Delay to Seconds** <br>
-Translates the Feedback Delay time into seconds.
 
 ![Feedback Delay to Seconds](img/Library-Images/Building/Translation/FeedbackDelay/Feedback-Delay-to-Seconds.png)
 
+Translates the Feedback Delay time into seconds.
+
+
+
+<br>
 #### Hz
 
 These modules translate Hz (hertz) signals into other signal types.
 
+
+
+---
 **Hz to BPM** <br>
-Translates Hz into BPM.
 
 ![Hz to BPM](img/Library-Images/Building/Translation/Hz/Hz-to-BPM.png)
 
+Translates Hz into BPM.
+
+
+
+---
 **Hz to Note Number** <br>
-Translates Hz to Note Number, as defined by an 88-note piano keyboard.
 
 ![Hz to Note Number](img/Library-Images/Building/Translation/Hz/Hz-to-Note-Number.png)
 
+Translates Hz to Note Number, as defined by an 88-note piano keyboard.
+
+
+
 **Hz to Octave** <br>
-Translates Hz into the octave signal.
 
 ![Hz to Octave](img/Library-Images/Building/Translation/Hz/Hz-to-Octave.png)
 
+Translates Hz into the octave signal.
+
+
+
 **Hz to Seconds** <br>
-Translates Hz into seconds.
 
 ![Hz to Seconds](img/Library-Images/Building/Translation/Hz/Hz-to-Seconds.png)
+
+Translates Hz into seconds.
+
+
 
 #### Modulation
 
 These modules translate the 0 to 1 modulation signal into other signal types.
 
 **Modulation to Audio** <br>
-Translates the 0 to 1 modulation signal into a -1 to 1 audio signal.
 
 ![Modulation to Audio](img/Library-Images/Building/Translation/Modulation/Modulation-to-Audio.png)
 
+Translates the 0 to 1 modulation signal into a -1 to 1 audio signal.
+
+
+
 **Modulation to Radians** <br>
-Translates the 0 to 1 modulation signal into the 0 to 2pi radian signal.
 
 ![Modulation to Radians](img/Library-Images/Building/Translation/Modulation/Modulation-to-Radians.png)
+
+Translates the 0 to 1 modulation signal into the 0 to 2pi radian signal.
+
+
 
 #### Note Number
 
 These modules translate the note number, as defined by an 88-note piano keyboard, into other signal types.
 
 **Note Number to Hz** <br>
-Translates a note number into a Hz signal.
 
 ![Note Number to Hz](img/Library-Images/Building/Translation/NoteNumber/Note-Number-to-Hz.png)
 
+Translates a note number into a Hz signal.
+
+
+
 **Note Number to Octave** <br>
-Translates a note number into the octave signal.
 
 ![Note Number to Octave](img/Library-Images/Building/Translation/NoteNumber/Note-Number-to-Octave.png)
+
+Translates a note number into the octave signal.
+
+
 
 #### Octave
 
 These modules translate the octave signal to other signal types. The octave signal in Audulus is a linearized pitch scale. Unlike 1 volt per octave modular synth pitch scales, the octave signal has no upper or lower limit. Instead, it is centered around 0, where 0 = A4 = 440Hz. An octave signal of 1 would be 1 octave higher than A4, or A5 = 880Hz. An octave signal of -1 would be 1 octave lower than A4, or A3 = 220Hz. The reference pitch of A4 = 440Hz can be changed inside these modules.
 
 **Octave to Hz** <br>
-Translates the octave signal into a Hz signal.
 
 ![Octave to Hz](img/Library-Images/Building/Translation/Octave/Octave-to-Hz.png)
 
+Translates the octave signal into a Hz signal.
+
+
+
 **Octave to Note Number** <br>
-Translates the octave signal into a note number signal.
 
 ![Octave to Note Numbers](img/Library-Images/Building/Translation/Octave/Octave-to-Note-Number.png)
+
+Translates the octave signal into a note number signal.
+
+
 
 #### Radians
 
 These modules translate radians into other signal types. The Phasor node outputs in radians.
 
 **Radians to Audio** <br>
-Translates radians into a -1 to 1 audio signal.
 
 ![Radians to Audio](img/Library-Images/Building/Translation/Radians/Radians-to-Audio.png)
 
+Translates radians into a -1 to 1 audio signal.
+
+
+
 **Radians to Degrees** <br>
-Translates radians into a 0 to 360 degrees signal.
 
 ![Radians to Degrees](img/Library-Images/Building/Translation/Radians/Radians-to-Degrees.png)
 
+Translates radians into a 0 to 360 degrees signal.
+
+
+
 **Radians to Modulation** <br>
-Translates radians into a 0 to 1 modulation signal.
 
 ![Radians to Modulation](img/Library-Images/Building/Translation/Radians/Radians-to-Modulation.png)
+
+Translates radians into a 0 to 1 modulation signal.
+
+
 
 #### Round
 
 These modules round incoming signals to the closest digit specified.
 
 **Round to Hundredths** <br>
-Rounds incoming signal to the nearest hundredths place.
 
 ![Round to Hundredths](img/Library-Images/Building/Translation/Round/Round-to-Hundredths.png)
 
+Rounds incoming signal to the nearest hundredths place.
+
+
+
 **Round to Integer** <br>
-Rounds incoming signal to the nearest integer.
 
 ![Round to Integer](img/Library-Images/Building/Translation/Round/Round-to-Integer.png)
 
+Rounds incoming signal to the nearest integer.
+
+
+
 **Round to Tenths** <br>
-Rounds incoming signal to the nearest tenths place.
 
 ![Round to Tenths](img/Library-Images/Building/Translation/Round/Round-to-Tenths.png)
 
+Rounds incoming signal to the nearest tenths place.
+
+
+
 **Round to Thousandths** <br>
-Rounds incoming signal to the nearest thousandths place.
 
 ![Round to Thousandths](img/Library-Images/Building/Translation/Round/Round-to-Thousandths.png)
+
+Rounds incoming signal to the nearest thousandths place.
+
+
 
 #### Samples
 
 These modules translate the time period of a sample into other signal types.
 
 **Samples to seconds** <br>
-Translates x number of samples into seconds. Smallest value is 1. For best results, use integers.
 
 ![Samples to seconds](img/Library-Images/Building/Translation/Samples/Samples-to-Seconds.png)
+
+Translates x number of samples into seconds. Smallest value is 1. For best results, use integers.
+
+
 
 #### Seconds
 These modules translate seconds into other signal types.
 
 **Seconds to samples** <br>
-Translates x number of seconds into a number of samples.
 
 ![Seconds to Samples](img/Library-Images/Building/Translation/Seconds/Seconds-to-Samples.png)
+
+Translates x number of seconds into a number of samples.
+
+
 
 #### Truncate
 
 These modules clip off trailing digits after the given decimal place.
 
 **Truncate to Hundredths** <br>
-Clips off any digits after the hundredths place.
 
 ![Truncate to Hundredths](img/Library-Images/Building/Translation/Truncate/Truncate-to-Hundredths.png)
 
+Clips off any digits after the hundredths place.
+
+
+
 **Truncate to Tenths** <br>
-Clips off any digits after the tenths place.
 
 ![Truncate to Tenths](img/Library-Images/Building/Translation/Truncate/Truncate-to-Tenths.png)
 
+Clips off any digits after the tenths place.
+
+
+
 **Truncate to Thousandths** <br>
-Clips off any digits after the thousandths place.
 
 ![Truncate to Thousandths](img/Library-Images/Building/Translation/Truncate/Truncate-to-Thousandths.png)
 
-### Vias
+Clips off any digits after the thousandths place.
 
-Vias are special pass-through tabs that help arrange wires in Audulus. They are very useful for keeping the internals of modules neat and easy to read. They also serve an important function while building. You may, for example, have a single output going to multiple inputs. You want to attach a knob to test that function, but then later wish to replace it with an input or maybe even a button. If you simply attached the output of the knob to all of those inputs, you would have to delete the knob and rewire everything from scratch. However, if you wire the via first and then attach the knob to the via, you can easily clip out the knob while retaining your connections. Also, because signal flow in Audulus is by default left to right, the cable animation will not look very neat if you want to run a signal backwards in a feedback configuration. Reverse vias allow you to change the direction of a signal in Audulus while maintaining a clean look.
+
+
+### Vias
 
 ![Via](img/Library-Images/Building/Via.png)
 
 ![Via Reversed](img/Library-Images/Building/Via-Reversed.png)
+
+Vias are special pass-through tabs that help arrange wires in Audulus. They are very useful for keeping the internals of modules neat and easy to read. They also serve an important function while building. You may, for example, have a single output going to multiple inputs. You want to attach a knob to test that function, but then later wish to replace it with an input or maybe even a button. If you simply attached the output of the knob to all of those inputs, you would have to delete the knob and rewire everything from scratch. However, if you wire the via first and then attach the knob to the via, you can easily clip out the knob while retaining your connections. Also, because signal flow in Audulus is by default left to right, the cable animation will not look very neat if you want to run a signal backwards in a feedback configuration. Reverse vias allow you to change the direction of a signal in Audulus while maintaining a clean look.
+
+
 
 ## Chaos
 
 Chaos modules are a special class of random modules used primarily for modulation. They are not purely random like white noise (where all values have an equal possibility of being chosen), and not “filtered” random like pink noise (where lower values have a greater chance of being chosen than higher values). Instead, chaos describes a system that is highly dependent on an initial state, and often contain feedback loops, where the previous state affects the next state. For example: in choosing random numbers, the previous number does not affect the probability of the value of the next number being chosen. A filtered random system can bias the set of numbers being chosen so that more low-value numbers are chosen (like with pink noise), but the previous number chosen still does not affect what number will be chosen next. Chaos on the other hand allows for previous values to influence future values that are chosen. Chaos modules make for interesting modulation sources as they tend to have a more organic or natural feel - almost as if a human hand or the wind were turning the knob.
 
 **1D Chaos Decay** <br>
+
+![1D Chaos Decay](img/Library-Images/Chaos/1D-Chaos-Decay.png)
 
 Creates a one-dimensional chaos modulation and envelope decay source. The module begins with a modulation output of 0.5. Each time the module is clocked, a new value is chosen. The new value will be go halfway from its current position to 1 (0.75) or 0 (0.25). 
 
@@ -758,9 +1123,11 @@ The range must be used in conjunction with the speed of the incoming clock. If t
 
 So as a general rule use slow clock speeds for higher slew range values. The decay control adjusts the speed of the decay of the 8 envelope outputs from 0.01 seconds to 30 seconds. The decay cycle is triggered whenever the value of the modulation output crosses each input.
 
-![1D Chaos Decay](img/Library-Images/Chaos/1D-Chaos-Decay.png)
 
 **1D Chaos Gate** <br>
+
+![1D Chaos Gate](img/Library-Images/Chaos/1D-Chaos-Gate.png)
+
 Creates a one-dimensional chaos modulation and gate source. The module begins with a modulation output of 0.5. Each time the module is clocked, a new value is chosen. The new value will be go halfway from its current position to 1 (0.75) or 0 (0.25). 
 
 Each successive clock pulse will again choose halfway to 0 or halfway to 1. So if the current position after one clock pulse is 0.75, the next position could be halfway to 1 (0.875) or halfway to 0 (0.375). The bias knob tips the balance from a 50-50 chance to go up or down to 100% chance to go down (0) or 100% chance to go up (1). 
@@ -771,17 +1138,22 @@ The range must be used in conjunction with the speed of the incoming clock. If t
 
 So as a general rule use slow clock speeds for higher slew range values. The -/+ control is a positive domain attenuverter for the modulation output. The 8 gate outputs serve as both a meter and set of triggers for other modules.
 
-![1D Chaos Gate](img/Library-Images/Chaos/1D-Chaos-Gate.png)
 
 **2D Chaos Decay** <br>
-Essentially the same as two 1D Chaos Decay modules, but with a 2D output matrix. Map the x and y outputs to dual parameters like delay time and feedback, left and right channel volume, or filter cutoff and resonance. Use the output gates to trigger chaotic events or step sequencers.
 
 ![2D Chaos Decay](img/Library-Images/Chaos/2D-Chaos-Decay.png)
 
+Essentially the same as two 1D Chaos Decay modules, but with a 2D output matrix. Map the x and y outputs to dual parameters like delay time and feedback, left and right channel volume, or filter cutoff and resonance. Use the output gates to trigger chaotic events or step sequencers.
+
+
+
 **2D Chaos Gate** <br>
-Essentially the same as two 1D Chaos Gate modules, but with a 2D output matrix. Map the x and y outputs to dual parameters like delay time and feedback, left and right channel volume, or filter cutoff and resonance. Use the output gates to trigger chaotic events or step sequencers.
 
 ![2D Chaos Decay](img/Library-Images/Chaos/2D-Chaos-Gate.png)
+
+Essentially the same as two 1D Chaos Gate modules, but with a 2D output matrix. Map the x and y outputs to dual parameters like delay time and feedback, left and right channel volume, or filter cutoff and resonance. Use the output gates to trigger chaotic events or step sequencers.
+
+
 
 ## Clock
 
@@ -790,6 +1162,9 @@ These modules are the beating heart of any modular system. Clock modules are pri
 This allows clocks to be used as gates for envelope modules or as on/off switches as well. This collection also contains clock modifiers like clock speed dividers and multipliers. Clocks output 0 or 1 gate signals.
 
 **BPM Clock** <br>
+
+![BPM Clock](img/Library-Images/Clock/BPM-Clock.png)
+
 Creates a clock pulse based on a beats per minute (BPM) value. The top knob controls the BPM value, which is displayed at the bottom of the module. The BPM values are fixed at integers from 60 to 220 BPM. 
 
 The pulse width control adjusts the amount of on time relative to off time. The decimal value represents the pulse width percent - so 0.5 is 50% duty cycle, 0.1 is 10% duty cycle, and 0.9 is 90% duty cycle. At 0 or 1 the clock output will effectively turn off (remain low or high all the time), though internally it will still pulse. 
@@ -798,120 +1173,184 @@ The button will turn the clock on (red) or off (blue). The input just below the 
 
 Use a slower clock to reset a faster clock for some interesting rhythmic variations, or simply to sync multiple clocks to one master clock.
 
-![BPM Clock](img/Library-Images/Clock/BPM-Clock.png)
+
 
 **Burst Generator** <br>
-Creates a stream of 1 to 32 clock pulses at a given speed whenever the input is clocked. The top knob adjusts how many clock pulses the burst generator creates. The bottom knob adjusts how fast the pulses are generated. Very useful for creating organic-sounding snare rolls.
 
 ![Burst Generator](img/Library-Images/Clock/Burst-Generator.png)
 
+Creates a stream of 1 to 32 clock pulses at a given speed whenever the input is clocked. The top knob adjusts how many clock pulses the burst generator creates. The bottom knob adjusts how fast the pulses are generated. Very useful for creating organic-sounding snare rolls.
+
+
+
 **Clock Divider** <br>
-Accepts an incoming clock pulse and outputs a division of the incoming clock speed from 1/1 (pass-through) to 1/64 (one clock pulse per 64 incoming clock pulses). If you have a patch with multiple clock dividers, you may find that you have to close and reopen a patch to sync them up. You only need to do this once after you have finished adding the clock dividers. This is not a bug: closing and reopening a patch resets the counters inside the clock dividers so they all start from the beginning. A unique feature to Audulus is that clock dividers modules preserve the throughput clock’s pulse width.
 
 ![Clock Divider](img/Library-Images/Clock/Clock-Divider.png)
 
+Accepts an incoming clock pulse and outputs a division of the incoming clock speed from 1/1 (pass-through) to 1/64 (one clock pulse per 64 incoming clock pulses). If you have a patch with multiple clock dividers, you may find that you have to close and reopen a patch to sync them up. You only need to do this once after you have finished adding the clock dividers. This is not a bug: closing and reopening a patch resets the counters inside the clock dividers so they all start from the beginning. A unique feature to Audulus is that clock dividers modules preserve the throughput clock’s pulse width.
+
+
+
 **Clock Fractional Multiplier** <br>
-Accepts an incoming clock pulse at the top gate input and outputs a fractional multiplication of the incoming clock speed from 1/1 (pass through) to 8/9 (8 clock pulses per 9 incoming clock pulses). The top knob controls the numerator from 1 to 9 and the bottom number controls the denominator from 1 to 9. The momentary button resets the counter from start. The rs (reset) input will do the same, but with a remote gate control. This module can create all sorts of complex rhythmic pulses based on an incoming clock pulse. Clock multipliers in Audulus work by using a Zero Cross node to analyze the incoming speed of a clock signal. Thus, they will always need 2 initial clock pulses to begin working. If you want everything in your patches to stay totally lock step in a perfect way, it is much better to set your master clock to the fastest pulse you will use and use clock dividers to divide the master clock.
 
 ![Clock Fractional Multiplier](img/Library-Images/Clock/Clock-Fractional-Multiplier.png)
 
+Accepts an incoming clock pulse at the top gate input and outputs a fractional multiplication of the incoming clock speed from 1/1 (pass through) to 8/9 (8 clock pulses per 9 incoming clock pulses). The top knob controls the numerator from 1 to 9 and the bottom number controls the denominator from 1 to 9. The momentary button resets the counter from start. The rs (reset) input will do the same, but with a remote gate control. This module can create all sorts of complex rhythmic pulses based on an incoming clock pulse. Clock multipliers in Audulus work by using a Zero Cross node to analyze the incoming speed of a clock signal. Thus, they will always need 2 initial clock pulses to begin working. If you want everything in your patches to stay totally lock step in a perfect way, it is much better to set your master clock to the fastest pulse you will use and use clock dividers to divide the master clock.
+
+
+
 **Clock Multiplier** <br>
-Accepts an incoming clock pulse and outputs a division of the incoming clock speed from `1*1` (pass-through) to `1*64` (64 clock pulses per 1 incoming clock pulse). If you have a patch with many clock multipliers, you may find that you have to close and reopen a patch to sync them up. You only need to do this once after you have finished adding the clock multipliers. This is not a bug: closing and reopening a patch resets the counters inside the clock dividers so they all start from the beginning. Clock multipliers in Audulus work by using a Zero Cross node to analyze the speed of the incoming clock signal. Thus, they will always need 2 initial clock pulses to begin working. If you want everything in your patches to stay totally lock step in a perfect way, it is much better to set your master clock to the fastest pulse you will use and use clock dividers to divide the master clock.
 
 ![Clock Multiplier](img/Library-Images/Clock/Clock-Multiplier.png)
 
+Accepts an incoming clock pulse and outputs a division of the incoming clock speed from `1*1` (pass-through) to `1*64` (64 clock pulses per 1 incoming clock pulse). If you have a patch with many clock multipliers, you may find that you have to close and reopen a patch to sync them up. You only need to do this once after you have finished adding the clock multipliers. This is not a bug: closing and reopening a patch resets the counters inside the clock dividers so they all start from the beginning. Clock multipliers in Audulus work by using a Zero Cross node to analyze the speed of the incoming clock signal. Thus, they will always need 2 initial clock pulses to begin working. If you want everything in your patches to stay totally lock step in a perfect way, it is much better to set your master clock to the fastest pulse you will use and use clock dividers to divide the master clock.
+
+
+
 **Clock** <br>
-Creates a clock pulse based on a Hz value from 0 to 20Hz. The top knob controls the speed of the clock. The pulse width control adjusts the amount of on time relative to off time. The decimal value represents the pulse width percent - so 0.5 is 50% duty cycle, 0.1 is 10% duty cycle, and 0.9 is 90% duty cycle. At 0 or 1 the clock output will effectively turn off (remain low or high all the time), though internally it will still pulse. The button will turn the clock on (red) or off (blue). The input just below the button is a remote on/off gate that will work only if the button is in the off state. The gate input of the clock is a sync input which restarts the clock. Use a slower clock to reset a faster clock for some interesting rhythmic variations, or simply to sync multiple clocks to one master clock.
 
 ![Clock](img/Library-Images/Clock/Clock.png)
 
+Creates a clock pulse based on a Hz value from 0 to 20Hz. The top knob controls the speed of the clock. The pulse width control adjusts the amount of on time relative to off time. The decimal value represents the pulse width percent - so 0.5 is 50% duty cycle, 0.1 is 10% duty cycle, and 0.9 is 90% duty cycle. At 0 or 1 the clock output will effectively turn off (remain low or high all the time), though internally it will still pulse. The button will turn the clock on (red) or off (blue). The input just below the button is a remote on/off gate that will work only if the button is in the off state. The gate input of the clock is a sync input which restarts the clock. Use a slower clock to reset a faster clock for some interesting rhythmic variations, or simply to sync multiple clocks to one master clock.
+
+
+
 **Flip Flop 2^16** <br>
-Flip flops in Audulus are a great, low-CPU way to create a clock divider. A single flip flop will divide an incoming clock pulse by 2. Chain the flip flops together and you get more and more divisions. This chain of flip flops is also known as a SISO (serial in serial out) shift register. This module outputs the clock divisions by powers of two, from top to bottom: 1/2, 1/4, 1/8, 1/16, 1/32, 1/64, 1/128, 1/256, 1/512, 1/1024, 1/2048, 1/4096, 1/8192, 1/16384, 1/32768, and 1/65,536 (or 2^16). This is a very useful module for queuing events, especially in 4/4 time. If the master clock pulse is set to 1/64th notes, then the 1/64 divided output will become the whole note output, and the 1/512 output will become the 8 bar output. These flip flop clock dividers are fixed at a 50% pulse width by design.
 
 ![Flip Flop 2^16](img/Library-Images/Clock/Flip-Flop-2^16.png)
 
+Flip flops in Audulus are a great, low-CPU way to create a clock divider. A single flip flop will divide an incoming clock pulse by 2. Chain the flip flops together and you get more and more divisions. This chain of flip flops is also known as a SISO (serial in serial out) shift register. This module outputs the clock divisions by powers of two, from top to bottom: 1/2, 1/4, 1/8, 1/16, 1/32, 1/64, 1/128, 1/256, 1/512, 1/1024, 1/2048, 1/4096, 1/8192, 1/16384, 1/32768, and 1/65,536 (or 2^16). This is a very useful module for queuing events, especially in 4/4 time. If the master clock pulse is set to 1/64th notes, then the 1/64 divided output will become the whole note output, and the 1/512 output will become the 8 bar output. These flip flop clock dividers are fixed at a 50% pulse width by design.
+
+
+
 **Flip Flop 256 Inverter** <br>
-Flip flops in Audulus are a great, low-CPU way to create a clock divider. A single flip flop will divide an incoming clock pulse by 2. Chain the flip flops together and you get more and more divisions. This chain of flip flops is also known as a SISO (serial in serial out) shift register. This module outputs the clock divisions by powers of two and their inverted counterparts, from top to bottom: 1/2, -(1/2), 1/4, -(1/4), 1/8, -(1/8), 1/16, -(1/16), 1/32, -(1/32), 1/64, -(1/64), 1/128, -(1/128), 1/256, -(1/256). This is a very useful module for queuing events, especially in 4/4 time. If the master clock pulse is set to 1/64th notes, then the 1/64 divided output will become the whole note output, and the 1/256 output will become the 4 bar output. The inverted outputs offer a way to make events happen in between clock divisions. These flip flop clock dividers are fixed at a 50% pulse width by design.
 
 ![Flip Flop 256 Inverter](img/Library-Images/Clock/Flip-Flop-256-Inverter.png)
 
+Flip flops in Audulus are a great, low-CPU way to create a clock divider. A single flip flop will divide an incoming clock pulse by 2. Chain the flip flops together and you get more and more divisions. This chain of flip flops is also known as a SISO (serial in serial out) shift register. This module outputs the clock divisions by powers of two and their inverted counterparts, from top to bottom: 1/2, -(1/2), 1/4, -(1/4), 1/8, -(1/8), 1/16, -(1/16), 1/32, -(1/32), 1/64, -(1/64), 1/128, -(1/128), 1/256, -(1/256). This is a very useful module for queuing events, especially in 4/4 time. If the master clock pulse is set to 1/64th notes, then the 1/64 divided output will become the whole note output, and the 1/256 output will become the 4 bar output. The inverted outputs offer a way to make events happen in between clock divisions. These flip flop clock dividers are fixed at a 50% pulse width by design.
+
+
+
 **Flip Flop** <br>
-Flip flops in Audulus are a great, low-CPU way to create a clock divider. A single flip flop will divide an incoming clock pulse by 2. This is a very useful module for as a kind of remote on/off switch. These flip flop clock dividers are fixed at a 50% pulse width by design.
 
 ![Flip Flop](img/Library-Images/Clock/Flip-Flop.png)
 
+Flip flops in Audulus are a great, low-CPU way to create a clock divider. A single flip flop will divide an incoming clock pulse by 2. This is a very useful module for as a kind of remote on/off switch. These flip flop clock dividers are fixed at a 50% pulse width by design.
+
+
+
 **Probability Clock** <br>
-A combination of a basic clock module and a chance gate passthrough module, this patch allows you to adjust the percent chance that the clock’s gate output will pass from 0% to 100% chance. A perfectly simple way to add a little variation to your sequencers or envelopes. The pulse width of the clock is preserved through the chance gate passthrough module.
 
 ![Probability Clock](img/Library-Images/Clock/Probability-Clock.png)
 
+A combination of a basic clock module and a chance gate passthrough module, this patch allows you to adjust the percent chance that the clock’s gate output will pass from 0% to 100% chance. A perfectly simple way to add a little variation to your sequencers or envelopes. The pulse width of the clock is preserved through the chance gate passthrough module.
+
+
+
 **Pulse Looper** <br>
-Tap the button to store 8 gate pulses over a maximum of ~5 seconds. The knob controls how long the recorded loop will be from 0 to ~5 seconds. This module can be chained with multiple instances through the outputs marked “v.” The Master module should have no input at the top v input. Slaved modules should have the master’s v output attached to their v input. This module will not store patterns between opening and closing your patch.
 
 ![Pulse Looper](img/Library-Images/Clock/Pulse-Looper.png)
 
+Tap the button to store 8 gate pulses over a maximum of ~5 seconds. The knob controls how long the recorded loop will be from 0 to ~5 seconds. This module can be chained with multiple instances through the outputs marked “v.” The Master module should have no input at the top v input. Slaved modules should have the master’s v output attached to their v input. This module will not store patterns between opening and closing your patch.
+
+
+
 **Random Clock Divider** <br>
-This module is the same as the clock divider module with an R or randomize gate input for selecting a random gate division from 1/1 to 1/64. A unique feature to Audulus is that clock dividers modules preserve the throughput clock’s pulse width.
 
 ![Random Clock Divider](img/Library-Images/Clock/Random-Clock-Divider.png)
 
+This module is the same as the clock divider module with an R or randomize gate input for selecting a random gate division from 1/1 to 1/64. A unique feature to Audulus is that clock dividers modules preserve the throughput clock’s pulse width.
+
+
+
 **Random Clock Fractional Multiplier** <br>
-This module is the same as the clock fractional multiplier module with an R or randomize gate input for generating a random gate fractional multiplication where the numerator and denominator can be any integer 1 to 9.
 
 ![Random Clock Fractional Multiplier](img/Library-Images/Clock/Random-Clock-Fractional-Multiplier.png)
 
+
+This module is the same as the clock fractional multiplier module with an R or randomize gate input for generating a random gate fractional multiplication where the numerator and denominator can be any integer 1 to 9.
+
+
+
 **Random Clock Multiplier** <br>
-This module is the same as the clock multiplier module with an R or randomize gate input for selecting a random gate multiplication from `1*1` to `1*64`.
 
 ![Random Clock Multiplier](img/Library-Images/Clock/Random-Clock-Multiplier.png)
 
+This module is the same as the clock multiplier module with an R or randomize gate input for selecting a random gate multiplication from `1*1` to `1*64`.
+
+
+
 **Random Clock** <br>
-This module is the same as the clock module with an R or randomize gate input for selecting clock speed from 0 to 20Hz.
 
 ![Random Clock](img/Library-Images/Clock/Random-Clock.png)
 
+This module is the same as the clock module with an R or randomize gate input for selecting clock speed from 0 to 20Hz.
+
+
+
 **Shift Register Clock** <br>
-This patch is a combination of the Clock module and the Flip Flop 256 Inverter module.
 
 ![Shift Register Clock](img/Library-Images/Clock/Shift-Register-Clock.png)
 
+This patch is a combination of the Clock module and the Flip Flop 256 Inverter module.
+
+
+
 **Smeared Clock** <br>
-This patch is a combination of the Clock module, Chance Gate Passthrough (CGP) module, and the Gate Smear module. The CGP module passes a random number of clock gates through to the Gate Smear module which keeps the gate high if the time between the gates is lower than its threshold. Useful for creating gates to send to envelopes that stay in sync with the master clock but have random varying lengths.
 
 ![Smeared Clock](img/Library-Images/Clock/Smeared-Clock.png)
 
+This patch is a combination of the Clock module, Chance Gate Passthrough (CGP) module, and the Gate Smear module. The CGP module passes a random number of clock gates through to the Gate Smear module which keeps the gate high if the time between the gates is lower than its threshold. Useful for creating gates to send to envelopes that stay in sync with the master clock but have random varying lengths.
+
+
+
 **Tap Tempo Clock** <br>
-Outputs a clock pulse based on a tap input and displays the clock speed in both Hz and approximate BPM. Tap Tempo speed will not be stored when closing a patch.
 
 ![Tap Tempo Clock](img/Library-Images/Clock/Tap-Tempo-Clock.png)
 
+Outputs a clock pulse based on a tap input and displays the clock speed in both Hz and approximate BPM. Tap Tempo speed will not be stored when closing a patch.
+
+
+
 **Touch Clock** <br>
-Uses a delay node to record tapped clock pulses. Great for inputting rhythms for live performance. Tap a rhythm then wiggle the loop time knob to get distorted semi-random gates.
 
 ![Touch Clock](img/Library-Images/Clock/Touch-Clock.png)
+
+Uses a delay node to record tapped clock pulses. Great for inputting rhythms for live performance. Tap a rhythm then wiggle the loop time knob to get distorted semi-random gates.
+
+
 
 ##Collection
 
 These patches collect all or some of the modules in each subfolder by different types. Useful for when you want to explore everything Audulus has to offer in a particular category.
 
 **Clocks** <br>
-A collection of all of the clock modules.
 
 ![Clocks](img/Library-Images/Collection/Clocks.png)
 
+A collection of all of the clock modules.
+
+
+
 **Gates** <br>
-A collection of all of the gate modules.
 
 ![Gates](img/Library-Images/Collection/Gates.png)
+
+A collection of all of the gate modules.
+
+
 
 ## Controller
 
 These modules are performance controllers meant to provide interfaces beyond simple knobs and buttons.
 
 **xy Pad 8x8** <br>
-Creates a quantized 64-point input grid that acts as an xy controller. Simply draw out a cable from the module’s output below the grid and wave it around the field of inputs. Do not let go of the cable over the field of inputs. When you are done using the xy pad, make sure you move the cable away from any of the field of inputs and disconnect there. Otherwise the cable will become statically connected to the pad. The module outputs an x and y 0 to 1 modulation signal in discrete steps of 1/7. The module also outputs a gate signal when a new value is detected at each coordinate. The length of the gate can be adjusted internally.
 
 ![xy Pad 8x8](img/Library-Images/Controller/xy-Pad-8x8.png)
+
+Creates a quantized 64-point input grid that acts as an xy controller. Simply draw out a cable from the module’s output below the grid and wave it around the field of inputs. Do not let go of the cable over the field of inputs. When you are done using the xy pad, make sure you move the cable away from any of the field of inputs and disconnect there. Otherwise the cable will become statically connected to the pad. The module outputs an x and y 0 to 1 modulation signal in discrete steps of 1/7. The module also outputs a gate signal when a new value is detected at each coordinate. The length of the gate can be adjusted internally.
+
+
 
 ## Drum
 
@@ -922,70 +1361,100 @@ These modules are synthesized drum sounds categorized by general types. Some are
 These modules are different cymbal-like synthesized drum modules.
 
 **Sizzle Cymbal** <br>
-Creates a trashy lo-fi cymbal sound that is nice for bell rides at the right settings. D or decay controls the length of the cymbal crash, sizz or sizzle controls a filter that gives the cymbal its characteristic sound, and the BPF (band pass filter) and HPF (high pass filter) offer other tonal controls. Play around with different settings and modulate the decay to make the cymbal sound really varied.
 
 ![Sizzle Cymbal](img/Library-Images/Drum/Cymbal/Sizzle-Cymbal.png)
+
+Creates a trashy lo-fi cymbal sound that is nice for bell rides at the right settings. D or decay controls the length of the cymbal crash, sizz or sizzle controls a filter that gives the cymbal its characteristic sound, and the BPF (band pass filter) and HPF (high pass filter) offer other tonal controls. Play around with different settings and modulate the decay to make the cymbal sound really varied.
+
+
 
 ### Kick
 
 These modules are different kick-like synthesized drum modules.
 
 **Sine Kick** <br>
-A simple no-frills sine kick sound with a few controls. The pitch knob sets the pitch of the kick and the shape controls how exponential the decay of the envelope is.
 
 ![Sine Kick](img/Library-Images/Drum/Kick/Sine-Kick.png)
+
+A simple no-frills sine kick sound with a few controls. The pitch knob sets the pitch of the kick and the shape controls how exponential the decay of the envelope is.
+
+
 
 ### Kit
 
 These modules are collections of drum modules, sometimes with some added functionality like probability or mixing controls.
 
 **ITS A TRAP!!** <br>
-A collection of the Sizzle Cymbal, Sine Kick, and Basic Snare in one neat package with volume controls for each sound. Has individual outputs for each sound as well as a mix output.
 
 ![ITS A TRAP!!](img/Library-Images/Drum/Kit/ITS-A-TRAP.png)
 
-**Weather Patterns** <br>=
-Similar to ITS A TRAP!!, this module collects two versions of the Sizzle Cymbal, Sine Kick, and Basic Snare modules with options to randomly choose one sound or another. Each drum sound can accept a unique gate and the gA/B controls which sound is more likely to hit.
+A collection of the Sizzle Cymbal, Sine Kick, and Basic Snare in one neat package with volume controls for each sound. Has individual outputs for each sound as well as a mix output.
+
+
+
+**Weather Patterns** <br>
 
 ![Weather Patterns](img/Library-Images/Drum/Kit/Weather-Patterns.png)
+
+Similar to ITS A TRAP!!, this module collects two versions of the Sizzle Cymbal, Sine Kick, and Basic Snare modules with options to randomly choose one sound or another. Each drum sound can accept a unique gate and the gA/B controls which sound is more likely to hit.
+
+
 
 ### Percussion
 
 These modules are synthesized percussion sounds of various types that don’t fall into traditional kick/snare/tom/cymbal categories.
 
 **KarPlus** <br>
-A Karplus-Strong percussion oscillator that can create all kinds of zinging hits. The A or attack control adjusts the onset of the sound, and the D or decay control adjusts the length of the sound. The grain knob adjusts the graininess of the sound, and the FB control also contributes to the length of the decay. The level knob adjusts the output level, and the drive control adds distortion to the output.
 
 ![KarPlus](img/Library-Images/Drum/Percussion/KarPlus.png)
 
+A Karplus-Strong percussion oscillator that can create all kinds of zinging hits. The A or attack control adjusts the onset of the sound, and the D or decay control adjusts the length of the sound. The grain knob adjusts the graininess of the sound, and the FB control also contributes to the length of the decay. The level knob adjusts the output level, and the drive control adds distortion to the output.
+
+
+
 **Res Drum** <br>
-A self-oscillating filter-based resonant drum that mimic the natural sound of tight head drums like bongos and congas. The two filter cutoff points can be dragged around to create different sounds. One controls the tone of the instrument and the other controls the noise filtering. The noise knob adjusts the level of noise, the Q control adjusts the Q of the tone of the module, and the drive knob adds distortion to the output. Under the Q control is an internal envelope output that, when connected to the Q control, can add a more nonlinear sound to the drum.
 
 ![Res Drum](img/Library-Images/Drum/Percussion/Res-Drum.png)
 
+A self-oscillating filter-based resonant drum that mimic the natural sound of tight head drums like bongos and congas. The two filter cutoff points can be dragged around to create different sounds. One controls the tone of the instrument and the other controls the noise filtering. The noise knob adjusts the level of noise, the Q control adjusts the Q of the tone of the module, and the drive knob adds distortion to the output. Under the Q control is an internal envelope output that, when connected to the Q control, can add a more nonlinear sound to the drum.
+
+
+
 **Resonant Hand Drum** <br>
-Similar to the Res drum, this module uses BPFs to create a very realistic sounding hand drum. The noise control adjusts the level of noise, and the decay control adjusts how long the sound lasts. The two filter cutoff controls adjusts the cutoff points for the internal bandpass filters and the Q control adjusts the sharpness of their peaks. The mix control adjusts the balance between the left and right filter, and the drive control adds distortion to the output.
 
 ![Resonant Hand Drum](img/Library-Images/Drum/Percussion/Resonant-Hand-Drum.png)
 
+Similar to the Res drum, this module uses BPFs to create a very realistic sounding hand drum. The noise control adjusts the level of noise, and the decay control adjusts how long the sound lasts. The two filter cutoff controls adjusts the cutoff points for the internal bandpass filters and the Q control adjusts the sharpness of their peaks. The mix control adjusts the balance between the left and right filter, and the drive control adds distortion to the output.
+
+
+
 **uDing V1** <br>
-Bell simulator which generates multiple decaying harmonics by exciting a resonant filter. Harmonic ratios were taken from the Wikipedia article on strike tone. The pitch knob sets the pitch of the bell. The decay controls how fast the bell sound fades. The detune detunes the various harmonics for a more dissonant sound (0.5 is no detune). The tone knob controls the tone of the bell.
 
 ![uDing](img/Library-Images/Drum/Percussion/uDing-V1.png)
+
+Bell simulator which generates multiple decaying harmonics by exciting a resonant filter. Harmonic ratios were taken from the Wikipedia article on strike tone. The pitch knob sets the pitch of the bell. The decay controls how fast the bell sound fades. The detune detunes the various harmonics for a more dissonant sound (0.5 is no detune). The tone knob controls the tone of the bell.
+
+
 
 ### Snare
 
 These modules are different snare-like synthesized drum modules.
 
 **Basic Snare** <br>
-A basic synthesized snare based on the architecture of the 909 snare. The D or decay control adjusts the length of the snare and the shape control adjusts how exponential the decay is. The snare knob adjusts the loudness of the noise component of the snare sound (similar to the metal snares underneath the snare drum), and the ring adjusts the loudness of the tone of the snare.
 
 ![Basic Snare](img/Library-Images/Drum/Snare/Basic-Snare.png)
 
+A basic synthesized snare based on the architecture of the 909 snare. The D or decay control adjusts the length of the snare and the shape control adjusts how exponential the decay is. The snare knob adjusts the loudness of the noise component of the snare sound (similar to the metal snares underneath the snare drum), and the ring adjusts the loudness of the tone of the snare.
+
+
+
 **Noise Snare** <br>
-A purely noise-based snare with no tone oscillator, this snare is perfect for creating really trashy sounding snares. The cutoff controls the base frequency that the envelope will settle to once pinged, and the knob below it adjusts the speed of the sampling of the noise. At higher sample rates, the noise is more pure white, white at lower sample rates it starts to sound very crushed and digital and has fewer high frequencies. The top decay knob controls the time the filter takes to settle and the bottom decay knob controls the overall length of the sound. The overdrive knob at the bottom controls the total output distortion.
 
 ![Noise Snare](img/Library-Images/Drum/Snare/Noise-Snare.png)
+
+A purely noise-based snare with no tone oscillator, this snare is perfect for creating really trashy sounding snares. The cutoff controls the base frequency that the envelope will settle to once pinged, and the knob below it adjusts the speed of the sampling of the noise. At higher sample rates, the noise is more pure white, white at lower sample rates it starts to sound very crushed and digital and has fewer high frequencies. The top decay knob controls the time the filter takes to settle and the bottom decay knob controls the overall length of the sound. The overdrive knob at the bottom controls the total output distortion.
+
+
 
 ## Effect
 
@@ -996,30 +1465,45 @@ These modules alter audio signals in a variety of ways. Adding a sense of space 
 These modules are like a stereo tremolo effect. They pan audio back and forth between the left and right channels. Great for adding some subtle stereo depth to your music, or creating rythmic back and forth ping-ponging.
 
 **Skew Sine Autopan** <br>
-Uses a Sine Skew LFO module to create a variable autopan shape from reverse ramp-like to sine to saw-like. This autopan has a softer sound than a saw or triangle based autopan would, but still gives the feeling of percussiveness and reverse autopan. The mix control balances the dry and wet signal. The LFO speed knob goes from 0.032Hz to 20Hz, and the skew control adjusts the tilt of the sine wave from reverse ramp to sine to saw.
 
 ![Skew Sine Autopan](img/Library-Images/Effect/Autopan/Skew-Sine-Autopan.png)
+
+Uses a Sine Skew LFO module to create a variable autopan shape from reverse ramp-like to sine to saw-like. This autopan has a softer sound than a saw or triangle based autopan would, but still gives the feeling of percussiveness and reverse autopan. The mix control balances the dry and wet signal. The LFO speed knob goes from 0.032Hz to 20Hz, and the skew control adjusts the tilt of the sine wave from reverse ramp to sine to saw.
+
+
 
 ### Delay
 
 Delay is an effect that grabs a portion of your sound and repeats it - like an echo in a canyon. There are many types and flavors of delay which can add a sense of space or a rhythmic element to your instruments. Delays especially love arpeggiated lines and drums, especially cymbals and snares.
 
 **Analog Delay** <br>
-Uses an LPF inside a delay loop to create a dark-sounding delay effect. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal.
 
 ![Analog Delay](img/Library-Images/Effect/Delay/Analog-Delay.png)
 
+Uses an LPF inside a delay loop to create a dark-sounding delay effect. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal.
+
+
+
 **Art D’Echo Dub Delay** <br>
-Combines a delay effect with a spring reverb effect to recreate the vibe of famous tape echo dub effects. Time, regen, and amount are the delay time, feedback, and mix for the delay effect. The tape knob controls the amount of warbly modulation to the delay line. Drive controls the amount of drive within the delay loop. Cut is the filter cutoff for the filter within the delay loop. Tens or tension is the control for the virtual tension of the springs in the the spring reverb effect. Mix is the balance of delay/reverb, color changes the tone of the springs, and dwell is the length of the spring reverb.
 
 ![Art D’Echo Dub Delay](img/Library-Images/Effect/Delay/Art-DEcho-Dub-Delay.png)
 
+Combines a delay effect with a spring reverb effect to recreate the vibe of famous tape echo dub effects. Time, regen, and amount are the delay time, feedback, and mix for the delay effect. The tape knob controls the amount of warbly modulation to the delay line. Drive controls the amount of drive within the delay loop. Cut is the filter cutoff for the filter within the delay loop. Tens or tension is the control for the virtual tension of the springs in the the spring reverb effect. Mix is the balance of delay/reverb, color changes the tone of the springs, and dwell is the length of the spring reverb.
+
+
+
 **Chorus Delay** <br>
-Combines a delay effect with a chorus effect. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal. Speed controls the modulation speed of the chorus effect. Depth controls the amount of chorus modulation. Color adjusts the cutoff of the filters within the delay and chorus effect.
 
 ![Chorus Delay](img/Library-Images/Effect/Delay/Chorus-Delay.png)
 
+Combines a delay effect with a chorus effect. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal. Speed controls the modulation speed of the chorus effect. Depth controls the amount of chorus modulation. Color adjusts the cutoff of the filters within the delay and chorus effect.
+
+
+
 **Clockable Tuned Delay Line** <br>
+
+![Clockable Tuned Delay Line](img/Library-Images/Effect/Delay/Clockable-Tuned-Delay-Line.png)
+
 A wild delay effect that can be used for much more than just rhythmic delays, the Clockable Tuned Delay Line can even work as an oscillator and audio chopper. 
 
 Delay controls the delay time from 0 to 2 seconds. Regen controls the number of delay repeats. Mix balances the dry and wet signal. The sync button locks the delay time to musical intervals from 1/64th notes to 3/1 measures with all the dotted (D) and triplet (T) variations in between. 
@@ -1032,14 +1516,20 @@ The tune button turns the delay into a Karplus-Strong-like oscillator with the p
 
 This is a sound sample of what this module can do when rhythmically switching in and out of all of its modes - free, synced, and tuned: https://soundcloud.com/audulus/bimini-road-clockwork-groove-electrofunk
 
-![Clockable Tuned Delay Line](img/Library-Images/Effect/Delay/Clockable-Tuned-Delay-Line.png)
+
 
 **Digital Delay** <br>
-A pure, high-fidelity digital delay. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal.
 
 ![Digital Delay](img/Library-Images/Effect/Delay/Digital-Delay.png)
 
+A pure, high-fidelity digital delay. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal.
+
+
+
 **Icebox Audio Freezer** <br>
+
+![Icebox Audio Freezer](img/Library-Images/Effect/Delay/Icebox-Audio-Freezer.png)
+
 A granular automatic audio looper that uses threshold detection to grab bits of audio and loop them infinitely until the next note overrides it. 
 
 Thrsh or threshold sets the threshold that must be exceeded before a new grain is grabbed and looped. The light below thrsh illuminates when the threshold has been exceeded. Dialing in this control is essential for making it work. 
@@ -1052,66 +1542,99 @@ Mix controls the balance of dry audio and frozen audio. When the env or envelope
 
 An excellent and very musical guitar effect - watch a demo of it here: https://www.instagram.com/p/BV_Cca1Amv2/?taken-by=audulus
 
-![Icebox Audio Freezer](img/Library-Images/Effect/Delay/Icebox-Audio-Freezer.png)
+
 
 **Multi-Tap Filter Delay** <br>
-A stereo triple delay with controls to adjust the level, pan, delay time, feedback, cutoff, Q, and filter type for each delay (from top to bottom). The dry knob at the top adjusts the level of the dry signal - not the overall mix.
 
 ![Multi-Tap Filter Delay](img/Library-Images/Effect/Delay/Multi-Tap-Filter-Delay.png)
 
+A stereo triple delay with controls to adjust the level, pan, delay time, feedback, cutoff, Q, and filter type for each delay (from top to bottom). The dry knob at the top adjusts the level of the dry signal - not the overall mix.
+
+
+
 **Stereo Digital Delay** <br>
-A stereo delay that can accept both mono and stereo signals. For a mono to stereo effect, use the top L or left input and make sure the mono button is engaged (red). For a stereo to stereo delay effect, disengage the mono button (blue) and attach the input signals to L and R. Mix adjusts the balance of wet and dry, L and R are the delay times for the left and right channels, and the fb knob controls the amount of feedback for each delay line.
 
 ![Stereo Digital Delay](img/Library-Images/Effect/Delay/Stereo-Digital-Delay.png)
 
+A stereo delay that can accept both mono and stereo signals. For a mono to stereo effect, use the top L or left input and make sure the mono button is engaged (red). For a stereo to stereo delay effect, disengage the mono button (blue) and attach the input signals to L and R. Mix adjusts the balance of wet and dry, L and R are the delay times for the left and right channels, and the fb knob controls the amount of feedback for each delay line.
+
+
+
 **Tape Delay** <br>
-A model of a hissy broken tape delay, perfect for that lofi sound. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal.
 
 ![Tape Delay](img/Library-Images/Effect/Delay/Tape-Delay.png)
+
+A model of a hissy broken tape delay, perfect for that lofi sound. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal.
+
+
 
 ### Distortion
 
 Distortion effects change audio signals by distorting or warping the signal as it passes through. Distortion adds harmonics most often by overdriving or squaring-off a wave. All distortions have different flavors and are better for one sound or another. Make sure you try them all on each instrument you use to see which ones you like the most!
 
 **Araya-Suyama Tube Overdrive** <br>
-Cribbed from a research paper describing a low-CPU way to model a tube amplifier in software, this simple distortion uses a waveshaping expression to overdrive your signal in a manner similar to how an overdriven tube amplifier would sound.
 
 ![Araya-Suyama Tube Overdrive](img/Library-Images/Effect/Distortion/Araya-Suyama-Tube-Overdrive.png)
 
+Cribbed from a research paper describing a low-CPU way to model a tube amplifier in software, this simple distortion uses a waveshaping expression to overdrive your signal in a manner similar to how an overdriven tube amplifier would sound.
+
+
+
 **Bitcrush** <br>
-Bitcrushing is a type of distortion that limits the available definition of any given sample. The less definition the wave has, the more distorted it becomes. Heavy bitcrushing can make a smooth sine wave look like an undulating staircase. Bitcrushing is similar to sample rate reduction, but they sound a little different. Perfect distortion for really aggressive drum sounds or buzzy bass lines.
 
 ![Bitcrush](img/Library-Images/Effect/Distortion/Bitcrush.png)
 
+Bitcrushing is a type of distortion that limits the available definition of any given sample. The less definition the wave has, the more distorted it becomes. Heavy bitcrushing can make a smooth sine wave look like an undulating staircase. Bitcrushing is similar to sample rate reduction, but they sound a little different. Perfect distortion for really aggressive drum sounds or buzzy bass lines.
+
+
+
 **Cubed Overdrive** <br>
-Uses a simple x^3 expression to waveshape the audio going through it. Very CPU efficient.
 
 ![Cubed Overdrive](img/Library-Images/Effect/Distortion/Cubed-Overdrive.png)
 
+Uses a simple x^3 expression to waveshape the audio going through it. Very CPU efficient.
+
+
+
 **Distortion** <br>
-Uses the Distortion node in series with an overdrive module to limit the output of the module.
 
 ![Distortion](img/Library-Images/Effect/Distortion/Distortion.png)
 
+Uses the Distortion node in series with an overdrive module to limit the output of the module.
+
+
+
 **Doidic Asymmetrical Tube Overdrive** <br>
-Another distortion module taken from an audio DSP research paper, this tube overdrive simulator attempts to mimic the asymmetrical transfer function of guitar tube amplifiers. Asymmetric means that the negative and positive portions of the wave are not shaped identically. A transfer function is the shape that the sound wave is forced to follow as it moves up and down from positive to negative.
 
 ![Doidic Asymmetrical Tube Overdrive](img/Library-Images/Effect/Distortion/Doidic-Asymmetrical-Overdrive.png)
 
+Another distortion module taken from an audio DSP research paper, this tube overdrive simulator attempts to mimic the asymmetrical transfer function of guitar tube amplifiers. Asymmetric means that the negative and positive portions of the wave are not shaped identically. A transfer function is the shape that the sound wave is forced to follow as it moves up and down from positive to negative.
+
+
+
 **Down Sample** <br>
-Reduces the number of samples for the audio as it comes through from the sample rate of 44.1kHz to much, much lower sample rates. The main difference between downsampling distortion and bitcrushing (which both produce staircase-like wave shapes) is that downsampling effectively limits the upper frequency range of the sound coming through it, where bitcrushing does not. This can sound awful or awfully amazing, depending on how you use it. Great for mangling drums or creating digital chaos.
 
 ![Down Sample](img/Library-Images/Effect/Distortion/Down-Sample.png)
 
+Reduces the number of samples for the audio as it comes through from the sample rate of 44.1kHz to much, much lower sample rates. The main difference between downsampling distortion and bitcrushing (which both produce staircase-like wave shapes) is that downsampling effectively limits the upper frequency range of the sound coming through it, where bitcrushing does not. This can sound awful or awfully amazing, depending on how you use it. Great for mangling drums or creating digital chaos.
+
+
+
 **Hypertangent Overdrive** <br>
-Uses a simple hypertangent (tanh(x)) expression to emulate transistor saturation.
 
 ![Hypertangent Overdrive](img/Library-Images/Effect/Distortion/Hypertangent-Overdrive.png)
 
+Uses a simple hypertangent (tanh(x)) expression to emulate transistor saturation.
+
+
+
 **Sigmoid Overdrive A** <br>
-Uses a sigmoid transfer function that is similar to the Distortion node to distort audio. Also taken from an academic research paper.
 
 ![Sigmoid Overdrive A](img/Library-Images/Effect/Distortion/Sigmoid-Overdrive-A.png)
+
+Uses a sigmoid transfer function that is similar to the Distortion node to distort audio. Also taken from an academic research paper.
+
+
 
 ### Dynamics
 
@@ -1122,11 +1645,17 @@ These modules affect the dynamics, or amplitude, of the audio as they pass throu
 These modules compress an audio signal’s overall dynamic range. This is done for many reasons, but the most common is to make a sound more “punchy.” It takes a while to learn how to balance the parameters of a compressor correctly, but it’s an essential ingredient for well-balanced music.
 
 **miniPress** <br>
-Compresses incoming audio based on the curve drawn by the mapper node. The lookahead function allows the compressor to respond more intelligently by delaying the signal.
 
 ![Sigmoid Overdrive A](img/Library-Images/Effect/Dynamics/Compressor/miniPress.png)
 
+Compresses incoming audio based on the curve drawn by the mapper node. The lookahead function allows the compressor to respond more intelligently by delaying the signal.
+
+
+
 **RMS Compressor** <br>
+
+![RMS Compressor](img/Library-Images/Effect/Dynamics/Compressor/RMS-Compressor.png)
+
 RMS or root mean square compression takes the average of an incoming audio signal and compresses based on a ratio derived from that average. The threshold controls the point at which the compressor is triggered, the ratio determines how hard the sound is compressed, and the drive knob applies output distortion. 
 
 The ZC/o or zero-cross/octave signal knob switch determines the method of sampling the audio signal. The ZC mode attempts to determine the pitch of the incoming signal and samples appropriately from there. The octave mode uses the oscillator’s octave signal to create a more precise sampling of the oscillator. 
@@ -1135,39 +1664,51 @@ In general, use the ZC mode for drum modules and other non-pitched instruments, 
 
 This module also works for stereo signals. The compression it creates can be rather extreme. Think of it less as a final mastering compressor and more as an effect for mangling things like drums and bass lines.
 
-![RMS Compressor](img/Library-Images/Effect/Dynamics/Compressor/RMS-Compressor.png)
+
 
 **Super Simple Compressor** <br>
-This compressor is one of the simplest types of compressors you can make in Audulus. It has a threshold control for determining when compression kicks in, a ratio knob for setting the amount of compression, and a release knob for setting how long it takes for the compressor to let go.
 
 ![Super Simple Compressor](img/Library-Images/Effect/Dynamics/Compressor/Super-Simple-Compressor.png)
+
+This compressor is one of the simplest types of compressors you can make in Audulus. It has a threshold control for determining when compression kicks in, a ratio knob for setting the amount of compression, and a release knob for setting how long it takes for the compressor to let go.
+
+
 
 #### Ducker
 
 Duckers are a type of compressor that use a technique called side-chaining. Side-chaining is really popular at the moment, especially in dance music. The effect you hear when the kick drum sucks the rest of the music away for a moment every time it hits is ducking. Ducking allows low frequency content to burst through a mix in a dynamic way.
 
 **Ducker** <br>
+
+![Ducker](img/Library-Images/Effect/Dynamics/Ducker/Ducker.png)
+
 A basic ducking module that has a separate audio input for whatever instrument you want to trigger the ducking effect (usually a kick drum). The audio to compress goes through the left and right inputs, and the kick drum or other instrument triggering the compression goes into the audio input below. 
 
 Threshold sets the point at which the compression begins, and release sets how long it takes for the compressor to let go. A gain reduction meter is present below the outputs. The more this meter is pushed downwards, the more compression is happening. 
 
 The mix knob is essential for getting this module to sound good. First dial the mix all the way up to wet compression and set the compression to a pleasing and heavy sound, but more extreme than you would like. Then, dial back the mix knob until you can just hear the subtle pumping effect.
 
-![Ducker](img/Library-Images/Effect/Dynamics/Ducker/Ducker.png)
+
 
 #### Limiter
 These modules are another type of specialized compressor. While most compressors have variable ratios from 1:1 to 1:10, a limiter is a compressor with a virtually infinite ratio. This means that the limit set by the limiter will not be exceeded at all.
 
 **Tube Limiter** <br>
-Uses a hypertangent (tanh(x)) function to emulate the sound of a tube limiter. Threshold sets the point at which compression kicks in.
 
 ![Tube Limiter](img/Library-Images/Effect/Dynamics/Limiter/Tube-Limiter.png)
+
+Uses a hypertangent (tanh(x)) function to emulate the sound of a tube limiter. Threshold sets the point at which compression kicks in.
+
+
 
 ### Flanger
 
 Flangers are delay-based effects that use a delayed copy of a signal to create comb-filtering effects. They are well-known as the effect that creates the jet-engine sound on 70s-era drums.
 
 **Stereo Analog Flanger** <br>
+
+![Stereo Analog Flanger](img/Library-Images/Effect/Flanger/Stereo-Analog-Flanger.png)
+
 A mono to stereo flanger effect that uses an LPF in the feedback loop of its delay lines to simulate a real bucket brigade-style analog flanger. The LFO speed controls how quickly the sine wave modulation moves, and the time adjusts the total amount of flanging time. 
 
 The skew control morphs the sine into a more saw-like sine wave, and the feedback control adjusts the amount of feedback within the delay line. The width control adjusts the phase relationship of the LFO for the left and right signals. 
@@ -1176,18 +1717,24 @@ For subtle back-and-forth stereo flanging, add just a little width. For extreme 
 
 Sometimes it is best to turn the mix all the way wet, create a really heavy flanging sound, then dial it back until it is just noticeable. The lights near the outputs indicate the separation of the LFO driving the flanging effect.
 
-![Stereo Analog Flanger](img/Library-Images/Effect/Flanger/Stereo-Analog-Flanger.png)
+
 
 ### Phaser
 
 Phasers use chained all-pass filters to change the phase relationship of frequencies as they pass through. When recombined with the original audio, the difference in phase causes cancellations and boosting of frequencies. When the cutoff of the allpass filters are modulated, the boosted and canceled frequencies create a swirling sound. Phasers are not flangers, but they can sound similar.
 
 **Phase12** <br>
-A 12 stage phaser that has no internal LFO. You can attach your own LFO, or you can also use an envelope to modulate the phaser effect. The top knob is mix to balance dry and wet signal. The feedback control adjusts how much of the signal is fed back through the allpass loop (which makes for a deeper phasing sound). The attenuate-offset controls adjust how much and in what range the incoming modulation tweaks the filter cutoff.
 
 ![Phase12](img/Library-Images/Effect/Phaser/Phase12.png)
 
+A 12 stage phaser that has no internal LFO. You can attach your own LFO, or you can also use an envelope to modulate the phaser effect. The top knob is mix to balance dry and wet signal. The feedback control adjusts how much of the signal is fed back through the allpass loop (which makes for a deeper phasing sound). The attenuate-offset controls adjust how much and in what range the incoming modulation tweaks the filter cutoff.
+
+
+
 **Stereo 1-6 Stage Pseudo Phaser** <br>
+
+![Stereo 1-6 Stage Pseudo Phaser](img/Library-Images/Effect/Phaser/Phase12.png)
+
 This module is technically not a phaser, but it sounds more like a phaser than a flanger. The top two knobs control the speed of the LFO and how wide the modulation sweeps (which amounts to a kind of cutoff). 
 
 The skew control morphs the sine wave into a sine-like saw wave and the feedback knob adjusts how much feedback there is within the delay lines (creating a deeper richer effect). 
@@ -1198,61 +1745,84 @@ The width control adjusts the phase relationship of the left and right output LF
 
 Like with the flanger, it can be beneficial to dial in a really deep sounding effect with 100% wet signal and then dial back the mix until there is just barely a little bit of the phasing sound.
 
-![Stereo 1-6 Stage Pseudo Phaser](img/Library-Images/Effect/Phaser/Phase12.png)
+
 
 ### Pitch
 
 Pitch shifters take an input audio signal and shift the pitch up or down, or create unison effects by copying and detuning the signal slightly.
 
 **Octave Unison** <br>
-Not an audio effect, but instead, takes an octave signal and splits it into a quad polyphonic signal for creating a unison detune effect on oscillators. Remember to use the PolyToMono node after the oscillator to collapse the poly signal into a mono signal to save on CPU processing.
 
 ![Octave Unison](img/Library-Images/Effect/Pitch/Octave-Unison.png)
 
+Not an audio effect, but instead, takes an octave signal and splits it into a quad polyphonic signal for creating a unison detune effect on oscillators. Remember to use the PolyToMono node after the oscillator to collapse the poly signal into a mono signal to save on CPU processing.
+
+
+
 **Pitch Shift** <br>
-Uses the Pitch Shift node to create a pitch shifter that can shift incoming signals up and down to a maximum of one octave down and two octaves up.
 
 ![Pitch Shift](img/Library-Images/Effect/Pitch/Pitch-Shift.png)
+
+Uses the Pitch Shift node to create a pitch shifter that can shift incoming signals up and down to a maximum of one octave down and two octaves up.
+
 
 ### Reverb
 
 Reverb uses delay lines and allpass filters to create a sense of space, or of the instrument being played in a particular type of room.
 
 **Spring Reverb** <br>
-Uses short delay line and a BPF to emulate the sound of a guitar amp spring reverb. The dwell control adjusts how long the decay of the reverb is, and the mix adjusts the overall balance of dry and wet signal. The color knob adjusts the tone of the reverb and the tens or tension control adjusts the virtual tension of the spring.
 
 ![Spring Reverb](img/Library-Images/Effect/Reverb/Spring-Reverb.png)
 
+Uses short delay line and a BPF to emulate the sound of a guitar amp spring reverb. The dwell control adjusts how long the decay of the reverb is, and the mix adjusts the overall balance of dry and wet signal. The color knob adjusts the tone of the reverb and the tens or tension control adjusts the virtual tension of the spring.
+
+
+
 **Stereo Reverb** <br>
-Uses the Reverb node to create a stereo digital-sounding reverb. To make a mono signal into a stereo signal, make sure the mono button is engaged (red). To pass a stereo signal through, make sure the mono button is disengaged (blue). The decay control adjusts how long the reverb lasts and the mix adjusts the overall dry and wet balance.
 
 ![Stereo Reverb](img/Library-Images/Effect/Reverb/Stereo-Reverb.png)
+
+Uses the Reverb node to create a stereo digital-sounding reverb. To make a mono signal into a stereo signal, make sure the mono button is engaged (red). To pass a stereo signal through, make sure the mono button is disengaged (blue). The decay control adjusts how long the reverb lasts and the mix adjusts the overall dry and wet balance.
+
+
 
 ### Tremolo
 Tremolo is uses amplitude modulation to give a swelling or stuttering sound to the audio. Not to be confused with vibrato, which is frequency modulation.
 
 **Skew Sine Tremolo** <br>
-Uses a Skew Sine LFO module to create a variable tremolo shape from reverse ramp-like to sine to saw-like. This tremolo has a softer sound than a saw or triangle based tremolo would, but still gives the feeling of percussiveness and reverse tremolo. The mix control balances the dry and wet signal. The LFO speed knob goes from 1.25Hz to 20Hz, and the skew control adjusts the tilt of the sine wave from reverse ramp to sine to saw.
 
 ![Skew Sine Tremolo](img/Library-Images/Effect/Tremolo/Skew-Sine-Tremolo.png)
 
+Uses a Skew Sine LFO module to create a variable tremolo shape from reverse ramp-like to sine to saw-like. This tremolo has a softer sound than a saw or triangle based tremolo would, but still gives the feeling of percussiveness and reverse tremolo. The mix control balances the dry and wet signal. The LFO speed knob goes from 1.25Hz to 20Hz, and the skew control adjusts the tilt of the sine wave from reverse ramp to sine to saw.
+
+
+
 **Waveshape Tremolo** <br>
-Uses a Waveshape LFO module to create a variable shape tremolo from sine to triangle to square to saw. The mix control balances the dry and wet signal. The LFO speed knob goes from 1.25Hz to 20Hz, and the skew control adjusts the shape of the tremolo modulation from sine to triangle to square to saw.
 
 ![Waveshape Tremolo](img/Library-Images/Effect/Tremolo/Waveshape-Tremolo.png)
+
+Uses a Waveshape LFO module to create a variable shape tremolo from sine to triangle to square to saw. The mix control balances the dry and wet signal. The LFO speed knob goes from 1.25Hz to 20Hz, and the skew control adjusts the shape of the tremolo modulation from sine to triangle to square to saw.
+
+
 
 ### Wavefolder
 These modules distort waves by folding them over themselves. Wavefolding adds lots of harmonics and has a very distinct aggressive sound to it.
 
 **RSWF-1 Wavefolder** <br>
-Accepts one or two modulation inputs simultaneously, and will create both an audio (top) and modulation (bottom) output. The fold knobs adjusts how much the waves are folded, and the -/+ knob is an attenuverter knob that adjusts the wave size and inversion as it enters the wavefolding expressions. The color adjusts the balance between two wavefolding algorithms.
 
 ![RSWF-1 Wavefolder](img/Library-Images/Effect/Wavefolder/RSWF-1-Wavefolder.png)
 
+Accepts one or two modulation inputs simultaneously, and will create both an audio (top) and modulation (bottom) output. The fold knobs adjusts how much the waves are folded, and the -/+ knob is an attenuverter knob that adjusts the wave size and inversion as it enters the wavefolding expressions. The color adjusts the balance between two wavefolding algorithms.
+
+
+
 **SineFold** <br>
-Folds an incoming wave using a sine expression. The input wave is multiplied by a factor of 1 to 500 and fed through a sin(x) expression. Sine folding can sound a bit like frequency shifting. This module can accept modulation inputs, but it will output an audio signal as a result.
 
 ![SineFold](img/Library-Images/Effect/Wavefolder/SineFold.png)
+
+Folds an incoming wave using a sine expression. The input wave is multiplied by a factor of 1 to 500 and fed through a sin(x) expression. Sine folding can sound a bit like frequency shifting. This module can accept modulation inputs, but it will output an audio signal as a result.
+
+
 
 ## Envelope
 
@@ -1265,76 +1835,121 @@ Some envelopes have more parameters like delay and hold, and others have just at
 The naming conventions for these modules give you an idea of what knobs are made available. A-R is an attack release envelope with two knobs - one for attack and one for release. The AR envelope however is a one knob envelope with a single knob that controls both parameters.
 
 **1-Shot** <br>
-Creates both a rising and falling envelope when tapped or clocked at its input. The knob controls the amount of time it takes for the envelope to complete its cycle, from 1 to 60 seconds.
 
 ![1-Shot](img/Library-Images/Envelope/1-Shot.png)
 
+Creates both a rising and falling envelope when tapped or clocked at its input. The knob controls the amount of time it takes for the envelope to complete its cycle, from 1 to 60 seconds.
+
+
+
 **A-D-S-R Natural Decay** <br>
-A typical A-D-S-R envelope but with a twist: an octave signal input that shortens the ADR periods the higher the pitch goes. This simulates the way that actual instruments decay, with higher pitch notes decaying faster.
 
 ![A-D-S-R Natural Decay](img/Library-Images/Envelope/A-D-S-R-Natural-Decay.png)
 
+A typical A-D-S-R envelope but with a twist: an octave signal input that shortens the ADR periods the higher the pitch goes. This simulates the way that actual instruments decay, with higher pitch notes decaying faster.
+
+
+
 **A-D-S-R** <br>
-A basic envelope with all four normal envelope controls: attack, decay, sustain and release.
 
 ![A-D-S-R](img/Library-Images/Envelope/A-D-S-R.png)
 
+A basic envelope with all four normal envelope controls: attack, decay, sustain and release.
+
+
+
 **A-R** <br>
-A minimalist envelope with controls for only attack and release. Sustain is set to full.
 
 ![A-R](img/Library-Images/Envelope/A-R.png)
 
+A minimalist envelope with controls for only attack and release. Sustain is set to full.
+
+
+
 **ADR-S** <br>
-A minimalist two knob envelope that uses one knob to control the attack, decay, and release periods and another knob to control sustain level.
 
 ![ADR-S](img/Library-Images/Envelope/ADR-S.png)
 
+A minimalist two knob envelope that uses one knob to control the attack, decay, and release periods and another knob to control sustain level.
+
+
+
 **AR** <br>
-A minimalist one knob envelope that uses one knob to control the attack and release periods. Does not have a sustain period.
 
 ![ASR](img/Library-Images/Envelope/AR.png)
 
+A minimalist one knob envelope that uses one knob to control the attack and release periods. Does not have a sustain period.
+
+
+
 **ASR** <br>
-A minimalist one knob envelope that uses one knob to control the attack and release periods with a sustain period.
 
 ![ASR](img/Library-Images/Envelope/ASR.png)
 
+A minimalist one knob envelope that uses one knob to control the attack and release periods with a sustain period.
+
+
+
 **BEOC Max A-D-S-R** <br>
-An advanced envelope with gate outputs for the beginning and end of cycle (BEOC) for each stage and max time control that changes the maximum periods for the ADR controls simultaneously. By taking a gate output from the sustain beginning cycle, you can trigger an extra envelope or event that happens when the decay period is over. The beginning cycle will stay lit for the length of the parameter’s period, but the end of cycle gate will only last 0.1 seconds.
 
 ![BEOC Max A-D-S-R](img/Library-Images/Envelope/BEOC-Max-A-D-S-R.png)
 
+An advanced envelope with gate outputs for the beginning and end of cycle (BEOC) for each stage and max time control that changes the maximum periods for the ADR controls simultaneously. By taking a gate output from the sustain beginning cycle, you can trigger an extra envelope or event that happens when the decay period is over. The beginning cycle will stay lit for the length of the parameter’s period, but the end of cycle gate will only last 0.1 seconds.
+
+
+
 **d-A-D-S-R** <br>
-Same as a normal A-D-S-R envelope, but with an extra parameter for delaying the initial attack rise. Great to pair with another envelope to be able to trigger the envelopes simultaneously, but have one rise later than the other.
 
 ![d-A-D-S-R](img/Library-Images/Envelope/d-A-D-S-R.png)
 
+Same as a normal A-D-S-R envelope, but with an extra parameter for delaying the initial attack rise. Great to pair with another envelope to be able to trigger the envelopes simultaneously, but have one rise later than the other.
+
+
+
 **d-A-H-D-S-R** <br>
-Same as a normal A-D-S-R envelope, but with two extra controls - one for delaying the initial attack period, and one for holding the attack period for a certain time before falling into decay and sustain. Another great complex envelope that works wonders for FM synthesis.
 
 ![d-A-H-D-S-R](img/Library-Images/Envelope/d-A-H-D-S-R.png)
 
+Same as a normal A-D-S-R envelope, but with two extra controls - one for delaying the initial attack period, and one for holding the attack period for a certain time before falling into decay and sustain. Another great complex envelope that works wonders for FM synthesis.
+
+
+
 **Looping A-R** <br>
-Same as the A-R envelope, but with a button to engage looping. A looping envelope will retrigger itself once its cycle is finished - turning it into a kind of LFO-like modulator. When looping it turned on (red) the input gate will light up to indicate that no incoming gates will be used.
 
 ![Looping A-R](img/Library-Images/Envelope/Looping-A-R.png)
 
+Same as the A-R envelope, but with a button to engage looping. A looping envelope will retrigger itself once its cycle is finished - turning it into a kind of LFO-like modulator. When looping it turned on (red) the input gate will light up to indicate that no incoming gates will be used.
+
+
+
 **Looping AR** <br>
-Same as the AR envelope, but with a button to engage looping. A looping envelope will retrigger itself once its cycle is finished - turning it into a kind of LFO-like modulator. When looping it turned on (red) the input gate will light up to indicate that no incoming gates will be used.
 
 ![Looping AR](img/Library-Images/Envelope/Looping-AR.png)
 
+Same as the AR envelope, but with a button to engage looping. A looping envelope will retrigger itself once its cycle is finished - turning it into a kind of LFO-like modulator. When looping it turned on (red) the input gate will light up to indicate that no incoming gates will be used.
+
+
+
 **Looping Skew AR** <br>
-Unlike a typical envelope, this envelope is looping-only. As long as a high gate is present at the input, or the looping button is on (red), the envelope will loop. The AR controls the amount of total time the envelope has to cycle, and the skew controls the tilt from faster attack slow release to equal attack and release time, to slower attack faster release.
 
 ![Looping Skew AR](img/Library-Images/Envelope/Looping-Skew-AR.png)
 
+Unlike a typical envelope, this envelope is looping-only. As long as a high gate is present at the input, or the looping button is on (red), the envelope will loop. The AR controls the amount of total time the envelope has to cycle, and the skew controls the tilt from faster attack slow release to equal attack and release time, to slower attack faster release.
+
+
+
 **Max A-D-S-R** <br>
-Same as the A-D-S-R envelope, but with a control for the maximum time period for the ADR controls. A very dynamic envelope that loves rhythmic modulation on the max time period.
 
 ![Max A-D-S-R](img/Library-Images/Envelope/Max-A-D-S-R.png)
 
+Same as the A-D-S-R envelope, but with a control for the maximum time period for the ADR controls. A very dynamic envelope that loves rhythmic modulation on the max time period.
+
+
+
 **Shaped Envelope** <br>
+
+![Shaped Envelope](img/Library-Images/Envelope/Shaped-Envelope.png)
+
 This envelope outputs both a linear, unshaped envelope, and a shaped, non-linear envelope. It is a great module to use the linear output to modulate a VCA and shaped output to modulate a VCF. 
 
 The envelope outputs both the inverted and non-inverted modulation signals. The top set of modulation outputs are the linear envelopes and the next two are the shaped modulation outputs. 
@@ -1343,141 +1958,211 @@ Both envelopes share the A-D-S-R knobs, but the shaped envelope only uses the at
 
 When the mode button is engaged (red), the envelope will not accept a new incoming gate pulse until the output has fallen all the way to 0. During this cycle, the octave signal present at the octave input will be sampled and held at the octave output.
 
-![Shaped Envelope](img/Library-Images/Envelope/Shaped-Envelope.png)
+
 
 ## EQ
 
 Short for equalizer, these modules are used for shaping your sounds, usually after filters and effects, but before the master mixer.
 
 **1073 EQ** <br>
-A biquad-based EQ that uses the same frequency ranges as the famed Neve 1073 EQ. Not in any way intended to be a clone of the 1073, but a lot of the musicality of that EQ comes from intelligently chosen frequency points.
 
 ![1073 EQ](img/Library-Images/EQ/1073-EQ.png)
 
+A biquad-based EQ that uses the same frequency ranges as the famed Neve 1073 EQ. Not in any way intended to be a clone of the 1073, but a lot of the musicality of that EQ comes from intelligently chosen frequency points.
+
+
+
 **Bass Boost** <br>
-Boosts low frequencies by a few dBs. Mix control goes from no boost to boosted.
 
 ![Bass Boost](img/Library-Images/EQ/Bass-Boost.png)
 
+Boosts low frequencies by a few dBs. Mix control goes from no boost to boosted.
+
+
+
 **High Shelf EQ** <br>
-An HPF meant to be used as a finishing EQ that will attenuate bass frequencies below the cutoff set by the Hz knob. 
 
 ![High Shelf EQ](img/Library-Images/EQ/High-Shelf-EQ.png)
 
+An HPF meant to be used as a finishing EQ that will attenuate bass frequencies below the cutoff set by the Hz knob. 
+
+
+
 **Low Shelf EQ** <br>
-An LPF meant to be used as a finishing EQ that will attenuate treble frequencies below the cutoff set by the Hz knob.
 
 ![Low Shelf EQ](img/Library-Images/EQ/Low-Shelf-EQ.png)
 
+An LPF meant to be used as a finishing EQ that will attenuate treble frequencies below the cutoff set by the Hz knob.
+
+
+
 **Peak EQ** <br>
-A BPF meant to be used as a finishing EQ that will attenuate or boost a specific frequency band at the cutoff set by the Hz knob.
 
 ![Peak EQ](img/Library-Images/EQ/Peak-EQ.png)
 
+A BPF meant to be used as a finishing EQ that will attenuate or boost a specific frequency band at the cutoff set by the Hz knob.
+
+
+
 **Treble Boost** <br>
-Boosts high frequencies by a few dBs. Mix control goes from no boost to boosted.
 
 ![Treble Boost](img/Library-Images/EQ/Treble-Boost.png)
+
+Boosts high frequencies by a few dBs. Mix control goes from no boost to boosted.
+
+
 
 ## ES-8
 
 The Expert Sleepers ES-8 is the officially recognized and recommended DC-coupled audio interface for interfacing Audulus with your hardware synthesizers with audio and control voltage (CV) signals. Use these modules to connect to and from your hardware synths.
 
 **ES-8 Audio Outputs** <br>
-A set of 8 outputs with attenuators that are scaled for fading audio in and out.
 
 ![ES-8 Audio Outputs](img/Library-Images/ES-8/ES-8-Audio-Output.png)
 
+A set of 8 outputs with attenuators that are scaled for fading audio in and out.
+
+
+
 **ES-8 Linear Outputs** <br>
-A set of 8 outputs with attenuators that are scaled for fading control signals in and out.
 
 ![ES-8 Linear Outputs](img/Library-Images/ES-8/ES-8-Linear-Outputs.png)
 
+A set of 8 outputs with attenuators that are scaled for fading control signals in and out.
+
+
 **ES-8 Outputs 1-8** <br>
-A set of 8 outputs for use with your ES-8. 
 
 ![ES-8 Outputs 1-8](img/Library-Images/ES-8/ES-8-Outputs-1-8.png)
+
+A set of 8 outputs for use with your ES-8. 
+
+
 
 ## Gate
 
 These modules create or modify gates. A gate is an on/off, yes/no, signal. Gates in Audulus are typically 0 or 1 signals, but an exception is made as gates enter envelope modules, in which case, the gate height from 0 to 1 allows for dynamic playing, as the attack portion will only rise to the height or value of the incoming gate. They play well with clock modules, but can also be used to either generate gates themselves, or modify gates coming from the MIDI input module.
 
 **3D 8 Output Gate Generator** <br>
-Uses an xyz coordinate system to generate gates at each of a 3D cube’s vertices. The x-y-z knobs set the coordinates of an imaginary point within the cube and the thrsh or threshold knob adjusts how close that point must be to the vertices to make the gate go high. Responds well to having multiple different LFOs or envelopes modulating the coordinate knobs, or using 3 outputs of a quadrature LFO to get the point to move in a pattern around the space.
 
 ![3D 8 Output Gate Generator](img/Library-Images/Gate/3D-8-Output-Gate-Generator.png)
 
+Uses an xyz coordinate system to generate gates at each of a 3D cube’s vertices. The x-y-z knobs set the coordinates of an imaginary point within the cube and the thrsh or threshold knob adjusts how close that point must be to the vertices to make the gate go high. Responds well to having multiple different LFOs or envelopes modulating the coordinate knobs, or using 3 outputs of a quadrature LFO to get the point to move in a pattern around the space.
+
+
+
 **Chance Gate Over-Under** <br>
-Creates a gate on or off message based on a random chance set by the % knob. Each time the module is gated, a random value is sampled. If that sampled value is less than the 0 to 1 value present on the knob, then the gate will go high. Otherwise, the gate will go low. At 0.5, the gate will have a 50-50 chance of being on or off whenever it is pulsed. At 0.1, it has a 10% chance of being on. At 0.9 it has a 90% chance of being on. A nice module to add some randomness to envelopes where length of sustain is and important factor.
 
 ![Chance Gate Over-Under](img/Library-Images/Gate/Chance-Gate-Over-Under.png)
 
+Creates a gate on or off message based on a random chance set by the % knob. Each time the module is gated, a random value is sampled. If that sampled value is less than the 0 to 1 value present on the knob, then the gate will go high. Otherwise, the gate will go low. At 0.5, the gate will have a 50-50 chance of being on or off whenever it is pulsed. At 0.1, it has a 10% chance of being on. At 0.9 it has a 90% chance of being on. A nice module to add some randomness to envelopes where length of sustain is and important factor.
+
+
+
 **Chance Gate Passthrough** <br>
-Will either pass or not pass an incoming gate (or clock) signal based on the % chance set by the knob. At 0.5, the gate will have a 50-50 chance of passing through or not. At 0.1, it has a 10% chance of passing through. At 0.9 it has a 90% chance of passing through. A nice module to add some randomness to drum machines and other clock-based patterns.
 
 ![Chance Gate Passthrough](img/Library-Images/Gate/Chance-Gate-Passthrough.png)
 
+Will either pass or not pass an incoming gate (or clock) signal based on the % chance set by the knob. At 0.5, the gate will have a 50-50 chance of passing through or not. At 0.1, it has a 10% chance of passing through. At 0.9 it has a 90% chance of passing through. A nice module to add some randomness to drum machines and other clock-based patterns.
+
+
+
 **Gate Delay** <br>
-Delays a gate signal by a given amount of time, from 0 to 2 seconds. Good for offsetting a master clock pulse slightly to achieve flamming in drums.
 
 ![Gate Delay](img/Library-Images/Gate/Gate-Delay.png)
 
+Delays a gate signal by a given amount of time, from 0 to 2 seconds. Good for offsetting a master clock pulse slightly to achieve flamming in drums.
+
+
+
 **Gate Smear** <br>
-Keeps a gate high for a certain number of seconds so that erratic or fast gates are combined or smeared together. Smear time from 0.001 to 1.5 seconds.
 
 ![Gate Smear](img/Library-Images/Gate/Gate-Smear.png)
 
+Keeps a gate high for a certain number of seconds so that erratic or fast gates are combined or smeared together. Smear time from 0.001 to 1.5 seconds.
+
+
+
 **Gate Swing** <br>
-Takes an incoming gate pulse and delays every other pulse to create a swinging effect. Essential for creating really groovy music.
 
 ![Gate Swing](img/Library-Images/Gate/Gate-Swing.png)
 
+Takes an incoming gate pulse and delays every other pulse to create a swinging effect. Essential for creating really groovy music.
+
+
+
 **Logic Gates** <br>
-A collection of basic Boolean logic gates, from top to bottom: and, nand, or, nor, xor, xnor. The output goes high (is true) when the inputs satisfy the particular logic gate’s truth table. For example: an and gate must have both inputs high to be true. So if one or the other or neither outputs are high (1), the and output will remain low (0). A very good module for pitting two clock signals against one another to create complex rhythms.
 
 ![Logic Gates](img/Library-Images/Gate/Logic-Gates.png)
 
+A collection of basic Boolean logic gates, from top to bottom: and, nand, or, nor, xor, xnor. The output goes high (is true) when the inputs satisfy the particular logic gate’s truth table. For example: an and gate must have both inputs high to be true. So if one or the other or neither outputs are high (1), the and output will remain low (0). A very good module for pitting two clock signals against one another to create complex rhythms.
+
+
+
 **Random Chance Gate Passthrough** <br>
-Same as the Chance Gate Passthrough module but with a R or randomize input that selects a random passthrough chance whenever the input is gated.
 
 ![Random Chance Gate Passthrough](img/Library-Images/Gate/Random-Chance-Passthrough.png)
 
+Same as the Chance Gate Passthrough module but with a R or randomize input that selects a random passthrough chance whenever the input is gated.
+
+
+
 **Random Gate Delay** <br>
-Same as the Gate Delay module but with a R or randomize input that selects a random amount of time to delay the incoming gate by whenever the input is gated.
 
 ![Random Gate Delay](img/Library-Images/Gate/Random-Gate-Delay.png)
 
+Same as the Gate Delay module but with a R or randomize input that selects a random amount of time to delay the incoming gate by whenever the input is gated.
+
+
+
 **Random Gate Smear** <br>
-Same as the Gate Smear module but with a R or randomize input that selects a random amount of time over which to smear gates whenever the input is gated.
 
 ![Random Gate Smear](img/Library-Images/Gate/Random-Gate-Smear.png)
 
+Same as the Gate Smear module but with a R or randomize input that selects a random amount of time over which to smear gates whenever the input is gated.
+
+
+
 **Random Logic Gates** <br>
-Same as the Selectable Logic Gates module but with a R or randomize input that selects which logic gate is being referenced.
 
 ![Random Logic Gates](img/Library-Images/Gate/Random-Logic-Gates.png)
 
+Same as the Selectable Logic Gates module but with a R or randomize input that selects which logic gate is being referenced.
+
+
+
 **Selectable Logic Gates** <br>
 A collection of basic Boolean logic gates, and, nand, or, nor, xor, xnor, selectable by a knob. The output goes high (is true) when the inputs satisfy the particular logic gate’s truth table. For example: an and gate must have both inputs high to be true. So if one or the other or neither outputs are high (1), the and output will remain low (0). A very good module for pitting two clock signals against one another to create complex rhythms.
+
+![Selectable Logic Gates](img/Library-Images/Gate/Selectable-Logic-Gates.png)
 
 ## Input-Output
 
 These modules allow you to pass audio and control signals and into and out of Audulus. Some modules have helpful add-ons like level controls and mutes.
 
 **Audio Input** <br>
-A simple rehousing of the Mic node with level control for audio input. Top knob is channel 1 and bottom knob is channel 2. Contains a pre-volume knob audio peak detector to indicate when you are clipping the input with a signal that is too loud.
 
 ![Audio Input](img/Library-Images/Input-Output/Audio-Input.png)
 
+A simple rehousing of the Mic node with level control for audio input. Top knob is channel 1 and bottom knob is channel 2. Contains a pre-volume knob audio peak detector to indicate when you are clipping the input with a signal that is too loud.
+
+
+
 **Audio Output Mono** <br>
-A simple rehousing of the Speaker node with level control for audio output. This module has a mono input that distributes the signal equally to both speakers (good for when you have a mono synth and don’t want to have to attach two wires to the left and right inputs). Contains a post-volume knob audio peak detector to indicate when you are clipping the output with a signal that is too loud. Also contains a DC-blocker node for removing any DC offset. 
 
 ![Audio Output Mono](img/Library-Images/Input-Output/Audio-Output-Mono.png)
 
+A simple rehousing of the Speaker node with level control for audio output. This module has a mono input that distributes the signal equally to both speakers (good for when you have a mono synth and don’t want to have to attach two wires to the left and right inputs). Contains a post-volume knob audio peak detector to indicate when you are clipping the output with a signal that is too loud. Also contains a DC-blocker node for removing any DC offset. 
+
+
+
 **Audio Output Stereo** <br>
-A simple rehousing of the Speaker node with level control for audio output. This module has an input for left (top) and right (bottom) channels with a single volume control. Contains a post-volume knob audio peak detector to indicate when you are clipping the output with a signal that is too loud. Also contains a DC-blocker node for removing any DC offset. 
 
 ![Audio Output Stereo](img/Library-Images/Input-Output/Audio-Output-Stereo.png)
+
+A simple rehousing of the Speaker node with level control for audio output. This module has an input for left (top) and right (bottom) channels with a single volume control. Contains a post-volume knob audio peak detector to indicate when you are clipping the output with a signal that is too loud. Also contains a DC-blocker node for removing any DC offset. 
+
+
 
 ## Meter
 
@@ -1488,92 +2173,139 @@ These modules give visual feedback for the signals flowing through them. Oscillo
 Oscilloscopes are good meters for observing change over time. They are usually used as a kind of audio or modulation microscope.
 
 **Modulation x4 Scope** <br>
-Four Waveform nodes in one package scaled to meter modulation signals.
 
 ![Modulation x4 Scope](img/Library-Images/Meter/Oscilloscope/Modulation-x4-Scope.png)
 
+Four Waveform nodes in one package scaled to meter modulation signals.
+
+
+
 **Octave Keyboard and Tune Meter** <br>
-Displays the current note being played by an octave signal with a sharp, in-tune, and flat indicator.
 
 ![Octave Keyboard and Tune Meter](img/Library-Images/Meter/Octave-Keyboard-and-Tune-Meter.png)
 
+Displays the current note being played by an octave signal with a sharp, in-tune, and flat indicator.
+
+
+
 **Octave Keyboard Meter Horizontal** <br>
-Displays the current note being played by an octave signal, oriented horizontally.
 
 ![Octave Keyboard Meter Horizontal](img/Library-Images/Meter/Octave-Keyboard-Meter-Horizontal.png)
 
+Displays the current note being played by an octave signal, oriented horizontally.
+
+
+
 **Octave Keyboard Meter Vertical** <br>
-Displays the current note being played by an octave signal, oriented vertically.
 
 ![Octave Keyboard Vertical](img/Library-Images/Meter/Octave-Keyboard-Meter-Vertical.png)
+
+Displays the current note being played by an octave signal, oriented vertically.
+
+
 
 ## MIDI
 
 These modules allow you to pass MIDI signals into Audulus. Some modules have helpful add-ons like slew limiting and key priority. To adjust channel and polyphony, open the modules and find the Keyboard node in the upper left corner and adjust from there.
 
 **Keyboard Input Bend Slew Velocity Slur** <br>
+
+![Keyboard Input Bend Slew Velocity Slur](img/Library-Images/MIDI/Keyboard-Input-Bend-Slew-Velocity-Slur.png)
+
 A deluxe MIDI input that includes controls for bend range, slew amount and type, velocity on (red) or off (blue), and slur on (red) or off (blue). When slur is applied, new notes will not trigger a new output gate as long as another note is being held down. If slur is off, every time a new note is pressed, a new gate will be triggered.
 
-![Keyboard Input Bend Slew Velocity Slur](img/Library-Images/MIDI/Keyboard-Input-Bend-Slew Velocity-Slur.png)
+
 
 **Keyboard Input Velocity Slur** <br>
-A paired back keyboard input module with just velocity on/off and slur on/off buttons.
 
 ![Keyboard Input Velocity Slur](img/Library-Images/MIDI/Keyboard-Input-Velocity-Slur.png)
 
+A paired back keyboard input module with just velocity on/off and slur on/off buttons.
+
+
+
 **MIDI Input** <br>
-A bare bones MIDI input with octave signal output and gate only. To change polyphony and channel settings, enter the module and adjust from the keyboard node.
 
 ![MIDI Input](img/Library-Images/MIDI/MIDI-Input.png)
+
+A bare bones MIDI input with octave signal output and gate only. To change polyphony and channel settings, enter the module and adjust from the keyboard node.
+
+
 
 ## Mixer
 
 These modules combine signals by adding them together. The most common mixer is the audio mixer, which allows you to combine several instruments together into one stereo mix.
 
 **3D 8 Input Mixer** <br>
-Combines 8 signals in a 3D mixing matrix. The xyz knobs control the coordinate of an imaginary point within the cube. The closer this point is to any given input, the more that input is fed to the output. The ex/lg control fades between exponential, linear, and logarithmic response. You can imagine a linear response as a kind of diamond centered around the floating coordinate, whereas logarithmic makes this diamond more ball like. The exponential response makes it so that the coordinate must be really close to an input to send it to the output. The main output attenuator adjusts the overall output.
 
 ![3D 8 Input Mixer](img/Library-Images/Mixer/3D-8-Input-Mixer.png)
 
+Combines 8 signals in a 3D mixing matrix. The xyz knobs control the coordinate of an imaginary point within the cube. The closer this point is to any given input, the more that input is fed to the output. The ex/lg control fades between exponential, linear, and logarithmic response. You can imagine a linear response as a kind of diamond centered around the floating coordinate, whereas logarithmic makes this diamond more ball like. The exponential response makes it so that the coordinate must be really close to an input to send it to the output. The main output attenuator adjusts the overall output.
+
+
+
 **4x2 Stereo Output Mixer** <br>
-Accepts 4 channels of stereo or mono signals. If the input is mono, use the top input and press the mono button. The pan control sends the audio to the left or right channels, and the output attenuator adjusts the overall output loudness. To mute the output, press the red button underneath the master volume control. The left and right channels also pass through the two outputs.
 
 ![4x2 Stereo Output Mixer](img/Library-Images/Mixer/4x2-Stereo-Output-Mixer.png)
 
+Accepts 4 channels of stereo or mono signals. If the input is mono, use the top input and press the mono button. The pan control sends the audio to the left or right channels, and the output attenuator adjusts the overall output loudness. To mute the output, press the red button underneath the master volume control. The left and right channels also pass through the two outputs.
+
+
+
 **8x2 Mixer** <br>
-Accepts 8 mono signals. Has level and pan controls for each channel, as well as an A and B send and return channel.
 
 ![8x2 Mixer](img/Library-Images/Mixer/8x2-Mixer.png)
 
+Accepts 8 mono signals. Has level and pan controls for each channel, as well as an A and B send and return channel.
+
+
 **8x2 Stereo Output Mixer** <br>
-Accepts 8 channels of stereo or mono signals. If the input is mono, use the top input and press the mono button. The pan control sends the audio to the left or right channels, and the output attenuator adjusts the overall output loudness. To mute the output, press the red button underneath the master volume control. The left and right channels also pass through the two outputs.
 
 ![8x2 Stereo Output Mixer](img/Library-Images/Mixer/8x2-Stereo-Output-Mixer.png)
 
+Accepts 8 channels of stereo or mono signals. If the input is mono, use the top input and press the mono button. The pan control sends the audio to the left or right channels, and the output attenuator adjusts the overall output loudness. To mute the output, press the red button underneath the master volume control. The left and right channels also pass through the two outputs.
+
+
+
 **Audio 5x1 Mixer** <br>
-Accepts 5 input signals and mixes them together to one output. A master volume control is at the bottom of the module.
 
 ![Audio 5x1 Mixer](img/Library-Images/Mixer/Audio-5x1-Mixer.png)
 
+Accepts 5 input signals and mixes them together to one output. A master volume control is at the bottom of the module.
+
+
+
 **Infinite XFade** <br>
-A module for crossfading between any number of inputs. Instructions for how to use it are contained in the patch.
 
 ![Infinite XFade](img/Library-Images/Mixer/Infinite-XFade.png)
 
+A module for crossfading between any number of inputs. Instructions for how to use it are contained in the patch.
+
+
+
 **Pan** <br>
-A module for panning audio to left or right outputs.
 
 ![Pan](img/Library-Images/Mixer/Pan.png)
 
+A module for panning audio to left or right outputs.
+
+
+
 **VCO Mixer 3x1** <br>
-An automatically levelling mixer that allows you to attach up to 3 VCOs and always have a consistent output (as long as the VCOs each have an amplitude of no more than 1).
 
 ![VCO Mixer 3x1](img/Library-Images/Mixer/VCO-Mixer-3x1.png)
 
+An automatically levelling mixer that allows you to attach up to 3 VCOs and always have a consistent output (as long as the VCOs each have an amplitude of no more than 1).
+
+
+
 **VCO Mixer 6x1** <br>
-An automatically levelling mixer that allows you to attach up to 6 VCOs and always have a consistent output (as long as the VCOs each have an amplitude of no more than 1).
 
 ![VCO Mixer 6x1](img/Library-Images/Mixer/VCO-Mixer-6x1.png)
+
+An automatically levelling mixer that allows you to attach up to 6 VCOs and always have a consistent output (as long as the VCOs each have an amplitude of no more than 1).
+
+
 
 ## Octave
 
@@ -1584,9 +2316,12 @@ Instead of 0 volts = lowest note and 10 volts = highest note, the octave signal 
 The advantage of this system is that you can create synced oscillators that go far into the LFO range while still staying in tune with the master oscillator - very useful for FM synthesis. For practical purposes, VCOs are ranged from -5 to 5 to cover a standard 10 octave range.
 
 **Octave Shift** <br>
-Shifts an incoming octave signal up or down by octaves. Maximum translation is -10 (ten octaves down) to 10 (ten octaves up).
 
 ![Octave Shift](img/Library-Images/Octave/Octave-Shift.png)
+
+Shifts an incoming octave signal up or down by octaves. Maximum translation is -10 (ten octaves down) to 10 (ten octaves up).
+
+
 
 ## Patches
 
@@ -1597,25 +2332,34 @@ Patches are collections of multiple modules strung together in common configurat
 These modules focus on different ways to use clock modules.
 
 **Dueling Phase Clock Logic A-R Envelopes** <br>
-This patch uses two clocks at slightly different speeds feeding a Logic Gates module to trigger 6 different A-R Envelope modules. The envelopes can then be used to modulate VCAs and VCFs or 3 to 6 synth voices.
 
 ![Dueling Phase Clock Logic A-R Envelopes](img/Library-Images/Patches/Clock/Dueling-Phase-Clock-Logic-A-R-Envelopes.png)
 
+This patch uses two clocks at slightly different speeds feeding a Logic Gates module to trigger 6 different A-R Envelope modules. The envelopes can then be used to modulate VCAs and VCFs or 3 to 6 synth voices.
+
+
+
 **Flip Flop Divider Random Logic** <br>
-This patch is a collection of different clock and gate signals that can be used to create all kinds of rhythms. First, the master clock is connected to a Flip Flop 256 Inverter module, providing many divided clock pulses in powers of 2 and their inverted counterparts. Then, the master clock is multiplied by 2/3, creating a triplet version of the master clock. The master clock and this fractionally divided clock pulse are then fed into a Logic Gates module, providing 6 more gate outputs. The nand and xnor outputs of this module become the two inputs of a Random Selectable Logic Gates module, which is randomized by the triplet pulse fed through a Chance Over Under module. Finally, the master clock pulse is fed through a Chance Passthrough module and used to trigger a burst generator.
 
 ![Flip Flop Divider Random Logic](img/Library-Images/Patches/Clock/Flip-Flop-Divider-Random-Logic.png)
+
+This patch is a collection of different clock and gate signals that can be used to create all kinds of rhythms. First, the master clock is connected to a Flip Flop 256 Inverter module, providing many divided clock pulses in powers of 2 and their inverted counterparts. Then, the master clock is multiplied by 2/3, creating a triplet version of the master clock. The master clock and this fractionally divided clock pulse are then fed into a Logic Gates module, providing 6 more gate outputs. The nand and xnor outputs of this module become the two inputs of a Random Selectable Logic Gates module, which is randomized by the triplet pulse fed through a Chance Over Under module. Finally, the master clock pulse is fed through a Chance Passthrough module and used to trigger a burst generator.
+
+
 
 ## Self-Playing
 
 These patches are songs-within-Audulus that run and play all by themselves. They can be anything from a small sample and hold generated random melody to a complex fully automated tune with every note and event perfectly planned and executed. They are meant to show you how to create music in what might be a novel way for you - outside the box, without a DAW, and with experimental modular synthesizer-based composition techniques. They are also meant to show that you don’t necessarily need a degree in music theory to make a self-playing patch that sounds great and really groovy. All that is required is a little understanding and a lot of patience to turn knobs and experiment until something great comes out!
 
 **Self Playing Subtractive Synth Template** <br>
+
+![Self Playing Subtractive Synth Template](img/Library-Images/Patches/Self-Playing/Self-Playing-Subtractive-Synth-Template.png)
+
 A beginner’s look into how to create a self-playing Audulus patch. Beings with a master clock that is stepping a Random Chance 4 Step Sequencer. The master clock pulse is being divided by 16 so that every 4 cycles of the sequencer, it has a chance to reset step values. This gives patterns a chance to develop without being totally random, and thus have nothing for your mind to latch on to and groove with. The output of the sequencer is translated from a modulation signal to an octave signal and quantized into a pentatonic scale. 
 
 The pitch is sent to a basic oscillator which is being filtered by an SEM-style filter. The filter’s cutoff point is slowly modulated by a sine LFO to give the filter a little animation. The output of the quantizer is also fed into the filter to give the filter octave tracking. The master clock pulse is also used as a gate for the filter envelope. The filter’s envelope is having its max time parameter modulated by a slow LFO to give the filter some further animation. The master clock is also gating the envelope that is modulating the VCA, and finally the synth is fed through an analog delay and sent to the audio output.
 
-![Self Playing Subtractive Synth Template](img/Library-Images/Patches/Self-Playing/Self-Playing-Subtractive-Synth-Template.png)
+
 
 ## Quantizer
 
@@ -1626,63 +2370,96 @@ These modules take an incoming octave signal and snap them to a user-defined sca
 These quantizers take an input octave signal and translate it into a chord. Requires multiple oscillators or at least collapsing the chord signal into a polyphonic chain.
 
 **Neo-Reimannian Triad Transformer** <br>
-Transforms an input octave signal into Neo-Reimannian Triads.
 
 ![Neo-Reimannian Triad Transformer](img/Library-Images/Quantizer/Chord/Neo-Reimannian-Triad-Transformer.png)
 
+Transforms an input octave signal into Neo-Reimannian Triads.
+
+
+
 **Chromatic Quantizer** <br>
-The smallest, most CPU-lightweight quantizer module. Uses a simple expression to snap inputs into discrete steps of 1/12.
 
 ![Chromatic Quantizer](img/Library-Images/Quantizer/Chromatic-Quantizer.png)
 
+The smallest, most CPU-lightweight quantizer module. Uses a simple expression to snap inputs into discrete steps of 1/12.
+
+
+
 **Drifting Gateable Quantizer** <br>
-Same as the Gateable Quantizer but adds a drift control at the bottom that applies a randomly chosen sharp or flat offset to each new note. The maximum drift is 1 semitone flat or sharp. The knob is scaled exponentially to allow you to add just a little detune. Detune is important for creating more organic-sounding synthesizers. Adding just a little can go a long way to making your music sound more harmonically interesting.
 
 ![Drifting Gateable Quantizer](img/Library-Images/Quantizer/Drifting-Gateable-Quantizer.png)
 
+Same as the Gateable Quantizer but adds a drift control at the bottom that applies a randomly chosen sharp or flat offset to each new note. The maximum drift is 1 semitone flat or sharp. The knob is scaled exponentially to allow you to add just a little detune. Detune is important for creating more organic-sounding synthesizers. Adding just a little can go a long way to making your music sound more harmonically interesting.
+
+
+
 **Gateable Quantizer with Gate Output** <br>
-Same as the Gateable Quantizer but with a gate output that goes high for every new note chosen. The knob at the bottom of the quantizer adjusts how long the output gate pulse stays high. A useful tool if you are not using a master clock to step a sequencer, but instead using an LFO or other modulation source translated into the octave range, but still need a gate for new notes to ping a VCA or VCF envelope.
 
 ![Gateable Quantizer with Gate Output](img/Library-Images/Quantizer/Gateable-Quantizer-with-Gate-Output.png)
 
+Same as the Gateable Quantizer but with a gate output that goes high for every new note chosen. The knob at the bottom of the quantizer adjusts how long the output gate pulse stays high. A useful tool if you are not using a master clock to step a sequencer, but instead using an LFO or other modulation source translated into the octave range, but still need a gate for new notes to ping a VCA or VCF envelope.
+
+
+
 **Gateable Quantizer** <br>
-A 12 note quantizer that allows you to turn individual notes on (red) and off (blue) with buttons, or to turn the notes on and off remotely with gates. This is one of the most useful modules for creating self-playing patches. You can use gates created by logic modules or sequencers to turn notes on and off remotely to effectively change the tune being played. You can sequence chord changes while a randomly fluctuating octave signal flows through the quantizer to create a moving arpeggiator that follows a general pattern but does not really repeat itself. If no notes are engaged the quantizer becomes a chromatic quantizer by default. The current note being played is highlighted in orange-red, while the active notes are highlighted in green. Inactive notes are black.
 
 ![Gateable Quantizer](img/Library-Images/Quantizer/Gateable-Quantizer.png)
 
+A 12 note quantizer that allows you to turn individual notes on (red) and off (blue) with buttons, or to turn the notes on and off remotely with gates. This is one of the most useful modules for creating self-playing patches. You can use gates created by logic modules or sequencers to turn notes on and off remotely to effectively change the tune being played. You can sequence chord changes while a randomly fluctuating octave signal flows through the quantizer to create a moving arpeggiator that follows a general pattern but does not really repeat itself. If no notes are engaged the quantizer becomes a chromatic quantizer by default. The current note being played is highlighted in orange-red, while the active notes are highlighted in green. Inactive notes are black.
+
+
+
 **Modulation Quantizer** <br>
-Quantizes a modulation signal into 2 to 64 steps. Will create a staircase, bitcrushing-like effect for modulation signals.
 
 ![Modulation Quantizer](img/Library-Images/Quantizer/Modulation-Quantizer.png)
 
+Quantizes a modulation signal into 2 to 64 steps. Will create a staircase, bitcrushing-like effect for modulation signals.
+
+
+
 **Scales Maj-Min Quantizer** <br> 
-A very compact and useful quantizer that allows you to dial in which base note you want for a scale and whether you want the major (red) or minor (blue) version. The maj/min selector is gateable to allow you to modulate into one or the other scale. 
 
 ![Scales Maj-Min Quantizer](img/Library-Images/Quantizer/Scales-Maj-Min-Quantizer.png)
+
+A very compact and useful quantizer that allows you to dial in which base note you want for a scale and whether you want the major (red) or minor (blue) version. The maj/min selector is gateable to allow you to modulate into one or the other scale. 
+
+
 
 ## Sample + Hold
 
 These modules use sample and hold techniques to create random modulations. The sample and hold node will sample an input signal whenever its input is gated.
 
 **Att-Off Sample + Hold** <br>
-A white-noise sampling random generator with attenuate offset controls to adjust the range of modulation and a speed control from 0 to 20Hz sampling rate.
 
 ![Att-Off Sample + Hold](img/Library-Images/Sample-Hold/Att-Off-Sample-and-Hold.png)
 
+A white-noise sampling random generator with attenuate offset controls to adjust the range of modulation and a speed control from 0 to 20Hz sampling rate.
+
+
+
 **Basic Sample + Hold** <br>
-A gateable sample and hold that accepts an input signal. Perfect for grabbing samples from LFOs and other modulation sources.
 
 ![Basic Sample + Hold](img/Library-Images/Sample-Hold/Basic-Sample-and-Hold.png)
 
+A gateable sample and hold that accepts an input signal. Perfect for grabbing samples from LFOs and other modulation sources.
+
+
+
 **Gateable Sample + Hold** <br>
-A white-noise sampling random generator that samples a new random 0 to 1 modulation value every time it is gated.
 
 ![Gateable Sample + Hold](img/Library-Images/Sample-Hold/Gateable-Sample-and-Hold.png)
 
+A white-noise sampling random generator that samples a new random 0 to 1 modulation value every time it is gated.
+
+
+
 **Modulation Threshold Random Generator** <br>
-Takes a modulation input and outputs a new random sample every time the threshold, set by the knob at the bottom, is crossed. Perfect for turning modulation and envelope waves into sample and hold triggers.
 
 ![Modulation Threshold Random Generator](img/Library-Images/Sample-Hold/Modulation-Threshold-Random-Generator.png)
+
+Takes a modulation input and outputs a new random sample every time the threshold, set by the knob at the bottom, is crossed. Perfect for turning modulation and envelope waves into sample and hold triggers.
+
+
 
 ## Sequencer
 
@@ -1695,6 +2472,9 @@ Although some sequencers in Audulus have octave signal outputs, in general, they
 These modules use an imaginary 3-dimensional space to create sequences. They are esoteric but still very musical and interesting sequencers to play with.
 
 **3D Cube 8 Step Sequencer** <br>
+
+![3D Cube 8 Step Sequencer](img/Library-Images/Sequencer/3D/3D-Cube-8-Step-Sequencer.png)
+
 This is an 8 step sequencer that uses a cube metaphor to create non-linear sequences. The sequencer is advanced at the top left gate input. The two rows of four knobs along the bottom of the sequencer are the sequencer steps. These knobs control which vertex (point) of the cube that the sequencer references during the sequence. As you turn the knob, a blue dot will appear on the small display cube to the lower right of the sequence cube illustrating which vertex is selected. After a moment of not turning the knob, the blue dot will disappear. 
 
 The min and max knobs control the minimum (green) and maximum (blue) steps of the sequencer. The current step is highlighted in red. The knobs around the sequence cube are the actual 0 to 1 modulation values that will be outputted in the upper right of the module. 
@@ -1705,93 +2485,135 @@ The thrsh or threshold control adjusts how close this point must be to the verti
 
 As you can tell, this sequencer might take a while to wrap your head around. However, it is well worth the time invested, as it can create some really amazing sequences not otherwise possible with linear 8 step sequencers. Watch a video of it in action here: https://www.instagram.com/p/BbUYm0HAujC/?taken-by=audulus 
 
-![3D Cube 8 Step Sequencer](img/Library-Images/Sequencer/3D/3D-Cube-8-Step-Sequencer.png)
+
 
 ### Algorithmic
 
 Algorithmic sequencers output sequences based on mathematical formulae or processes. They are the ultimate happy accident sequencer modules that generate all kinds of complex melodies and rhythms with from a limited number of knobs and buttons.
 
 **Euclidean Gate Sequencer** <br>
-Creates output gates using a Euclidean algorithm. Great for setting up quick dance beats or polyrhythmic hits.
 
 ![Euclidean Gate Sequencer](img/Library-Images/Sequencer/Algorithmic/Euclidean-Gate-Sequencer.png)
 
+Creates output gates using a Euclidean algorithm. Great for setting up quick dance beats or polyrhythmic hits.
+
+
+
 **Random Melody** <br>
-Generates random melodies based on probability curves applied by filtering white noise.
 
 ![Random Melody](img/Library-Images/Sequencer/Algorithmic/Random-Melody.png)
 
+Generates random melodies based on probability curves applied by filtering white noise.
+
+
+
 **uTuring** <br>
-An unaffiliated functionality clone of the original Music Thing Modular Turing Machine.
 
 ![uTuring](img/Library-Images/Sequencer/Algorithmic/uTuring.png)
+
+An unaffiliated functionality clone of the original Music Thing Modular Turing Machine.
+
+
 
 ### Basic
 
 These modules are your bread-and-butter sequencers. They are very simple and easy to use and yet still have very musical uses and limitless potential. Take advantage of the fact that Audulus allows you to modulate any knob by applying LFOs and gates to sequencer knobs to expand their potential.
 
 **4 Step Max Sequencer** <br>
-Same as the 4 Step Sequencer but with a control for the maximum step. Modulate this maximum control with another synced sequencer for some really awesome moving sequences.
 
 ![4 Step Max Sequencer](img/Library-Images/Sequencer/Basic/4-Step-Max-Sequencer.png)
 
+Same as the 4 Step Sequencer but with a control for the maximum step. Modulate this maximum control with another synced sequencer for some really awesome moving sequences.
+
+
+
 **4 Step Sequencer** <br>
-The most elemental sequencer. Advance from one step to another with a gate. Once the last step has been reached, it will reset back to the first step and continue on.
 
 ![4 Step Sequencer](img/Library-Images/Sequencer/Basic/4-Step-Sequencer.png)
 
+The most elemental sequencer. Advance from one step to another with a gate. Once the last step has been reached, it will reset back to the first step and continue on.
+
+
+
 **8 Step Min Max Sequencer** <br>
-Same as the 8 Step Sequencer but with both a minimum and maximum step control. Modulate these controls with other synced sequencers for some really awesome moving sequences.
 
 ![8 Step Min Max Sequencer](img/Library-Images/Sequencer/Basic/8-Step-Min-Max-Sequencer.png)
 
+Same as the 8 Step Sequencer but with both a minimum and maximum step control. Modulate these controls with other synced sequencers for some really awesome moving sequences.
+
+
+
 **8 Step Sequencer** <br>
-Same as the 4 Step Sequencer but expanded to 8 steps total.
 
 ![8 Step Sequencer](img/Library-Images/Sequencer/Basic/8-Step-Sequencer.png)
 
+Same as the 4 Step Sequencer but expanded to 8 steps total.
+
+
+
 **Random 4 Step Sequencer** <br>
-Same as the 4 step sequencer but instead of knobs, the sequence is randomly generated whenever the R or randomize input is gated. Try clocking the sequencer with a master clock and ping the reset input with a division of the master clock to allow patterns to develop, but keep sequences moving and growing all the time.
 
 ![Random 4 Step Sequencer](img/Library-Images/Sequencer/Basic/Random-4-Step-Sequencer.png)
 
+Same as the 4 step sequencer but instead of knobs, the sequence is randomly generated whenever the R or randomize input is gated. Try clocking the sequencer with a master clock and ping the reset input with a division of the master clock to allow patterns to develop, but keep sequences moving and growing all the time.
+
+
+
 **Random Chance 4 Step Sequencer** <br>
-Same as the Random 4 Step Sequencer, except instead of being totally randomized every time the R or random input is gated, you have knobs that set the percent chance that each step will be randomized. This allows you, for example, to anchor a sequence to the first note by setting it to 0% chance of changing, while adjusting the other notes to change more frequently.
 
 ![Random Chance 4 Step Sequencer](img/Library-Images/Sequencer/Basic/Random-Chance-4-Step-Sequencer.png)
+
+Same as the Random 4 Step Sequencer, except instead of being totally randomized every time the R or random input is gated, you have knobs that set the percent chance that each step will be randomized. This allows you, for example, to anchor a sequence to the first note by setting it to 0% chance of changing, while adjusting the other notes to change more frequently.
+
+
 
 ### Gate
 
 These modules generate sequences of 0 or 1 gate signals instead of 0 to 1 modulation signals. They are perfect for generating rhythms sent to envelopes or drum modules.
 
 **Pattern Bank Gate Sequencer** <br>
-Uses 4 banks of preset beats to generate output gates for drums and instruments.
 
 ![Pattern Bank Gate Sequencer](img/Library-Images/Sequencer/Gate/Pattern-Bank-Sequencer.png)
 
+Uses 4 banks of preset beats to generate output gates for drums and instruments.
+
+
+
 **Strip Sequencer** <br>
-Uses a series of buttons to turn steps on and off to convert a clock signal into a sequenced gate.
 
 ![Strip Sequencer](img/Library-Images/Sequencer/Gate/Strip-Sequencer.png)
+
+Uses a series of buttons to turn steps on and off to convert a clock signal into a sequenced gate.
+
+
 
 ## Graphic
 
 These modules use one Spline and Mapper nodes to create unusual types of sequencers that, instead of following knobs, follow curves or shapes you draw. A very fast way to generate sequences without having to turn multiple knobs.
 
 **4 Step Mapper Sequencer** <br>
-Uses a mapper node to create a 0 to 1 modulation sequence. The sequencer follows the curve and outputs the area roughly above each red light. A great way to quickly create a gestural sequence. Tap or click and drag the green break points to adjust the shape.
 
 ![4 Step Mapper Sequencer](img/Library-Images/Sequencer/Graphic/4-Step-Mapper-Sequencer.png)
 
+Uses a mapper node to create a 0 to 1 modulation sequence. The sequencer follows the curve and outputs the area roughly above each red light. A great way to quickly create a gestural sequence. Tap or click and drag the green break points to adjust the shape.
+
+
+
 **8 Step Spline Sequencer** <br>
-Uses a spline node to allow you to draw a shape for a sequencer to follow. To add spline points, double tap or click on the spline area. To delete points, double tap or click on the point.
 
 ![8 Step Spline Sequencer](img/Library-Images/Sequencer/Graphic/8-Step-Spline-Sequencer.png)
 
+Uses a spline node to allow you to draw a shape for a sequencer to follow. To add spline points, double tap or click on the spline area. To delete points, double tap or click on the point.
+
+
+
 **Arranger** <br>
-The arranger is a specialized Spline sequencer that allows you to control how many clock steps per length of spline (called Events). Gate outputs at 4, 8, 16, 32, and 64 outputs help cue events. A built in modulatable quantizer quantizes the translated modulation signal into pitches.
 
 ![8 Step Spline Sequencer](img/Library-Images/Sequencer/Graphic/Arranger.png)
+
+The arranger is a specialized Spline sequencer that allows you to control how many clock steps per length of spline (called Events). Gate outputs at 4, 8, 16, 32, and 64 outputs help cue events. A built in modulatable quantizer quantizes the translated modulation signal into pitches.
+
+
 
 
 ### Matrix
