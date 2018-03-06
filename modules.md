@@ -60,8 +60,8 @@ Modulation   | `0 to 1`
 
 Knob | Function | Notes
 :------------- | :------------- | :-------------
-*   | Attenuator | `0 = Input*0` `0.5 = Input*0.5` `1 = Input*1`
-+   | Offset |`0 = Input+0` `0.5 = Input+0.5` `1 = Input+1`
+![Attenuate Icon](img/SVG-Icons/offset.svg)  | Attenuator | `0 = Input*0` `0.5 = Input*0.5` `1 = Input*1`
+![Offset Icon](img/SVG-Icons/Offset.svg)   | Offset |`0 = Input+0` `0.5 = Input+0.5` `1 = Input+1`
 
 
 Translates the 0 to 1 modulation signal by attenuating (shrinking or expanding) and offsetting (moving up or down). This is one of the most important modules in Audulus. Use it to dial in the precise amount of modulation you want in whatever range you want. This module will clip any signal outside of the range of 0 to 1.
