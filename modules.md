@@ -2,84 +2,276 @@
 
 This is an overview of all of the modules in the Audulus module library. They are categorized by type and subcategory.
 
+
+
 ## Attenuator
 
 Attenuator modules shrink or expand, translate up or down, or otherwise modify an incoming signal. The most basic attenuator is a volume control, but attenuators can be used for many things. The most useful attenuator is the Modulation Attenuate-Offset module, which is most often use to translate LFOs and envelopes into a particular range to wiggle a knob on a filter or effect.
+
+
 
 ### Audio
 
 A collection of audio attenuators and attenuverters scaled to work properly with audio signals. Audio signals in Audulus range from a maximum of -1 to 1.
 
+
+
+---
 **Audio Attenuverter** <br>
-Translates -1 to 1 audio signals. The * control is an attenuverter. At 0, the input audio signal is inverted. At 1, the signal is passed unaffected. In between 0 to 1 the control acts like an attenuator. The + control is an offset. It translates the entire wave up by 0 to 1. If the outgoing wave exceeds 1, the signal is clipped.
 
 ![Audio Attenuverter](img/Library-Images/Attenuator/Audio/Audio-Attenuverter.png)
+
+Input | Signal Range
+:------------- | :-------------
+Audio   | `-1 to 1`
+
+Output | Signal Range
+:------------- | :-------------
+Audio   | `-1 to 1`
+
+Knob | Function | Notes
+:------------- | :------------- | :-------------
+*   | Attenuverter | `0 = Input*-1` `0.5 = Input*0` `1 = Input*1`
++   | Offset |`0 = Input+0` `0.5 = Input+0.5` `1 = Input+1`
+
+
+Translates -1 to 1 audio signals. The * control is an attenuverter. At 0, the input audio signal is inverted. At 1, the signal is passed unaffected. In between 0 to 1 the control acts like an attenuator. The + control is an offset. It translates the entire wave up by 0 to 1. If the outgoing wave exceeds 1, the signal is clipped.
+
+
 
 ### Modulation
 
 A collection of modulation attenuators and attenuverters scaled to work properly with audio signals. Modulation signals in Audulus range from a maximum to 0 to 1.
 
+
+
+---
 **Modulation Attenuate-Offset** <br>
-Translates the 0 to 1 modulation signal by attenuating (shrinking or expanding) and offsetting (moving up or down). This is one of the most important modules in Audulus. Use it to dial in the precise amount of modulation you want in whatever range you want. This module will clip any signal outside of the range of 0 to 1.
 
 ![Modulation Attenuate-Offset](img/Library-Images/Attenuator/Modulation/Modulation-Attenuate-Offset.png)
 
+Input | Signal Range
+:------------- | :-------------
+Modulation   | `0 to 1`
+
+Output | Signal Range
+:------------- | :-------------
+Modulation   | `0 to 1`
+
+Knob | Function | Notes
+:------------- | :------------- | :-------------
+*   | Attenuator | `0 = Input*0` `0.5 = Input*0.5` `1 = Input*1`
++   | Offset |`0 = Input+0` `0.5 = Input+0.5` `1 = Input+1`
+
+
+Translates the 0 to 1 modulation signal by attenuating (shrinking or expanding) and offsetting (moving up or down). This is one of the most important modules in Audulus. Use it to dial in the precise amount of modulation you want in whatever range you want. This module will clip any signal outside of the range of 0 to 1.
+
+
+
+---
 **Modulation Centered Attenuator** <br>
-Attenuates a 0 to 1 modulation signal around a 0.5 center point. Useful for modulating the fine tune control of an oscillator for a vibrato effect so that the vibrato is perfectly centered around the base pitch.
 
 ![Modulation Centered Attenuator](img/Library-Images/Attenuator/Modulation/Modulation-Centered-Attenuator.png)
 
+Input | Signal Range
+:------------- | :-------------
+Modulation   | `0 to 1`
+
+Output | Signal Range
+:------------- | :-------------
+Modulation   | `0 to 1`
+
+Knob | Function | Notes
+:------------- | :------------- | :-------------
+*   | Centered Attenuator | `0 = ((Input*2-1)*0)/2+0.5` `0.5 = ((Input*2-1)*0.5)/2+0.5` `1 = ((Input*2-1)*1)/2+0.5`
+
+
+Attenuates a 0 to 1 modulation signal around a 0.5 center point. Useful for modulating the fine tune control of an oscillator for a vibrato effect so that the vibrato is perfectly centered around the base pitch.
+
+
+
+---
 **Positive Domain Attenuverter** <br>
-Attenuates and inverts any 0 to 1 modulation signal. From 0 to 0.5, the incoming modulation signal is inverted. From 0.5 to 1, the incoming modulation signal is unaffected. Use this module to create a reverse effect on a filter by inverting an incoming envelope modulating the filter’s cutoff.
 
 ![Modulation Positive-Domain Attenuverter](img/Library-Images/Attenuator/Modulation/Modulation-Positive-Domain-Attenuverter.png)
 
+Input | Signal Range
+:------------- | :-------------
+Modulation   | `0 to 1`
+
+Output | Signal Range
+:------------- | :-------------
+Modulation   | `0 to 1`
+
+Knob | Function | Notes
+:------------- | :------------- | :-------------
+-/+   | Attenuverter | `0 = Input*-1+1` `0.5 = Input*0` `1 = Input*1` 
+
+
+Attenuates and inverts any 0 to 1 modulation signal. From 0 to 0.5, the incoming modulation signal is inverted. From 0.5 to 1, the incoming modulation signal is unaffected. Use this module to create a reverse effect on a filter by inverting an incoming envelope modulating the filter’s cutoff.
+
+
+
+---
 **Modulation to Octave Attenuate-Offset** <br>
-Translates 0 to 1 modulation signals into -5 to 5 octave signals. This is another very important utility module. Use it between a 0 to 1 modulation sequencer and an oscillator to adjust the pitch range that the sequencer outputs. The attenuate control converts the 0 to 1 modulation signal into a 0 to 10 octave signal. If you want to have a sequencer output a maximum range of 2 octaves, set this control so that the multiplication factor is 2. If you want a 5 octave range, set it so that the multiplication factor is 5. The offset control translates the range of pitches up and down from -5 to 5. Combining the two controls, if you want a sequencer to play a bass line, you could set the maximum octave range to 2 on the attenuator, and shift the sequence down with the offset until it sits in the right octave for you. For a lead arpeggiator, you might set the attenuator to 4 and shift the offset down to the lowest note you want to hit in the arpeggiator.
 
 ![Modulation to Octave Attenuate-Offset](img/Library-Images/Attenuator/Modulation/Modulation-to-Octave-Attenuate-Offset.png)
 
+Input | Signal Range
+:------------- | :-------------
+Modulation | `0 to 1`
+
+Output | Signal Range
+:------------- | :-------------
+Octave | `-5 to 5`
+
+Knob | Function | Notes
+:------------- | :------------- | :-------------
+* | Attenuate | `0 = Input*0` `0.5 = Input*2.5` `1 = Input*10` 
++ | Offset | `0 = Input-5` `0.5 = Input+0` `1 = Input+5` 
+
+Meter | Function | Notes
+:------------- | :------------- | :-------------
+Value | - | `Input` 
+Value | - | `Attenuate`
+Value | - | `Offset`
+Value | - | `Output`
+
+
+Translates 0 to 1 modulation signals into -5 to 5 octave signals. This is another very important utility module. Use it between a 0 to 1 modulation sequencer and an oscillator to adjust the pitch range that the sequencer outputs. The attenuate control converts the 0 to 1 modulation signal into a 0 to 10 octave signal. If you want to have a sequencer output a maximum range of 2 octaves, set this control so that the multiplication factor is 2. If you want a 5 octave range, set it so that the multiplication factor is 5. The offset control translates the range of pitches up and down from -5 to 5. Combining the two controls, if you want a sequencer to play a bass line, you could set the maximum octave range to 2 on the attenuator, and shift the sequence down with the offset until it sits in the right octave for you. For a lead arpeggiator, you might set the attenuator to 4 and shift the offset down to the lowest note you want to hit in the arpeggiator.
+
+
+
+---
 **Modulation to Octave Shift-Attenuate-Offset** <br>
-Same as the Modulation to Octave Attenuate-Offset except it adds a control to shift the octave being played up or down. You can use this for quick easy shifts in octave that would be more difficult to program with the Modulation to Octave Attenuate-Offset alone.
 
 ![Modulation to Octave Shift-Attenuate-Offset](img/Library-Images/Attenuator/Modulation/Modulation-to-Octave-Shift-Attenuate-Offset.png)
+
+Input | Signal Range
+:------------- | :-------------
+Modulation | `0 to 1`
+
+Output | Signal Range
+:------------- | :-------------
+Octave | `-5 to 5`
+
+Knob | Function | Notes
+:------------- | :------------- | :-------------
+oct | Octave Shift | `0 = Input-5` `0.5 = Input + 0` `1 = Input+5`
+* | Attenuate | `0 = Input*0` `0.5 = Input*2.5` `1 = Input*10` 
++ | Offset | `0 = Input-5` `0.5 = Input+0` `1 = Input+5` 
+
+Meter | Function | Notes
+:------------- | :------------- | :-------------
+Value | Display | `Input` 
+Value | Display | `Attenuate`
+Value | Display | `Offset`
+Value | Display | `Octave Shift`
+Value | Display | `Output`
+
+
+Same as the Modulation to Octave Attenuate-Offset except it adds a control to shift the octave being played up or down. You can use this for quick easy shifts in octave that would be more difficult to program with the Modulation to Octave Attenuate-Offset alone.
+
+
 
 ### Octave
 
 A collection of octave attenuators and translators scaled to work properly with the octave signal. Audible frequencies range from about -5 to 5, though the octave signal can go both higher and lower than this.
 
+
+
+---
 **Octave Attenuate-Offset** <br>
-Similar to the Modulation Attenuate-Offset module, but works instead with octave signals. Use it to create moving chord sequences by shifting octave signals up from the base note and sending them to another oscillator or two. Use the attenuate knob to shrink or expand the range of the incoming octave signal for interesting effects.
 
 ![Octave Attenuate-Offset](img/Library-Images/Attenuator/Octave/Octave-Attenuate-Offset.png)
 
+Input | Signal Range
+:------------- | :-------------
+Octave | `-5 to 5`
+
+Output | Signal Range
+:------------- | :-------------
+Octave | `-5 to 5`
+
+Knob | Function | Notes
+:------------- | :------------- | :-------------
+* | Attenuate | `0 = Input*0` `0.5 = Input*0.5` `1 = Input*1` 
++ | Offset | `0 = Input-5` `0.5 = Input+0` `1 = Input+5`
+
+Similar to the Modulation Attenuate-Offset module, but works instead with octave signals. Use it to create moving chord sequences by shifting octave signals up from the base note and sending them to another oscillator or two. Use the attenuate knob to shrink or expand the range of the incoming octave signal for interesting effects.
+
+
+
+---
 **Octave Output -5 to 5** <br>
-Creates a signal that ranges from -5 to 5. Use it to test oscillators by sweeping them through their frequency range, or attach a complex LFO to the pitch knob and create weird sci-fi sounds.
 
 ![Octave Output -5 to 5](img/Library-Images/Attenuator/Octave/Octave-Output-5-to-5.png)
 
+Output | Signal Range
+:------------- | :-------------
+Octave | `-5 to 5`
+
+Knob | Function | Notes
+:------------- | :------------- | :-------------
+note | Attenuate | `0 = -5` `0.5 = 0` `1 = 5` 
+
+Creates a signal that ranges from -5 to 5. Use it to test oscillators by sweeping them through their frequency range, or attach a complex LFO to the pitch knob and create weird sci-fi sounds.
+
+
+
+---
 **Octave Shift-Attenuate-Offset** <br>
-Same as the Octave Attenuate-Offset but also includes an octave shift knob as seen in the Modulation to Octave Shift-Attenuate-Offset module.
 
 ![Octave Shift-Attenuate-Offset](img/Library-Images/Attenuator/Octave/Octave-Shift-Attenuate-Offset.png)
 
+Input | Signal Range
+:------------- | :-------------
+Octave | `-5 to 5`
+
+Output | Signal Range
+:------------- | :-------------
+Octave | `-5 to 5`
+
+Knob | Function | Notes
+:------------- | :------------- | :-------------
+* | Attenuate | `0 = Input*0` `0.5 = Input*0.5` `1 = Input*1` 
++ | Offset | `0 = Input-5` `0.5 = Input+0` `1 = Input+5`
+
+Similar to the Modulation Attenuate-Offset module, but works instead with octave signals. Use it to create moving chord sequences by shifting octave signals up from the base note and sending them to another oscillator or two. Use the attenuate knob to shrink or expand the range of the incoming octave signal for interesting effects.
+
+Same as the Octave Attenuate-Offset but also includes an octave shift knob as seen in the Modulation to Octave Shift-Attenuate-Offset module.
+
+
+
+---
 **Octave Shift** <br>
-Shifts an incoming octave signal up and down by octaves. Use it to create thick sounding leads by stacking two oscillators using the same sequence one or two octaves apart.
 
 ![Octave Shift](img/Library-Images/Attenuator/Octave/Octave-Shift.png)
+
+Shifts an incoming octave signal up and down by octaves. Use it to create thick sounding leads by stacking two oscillators using the same sequence one or two octaves apart.
+
+
 
 ## Building
 
 Building modules are not often used by themselves, but are instead used to create other modules. One of the most used building modules is the Octave to Hz converter. It takes an incoming octave signal and converts it in the Hz value to control an oscillator or filter cutoff. Another common building module is the Count Up module, which counts to a specified number each gate pulse and then resets. You will find them most often in sequencers. Another very common set of building modules are the light nodes which are used to both indicate what type of signal is inputted our outputted and to display the signal strength.
 
+
+
 ### Binary
 
 Binary building modules use binary numbers as a way to store information. They are typically used to store chains of on/off patterns as decimals to be reconverted to binary in a pattern sequencer.
 
+
+
+---
 **Pattern to Decimal Code** <br>
-Turns a 16 step pattern into a decimal number that can be used to create rhythmic patterns with modules like the Pattern Bank Sequencer. The module looks at the 16 beat pattern as if it were at 16 digit binary number and simply converts that binary number into a decimal. In the Pattern Bank Sequencer, the decimal is re-converted into the binary number. The binary number is then broken apart into individual 0 (skip) or 1 (hit) messages for the sequencer.
 
 ![Pattern to Decimal Code](img/Library-Images/Building/Binary/Pattern-to-Decimal-Code.png)
+
+Turns a 16 step pattern into a decimal number that can be used to create rhythmic patterns with modules like the Pattern Bank Sequencer. The module looks at the 16 beat pattern as if it were at 16 digit binary number and simply converts that binary number into a decimal. In the Pattern Bank Sequencer, the decimal is re-converted into the binary number. The binary number is then broken apart into individual 0 (skip) or 1 (hit) messages for the sequencer.
+
+
 
 ### Counter
 
