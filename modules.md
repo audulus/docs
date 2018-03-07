@@ -842,9 +842,23 @@ These modules create a feedback loop within a module. Feedback can be used in ma
 
 ---
 **Force Single Sample Loop** <br>
-Creates a loop that forces a portion of your module to run in single sample mode. Useful for when the operation of feedback requires faster processing than the ~300 sample frame rate.
 
 ![Force Single Sample Loop](img/Library-Images/Building/Loop/Force-Single-Sample-Loop.png)
+
+Input | Signal Range | Notes
+:--- | :--- | :---
+`Input` Any | `Any 32-bit number` | The signal pre-feedback loop.
+`>` Any | `Any 32-bit number` | The signal post-feedback loop. This input is connected directly to the `Output`. Use it to send the output of the feedback loop back into the loop's input. Everything within this loop runs in single-sample mode. Delete the `LoopHere` expression and replace with your own loop.
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+`v` Any | `Any 32-bit number` | The signal pre-feedback loop. This output is connected directly to the `Input`. Use it to send the input into the feedback loop. Everything within this loop runs in single-sample mode. Delete the `LoopHere` expression and replace with your own loop.
+`Output` Any | `Any 32-bit number` | The signal post-feedback loop.
+
+Creates a loop that forces a portion of your module to run in single sample mode. Useful for when the operation of feedback requires faster processing than the ~300 sample frame rate.
+
+To test this module, use the expression `tanh(x)*Knob` and attach a Knob node to the Knob variable input. Then connect a VCO module to the input and an audio output to the output. This is a type of positive feedback distortion. To create negative feedback, use the expression `tan(-x)*Knob`.
+
 
 
 
@@ -861,6 +875,20 @@ The octave signal is the equivalent to the 1 volt per octave linearized pitch sc
 
 ![Octave to Hz with Linear Audio FM and Tune Controls](img/Library-Images/Building/Octave/Octave-to-Hz-with-Linear-Audio-FM-and-Tune-Controls.png)
 
+Input | Signal Range | Notes
+:--- | :--- | :---
+`o` Octave | `Any 32-bit number` | The signal pre-feedback loop.
+`Linear FM` Audio | `-1 to 1` | Connect other VCOs to this input to modulate the output frequency.
+`Linear FM Amount` Modulation | `0 to 1` | Adjusts the amount of Linear FM. Knob is scaled exponentially so it is easier to dial in smaller amounts of FM.
+`Octave Shift` Modulation | `0 to 1` | `Octave Shift==0` is 5 octaves down. <br> `Octave Shift==0.5` is in tune. <br> `Octave Shift==1` 5 octaves up.
+`Fine` Modulation | `0 to 1` | `Fine==0` is one semitone down. <br> `Fine==0.5` is in tune. <br> `Fine==1` is one semitone up.
+
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+`Hz` Frequency | `0 to Sample Rate/2` | Though the output can technically exceed `Sample Rate/2`, oscillators will not work past this point.
+`Shift` Octave Shift | `-5 to 5` | Used to display octave shift on UI of VCO module.
+
 A basic starter kit for creating a VCO module in Audulus. This module is the same as the Octave to Hz with Octave Shift and Fine Tune Controls module with an added section for frequency modulation (FM) input that accepts -1 to 1 audio signals. Linear FM means that the frequency modulation will respond the same in low and high octaves (as opposed to exponential FM).
 
 
@@ -869,6 +897,18 @@ A basic starter kit for creating a VCO module in Audulus. This module is the sam
 **Octave to Hz with Octave Shift and Fine Tune Controls** <br>
 
 ![Octave to Hz with Octave Shift and Fine Tune Controls](img/Library-Images/Building/Octave/Octave-to-Hz-with-Octave-Shift-and-fine-Tune-Controls.png) 
+
+Input | Signal Range | Notes
+:--- | :--- | :---
+`o` Octave | `Any 32-bit number` | The signal pre-feedback loop.
+`Octave Shift` Modulation | `0 to 1` | `Octave Shift==0` is 5 octaves down. <br> `Octave Shift==0.5` is in tune. <br> `Octave Shift==1` 5 octaves up.
+`Fine` Modulation | `0 to 1` | `Fine==0` is one semitone down. <br> `Fine==0.5` is in tune. <br> `Fine==1` is one semitone up.
+
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+`Hz` Frequency | `0 to Sample Rate/2` | Though the output can technically exceed `Sample Rate/2`, oscillators will not work past this point.
+`Shift` Octave Shift | `-5 to 5` | Used to display octave shift on UI of VCO module.
 
 A basic starter kit for creating a VCO module in Audulus. The octave input is translated into the Hz value that the Oscillator and Phasor node needs. The octave control shifts the octave of the oscillator up or down by -5 to 5 octaves. Expose the value meter to display the octave shift on your VCO. The fine tune control shifts the oscillator down by a semitone (0) or up by a semitone (1).
 
