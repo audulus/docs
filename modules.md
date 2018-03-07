@@ -31,8 +31,8 @@ Audio   | `-1 to 1`
 
 Knob | Function | Notes
 :--- | :--- | :---
-`*`   | Attenuverter | `0 = Input*-1` `0.5 = Input*0` `1 = Input*1`
-`+`   | Offset |`0 = Input+0` `0.5 = Input+0.5` `1 = Input+1`
+`*`   | Attenuverter | `0 = Input*-1` <br> `0.5 = Input*0` <br> `1 = Input*1`
+`+`   | Offset |`0 = Input+0` <br> `0.5 = Input+0.5` <br> `1 = Input+1`
 
 
 Translates -1 to 1 audio signals. The * control is an attenuverter. At 0, the input audio signal is inverted. At 1, the signal is passed unaffected. In between 0 to 1 the control acts like an attenuator. The + control is an offset. It translates the entire wave up by 0 to 1. If the outgoing wave exceeds 1, the signal is clipped.
@@ -60,8 +60,8 @@ Modulation   | `0 to 1`
 
 Knob | Function | Notes
 :--- | :--- | :---
-![Attenuate Icon](img/SVG-Icons/Attenuate.svg)  | Attenuator | `0 = Input*0` `0.5 = Input*0.5` `1 = Input*1`
-![Offset Icon](img/SVG-Icons/Offset.svg)   | Offset |`0 = Input+0` `0.5 = Input+0.5` `1 = Input+1`
+![Attenuate Icon](img/SVG-Icons/Attenuate.svg)  | Attenuator | `0 = Input*0` <br> `0.5 = Input*0.5` <br> `1 = Input*1`
+![Offset Icon](img/SVG-Icons/Offset.svg)   | Offset |`0 = Input+0` <br> `0.5 = Input+0.5` <br> `1 = Input+1`
 
 
 Translates the 0 to 1 modulation signal by attenuating (shrinking or expanding) and offsetting (moving up or down). This is one of the most important modules in Audulus. Use it to dial in the precise amount of modulation you want in whatever range you want. This module will clip any signal outside of the range of 0 to 1.
@@ -83,7 +83,7 @@ Modulation   | `0 to 1`
 
 Knob | Function | Notes
 :--- | :--- | :---
-![Attenuate Icon](img/SVG-Icons/Attenuate.svg)   | Centered Attenuator | `0 = ((Input*2-1)*0)/2+0.5` `0.5 = ((Input*2-1)*0.5)/2+0.5` `1 = ((Input*2-1)*1)/2+0.5`
+![Attenuate Icon](img/SVG-Icons/Attenuate.svg)   | Centered Attenuator | `0 = ((Input*2-1)*0)/2+0.5` <br> `0.5 = ((Input*2-1)*0.5)/2+0.5` <br> `1 = ((Input*2-1)*1)/2+0.5`
 
 
 Attenuates a 0 to 1 modulation signal around a 0.5 center point. Useful for modulating the fine tune control of an oscillator for a vibrato effect so that the vibrato is perfectly centered around the base pitch.
@@ -105,7 +105,7 @@ Modulation   | `0 to 1`
 
 Knob | Function | Notes
 :--- | :--- | :---
-`-/+`   | Attenuverter | `0 = Input*-1+1` `0.5 = Input*0` `1 = Input*1` 
+`-/+`   | Attenuverter | `0 = Input*-1+1` <br> `0.5 = Input*0` <br> `1 = Input*1` 
 
 
 Attenuates and inverts any 0 to 1 modulation signal. From 0 to 0.5, the incoming modulation signal is inverted. From 0.5 to 1, the incoming modulation signal is unaffected. Use this module to create a reverse effect on a filter by inverting an incoming envelope modulating the filter’s cutoff.
@@ -127,8 +127,8 @@ Octave | `-5 to 5`
 
 Knob | Function | Notes
 :--- | :--- | :---
-![Attenuate Icon](img/SVG-Icons/Attenuate.svg) | Attenuate | `0 = Input*0` `0.5 = Input*2.5` `1 = Input*10` 
-![Offset Icon](img/SVG-Icons/Offset.svg) | Offset | `0 = Input-5` `0.5 = Input+0` `1 = Input+5` 
+![Attenuate Icon](img/SVG-Icons/Attenuate.svg) | Attenuate | `0 = Input*0` <br> `0.5 = Input*2.5` <br> `1 = Input*10` 
+![Offset Icon](img/SVG-Icons/Offset.svg) | Offset | `0 = Input-5` <br> `0.5 = Input+0` <br> `1 = Input+5` 
 
 Meter | Displays
 :--- | :---
@@ -157,9 +157,9 @@ Octave | `-5 to 5`
 
 Knob | Function | Notes
 :--- | :--- | :---
-oct | Octave Shift | `0 = Input-5` `0.5 = Input + 0` `1 = Input+5`
-![Attenuate Icon](img/SVG-Icons/Attenuate.svg) | Attenuate | `0 = Input*0` `0.5 = Input*2.5` `1 = Input*10` 
-![Offset Icon](img/SVG-Icons/Offset.svg) | Offset | `0 = Input-5` `0.5 = Input+0` `1 = Input+5` 
+oct | Octave Shift | `0 = Input-5` <br> `0.5 = Input+0` <br> `1 = Input+5`
+![Attenuate Icon](img/SVG-Icons/Attenuate.svg) | Attenuate | `0 = Input*0` <br> `0.5 = Input*2.5` <br> `1 = Input*10` 
+![Offset Icon](img/SVG-Icons/Offset.svg) | Offset | `0 = Input-5` <br> `0.5 = Input+0` <br> `1 = Input+5` 
 
 Meter | Displays
 :--- | :---
@@ -195,8 +195,8 @@ Octave | `-5 to 5`
 
 Knob | Function | Notes
 :--- | :--- | :---
-![Attenuate Icon](img/SVG-Icons/Attenuate.svg) | Attenuate | `0 = Input*0` `0.5 = Input*0.5` `1 = Input*1` 
-![Offset Icon](img/SVG-Icons/Offset.svg) | Offset | `0 = Input-5` `0.5 = Input+0` `1 = Input+5`
+![Attenuate Icon](img/SVG-Icons/Attenuate.svg) | Attenuate | `0 = Input*0` <br> `0.5 = Input*0.5` <br> `1 = Input*1` 
+![Offset Icon](img/SVG-Icons/Offset.svg) | Offset | `0 = Input-5` <br> `0.5 = Input+0` <br> `1 = Input+5`
 
 Similar to the Modulation Attenuate-Offset module, but works instead with octave signals. Use it to create moving chord sequences by shifting octave signals up from the base note and sending them to another oscillator or two. Use the attenuate knob to shrink or expand the range of the incoming octave signal for interesting effects.
 
@@ -213,7 +213,7 @@ Octave | `-5 to 5`
 
 Knob | Function | Notes
 :--- | :--- | :---
-![Note Green Icon](img/SVG-Icons/Note-Green.svg) | Octave Output | `0 = -5` `0.5 = 0` `1 = 5` 
+![Note Green Icon](img/SVG-Icons/Note-Green.svg) | Octave Output | `0 = -5` <br> `0.5 = 0` <br> `1 = 5` 
 
 Creates a signal that ranges from -5 to 5. Use it to test oscillators by sweeping them through their frequency range, or attach a complex LFO to the pitch knob and create weird sci-fi sounds.
 
@@ -234,9 +234,9 @@ Octave | `-5 to 5`
 
 Knob | Function | Notes
 :--- | :--- | :---
-oct | Octave Shift | `0 = Input-5` `0.5 = Input + 0` `1 = Input+5`
-![Attenuate Icon](img/SVG-Icons/Attenuate.svg) | Attenuate | `0 = Input*0` `0.5 = Input*0.5` `1 = Input*1` 
-![Offset Icon](img/SVG-Icons/Offset.svg) | Offset | `0 = Input-5` `0.5 = Input+0` `1 = Input+5`
+oct | Octave Shift | `0 = Input-5` <br> `0.5 = Input + 0` <br> `1 = Input+5`
+![Attenuate Icon](img/SVG-Icons/Attenuate.svg) | Attenuate | `0 = Input*0` <br> `0.5 = Input*0.5` <br> `1 = Input*1` 
+![Offset Icon](img/SVG-Icons/Offset.svg) | Offset | `0 = Input-5` <br> `0.5 = Input+0` <br> `1 = Input+5`
 
 Similar to the Modulation Attenuate-Offset module, but works instead with octave signals. Use it to create moving chord sequences by shifting octave signals up from the base note and sending them to another oscillator or two. Use the attenuate knob to shrink or expand the range of the incoming octave signal for interesting effects.
 
@@ -259,7 +259,7 @@ Octave | `-5 to 5`
 
 Knob | Function | Notes
 :--- | :--- | :---
-oct | Octave Shift | `0 = Input-5` `0.5 = Input+0` `1 = Input+5` 
+oct | Octave Shift | `0 = Input-5` <br> `0.5 = Input+0` <br> `1 = Input+5` 
 
 Shifts an incoming octave signal up and down by octaves. Use it to create thick sounding leads by stacking two oscillators using the same sequence one or two octaves apart.
 
@@ -374,7 +374,7 @@ Modulation | `0 to 1`
 
 Knob | Function | Notes
 :--- | :--- | :---
-ex/log | Fades from exponential to logarithmic response | `0 = Input^2` `0.5 = Input*1` `1 = sqrt(Input)` 
+ex/log | Fades from exponential to logarithmic response | `0 = Input^2` <br> `0.5 = Input*1` <br> `1 = sqrt(Input)` 
 
 
 
@@ -398,7 +398,7 @@ Modulation | `0 to 1`
 
 Knob | Function | Notes
 :--- | :--- | :---
-exp | Fades from slightly exponential to highly exponential response | `0 = Input*Input` `1 = Input*Input*Input*Input` 
+exp | Fades from slightly exponential to highly exponential response | `0 = Input*Input` <br> `1 = Input*Input*Input*Input` 
 
 Fades between slightly exponential `(x*x)` to highly exponential `(x*x*x*x)`.
 
