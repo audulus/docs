@@ -801,7 +801,7 @@ These modules take an input signal and translate them into signals for the RGB l
 ![Audio Light](img/Library-Images/Building/Light/Audio-Light.png)
 
 Input | Signal Range
-:--- | :--- | :---
+:--- | :---
 Audio | `-1 to 1`
 
 Output | Signal Range | Notes
@@ -819,7 +819,7 @@ Analyzes an incoming -1 to 1 audio signal and displays the positive portion as r
 ![Polar Light](img/Library-Images/Building/Light/Polar-Light.png)
 
 Input | Signal Range
-:--- | :--- | :---
+:--- | :---
 Modulation | `0 to 1`
 
 Output | Signal Range | Notes
