@@ -4,12 +4,14 @@ This is an overview of all of the modules in the Audulus module library. They ar
 
 
 <br>
+
 ## Attenuator
 
 Attenuator modules shrink or expand, translate up or down, or otherwise modify an incoming signal. The most basic attenuator is a volume control, but attenuators can be used for many things. The most useful attenuator is the Modulation Attenuate-Offset module, which is most often use to translate LFOs and envelopes into a particular range to wiggle a knob on a filter or effect.
 
 
 <br>
+
 ### Audio
 
 A collection of audio attenuators and attenuverters scaled to work properly with audio signals. Audio signals in Audulus range from a maximum of -1 to 1.
