@@ -41,6 +41,7 @@ Translates -1 to 1 audio signals. The * control is an attenuverter. At 0, the in
 
 
 <br>
+
 ### Modulation
 
 A collection of modulation attenuators and attenuverters scaled to work properly with audio signals. Modulation signals in Audulus range from a maximum to 0 to 1.
@@ -176,6 +177,7 @@ Same as the Modulation to Octave Attenuate-Offset except it adds a control to sh
 
 
 <br>
+
 ### Octave
 
 A collection of octave attenuators and translators scaled to work properly with the octave signal. Audible frequencies range from about -5 to 5, though the octave signal can go both higher and lower than this.
@@ -267,12 +269,14 @@ Shifts an incoming octave signal up and down by octaves. Use it to create thick 
 
 
 <br>
+
 ## Building
 
 Building modules are not often used by themselves, but are instead used to create other modules. One of the most used building modules is the Octave to Hz converter. It takes an incoming octave signal and converts it in the Hz value to control an oscillator or filter cutoff. Another common building module is the Count Up module, which counts to a specified number each gate pulse and then resets. You will find them most often in sequencers. Another very common set of building modules are the light nodes which are used to both indicate what type of signal is inputted our outputted and to display the signal strength.
 
 
 <br>
+
 ### Binary
 
 Binary building modules use binary numbers as a way to store information. They are typically used to store chains of on/off patterns as decimals to be reconverted to binary in a pattern sequencer.
@@ -300,6 +304,7 @@ Turns a 16 step pattern into a decimal number that can be used to create rhythmi
 
 
 <br>
+
 ### Counter
 
 Counters are modules that count up or down in sequence when pulsed with a gate or somehow count time. They are most often used in sequencers.
@@ -355,6 +360,7 @@ The same as the Up Counter except it counts up to a number then down back to 0 a
 
 
 <br>
+
 ### Curve
 
 Curve modules apply a shape to the normally linear output of a knob or incoming 0 to 1 modulation signal. They are useful for adding logarithmic or exponential responses to knobs on volume controls and filter cutoffs, or shaping the output of an envelope. They can also be used as audio effects to apply distortion to incoming audio signals.
@@ -407,6 +413,7 @@ Fades between slightly exponential `(x*x)` to highly exponential `(x*x*x*x)`.
 
 
 <br>
+
 ### Detector
 
 Detector modules analyze incoming signals and detect something about them. The most basic and common detector is the audio peak detector, which flashes red when an audio signal exceeds the maximum -1 to 1 output range. Another commonly used detector is the Change Detector which outputs a short pulse whenever a value change is detected at its input.
