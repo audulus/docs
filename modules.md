@@ -22,15 +22,15 @@ A collection of audio attenuators and attenuverters scaled to work properly with
 ![Audio Attenuverter](img/Library-Images/Attenuator/Audio/Audio-Attenuverter.png)
 
 Input | Signal Range
-:------------- | :-------------
+:--- | :---
 Audio   | `-1 to 1`
 
 Output | Signal Range
-:------------- | :-------------
+:--- | :---
 Audio   | `-1 to 1`
 
 Knob | Function | Notes
-:------------- | :------------- | :-------------
+:--- | :--- | :---
 *   | Attenuverter | `0 = Input*-1` `0.5 = Input*0` `1 = Input*1`
 +   | Offset |`0 = Input+0` `0.5 = Input+0.5` `1 = Input+1`
 
@@ -51,15 +51,15 @@ A collection of modulation attenuators and attenuverters scaled to work properly
 ![Modulation Attenuate-Offset](img/Library-Images/Attenuator/Modulation/Modulation-Attenuate-Offset.png)
 
 Input | Signal Range
-:------------- | :-------------
+:--- | :---
 Modulation   | `0 to 1`
 
 Output | Signal Range
-:------------- | :-------------
+:--- | :---
 Modulation   | `0 to 1`
 
 Knob | Function | Notes
-:------------- | :------------- | :-------------
+:--- | :--- | :---
 ![Attenuate Icon](img/SVG-Icons/Attenuate.svg)  | Attenuator | `0 = Input*0` `0.5 = Input*0.5` `1 = Input*1`
 ![Offset Icon](img/SVG-Icons/Offset.svg)   | Offset |`0 = Input+0` `0.5 = Input+0.5` `1 = Input+1`
 
@@ -74,15 +74,15 @@ Translates the 0 to 1 modulation signal by attenuating (shrinking or expanding) 
 ![Modulation Centered Attenuator](img/Library-Images/Attenuator/Modulation/Modulation-Centered-Attenuator.png)
 
 Input | Signal Range
-:------------- | :-------------
+:--- | :---
 Modulation   | `0 to 1`
 
 Output | Signal Range
-:------------- | :-------------
+:--- | :---
 Modulation   | `0 to 1`
 
 Knob | Function | Notes
-:------------- | :------------- | :-------------
+:--- | :--- | :---
 ![Attenuate Icon](img/SVG-Icons/Attenuate.svg)   | Centered Attenuator | `0 = ((Input*2-1)*0)/2+0.5` `0.5 = ((Input*2-1)*0.5)/2+0.5` `1 = ((Input*2-1)*1)/2+0.5`
 
 
@@ -96,15 +96,15 @@ Attenuates a 0 to 1 modulation signal around a 0.5 center point. Useful for modu
 ![Modulation Positive-Domain Attenuverter](img/Library-Images/Attenuator/Modulation/Modulation-Positive-Domain-Attenuverter.png)
 
 Input | Signal Range
-:------------- | :-------------
+:--- | :---
 Modulation   | `0 to 1`
 
 Output | Signal Range
-:------------- | :-------------
+:--- | :---
 Modulation   | `0 to 1`
 
 Knob | Function | Notes
-:------------- | :------------- | :-------------
+:--- | :--- | :---
 -/+   | Attenuverter | `0 = Input*-1+1` `0.5 = Input*0` `1 = Input*1` 
 
 
@@ -118,20 +118,20 @@ Attenuates and inverts any 0 to 1 modulation signal. From 0 to 0.5, the incoming
 ![Modulation to Octave Attenuate-Offset](img/Library-Images/Attenuator/Modulation/Modulation-to-Octave-Attenuate-Offset.png)
 
 Input | Signal Range
-:------------- | :-------------
+:--- | :---
 Modulation | `0 to 1`
 
 Output | Signal Range
-:------------- | :-------------
+:--- | :---
 Octave | `-5 to 5`
 
 Knob | Function | Notes
-:------------- | :------------- | :-------------
+:--- | :--- | :---
 ![Attenuate Icon](img/SVG-Icons/Attenuate.svg) | Attenuate | `0 = Input*0` `0.5 = Input*2.5` `1 = Input*10` 
 ![Offset Icon](img/SVG-Icons/Offset.svg) | Offset | `0 = Input-5` `0.5 = Input+0` `1 = Input+5` 
 
 Meter | Displays
-:------------- | :-------------
+:--- | :---
 Value | `Input` 
 Value | `Attenuate`
 Value | `Offset`
@@ -148,21 +148,21 @@ Translates 0 to 1 modulation signals into -5 to 5 octave signals. This is anothe
 ![Modulation to Octave Shift-Attenuate-Offset](img/Library-Images/Attenuator/Modulation/Modulation-to-Octave-Shift-Attenuate-Offset.png)
 
 Input | Signal Range
-:------------- | :-------------
+:--- | :---
 Modulation | `0 to 1`
 
 Output | Signal Range
-:------------- | :-------------
+:--- | :---
 Octave | `-5 to 5`
 
 Knob | Function | Notes
-:------------- | :------------- | :-------------
+:--- | :--- | :---
 oct | Octave Shift | `0 = Input-5` `0.5 = Input + 0` `1 = Input+5`
 ![Attenuate Icon](img/SVG-Icons/Attenuate.svg) | Attenuate | `0 = Input*0` `0.5 = Input*2.5` `1 = Input*10` 
 ![Offset Icon](img/SVG-Icons/Offset.svg) | Offset | `0 = Input-5` `0.5 = Input+0` `1 = Input+5` 
 
 Meter | Displays
-:------------- | :-------------
+:--- | :---
 Value | `Input` 
 Value | `Attenuate`
 Value | `Offset`
@@ -186,15 +186,15 @@ A collection of octave attenuators and translators scaled to work properly with 
 ![Octave Attenuate-Offset](img/Library-Images/Attenuator/Octave/Octave-Attenuate-Offset.png)
 
 Input | Signal Range
-:------------- | :-------------
+:--- | :---
 Octave | `-5 to 5`
 
 Output | Signal Range
-:------------- | :-------------
+:--- | :---
 Octave | `-5 to 5`
 
 Knob | Function | Notes
-:------------- | :------------- | :-------------
+:--- | :--- | :---
 ![Attenuate Icon](img/SVG-Icons/Attenuate.svg) | Attenuate | `0 = Input*0` `0.5 = Input*0.5` `1 = Input*1` 
 ![Offset Icon](img/SVG-Icons/Offset.svg) | Offset | `0 = Input-5` `0.5 = Input+0` `1 = Input+5`
 
@@ -208,12 +208,12 @@ Similar to the Modulation Attenuate-Offset module, but works instead with octave
 ![Octave Output -5 to 5](img/Library-Images/Attenuator/Octave/Octave-Output-5-to-5.png)
 
 Output | Signal Range
-:------------- | :-------------
+:--- | :---
 Octave | `-5 to 5`
 
 Knob | Function | Notes
-:------------- | :------------- | :-------------
-note | Attenuate | `0 = -5` `0.5 = 0` `1 = 5` 
+:--- | :--- | :---
+![Note Green Icon](img/SVG-Icons/Note-Green.svg) | Octave Output | `0 = -5` `0.5 = 0` `1 = 5` 
 
 Creates a signal that ranges from -5 to 5. Use it to test oscillators by sweeping them through their frequency range, or attach a complex LFO to the pitch knob and create weird sci-fi sounds.
 
@@ -225,15 +225,16 @@ Creates a signal that ranges from -5 to 5. Use it to test oscillators by sweepin
 ![Octave Shift-Attenuate-Offset](img/Library-Images/Attenuator/Octave/Octave-Shift-Attenuate-Offset.png)
 
 Input | Signal Range
-:------------- | :-------------
+:--- | :---
 Octave | `-5 to 5`
 
 Output | Signal Range
-:------------- | :-------------
+:--- | :---
 Octave | `-5 to 5`
 
 Knob | Function | Notes
-:------------- | :------------- | :-------------
+:--- | :--- | :---
+oct | Octave Shift | `0 = Input-5` `0.5 = Input + 0` `1 = Input+5`
 ![Attenuate Icon](img/SVG-Icons/Attenuate.svg) | Attenuate | `0 = Input*0` `0.5 = Input*0.5` `1 = Input*1` 
 ![Offset Icon](img/SVG-Icons/Offset.svg) | Offset | `0 = Input-5` `0.5 = Input+0` `1 = Input+5`
 
@@ -249,15 +250,15 @@ Same as the Octave Attenuate-Offset but also includes an octave shift knob as se
 ![Octave Shift](img/Library-Images/Attenuator/Octave/Octave-Shift.png)
 
 Input | Signal Range
-:------------- | :-------------
+:--- | :---
 Octave | `-5 to 5`
 
 Output | Signal Range
-:------------- | :-------------
+:--- | :---
 Octave | `-5 to 5`
 
 Knob | Function | Notes
-:------------- | :------------- | :-------------
+:--- | :--- | :---
 oct | Octave Shift | `0 = Input-5` `0.5 = Input+0` `1 = Input+5` 
 
 Shifts an incoming octave signal up and down by octaves. Use it to create thick sounding leads by stacking two oscillators using the same sequence one or two octaves apart.
@@ -282,11 +283,11 @@ Binary building modules use binary numbers as a way to store information. They a
 ![Pattern to Decimal Code](img/Library-Images/Building/Binary/Pattern-to-Decimal-Code.png)
 
 Output | Signal Range
-:------------- | :-------------
+:--- | :---
 Decimal Code | `0 to 65535`
 
 Button | Function | Notes
-:------------- | :------------- | :-------------
+:--- | :--- | :---
 4x4 Button Grid | Pattern Entry | The pattern begins in the top left and goes left to right, top to bottom.
 
 Turns a 16 step pattern into a decimal number that can be used to create rhythmic patterns with modules like the Pattern Bank Sequencer. The module looks at the 16 beat pattern as if it were at 16 digit binary number and simply converts that binary number into a decimal. In the Pattern Bank Sequencer, the decimal is re-converted into the binary number. The binary number is then broken apart into individual 0 (skip) or 1 (hit) messages for the sequencer.
@@ -304,15 +305,15 @@ Counters are modules that count up or down in sequence when pulsed with a gate o
 ![Elapsed Time](img/Library-Images/Building/Counter/Elapsed-Time.png)
 
 Input | Signal Range
-:------------- | :-------------
+:--- | :---
 Time | `0 to infinity`
 
 Output | Signal Range
-:------------- | :-------------
+:--- | :---
 Time | `0 to infinity`
 
 Meter | Displays
-:------------- | :-------------
+:--- | :---
 Value | `Elapsed Time` 
 
 Displays the elapsed time since a timer has been reset. It converts the timer’s output of seconds into hours, minutes, seconds, and milliseconds.
@@ -325,11 +326,11 @@ Displays the elapsed time since a timer has been reset. It converts the timer’
 ![Up Counter](img/Library-Images/Building/Counter/Up-Counter.png)
 
 Input | Signal Range
-:------------- | :-------------
+:--- | :---
 Gate | `0 or 1`
 
 Output | Signal Range
-:------------- | :-------------
+:--- | :---
 Count | `0 to any 32-bit number`
 
 
@@ -359,6 +360,21 @@ Curve modules apply a shape to the normally linear output of a knob or incoming 
 
 ![Curve Exp-Lin-Log](img/Library-Images/Building/Curve/Curve-Exp-Lin-Log.png)
 
+Input | Signal Range
+:--- | :---
+Modulation | `0 to 1`
+
+Output | Signal Range
+:--- | :---
+Modulation | `0 to 1`
+
+Knob | Function | Notes
+:--- | :--- | :---
+ex/log | Fades from exponential to logarithmic response | `0 = Input^2` `0.5 = Input*1` `1 = sqrt(Input)` 
+
+
+
+
 Fades between an exponential, linear, and logarithmic response. Commonly used on the output of an envelope to change its response. Greatly affects the sound of VCFs and VCAs.
 
 
@@ -367,6 +383,18 @@ Fades between an exponential, linear, and logarithmic response. Commonly used on
 **Curve Exponential** <br>
 
 ![Curve Exponential](img/Library-Images/Building/Curve/Curve-Exponential.png)
+
+Input | Signal Range
+:--- | :---
+Modulation | `0 to 1`
+
+Output | Signal Range
+:--- | :---
+Modulation | `0 to 1`
+
+Knob | Function | Notes
+:--- | :--- | :---
+exp | Fades from slightly exponential to highly exponential response | `0 = Input*Input` `1 = Input*Input*Input*Input` 
 
 Fades between slightly exponential `(x*x)` to highly exponential `(x*x*x*x)`.
 
@@ -384,6 +412,14 @@ Detector modules analyze incoming signals and detect something about them. The m
 
 ![Audio Peak Detector](img/Library-Images/Building/Detector/Audio-Peak-Detector.png)
 
+Input | Signal Range | Notes 
+:--- | :--- | :---
+Audio | `-1 to 1` | Combining multiple audio signals can create an audio signal that exceeds the maximum output of -1 to 1. Make sure you attenuate all audio passing to outputs so that it is within this range. It is best to use only one audio output in a patch because you can inadvertently clip your audio output without triggering this detector if using multiple audio output modules.
+
+Output | Signal Range | Notes 
+:--- | :--- | :---
+Modulation | `0 to 1` | Attach output to red input of an exposed RGB node. Flashes then decays over 1 second.
+
 Flashes red when an incoming audio signal exceeds the -1 to 1 output range. Commonly used on audio and CV output modules.
 
 
@@ -392,6 +428,16 @@ Flashes red when an incoming audio signal exceeds the -1 to 1 output range. Comm
 **Change Detector** <br>
 
 ![Change Detector](img/Library-Images/Building/Detector/Change-Detector.png)
+
+Input | Signal Range
+:--- | :--- | :---
+Any | `Any 32-bit number`
+
+Output | Signal Range
+:--- | :---
+Gate | `0 or 1`
+
+Flashes red when an incoming audio signal exceeds the -1 to 1 output range. Commonly used on audio and CV output modules.
 
 Outputs a gate pulse whenever a change in value is detected at its input. A common application is to attach the detector to a knob so that whenever the knob is turning, a light will will stay illuminated. When x time has elapsed, the light will turn off. The output will be a quick burst of on/off gates, not a steady stream of on or off. To smooth out this burst of gates, use the Gate Smear module. This detector works in single-sample mode, so it is very fast and will detect changes from one sample to another.
 
@@ -402,7 +448,26 @@ Outputs a gate pulse whenever a change in value is detected at its input. A comm
 
 ![High-Low Detector](img/Library-Images/Building/Detector/High-Low-Detector.png)
 
-Detects the high and low point of an incoming signal. Very useful for ranging the output of VCO modules to the standard -1 to 1 especially when the VCO module contains multiple mixed oscillators. The reset input sets the detector back to 0 to reanalyze. The two outputs output the high (top) and low (bottom) values.
+Input | Signal Range | Notes
+:--- | :--- | :---
+Any | `Any 32-bit number` | Signal to be analyzed
+Gate | `0 or 1` | Resets the high-low values
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+Any | `Any 32-bit number` | Highest value
+Any | `Any 32-bit number` | Lowest value
+
+Button | Function | Notes
+:--- | :--- | :---
+Reset | Resets the high-low values | Duplicates the function of the rs (reset) input
+
+Meter | Displays
+:--- | :---
+Value | Highest value
+Value | Lowest value 
+
+Detects the high and low point of an incoming signal. Very useful for ranging the output of VCO modules to the standard -1 to 1 especially when the VCO module contains multiple mixed oscillators. The rs (reset) input and button sets the detector back to 0 to reanalyze. The two outputs output the high (top) and low (bottom) values.
 
 
 
