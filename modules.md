@@ -36,7 +36,6 @@ Knob | Function | Notes
 `*`   | Attenuverter | `0 = Input*-1` <br> `0.5 = Input*0` <br> `1 = Input*1`
 `+`   | Offset |`0 = Input+0` <br> `0.5 = Input+0.5` <br> `1 = Input+1`
 
-
 Translates -1 to 1 audio signals. The * control is an attenuverter. At 0, the input audio signal is inverted. At 1, the signal is passed unaffected. In between 0 to 1 the control acts like an attenuator. The + control is an offset. It translates the entire wave up by 0 to 1. If the outgoing wave exceeds 1, the signal is clipped.
 
 
@@ -66,7 +65,6 @@ Knob | Function | Notes
 ![Attenuate Icon](img/SVG-Icons/Attenuate.svg)  | Attenuator | `0 = Input*0` <br> `0.5 = Input*0.5` <br> `1 = Input*1`
 ![Offset Icon](img/SVG-Icons/Offset.svg)   | Offset |`0 = Input+0` <br> `0.5 = Input+0.5` <br> `1 = Input+1`
 
-
 Translates the 0 to 1 modulation signal by attenuating (shrinking or expanding) and offsetting (moving up or down). This is one of the most important modules in Audulus. Use it to dial in the precise amount of modulation you want in whatever range you want. This module will clip any signal outside of the range of 0 to 1.
 
 
@@ -88,7 +86,6 @@ Knob | Function | Notes
 :--- | :--- | :---
 ![Attenuate Icon](img/SVG-Icons/Attenuate.svg)   | Centered Attenuator | `0 = ((Input*2-1)*0)/2+0.5` <br> `0.5 = ((Input*2-1)*0.5)/2+0.5` <br> `1 = ((Input*2-1)*1)/2+0.5`
 
-
 Attenuates a 0 to 1 modulation signal around a 0.5 center point. Useful for modulating the fine tune control of an oscillator for a vibrato effect so that the vibrato is perfectly centered around the base pitch.
 
 
@@ -109,7 +106,6 @@ Modulation   | `0 to 1`
 Knob | Function | Notes
 :--- | :--- | :---
 `-/+`   | Attenuverter | `0 = Input*-1+1` <br> `0.5 = Input*0` <br> `1 = Input*1` 
-
 
 Attenuates and inverts any 0 to 1 modulation signal. From 0 to 0.5, the incoming modulation signal is inverted. From 0.5 to 1, the incoming modulation signal is unaffected. Use this module to create a reverse effect on a filter by inverting an incoming envelope modulating the filter’s cutoff.
 
@@ -139,7 +135,6 @@ Value | `Input`
 Value | `Attenuate`
 Value | `Offset`
 Value | `Output`
-
 
 Translates 0 to 1 modulation signals into -5 to 5 octave signals. This is another very important utility module. Use it between a 0 to 1 modulation sequencer and an oscillator to adjust the pitch range that the sequencer outputs. The attenuate control converts the 0 to 1 modulation signal into a 0 to 10 octave signal. If you want to have a sequencer output a maximum range of 2 octaves, set this control so that the multiplication factor is 2. If you want a 5 octave range, set it so that the multiplication factor is 5. The offset control translates the range of pitches up and down from -5 to 5. Combining the two controls, if you want a sequencer to play a bass line, you could set the maximum octave range to 2 on the attenuator, and shift the sequence down with the offset until it sits in the right octave for you. For a lead arpeggiator, you might set the attenuator to 4 and shift the offset down to the lowest note you want to hit in the arpeggiator.
 
@@ -171,7 +166,6 @@ Value | `Attenuate`
 Value | `Offset`
 Value | `Octave Shift`
 Value | `Output`
-
 
 Same as the Modulation to Octave Attenuate-Offset except it adds a control to shift the octave being played up or down. You can use this for quick easy shifts in octave that would be more difficult to program with the Modulation to Octave Attenuate-Offset alone.
 
@@ -344,7 +338,6 @@ Output | Signal Range
 :--- | :---
 Count | `0 to any 32-bit number`
 
-
 Counts up with each incoming gate pulse from 0 to a specified number and then resets. Commonly used for step sequencers.
 
 
@@ -383,9 +376,6 @@ Modulation | `0 to 1`
 Knob | Function | Notes
 :--- | :--- | :---
 ex/log | Fades from exponential to logarithmic response | `0 = Input^2` <br> `0.5 = Input*1` <br> `1 = sqrt(Input)` 
-
-
-
 
 Fades between an exponential, linear, and logarithmic response. Commonly used on the output of an envelope to change its response. Greatly affects the sound of VCFs and VCAs.
 
@@ -489,6 +479,15 @@ Detects the high and low point of an incoming signal. Very useful for ranging th
 
 ![Up-Down Detector](img/Library-Images/Building/Detector/Up-Down-Detector.png)
 
+Input | Signal Range
+:--- | :--- | :---
+Any | `Any 32-Bit Number`
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+Gate | `0 or 1` | Sample changed from lower to higher value
+Gate | `0 or 1` | Sample changed from higher to lower value
+
 Similar to the Change Detector, except it analyzes whether the signal is moving from a lower value to higher value, or higher value to lower value.
 
 
@@ -506,6 +505,13 @@ These modules output 0 to 1 gate signals most often used to trigger sequencers o
 
 ![1-Frame Pulse](img/Library-Images/Building/Gate/1-Frame-Pulse.png)
 
+Input | Signal Range
+:--- | :---
+Gate | `0 or 1`
+
+Output | Signal Range
+:--- | :---
+Gate | `0 or 1`
 
 Takes an incoming 0 to 1 gate signal and converts it into a short ~300 sample pulse. A frame is the unit of time that Audulus processes in unless explicitly told to process in single sample mode. The pulse will only last ~300 samples no matter how long the incoming gate lasts. In most cases, this is the shortest useful gate length in Audulus.
 
@@ -515,6 +521,14 @@ Takes an incoming 0 to 1 gate signal and converts it into a short ~300 sample pu
 **Gate to 10ms Pulse** <br>
 
 ![Gate to 10ms Pulse](img/Library-Images/Building/Gate/Gate-to-10ms-Pulse.png)
+
+Input | Signal Range
+:--- | :---
+Gate | `0 or 1`
+
+Output | Signal Range
+:--- | :---
+Gate | `0 or 1`
 
 Translates an incoming gate into a 10ms pulse which is a standard minimum pulse length recognized by many hardware sequencers.
 
@@ -533,6 +547,17 @@ These modules are a collection of common input and output lights, indicators, an
 
 ![Audio Clip Light Output](img/Library-Images/Building/Input-Output/Audio-Clip-Light-Output.png)
 
+Input | Signal Range
+:--- | :--- | :---
+Audio | `-1 to 1`
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+Modulation | `0 to 1` | Attached to `r` input of RGB node
+Modulation | `0 to 1` | Attached to `g` input of RGB node
+Modulation | `0 to 1` | Attach to `b` input of RGB node
+Audio | `-1 to 1` | Output is clamped to keep signal between `-1 to 1`
+
 This module is a combination of the Audio Light Output module and a clamp expression that clips the output signal if it exceeds the standard -1 to 1 range for audio signals. It is almost exclusively found in VCAs, but can be put into any module where both hard clipping and an output audio light are desired. When clipping is detected, the light will flash white.
 
 
@@ -541,6 +566,15 @@ This module is a combination of the Audio Light Output module and a clamp expres
 **Audio Light Input-Output** <br>
 
 ![Audio Light Input-Output](img/Library-Images/Building/Input-Output/Audio-Light-Input-Output.png)
+
+Input | Signal Range
+:--- | :--- | :---
+Audio | `-1 to 1`
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+Modulation | `0 to 1` | Attached to `r` input of RGB node
+Modulation | `0 to 1` | Attach to `b` input of RGB node
 
 This collection of modules serve as audio input and output lights. When the light flashes red, the signal is positive. When it flashes blue, the signal is negative. Quickly oscillating audio signals will appear as a scintillating purple. If you do not need one or the other, simply delete it.
 
@@ -586,6 +620,15 @@ These modules are meant to be paired with 0 to 1 knobs for use inside modules. W
 
 ![-x to x](img/Library-Images/Building/Knob/-x-to-x.png)
 
+Input | Signal Range
+:--- | :---
+`Knob` Modulation | `0 to 1`
+`x` Any | `Any 32-bit number`
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+`-x to x` Any | `Any 32-bit number` | `-x` when `Knob==0` <br> `0` when `Knob==0.5` <br> `x` when `Knob==1`
+
 Attach a Knob node to the knob input and a number to the x input. The output will then range from -x to x. For example: If you attach 2 to x, the output of the module will be -2 to 2.
 
 
@@ -595,7 +638,16 @@ Attach a Knob node to the knob input and a number to the x input. The output wil
 
 ![0 to x](img/Library-Images/Building/Knob/0-to-x.png)
 
-Attach a Knob node to the knob input and a number to the x input. The output will then range from 0 to x. For example: If you attach 5 to x, the output of the module will be 0 to 2.
+Input | Signal Range
+:--- | :---
+`Knob` Modulation | `0 to 1`
+`x` Any | `Any 32-bit number`
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+`0 to x` Any | `Any 32-bit number` | `0` when `Knob==0` <br> `x/2` when `Knob==0.5` <br> `x` when `Knob==1`
+
+Attach a Knob node to the Knob input and a number to the x input. The output will then range from 0 to x. For example: If you attach 5 to x, the output of the module will be 0 to 2.
 
 
 
@@ -604,7 +656,17 @@ Attach a Knob node to the knob input and a number to the x input. The output wil
 
 ![Center Range](img/Library-Images/Building/Knob/Center-Range.png)
 
-Attach a Knob node to the knob input and a number to the Center(x) and Range(y) input. When the knob is centered at 0.5, the output of the module will be the value at Center(x). The Range(y) defines the entire sweep of the knob. For example: If you attach 2 to Center(x) and 6 to Range(y), the output of the module will be from -1 to 5, outputting a 2 when the knob is centered at 0.5.
+Input | Signal Range | Notes
+:--- | :--- | :---
+`Knob` Modulation | `0 to 1`
+`Center (x)` Any | `Any 32-bit number` | Output when `Knob==0.5`
+`Range (x)` Any | `Any 32-bit number` | Total swing of output from `Knob==0` to `Knob==1`
+
+Output | Signal Range
+:--- | :---
+`x-y/2 to x+y/2` Any | `Any 32-bit number` 
+
+Attach a Knob node to the Knob input and a number to the Center (x) and Range (y) input. When the knob is centered at 0.5, the output of the module will be the value at Center (x). The Range (y) defines the entire sweep of the knob. For example: If you attach 2 to Center (x) and 6 to Range (y), the output of the module will be from -1 to 5, outputting a 2 when the knob is centered at 0.5.
 
 
 
@@ -612,6 +674,16 @@ Attach a Knob node to the knob input and a number to the Center(x) and Range(y) 
 **Integer Maker 0 to 999** <br>
 
 ![Integer Maker](img/Library-Images/Building/Knob/Integer-Maker-0-to-999.png)
+
+Input | Signal Range | Notes
+:--- | :--- | :---
+`Knob 100's` Modulation | `0 to 1` | Output integer's 100's place
+`Knob 10's` Modulation | `0 to 1` | Output integer's 10's place
+`Knob 1's` Modulation | `0 to 1` | Output integer's 1's place
+
+Output | Signal Range
+:--- | :---
+`x` Integer| `0 to 999` 
 
 Attach Knob nodes to the 100’s, 10’s, and 1’s inputs. Each knob will control the corresponding digit of a 3 digit number from 0 to 999, outputted by the module at x.
 
@@ -622,6 +694,15 @@ Attach Knob nodes to the 100’s, 10’s, and 1’s inputs. Each knob will contr
 
 ![Integers 0 to x](img/Library-Images/Building/Knob/Integers-0-to-x.png)
 
+Input | Signal Range
+:--- | :---
+`Knob` Modulation | `0 to 1`
+`x` Integer | `Any 32-bit integer`
+
+Output | Signal Range
+:--- | :---
+`x` Integer| `0 to 999`
+
 Attach a Knob node to the knob input and an integer to the x input. The knob will sweep from 0 to x in integer steps. For example: If you attach 9 to x, the module will output integers from 0 to 9 as you sweep the knob.
 
 
@@ -630,6 +711,15 @@ Attach a Knob node to the knob input and an integer to the x input. The knob wil
 **Pulses Per Turn** <br>
 
 ![Pulses Per Turn](img/Library-Images/Building/Knob/Pulses-Per-Turn.png)
+
+Input | Signal Range
+:--- | :---
+`Knob` Modulation | `0 to 1`
+`Pulses Per Turn` Integer | `Max = Sample Rate/2`
+
+Output | Signal Range
+:--- | :---
+`Pulse` Gate| `0 or 1`
 
 Attach a Knob node to the knob input and a positive integer to the pulses per turn input. As you sweep the knob, the module will output an on/off gate pulse that many times per whole turn.
 
@@ -640,6 +730,16 @@ Attach a Knob node to the knob input and a positive integer to the pulses per tu
 
 ![x to y](img/Library-Images/Building/Knob/x-to-y.png)
 
+Input | Signal Range | Notes
+:--- | :--- | :---
+`Knob` Modulation | `0 to 1`
+`x` Any | `Any 32-bit number` | Special numbers like `pi` and `e`, expressions like `sqrt(10)`, or even modulation sources can also be used.
+`y` Any | `Any 32-bit number` | Special numbers like `pi` and `e`, expressions like `sqrt(10)`, or even modulation or audio sources can also be used.
+
+Output | Signal Range
+:--- | :---
+`x to y` Any | `Any 32-bit number`
+
 Attach a Knob node to the knob input and two different numbers to x and y. The knob will sweep from x to y. For example: attach -1 to x and 10 to y. The module will output -1 to 10 as the knob is turned. The lower number does not need to come first, either. You could attach 100 to x and -100 to y, and the knob will sweep backwards from 100 to -100. You can also attach special numbers like pi or e to the inputs.
 
 
@@ -649,6 +749,18 @@ Attach a Knob node to the knob input and two different numbers to x and y. The k
 
 ![x to y or z Switch](img/Library-Images/Building/Knob/x-to-y-or-z-Switch.png)
 
+Input | Signal Range | Notes
+:--- | :--- | :---
+`Knob` Modulation | `0 to 1`
+`x` Any | `Any 32-bit number` | Be aware that the output will not start exactly at `x`. A very small amount of `y` will always be mixed in.
+`y` Any | `Any 32-bit number` | Special numbers like `pi` and `e`, expressions like `sqrt(10)`, or even modulation or audio sources can also be used.
+`z` Any | `Any 32-bit number` | `z` becomes the output when the Knob is turned all the way down.
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+`x to y OR if Knob==0, z` Any | `Any 32-bit number`
+`z indicator` Gate | `0 or 1` | Goes high when `z` is routed to the output.
+
 Attach a Knob node to the knob input and two numbers to x and y. The module will sweep from x to y as long as the knob’s value does not exactly equal 0 (turned all the way down). When the knob is turned all the way down, the signal present at the z input passes to the output.
 
 
@@ -657,6 +769,20 @@ Attach a Knob node to the knob input and two numbers to x and y. The module will
 **xyz Switch** <br>
 
 ![xyz Switch](img/Library-Images/Building/Knob/xyz-Switch.png)
+
+Input | Signal Range | Notes
+:--- | :--- | :---
+`Knob` Modulation | `0 to 1`
+`x` Any | `Any 32-bit number` | `x` becomes the output when the Knob is turned all the way down.
+`y` Any | `Any 32-bit number` | `y` becomes the output when the Knob is neither turned all the way down or all the way up.
+`z` Any | `Any 32-bit number` | `z` becomes the output when the Knob is turned all the way up.
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+`x if Knob==0` <br> `y if 0<Knob<1` <br> `z if Knob==1` Any | `Any 32-bit number`
+`x indicator` Gate | `0 or 1` | Goes high when `x` is routed to the output. Optionally routed to a Light node, or the `r` input of an RGB node.
+`y indicator` Gate | `0 or 1` | Goes high when `y` is routed to the output. Optionally routed to a Light node, or the `b` input of an RGB node.
+`z indicator` Gate | `0 or 1` | Goes high when `z` is routed to the output. Optionally routed to a Light node, or the `g` input of an RGB node.
 
 Similar to the x to y or z Switch, the xyz switch will output x when the knob is turned all the way down, y when the knob is somewhere in between 0 and 1, and z when the knob is turned all the way up. A common configuration would be to attach the Knob to the knob input and the y input, with different signals attached to x and z.
 
@@ -674,6 +800,15 @@ These modules take an input signal and translate them into signals for the RGB l
 
 ![Audio Light](img/Library-Images/Building/Light/Audio-Light.png)
 
+Input | Signal Range
+:--- | :--- | :---
+Audio | `-1 to 1`
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+Modulation | `0 to 1` | Attached to `r` input of RGB node
+Modulation | `0 to 1` | Attach to `b` input of RGB node
+
 Analyzes an incoming -1 to 1 audio signal and displays the positive portion as red and negative portion as blue. Useful for indicating an audio output.
 
 
@@ -682,6 +817,16 @@ Analyzes an incoming -1 to 1 audio signal and displays the positive portion as r
 **Polar Light** <br>
 
 ![Polar Light](img/Library-Images/Building/Light/Polar-Light.png)
+
+Input | Signal Range
+:--- | :--- | :---
+Modulation | `0 to 1`
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+Modulation | `0 to 1` | Attached to `r` input of RGB node. `Output==1` when `Input==1`
+Modulation | `0 to 1` | Attach to `b` input of RGB node`Output==1` when `Input==0`
+
 
 Analyzes an incoming 0 to 1 modulation signal and displays it as blue for 0 to 0.5 and red from 0.5 to 1. Useful for light indicators on attenuverters.
 
