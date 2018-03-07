@@ -31,8 +31,8 @@ Audio   | `-1 to 1`
 
 Knob | Function | Notes
 :--- | :--- | :---
-*   | Attenuverter | `0 = Input*-1` `0.5 = Input*0` `1 = Input*1`
-+   | Offset |`0 = Input+0` `0.5 = Input+0.5` `1 = Input+1`
+`*`   | Attenuverter | `0 = Input*-1` `0.5 = Input*0` `1 = Input*1`
+`+`   | Offset |`0 = Input+0` `0.5 = Input+0.5` `1 = Input+1`
 
 
 Translates -1 to 1 audio signals. The * control is an attenuverter. At 0, the input audio signal is inverted. At 1, the signal is passed unaffected. In between 0 to 1 the control acts like an attenuator. The + control is an offset. It translates the entire wave up by 0 to 1. If the outgoing wave exceeds 1, the signal is clipped.
@@ -105,7 +105,7 @@ Modulation   | `0 to 1`
 
 Knob | Function | Notes
 :--- | :--- | :---
--/+   | Attenuverter | `0 = Input*-1+1` `0.5 = Input*0` `1 = Input*1` 
+`-/+`   | Attenuverter | `0 = Input*-1+1` `0.5 = Input*0` `1 = Input*1` 
 
 
 Attenuates and inverts any 0 to 1 modulation signal. From 0 to 0.5, the incoming modulation signal is inverted. From 0.5 to 1, the incoming modulation signal is unaffected. Use this module to create a reverse effect on a filter by inverting an incoming envelope modulating the filter’s cutoff.
@@ -289,6 +289,10 @@ Decimal Code | `0 to 65535`
 Button | Function | Notes
 :--- | :--- | :---
 4x4 Button Grid | Pattern Entry | The pattern begins in the top left and goes left to right, top to bottom.
+
+Meter | Displays
+:--- | :---
+Value | `Decimal Code`
 
 Turns a 16 step pattern into a decimal number that can be used to create rhythmic patterns with modules like the Pattern Bank Sequencer. The module looks at the 16 beat pattern as if it were at 16 digit binary number and simply converts that binary number into a decimal. In the Pattern Bank Sequencer, the decimal is re-converted into the binary number. The binary number is then broken apart into individual 0 (skip) or 1 (hit) messages for the sequencer.
 
