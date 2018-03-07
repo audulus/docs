@@ -885,7 +885,9 @@ A spline with a perfect triangle shape.
 
 
 <br>
-###Templates
+
+### Templates
+
 These are module templates that can be used to quickly build up a custom module of your own.
 
 
@@ -1436,7 +1438,7 @@ Uses a delay node to record tapped clock pulses. Great for inputting rhythms for
 
 <br>
 
-##Collection
+## Collection
 
 These patches collect all or some of the modules in each subfolder by different types. Useful for when you want to explore everything Audulus has to offer in a particular category.
 
