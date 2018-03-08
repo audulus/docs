@@ -1648,12 +1648,38 @@ Vias are special pass-through tabs that help arrange wires in Audulus. They are 
 
 ## Chaos
 
-Chaos modules are a special class of random modules used primarily for modulation. They are not purely random like white noise (where all values have an equal possibility of being chosen), and not “filtered” random like pink noise (where lower values have a greater chance of being chosen than higher values). Instead, chaos describes a system that is highly dependent on an initial state, and often contain feedback loops, where the previous state affects the next state. For example: in choosing random numbers, the previous number does not affect the probability of the value of the next number being chosen. A filtered random system can bias the set of numbers being chosen so that more low-value numbers are chosen (like with pink noise), but the previous number chosen still does not affect what number will be chosen next. Chaos on the other hand allows for previous values to influence future values that are chosen. Chaos modules make for interesting modulation sources as they tend to have a more organic or natural feel - almost as if a human hand or the wind were turning the knob.
+Chaos modules are a special class of random modules used primarily for modulation. They are not purely random like white noise (where all values have an equal possibility of being chosen), and not “filtered” random like pink noise (where lower values have a greater chance of being chosen than higher values). 
+
+Instead, chaos describes a system that is highly dependent on an initial state, and often contain feedback loops, where the previous state affects the next state. For example: in choosing random numbers, the previous number does not affect the probability of the value of the next number being chosen. 
+
+A filtered random system can bias the set of numbers being chosen so that more low-value numbers are chosen (like with pink noise), but the previous number chosen still does not affect what number will be chosen next. 
+
+Chaos on the other hand allows for previous values to influence future values that are chosen. Chaos modules make for interesting modulation sources as they tend to have a more organic or natural feel - almost as if a human hand or the wind were turning the knob.
 
 ---
 **1D Chaos Decay** <br>
 
 ![1D Chaos Decay](img/Library-Images/Chaos/1D-Chaos-Decay.png)
+
+Input | Signal Range
+:--- | :---
+Gate | `0 or 1`
+
+Output | Signal Range | Notes
+:--- | :--- | :--- 
+Modulation | `0 to 1` | The top right output is the main chaos modulation output
+Modulation x8 | `0 to 1` | These decay envelopes trigger whenever the chaos modulation passes their output threshold. Bottom output is `0 to 1/8`, top output is `7/8 to 1`. 
+
+Knob | Function | Notes
+:--- | :--- | :---
+slew | Adjusts the glide amount between modulation values, dependent on range knob | `0 = No glide` <br> `1 = Maximum glide`
+range | Adjusts the glide amount range - higher ranges give more glide | `0 = Minimum glide range` <br> `1 = Maximum glide range`
+bias | Tips balance of chance to always going down to always going up | `0 = 100% chance to go down` <br> `0.5 = 50-50 chance to go up or down` <br> `1 = 100% chance to go up`
+decay | Adjusts the length of decay envelopes | `0 = 0.01 seconds` <br> `0.5 = ~0.12 seconds` <br> `1 = 30 seconds`
+
+Meter | Display
+:--- | :---
+Value | Slew range `1 to 7`
 
 Creates a one-dimensional chaos modulation and envelope decay source. The module begins with a modulation output of 0.5. Each time the module is clocked, a new value is chosen. The new value will be go halfway from its current position to 1 (0.75) or 0 (0.25). 
 
@@ -1669,6 +1695,26 @@ So as a general rule use slow clock speeds for higher slew range values. The dec
 **1D Chaos Gate** <br>
 
 ![1D Chaos Gate](img/Library-Images/Chaos/1D-Chaos-Gate.png)
+
+Input | Signal Range
+:--- | :---
+Gate | `0 or 1`
+
+Output | Signal Range | Notes
+:--- | :--- | :--- 
+Modulation | `0 to 1` | The top right output is the main chaos modulation output
+Gate x8 | `0 or 1` | These gates trigger whenever the chaos modulation passes their output threshold. Bottom output is `0 to 1/8`, top output is `7/8 to 1`. 
+
+Knob | Function | Notes
+:--- | :--- | :---
+slew | Adjusts the glide amount between modulation values, dependent on range knob | `0 = No glide` <br> `1 = Maximum glide`
+range | Adjusts the glide amount range - higher ranges give more glide | `0 = Minimum glide range` <br> `1 = Maximum glide range`
+bias | Tips balance of chance to always going down to always going up | `0 = 100% chance to go down` <br> `0.5 = 50-50 chance to go up or down` <br> `1 = 100% chance to go up`
+-/+ | Positive domain attenuverter for modulation output | `0 = Modulation*-1+1` <br> `0.5 = Modulation*0` <br> `1 = Modulation*1`
+
+Meter | Display
+:--- | :---
+Value | Slew range `1 to 7`
 
 Creates a one-dimensional chaos modulation and gate source. The module begins with a modulation output of 0.5. Each time the module is clocked, a new value is chosen. The new value will be go halfway from its current position to 1 (0.75) or 0 (0.25). 
 
