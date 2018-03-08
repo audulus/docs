@@ -929,6 +929,11 @@ These modules use spline nodes to store preset values for use in other modules. 
 
 A preset module with 2 outputs.
 
+Output | Signal Range | Notes
+:--- | :--- | :---
+Modulation x2 | `0 to 1` | Enter the module to set presets on spline nodes
+
+
 
 ---
 **Preset 4** <br>
@@ -936,6 +941,10 @@ A preset module with 2 outputs.
 ![Preset 4](img/Library-Images/Building/Presets/Preset-4.png) 
 
 A preset module with 4 outputs.
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+Modulation x4 | `0 to 1` | Enter the module to set presets on spline nodes
 
 
 
@@ -946,6 +955,10 @@ A preset module with 4 outputs.
 
 A preset module with 8 outputs.
 
+Output | Signal Range | Notes
+:--- | :--- | :---
+Modulation x8 | `0 to 1` | Enter the module to set presets on spline nodes
+
 
 
 ---
@@ -953,6 +966,9 @@ A preset module with 8 outputs.
 A preset module with 16 outputs.
 ![Preset 16](img/Library-Images/Building/Presets/Preset-16.png) 
 
+Output | Signal Range | Notes
+:--- | :--- | :---
+Modulation x8 | `0 to 1` | Enter the module to set presets on spline nodes
 
 
 <br>
@@ -965,6 +981,10 @@ These modules create random strings of numbers which can be used as audio noise 
 **True Random** <br>
 
 ![True Random](img/Library-Images/Building/Random/True-Random.png) 
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+Modulation | `0 to 1` | Enter the module to set the audio channel referenced
 
 Creates true random numbers that are not algorithmically generated like those from the Random node. The Random node creates a string of pseudo-random numbers from a starting point called a seed. 
 
@@ -988,11 +1008,18 @@ These modules take incoming signals and rectify them. Rectification is a term bo
 
 ![Audio Rectifier](img/Library-Images/Building/Rectifier/Audio-Rectifier.png) 
 
-Rectifies an audio signal in 4 different ways. <br>
-Half + outputs the half-wave rectified positive signal. <br>
-Half - outputs the half-wave rectified negative signal. <br>
-Full + outputs the full-wave rectified positive signal. <br>
-Full - outputs the full-wave rectified negative signal. <br>
+Input | Signal Range
+:--- | :---
+Audio | `-1 to 1`
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+`Half +` Audio | `-1 to 1` | Half-wave rectified positive signal
+`Half -` Audio | `-1 to 1` | Half-wave rectified negative signal
+`Full +` Audio | `-1 to 1` | Full-wave rectified positive signal
+`Full -` Audio | `-1 to 1` | Full-wave rectified negative signal
+
+Rectifies an audio signal in 4 different ways.
 
 
 
@@ -1001,11 +1028,18 @@ Full - outputs the full-wave rectified negative signal. <br>
 
 ![Modulation Rectifier](img/Library-Images/Building/Rectifier/Modulation-Rectifier.png) 
 
-Converts a modulation signal to an audio signal and then rectifies it in 4 different ways. <br>
-Half + outputs the half-wave rectified positive signal. <br>
-Half - outputs the half-wave rectified negative signal, but translated into the 0 to 1 modulation range. <br>
-Full + outputs the full-wave rectified positive signal. <br>
-Full - outputs the full-wave rectified negative signal - an inverted version of the full-wave positive signal translated into the 0 to 1 modulation range. <br>
+Input | Signal Range
+:--- | :---
+Modulation | `0 to 1`
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+`Half +` Modulation | `0 to 1` | Half-wave rectified positive signal
+`Half -` Modulation | `0 to 1` | Half-wave rectified negative signal translated into 0 to 1 modulation range.
+`Full +` Modulation | `0 to 1` | Full-wave rectified positive signal
+`Full -` Modulation | `0 to 1` | Full-wave rectified negative signal translated into 0 to 1 modulation range.
+
+Converts a modulation signal to an audio signal and then rectifies it in 4 different ways, and then translates it back into a modulation signal. <br>
 
 
 
@@ -1014,7 +1048,33 @@ Full - outputs the full-wave rectified negative signal - an inverted version of 
 
 ![Rectifying Signal Reflector](img/Library-Images/Building/Rectifier/Rectifying-Signal-Reflector.png)
 
-Uses a set of expressions to combine two modulation signals into a unique modulation wave. When x is greater than y, the output of the module is x-y. When y is greater than x, the output of the module is y-x. When the output of the module is greater than 0.5, the module outputs a gate. The x and y knobs control the level of each modulation signal before being compared. The attenuate control attenuates the overall output of the module. The offset control does not offset the main output signal, but instead offsets the output that is located beneath the offset control. This output is meant to be looped back and attached to the x or y control to create really wild unpredictable results.
+Input | Signal Range
+:--- | :---
+`x` Modulation | `0 to 1`
+`y` Modulation | `0 to 1`
+
+Output | Signal Range | Notes
+:--- | :--- | :--- 
+`Main` Modulation | `0 to 1` | If `x>y`, then `x-y`; if `y>x`, then `y-x`
+Gate | `0 or 1` | Goes high if `Main Modulation output > 0.5`
+`Offset` Modulation | `0 to 1` | Use this in conjunction with the Offset knob and loop it back to the x or y knob.
+
+Knob | Function | Notes
+:--- | :--- | :---
+x | Modulation input attenuator | `0 = x input*0` <br> `0.5 = x input*0.5` <br> `1 = x input*1`
+y | Modulation input attenuator | `0 = y input*0` <br> `0.5 = y input*0.5` <br> `1 = y input*1`
+![Attenuate Icon](img/SVG-Icons/Attenuate.svg) | Attenuator for main modulation output | `0 = Main modulation output*0` <br> `0.5 = Main modulation output*0.5` <br> `1 = Main modulation output*1`
+![Offset Icon](img/SVG-Icons/Offset.svg) | Offset for offset modulation output |`0 = Modulation+0` <br> `0.5 = Modulation+0.5` <br> `1 = Modulation+1`
+
+Uses a set of expressions to combine two modulation signals into a unique modulation wave. 
+
+When x is greater than y, the output of the module is x-y. When y is greater than x, the output of the module is y-x. 
+
+When the output of the module is greater than 0.5, the module outputs a gate. 
+
+The x and y knobs control the level of each modulation signal before being compared. The attenuate control attenuates the overall output of the module. 
+
+The offset control does not offset the main output signal, but instead offsets the output that is located beneath the offset control. This output is meant to be looped back and attached to the x or y control to create really wild unpredictable results.
 
 
 
@@ -1031,6 +1091,15 @@ These modules compare and create signals. The category is broad and contains mod
 
 ![Return Greater](img/Library-Images/Building/Signal/Return-Greater.png)
 
+Input | Signal Range
+:--- | :---
+`x` Any | `Any 32-bit number`
+`y` Any | `Any 32-bit number`
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+`x if x>y, y if y>x` Any | `Any 32-bit number` | Outputs whichever input is greater
+
 Compares signals x and y and outputs whatever signal is greater.
 
 
@@ -1039,6 +1108,15 @@ Compares signals x and y and outputs whatever signal is greater.
 **Return Lesser** <br>
 
 ![Return Lesser](img/Library-Images/Building/Signal/Return-Lesser.png)
+
+Input | Signal Range
+:--- | :---
+`x` Any | `Any 32-bit number`
+`y` Any | `Any 32-bit number`
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+`x if x<y, y if y<x` Any | `Any 32-bit number` | Outputs whichever input is lesser
 
 Compares signals x and y and outputs whatever signal is lesser.
 
