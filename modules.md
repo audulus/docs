@@ -1127,6 +1127,17 @@ Compares signals x and y and outputs whatever signal is lesser.
 
 ![Value Distributor](img/Library-Images/Building/Signal/Value-Distributor.png)
 
+Output | Signal Range | Notes
+:--- | :--- | :---
+Modulation x8 | `0 to 1` | Top output = left side of visualizer, bottom output = right side of visualizer
+
+Knob | Function | Notes
+:--- | :--- | :---
+bal | Adjusts the balance of values | `0 = Descending left to right` <br> `0.5 = Equal left to right` <br> `1 = Ascending left to right`
+shape | Adjusts the curve of the distribution | `0 = Linear distribution` <br> `0.5 = Slightly exponential distribution` <br> `1 = Extremely exponential distribution`
+peak | Adjusts which output has the largest value | `0 = Largest value on left` <br> `0.5 = Largest value in middle` <br> `1 = Largest value on right`
+gain | Adjusts the total range of value outputs | `0 = All outputs=0` <br> `0.5 = Highest output=1` <br> `1 = All outputs=1`
+
 Creates eight 0 to 1 modulation signals that are distributed in a user-defined manner around linear and exponential shapes. The bal or balance control adjusts the tilt of the distribution from left to equal to right. The shape control applies an exponential curve to the distribution. The peak control changes which output has the highest peak. The gain control adjusts the total range of the value distribution. An example use of this module would be to use each 8 outputs to control the boost or cut of an 8 band equalizer.
 
 
@@ -1160,6 +1171,24 @@ These are module templates that can be used to quickly build up a custom module 
 
 ![VCO Template](img/Library-Images/Building/Templates/VCO-Template.png)
 
+Input | Signal Range
+:--- | :---
+`o` Octave | -5 to 5
+
+Output | Signal Range
+:--- | :---
+Audio | `-1 to 1`
+
+Knob | Function | Notes
+:--- | :--- | :---
+oct | Octave shift | 0 = `o-5` <br> 0.5 = `o+0` <br> 1 = `o+5` <br> <br> Tip: Use a sequencer or LFO attached to this knob to create dynamic octave shifting.
+fine | -/+ 1 Semitone tuner |  0 = `o-1/12` <br> 0.5 = `o+0` <br> 1 = `o+1/12` <br> <br> Tip: Attach an LFO through a Centered Attenuator module to this knob to create a vibrato effect.
+
+Meter | Displays
+:--- | :---
+Value | Octave shift
+
+
 This is a basic VCO template that includes an octave input, audio output, and tuning controls. Just add your own custom oscillator and adjust the UI to taste.
 
 
@@ -1183,6 +1212,14 @@ These modules translate -1 to 1 audio signals into other signal types.
 
 ![Audio to Modulation](img/Library-Images/Building/Translation/Audio/Audio-to-Modulation.png)
 
+Input | Signal Range
+:--- | :---
+Audio | `-1 to 1`
+
+Output | Signal Range
+:--- | :---
+Modulation | `0 to 1`
+
 Translates -1 to 1 audio signals to 0 to 1 modulation signals.
 
 
@@ -1199,24 +1236,15 @@ These modules translate BPM (beats per minute) signals into other signal types.
 
 ![BPM to Hz](img/Library-Images/Building/Translation/BPM/BPM-to-Hz.png)
 
+Input | Signal Range
+:--- | :---
+BPM | `0 to 999`
+
+Output | Signal Range
+:--- | :---
+Hz | `0 to 16.65`
+
 Translates BPM signals into Hz values.
-
-
-
-<br>
-
-#### dB
-
-These modules translate dB (decibel) signals into other signal types.
-
-
-
----
-**dB to Amplitude** <br>
-
-![dB to Amplitude](img/Library-Images/Building/Translation/dB/dB-to-Amplitude.png)
-
-Translates dBs into an amplitude signal.
 
 
 
@@ -1232,6 +1260,10 @@ These modules translate the Feedback Delay period into other signal types.
 **Feedback Delay to Seconds** <br>
 
 ![Feedback Delay to Seconds](img/Library-Images/Building/Translation/FeedbackDelay/Feedback-Delay-to-Seconds.png)
+
+Output | Signal Range
+:--- | :---
+Seconds | `~0.005`
 
 Translates the Feedback Delay time into seconds.
 
@@ -1252,20 +1284,27 @@ These modules translate Hz (hertz) signals into other signal types.
 
 Translates Hz into BPM.
 
+Input | Signal Range
+:--- | :---
+Hz | `0 to 16.65`
 
-
----
-**Hz to Note Number** <br>
-
-![Hz to Note Number](img/Library-Images/Building/Translation/Hz/Hz-to-Note-Number.png)
-
-Translates Hz to Note Number, as defined by an 88-note piano keyboard.
+Output | Signal Range
+:--- | :---
+BPM | `0 to 999`
 
 
 ---
 **Hz to Octave** <br>
 
 ![Hz to Octave](img/Library-Images/Building/Translation/Hz/Hz-to-Octave.png)
+
+Input | Signal Range | Notes
+:--- | :--- | :---
+Hz | `0.00001 to Sample Rate/2` | Minimum Hz input is clamped to 0.00001 to prevent a `NaN`.
+
+Output | Signal Range
+:--- | :---
+`o` Octave | `~-25 to ~5.5`
 
 Translates Hz into the octave signal.
 
@@ -1274,6 +1313,14 @@ Translates Hz into the octave signal.
 **Hz to Seconds** <br>
 
 ![Hz to Seconds](img/Library-Images/Building/Translation/Hz/Hz-to-Seconds.png)
+
+Input | Signal Range
+:--- | :---
+Hz | `0 to Sample Rate/2`
+
+Output | Signal Range
+:--- | :---
+Seconds | `Any positive 32-bit number`
 
 Translates Hz into seconds.
 
@@ -1289,6 +1336,14 @@ These modules translate the 0 to 1 modulation signal into other signal types.
 
 ![Modulation to Audio](img/Library-Images/Building/Translation/Modulation/Modulation-to-Audio.png)
 
+Input | Signal Range
+:--- | :---
+Modulation | `0 to 1`
+
+Output | Signal Range
+:--- | :---
+Audio | `-1 to 1`
+
 Translates the 0 to 1 modulation signal into a -1 to 1 audio signal.
 
 
@@ -1297,51 +1352,41 @@ Translates the 0 to 1 modulation signal into a -1 to 1 audio signal.
 
 ![Modulation to Radians](img/Library-Images/Building/Translation/Modulation/Modulation-to-Radians.png)
 
+Input | Signal Range
+:--- | :---
+Modulation | `0 to 1`
+
+Output | Signal Range
+:--- | :---
+Radians | `0 to 2*pi`
+
 Translates the 0 to 1 modulation signal into the 0 to 2pi radian signal.
 
 
-<br>
-
-#### Note Number
-
-These modules translate the note number, as defined by an 88-note piano keyboard, into other signal types.
-
----
-**Note Number to Hz** <br>
-
-![Note Number to Hz](img/Library-Images/Building/Translation/NoteNumber/Note-Number-to-Hz.png)
-
-Translates a note number into a Hz signal.
-
-
----
-**Note Number to Octave** <br>
-
-![Note Number to Octave](img/Library-Images/Building/Translation/NoteNumber/Note-Number-to-Octave.png)
-
-Translates a note number into the octave signal.
-
 
 <br>
+
 
 #### Octave
 
 These modules translate the octave signal to other signal types. The octave signal in Audulus is a linearized pitch scale. Unlike 1 volt per octave modular synth pitch scales, the octave signal has no upper or lower limit. Instead, it is centered around 0, where 0 = A4 = 440Hz. An octave signal of 1 would be 1 octave higher than A4, or A5 = 880Hz. An octave signal of -1 would be 1 octave lower than A4, or A3 = 220Hz. The reference pitch of A4 = 440Hz can be changed inside these modules.
+
 
 ---
 **Octave to Hz** <br>
 
 ![Octave to Hz](img/Library-Images/Building/Translation/Octave/Octave-to-Hz.png)
 
+Input | Signal Range | Notes
+:--- | :--- | :---
+Octave | `-5 to 5` | You can go beyond the recommended -5 to 5 range, especially to create LFOs that are sub audio but still locked into a pitch. Beyond ~5 though, you will create a Hz value that is above a useful value.
+
+Output | Signal Range
+:--- | :---
+Hz | `0 to Sample Rate/2`
+
 Translates the octave signal into a Hz signal.
 
-
----
-**Octave to Note Number** <br>
-
-![Octave to Note Numbers](img/Library-Images/Building/Translation/Octave/Octave-to-Note-Number.png)
-
-Translates the octave signal into a note number signal.
 
 
 <br>
@@ -1355,6 +1400,14 @@ These modules translate radians into other signal types. The Phasor node outputs
 
 ![Radians to Audio](img/Library-Images/Building/Translation/Radians/Radians-to-Audio.png)
 
+Input | Signal Range | Notes
+:--- | :--- | :---
+Radians | `0 to 2pi` | The Phasor node outputs a radian signal - this module is good for creating custom saw-core VCOs.
+
+Output | Signal Range
+:--- | :---
+Audio | `-1 to 1`
+
 Translates radians into a -1 to 1 audio signal.
 
 
@@ -1363,6 +1416,15 @@ Translates radians into a -1 to 1 audio signal.
 
 ![Radians to Degrees](img/Library-Images/Building/Translation/Radians/Radians-to-Degrees.png)
 
+Input | Signal Range
+:--- | :--- | :---
+Radians | `0 to 2pi` 
+
+Output | Signal Range | Notes
+:--- | :--- | :--- 
+Degrees | `0 to ~359` | For the purposes of this module 0 and 360 are the same value.
+
+
 Translates radians into a 0 to 360 degrees signal.
 
 
@@ -1370,6 +1432,14 @@ Translates radians into a 0 to 360 degrees signal.
 **Radians to Modulation** <br>
 
 ![Radians to Modulation](img/Library-Images/Building/Translation/Radians/Radians-to-Modulation.png)
+
+Input | Signal Range | Notes
+:--- | :--- | :---
+Radians | `0 to 2pi` | The Phasor node outputs a radian signal - this module is good for creating custom saw-core LFOs.
+
+Output | Signal Range
+:--- | :--- | :--- 
+Modulation | `0 to 1`
 
 Translates radians into a 0 to 1 modulation signal.
 
@@ -3755,6 +3825,27 @@ These modules use combinations of sine waves at different harmonics and add them
 **Chebyshev Additive VCO** <br>
 
 ![Chebyshev Additive VCO](img/Library-Images/VCO/Additive/Chebyshev-Additive-VCO.png)
+
+Input | Signal Range | Notes
+:--- | :--- | :---
+`o` Octave | `-5 to 5`
+Audio | `-1 to 1` | Linear FM input
+
+Output | Signal Range
+:--- | :---
+Audio | `-1 to 1`
+
+Knob | Function | Notes
+:--- | :--- | :---
+T1-6 | Adjusts the relative level of the fundamental (T1) and 5 harmonics (T2-6). | Tip: Modulate these knobs with LFOs or envelopes for a really dynamic tone.
+![Overdrive Icon](img/SVG-Icons/Overdrive.svg) | Harmonic Mix | 0 = Pure fundamental <br> 1 = Fundamental + harmonics
+oct | Octave shift | 0 = `o-5` <br> 0.5 = `o+0` <br> 1 = `o+5` <br> <br> Tip: Use a sequencer or LFO attached to this knob to create dynamic octave shifting.
+FM | Linear FM input attenuator | Scaled exponentially to allow precise mixing of small amounts of FM. 
+fine | -/+ 1 Semitone tuner |  0 = `o-1/12` <br> 0.5 = `o+0` <br> 1 = `o+1/12` <br> <br> Tip: Attach an LFO through a Centered Attenuator module to this knob to create a vibrato effect.
+
+Meter | Displays
+:--- | :---
+Value | Octave shift
 
 Uses a series of Chebyshev polynomials to transform a single sine wave into many harmonics. A very CPU-efficient solution to create an additive oscillator with 6 harmonics without needing to have 6 separate oscillators. The tone of this VCO is rubbery - it sounds both organic and digital at the same time. It responds really well to modulating its harmonics with LFOs.
 
