@@ -1331,6 +1331,7 @@ Translates Hz into seconds.
 
 These modules translate the 0 to 1 modulation signal into other signal types.
 
+
 ---
 **Modulation to Audio** <br>
 
@@ -1345,6 +1346,7 @@ Output | Signal Range
 Audio | `-1 to 1`
 
 Translates the 0 to 1 modulation signal into a -1 to 1 audio signal.
+
 
 
 ---
@@ -1372,6 +1374,7 @@ Translates the 0 to 1 modulation signal into the 0 to 2pi radian signal.
 These modules translate the octave signal to other signal types. The octave signal in Audulus is a linearized pitch scale. Unlike 1 volt per octave modular synth pitch scales, the octave signal has no upper or lower limit. Instead, it is centered around 0, where 0 = A4 = 440Hz. An octave signal of 1 would be 1 octave higher than A4, or A5 = 880Hz. An octave signal of -1 would be 1 octave lower than A4, or A3 = 220Hz. The reference pitch of A4 = 440Hz can be changed inside these modules.
 
 
+
 ---
 **Octave to Hz** <br>
 
@@ -1395,6 +1398,8 @@ Translates the octave signal into a Hz signal.
 
 These modules translate radians into other signal types. The Phasor node outputs in radians.
 
+
+
 ---
 **Radians to Audio** <br>
 
@@ -1411,6 +1416,7 @@ Audio | `-1 to 1`
 Translates radians into a -1 to 1 audio signal.
 
 
+
 ---
 **Radians to Degrees** <br>
 
@@ -1424,8 +1430,8 @@ Output | Signal Range | Notes
 :--- | :--- | :--- 
 Degrees | `0 to ~359` | For the purposes of this module 0 and 360 are the same value.
 
-
 Translates radians into a 0 to 360 degrees signal.
+
 
 
 ---
@@ -1444,6 +1450,7 @@ Modulation | `0 to 1`
 Translates radians into a 0 to 1 modulation signal.
 
 
+
 <br>
 
 #### Round
@@ -1455,7 +1462,16 @@ These modules round incoming signals to the closest digit specified.
 
 ![Round to Hundredths](img/Library-Images/Building/Translation/Round/Round-to-Hundredths.png)
 
+Input | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
+
+Output | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
+
 Rounds incoming signal to the nearest hundredths place.
+
 
 
 ---
@@ -1463,7 +1479,16 @@ Rounds incoming signal to the nearest hundredths place.
 
 ![Round to Integer](img/Library-Images/Building/Translation/Round/Round-to-Integer.png)
 
+Input | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
+
+Output | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
+
 Rounds incoming signal to the nearest integer.
+
 
 
 ---
@@ -1471,7 +1496,16 @@ Rounds incoming signal to the nearest integer.
 
 ![Round to Tenths](img/Library-Images/Building/Translation/Round/Round-to-Tenths.png)
 
+Input | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
+
+Output | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
+
 Rounds incoming signal to the nearest tenths place.
+
 
 
 ---
@@ -1479,7 +1513,16 @@ Rounds incoming signal to the nearest tenths place.
 
 ![Round to Thousandths](img/Library-Images/Building/Translation/Round/Round-to-Thousandths.png)
 
+Input | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
+
+Output | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
+
 Rounds incoming signal to the nearest thousandths place.
+
 
 
 <br>
@@ -1493,7 +1536,16 @@ These modules translate the time period of a sample into other signal types.
 
 ![Samples to seconds](img/Library-Images/Building/Translation/Samples/Samples-to-Seconds.png)
 
+Input | Signal Range
+:--- | :---
+`Samples` Any Positive | `Any positive 32-bit number`
+
+Output | Signal Range
+:--- | :---
+`Seconds` Any Positive | `Any positive 32-bit number`
+
 Translates x number of samples into seconds. Smallest value is 1. For best results, use integers.
+
 
 
 <br>
@@ -1505,6 +1557,14 @@ These modules translate seconds into other signal types.
 **Seconds to samples** <br>
 
 ![Seconds to Samples](img/Library-Images/Building/Translation/Seconds/Seconds-to-Samples.png)
+
+Input | Signal Range
+:--- | :---
+`Seconds` Any Positive | `Any positive 32-bit number`
+
+Output | Signal Range
+:--- | :---
+`Samples` Any Positive | `Any positive 32-bit number`
 
 Translates x number of seconds into a number of samples.
 
@@ -1520,7 +1580,16 @@ These modules clip off trailing digits after the given decimal place.
 
 ![Truncate to Hundredths](img/Library-Images/Building/Translation/Truncate/Truncate-to-Hundredths.png)
 
+Input | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
+
+Output | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
+
 Clips off any digits after the hundredths place.
+
 
 
 ---
@@ -1528,13 +1597,30 @@ Clips off any digits after the hundredths place.
 
 ![Truncate to Tenths](img/Library-Images/Building/Translation/Truncate/Truncate-to-Tenths.png)
 
+Input | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
+
+Output | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
+
 Clips off any digits after the tenths place.
+
 
 
 ---
 **Truncate to Thousandths** <br>
 
 ![Truncate to Thousandths](img/Library-Images/Building/Translation/Truncate/Truncate-to-Thousandths.png)
+
+Input | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
+
+Output | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
 
 Clips off any digits after the thousandths place.
 
@@ -1546,6 +1632,14 @@ Clips off any digits after the thousandths place.
 ![Via](img/Library-Images/Building/Via.png)
 
 ![Via Reversed](img/Library-Images/Building/Via-Reversed.png)
+
+Input | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
+
+Output | Signal Range
+:--- | :---
+Any | `Any 32-bit number`
 
 Vias are special pass-through tabs that help arrange wires in Audulus. They are very useful for keeping the internals of modules neat and easy to read. They also serve an important function while building. You may, for example, have a single output going to multiple inputs. You want to attach a knob to test that function, but then later wish to replace it with an input or maybe even a button. If you simply attached the output of the knob to all of those inputs, you would have to delete the knob and rewire everything from scratch. However, if you wire the via first and then attach the knob to the via, you can easily clip out the knob while retaining your connections. Also, because signal flow in Audulus is by default left to right, the cable animation will not look very neat if you want to run a signal backwards in a feedback configuration. Reverse vias allow you to change the direction of a signal in Audulus while maintaining a clean look.
 
