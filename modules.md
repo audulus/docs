@@ -1755,6 +1755,28 @@ This allows clocks to be used as gates for envelope modules or as on/off switche
 
 ![BPM Clock](img/Library-Images/Clock/BPM-Clock.png)
 
+Input | Signal Range | Notes
+:--- | :--- | :---
+Gate | `0 or 1` | Clock reset (top left)
+Gate | `0 or 1` | Clock on/off (below button)
+
+Output | Signal Range
+:--- | :---
+Gate | `0 or 1` 
+
+Knob | Function | Notes
+:--- | :--- | :---
+![Clock Icon](img/SVG-Icons/Clock.svg) | Clock speed | `0 = 60bpm` <br> `0.5 = 150bpm` <br> `1 = 240bpm` <br> BPM values are in discrete integer steps, e.g., there is no 120.5 bpm, only 120 or 121.
+![PWM Blue Icon](img/SVG-Icons/PWM-Blue.svg) | Clock pulse width modulation | `0 = 0% (always off)` <br> `0.5 = 50% (half on, half off)` <br> `1 = 100% (always on)` <br> Useful function when using the clock as a gate source for triggering envelopes. Modulate or sequence this control for even more interesting results.
+
+Button | Function | Notes
+:--- | :--- | :---
+Clock on/off | Turns the clock on or off | When on (red) the on/off input stays high and will not respond to incoming gates. When off (blue) the input goes low, but will respond to incoming gates.
+
+Meter | Displays
+:--- | :---
+Value | BPM
+
 Creates a clock pulse based on a beats per minute (BPM) value. The top knob controls the BPM value, which is displayed at the bottom of the module. The BPM values are fixed at integers from 60 to 220 BPM. 
 
 The pulse width control adjusts the amount of on time relative to off time. The decimal value represents the pulse width percent - so 0.5 is 50% duty cycle, 0.1 is 10% duty cycle, and 0.9 is 90% duty cycle. At 0 or 1 the clock output will effectively turn off (remain low or high all the time), though internally it will still pulse. 
@@ -1769,6 +1791,24 @@ Use a slower clock to reset a faster clock for some interesting rhythmic variati
 
 ![Burst Generator](img/Library-Images/Clock/Burst-Generator.png)
 
+Input | Signal Range | Notes
+:--- | :--- | :---
+Gate | `0 or 1` | Triggers burst gate
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+Gate | `0 or 1` | Burst gate output
+
+Knob | Function | Notes
+:--- | :--- | :---
+Number of Bursts | Sets the number of output gates per gate input | Use to flam drums or trigger a quick series of envelopes
+![Clock Icon](img/SVG-Icons/Clock.svg) | Burst speed | `0 = 0.4Hz` <br> `0.5 = 5.8Hz` <br> `1 = 23.9Hz`
+
+Meter | Displays
+:--- | :---
+Value | Number of gates
+Value | Speed of gates
+
 Creates a stream of 1 to 32 clock pulses at a given speed whenever the input is clocked. The top knob adjusts how many clock pulses the burst generator creates. The bottom knob adjusts how fast the pulses are generated. Very useful for creating organic-sounding snare rolls.
 
 
@@ -1777,13 +1817,56 @@ Creates a stream of 1 to 32 clock pulses at a given speed whenever the input is 
 
 ![Clock Divider](img/Library-Images/Clock/Clock-Divider.png)
 
-Accepts an incoming clock pulse and outputs a division of the incoming clock speed from 1/1 (pass-through) to 1/64 (one clock pulse per 64 incoming clock pulses). If you have a patch with multiple clock dividers, you may find that you have to close and reopen a patch to sync them up. You only need to do this once after you have finished adding the clock dividers. This is not a bug: closing and reopening a patch resets the counters inside the clock dividers so they all start from the beginning. A unique feature to Audulus is that clock dividers modules preserve the throughput clock’s pulse width.
+Input | Signal Range | Notes
+:--- | :--- | :---
+Gate | `0 or 1` | Clock signal to be divided
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+Gate | `0 or 1` | Divided clock signal
+
+Knob | Function | Notes
+:--- | :--- | :---
+![Clock Icon](img/SVG-Icons/Clock.svg) | Clock divison | `0 = 1/1` <br> `0.5 = 1/16` <br> `1 = 1/64` <br> 
+
+Meter | Displays
+:--- | :---
+Value | Gate division factor
+
+Accepts an incoming clock pulse and outputs a division of the incoming clock speed from 1/1 (pass-through) to 1/64 (one clock pulse per 64 incoming clock pulses). 
+
+If you have a patch with multiple clock dividers, you may find that you have to close and reopen a patch to sync them up. 
+
+You only need to do this once after you have finished adding the clock dividers. This is not a bug: closing and reopening a patch resets the counters inside the clock dividers so they all start from the beginning. 
+
+A unique feature to Audulus is that clock dividers modules preserve the throughput clock’s pulse width.
+
+This module can be used for more than just clock dividing. You can also use this module to make an event happen every `x` number of gate inputs, like retriggering an LFO after every 3rd keypress.
 
 
 ---
 **Clock Fractional Multiplier** <br>
 
 ![Clock Fractional Multiplier](img/Library-Images/Clock/Clock-Fractional-Multiplier.png)
+
+Input | Signal Range | Notes
+:--- | :--- | :---
+Gate | `0 or 1` | Clock signal to be multiplied (top right)
+Gate | `0 or 1` | Reset input (below button) 
+
+Output | Signal Range | Notes
+:--- | :--- | :---
+Gate | `0 or 1` | Multiplied clock signal
+
+Knob | Function | Notes
+:--- | :--- | :---
+![Clock Icon](img/SVG-Icons/Clock.svg) | Clock multiplication numerator | `0 = 1` <br> `0.5 = 5` <br> `1 = 9` <br> 
+![Clock Icon](img/SVG-Icons/Clock.svg) | Clock multiplication denominator | `0 = 1` <br> `0.5 = 5` <br> `1 = 9` <br> 
+
+Meter | Displays
+:--- | :---
+Value | Gate multiplication factor
+
 
 Accepts an incoming clock pulse at the top gate input and outputs a fractional multiplication of the incoming clock speed from 1/1 (pass through) to 8/9 (8 clock pulses per 9 incoming clock pulses). The top knob controls the numerator from 1 to 9 and the bottom number controls the denominator from 1 to 9. The momentary button resets the counter from start. The rs (reset) input will do the same, but with a remote gate control. This module can create all sorts of complex rhythmic pulses based on an incoming clock pulse. Clock multipliers in Audulus work by using a Zero Cross node to analyze the incoming speed of a clock signal. Thus, they will always need 2 initial clock pulses to begin working. If you want everything in your patches to stay totally lock step in a perfect way, it is much better to set your master clock to the fastest pulse you will use and use clock dividers to divide the master clock.
 
@@ -1800,6 +1883,24 @@ Accepts an incoming clock pulse and outputs a division of the incoming clock spe
 **Clock** <br>
 
 ![Clock](img/Library-Images/Clock/Clock.png)
+
+Input | Signal Range | Notes
+:--- | :--- | :---
+Gate | `0 or 1` | Clock reset (top left)
+Gate | `0 or 1` | Clock on/off (below button)
+
+Output | Signal Range
+:--- | :---
+Gate | `0 or 1` 
+
+Knob | Function | Notes
+:--- | :--- | :---
+![Clock Icon](img/SVG-Icons/Clock.svg) | Clock speed | `0 = 0Hz` <br> `0.5 = 5Hz` <br> `1 = 20Hz` <br> BPM values are in discrete integer steps, e.g., there is no 120.5 bpm, only 120 or 121.
+![PWM Blue Icon](img/SVG-Icons/PWM-Blue.svg) | Clock pulse width modulation | `0 = 0% (always off)` <br> `0.5 = 50% (half on, half off)` <br> `1 = 100% (always on)` <br> Useful function when using the clock as a gate source for triggering envelopes. Modulate or sequence this control for even more interesting results.
+
+Button | Function | Notes
+:--- | :--- | :---
+Clock on/off | Turns the clock on or off | When on (red) the on/off input stays high and will not respond to incoming gates. When off (blue) the input goes low, but will respond to incoming gates.
 
 Creates a clock pulse based on a Hz value from 0 to 20Hz. The top knob controls the speed of the clock. The pulse width control adjusts the amount of on time relative to off time. The decimal value represents the pulse width percent - so 0.5 is 50% duty cycle, 0.1 is 10% duty cycle, and 0.9 is 90% duty cycle. At 0 or 1 the clock output will effectively turn off (remain low or high all the time), though internally it will still pulse. The button will turn the clock on (red) or off (blue). The input just below the button is a remote on/off gate that will work only if the button is in the off state. The gate input of the clock is a sync input which restarts the clock. Use a slower clock to reset a faster clock for some interesting rhythmic variations, or simply to sync multiple clocks to one master clock.
 
