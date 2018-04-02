@@ -1418,7 +1418,7 @@ Syntax                | Semantics
 `max(x,y)`            | returns the greater of x and y
 `clamp(x,a,b)`        | restricts x to the interval [a, b]
 `step(x, edge)`       | 1 if x \> edge, otherwise 0. Hard step.
-`smoothstep(x, a, b)` | smooth step from 0 to 1 on the interval [a, b]
+`smoothstep(a, b, x)` | smooth step from 0 to 1 on the interval [a, b]
 
 #### Constants
 
