@@ -2,16 +2,168 @@
 
 This is an overview of all of the modules in the Audulus module library. They are categorized by type and subcategory.
 
+## Module Signal Standards
+
+The inputs and outputs of all Audulus modules are standardized into a few basic groups.
+
+### Gate
+
+
+
 
 <br>
+<br>
+# Module Library
 
-## Building
+## [Building] (#tocbuilding)
+## [Collection] (#toccollection)
+## [Effect] (#toceffect)
+## [Input-Output] (#tocinputoutput)
+## [Meter] (#tocmeter)
+## [Mixer] (#tocmixer)
+## [Modulation] (#tocmodulation)
+## [Sequencer] (#tocsequencer)
+
+
+<br>
+<a name="tocbuilding"></a>
+### [Building] (#building)
+* [**Binary**] (#binary)
+	* [Pattern to Decimal Code] (#pattern-to-decimal-code)
+* [**Counter**] (#counter)
+	* [Elapsed Time] (#elapsed-time)
+	* [Up Counter] (#up-counter)
+	* [Up-Down Counter] (#up-down-counter)
+* [**Curve**] (#curve)
+	* [Curve Exp-Lin-Log] (#curve-exp-lin-log)
+	* [Curve Exponential] (#curve-exponential)
+* [**Detector**] (#detector)
+	* [Audio Peak Detector] (#audio-peak-detector)
+	* [Change Detector] (#change-detector)
+	* [High-Low Detector] (#high-low-detector)
+	* [Up-Down Detector] (#up-down-detector)
+* [**Gate**] (#gate-building)
+	* [1-Frame Pulse] (#1-frame-pulse)
+	* [Gate to 10ms Pulse] (#gate-to-10ms-pulse)
+* [**Input-Output**] (#input-output-building)
+	* [Audio Clip Light Output] (#audio-clip-light-output)
+	* [Audio Light Input-Output] (#audio-light-intput-output)
+	* [Gate Input-Output] (#gate-input-output)
+	* [Modulation Input-Output] (#modulation-input-output)
+	* [Octave-Input-Output] (#octave-input-output)
+* [**Knob**] (#knob-building)
+	* [-x to x] (#-x-to-x)
+	* [0 to x] (#0-to-x)
+	* [Center Range] (#center-range)
+	* [Integer Maker 0 to 999] (#integer-maker-0-to-999)
+	* [Integers 0 to x] (#integers-0-to-x)
+	* [Pulses Per Turn] (#pulses-per-turn)
+	* [x to y] (#x-to-y)
+	* [x to y or z Switch] (#x-to-y-or-z-switch)
+	* [xyz Switch] (#xyz-switch)
+* [**Light**] (#light-building)
+	* [Audio Light] (#audio-light)
+	* [Polar Light] (#polar-light)
+* [**Loop**] (#loop)
+	* [Force Single Sample Loop] (#force-single-sample-loop)
+* [**Octave**] (#octave-building)
+	* [Octave to Hz with Linear Audio FM and Tune Controls] (#octave-to-hz-with-linear-audio-fm-and-tune-controls)
+	* [Octave to Hz with Octave Shift and Fine Tune Controls] (#octave-to-hz-with-octave-shift-and-fine-tune-controls)
+* [**Presets**] (#presets-building)
+	* [Preset 2] (#preset-2)
+	* [Preset 4] (#preset-4)
+	* [Preset 8] (#preset-8)
+	* [Preset 16] (#preset-16)
+* [**Random**] (#random-building)
+	* [True Random] (#true-random)
+* [**Rectifier**] (#rectifier-building)
+	* [Audio Rectifier] (#audio-rectifier)
+	* [Modulation Rectifier] (#modulation-rectifier)
+	* [Rectifying Signal Reflector] (#rectifying-signal-reflector)
+* [**Signal**] (#signal-building)
+	* [Return Greater] (#return-greater)
+	* [Return Lesser] (#return-lesser)
+	* [Value Distributor] (#value-distributor)
+* [**Spline**] (#spline-building)
+	* [Triangle Spline Node] (#triangle-spline-node)
+* [**Templates**] (#templates-building)
+	* [VCO Template] (#vco-template)
+* [**Translation**] (#translation)
+	* [**Audio**] (#audio-translation)
+		* [Audio to Modulation] (#audio-to-modulation)
+	* [**BPM**] (#bpm)
+		* [BPM to Hz] (#bpm-to-hz)
+	* [**Feedback Delay**] (#feedback-delay)
+		* [Feedback Delay to Seconds] (#feedback-delay-to-seconds)
+	* [**Hz**](#hz)
+		* [Hz to BPM] (#hz-to-bpm)
+		* [Hz to Octave] (#hz-to-octave)
+		* [Hz to Seconds] (#hz-to-seconds)
+	* [**Modulation**] (#modulation-building)
+		* [Modulation to Audio] (#modulation-to-audio)
+		* [Modulation to Radians] (#modulation-to-radians)
+	* [**Octave**] (#octave-building)
+		* [Octave to Hz] (#octave-to-hz)
+		* [Octave to Note Number] (#octave-to-note-number)
+	* [**Radians**] (#radians)
+		* [Radians to Audio] (#radians-to-audio)
+		* [Radians to Degrees] (#radians-to-degrees)
+		* [Radians to Modulation] (#radians-to-modulation)
+	* [**Round**] (#round)
+		* [Round to Hundredths] (#round-to-hundredths)
+		* [Round to Integer] (#round-to-integer)
+		* [Round to Tenths] (#round-to-tenths)
+		* [Round to Thousandths] (#round-to-thousandths)
+	* [**Samples**] (#samples-building)
+		* [Samples to Seconds] (#samples-to-seconds)
+	* [**Seconds**] (#seconds)
+		* [Seconds to Samples] (#seconds-to-samples)
+	* [**Truncate**] (#truncate)
+		* [Truncate to Hundredths] (#truncate-to-hundredths)
+		* [Truncate to Tenths] (#truncate-to-tenths)
+		* [Truncate to Thousandths] (#truncate-to-thousandths)
+
+<br>
+<a name="tocbuilding"></a>
+### [Collection] (#collection)
+
+<br>
+<a name="toceffect"></a>
+### [Effect] (#effect)
+
+<br>
+<a name="tocinputoutput"></a>
+### [Input-Output] (#effect)
+
+<br>
+<a name="tocmeter"></a>
+### [Meter] (#meter)
+
+<br>
+<a name="tocmixer"></a>
+### [Mixer] (#mixer)
+
+<br>
+<a name="tocmodulation"></a>
+### [Modulation] (#modulation)
+
+<br>
+<a name="tocsequencer"></a>
+### [Sequencer] (#sequencer)
+
+
+
+
+
+<a name="building"></a>
+## Building 
 
 Building modules are not often used by themselves, but are instead used to create other modules. One of the most used building modules is the Octave to Hz converter. It takes an incoming octave signal and converts it in the Hz value to control an oscillator or filter cutoff. Another common building module is the Count Up module, which counts to a specified number each gate pulse and then resets. You will find them most often in sequencers. Another very common set of building modules are the light nodes which are used to both indicate what type of signal is inputted our outputted and to display the signal strength.
 
 
 <br>
 
+<a name="binary"></a>
 ### Binary
 
 Binary building modules use binary numbers as a way to store information. They are typically used to store chains of on/off patterns as decimals to be reconverted to binary in a pattern sequencer.
@@ -19,6 +171,7 @@ Binary building modules use binary numbers as a way to store information. They a
 
 
 ---
+<a name="pattern-to-decimal-code"></a>
 **Pattern to Decimal Code** <br>
 
 ![Pattern to Decimal Code](img/Library-Images/Building/Binary/Pattern-to-Decimal-Code.png)
@@ -40,6 +193,7 @@ Turns a 16 step pattern into a decimal number that can be used to create rhythmi
 
 <br>
 
+<a name="Counter"></a>
 ### Counter
 
 Counters are modules that count up or down in sequence when pulsed with a gate or somehow count time. They are most often used in sequencers.
