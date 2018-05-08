@@ -34,7 +34,8 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 
 <br>
 <a name="tocbuilding"></a>
-### [Building](#building)
+### [Building]
+(#building)
 
 * [**Binary**](#binary)
 
