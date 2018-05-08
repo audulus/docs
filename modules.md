@@ -57,8 +57,7 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 
 
 <br><a name="tocbuilding"></a>
-### [Building ](#building)
-
+### [Building](#building)
 * [**Binary**](#binary)
   * [Pattern to Decimal Code](#pattern-to-decimal-code)
 * [**Counter**](#counter)
@@ -154,10 +153,8 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
   	* [Truncate to Tenths](#truncate-to-tenths)
   	* [Truncate to Thousandths](#truncate-to-thousandths)
 
-<br>
-<a name="toccollection"></a>
+<br><a name="toccollection"></a>
 ### [Collection](#collection)
-
 * [**Patches**](#)
   * [**Clock**](#)
     * [Dueling Phase Clock Logic A-R Envelopes](#)
@@ -167,10 +164,8 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
   * [Clocks](#)
   * [Gates](#)
 
-
 <br><a name="toceffect"></a>
 ### [Effect](#effect)
-
 * [**Autopan**](#)
   * [Sine Skew Autopan](#)
 * [**Delay**](#)
@@ -222,7 +217,6 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 <br><a name="tocinputoutput"></a>
 
 ### [Input-Output](#input-output)
-
 * [**Controller**](#)
   * [xy Pad - 8x8](#)
 * [**ES-8**](#)
