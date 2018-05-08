@@ -224,23 +224,152 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
   * RSWF-1 Wavefolder
   * SineFold
 
-
-
 <br><a name="tocinputoutput"></a>
 
 ### [Input-Output](#input-output)
 
+* **Controller**
+  * xy Pad - 8x8
+* **ES-8**
+  * ES-8 Audio Outputs
+  * ES-8 Linear Outputs
+  * ES-8 Outputs 1-8
+* **MIDI**
+  * Keyboard Input Bend Slew Velocity Slur
+  * Keyboard Input Velocity Slur
+  * MIDI Input
+* Audio Input
+* Audio Output Mono
+* Audio Output Stereo
+
+<br><a name="tocinstrument"></a>
+
+### [Instrument](#instrument)
+
+* **Drum**
+  * Cymbal
+  * Kick
+  * Kit
+  * Percussion
+  * Snare
+* **Synth Voice**
+  * Curvature Micro
+  * K35 Curved Synth
+  * Smol Synth
+
+
+
 <br><a name="tocmeter"></a>
 ### [Meter](#meter)
+
+* **Oscilloscope**
+* Octave Keyboard and Tune Meter
+* Octave Keyboard Meter Horizontal
+* Octave Keyboard Meter Vertical
 
 <br><a name="tocmixer"></a>
 ### [Mixer](#mixer)
 
+* 3D 8 Input Mixer
+* 4x2 Stereo Output Mixer
+* 8x2 Mixer
+* 8x2 Stereo Output Mixer
+* Audio 5x1 Mixer
+* Infinite XFade
+* Pan
+* VCO Mixer 3x1
+* VCO Mixer 6x1
+
 <br><a name="tocmodulation"></a>
 ### [Modulation](#modulation)
 
+* **Chaos**
+  * 1D Chaos Decay
+  * 1D Chaos Gate
+  * 2D Chaos Decay
+  * 2D Chaos Gate
+* **Envelope**
+  * 1-Shot
+  * A-D-S-R Natural Decay
+  * A-D-S-R
+  * A-R
+  * ADR-S
+  * AR
+  * ASR
+  * BEOC Max A-D-S-R
+  * d-A-D-S-R
+  * d-A-H-D-S-R
+  * Looping A-R
+  * Looping AR
+  * Looping Skew AR
+  * Max A-D-S-R
+  * Shaped Envelope
+* **LFO**
+  * **Basic**
+    * Basic Saw LFO
+    * Basic Sine LFO
+    * Basic Square LFO
+    * Basic Triangle LFO
+    * Phase Shift Saw LFO
+    * Skew Sine LFO
+    * Skew Triangle LFO
+    * Square PWM LFO
+    * Waveshape LFO
+  * **Complex**
+    * AM Sine LFO
+    * Crossfade Waveshape LFO
+    * F-AM Sine LFO
+    * FM Dual Waveshape Syncable LFO
+    * FM Sine LFO
+    * PM Sine LFO
+    * Quadrature Sine LFO
+    * Quantized Waveshape LFO
+    * Random Amplitude Sine LFO
+  * **Long Period**
+    * 5*10^30 Year LFO
+* **Sample + Hold**
+  * Att-Off Sample + Hold
+  * Basic Sample + Hold
+  * Gateable Sample + Hold
+  * Modulation Threshold Random Generator
+
 <br><a name="tocsequencer"></a>
 ### [Sequencer](#sequencer)
+
+* **3D**
+  * 3D Cube 8 Step Sequencer
+* **Algorithmic**
+  * Euclidean Gate Sequencer
+  * Random Melody
+  * uTuring
+* **Basic**
+  * 4 Step Max Sequencer
+  * 4 Step Sequencer
+  * 8 Step Min Max Sequencer
+  * Random 4 Step Sequencer
+  * Random Chance 4 Step Sequencer
+* **Gate**
+  * Pattern Bank Gate Sequencer
+  * Strip Sequencer
+* **Graphic**
+  * 4 Step Mapper Sequencer
+  * 8 Step Spline Sequencer
+  * Arranger
+* **Matrix**
+  * Chladni Sequencer
+  * Gate 4x4x2 Matrix Sequencer
+  * Gate Cross 4x4x10 Matrix Sequencer
+  * Modulation 2x2x4 Matrix Sequencer
+  * Modulation 2x2x5 Max Matrix Sequencer
+  * Modulation 2x2x4 Matrix Sequencer
+  * Modulation Cross 4x4x9 Matrix Sequencer
+  * Octave-Modulation 4x4x1 Matrix Sequencer
+  * Random Chance Modulation 2x2x4 Matrix Sequencer
+  * Random Modulation 2x2x4 Matrix Sequencer
+* **Random Non-Repeating**
+  * Random Non-Repeating 4 Step Sequencer
+* **Shape**
+  * 5 Step Shape Gate-Trigger Sequencer
 
 <br><a name="tocutility"></a>
 ### [Utility](#utility)
