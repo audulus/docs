@@ -16,9 +16,13 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 # Module Library
 
 ## [Building] (#tocbuilding)
+
 ## [Collection] (#toccollection)
+
 ## [Effect] (#toceffect)
+
 ## [Input-Output] (#tocinputoutput)
+
 ## [Meter] (#tocmeter)
 ## [Mixer] (#tocmixer)
 ## [Modulation] (#tocmodulation)
@@ -28,7 +32,9 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 <br>
 <a name="tocbuilding"></a>
 ### [Building] (#building)
+
 * [**Binary**] (#binary)
+
 	* [Pattern to Decimal Code] (#pattern-to-decimal-code)
 * [**Counter**] (#counter)
 	* [Elapsed Time] (#elapsed-time)
