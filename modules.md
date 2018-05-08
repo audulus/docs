@@ -6,7 +6,14 @@ This is an overview of all of the modules in the Audulus module library. They ar
 
 The inputs and outputs of all Audulus modules are standardized into a few basic groups.
 
-### Gate
+
+
+| Signal     | Range     | Notes                                                        |
+| ---------- | --------- | ------------------------------------------------------------ |
+| Audio      | `-1 to 1` | If overall audio signal is greater than `-1 to 1` at any output, it will distort. |
+| Gate       | `0 or 1`  | Modules are leading-edge triggered.                          |
+| Modulation | `0 to 1`  | Includes LFOs, envelopes, and more.                          |
+| Octave     | `-5 to 5` | Linearized pitch scale centered at `0 = A440Hz`. <br>Octaves jump on integers, e.g., `-1 = A220Hz` and `1 = A880Hz`. <br>Semitones jump on `1/12` intervals. |
 
 
 <br>
@@ -30,6 +37,18 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 ## [Modulation](#tocmodulation)
 
 ## [Sequencer](#tocsequencer)
+
+## [Utility](#tocutility)
+
+## [VCA](#tocvca)
+
+## [VCF](#tocvcf)
+
+## [VCO](#tocvco)
+
+## [Visual](#tocvisual)
+
+
 
 <br>
 
