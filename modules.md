@@ -158,368 +158,362 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 <a name="toccollection"></a>
 ### [Collection](#collection)
 
-* **Patches**
-
-  * **Clock**
-
-    * Dueling Phase Clock Logic A-R Envelopes
-    * Flip Flop Divider Random Logic
-
-  * **Self-Playing**
-
-    * Self-Playing Subtractive Synth Template
-
-  * Clocks
-  * Gates
+* [**Patches**](#)
+  * [**Clock**](#)
+    * [Dueling Phase Clock Logic A-R Envelopes](#)
+    * [Flip Flop Divider Random Logic](#)
+  * [**Self-Playing**](#)
+    * [Self-Playing Subtractive Synth Template](#)
+  * [Clocks](#)
+  * [Gates](#)
 
 
 <br><a name="toceffect"></a>
 ### [Effect](#effect)
 
-* **Autopan**
-  * Sine Skew Autopan
-* **Delay**
-  * Analog Delay
-  * Art D'Echo Dub Delay
-  * Chorus Delay
-  * Clockable Delay Line
-  * Digital Delay
-  * Icebox Audio Freezer
-  * Multi-Tap Filter Delay
-  * Stereo Digital Delay
-  * Tape Delay
-* **Distortion**
-  * Araya-Suyama Tube Overdrive
-  * Bit Crush
-  * Cubed Overdrive
-  * Distortion
-  * Doidic Asymmetrical Tube Overdrive
-  * Down Sample
-  * Hyper Tangent Overdrive
-  * Sigmoid Overdrive A
-* **Dynamics**
-  * **Compressor**
-    * miniPress
-    * RMS Compressor
-    * Super Simple Compressor
-  * **Ducker**
-    * Ducker
-  * **Limiter**
-    * Tube Limiter
-* **Flanger**
-  * Stereo Analog Flanger
-* **Phaser**
-  * Phase12
-  * Stereo 1-6 Stage Pseudo Phaser
-* **Pitch**
-  * Octave Unison
-  * Pitch Shift
-* **Reverb**
-  * Spring Reverb
-  * Stereo Reverb
-* **Tremolo**
-  * Skew Sine Tremolo
-  * Waveshape Tremolo
-* **Wavefolder**
-  * RSWF-1 Wavefolder
-  * SineFold
+* [**Autopan**](#)
+  * [Sine Skew Autopan](#)
+* [**Delay**](#)
+  * [Analog Delay](#)
+  * [Art D'Echo Dub Delay](#)
+  * [Chorus Delay](#)
+  * [Clockable Delay Line](#)
+  * [Digital Delay](#)
+  * [Icebox Audio Freezer](#)
+  * [Multi-Tap Filter Delay](#)
+  * [Stereo Digital Delay](#)
+  * [Tape Delay](#)
+* [**Distortion**](#)
+  * [Araya-Suyama Tube Overdrive](#)
+  * [Bit Crush](#)
+  * [Cubed Overdrive](#)
+  * [Distortion](#)
+  * [Doidic Asymmetrical Tube Overdrive](#)
+  * [Down Sample](#)
+  * [Hyper Tangent Overdrive](#)
+  * [Sigmoid Overdrive A](#)
+* [**Dynamics**](#)
+  * [**Compressor**](#)
+    * [miniPress](#)
+    * [RMS Compressor](#)
+    * [Super Simple Compressor](#)
+  * [**Ducker**](#)
+    * [Ducker](#)
+  * [**Limiter**](#)
+    * [Tube Limiter](#)
+* [**Flanger**](#)
+  * [Stereo Analog Flanger](#)
+* [**Phaser**](#)
+  * [Phase12](#)
+  * [Stereo 1-6 Stage Pseudo Phaser](#)
+* [**Pitch**](#)
+  * [Octave Unison](#)
+  * [Pitch Shift](#)
+* [**Reverb**](#)
+  * [Spring Reverb](#)
+  * [Stereo Reverb](#)
+* [**Tremolo**](#)
+  * [Skew Sine Tremolo](#)
+  * [Waveshape Tremolo](#)
+* [**Wavefolder**](#)
+  * [RSWF-1 Wavefolder](#)
+  * [SineFold](#)
 
 <br><a name="tocinputoutput"></a>
 
 ### [Input-Output](#input-output)
 
-* **Controller**
-  * xy Pad - 8x8
-* **ES-8**
-  * ES-8 Audio Outputs
-  * ES-8 Linear Outputs
-  * ES-8 Outputs 1-8
-* **MIDI**
-  * Keyboard Input Bend Slew Velocity Slur
-  * Keyboard Input Velocity Slur
-  * MIDI Input
-* Audio Input
-* Audio Output Mono
-* Audio Output Stereo
+* [**Controller**](#)
+  * [xy Pad - 8x8](#)
+* [**ES-8**](#)
+  * [ES-8 Audio Outputs](#)
+  * [ES-8 Linear Outputs](#)
+  * [ES-8 Outputs 1-8](#)
+* [**MIDI**](#)
+  * [Keyboard Input Bend Slew Velocity Slur](#)
+  * [Keyboard Input Velocity Slur](#)
+  * [MIDI Input](#)
+* [Audio Input](#)
+* [Audio Output Mono](#)
+* [Audio Output Stereo](#)
 
 <br><a name="tocinstrument"></a>
-
 ### [Instrument](#instrument)
 
-* **Drum**
-  * Cymbal
-  * Kick
-  * Kit
-  * Percussion
-  * Snare
-* **Synth Voice**
-  * Curvature Micro
-  * K35 Curved Synth
-  * Smol Synth
-
-
+* [**Drum**](#)
+  * [Cymbal](#)
+  * [Kick](#)
+  * [Kit](#)
+  * [Percussion](#)
+  * [Snare](#)
+* [**Synth Voice**](#)
+  * [Curvature Micro](#)
+  * [K35 Curved Synth](#)
+  * [Smol Synth](#)
 
 <br><a name="tocmeter"></a>
 ### [Meter](#meter)
 
-* **Oscilloscope**
-* Octave Keyboard and Tune Meter
-* Octave Keyboard Meter Horizontal
-* Octave Keyboard Meter Vertical
+* [**Oscilloscope**](#)
+* [Octave Keyboard and Tune Meter](#)
+* [Octave Keyboard Meter Horizontal](#)
+* [Octave Keyboard Meter Vertical](#)
 
 <br><a name="tocmixer"></a>
 ### [Mixer](#mixer)
 
-* 3D 8 Input Mixer
-* 4x2 Stereo Output Mixer
-* 8x2 Mixer
-* 8x2 Stereo Output Mixer
-* Audio 5x1 Mixer
-* Infinite XFade
-* Pan
-* VCO Mixer 3x1
-* VCO Mixer 6x1
+* [3D 8 Input Mixer](#)
+* [4x2 Stereo Output Mixer](#)
+* [8x2 Mixer](#)
+* [8x2 Stereo Output Mixer](#)
+* [Audio 5x1 Mixer](#)
+* [Infinite XFade](#)
+* [Pan](#)
+* [VCO Mixer 3x1](#)
+* [VCO Mixer 6x1](#)
 
 <br><a name="tocmodulation"></a>
 ### [Modulation](#modulation)
 
-* **Chaos**
-  * 1D Chaos Decay
-  * 1D Chaos Gate
-  * 2D Chaos Decay
-  * 2D Chaos Gate
-* **Envelope**
-  * 1-Shot
-  * A-D-S-R Natural Decay
-  * A-D-S-R
-  * A-R
-  * ADR-S
-  * AR
-  * ASR
-  * BEOC Max A-D-S-R
-  * d-A-D-S-R
-  * d-A-H-D-S-R
-  * Looping A-R
-  * Looping AR
-  * Looping Skew AR
-  * Max A-D-S-R
-  * Shaped Envelope
-* **LFO**
-  * **Basic**
-    * Basic Saw LFO
-    * Basic Sine LFO
-    * Basic Square LFO
-    * Basic Triangle LFO
-    * Phase Shift Saw LFO
-    * Skew Sine LFO
-    * Skew Triangle LFO
-    * Square PWM LFO
-    * Waveshape LFO
-  * **Complex**
-    * AM Sine LFO
-    * Crossfade Waveshape LFO
-    * F-AM Sine LFO
-    * FM Dual Waveshape Syncable LFO
-    * FM Sine LFO
-    * PM Sine LFO
-    * Quadrature Sine LFO
-    * Quantized Waveshape LFO
-    * Random Amplitude Sine LFO
-  * **Long Period**
-    * 5*10^30 Year LFO
-* **Sample + Hold**
-  * Att-Off Sample + Hold
-  * Basic Sample + Hold
-  * Gateable Sample + Hold
-  * Modulation Threshold Random Generator
+* [**Chaos**](#)
+  * [1D Chaos Decay](#)
+  * [1D Chaos Gate](#)
+  * [2D Chaos Decay](#)
+  * [2D Chaos Gate](#)
+* [**Envelope**](#)
+  * [1-Shot](#)
+  * [A-D-S-R Natural Decay](#)
+  * [A-D-S-R](#)
+  * [A-R](#)
+  * [ADR-S](#)
+  * [AR](#)
+  * [ASR](#)
+  * [BEOC Max A-D-S-R](#)
+  * [d-A-D-S-R](#)
+  * [d-A-H-D-S-R](#)
+  * [Looping A-R](#)
+  * [Looping AR](#)
+  * [Looping Skew AR](#)
+  * [Max A-D-S-R](#)
+  * [Shaped Envelope](#)
+* [**LFO**](#)
+  * [**Basic**](#)
+    * [Basic Saw LFO](#)
+    * [Basic Sine LFO](#)
+    * [Basic Square LFO](#)
+    * [Basic Triangle LFO](#)
+    * [Phase Shift Saw LFO](#)
+    * [Skew Sine LFO](#)
+    * [Skew Triangle LFO](#)
+    * [Square PWM LFO](#)
+    * [Waveshape LFO](#)
+  * [**Complex**](#)
+    * [AM Sine LFO](#)
+    * [Crossfade Waveshape LFO](#)
+    * [F-AM Sine LFO](#)
+    * [FM Dual Waveshape Syncable LFO](#)
+    * [FM Sine LFO](#)
+    * [PM Sine LFO](#)
+    * [Quadrature Sine LFO](#)
+    * [Quantized Waveshape LFO](#)
+    * [Random Amplitude Sine LFO](#)
+  * [**Long Period**](#)
+    * [5*10^30 Year LFO](#)
+* [**Sample + Hold**](#)
+  * [Att-Off Sample + Hold](#)
+  * [Basic Sample + Hold](#)
+  * [Gateable Sample + Hold](#)
+  * [Modulation Threshold Random Generator](#)
 
 <br><a name="tocsequencer"></a>
 ### [Sequencer](#sequencer)
 
-* **3D**
-  * 3D Cube 8 Step Sequencer
-* **Algorithmic**
-  * Euclidean Gate Sequencer
-  * Random Melody
-  * uTuring
-* **Basic**
-  * 4 Step Max Sequencer
-  * 4 Step Sequencer
-  * 8 Step Min Max Sequencer
-  * Random 4 Step Sequencer
-  * Random Chance 4 Step Sequencer
-* **Gate**
-  * Pattern Bank Gate Sequencer
-  * Strip Sequencer
-* **Graphic**
-  * 4 Step Mapper Sequencer
-  * 8 Step Spline Sequencer
-  * Arranger
-* **Matrix**
-  * Chladni Sequencer
-  * Gate 4x4x2 Matrix Sequencer
-  * Gate Cross 4x4x10 Matrix Sequencer
-  * Modulation 2x2x4 Matrix Sequencer
-  * Modulation 2x2x5 Max Matrix Sequencer
-  * Modulation 2x2x4 Matrix Sequencer
-  * Modulation Cross 4x4x9 Matrix Sequencer
-  * Octave-Modulation 4x4x1 Matrix Sequencer
-  * Random Chance Modulation 2x2x4 Matrix Sequencer
-  * Random Modulation 2x2x4 Matrix Sequencer
-* **Random Non-Repeating**
-  * Random Non-Repeating 4 Step Sequencer
-* **Shape**
-  * 5 Step Shape Gate-Trigger Sequencer
+* [**3D**](#)
+  * [3D Cube 8 Step Sequencer](#)
+* [**Algorithmic**](#)
+  * [Euclidean Gate Sequencer](#)
+  * [Random Melody](#)
+  * [uTuring](#)
+* [**Basic**](#)
+  * [4 Step Max Sequencer](#)
+  * [4 Step Sequencer](#)
+  * [8 Step Min Max Sequencer](#)
+  * [Random 4 Step Sequencer](#)
+  * [Random Chance 4 Step Sequencer](#)
+* [**Gate**](#)
+  * [Pattern Bank Gate Sequencer](#)
+      * [Strip Sequencer](#)
+* [**Graphic**](#)
+  * [4 Step Mapper Sequencer](#)
+  * [8 Step Spline Sequencer](#)
+  * [Arranger](#)
+* [**Matrix**](#)
+  * [Chladni Sequencer](#)
+  * [Gate 4x4x2 Matrix Sequencer](#)
+  * [Gate Cross 4x4x10 Matrix Sequencer](#)
+  * [Modulation 2x2x4 Matrix Sequencer](#)
+  * [Modulation 2x2x5 Max Matrix Sequencer](#)
+  * [Modulation 2x2x4 Matrix Sequencer](#)
+  * [Modulation Cross 4x4x9 Matrix Sequencer](#)
+  * [Octave-Modulation 4x4x1 Matrix Sequencer](#)
+  * [Random Chance Modulation 2x2x4 Matrix Sequencer](#)
+  * [Random Modulation 2x2x4 Matrix Sequencer](#)
+* [**Random Non-Repeating**](#)
+  * [Random Non-Repeating 4 Step Sequencer](#)
+* [**Shape**](#)
+  * [5 Step Shape Gate-Trigger Sequencer](#)
 
 <br><a name="tocutility"></a>
 ### [Utility](#utility)
 
-* **Audio**
-  * Audio Attenuverter
-* **Clock**
-  * BPM Clock
-  * Burst Generator
-  * Clock Divider
-  * Clock Fractional Multiplier
-  * Clock Multiplier
-  * Clock
-  * Flip Flop 2^16
-  * Flip Flop 256 Inverter
-  * Flip Flop
-  * Probability Clock
-  * Pulse Looper
-  * Random clock divider
-  * Random Clock Fractional Multiplier
-  * Random Clock Multiplier
-  * Random Clock
-  * Shift Register Clock
-  * Smeared Clock
-  * Tap Tempo Clock
-  * Touch Clock
-* **Gate**
-  * 3D 8 Output Gate Generator
-  * Chance Gate Over-Under
-  * Chance Gate Passthru
-  * Gate Delay
-  * Gate Smear
-  * Gate Swing
-  * Logic Gates
-  * Random Chance Gate Passthrough
-  * Random Gate Delay
-  * Random Gate Smear
-  * Random Logic Gates
-  * Selectable Logic Gates
-* **Modulation**
-  * Modulation Attenuate-Offset
-  * Modulation Centered Attenuator
-  * Modulation Positive Domain Attenuverter
-  * Modulation to Octave Attenuate-Offset
-  * Modulation to Octave Shift-Attenuate-Offset
-* **Octave**
-  * Octave Attenuate-Offset
-  * Octave Output -5 to 5
-  * Octave Shift Attenuate Offset
-  * Octave Shift
-* **Quantizer**
-  * **Chord**
-    * Neo-Reimannian Triad Transformer
-  * Chromatic Quantizer
-  * Drifting Gateable Quantizer
-  * Gateable Quantizer with Gate Output
-  * Gateable Quantizer
-  * Modulation Quantizer
-  * Scales Maj-Min Quantizer
-* **Slew**
-  * Slew Limiter Dual Mode
-* **Switch**
-  * Chance Switch AB
-  * Random Chance Switch AB
+* [**Audio**](#)
+  * [Audio Attenuverter](#)
+* [**Clock**](#)
+  * [BPM Clock](#)
+  * [Burst Generator](#)
+  * [Clock Divider](#)
+  * [Clock Fractional Multiplier](#)
+  * [Clock Multiplier](#)
+  * [Clock](#)
+  * [Flip Flop 2^16](#)
+  * [Flip Flop 256 Inverter](#)
+  * [Flip Flop](#)
+  * [Probability Clock](#)
+  * [Pulse Looper](#)
+  * [Random clock divider](#)
+  * [Random Clock Fractional Multiplier](#)
+  * [Random Clock Multiplier](#)
+  * [Random Clock](#)
+  * [Shift Register Clock](#)
+  * [Smeared Clock](#)
+  * [Tap Tempo Clock](#)
+  * [Touch Clock](#)
+* [**Gate**](#)
+  * [3D 8 Output Gate Generator](#)
+  * [Chance Gate Over-Under](#)
+  * [Chance Gate Passthru](#)
+  * [Gate Delay](#)
+  * [Gate Smear](#)
+  * [Gate Swing](#)
+  * [Logic Gates](#)
+  * [Random Chance Gate Passthrough](#)
+  * [Random Gate Delay](#)
+  * [Random Gate Smear](#)
+  * [Random Logic Gates](#)
+  * [Selectable Logic Gates](#)
+* [**Modulation**](#)
+  * [Modulation Attenuate-Offset](#)
+  * [Modulation Centered Attenuator](#)
+  * [Modulation Positive Domain Attenuverter](#)
+  * [Modulation to Octave Attenuate-Offset](#)
+  * [Modulation to Octave Shift-Attenuate-Offset](#)
+* [**Octave**](#)
+  * [Octave Attenuate-Offset](#)
+  * [Octave Output -5 to 5](#)
+  * [Octave Shift Attenuate Offset](#)
+  * [Octave Shift](#)
+* [**Quantizer**](#)
+  * [**Chord**](#)
+    * [Neo-Reimannian Triad Transformer](#)
+  * [Chromatic Quantizer](#)
+  * [Drifting Gateable Quantizer](#)
+  * [Gateable Quantizer with Gate Output](#)
+  * [Gateable Quantizer](#)
+  * [Modulation Quantizer](#)
+  * [Scales Maj-Min Quantizer](#)
+* [**Slew**](#)
+  * [Slew Limiter Dual Mode](#)
+* [**Switch**](#)
+  * [Chance Switch AB](#)
+  * [Random Chance Switch AB](#)
 
 <br><a name="tocvca"></a>
 ### [VCA](#vca)
 
-* Digital Exponential VCA
-* Digital Linear VCA
-* Digital Logarithmic VCA
-* Diode VCA
-* JFET VCA
-* Tube VCA
+* [Digital Exponential VCA](#)
+* [Digital Linear VCA](#)
+* [Digital Logarithmic VCA](#)
+* [Diode VCA](#)
+* [JFET VCA](#)
+* [Tube VCA](#)
 
 <br><a name="tocvcf"></a>
 ### [VCF](#vcf)
 
-* **Biquad**
-  * APF
-  * BPF
-  * HPF
-  * LP-HP
-  * LPF
-  * Multimode Filter
-  * Notch
-* **DLX**
-  * SEM LPF DLX
-* **EQ**
-  * 1073 EQ
-  * Bass Boost
-  * High Shelf EQ
-  * Peak EQ
-  * Treble Boost
-* **LPF**
-  * 1 Pole LPF
-  * 303 LPF
-  * K35 LPF
-  * Mg LPF
-  * SEM LPF
-* **LPG**
-  * Lowpass Gate
-* **SVF**
-  * z-1 SVF
+* [**Biquad**](#)
+  * [APF](#)
+  * [BPF](#)
+  * [HPF](#)
+  * [LP-HP](#)
+  * [LPF](#)
+  * [Multimode Filter](#)
+  * [Notch](#)
+* [**DLX**](#)
+  * [SEM LPF DLX](#)
+* [**EQ**](#)
+  * [1073 EQ](#)
+  * [Bass Boost](#)
+  * [High Shelf EQ](#)
+  * [Peak EQ](#)
+  * [Treble Boost](#)
+* [**LPF**](#)
+  * [1 Pole LPF](#)
+  * [303 LPF](#)
+  * [K35 LPF](#)
+  * [Mg LPF](#)
+  * [SEM LPF](#)
+* [**LPG**](#)
+  * [Lowpass Gate](#)
+* [**SVF**](#)
+  * [z-1 SVF](#)
 
 <br><a name="tocvco"></a>
 ### [VCO](#vco)
 
-* **Additive**
-  * Chebyshev Additive VCO
-* **Basic**
-  * 3ceeoh mk2
-  * Basic VCO
-  * Crossfade Suboctave VCO
-  * CSAW VCO
-  * Drift VCO
-* **FM**
-  * Bahama VCO
-  * FM Waveshape VCO
-* **Karplus-Strong**
-  * k-s VCO
-  * String Exciter
-* **Noise**
-  * White Noise
-  * Wind's Cry
-  * z-1 Pink-White Noise
-* **PM**
-  * Phase Modulation VCO
-* **Subharmonic**
-  * Subharmonic VCO
-* **Supersaw**
-  * 7even Deadly Saws
-* **Waveshape**
-  * Crossfade VCO
-  * Skew Sine VCO
-  * Skew Triangle VCO
-  * Wavebender VCO
+* [**Additive**](#)
+  * [Chebyshev Additive VCO](#)
+* [**Basic**](#)
+  * [3ceeoh mk2](#)
+  * [Basic VCO](#)
+  * [Crossfade Suboctave VCO](#)
+  * [CSAW VCO](#)
+  * [Drift VCO](#)
+* [**FM**](#)
+  * [Bahama VCO](#)
+  * [FM Waveshape VCO](#)
+* [**Karplus-Strong**](#)
+  * [k-s VCO](#)
+  * [String Exciter](#)
+* [**Noise**](#)
+  * [White Noise](#)
+  * [Wind's Cry](#)
+  * [z-1 Pink-White Noise](#)
+* [**PM**](#)
+  * [Phase Modulation VCO](#)
+* [**Subharmonic**](#)
+  * [Subharmonic VCO](#)
+* [**Supersaw**](#)
+  * [7even Deadly Saws](#)
+* [**Waveshape**](#)
+  * [Crossfade VCO](#)
+  * [Skew Sine VCO](#)
+  * [Skew Triangle VCO](#)
+  * [Wavebender VCO](#)
 
 <br><a name="tocvisual"></a>
 ### [Visual](#visual)
 
-* **SVG**
-  * Cube
-* 8 Point 3D Visualizer
-* 9 Point 3D Visualizer
-* 27 point 3D Visualizer
-* Pong v1
-* RGB TV
+* [**SVG**](#)
+  * [Cube](#)
+* [8 Point 3D Visualizer](#)
+* [9 Point 3D Visualizer](#)
+* [27 point 3D Visualizer](#)
+* [Pong v1](#)
+* [RGB TV](#)
 
 
+
+***
 
 
 
