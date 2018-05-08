@@ -56,10 +56,7 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 
 
 
-<br>
-
-<a name="tocbuilding"></a>
-
+<br><a name="tocbuilding"></a>
 ### [Building ](#building)
 
 * [**Binary**](#binary)
@@ -158,7 +155,6 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
   	* [Truncate to Thousandths](#truncate-to-thousandths)
 
 <br>
-
 <a name="toccollection"></a>
 ### [Collection](#collection)
 
@@ -173,53 +169,92 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 
     * Self-Playing Subtractive Synth Template
 
-    
+  * Clocks
+  * Gates
 
-    
 
-    <br>
-
-<a name="toceffect"></a>
+<br><a name="toceffect"></a>
 ### [Effect](#effect)
 
-<br>
-<a name="tocinputoutput"></a>
+* **Autopan**
+  * Sine Skew Autopan
+* **Delay**
+  * Analog Delay
+  * Art D'Echo Dub Delay
+  * Chorus Delay
+  * Clockable Delay Line
+  * Digital Delay
+  * Icebox Audio Freezer
+  * Multi-Tap Filter Delay
+  * Stereo Digital Delay
+  * Tape Delay
+* **Distortion**
+  * Araya-Suyama Tube Overdrive
+  * Bit Crush
+  * Cubed Overdrive
+  * Distortion
+  * Doidic Asymmetrical Tube Overdrive
+  * Down Sample
+  * Hyper Tangent Overdrive
+  * Sigmoid Overdrive A
+* **Dynamics**
+  * **Compressor**
+    * miniPress
+    * RMS Compressor
+    * Super Simple Compressor
+  * **Ducker**
+    * Ducker
+  * **Limiter**
+    * Tube Limiter
+* **Flanger**
+  * Stereo Analog Flanger
+* **Phaser**
+  * Phase12
+  * Stereo 1-6 Stage Pseudo Phaser
+* **Pitch**
+  * Octave Unison
+  * Pitch Shift
+* **Reverb**
+  * Spring Reverb
+  * Stereo Reverb
+* **Tremolo**
+  * Skew Sine Tremolo
+  * Waveshape Tremolo
+* **Wavefolder**
+  * RSWF-1 Wavefolder
+  * SineFold
+
+
+
+<br><a name="tocinputoutput"></a>
+
 ### [Input-Output](#input-output)
 
-<br>
-<a name="tocmeter"></a>
+<br><a name="tocmeter"></a>
 ### [Meter](#meter)
 
-<br>
-<a name="tocmixer"></a>
+<br><a name="tocmixer"></a>
 ### [Mixer](#mixer)
 
-<br>
-<a name="tocmodulation"></a>
+<br><a name="tocmodulation"></a>
 ### [Modulation](#modulation)
 
-<br>
-<a name="tocsequencer"></a>
+<br><a name="tocsequencer"></a>
 ### [Sequencer](#sequencer)
 
-<br>
-<a name="tocutility"></a>
+<br><a name="tocutility"></a>
 ### [Utility](#utility)
 
-<br>
-<a name="tocvca"></a>
+<br><a name="tocvca"></a>
 ### [VCA](#vca)
 
-<br>
-<a name="tocvcf"></a>
+<br><a name="tocvcf"></a>
 ### [VCF](#vcf)
 
-<br>
-<a name="tocvco"></a>
+<br><a name="tocvco"></a>
 ### [VCO](#vco)
 
-<br>
-<a name="tocvisual"></a>
+<br><a name="tocvisual"></a>
 ### [Visual](#visual)
 
 
