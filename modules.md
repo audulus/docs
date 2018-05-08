@@ -374,17 +374,150 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 <br><a name="tocutility"></a>
 ### [Utility](#utility)
 
+* **Audio**
+  * Audio Attenuverter
+* **Clock**
+  * BPM Clock
+  * Burst Generator
+  * Clock Divider
+  * Clock Fractional Multiplier
+  * Clock Multiplier
+  * Clock
+  * Flip Flop 2^16
+  * Flip Flop 256 Inverter
+  * Flip Flop
+  * Probability Clock
+  * Pulse Looper
+  * Random clock divider
+  * Random Clock Fractional Multiplier
+  * Random Clock Multiplier
+  * Random Clock
+  * Shift Register Clock
+  * Smeared Clock
+  * Tap Tempo Clock
+  * Touch Clock
+* **Gate**
+  * 3D 8 Output Gate Generator
+  * Chance Gate Over-Under
+  * Chance Gate Passthru
+  * Gate Delay
+  * Gate Smear
+  * Gate Swing
+  * Logic Gates
+  * Random Chance Gate Passthrough
+  * Random Gate Delay
+  * Random Gate Smear
+  * Random Logic Gates
+  * Selectable Logic Gates
+* **Modulation**
+  * Modulation Attenuate-Offset
+  * Modulation Centered Attenuator
+  * Modulation Positive Domain Attenuverter
+  * Modulation to Octave Attenuate-Offset
+  * Modulation to Octave Shift-Attenuate-Offset
+* **Octave**
+  * Octave Attenuate-Offset
+  * Octave Output -5 to 5
+  * Octave Shift Attenuate Offset
+  * Octave Shift
+* **Quantizer**
+  * **Chord**
+    * Neo-Reimannian Triad Transformer
+  * Chromatic Quantizer
+  * Drifting Gateable Quantizer
+  * Gateable Quantizer with Gate Output
+  * Gateable Quantizer
+  * Modulation Quantizer
+  * Scales Maj-Min Quantizer
+* **Slew**
+  * Slew Limiter Dual Mode
+* **Switch**
+  * Chance Switch AB
+  * Random Chance Switch AB
+
 <br><a name="tocvca"></a>
 ### [VCA](#vca)
+
+* Digital Exponential VCA
+* Digital Linear VCA
+* Digital Logarithmic VCA
+* Diode VCA
+* JFET VCA
+* Tube VCA
 
 <br><a name="tocvcf"></a>
 ### [VCF](#vcf)
 
+* **Biquad**
+  * APF
+  * BPF
+  * HPF
+  * LP-HP
+  * LPF
+  * Multimode Filter
+  * Notch
+* **DLX**
+  * SEM LPF DLX
+* **EQ**
+  * 1073 EQ
+  * Bass Boost
+  * High Shelf EQ
+  * Peak EQ
+  * Treble Boost
+* **LPF**
+  * 1 Pole LPF
+  * 303 LPF
+  * K35 LPF
+  * Mg LPF
+  * SEM LPF
+* **LPG**
+  * Lowpass Gate
+* **SVF**
+  * z-1 SVF
+
 <br><a name="tocvco"></a>
 ### [VCO](#vco)
 
+* **Additive**
+  * Chebyshev Additive VCO
+* **Basic**
+  * 3ceeoh mk2
+  * Basic VCO
+  * Crossfade Suboctave VCO
+  * CSAW VCO
+  * Drift VCO
+* **FM**
+  * Bahama VCO
+  * FM Waveshape VCO
+* **Karplus-Strong**
+  * k-s VCO
+  * String Exciter
+* **Noise**
+  * White Noise
+  * Wind's Cry
+  * z-1 Pink-White Noise
+* **PM**
+  * Phase Modulation VCO
+* **Subharmonic**
+  * Subharmonic VCO
+* **Supersaw**
+  * 7even Deadly Saws
+* **Waveshape**
+  * Crossfade VCO
+  * Skew Sine VCO
+  * Skew Triangle VCO
+  * Wavebender VCO
+
 <br><a name="tocvisual"></a>
 ### [Visual](#visual)
+
+* **SVG**
+  * Cube
+* 8 Point 3D Visualizer
+* 9 Point 3D Visualizer
+* 27 point 3D Visualizer
+* Pong v1
+* RGB TV
 
 
 
