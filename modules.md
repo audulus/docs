@@ -9,10 +9,10 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 ### Gate
 
 
-
+<br>
 
 <br>
-<br>
+
 # Module Library
 
 ## [Building](#tocbuilding)
