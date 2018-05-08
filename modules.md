@@ -20,7 +20,7 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 
 
 
-[TOC]
+
 
 
 
@@ -63,7 +63,6 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 ### [Building ](#building)
 
 * [**Binary**](#binary)
-
   * [Pattern to Decimal Code](#pattern-to-decimal-code)
 * [**Counter**](#counter)
   * [Elapsed Time](#elapsed-time)
@@ -160,8 +159,7 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 
 <br>
 
-<a name="tocbuilding"></a>
-
+<a name="toccollection"></a>
 ### [Collection](#collection)
 
 * **Patches**
@@ -203,6 +201,26 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 <br>
 <a name="tocsequencer"></a>
 ### [Sequencer](#sequencer)
+
+<br>
+<a name="tocutility"></a>
+### [Utility](#utility)
+
+<br>
+<a name="tocvca"></a>
+### [VCA](#vca)
+
+<br>
+<a name="tocvcf"></a>
+### [VCF](#vcf)
+
+<br>
+<a name="tocvco"></a>
+### [VCO](#vco)
+
+<br>
+<a name="tocvisual"></a>
+### [Visual](#visual)
 
 
 
