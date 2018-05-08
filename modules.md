@@ -18,6 +18,12 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 
 <br>
 
+
+
+[TOC]
+
+
+
 <br>
 
 # Module Library
@@ -158,7 +164,23 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 
 ### [Collection](#collection)
 
-<br>
+* **Patches**
+
+  * **Clock**
+
+    * Dueling Phase Clock Logic A-R Envelopes
+    * Flip Flop Divider Random Logic
+
+  * **Self-Playing**
+
+    * Self-Playing Subtractive Synth Template
+
+    
+
+    
+
+    <br>
+
 <a name="toceffect"></a>
 ### [Effect](#effect)
 
