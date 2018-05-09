@@ -8,13 +8,52 @@ The inputs and outputs of all Audulus modules are standardized into a few basic 
 
 
 
-| Signal     | Range     | Notes                                                        |
-| ---------- | --------- | ------------------------------------------------------------ |
-| Audio      | `-1 to 1` | If overall audio signal is greater than `-1 to 1` at any output, it will distort. |
-| Gate       | `0 or 1`  | Modules are leading-edge triggered.                          |
-| Modulation | `0 to 1`  | Includes LFOs, envelopes, and more.                          |
-| Octave     | `-5 to 5` | Linearized pitch scale centered at `0 = A440Hz`. <br>Octaves jump on integers, e.g., `-1 = A220Hz` and `1 = A880Hz`. <br>Semitones jump on `1/12` intervals. |
+| Signal     |  Range  | Indicator |
+| ---------- | :-----: | --------- |
+| Audio      | -1 to 1 |           |
+| Gate       | 0 or 1  |           |
+| Modulation | 0 to 1  |           |
+| Octave     | -5 to 5 |           |
 
+### Audio
+
+Audio signals carry the sound your patches generate. 
+
+In Audulus, sounds are represented as a stream of numbers that range between -1 and 1. 
+
+Module audio inputs and outputs are marked with alternating red (positive) and blue (negative) lights. Because audio signals alternate so quickly, the colors blend together to look purple.
+
+### Gate
+
+Gate signals are event triggers for your patches.
+
+Gates are used to turn notes on and off, step sequencers forward, generate envelopes, and much more.
+
+In Audulus, there is no need for a special trigger signal. All gates in Audulus act like triggers on their rising edge (moving from 0 to 1). 
+
+### Modulation
+
+Modulation signals give your patches movement and dynamics by tweaking other modules' parameters.
+
+LFOs (low frequency oscillators), envelopes, and random generators all create modulation signals in Audulus.
+
+Modulation signals range between 0 and 1. They can be directly attached to any knob or modulation input.
+
+### Octave
+
+Octave signals carry pitch information for playing your patches.
+
+The octave signal is centered at 0 = ReferencePitch, which is defaulted to A440(Hz).
+
+Octaves jump on integers. If 0 = A440z, then 1 = A880, and -1 = A220.
+
+Semitones jump in steps of 1/12. If 0 = A, then 1/12 = Bb; 2/12 = B; 3/12 = C; and so on.
+
+
+
+
+
+Linearized pitch scale centered at `0 = A440Hz`. <br>Octaves jump on integers, e.g., `-1 = A220Hz` and `1 = A880Hz`. <br>Semitones jump on `1/12` intervals.
 
 <br>
 
