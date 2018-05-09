@@ -1,12 +1,25 @@
 # Module Library Reference
 
-This is an overview of all of the modules in the Audulus module library. They are categorized by type and subcategory.
+This is an overview of all of the modules in the Audulus module library.
+
+Audulus modules are created using nodes.
+
+Each module does a specific thing to generate or modify signals. Some modules are simple, like an attenuator, and some are more complex, like full-voiced synth modules.
+
+To use modules, you must understand the 4 basic standardized signals: audio, gate, modulation, and octave. Each signal and its indicator are outlined below.
+
+To download and share user-created modules, join the Audulus community forum.
 
 ## Module Signal Standards
 
-The inputs and outputs of all Audulus modules are standardized into a few basic groups.
+The inputs and outputs of all Audulus modules are standardized into a 4 basic signals: audio, gate, modulation, and octave.
 
+* **Audio** is what you hear.
+* **Gates** trigger sequencers and open note envelopes.
+* **Modulation** changes what you hear and how it happens.
+* **Octave** determines the pitch, or what notes your synth is playing.
 
+Each signal operates in a range and has its own unique input-output indicators.
 
 | Signal     |  Range  | Indicator |
 | ---------- | :-----: | --------- |
@@ -29,7 +42,7 @@ Gate signals are event triggers for your patches.
 
 Gates are used to turn notes on and off, step sequencers forward, generate envelopes, and much more.
 
-In Audulus, there is no need for a special trigger signal. All gates in Audulus act like triggers on their rising edge (moving from 0 to 1). 
+In Audulus, there is no need for a special trigger signal. All gates in Audulus act like triggers on their rising edge (moving from 0 to 1) no matter how long the gate is.
 
 ### Modulation
 
@@ -45,17 +58,11 @@ Octave signals carry pitch information for playing your patches.
 
 The octave signal is centered at 0 = ReferencePitch, which is defaulted to A440(Hz).
 
-Octaves jump on integers. If 0 = A440z, then 1 = A880, and -1 = A220.
+Octaves jump on integers. If 0 = A440, then 1 = A880, and -1 = A220.
 
 Semitones jump in steps of 1/12. If 0 = A, then 1/12 = Bb; 2/12 = B; 3/12 = C; and so on.
 
-
-
-
-
-Linearized pitch scale centered at `0 = A440Hz`. <br>Octaves jump on integers, e.g., `-1 = A220Hz` and `1 = A880Hz`. <br>Semitones jump on `1/12` intervals.
-
-<br>
+The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and 5 = 14,080Hz, this 10 octave range covers most audible notes. 
 
 
 
