@@ -198,8 +198,8 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
     * [Truncate to Hundredths](#truncate-to-hundredths)
     * [Truncate to Tenths](#truncate-to-tenths)
     * [Truncate to Thousandths](#truncate-to-thousandths)
-* [Via Reversed](#)
-* [Via](#)
+* [Via Reversed](#vias)
+* [Via](#vias)
 
 <br><a name="toccollection"></a>
 ### [Collection](#collection)
@@ -829,7 +829,9 @@ Takes an incoming 0 to 1 gate signal and converts it into a short ~300 sample pu
 
 
 ---
+<a name="gate-to-10ms-pulse"></a>
 **Gate to 10ms Pulse** <br>
+
 
 ![Gate to 10ms Pulse](img/Library-Images/Building/Gate/Gate-to-10ms-Pulse.png)
 
@@ -848,13 +850,16 @@ Translates an incoming gate into a 10ms pulse which is a standard minimum pulse 
 <br>
 
 ### Input-Output
+<a name="input-output-building"></a>
 
 These modules are a collection of common input and output lights, indicators, and signal clippers. Light nodes will have to be exposed and placed within the input-output on a module. If for some reason the light appears below or beneath the output, enter the module, cut the light, then paste it. This will make it appear on top.
 
 
 
 ---
+<a name="audio-clip-light-output"></a>
 **Audio Clip Light Output** <br>
+
 
 ![Audio Clip Light Output](img/Library-Images/Building/Input-Output/Audio-Clip-Light-Output.png)
 
@@ -874,7 +879,9 @@ This module is a combination of the Audio Light Output module and a clamp expres
 
 
 ---
+<a name="audio-light-input-output"></a>
 **Audio Light Input-Output** <br>
+
 
 ![Audio Light Input-Output](img/Library-Images/Building/Input-Output/Audio-Light-Input-Output.png)
 
@@ -892,7 +899,9 @@ This collection of modules serve as audio input and output lights. When the ligh
 
 
 ---
+<a name="gate-input-output"></a>
 **Gate Input-Output** <br>
+
 
 ![Gate Input-Output](img/Library-Images/Building/Input-Output/Gate-Input-Output.png)
 
@@ -901,7 +910,9 @@ This collection of modules serve as gate input and output lights. If you do not 
 
 
 ---
+<a name="modulation-input-output"></a>
 **Modulation Input-Output** <br>
+
 
 ![Modulation Input-Output](img/Library-Images/Building/Input-Output/Modulation-Input-Output.png)
 
@@ -910,7 +921,9 @@ This collection of modules serve as modulation input and output lights. If you d
 
 
 ---
+<a name="octave-input-output"></a>
 **Octave Input-Output** <br>
+
 
 ![Octave Input-Output](img/Library-Images/Building/Input-Output/Octave-Input-Output.png)
 
@@ -920,14 +933,18 @@ This collection of modules serve as octave signal input and output indicators. W
 
 <br>
 
+<a name="knob-building"></a>
 ### Knob
+
 
 These modules are meant to be paired with 0 to 1 knobs for use inside modules. When a Knob node is created, by default, its range is 0 to 1. Thought you can change this range, it is helpful to keep them all 0 to 1 so that they can interface with 0 to 1 modulation signals. These modules translate the 0 to 1 signal from knobs into different ranges and do various other fun tricks like acting as switches or number creators.
 
 
 
 ---
+<a name="-x-to-x"></a>
 **-x to x** <br>
+
 
 ![-x to x](img/Library-Images/Building/Knob/-x-to-x.png)
 
@@ -945,7 +962,9 @@ Attach a Knob node to the knob input and a number to the x input. The output wil
 
 
 ---
+<a name="0-to-x"></a>
 **0 to x** <br>
+
 
 ![0 to x](img/Library-Images/Building/Knob/0-to-x.png)
 
@@ -963,7 +982,9 @@ Attach a Knob node to the Knob input and a number to the x input. The output wil
 
 
 ---
+<a name="center-range"></a>
 **Center Range** <br>
+
 
 ![Center Range](img/Library-Images/Building/Knob/Center-Range.png)
 
@@ -982,7 +1003,9 @@ Attach a Knob node to the Knob input and a number to the Center (x) and Range (y
 
 
 ---
+<a name="integer-maker-0-to-999"></a>
 **Integer Maker 0 to 999** <br>
+
 
 ![Integer Maker](img/Library-Images/Building/Knob/Integer-Maker-0-to-999.png)
 
@@ -1001,7 +1024,9 @@ Attach Knob nodes to the 100’s, 10’s, and 1’s inputs. Each knob will contr
 
 
 ---
+<a name="integers-0-to-x"></a>
 **Integers 0 to x** <br>
+
 
 ![Integers 0 to x](img/Library-Images/Building/Knob/Integers-0-to-x.png)
 
@@ -1019,7 +1044,9 @@ Attach a Knob node to the knob input and an integer to the x input. The knob wil
 
 
 ---
+<a name="pulses-per-turn"></a>
 **Pulses Per Turn** <br>
+
 
 ![Pulses Per Turn](img/Library-Images/Building/Knob/Pulses-Per-Turn.png)
 
@@ -1037,7 +1064,9 @@ Attach a Knob node to the knob input and a positive integer to the pulses per tu
 
 
 ---
+<a name="x-to-y"></a>
 **x to y** <br>
+
 
 ![x to y](img/Library-Images/Building/Knob/x-to-y.png)
 
@@ -1056,7 +1085,9 @@ Attach a Knob node to the knob input and two different numbers to x and y. The k
 
 
 ---
+<a name="x-to-y-or-z-switch"></a>
 **x to y or z Switch** <br>
+
 
 ![x to y or z Switch](img/Library-Images/Building/Knob/x-to-y-or-z-Switch.png)
 
@@ -1077,7 +1108,9 @@ Attach a Knob node to the knob input and two numbers to x and y. The module will
 
 
 ---
+<a name="xyz-switch"></a>
 **xyz Switch** <br>
+
 
 ![xyz Switch](img/Library-Images/Building/Knob/xyz-Switch.png)
 
@@ -1101,12 +1134,14 @@ Similar to the x to y or z Switch, the xyz switch will output x when the knob is
 
 <br>
 
+<a name="light-building"></a>
 ### Light
 These modules take an input signal and translate them into signals for the RGB light node.
 
 
 
 ---
+<a name="audio-light"></a>
 **Audio Light** <br>
 
 ![Audio Light](img/Library-Images/Building/Light/Audio-Light.png)
@@ -1125,6 +1160,7 @@ Analyzes an incoming -1 to 1 audio signal and displays the positive portion as r
 
 
 ---
+<a name="polar-light"></a>
 **Polar Light** <br>
 
 ![Polar Light](img/Library-Images/Building/Light/Polar-Light.png)
@@ -1145,6 +1181,7 @@ Analyzes an incoming 0 to 1 modulation signal and displays it as blue for 0 to 0
 
 <br>
 
+<a name="loop"></a>
 ### Loop
 
 These modules create a feedback loop within a module. Feedback can be used in many different ways: to create audio or modulation distortion, or to force a portion of your design into single-sample mode.
@@ -1152,6 +1189,7 @@ These modules create a feedback loop within a module. Feedback can be used in ma
 
 
 ---
+<a name="force-single-sample-loop"></a>
 **Force Single Sample Loop** <br>
 
 ![Force Single Sample Loop](img/Library-Images/Building/Loop/Force-Single-Sample-Loop.png)
@@ -1175,6 +1213,7 @@ To test this module, use the expression `tanh(x)*Knob` and attach a Knob node to
 
 <br>
 
+<a name="octave-building"></a>
 ### Octave
 
 The octave signal is the equivalent to the 1 volt per octave linearized pitch scale standard in modular synthesizers but with a twist. Instead of 0 volts = lowest note and 10 volts = highest note, the octave signal in Audulus is centered at 0, where 0 = A4 = 440Hz. Going up or down by integers changes the octave, so 1 = A5 = 880Hz and -1 = A3 = 220Hz. The advantage of this system is that you can create synced oscillators that go far into the LFO range while still staying in tune with the master oscillator - very useful for FM synthesis. For practical purposes, VCOs are ranged from -5 to 5 to cover a standard 10 octave range.
@@ -1182,6 +1221,7 @@ The octave signal is the equivalent to the 1 volt per octave linearized pitch sc
 
 
 ---
+<a name="octave-to-hz-with-linear-audio-fm-and-tune-controls"></a>
 **Octave to Hz with Linear Audio FM and Tune Controls** <br>
 
 ![Octave to Hz with Linear Audio FM and Tune Controls](img/Library-Images/Building/Octave/Octave-to-Hz-with-Linear-Audio-FM-and-Tune-Controls.png)
@@ -1205,6 +1245,7 @@ A basic starter kit for creating a VCO module in Audulus. This module is the sam
 
 
 ---
+<a name="octave-to-hz-with-octave-shift-and-fine-tune-controls"></a>
 **Octave to Hz with Octave Shift and Fine Tune Controls** <br>
 
 ![Octave to Hz with Octave Shift and Fine Tune Controls](img/Library-Images/Building/Octave/Octave-to-Hz-with-Octave-Shift-and-fine-Tune-Controls.png) 
@@ -1227,6 +1268,7 @@ A basic starter kit for creating a VCO module in Audulus. The octave input is tr
 
 <br>
 
+<a name="presets-building"></a>
 ### Presets
 
 These modules use spline nodes to store preset values for use in other modules. Simply add spline break points inside the modules and attach outputs to the controls you want to create presets for. Attach a knob to the preset knob to bring the preset scanner onto the front panel UI of your module.
@@ -1234,6 +1276,7 @@ These modules use spline nodes to store preset values for use in other modules. 
 
 
 ---
+<a name="preset-2"></a>
 **Preset 2** <br>
 
 ![Preset 2](img/Library-Images/Building/Presets/Preset-2.png) 
@@ -1247,6 +1290,7 @@ Modulation x2 | `0 to 1` | Enter the module to set presets on spline nodes
 
 
 ---
+<a name="preset-4"></a>
 **Preset 4** <br>
 
 ![Preset 4](img/Library-Images/Building/Presets/Preset-4.png) 
@@ -1260,6 +1304,7 @@ Modulation x4 | `0 to 1` | Enter the module to set presets on spline nodes
 
 
 ---
+<a name="preset-8"></a>
 **Preset 8** <br>
 
 ![Preset 8](img/Library-Images/Building/Presets/Preset-8.png) 
@@ -1273,6 +1318,7 @@ Modulation x8 | `0 to 1` | Enter the module to set presets on spline nodes
 
 
 ---
+<a name="preset-16"></a>
 **Preset 16** <br>
 A preset module with 16 outputs.
 ![Preset 16](img/Library-Images/Building/Presets/Preset-16.png) 
@@ -1283,12 +1329,13 @@ Modulation x8 | `0 to 1` | Enter the module to set presets on spline nodes
 
 
 <br>
-
+<a name="random-building"></a>
 ### Random
 
 These modules create random strings of numbers which can be used as audio noise or as random modulations.
 
 ---
+<a name="true-random"></a>
 **True Random** <br>
 
 ![True Random](img/Library-Images/Building/Random/True-Random.png) 
@@ -1308,13 +1355,14 @@ The audio channel used can be changed inside the module at the ADC node input. B
 
 
 <br>
-
+<a name="rectifier-building"></a>
 ### Rectifier
 These modules take incoming signals and rectify them. Rectification is a term borrowed from electronics. When you want to convert an alternating current (AC) to a direct current (DC), you use a rectifier. AC is equivalent to Audulus’ audio signal, and DC is equivalent to Audulus’ modulation signal. There are two basic types of rectification - full-wave and half-wave. Full wave rectification flips the negative portion of the wave around so that, for example, a sine wave would appear to be rolling, bouncing hills. Half wave rectification simply clips off the negative portion of the wave. Rectifiers are useful for waveshaping your modulation signals to get unique patterns you otherwise would not normally be able to get.
 
 
 
 ---
+<a name="audio-rectifier"></a>
 **Audio Rectifier** <br>
 
 ![Audio Rectifier](img/Library-Images/Building/Rectifier/Audio-Rectifier.png) 
@@ -1335,6 +1383,7 @@ Rectifies an audio signal in 4 different ways.
 
 
 ---
+<a name="modulation-rectifier"></a>
 **Modulation Rectifier** <br>
 
 ![Modulation Rectifier](img/Library-Images/Building/Rectifier/Modulation-Rectifier.png) 
@@ -1355,6 +1404,7 @@ Converts a modulation signal to an audio signal and then rectifies it in 4 diffe
 
 
 ---
+<a name="rectifying-signal-reflector"></a>
 **Rectifying Signal Reflector** <br>
 
 ![Rectifying Signal Reflector](img/Library-Images/Building/Rectifier/Rectifying-Signal-Reflector.png)
@@ -1390,7 +1440,7 @@ The offset control does not offset the main output signal, but instead offsets t
 
 
 <br>
-
+<a name="signal-building"></a>
 ### Signal
 
 These modules compare and create signals. The category is broad and contains modules that otherwise do not fit into any of the other building categories.
@@ -1398,6 +1448,7 @@ These modules compare and create signals. The category is broad and contains mod
 
 
 ---
+<a name="return-greater"></a>
 **Return Greater** <br>
 
 ![Return Greater](img/Library-Images/Building/Signal/Return-Greater.png)
@@ -1416,6 +1467,7 @@ Compares signals x and y and outputs whatever signal is greater.
 
 
 ---
+<a name="return-lesser"></a>
 **Return Lesser** <br>
 
 ![Return Lesser](img/Library-Images/Building/Signal/Return-Lesser.png)
@@ -1434,6 +1486,7 @@ Compares signals x and y and outputs whatever signal is lesser.
 
 
 ---
+<a name="value-distributor"></a>
 **Value Distributor** <br>
 
 ![Value Distributor](img/Library-Images/Building/Signal/Value-Distributor.png)
@@ -1454,13 +1507,13 @@ Creates eight 0 to 1 modulation signals that are distributed in a user-defined m
 
 
 <br>
-
+<a name="spline-building"></a>
 ### Spline
 
 These are preset spline nodes mainly for use in oscillators. Driven by a 0 to 1 saw LFO, they translate the saw into whatever shape depicted on the spline. The output of the spline will have to be translated into the -1 to 1 audio range if using them as audio oscillators.
 
 
-
+<a name="triangle-spline-node"></a>
 **Triangle Spline Node** <br>
 
 ![Triangle Spline Node](img/Library-Images/Building/Spline/Triangle-Spline-Node.png)
@@ -1470,7 +1523,7 @@ A spline with a perfect triangle shape.
 
 
 <br>
-
+<a name="templates-building"></a>
 ### Templates
 
 These are module templates that can be used to quickly build up a custom module of your own.
@@ -1478,6 +1531,7 @@ These are module templates that can be used to quickly build up a custom module 
 
 
 ---
+<a name="vco-template"></a>
 **VCO Template** <br>
 
 ![VCO Template](img/Library-Images/Building/Templates/VCO-Template.png)
@@ -1505,13 +1559,13 @@ This is a basic VCO template that includes an octave input, audio output, and tu
 
 
 <br>
-
+<a name="translation"></a>
 ### Translation
 
 These modules take a one signal and transform it into another type of signal. The most common of these is the Octave to Hz translator, which converts the linearized octave pitch signal in Audulus to the exponential Hz pitch value. You will find these translator modules in every single VCO module in Audulus’ module library. Another common translation module are the truncate modules, which cut off values of a number past a certain digit. This is useful when you only want to display a value to a certain precision.
 
 
-
+<a name="audio-translation"></a>
 #### Audio
 
 These modules translate -1 to 1 audio signals into other signal types.
@@ -1519,6 +1573,7 @@ These modules translate -1 to 1 audio signals into other signal types.
 
 
 ---
+<a name="audio-to-modulation"></a>
 **Audio to Modulation** <br>
 
 ![Audio to Modulation](img/Library-Images/Building/Translation/Audio/Audio-to-Modulation.png)
@@ -1535,7 +1590,7 @@ Translates -1 to 1 audio signals to 0 to 1 modulation signals.
 
 
 <br>
-
+<a name="bpm"></a>
 #### BPM
 
 These modules translate BPM (beats per minute) signals into other signal types.
@@ -1543,6 +1598,7 @@ These modules translate BPM (beats per minute) signals into other signal types.
 
 
 ---
+<a name="bpm-to-hz"></a>
 **BPM to Hz** <br>
 
 ![BPM to Hz](img/Library-Images/Building/Translation/BPM/BPM-to-Hz.png)
@@ -1560,7 +1616,7 @@ Translates BPM signals into Hz values.
 
 
 <br>
-
+<a name="feedback-delay"></a>
 #### Feedback Delay
 
 These modules translate the Feedback Delay period into other signal types.
@@ -1568,6 +1624,7 @@ These modules translate the Feedback Delay period into other signal types.
 
 
 ---
+<a name="feedback-delay-to-seconds"></a>
 **Feedback Delay to Seconds** <br>
 
 ![Feedback Delay to Seconds](img/Library-Images/Building/Translation/FeedbackDelay/Feedback-Delay-to-Seconds.png)
@@ -1581,7 +1638,7 @@ Translates the Feedback Delay time into seconds.
 
 
 <br>
-
+<a name="hz"></a>
 #### Hz
 
 These modules translate Hz (hertz) signals into other signal types.
@@ -1589,6 +1646,7 @@ These modules translate Hz (hertz) signals into other signal types.
 
 
 ---
+<a name="hz-to-bpm"></a>
 **Hz to BPM** <br>
 
 ![Hz to BPM](img/Library-Images/Building/Translation/Hz/Hz-to-BPM.png)
@@ -1604,6 +1662,7 @@ Output | Signal Range
 BPM | `0 to 999`
 
 ---
+<a name="hz-to-octave"></a>
 **Hz to Octave** <br>
 
 ![Hz to Octave](img/Library-Images/Building/Translation/Hz/Hz-to-Octave.png)
@@ -1619,6 +1678,7 @@ Output | Signal Range
 Translates Hz into the octave signal.
 
 ---
+<a name="hz-to-seconds"></a>
 **Hz to Seconds** <br>
 
 ![Hz to Seconds](img/Library-Images/Building/Translation/Hz/Hz-to-Seconds.png)
@@ -1635,12 +1695,13 @@ Translates Hz into seconds.
 
 
 <br>
-
+<a name="modulation-building"></a>
 #### Modulation
 
 These modules translate the 0 to 1 modulation signal into other signal types.
 
 ---
+<a name="modulation-to-audio"></a>
 **Modulation to Audio** <br>
 
 ![Modulation to Audio](img/Library-Images/Building/Translation/Modulation/Modulation-to-Audio.png)
@@ -1658,6 +1719,7 @@ Translates the 0 to 1 modulation signal into a -1 to 1 audio signal.
 
 
 ---
+<a name="modulation-to-radians"></a>
 **Modulation to Radians** <br>
 
 ![Modulation to Radians](img/Library-Images/Building/Translation/Modulation/Modulation-to-Radians.png)
@@ -1676,7 +1738,7 @@ Translates the 0 to 1 modulation signal into the 0 to 2pi radian signal.
 
 <br>
 
-
+<a name="octave-building"></a>
 #### Octave
 
 These modules translate the octave signal to other signal types. The octave signal in Audulus is a linearized pitch scale. Unlike 1 volt per octave modular synth pitch scales, the octave signal has no upper or lower limit. Instead, it is centered around 0, where 0 = A4 = 440Hz. An octave signal of 1 would be 1 octave higher than A4, or A5 = 880Hz. An octave signal of -1 would be 1 octave lower than A4, or A3 = 220Hz. The reference pitch of A4 = 440Hz can be changed inside these modules.
@@ -1684,6 +1746,7 @@ These modules translate the octave signal to other signal types. The octave sign
 
 
 ---
+<a name="octave-to-hz"></a>
 **Octave to Hz** <br>
 
 ![Octave to Hz](img/Library-Images/Building/Translation/Octave/Octave-to-Hz.png)
@@ -1701,7 +1764,7 @@ Translates the octave signal into a Hz signal.
 
 
 <br>
-
+<a name="radians"></a>
 #### Radians
 
 These modules translate radians into other signal types. The Phasor node outputs in radians.
@@ -1709,6 +1772,7 @@ These modules translate radians into other signal types. The Phasor node outputs
 
 
 ---
+<a name="radians-to-audio"></a>
 **Radians to Audio** <br>
 
 ![Radians to Audio](img/Library-Images/Building/Translation/Radians/Radians-to-Audio.png)
@@ -1726,6 +1790,7 @@ Translates radians into a -1 to 1 audio signal.
 
 
 ---
+<a name="radians-to-degrees"></a>
 **Radians to Degrees** <br>
 
 ![Radians to Degrees](img/Library-Images/Building/Translation/Radians/Radians-to-Degrees.png)
@@ -1743,6 +1808,7 @@ Translates radians into a 0 to 360 degrees signal.
 
 
 ---
+<a name="radians-to-modulation"></a>
 **Radians to Modulation** <br>
 
 ![Radians to Modulation](img/Library-Images/Building/Translation/Radians/Radians-to-Modulation.png)
@@ -1760,12 +1826,13 @@ Translates radians into a 0 to 1 modulation signal.
 
 
 <br>
-
+<a name="round"></a>
 #### Round
 
 These modules round incoming signals to the closest digit specified.
 
 ---
+<a name="round-to-hundredths"></a>
 **Round to Hundredths** <br>
 
 ![Round to Hundredths](img/Library-Images/Building/Translation/Round/Round-to-Hundredths.png)
@@ -1783,6 +1850,7 @@ Rounds incoming signal to the nearest hundredths place.
 
 
 ---
+<a name="round-to-integer"></a>
 **Round to Integer** <br>
 
 ![Round to Integer](img/Library-Images/Building/Translation/Round/Round-to-Integer.png)
@@ -1800,6 +1868,7 @@ Rounds incoming signal to the nearest integer.
 
 
 ---
+<a name="round-to-tenths"></a>
 **Round to Tenths** <br>
 
 ![Round to Tenths](img/Library-Images/Building/Translation/Round/Round-to-Tenths.png)
@@ -1817,6 +1886,7 @@ Rounds incoming signal to the nearest tenths place.
 
 
 ---
+<a name="round-to-thousandths"></a>
 **Round to Thousandths** <br>
 
 ![Round to Thousandths](img/Library-Images/Building/Translation/Round/Round-to-Thousandths.png)
@@ -1834,12 +1904,13 @@ Rounds incoming signal to the nearest thousandths place.
 
 
 <br>
-
+<a name="samples-building"></a>
 #### Samples
 
 These modules translate the time period of a sample into other signal types.
 
 ---
+<a name="samples-to-seconds"></a>
 **Samples to seconds** <br>
 
 ![Samples to seconds](img/Library-Images/Building/Translation/Samples/Samples-to-Seconds.png)
@@ -1857,11 +1928,12 @@ Translates x number of samples into seconds. Smallest value is 1. For best resul
 
 
 <br>
-
+<a name="seconds"></a>
 #### Seconds
 These modules translate seconds into other signal types.
 
 ---
+<a name="seconds-to-samples"></a>
 **Seconds to samples** <br>
 
 ![Seconds to Samples](img/Library-Images/Building/Translation/Seconds/Seconds-to-Samples.png)
@@ -1878,12 +1950,13 @@ Translates x number of seconds into a number of samples.
 
 
 <br>
-
+<a name="truncate"></a>
 #### Truncate
 
 These modules clip off trailing digits after the given decimal place.
 
 ---
+<a name="truncate-to-hundredths"></a>
 **Truncate to Hundredths** <br>
 
 ![Truncate to Hundredths](img/Library-Images/Building/Translation/Truncate/Truncate-to-Hundredths.png)
@@ -1901,6 +1974,7 @@ Clips off any digits after the hundredths place.
 
 
 ---
+<a name="truncate-to-tenths"></a>
 **Truncate to Tenths** <br>
 
 ![Truncate to Tenths](img/Library-Images/Building/Translation/Truncate/Truncate-to-Tenths.png)
@@ -1918,6 +1992,7 @@ Clips off any digits after the tenths place.
 
 
 ---
+<a name="truncate-to-thousandths"></a>
 **Truncate to Thousandths** <br>
 
 ![Truncate to Thousandths](img/Library-Images/Building/Translation/Truncate/Truncate-to-Thousandths.png)
@@ -1935,7 +2010,7 @@ Clips off any digits after the thousandths place.
 
 
 <br>
-
+<a name="vias"></a>
 ### Vias
 
 ![Via](img/Library-Images/Building/Via.png)
