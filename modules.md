@@ -1911,6 +1911,7 @@ These modules translate the time period of a sample into other signal types.
 
 ---
 <a name="samples-to-seconds"></a>
+
 **Samples to seconds** <br>
 
 ![Samples to seconds](img/Library-Images/Building/Translation/Samples/Samples-to-Seconds.png)
@@ -1929,11 +1930,13 @@ Translates x number of samples into seconds. Smallest value is 1. For best resul
 
 <br>
 <a name="seconds"></a>
+
 #### Seconds
 These modules translate seconds into other signal types.
 
 ---
 <a name="seconds-to-samples"></a>
+
 **Seconds to samples** <br>
 
 ![Seconds to Samples](img/Library-Images/Building/Translation/Seconds/Seconds-to-Samples.png)
@@ -1951,12 +1954,14 @@ Translates x number of seconds into a number of samples.
 
 <br>
 <a name="truncate"></a>
+
 #### Truncate
 
 These modules clip off trailing digits after the given decimal place.
 
 ---
 <a name="truncate-to-hundredths"></a>
+
 **Truncate to Hundredths** <br>
 
 ![Truncate to Hundredths](img/Library-Images/Building/Translation/Truncate/Truncate-to-Hundredths.png)
@@ -1975,6 +1980,7 @@ Clips off any digits after the hundredths place.
 
 ---
 <a name="truncate-to-tenths"></a>
+
 **Truncate to Tenths** <br>
 
 ![Truncate to Tenths](img/Library-Images/Building/Translation/Truncate/Truncate-to-Tenths.png)
@@ -1993,6 +1999,7 @@ Clips off any digits after the tenths place.
 
 ---
 <a name="truncate-to-thousandths"></a>
+
 **Truncate to Thousandths** <br>
 
 ![Truncate to Thousandths](img/Library-Images/Building/Translation/Truncate/Truncate-to-Thousandths.png)
