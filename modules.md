@@ -2115,12 +2115,15 @@ Vias are special pass-through tabs that help arrange wires in Audulus. They are 
 
 
 <br>
+<a name="collection"></a>
 
 ## Collection
 
 These patches collect all or some of the modules in each subfolder by different types. Useful for when you want to explore everything Audulus has to offer in a particular category.
 
 ---
+<a name="clock-collection"></a>
+
 **Clocks** <br>
 
 ![Clocks](img/Library-Images/Collection/Clocks.png)
@@ -2128,6 +2131,8 @@ These patches collect all or some of the modules in each subfolder by different 
 A collection of all of the clock modules.
 
 ---
+<a name="gates-collection"></a>
+
 **Gates** <br>
 
 ![Gates](img/Library-Images/Collection/Gates.png)
@@ -2136,22 +2141,26 @@ A collection of all of the gate modules.
 
 
 <br>
+<a name="instrument"></a>
 
-### Instruments
+### Instrument
 
 <br>
+<a name="drum"></a>
 
 #### Drum
 
 These modules are synthesized drum sounds categorized by general types. Some are collected into drum kits that offer a convenient package to create a beat. All work well with a combination of clock modules and clock dividers and multipliers, as well as chance modules that add variation to their beats. A great starter companion patch is to create a Shift Register clock and use probability modules to add variations to the different tempos of clock signals going to each module. You can also use the Pattern Bank Sequencer to instantly create groovy patterns and use modulation to switch between different patterns.
 
 <br>
+<a name="cymbal"></a>
 
 ##### Cymbal
 
 These modules are different cymbal-like synthesized drum modules.
 
 ---
+
 **Sizzle Cymbal** <br>
 
 ![Sizzle Cymbal](img/Library-Images/Drum/Cymbal/Sizzle-Cymbal.png)
@@ -2332,18 +2341,22 @@ A beginner’s look into how to create a self-playing Audulus patch. Beings with
 The pitch is sent to a basic oscillator which is being filtered by an SEM-style filter. The filter’s cutoff point is slowly modulated by a sine LFO to give the filter a little animation. The output of the quantizer is also fed into the filter to give the filter octave tracking. The master clock pulse is also used as a gate for the filter envelope. The filter’s envelope is having its max time parameter modulated by a slow LFO to give the filter some further animation. The master clock is also gating the envelope that is modulating the VCA, and finally the synth is fed through an analog delay and sent to the audio output.
 
 <br>
+<a name="effect"></a>
 
 ## Effect
 
 These modules alter audio signals in a variety of ways. Adding a sense of space with reverb, pumping your drums with compression, or overdriving your synth for a harder-hitting sound are all ways to polish off a mix.
 
 <br>
+<a name="autopan"></a>
 
 ### Autopan
 
 These modules are like a stereo tremolo effect. They pan audio back and forth between the left and right channels. Great for adding some subtle stereo depth to your music, or creating rythmic back and forth ping-ponging.
 
 ---
+<a name="sine-skew-autopan"></a>
+
 **Skew Sine Autopan** <br>
 
 ![Skew Sine Autopan](img/Library-Images/Effect/Autopan/Skew-Sine-Autopan.png)
@@ -2353,12 +2366,15 @@ Uses a Sine Skew LFO module to create a variable autopan shape from reverse ramp
 
 
 <br>
+<a name="delay"></a>
 
 ### Delay
 
 Delay is an effect that grabs a portion of your sound and repeats it - like an echo in a canyon. There are many types and flavors of delay which can add a sense of space or a rhythmic element to your instruments. Delays especially love arpeggiated lines and drums, especially cymbals and snares.
 
 ---
+<a name="analog-delay"></a>
+
 **Analog Delay** <br>
 
 ![Analog Delay](img/Library-Images/Effect/Delay/Analog-Delay.png)
@@ -2366,6 +2382,8 @@ Delay is an effect that grabs a portion of your sound and repeats it - like an e
 Uses an LPF inside a delay loop to create a dark-sounding delay effect. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal.
 
 ---
+<a name="art-decho-dub-delay"></a>
+
 **Art D’Echo Dub Delay** <br>
 
 ![Art D’Echo Dub Delay](img/Library-Images/Effect/Delay/Art-DEcho-Dub-Delay.png)
@@ -2373,6 +2391,8 @@ Uses an LPF inside a delay loop to create a dark-sounding delay effect. Delay co
 Combines a delay effect with a spring reverb effect to recreate the vibe of famous tape echo dub effects. Time, regen, and amount are the delay time, feedback, and mix for the delay effect. The tape knob controls the amount of warbly modulation to the delay line. Drive controls the amount of drive within the delay loop. Cut is the filter cutoff for the filter within the delay loop. Tens or tension is the control for the virtual tension of the springs in the the spring reverb effect. Mix is the balance of delay/reverb, color changes the tone of the springs, and dwell is the length of the spring reverb.
 
 ---
+<a name="chorus-delay"></a>
+
 **Chorus Delay** <br>
 
 ![Chorus Delay](img/Library-Images/Effect/Delay/Chorus-Delay.png)
@@ -2380,6 +2400,8 @@ Combines a delay effect with a spring reverb effect to recreate the vibe of famo
 Combines a delay effect with a chorus effect. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal. Speed controls the modulation speed of the chorus effect. Depth controls the amount of chorus modulation. Color adjusts the cutoff of the filters within the delay and chorus effect.
 
 ---
+<a name="clockable-delay-line"></a>
+
 **Clockable Tuned Delay Line** <br>
 
 ![Clockable Tuned Delay Line](img/Library-Images/Effect/Delay/Clockable-Tuned-Delay-Line.png)
@@ -2397,13 +2419,18 @@ The tune button turns the delay into a Karplus-Strong-like oscillator with the p
 This is a sound sample of what this module can do when rhythmically switching in and out of all of its modes - free, synced, and tuned: https://soundcloud.com/audulus/bimini-road-clockwork-groove-electrofunk
 
 ---
+<a name="digital-delay"></a>
+
 **Digital Delay** <br>
+
 
 ![Digital Delay](img/Library-Images/Effect/Delay/Digital-Delay.png)
 
 A pure, high-fidelity digital delay. Delay controls the delay time from 0 to 2 seconds. Feedback controls the number of delay repeats. Mix balances the dry and wet signal.
 
 ---
+<a name="icebox-audio-freezer"></a>
+
 **Icebox Audio Freezer** <br>
 
 ![Icebox Audio Freezer](img/Library-Images/Effect/Delay/Icebox-Audio-Freezer.png)
@@ -2421,6 +2448,8 @@ Mix controls the balance of dry audio and frozen audio. When the env or envelope
 An excellent and very musical guitar effect - watch a demo of it here: https://www.instagram.com/p/BV_Cca1Amv2/?taken-by=audulus
 
 ---
+<a name="multi-tap-filter-delay"></a>
+
 **Multi-Tap Filter Delay** <br>
 
 ![Multi-Tap Filter Delay](img/Library-Images/Effect/Delay/Multi-Tap-Filter-Delay.png)
@@ -2428,6 +2457,8 @@ An excellent and very musical guitar effect - watch a demo of it here: https://w
 A stereo triple delay with controls to adjust the level, pan, delay time, feedback, cutoff, Q, and filter type for each delay (from top to bottom). The dry knob at the top adjusts the level of the dry signal - not the overall mix.
 
 ---
+<a name="stereo-digital-delay"></a>
+
 **Stereo Digital Delay** <br>
 
 ![Stereo Digital Delay](img/Library-Images/Effect/Delay/Stereo-Digital-Delay.png)
@@ -2435,6 +2466,8 @@ A stereo triple delay with controls to adjust the level, pan, delay time, feedba
 A stereo delay that can accept both mono and stereo signals. For a mono to stereo effect, use the top L or left input and make sure the mono button is engaged (red). For a stereo to stereo delay effect, disengage the mono button (blue) and attach the input signals to L and R. Mix adjusts the balance of wet and dry, L and R are the delay times for the left and right channels, and the fb knob controls the amount of feedback for each delay line.
 
 ---
+<a name="tape-delay"></a>
+
 **Tape Delay** <br>
 
 ![Tape Delay](img/Library-Images/Effect/Delay/Tape-Delay.png)
@@ -2444,12 +2477,15 @@ A model of a hissy broken tape delay, perfect for that lofi sound. Delay control
 
 
 <br>
+<a name="distortion"></a>
 
 ### Distortion
 
 Distortion effects change audio signals by distorting or warping the signal as it passes through. Distortion adds harmonics most often by overdriving or squaring-off a wave. All distortions have different flavors and are better for one sound or another. Make sure you try them all on each instrument you use to see which ones you like the most!
 
 ---
+<a name="araya-suyama-tube-overdrive"></a>
+
 **Araya-Suyama Tube Overdrive** <br>
 
 ![Araya-Suyama Tube Overdrive](img/Library-Images/Effect/Distortion/Araya-Suyama-Tube-Overdrive.png)
@@ -2457,6 +2493,8 @@ Distortion effects change audio signals by distorting or warping the signal as i
 Cribbed from a research paper describing a low-CPU way to model a tube amplifier in software, this simple distortion uses a waveshaping expression to overdrive your signal in a manner similar to how an overdriven tube amplifier would sound.
 
 ---
+<a name="bit-crush"></a>
+
 **Bitcrush** <br>
 
 ![Bitcrush](img/Library-Images/Effect/Distortion/Bitcrush.png)
@@ -2464,6 +2502,8 @@ Cribbed from a research paper describing a low-CPU way to model a tube amplifier
 Bitcrushing is a type of distortion that limits the available definition of any given sample. The less definition the wave has, the more distorted it becomes. Heavy bitcrushing can make a smooth sine wave look like an undulating staircase. Bitcrushing is similar to sample rate reduction, but they sound a little different. Perfect distortion for really aggressive drum sounds or buzzy bass lines.
 
 ---
+<a name="cubed-overdrive"></a>
+
 **Cubed Overdrive** <br>
 
 ![Cubed Overdrive](img/Library-Images/Effect/Distortion/Cubed-Overdrive.png)
@@ -2471,6 +2511,8 @@ Bitcrushing is a type of distortion that limits the available definition of any 
 Uses a simple x^3 expression to waveshape the audio going through it. Very CPU efficient.
 
 ---
+<a name="distortion-distortion"></a>
+
 **Distortion** <br>
 
 ![Distortion](img/Library-Images/Effect/Distortion/Distortion.png)
@@ -2478,6 +2520,8 @@ Uses a simple x^3 expression to waveshape the audio going through it. Very CPU e
 Uses the Distortion node in series with an overdrive module to limit the output of the module.
 
 ---
+<a name="doidic-asymmetrical-tube-overdrive"></a>
+
 **Doidic Asymmetrical Tube Overdrive** <br>
 
 ![Doidic Asymmetrical Tube Overdrive](img/Library-Images/Effect/Distortion/Doidic-Asymmetrical-Overdrive.png)
@@ -2485,6 +2529,8 @@ Uses the Distortion node in series with an overdrive module to limit the output 
 Another distortion module taken from an audio DSP research paper, this tube overdrive simulator attempts to mimic the asymmetrical transfer function of guitar tube amplifiers. Asymmetric means that the negative and positive portions of the wave are not shaped identically. A transfer function is the shape that the sound wave is forced to follow as it moves up and down from positive to negative.
 
 ---
+<a name="down-sample"></a>
+
 **Down Sample** <br>
 
 ![Down Sample](img/Library-Images/Effect/Distortion/Down-Sample.png)
@@ -2492,6 +2538,8 @@ Another distortion module taken from an audio DSP research paper, this tube over
 Reduces the number of samples for the audio as it comes through from the sample rate of 44.1kHz to much, much lower sample rates. The main difference between downsampling distortion and bitcrushing (which both produce staircase-like wave shapes) is that downsampling effectively limits the upper frequency range of the sound coming through it, where bitcrushing does not. This can sound awful or awfully amazing, depending on how you use it. Great for mangling drums or creating digital chaos.
 
 ---
+<a name="hypertangent-overdrive"></a>
+
 **Hypertangent Overdrive** <br>
 
 ![Hypertangent Overdrive](img/Library-Images/Effect/Distortion/Hypertangent-Overdrive.png)
@@ -2499,6 +2547,8 @@ Reduces the number of samples for the audio as it comes through from the sample 
 Uses a simple hypertangent (tanh(x)) expression to emulate transistor saturation.
 
 ---
+<a name="sigmoid-overdrive-a"></a>
+
 **Sigmoid Overdrive A** <br>
 
 ![Sigmoid Overdrive A](img/Library-Images/Effect/Distortion/Sigmoid-Overdrive-A.png)
@@ -2507,18 +2557,22 @@ Uses a sigmoid transfer function that is similar to the Distortion node to disto
 
 
 <br>
+<a name="dynamics"></a>
 
 ### Dynamics
 
 These modules affect the dynamics, or amplitude, of the audio as they pass through. Dynamic processors include compressors, expanders, limiters, audio gates, de-essers, and so on.
 
 <br>
+<a name="compressor"></a>
 
 #### Compressor
 
 These modules compress an audio signal’s overall dynamic range. This is done for many reasons, but the most common is to make a sound more “punchy.” It takes a while to learn how to balance the parameters of a compressor correctly, but it’s an essential ingredient for well-balanced music.
 
 ---
+<a name="minipress"></a>
+
 **miniPress** <br>
 
 ![Sigmoid Overdrive A](img/Library-Images/Effect/Dynamics/Compressor/miniPress.png)
@@ -2526,6 +2580,8 @@ These modules compress an audio signal’s overall dynamic range. This is done f
 Compresses incoming audio based on the curve drawn by the mapper node. The lookahead function allows the compressor to respond more intelligently by delaying the signal.
 
 ---
+<a name="rms-compressor"></a>
+
 **RMS Compressor** <br>
 
 ![RMS Compressor](img/Library-Images/Effect/Dynamics/Compressor/RMS-Compressor.png)
@@ -2539,6 +2595,8 @@ In general, use the ZC mode for drum modules and other non-pitched instruments, 
 This module also works for stereo signals. The compression it creates can be rather extreme. Think of it less as a final mastering compressor and more as an effect for mangling things like drums and bass lines.
 
 ---
+<a name="super-simple-compressor"></a>
+
 **Super Simple Compressor** <br>
 
 ![Super Simple Compressor](img/Library-Images/Effect/Dynamics/Compressor/Super-Simple-Compressor.png)
@@ -2548,12 +2606,15 @@ This compressor is one of the simplest types of compressors you can make in Audu
 
 
 <br>
+<a name="ducker"></a>
 
 #### Ducker
 
 Duckers are a type of compressor that use a technique called side-chaining. Side-chaining is really popular at the moment, especially in dance music. The effect you hear when the kick drum sucks the rest of the music away for a moment every time it hits is ducking. Ducking allows low frequency content to burst through a mix in a dynamic way.
 
 ---
+<a name="ducker-ducker"></a>
+
 **Ducker** <br>
 
 ![Ducker](img/Library-Images/Effect/Dynamics/Ducker/Ducker.png)
@@ -2569,9 +2630,13 @@ The mix knob is essential for getting this module to sound good. First dial the 
 <br>
 
 #### Limiter
+<a name="limiter"></a>
+
 These modules are another type of specialized compressor. While most compressors have variable ratios from 1:1 to 1:10, a limiter is a compressor with a virtually infinite ratio. This means that the limit set by the limiter will not be exceeded at all.
 
 ---
+<a name="tube-limiter"></a>
+
 **Tube Limiter** <br>
 
 ![Tube Limiter](img/Library-Images/Effect/Dynamics/Limiter/Tube-Limiter.png)
@@ -2581,12 +2646,15 @@ Uses a hypertangent (tanh(x)) function to emulate the sound of a tube limiter. T
 
 
 <br>
+<a name="flanger"></a>
 
 ### Flanger
 
 Flangers are delay-based effects that use a delayed copy of a signal to create comb-filtering effects. They are well-known as the effect that creates the jet-engine sound on 70s-era drums.
 
 ---
+<a name="stereo-analog-flanger"></a>
+
 **Stereo Analog Flanger** <br>
 
 ![Stereo Analog Flanger](img/Library-Images/Effect/Flanger/Stereo-Analog-Flanger.png)
@@ -2602,12 +2670,15 @@ Sometimes it is best to turn the mix all the way wet, create a really heavy flan
 
 
 <br>
+<a name="phaser"></a>
 
 ### Phaser
 
 Phasers use chained all-pass filters to change the phase relationship of frequencies as they pass through. When recombined with the original audio, the difference in phase causes cancellations and boosting of frequencies. When the cutoff of the allpass filters are modulated, the boosted and canceled frequencies create a swirling sound. Phasers are not flangers, but they can sound similar.
 
 ---
+<a name="phase12"></a>
+
 **Phase12** <br>
 
 ![Phase12](img/Library-Images/Effect/Phaser/Phase12.png)
@@ -2615,6 +2686,8 @@ Phasers use chained all-pass filters to change the phase relationship of frequen
 A 12 stage phaser that has no internal LFO. You can attach your own LFO, or you can also use an envelope to modulate the phaser effect. The top knob is mix to balance dry and wet signal. The feedback control adjusts how much of the signal is fed back through the allpass loop (which makes for a deeper phasing sound). The attenuate-offset controls adjust how much and in what range the incoming modulation tweaks the filter cutoff.
 
 ---
+<a name="stereo-1-6-stage-analog-phaser"></a>
+
 **Stereo 1-6 Stage Pseudo Phaser** <br>
 
 ![Stereo 1-6 Stage Pseudo Phaser](img/Library-Images/Effect/Phaser/Phase12.png)
@@ -2632,12 +2705,15 @@ Like with the flanger, it can be beneficial to dial in a really deep sounding ef
 
 
 <br>
+<a name="pitch"></a>
 
 ### Pitch
 
 Pitch shifters take an input audio signal and shift the pitch up or down, or create unison effects by copying and detuning the signal slightly.
 
 ---
+<a name="octave-unison"></a>
+
 **Octave Unison** <br>
 
 ![Octave Unison](img/Library-Images/Effect/Pitch/Octave-Unison.png)
@@ -2645,6 +2721,8 @@ Pitch shifters take an input audio signal and shift the pitch up or down, or cre
 Not an audio effect, but instead, takes an octave signal and splits it into a quad polyphonic signal for creating a unison detune effect on oscillators. Remember to use the PolyToMono node after the oscillator to collapse the poly signal into a mono signal to save on CPU processing.
 
 ---
+<a name="pitch-shift"></a>
+
 **Pitch Shift** <br>
 
 ![Pitch Shift](img/Library-Images/Effect/Pitch/Pitch-Shift.png)
@@ -2653,12 +2731,15 @@ Uses the Pitch Shift node to create a pitch shifter that can shift incoming sign
 
 
 <br>
+<a name="reverb"></a>
 
 ### Reverb
 
 Reverb uses delay lines and allpass filters to create a sense of space, or of the instrument being played in a particular type of room.
 
 ---
+<a name="spring-reverb"></a>
+
 **Spring Reverb** <br>
 
 ![Spring Reverb](img/Library-Images/Effect/Reverb/Spring-Reverb.png)
@@ -2666,6 +2747,8 @@ Reverb uses delay lines and allpass filters to create a sense of space, or of th
 Uses short delay line and a BPF to emulate the sound of a guitar amp spring reverb. The dwell control adjusts how long the decay of the reverb is, and the mix adjusts the overall balance of dry and wet signal. The color knob adjusts the tone of the reverb and the tens or tension control adjusts the virtual tension of the spring.
 
 ---
+<a name="stereo-reverb"></a>
+
 **Stereo Reverb** <br>
 
 ![Stereo Reverb](img/Library-Images/Effect/Reverb/Stereo-Reverb.png)
@@ -2675,12 +2758,15 @@ Uses the Reverb node to create a stereo digital-sounding reverb. To make a mono 
 
 
 <br>
+<a name="tremolo"></a>
 
 ### Tremolo
 
 Tremolo is uses amplitude modulation to give a swelling or stuttering sound to the audio. Not to be confused with vibrato, which is frequency modulation.
 
 ---
+<a name="skew-sine-tremolo"></a>
+
 **Skew Sine Tremolo** <br>
 
 ![Skew Sine Tremolo](img/Library-Images/Effect/Tremolo/Skew-Sine-Tremolo.png)
@@ -2688,6 +2774,8 @@ Tremolo is uses amplitude modulation to give a swelling or stuttering sound to t
 Uses a Skew Sine LFO module to create a variable tremolo shape from reverse ramp-like to sine to saw-like. This tremolo has a softer sound than a saw or triangle based tremolo would, but still gives the feeling of percussiveness and reverse tremolo. The mix control balances the dry and wet signal. The LFO speed knob goes from 1.25Hz to 20Hz, and the skew control adjusts the tilt of the sine wave from reverse ramp to sine to saw.
 
 ---
+<a name="waveshape-tremolo"></a>
+
 **Waveshape Tremolo** <br>
 
 ![Waveshape Tremolo](img/Library-Images/Effect/Tremolo/Waveshape-Tremolo.png)
@@ -2697,12 +2785,15 @@ Uses a Waveshape LFO module to create a variable shape tremolo from sine to tria
 
 
 <br>
+<a name="wavefolder"></a>
 
 ### Wavefolder
 
 These modules distort waves by folding them over themselves. Wavefolding adds lots of harmonics and has a very distinct aggressive sound to it.
 
 ---
+<a name="rswf-1-wavefolder"></a>
+
 **RSWF-1 Wavefolder** <br>
 
 ![RSWF-1 Wavefolder](img/Library-Images/Effect/Wavefolder/RSWF-1-Wavefolder.png)
@@ -2710,6 +2801,8 @@ These modules distort waves by folding them over themselves. Wavefolding adds lo
 Accepts one or two modulation inputs simultaneously, and will create both an audio (top) and modulation (bottom) output. The fold knobs adjusts how much the waves are folded, and the -/+ knob is an attenuverter knob that adjusts the wave size and inversion as it enters the wavefolding expressions. The color adjusts the balance between two wavefolding algorithms.
 
 ---
+<a name="sinefold"></a>
+
 **SineFold** <br>
 
 ![SineFold](img/Library-Images/Effect/Wavefolder/SineFold.png)
@@ -2719,12 +2812,15 @@ Folds an incoming wave using a sine expression. The input wave is multiplied by 
 
 
 <br>
+<a name="input-output"></a>
 
 ## Input-Output
 
 These modules allow you to pass audio and control signals and into and out of Audulus. Some modules have helpful add-ons like level controls and mutes.
 
 ---
+<a name="audio-input"></a>
+
 **Audio Input** <br>
 
 ![Audio Input](img/Library-Images/Input-Output/Audio-Input.png)
@@ -2732,6 +2828,8 @@ These modules allow you to pass audio and control signals and into and out of Au
 A simple rehousing of the Mic node with level control for audio input. Top knob is channel 1 and bottom knob is channel 2. Contains a pre-volume knob audio peak detector to indicate when you are clipping the input with a signal that is too loud.
 
 ---
+<a name="audio-output-mono"></a>
+
 **Audio Output Mono** <br>
 
 ![Audio Output Mono](img/Library-Images/Input-Output/Audio-Output-Mono.png)
@@ -2739,6 +2837,8 @@ A simple rehousing of the Mic node with level control for audio input. Top knob 
 A simple rehousing of the Speaker node with level control for audio output. This module has a mono input that distributes the signal equally to both speakers (good for when you have a mono synth and don’t want to have to attach two wires to the left and right inputs). Contains a post-volume knob audio peak detector to indicate when you are clipping the output with a signal that is too loud. Also contains a DC-blocker node for removing any DC offset. 
 
 ---
+<a name="audio-output-stereo"></a>
+
 **Audio Output Stereo** <br>
 
 ![Audio Output Stereo](img/Library-Images/Input-Output/Audio-Output-Stereo.png)
@@ -2746,12 +2846,15 @@ A simple rehousing of the Speaker node with level control for audio output. This
 A simple rehousing of the Speaker node with level control for audio output. This module has an input for left (top) and right (bottom) channels with a single volume control. Contains a post-volume knob audio peak detector to indicate when you are clipping the output with a signal that is too loud. Also contains a DC-blocker node for removing any DC offset. 
 
 <br>
+<a name="controller"></a>
 
 ### Controller
 
 These modules are performance controllers meant to provide interfaces beyond simple knobs and buttons.
 
 ---
+<a name="xy-pad-8x8"></a>
+
 **xy Pad 8x8** <br>
 
 ![xy Pad 8x8](img/Library-Images/Controller/xy-Pad-8x8.png)
@@ -2763,11 +2866,15 @@ Creates a quantized 64-point input grid that acts as an xy controller. Simply dr
 
 <br>
 
+<a name="es-8"></a>
+
 ### ES-8
 
 The Expert Sleepers ES-8 is the officially recognized and recommended DC-coupled audio interface for interfacing Audulus with your hardware synthesizers with audio and control voltage (CV) signals. Use these modules to connect to and from your hardware synths.
 
 ---
+<a name="es-8-audio-outputs"></a>
+
 **ES-8 Audio Outputs** <br>
 
 ![ES-8 Audio Outputs](img/Library-Images/ES-8/ES-8-Audio-Output.png)
@@ -2775,6 +2882,8 @@ The Expert Sleepers ES-8 is the officially recognized and recommended DC-coupled
 A set of 8 outputs with attenuators that are scaled for fading audio in and out.
 
 ---
+<a name="es-8-linear-outputs"></a>
+
 **ES-8 Linear Outputs** <br>
 
 ![ES-8 Linear Outputs](img/Library-Images/ES-8/ES-8-Linear-Outputs.png)
@@ -2782,6 +2891,8 @@ A set of 8 outputs with attenuators that are scaled for fading audio in and out.
 A set of 8 outputs with attenuators that are scaled for fading control signals in and out.
 
 ---
+<a name="es-8-outputs-1-8"></a>
+
 **ES-8 Outputs 1-8** <br>
 
 ![ES-8 Outputs 1-8](img/Library-Images/ES-8/ES-8-Outputs-1-8.png)
@@ -2791,12 +2902,15 @@ A set of 8 outputs for use with your ES-8.
 
 
 <br>
+<a name="midi"></a>
 
 ### MIDI
 
 These modules allow you to pass MIDI signals into Audulus. Some modules have helpful add-ons like slew limiting and key priority. To adjust channel and polyphony, open the modules and find the Keyboard node in the upper left corner and adjust from there.
 
 ---
+<a name="keyboard-input-bend-slew-velocity-slur"></a>
+
 **Keyboard Input Bend Slew Velocity Slur** <br>
 
 ![Keyboard Input Bend Slew Velocity Slur](img/Library-Images/MIDI/Keyboard-Input-Bend-Slew-Velocity-Slur.png)
@@ -2804,6 +2918,8 @@ These modules allow you to pass MIDI signals into Audulus. Some modules have hel
 A deluxe MIDI input that includes controls for bend range, slew amount and type, velocity on (red) or off (blue), and slur on (red) or off (blue). When slur is applied, new notes will not trigger a new output gate as long as another note is being held down. If slur is off, every time a new note is pressed, a new gate will be triggered.
 
 ---
+<a name="keyboard-input-velocity-slur"></a>
+
 **Keyboard Input Velocity Slur** <br>
 
 ![Keyboard Input Velocity Slur](img/Library-Images/MIDI/Keyboard-Input-Velocity-Slur.png)
@@ -2811,6 +2927,8 @@ A deluxe MIDI input that includes controls for bend range, slew amount and type,
 A paired back keyboard input module with just velocity on/off and slur on/off buttons.
 
 ---
+<a name="midi-input"></a>
+
 **MIDI Input** <br>
 
 ![MIDI Input](img/Library-Images/MIDI/MIDI-Input.png)
@@ -2828,6 +2946,8 @@ A bare bones MIDI input with octave signal output and gate only. To change polyp
 These modules give visual feedback for the signals flowing through them. Oscilloscopes for observing wave motion, volume meters for audio, and so on.
 
 ---
+<a name="octave-keyboard-and-tune-meter"></a>
+
 **Octave Keyboard and Tune Meter** <br>
 
 ![Octave Keyboard and Tune Meter](img/Library-Images/Meter/Octave-Keyboard-and-Tune-Meter.png)
@@ -2835,6 +2955,8 @@ These modules give visual feedback for the signals flowing through them. Oscillo
 Displays the current note being played by an octave signal with a sharp, in-tune, and flat indicator.
 
 ---
+<a name="octave-keyboard-meter-horizontal"></a>
+
 **Octave Keyboard Meter Horizontal** <br>
 
 ![Octave Keyboard Meter Horizontal](img/Library-Images/Meter/Octave-Keyboard-Meter-Horizontal.png)
@@ -2842,6 +2964,8 @@ Displays the current note being played by an octave signal with a sharp, in-tune
 Displays the current note being played by an octave signal, oriented horizontally.
 
 ---
+<a name="octave-keyboard-meter-vertical"></a>
+
 **Octave Keyboard Meter Vertical** <br>
 
 ![Octave Keyboard Vertical](img/Library-Images/Meter/Octave-Keyboard-Meter-Vertical.png)
@@ -2849,11 +2973,15 @@ Displays the current note being played by an octave signal, oriented horizontall
 Displays the current note being played by an octave signal, oriented vertically.
 
 
+<a name="oscilloscope"></a>
+
 ### Oscilloscope
 
 Oscilloscopes are good meters for observing change over time. They are usually used as a kind of audio or modulation microscope.
 
 ---
+<a name="modulation-x4-scope"></a>
+
 **Modulation x4 Scope** <br>
 
 ![Modulation x4 Scope](img/Library-Images/Meter/Oscilloscope/Modulation-x4-Scope.png)
