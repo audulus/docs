@@ -2,11 +2,11 @@
 
 This is an overview of all of the modules in the Audulus module library.
 
-Audulus modules are created using nodes.
+All Audulus modules are created using nodes.
 
-Each module does a specific thing to generate or modify signals. Some modules are simple, like an attenuator, and some are more complex, like full-voiced synth modules.
+Each module does a specific thing to create or modify signals. Some modules are simple, like an attenuator, and some are more complex, like fully-voiced synthesizers.
 
-To use modules, you must understand the 4 basic standardized signals: audio, gate, modulation, and octave. Each signal and its indicator are outlined below.
+To use modules, you must first understand the 4 basic standardized signals in Audulus: audio, gate, modulation, and octave. Each signal and its indicator are outlined below.
 
 To download and share user-created modules, join the Audulus community forum.
 
@@ -42,7 +42,7 @@ Gate signals are event triggers for your patches.
 
 Gates are used to turn notes on and off, step sequencers forward, generate envelopes, and much more.
 
-In Audulus, there is no need for a special trigger signal. All gates in Audulus act like triggers on their rising edge (moving from 0 to 1) no matter how long the gate is.
+In Audulus, there is no need for a separate trigger signal. All gates in Audulus act like triggers on their rising edge (moving from 0 to 1) no matter how long the gate is.
 
 ### Modulation
 
@@ -603,6 +603,7 @@ Turns a 16 step pattern into a decimal number that can be used to create rhythmi
 Counters are modules that count up or down in sequence when pulsed with a gate or somehow count time. They are most often used in sequencers.
 
 ---
+<a name="elapsed-time"></a>
 **Elapsed Time** <br>
 
 ![Elapsed Time](img/Library-Images/Building/Counter/Elapsed-Time.png)
