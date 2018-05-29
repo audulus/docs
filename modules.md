@@ -625,6 +625,7 @@ Displays the elapsed time since a timer has been reset. It converts the timer’
 
 
 ---
+<a name="up-counter"></a>
 **Up Counter** <br>
 
 ![Up Counter](img/Library-Images/Building/Counter/Up-Counter.png)
@@ -642,6 +643,7 @@ Counts up with each incoming gate pulse from 0 to a specified number and then re
 
 
 ---
+<a name="up-down-counter"></a>
 **Up-Down Counter** <br>
 
 ![Up-Down Counter](img/Library-Images/Building/Counter/Up-Down-Counter.png)
@@ -653,6 +655,7 @@ The same as the Up Counter except it counts up to a number then down back to 0 a
 
 <br>
 
+<a name="curve"></a>
 ### Curve
 
 Curve modules apply a shape to the normally linear output of a knob or incoming 0 to 1 modulation signal. They are useful for adding logarithmic or exponential responses to knobs on volume controls and filter cutoffs, or shaping the output of an envelope. They can also be used as audio effects to apply distortion to incoming audio signals.
@@ -660,6 +663,7 @@ Curve modules apply a shape to the normally linear output of a knob or incoming 
 
 
 ---
+<a name="curve-exp-lin-log"></a>
 **Curve Exp-Lin-Log** <br>
 
 ![Curve Exp-Lin-Log](img/Library-Images/Building/Curve/Curve-Exp-Lin-Log.png)
@@ -681,6 +685,7 @@ Fades between an exponential, linear, and logarithmic response. Commonly used on
 
 
 ---
+<a name="curve-exponential"></a>
 **Curve Exponential** <br>
 
 ![Curve Exponential](img/Library-Images/Building/Curve/Curve-Exponential.png)
@@ -703,6 +708,7 @@ Fades between slightly exponential `(x*x)` to highly exponential `(x*x*x*x)`.
 
 <br>
 
+<a name="detector"></a>
 ### Detector
 
 Detector modules analyze incoming signals and detect something about them. The most basic and common detector is the audio peak detector, which flashes red when an audio signal exceeds the maximum -1 to 1 output range. Another commonly used detector is the Change Detector which outputs a short pulse whenever a value change is detected at its input.
@@ -710,6 +716,7 @@ Detector modules analyze incoming signals and detect something about them. The m
 
 
 ---
+<a name="audio-peak-detector"></a>
 **Audio Peak Detector** <br>
 
 ![Audio Peak Detector](img/Library-Images/Building/Detector/Audio-Peak-Detector.png)
@@ -727,6 +734,7 @@ Flashes red when an incoming audio signal exceeds the -1 to 1 output range. Comm
 
 
 ---
+<a name="change-detector"></a>
 **Change Detector** <br>
 
 ![Change Detector](img/Library-Images/Building/Detector/Change-Detector.png)
@@ -746,6 +754,7 @@ Outputs a gate pulse whenever a change in value is detected at its input. A comm
 
 
 ---
+<a name="high-low-detector"></a>
 **High-Low Detector** <br>
 
 ![High-Low Detector](img/Library-Images/Building/Detector/High-Low-Detector.png)
@@ -774,6 +783,7 @@ Detects the high and low point of an incoming signal. Very useful for ranging th
 
 
 ---
+<a name="up-down-detector"></a>
 **Up-Down Detector** <br>
 
 ![Up-Down Detector](img/Library-Images/Building/Detector/Up-Down-Detector.png)
@@ -793,6 +803,7 @@ Similar to the Change Detector, except it analyzes whether the signal is moving 
 
 <br>
 
+<a name="gate-building"></a>
 ### Gate
 
 These modules output 0 to 1 gate signals most often used to trigger sequencers or events.
@@ -800,6 +811,7 @@ These modules output 0 to 1 gate signals most often used to trigger sequencers o
 
 
 ---
+<a name="1-frame-pulse"></a>
 **1-Frame Pulse** <br>
 
 ![1-Frame Pulse](img/Library-Images/Building/Gate/1-Frame-Pulse.png)
