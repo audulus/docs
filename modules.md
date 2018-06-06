@@ -4468,9 +4468,9 @@ Attenuates a 0 to 1 modulation signal around a 0.5 center point. Useful for modu
 
 
 ---
-<a name="positive-domain-attenuverter"></a>
+<a name="modulation-positive-domain-attenuverter"></a>
 
-**Positive Domain Attenuverter** <br>
+**Modulation Positive Domain Attenuverter** <br>
 
 ![Modulation Positive-Domain Attenuverter](img/Library-Images/Attenuator/Modulation/Modulation-Positive-Domain-Attenuverter.png)
 
