@@ -540,14 +540,13 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 <br><a name="tocvisual"></a>
 ### [Visual](#visual-category)
 
-* [**SVG**](#svg-visual)
-  * [Cube](#cube)
 * [8 Point 3D Visualizer](#8-point-3d-visualizer)
 * [9 Point 3D Visualizer](#9-point-3d-visualizer)
 * [27 point 3D Visualizer](#27-point-3d-visualizer)
 * [Pong v1](#pong-v1)
 * [RGB TV](#rgb-tv)
-
+* [**SVG**](#svg-visual)
+  * [Cube](#cube)
 
 
 ***
@@ -5340,21 +5339,6 @@ Uses two mapper nodes to create the positive and negative swings of an oscillato
 
 These patches do not make any sound, but instead highlight the visual aspects of Audulus, mostly by using Light and RGB nodes.
 
-<br>
-<a name="svg-visual"></a>
-
-### SVG
-These graphics are collection of SVGs (scaleable vector graphics) for use in Audulus. This category will be expanding greatly over time as more icons are created.
-
----
-<a name="cube"></a>
-
-**Cube** <br> 
-
-![Cube](img/Library-Images/SVG/Cube.png)
-
-A cube SVG with labels.
-
 
 ---
 <a name="8-point-3d-visualizer"></a>
@@ -5401,7 +5385,20 @@ A real, honest-to-goodness recreation of the classic Atari game Pong in Audulus 
 
 A recreation of the metaphor of how a monitor works. The Scan, Color, and Brightness inputs accepts a 0 to 1 modulation source. As the modulation scans from left to right, top to bottom, each light node will sample the values present at the brightness and color inputs and store that sample as a value. With enough patience you could sequence frames of animation! However, the best way to use this module might be as a music visualizer. Attach an LFO that you synth is using to the color input and an envelope to the brightness input and you will get pulsing, color changing lights that track the movement of your patch.
 
+<br>
+<a name="svg-visual"></a>
 
+### SVG
+These graphics are collection of SVGs (scaleable vector graphics) for use in Audulus. This category will be expanding greatly over time as more icons are created.
+
+---
+<a name="cube"></a>
+
+**Cube** <br> 
+
+![Cube](img/Library-Images/SVG/Cube.png)
+
+A cube SVG with labels.
 
 
 
