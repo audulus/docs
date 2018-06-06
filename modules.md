@@ -175,7 +175,6 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
     * [Modulation to Radians](#modulation-to-radians)
   * [**Octave**](#octave-building)
     * [Octave to Hz](#octave-to-hz)
-    * [Octave to Note Number](#octave-to-note-number)
   * [**Radians**](#radians)
     * [Radians to Audio](#radians-to-audio)
     * [Radians to Degrees](#radians-to-degrees)
@@ -1979,6 +1978,7 @@ Rounds incoming signal to the nearest thousandths place.
 
 <br>
 <a name="samples-building"></a>
+
 #### Samples
 
 These modules translate the time period of a sample into other signal types.
@@ -1986,7 +1986,7 @@ These modules translate the time period of a sample into other signal types.
 ---
 <a name="samples-to-seconds"></a>
 
-**Samples to seconds** <br>
+**Samples to Seconds** <br>
 
 ![Samples to seconds](img/Library-Images/Building/Translation/Samples/Samples-to-Seconds.png)
 
