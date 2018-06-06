@@ -548,7 +548,6 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 * [**SVG**](#svg-visual)
   * [Cube](#cube)
 
-
 ***
 
 
@@ -4943,6 +4942,68 @@ These modules are deluxe versions of other analog modelling filters in Audulus. 
 
 Same as the SEM LPF but with extra controls for octave pitch tracking and an attenuator that feeds back audio from the output to the cutoff.
 
+<br>
+<a name="eq"></a>
+
+### EQ
+
+Short for equalizer, these modules are used for shaping your sounds, usually after filters and effects, but before the master mixer.
+
+---
+<a name="1073-eq"></a>
+
+**1073 EQ** <br>
+
+![1073 EQ](img/Library-Images/EQ/1073-EQ.png)
+
+A biquad-based EQ that uses the same frequency ranges as the famed Neve 1073 EQ. Not in any way intended to be a clone of the 1073, but a lot of the musicality of that EQ comes from intelligently chosen frequency points.
+
+---
+<a name="bass-boost"></a>
+
+**Bass Boost** <br>
+
+![Bass Boost](img/Library-Images/EQ/Bass-Boost.png)
+
+Boosts low frequencies by a few dBs. Mix control goes from no boost to boosted.
+
+---
+<a name="high-shelf-eq"></a>
+
+**High Shelf EQ** <br>
+
+![High Shelf EQ](img/Library-Images/EQ/High-Shelf-EQ.png)
+
+An HPF meant to be used as a finishing EQ that will attenuate bass frequencies below the cutoff set by the Hz knob. 
+
+---
+<a name="low-shelf-eq"></a>
+
+**Low Shelf EQ** <br>
+
+![Low Shelf EQ](img/Library-Images/EQ/Low-Shelf-EQ.png)
+
+An LPF meant to be used as a finishing EQ that will attenuate treble frequencies below the cutoff set by the Hz knob.
+
+---
+<a name="peak-eq"></a>
+
+**Peak EQ** <br>
+
+![Peak EQ](img/Library-Images/EQ/Peak-EQ.png)
+
+A BPF meant to be used as a finishing EQ that will attenuate or boost a specific frequency band at the cutoff set by the Hz knob.
+
+---
+<a name="treble-boost"></a>
+
+**Treble Boost** <br>
+
+![Treble Boost](img/Library-Images/EQ/Treble-Boost.png)
+
+Boosts high frequencies by a few dBs. Mix control goes from no boost to boosted.
+
+
 
 <br>
 <a name="lpf-vcf"></a>
@@ -5339,7 +5400,6 @@ Uses two mapper nodes to create the positive and negative swings of an oscillato
 
 These patches do not make any sound, but instead highlight the visual aspects of Audulus, mostly by using Light and RGB nodes.
 
-
 ---
 <a name="8-point-3d-visualizer"></a>
 
@@ -5399,75 +5459,5 @@ These graphics are collection of SVGs (scaleable vector graphics) for use in Aud
 ![Cube](img/Library-Images/SVG/Cube.png)
 
 A cube SVG with labels.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-
-## EQ
-
-Short for equalizer, these modules are used for shaping your sounds, usually after filters and effects, but before the master mixer.
-
----
-**1073 EQ** <br>
-
-![1073 EQ](img/Library-Images/EQ/1073-EQ.png)
-
-A biquad-based EQ that uses the same frequency ranges as the famed Neve 1073 EQ. Not in any way intended to be a clone of the 1073, but a lot of the musicality of that EQ comes from intelligently chosen frequency points.
-
----
-**Bass Boost** <br>
-
-![Bass Boost](img/Library-Images/EQ/Bass-Boost.png)
-
-Boosts low frequencies by a few dBs. Mix control goes from no boost to boosted.
-
----
-**High Shelf EQ** <br>
-
-![High Shelf EQ](img/Library-Images/EQ/High-Shelf-EQ.png)
-
-An HPF meant to be used as a finishing EQ that will attenuate bass frequencies below the cutoff set by the Hz knob. 
-
----
-**Low Shelf EQ** <br>
-
-![Low Shelf EQ](img/Library-Images/EQ/Low-Shelf-EQ.png)
-
-An LPF meant to be used as a finishing EQ that will attenuate treble frequencies below the cutoff set by the Hz knob.
-
----
-**Peak EQ** <br>
-
-![Peak EQ](img/Library-Images/EQ/Peak-EQ.png)
-
-A BPF meant to be used as a finishing EQ that will attenuate or boost a specific frequency band at the cutoff set by the Hz knob.
-
----
-**Treble Boost** <br>
-
-![Treble Boost](img/Library-Images/EQ/Treble-Boost.png)
-
-Boosts high frequencies by a few dBs. Mix control goes from no boost to boosted.
-
-
-
-
-
-
-
-
-
 
 
