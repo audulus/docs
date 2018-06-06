@@ -166,7 +166,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
     * [BPM to Hz](#bpm-to-hz)
   * [**Feedback Delay**](#feedback-delay)
     * [Feedback Delay to Seconds](#feedback-delay-to-seconds)
-  * [**Hz**](#hz)
+  * [**Hz**](#hz-building)
     * [Hz to BPM](#hz-to-bpm)
     * [Hz to Octave](#hz-to-octave)
     * [Hz to Seconds](#hz-to-seconds)
@@ -1572,6 +1572,7 @@ A spline with a perfect triangle shape.
 
 <br>
 <a name="template-building"></a>
+
 ### Template
 
 These are module templates that can be used to quickly build up a custom module of your own.
@@ -1694,7 +1695,7 @@ Translates the Feedback Delay time into seconds.
 
 
 <br>
-<a name="hz"></a>
+<a name="hz-building"></a>
 #### Hz
 
 These modules translate Hz (hertz) signals into other signal types.
