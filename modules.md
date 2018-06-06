@@ -482,7 +482,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [BPF](#bpf-biquad)
   * [HPF](#hpf-biquad)
   * [LP-HP](#lp-hp-biquad)
-  * [LPF](#lpf-biquad-biquad)
+  * [LPF](#lpf-biquad)
   * [Multimode Filter](#multimode-filter-biquad)
   * [Notch](#notch-biquad)
 * [**DLX**](#dlx-vcf)
