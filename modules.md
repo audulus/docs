@@ -478,13 +478,13 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 ### [VCF](#vcf-category)
 
 * [**Biquad**](#biquad-vcf)
-  * [APF](#apf)
-  * [BPF](#bpf)
-  * [HPF](#hpf)
-  * [LP-HP](#lp-hp)
-  * [LPF](#lpf)
-  * [Multimode Filter](#multimode-filter)
-  * [Notch](#notch)
+  * [APF](#apf-biquad)
+  * [BPF](#bpf-biquad)
+  * [HPF](#hpf-biquad)
+  * [LP-HP](#lp-hp-biquad)
+  * [LPF](#lpf-biquad-biquad)
+  * [Multimode Filter](#multimode-filter-biquad)
+  * [Notch](#notch-biquad)
 * [**DLX**](#dlx-vcf)
   * [SEM LPF DLX](#sem-lpf-dlx)
 * [**EQ**](#eq-vcf)
@@ -4864,7 +4864,7 @@ These modules are called VCFs, or voltage controlled filters. They are a huge pa
 These VCFs are created using the BiQuad node. Biquad filters are very low-CPU digital filters. They might not sound as creamy or warm as the analog-modelling filters, but that doesn’t mean they’re not useful in their own right. They excel when their cutoff points are not modulated and are used internally in modules like phasers or analog-modelling delays. They are also great for when you want to have a high-polyphony synthesizer patch when you are working on a device that has limited CPU overhead. Although the analog modelling filters in Audulus take up as little CPU as possible, running 16 of them in one patch, plus oscillators, plus effects, plus modulators can strain a system. In general, it is up to your taste to find which ones you like the most. Biquad filters are also much simpler to build and understand than filters made with the z-1 node.
 
 ---
-<a name="apf"></a>
+<a name="apf-biquad"></a>
 
 **APF** <br>
 
@@ -4873,7 +4873,7 @@ These VCFs are created using the BiQuad node. Biquad filters are very low-CPU di
 APF or allpass filters change the phase relationship of frequencies without attenuating them. A key ingredient in phase shifters.
 
 ---
-<a name="bpf"></a>
+<a name="bpf-biquad"></a>
 
 **BPF** <br>
 
@@ -4882,7 +4882,7 @@ APF or allpass filters change the phase relationship of frequencies without atte
 BPF or bandpass filters attenuate frequencies lower and higher than the cutoff point.
 
 ---
-<a name="hpf"></a>
+<a name="hpf-biquad"></a>
 
 **HPF** <br>
 
@@ -4892,7 +4892,7 @@ BPF or bandpass filters attenuate frequencies lower and higher than the cutoff p
 HPF or highpass filters attenuate frequencies lower than the cutoff point.
 
 ---
-<a name="lp-hp"></a>
+<a name="lp-hp-biquad"></a>
 
 **LP-HP** <br>
 
@@ -4901,7 +4901,7 @@ HPF or highpass filters attenuate frequencies lower than the cutoff point.
 Morphs between a lowpass filter and highpass filter.
 
 ---
-<a name="lpf"></a>
+<a name="lpf-biquad"></a>
 
 **LPF** <br>
 
@@ -4910,7 +4910,7 @@ Morphs between a lowpass filter and highpass filter.
 LPF or lowpass filters attenuate frequencies higher than the cutoff point.
 
 ---
-<a name="multimode-filter"></a>
+<a name="multimode-filter-biquad"></a>
 
 **Multimode Filter** <br>
 
@@ -4919,7 +4919,7 @@ LPF or lowpass filters attenuate frequencies higher than the cutoff point.
 A filter with selectable modes. When the Hz knob is turned all the way down, the input below it turns into an octave tracking input. Width controls the bandwidth of the BPF.
 
 ---
-<a name="notch"></a>
+<a name="notch-biquad"></a>
 
 **Notch** <br>
 
