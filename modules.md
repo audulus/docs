@@ -290,10 +290,11 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 <br><a name="tocmeter"></a>
 ### [Meter](#meter-category)
 
-* [**Oscilloscope**](#oscilloscope)
 * [Octave Keyboard and Tune Meter](#octave-keyboard-and-tune-meter)
 * [Octave Keyboard Meter Horizontal](#octave-keyboard-meter-horizontal)
 * [Octave Keyboard Meter Vertical](#octave-keyboard-meter-vertical)
+* [**Oscilloscope**](#oscilloscope)
+  * [Modulation x4 Scope](#modulation-x4-scope) <br>
 
 <br><a name="tocmixer"></a>
 ### [Mixer](#mixer-category)
