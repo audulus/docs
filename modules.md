@@ -2535,13 +2535,13 @@ Another distortion module taken from an audio DSP research paper, this tube over
 Reduces the number of samples for the audio as it comes through from the sample rate of 44.1kHz to much, much lower sample rates. The main difference between downsampling distortion and bitcrushing (which both produce staircase-like wave shapes) is that downsampling effectively limits the upper frequency range of the sound coming through it, where bitcrushing does not. This can sound awful or awfully amazing, depending on how you use it. Great for mangling drums or creating digital chaos.
 
 ---
-<a name="hypertangent-overdrive"></a>
+<a name="hyper-tangent-overdrive"></a>
 
-**Hypertangent Overdrive** <br>
+**Hyper Tangent Overdrive** <br>
 
 ![Hypertangent Overdrive](img/Library-Images/Effect/Distortion/Hypertangent-Overdrive.png)
 
-Uses a simple hypertangent (tanh(x)) expression to emulate transistor saturation.
+Uses a simple hyper tangent (tanh(x)) expression to emulate transistor saturation.
 
 ---
 <a name="sigmoid-overdrive-a"></a>
