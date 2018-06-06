@@ -197,7 +197,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 * [Via](#vias)
 
 <br><a name="toccollection"></a>
-### [Collection](#collection)
+### [Collection](#collection-category)
 * [**Patches**](#patches)
   * [**Clock**](#clock-collection)
     * [Dueling Phase Clock Logic A-R Envelopes](#dueling-phase-clock-logic-a-r-envelopes)
@@ -208,7 +208,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [Gates](#gates-collection)
 
 <br><a name="toceffect"></a>
-### [Effect](#effect)
+### [Effect](#effect-category)
 * [**Autopan**](#autopan)
   * [Sine Skew Autopan](#sine-skew-autopan)
 * [**Delay**](#delay)
@@ -259,7 +259,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 <br><a name="tocinputoutput"></a>
 
-### [Input-Output](#input-output)
+### [Input-Output](#input-output-category)
 * [**Controller**](#controller)
   * [xy Pad - 8x8](#xy-pad-8x8)
 * [**ES-8**](#es-8)
@@ -275,7 +275,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 * [Audio Output Stereo](#audio-output-stereo)
 
 <br><a name="tocinstrument"></a>
-### [Instrument](#instrument)
+### [Instrument](#instrument-category)
 
 * [**Drum**](#drum)
   * [Cymbal](#cymbal)
@@ -289,7 +289,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [Smol Synth](#smol-synth)
 
 <br><a name="tocmeter"></a>
-### [Meter](#meter)
+### [Meter](#meter-category)
 
 * [**Oscilloscope**](#oscilloscope)
 * [Octave Keyboard and Tune Meter](#octave-keyboard-and-tune-meter)
@@ -297,7 +297,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 * [Octave Keyboard Meter Vertical](#octave-keyboard-meter-vertical)
 
 <br><a name="tocmixer"></a>
-### [Mixer](#mixer)
+### [Mixer](#mixer-category)
 
 * [3D 8 Input Mixer](#3d-8-input-mixer)
 * [4x2 Stereo Output Mixer](#4x2-stereo-output-mixer)
@@ -310,7 +310,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 * [VCO Mixer 6x1](#vco-mixer-6x1)
 
 <br><a name="tocmodulation"></a>
-### [Modulation](#modulation)
+### [Modulation](#modulation-category)
 
 * [**Chaos**](#chaos)
   * [1D Chaos Decay](#1d-chaos-decay)
@@ -363,7 +363,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [Modulation Threshold Random Generator](#modulation-threshold-random-generator)
 
 <br><a name="tocsequencer"></a>
-### [Sequencer](#sequencer)
+### [Sequencer](#sequencer-category)
 
 * [**3D**](#3d-sequencer)
   * [3D Cube 8 Step Sequencer](#3D-cube-8-step-sequencer)
@@ -401,7 +401,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [5 Step Shape Gate-Trigger Sequencer](#5-step-shape-gate-trigger-sequencer)
 
 <br><a name="tocutility"></a>
-### [Utility](#utility)
+### [Utility](#utility-category)
 
 * [**Audio**](#audio-utility)
   * [Audio Attenuverter](#audio-attenuverter)
@@ -465,7 +465,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [Random Chance Switch AB](#random-chance-switch-ab)
 
 <br><a name="tocvca"></a>
-### [VCA](#vca)
+### [VCA](#vca-category)
 
 * [Digital Exponential VCA](#digital-exponential-vca)
 * [Digital Linear VCA](#digital-linear-vca)
@@ -475,7 +475,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 * [Tube VCA](#tube-vca)
 
 <br><a name="tocvcf"></a>
-### [VCF](#vcf)
+### [VCF](#vcf-category)
 
 * [**Biquad**](#biquad-vcf)
   * [APF](#apf)
@@ -505,7 +505,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [z-1 SVF](#z-1-svf)
 
 <br><a name="tocvco"></a>
-### [VCO](#vco)
+### [VCO](#vco-category)
 
 * [**Additive**](#additive-vco)
   * [Chebyshev Additive VCO](#chebyshev-additive-vco)
@@ -538,7 +538,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [Wavebender VCO](#wavebender-vco)
 
 <br><a name="tocvisual"></a>
-### [Visual](#visual)
+### [Visual](#visual-category)
 
 * [**SVG**](#svg-visual)
   * [Cube](#cube)
@@ -2110,7 +2110,7 @@ Vias are special pass-through tabs that help arrange wires in Audulus. They are 
 
 
 <br>
-<a name="collection"></a>
+<a name="collection-category"></a>
 
 ## Collection
 
@@ -2336,7 +2336,7 @@ A beginner’s look into how to create a self-playing Audulus patch. Beings with
 The pitch is sent to a basic oscillator which is being filtered by an SEM-style filter. The filter’s cutoff point is slowly modulated by a sine LFO to give the filter a little animation. The output of the quantizer is also fed into the filter to give the filter octave tracking. The master clock pulse is also used as a gate for the filter envelope. The filter’s envelope is having its max time parameter modulated by a slow LFO to give the filter some further animation. The master clock is also gating the envelope that is modulating the VCA, and finally the synth is fed through an analog delay and sent to the audio output.
 
 <br>
-<a name="effect"></a>
+<a name="effect-category"></a>
 
 ## Effect
 
@@ -2807,7 +2807,7 @@ Folds an incoming wave using a sine expression. The input wave is multiplied by 
 
 
 <br>
-<a name="input-output"></a>
+<a name="input-output-category"></a>
 
 ## Input-Output
 
@@ -2935,6 +2935,7 @@ A bare bones MIDI input with octave signal output and gate only. To change polyp
 
 
 <br>
+<a name="meter-category"></a>
 
 ## Meter
 
@@ -2988,7 +2989,7 @@ Four Waveform nodes in one package scaled to meter modulation signals.
 
 
 <br>
-<a name="mixer"></a>
+<a name="mixer-category"></a>
 
 ## Mixer
 
@@ -3078,7 +3079,7 @@ An automatically levelling mixer that allows you to attach up to 6 VCOs and alwa
 
 
 <br>
-<a name="modulation"></a>
+<a name="modulation-category"></a>
 
 ## Modulation
 
@@ -3600,7 +3601,7 @@ A white-noise sampling random generator that samples a new random 0 to 1 modulat
 Takes a modulation input and outputs a new random sample every time the threshold, set by the knob at the bottom, is crossed. Perfect for turning modulation and envelope waves into sample and hold triggers.
 
 <br>
-<a name="sequencer"></a>
+<a name="sequencer-category"></a>
 
 ## Sequencer
 
@@ -3957,7 +3958,7 @@ Outputs a gate based on a shape drawn by the buttons on the module. The shape ro
 
 
 <br>
-<a name="utility"></a>
+<a name="utility-category"></a>
 
 ## Utility
 
@@ -4784,7 +4785,7 @@ Same as the Chance Switch AB, but with a R or randomize input gate for the A/B c
 
 <br>
 
-<a name="vca"></a>
+<a name="vca-category"></a>
 
 ## VCA
 
@@ -4846,7 +4847,7 @@ An analog-modelling module that recreates the sound of a tube-based VCA. Tubes w
 
 
 <br>
-<a name="vcf"></a>
+<a name="vcf-category"></a>
 
 ## VCF
 
@@ -5037,7 +5038,7 @@ A state variable filter made with the z-1 node with outputs for LPF, BPF, HPF, a
 
 
 <br>
-<a name="vco"></a>
+<a name="vco-category"></a>
 
 ## VCO
 
@@ -5330,7 +5331,7 @@ Uses two mapper nodes to create the positive and negative swings of an oscillato
 
 
 <br>
-<a name="visual"></a>
+<a name="visual-category"></a>
 
 ## Visual
 
