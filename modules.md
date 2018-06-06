@@ -5387,11 +5387,14 @@ A recreation of the metaphor of how a monitor works. The Scan, Color, and Bright
 
 
 <br>
+<a name="svg-visual"></a>
 
 ### SVG
 These graphics are collection of SVGs (scaleable vector graphics) for use in Audulus. This category will be expanding greatly over time as more icons are created.
 
 ---
+<a name="cube"></a>
+
 **Cube** <br> 
 
 ![Cube](img/Library-Images/SVG/Cube.png)
