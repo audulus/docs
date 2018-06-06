@@ -65,11 +65,6 @@ Semitones jump in steps of 1/12. If 0 = A, then 1/12 = Bb; 2/12 = B; 3/12 = C; a
 The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and 5 = 14,080Hz, this 10 octave range covers most audible notes. 
 
 
-
-
-
-
-
 <br>
 
 # Module Library
@@ -103,7 +98,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 
 <br><a name="tocbuilding"></a>
-### [Building](#building)
+### [Building](#building-category)
 * [**Binary**](#binary)
   * [Pattern to Decimal Code](#pattern-to-decimal-code)
 * [**Counter**](#counter)
@@ -559,7 +554,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 
 
-<a name="building"></a>
+<a name="building-category"></a>
 
 ## Building 
 
