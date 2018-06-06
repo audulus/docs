@@ -3932,7 +3932,7 @@ This sequencer has four simultaneous outputs that read the sequence left to righ
 These modules create random sequences that are also non-repeating. Although it is statistically astronomically unlikely that a sequence generated from white noise 32-bit numbers will have two or more step values that are exactly alike, they do tend to create values that are close enough that, once put through a quantizer, they end up playing the same note. This class of sequencer solves this problem by creating equally spaced values that are less likely to result in the same note being played twice within one round of the sequence.
 
 ---
-<a name="random-non-repeating-sequencer"></a>
+<a name="random-non-repeating-4-step-sequencer"></a>
 
 **Random Non-Repeating 4 Step Sequencer** <br>
 
