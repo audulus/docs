@@ -2683,7 +2683,7 @@ Phasers use chained all-pass filters to change the phase relationship of frequen
 A 12 stage phaser that has no internal LFO. You can attach your own LFO, or you can also use an envelope to modulate the phaser effect. The top knob is mix to balance dry and wet signal. The feedback control adjusts how much of the signal is fed back through the allpass loop (which makes for a deeper phasing sound). The attenuate-offset controls adjust how much and in what range the incoming modulation tweaks the filter cutoff.
 
 ---
-<a name="stereo-1-6-stage-analog-phaser"></a>
+<a name="stereo-1-6-stage-pseudo-phaser"></a>
 
 **Stereo 1-6 Stage Pseudo Phaser** <br>
 
