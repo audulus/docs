@@ -5340,8 +5340,24 @@ Uses two mapper nodes to create the positive and negative swings of an oscillato
 
 These patches do not make any sound, but instead highlight the visual aspects of Audulus, mostly by using Light and RGB nodes.
 
----
+<br>
 <a name="svg-visual"></a>
+
+### SVG
+These graphics are collection of SVGs (scaleable vector graphics) for use in Audulus. This category will be expanding greatly over time as more icons are created.
+
+---
+<a name="cube"></a>
+
+**Cube** <br> 
+
+![Cube](img/Library-Images/SVG/Cube.png)
+
+A cube SVG with labels.
+
+
+---
+<a name="8-point-3d-visualizer"></a>
 
 **8 Point 3D Visualizer** <br>
 
@@ -5378,6 +5394,7 @@ A real, honest-to-goodness recreation of the classic Atari game Pong in Audulus 
 
 ---
 <a name="rgb-tv"></a>
+
 **RGB TV** <br>
 
 ![RGB TV](img/Library-Images/Visual/RGB-TV.png)
@@ -5386,20 +5403,7 @@ A recreation of the metaphor of how a monitor works. The Scan, Color, and Bright
 
 
 
-<br>
-<a name="svg-visual"></a>
 
-### SVG
-These graphics are collection of SVGs (scaleable vector graphics) for use in Audulus. This category will be expanding greatly over time as more icons are created.
-
----
-<a name="cube"></a>
-
-**Cube** <br> 
-
-![Cube](img/Library-Images/SVG/Cube.png)
-
-A cube SVG with labels.
 
 
 
