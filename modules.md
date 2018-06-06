@@ -118,7 +118,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [Gate to 10ms Pulse](#gate-to-10ms-pulse)
 * [**Input-Output**](#input-output-building)
   * [Audio Clip Light Output](#audio-clip-light-output)
-  * [Audio Light Input-Output](#audio-light-intput-output)
+  * [Audio Light Input-Output](#audio-light-input-output)
   * [Gate Input-Output](#gate-input-output)
   * [Modulation Input-Output](#modulation-input-output)
   * [Octave-Input-Output](#octave-input-output)
@@ -157,7 +157,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [Value Distributor](#value-distributor)
 * [**Spline**](#spline-building)
   * [Triangle Spline Node](#triangle-spline-node)
-* [**Templates**](#templates-building)
+* [**Template**](#template-building)
   * [VCO Template](#vco-template)
 * [**Translation**](#translation)
   * [**Audio**](#audio-translation)
@@ -1571,8 +1571,8 @@ A spline with a perfect triangle shape.
 
 
 <br>
-<a name="templates-building"></a>
-### Templates
+<a name="template-building"></a>
+### Template
 
 These are module templates that can be used to quickly build up a custom module of your own.
 
