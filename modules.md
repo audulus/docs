@@ -527,7 +527,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [z-1 Pink-White Noise](#z-1-pink-white-noise)
 * [**PM**](#pm-vco)
   * [Phase Modulation VCO](#phase-modulation-vco)
-* [**Subharmonic**](#subharmonic-vco)
+* [**Subharmonic**](#subharmonic-vco-vco)
   * [Subharmonic VCO](#subharmonic-vco)
 * [**Supersaw**](#supersaw-vco)
   * [7even Deadly Saws](#7even-deadly-saws-vco)
