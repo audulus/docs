@@ -4943,7 +4943,7 @@ These modules are deluxe versions of other analog modelling filters in Audulus. 
 Same as the SEM LPF but with extra controls for octave pitch tracking and an attenuator that feeds back audio from the output to the cutoff.
 
 <br>
-<a name="eq"></a>
+<a name="eq-vcf"></a>
 
 ### EQ
 
