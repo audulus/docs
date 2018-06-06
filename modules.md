@@ -3489,7 +3489,7 @@ Crossfades between two synced LFOs of different shapes. The top right knob contr
 Crossfades between FM (frequency modulation) and AM (amplitude modulation) between two sine LFOs. The top two controls are the speed of the main LFO and the speed of the modulating LFO. The F/AM control fades between all frequency modulation and all amplitude modulation. Halfway is a mixture of both types of modulation. The attenuate-offset knobs control the overall range of the LFO’s output.
 
 ---
-<a name=fm-dual-waveshape-syncable-lfo"></a>
+<a name="fm-dual-waveshape-syncable-lfo"></a>
 
 **FM Dual Waveshape Syncable LFO** <br>
 
