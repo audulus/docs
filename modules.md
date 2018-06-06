@@ -2136,7 +2136,7 @@ A collection of all of the gate modules.
 
 
 <br>
-<a name="instrument"></a>
+<a name="instrument-category"></a>
 
 ### Instrument
 
