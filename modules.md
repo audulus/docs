@@ -509,7 +509,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 * [**Additive**](#additive-vco)
   * [Chebyshev Additive VCO](#chebyshev-additive-vco)
-* [**Basic**](#basic-vco)
+* [**Basic**](#basic-vco-vco)
   * [3ceeoh mk2](#3ceeoh-mk2)
   * [Basic VCO](#basic-vco)
   * [Crossfade Suboctave VCO](#crossfade-suboctave-vco)
@@ -5048,9 +5048,9 @@ A state variable filter made with the z-1 node with outputs for LPF, BPF, HPF, a
 These modules are the core of modular synthesis. VCOs (voltage controlled oscillators) create sound by oscillating or moving back and forth from positive to negative values very quickly. The shape of these oscillations create different sounds. A sine wave sounds very plain when compared to an aggressive, pulse-width modulated square wave. There are many different kinds of VCOs that use all sorts of synthesis techniques to create their voice. This category also includes noise modules. Noise is often the secret sauce for creating really great sounding synthesizer patches.
 
 <br>
+<a name="additive-vco"></a>
 
 ### Additive
-<a name="additive-vco"></a>
 
 These modules use combinations of sine waves at different harmonics and add them together to create more harmonically complex tones. 
 
@@ -5086,7 +5086,7 @@ Uses a series of Chebyshev polynomials to transform a single sine wave into many
 
 
 <br>
-<a name="basic-vco"></a>
+<a name="basic-vco-vco"></a>
 
 ### Basic
 
