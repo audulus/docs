@@ -366,7 +366,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 ### [Sequencer](#sequencer-category)
 
 * [**3D**](#3d-sequencer)
-  * [3D Cube 8 Step Sequencer](#3D-cube-8-step-sequencer)
+  * [3D Cube 8 Step Sequencer](#3d-8-step-sequencer)
 * [**Algorithmic**](#algorithmic-sequencer)
   * [Euclidean Gate Sequencer](#euclidean-gate-sequencer)
   * [Random Melody](#random-melody)
