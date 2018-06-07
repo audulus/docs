@@ -548,16 +548,14 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 * [**SVG**](#svg-visual)
   * [Cube](#cube)
 
-***
+---
 
-
-
+<br>
 <a name="building-category"></a>
 
 ## Building 
 
 Building modules are not often used by themselves, but are instead used to create other modules. One of the most used building modules is the Octave to Hz converter. It takes an incoming octave signal and converts it in the Hz value to control an oscillator or filter cutoff. Another common building module is the Count Up module, which counts to a specified number each gate pulse and then resets. You will find them most often in sequencers. Another very common set of building modules are the light nodes which are used to both indicate what type of signal is inputted our outputted and to display the signal strength.
-
 
 <br>
 <a name="binary"></a>
@@ -566,9 +564,8 @@ Building modules are not often used by themselves, but are instead used to creat
 
 Binary building modules use binary numbers as a way to store information. They are typically used to store chains of on/off patterns as decimals to be reconverted to binary in a pattern sequencer.
 
-
-
 ---
+<br>
 <a name="pattern-to-decimal-code"></a>
 
 **Pattern to Decimal Code** <br>
