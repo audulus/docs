@@ -489,6 +489,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 <br>
 <a name="tocvcf"></a>
+
 ### [VCF](#vcf-category)
 * [**Biquad**](#biquad-vcf)
   * [APF](#apf-biquad)
