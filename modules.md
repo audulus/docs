@@ -98,6 +98,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 <br>
 <a name="tocbuilding"></a>
+
 ### [Building](#building-category)
 * [**Binary**](#binary)
   * [Pattern to Decimal Code](#pattern-to-decimal-code)
@@ -197,6 +198,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 <br>
 <a name="toccollection"></a>
+
 ### [Collection](#collection-category)
 * [**Patches**](#patches)
   * [**Clock**](#clock-collection)
@@ -209,6 +211,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 <br>
 <a name="toceffect"></a>
+
 ### [Effect](#effect-category)
 * [**Autopan**](#autopan)
   * [Sine Skew Autopan](#sine-skew-autopan)
@@ -260,6 +263,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 <br>
 <a name="tocinputoutput"></a>
+
 ### [Input-Output](#input-output-category)
 * [**Controller**](#controller)
   * [xy Pad - 8x8](#xy-pad-8x8)
@@ -277,6 +281,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 <br>
 <a name="tocinstrument"></a>
+
 ### [Instrument](#instrument-category)
 * [**Drum**](#drum)
   * [Cymbal](#cymbal)
@@ -291,6 +296,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 <br>
 <a name="tocmeter"></a>
+
 ### [Meter](#meter-category)
 * [Octave Keyboard and Tune Meter](#octave-keyboard-and-tune-meter)
 * [Octave Keyboard Meter Horizontal](#octave-keyboard-meter-horizontal)
@@ -300,6 +306,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 <br>
 <a name="tocmixer"></a>
+
 ### [Mixer](#mixer-category)
 * [3D 8 Input Mixer](#3d-8-input-mixer)
 * [4x2 Stereo Output Mixer](#4x2-stereo-output-mixer)
@@ -313,6 +320,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 <br>
 <a name="tocmodulation"></a>
+
 ### [Modulation](#modulation-category)
 * [**Chaos**](#chaos)
   * [1D Chaos Decay](#1d-chaos-decay)
@@ -366,6 +374,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 <br>
 <a name="tocsequencer"></a>
+
 ### [Sequencer](#sequencer-category)
 * [**3D**](#3d-sequencer)
   * [3D Cube 8 Step Sequencer](#3d-cube-8-step-sequencer)
@@ -404,6 +413,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 <br>
 <a name="tocutility"></a>
+
 ### [Utility](#utility-category)
 * [**Audio**](#audio-utility)
   * [Audio Attenuverter](#audio-attenuverter)
@@ -468,6 +478,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 <br>
 <a name="tocvca"></a>
+
 ### [VCA](#vca-category)
 * [Digital Exponential VCA](#digital-exponential-vca)
 * [Digital Linear VCA](#digital-linear-vca)
@@ -508,6 +519,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 <br>
 <a name="tocvco"></a>
+
 ### [VCO](#vco-category)
 * [**Additive**](#additive-vco)
   * [Chebyshev Additive VCO](#chebyshev-additive-vco)
@@ -541,6 +553,7 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 
 <br>
 <a name="tocvisual"></a>
+
 ### [Visual](#visual-category)
 * [8 Point 3D Visualizer](#8-point-3d-visualizer)
 * [9 Point 3D Visualizer](#9-point-3d-visualizer)
