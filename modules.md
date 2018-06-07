@@ -587,7 +587,7 @@ Binary building modules use binary numbers as a way to store information. They a
 
 <br>
 
-![Pattern to Decimal Code](img/Library-Images/Building/Binary/pattern-to-decimal-code.png)
+![Pattern to Decimal Code](img/Library-Images/Building/Binary/pattern-to-decimal-code)
 
 Output | Signal Range
 :--- | :---
