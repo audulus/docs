@@ -560,7 +560,7 @@ Building modules are not often used by themselves, but are instead used to creat
 <br>
 <a name="binary"></a>
 
-### Binary
+## Building/Binary
 
 Binary building modules use binary numbers as a way to store information. They are typically used to store chains of on/off patterns as decimals to be reconverted to binary in a pattern sequencer.
 
@@ -590,7 +590,7 @@ Turns a 16 step pattern into a decimal number that can be used to create rhythmi
 <br>
 <a name="Counter"></a>
 
-### Counter
+## Building/Counter
 
 Counters are modules that count up or down in sequence when pulsed with a gate or somehow count time. They are most often used in sequencers.
 
