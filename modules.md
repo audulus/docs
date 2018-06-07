@@ -96,8 +96,8 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 ## [Visual](#tocvisual)
 
 
-
-<br><a name="tocbuilding"></a>
+<br>
+<a name="tocbuilding"></a>
 ### [Building](#building-category)
 * [**Binary**](#binary)
   * [Pattern to Decimal Code](#pattern-to-decimal-code)
@@ -195,7 +195,8 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 * [Via Reversed](#vias)
 * [Via](#vias)
 
-<br><a name="toccollection"></a>
+<br>
+<a name="toccollection"></a>
 ### [Collection](#collection-category)
 * [**Patches**](#patches)
   * [**Clock**](#clock-collection)
@@ -206,7 +207,8 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [Clocks](#clocks-collection)
   * [Gates](#gates-collection)
 
-<br><a name="toceffect"></a>
+<br>
+<a name="toceffect"></a>
 ### [Effect](#effect-category)
 * [**Autopan**](#autopan)
   * [Sine Skew Autopan](#sine-skew-autopan)
@@ -256,8 +258,8 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [RSWF-1 Wavefolder](#rswf-1-wavefolder)
   * [SineFold](#sinefold)
 
-<br><a name="tocinputoutput"></a>
-
+<br>
+<a name="tocinputoutput"></a>
 ### [Input-Output](#input-output-category)
 * [**Controller**](#controller)
   * [xy Pad - 8x8](#xy-pad-8x8)
@@ -273,9 +275,9 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 * [Audio Output Mono](#audio-output-mono)
 * [Audio Output Stereo](#audio-output-stereo)
 
-<br><a name="tocinstrument"></a>
+<br>
+<a name="tocinstrument"></a>
 ### [Instrument](#instrument-category)
-
 * [**Drum**](#drum)
   * [Cymbal](#cymbal)
   * [Kick](#kick)
@@ -287,18 +289,18 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [K35 Curved Synth](#k35-curved-synth)
   * [Smol Synth](#smol-synth)
 
-<br><a name="tocmeter"></a>
+<br>
+<a name="tocmeter"></a>
 ### [Meter](#meter-category)
-
 * [Octave Keyboard and Tune Meter](#octave-keyboard-and-tune-meter)
 * [Octave Keyboard Meter Horizontal](#octave-keyboard-meter-horizontal)
 * [Octave Keyboard Meter Vertical](#octave-keyboard-meter-vertical)
 * [**Oscilloscope**](#oscilloscope)
   * [Modulation x4 Scope](#modulation-x4-scope) <br>
 
-<br><a name="tocmixer"></a>
+<br>
+<a name="tocmixer"></a>
 ### [Mixer](#mixer-category)
-
 * [3D 8 Input Mixer](#3d-8-input-mixer)
 * [4x2 Stereo Output Mixer](#4x2-stereo-output-mixer)
 * [8x2 Mixer](#8x2-mixer)
@@ -309,9 +311,9 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 * [VCO Mixer 3x1](#vco-mixer-3x1)
 * [VCO Mixer 6x1](#vco-mixer-6x1)
 
-<br><a name="tocmodulation"></a>
+<br>
+<a name="tocmodulation"></a>
 ### [Modulation](#modulation-category)
-
 * [**Chaos**](#chaos)
   * [1D Chaos Decay](#1d-chaos-decay)
   * [1D Chaos Gate](#1d-chaos-gate)
@@ -362,9 +364,9 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [Gateable Sample + Hold](#gateable-sample-and-hold)
   * [Modulation Threshold Random Generator](#modulation-threshold-random-generator)
 
-<br><a name="tocsequencer"></a>
+<br>
+<a name="tocsequencer"></a>
 ### [Sequencer](#sequencer-category)
-
 * [**3D**](#3d-sequencer)
   * [3D Cube 8 Step Sequencer](#3d-cube-8-step-sequencer)
 * [**Algorithmic**](#algorithmic-sequencer)
@@ -400,9 +402,9 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 * [**Shape**](#shape-sequencer)
   * [5 Step Shape Gate-Trigger Sequencer](#5-step-shape-gate-trigger-sequencer)
 
-<br><a name="tocutility"></a>
+<br>
+<a name="tocutility"></a>
 ### [Utility](#utility-category)
-
 * [**Audio**](#audio-utility)
   * [Audio Attenuverter](#audio-attenuverter)
 * [**Clock**](#clock-utility)
@@ -464,9 +466,9 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [Chance Switch AB](#chance-switch-ab)
   * [Random Chance Switch AB](#random-chance-switch-ab)
 
-<br><a name="tocvca"></a>
+<br>
+<a name="tocvca"></a>
 ### [VCA](#vca-category)
-
 * [Digital Exponential VCA](#digital-exponential-vca)
 * [Digital Linear VCA](#digital-linear-vca)
 * [Digital Logarithmic VCA](#digital-logarithmic-vca)
@@ -474,9 +476,9 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 * [JFET VCA](#jfet-vca)
 * [Tube VCA](#tube-vca)
 
-<br><a name="tocvcf"></a>
+<br>
+<a name="tocvcf"></a>
 ### [VCF](#vcf-category)
-
 * [**Biquad**](#biquad-vcf)
   * [APF](#apf-biquad)
   * [BPF](#bpf-biquad)
@@ -504,9 +506,9 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
 * [**SVF**](#svf-vcf)
   * [z-1 SVF](#z-1-svf)
 
-<br><a name="tocvco"></a>
+<br>
+<a name="tocvco"></a>
 ### [VCO](#vco-category)
-
 * [**Additive**](#additive-vco)
   * [Chebyshev Additive VCO](#chebyshev-additive-vco)
 * [**Basic**](#basic-vco-vco)
@@ -537,9 +539,9 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [Skew Triangle VCO](#skew-triangle-vco)
   * [Wavebender VCO](#wavebender-vco)
 
-<br><a name="tocvisual"></a>
+<br>
+<a name="tocvisual"></a>
 ### [Visual](#visual-category)
-
 * [8 Point 3D Visualizer](#8-point-3d-visualizer)
 * [9 Point 3D Visualizer](#9-point-3d-visualizer)
 * [27 point 3D Visualizer](#27-point-3d-visualizer)
@@ -549,7 +551,6 @@ The octave signal's -5 to 5 output range is a soft limit. Since -5 = 13.75Hz and
   * [Cube](#cube)
 
 ---
-
 <br>
 <a name="building-category"></a>
 
@@ -560,7 +561,7 @@ Building modules are not often used by themselves, but are instead used to creat
 <br>
 <a name="binary"></a>
 
-## Building/Binary
+## Binary
 
 Binary building modules use binary numbers as a way to store information. They are typically used to store chains of on/off patterns as decimals to be reconverted to binary in a pattern sequencer.
 
@@ -568,7 +569,7 @@ Binary building modules use binary numbers as a way to store information. They a
 <br>
 <a name="pattern-to-decimal-code"></a>
 
-**Pattern to Decimal Code** <br>
+**-Pattern to Decimal Code** <br>
 
 ![Pattern to Decimal Code](img/Library-Images/Building/Binary/Pattern-to-Decimal-Code.png)
 
@@ -590,7 +591,7 @@ Turns a 16 step pattern into a decimal number that can be used to create rhythmi
 <br>
 <a name="Counter"></a>
 
-## Building/Counter
+## Counter
 
 Counters are modules that count up or down in sequence when pulsed with a gate or somehow count time. They are most often used in sequencers.
 
