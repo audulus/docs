@@ -25,13 +25,6 @@ If you need help or have found a bug, contact us at:
 
 *We are also available to help you debug your Audulus patches.* If Audulus is working fine, but your patch is not, please post it on the [Audulus forum](http://forum.audulus.com) and we'll do our best to help you fix it! 
 
----
-
-## Contents
-
-* Will be replaced with the ToC, excluding the "Contents" header
-{:toc}
-
 ## UI Basics (iPad/iPhone)
  
 ### The iPad/iPhone Audulus UI at a glance
