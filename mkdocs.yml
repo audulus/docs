@@ -1,0 +1,13 @@
+site_name: Audulus
+pages:
+    - Getting Started: index.md
+    - Nodes Reference: nodes.md
+    - Modules References: modules.md
+
+# Repository
+repo_name: 'audulus/docs'
+repo_url: 'https://github.com/audulus/docs'
+
+theme: 'material' 
+extra:
+  logo: 'img/Audulus_logo.svg'
