@@ -7,4 +7,5 @@ repository: https://github.com/audulus/docs
 timezone: America/Los_Angeles
 twitter:
   username: audulus 
-logo: "/img/logo-2x.png"
+logo: "/img/Audulus_logo.svg"
+theme: jekyll-theme-minimal
