@@ -1,0 +1,10 @@
+---
+version: 3.5 
+name: Audulus • A universe of sound at your fingertips. 
+description: Modular audio environment. 
+url: https://docs.audulus.com
+repository: https://github.com/audulus/docs
+timezone: America/Los_Angeles
+twitter:
+  username: audulus 
+logo: "/img/logo-2x.png"
