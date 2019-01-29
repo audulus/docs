@@ -63,7 +63,7 @@ Modulation inputs and outputs may be marked Mod, Env (Envelope), a specific wave
 
 The 1 per octave signal is a linearized pitch signal centered at 0 = A4 = 440Hz. To go an octave up, just add one: 1 = A5 = 880Hz. To go an octave down, subtract one: -1 = A3 = 220Hz. To go up or down in semitones, add or subtract in steps of 1/12th: 1/12 = A\sharp4 \ $\approx$ 466Hz; -1/12 = A\flat4 \ $\approx$ 415Hz. 
 
-Hardware modular synthesizers typically use 1 volt per octave tracking where 0 volts is the lowest note, often C0. Audulus's 1/Octave signal is instead centered at the reference pitch, which is defaulted to A = 440Hz. 
+Hardware modular synthesizers typically use 1 volt per octave tracking where 0 volts is the lowest note, often C1. Audulus's 1/Octave signal is instead centered at the reference pitch, which is defaulted to A = 440Hz. 
 
 The Keyboard node only outputs Hz, so make sure you use the MIDI Input module if you wish to use Audulus modules with a keyboard or pipe in a MIDI sequence from a DAW.
 
@@ -89,11 +89,21 @@ When audio signals are mixed together, their total output may exceed a -1 to 1 r
 
 \section{Categories of Modules}
 
-\subsection{Tempo Modules}
-\subsection{Beat Modules}
-\subsection{Pitch Modules}
-\subsection{Audio-Generating Modules}
-\subsection{Audio-Modifying Modules}
+Broadly defined, there are 6 different categories of modules. If you understand what category a module is, you can start to understand how they are typically wired together. Of course once you understand conventional modular signal flow, you can subvert it and do things like stick a clock into a reverb and then into a modulation input of a VCA, but you'll be doing it because you're experimenting - not because you're clueless.
+
+There are sometimes two or more versions of a particular module. The module that has a u- or $\mu$-prefix such as $\mu$LFO, $\mu$Clock, and $\mu$VCO are ``micro" modules. These are small, CPU-efficient versions of larger modules that have just bare essential functions. If you are completely new to modular synthesis, focus on using these modules first so you are not overwhelmed by the number of inputs, buttons, and controls of the other modules.
+
+\subsection{Tempo}
+
+Tempo modules set the speed of your patch. There is really only one type of tempo module: the clock module.
+
+A clock provides a steady pulse that can tick forward a sequencer and be used to open and close an envelope. The Master Clock module has many different subdivisions to play around with, but if you're new to modular synthesis, you might want to first stick with the $\mu$Clock module.
+
+\subsection{Beat}
+\subsection{Pitch}
+\subsection{Modulation}
+\subsection{Audio-Generating}
+\subsection{Audio-Modifying}
 
 
 \section{Wiring Modules Together}
