@@ -27,6 +27,10 @@ Modules in the Audulus library operate with a set of standardized signals. The j
 
 There are four main signal types: Gate, Modulation, 1/Octave, and Audio. As a general rule, you will connect like with like, meaning connect a Gate output to a Gate input, or an Audio output to an Audio input.
 
+There are no hard-and-fast distinctions made between these signals in Audulus. All signals are processed at audio rate and are interchangable insomuch as Audulus will allow you to connect any output to any input.
+
+You can multiply a modulation signal by a gate signal, subtract a modulation signal from a 1/Oct signal, or add a 1/Octave signal to an audio signal. However, not all of these combinations will yield useful results, and for beginners, it is best to just connect like outputs to like inputs.
+
 \subsection{Gate}
 
 The Gate signal is used to drive sequencers, open and close envelopes, and syncronize tempo, among other things. Its signal range is 0 or 1: off or on.
@@ -92,34 +96,159 @@ When audio signals are mixed together, their total output may exceed a -1 to 1 r
 
 Broadly defined, there are 6 different categories of modules. If you understand what category a module is, you can start to understand how they are typically wired together. Of course once you understand conventional modular signal flow, you can subvert it and do things like stick a clock into a reverb and then into a modulation input of a VCA, but you'll be doing it because you're experimenting - not because you're clueless.
 
+Modules in the library are organized into more specific folders than these seven categories. This makes it easier to find the ones you want more quickly. Again, it might be overwhelming at first, but as you get accustomed to building, you'll find navigating the menus becomes second nature.
+
 There are sometimes two or more versions of a particular module. The module that has a u- or $\mu$-prefix such as $\mu$LFO, $\mu$Clock, and $\mu$VCO are ``micro" modules. These are small, CPU-efficient versions of larger modules that have just the bare essential functions. If you are completely new to modular synthesis, focus on using these modules first so you are not overwhelmed by the number of inputs, buttons, and controls of the other modules.
 
-\subsection{Tempo}
+\subsection{Tempo Modules}
 
-Tempo modules set the speed of your patch. There is really only one type of tempo module: the clock module.
+Tempo modules set the speed of your patch. There is really only one type of tempo module: the clock module. The clock module outputs gates.
 
 A clock provides a steady pulse that can tick forward a sequencer and be used to open and close an envelope. The Master Clock module has many different subdivisions to play around with, but if you're new to modular synthesis, you might want to first stick with the $\mu$Clock module.
 
 Unless you are making experimental music that is not tied to a particular unified tempo, you should only need one clock module per patch. This makes it easy to adjust the overall tempo of your entire patch with one knob instead of having to turn several knobs at once.
 
-\subsection{Beat}
+\subsection{Rhythm Modules}
 
+Rhythm modules take a clock signal and turn it into something more than a steady beat. Rhythm modules have gate inputs and gate outputs. The most recognizeable to you might be the 16 Step Gate Sequencer. If you plug in a 1/16th note clock, each button pressed will represent a gate you can send to a kick, snare, clap, or even a synth instrument.
 
-\subsection{Pitch}
-\subsection{Modulation}
-\subsection{Audio-Generating}
-\subsection{Audio-Modifying}
+More exotic modules like the Euclidean Gate Sequencer take a clock signal and, based on an internal algorithm with several knob controls, can produce a regular, repeatable rhythm. You can even use two clock modules tuned to irregular intervals plugged into a $\mu$Logic module to create rhythms.
+
+You can also create interesting movement in a patch by rhythmically modulating parameters like filter cutoff.
+
+\subsection{Modulation Modules}
+
+Modulation modules add expressiveness and movement to your patch. Envelopes, LFOs, sequencers, and sample \& hold modules are all sources of modulation. Modulation modules will sometimes have modulation or gate inputs with modulation outputs.
+
+The most basic and necessary modulation module is an envelope module. Without an envelope controlling a VCA, all of your oscillators would be constantly running. Envelopes can define the beginning and end of your sound.
+
+Low-frequency oscillators or LFOs are another key element of modular synthesis. LFOs can change parameters of your patch over short and long periods of time, acting like extra hands turning knobs on your synth. A classic application is using an LFO in conjunction with an envelope to vary the cutoff of a filter. The envelope sweeps in a small range while the LFO slowly offsets the envelope higher and then lower in the cutoff range.
+
+Modulation modules don't always need to be used on an audio-generating or modifying module. You can use an LFO to change clock speed, or a sample \& hold module to add randomness to particular sequencer steps. Any knob you see on any module in Audulus is something you can modulate with any modulation module. 
+
+Modulation modules also include utilities like the Attenuate-Offset module. This module doesn't do much by itself, but when used in conjunction with an LFO, can help you adjust the range and limit of your modulation signal. Another modulation utility is a modulation mixer, which allows you to add together several modulation signals.
+
+\subsection{Pitch Modules}
+
+Pitch modules in Audulus are usually a combination of a module that creates modulation, like a sequencer, and a quantizer module, which outputs a 1/oct signal. Without quantizer modules, you would have to manually tune each note of every step. This is how some old-school sequencers worked, and it could be a real drag when you just wanted to get a sequence running quickly.
+
+Quantizers snap the smooth modulation transition from 0 to 1 into musical notes. A chromatic quantizer will equally divide the space between 0 and 1 into steps of 1/12 for each semi-tone. Other quantizers, like the Quick Quantizer, will snap to a user-defined scale.
+
+Typically, you would use a clock to drive a sequencer, then send the output of the sequencer into a quantizer and then on into your VCO. However, you can use any modulation source as input to a quantizer like a sample \& hold module, an LFO, or even an envelope.
+
+Another example of a pitch module is a slew limiter. This module will add glide or portamento between your note transitions. Adding a just a little slew can make a sequence feel more natural - adding a lot of slew can really accenuate the transitions between notes. You can even use a sequencer to adjust the amount of slew to affect momentary note ties.
+
+\subsection{Audio-Generating Modules}
+
+Audio-generating modules create sound. VCOs are audio-generating modules. These modules typically have 1/Oct, Modulation, and sometimes Gate inputs, and have one or more audio outputs.
+
+There are several different techniques of audio generation on display in the Audulus module library. Some output basic waveforms like sine, triangle, square and saw. Others, like the Chebyshev Polynomial VCO, allow you to build your sound wave with various parameters, and still others like the Karplus-Strong VCO build a model of a real string using noise, filters, and feedback loops.
+
+\subsection{Effect Modules}
+
+Effect modules transform audio. Delays add ghostly repeating echos to a sound, reverb adds a sense of space, distortion mangles a VCO's waveshape to add harmonics - to name just a few.
+
+VCFs and VCAs are also essentially effect modules. They sculpt the sound of the raw oscillator into something more interesting and less static.
+
+\subsection{Audio Mixing and Output Modules}
+
+Mixing and output modules are usually the final modules in your patch. Mixers combine audio and send the audio to an output module.
+
+It is best to have only one audio output module per patch, even if you have several mixer modules. Just like you want to have one master clock so you can control the overall tempo of your patch, you want to have one audio output module so you can control the overall loudness of your patch.
 
 
 \section{Wiring Modules Together}
+
+To make any sound with Audulus you will need to know how to wire modules together. This might be intimidating at first, but it is really easier than it looks.
+
+In the following section we'll go through several types of basic patches you can make. For each example, we'll make a simple version and a more advanced version, explaining each module and how it is wired as we go.
+
+After reading this section and building as you go, you will be able to use all of the modules in the Audulus module library. 
+
 \subsection{Sequencer-Driven Subtractive Synthesizer}
+
+Subtractive synthesis is a method of creating sounds where you begin with a harmonic-rich wave like a square or saw and subtract frequencies using a filter. The typical signal flow of a subtractive synthesizer is VCO $\rightarrow$ VCF $\rightarrow$ VCA.
+
+A step sequencer is a module that helps you play a synthesizer automatically. They usually have a set number of steps. For example, an 8 step sequencer can play back a sequence of 8 notes. Each step has a knob that can set the pitch of the note you want it to play. 
+
+\subsubsection{Simple Sequencer-Driven Patch}
+
+Any sequencer-driven patch must begin with a clock. We'll use the $\mu$Clock module because it can both drive a sequencer and open and close an envelope.
+
+Next we'll attach the gate output of the $\mu$Clock to the Gate input of the 8 Step Sequencer. Once connected, you should immediately see lights moving on the sequencer. The moving blue light indicates the current step of the sequencer. The green light represents the first step of the sequence, and the red light represents the last step of the sequencer. Once the sequence has reached the last step, it starts back again at the first step.
+
+Since the sequencer only outputs a modulation signal, we'll need a quantizer to translate that modulation signal into an 1/octave signal and snap them to a scale. We'll use the Chromatic Quantizer module and wire up the modulation output of the sequencer to the modulation input of the quantizer.
+
+Now that we're generating a pitch signal, we'll attach a $\mu$VCO module to the quantizer. You won't be able to hear anything just yet because we haven't added an audio output module. Before we do that, we'll want to create a few more modules to help shape the sound.
+
+The next module we'll add is an envelope. An envelope is a module that shapes the contours of each note. In this patch we'll use one envelope to control both the cutoff of the VCF and the loudness of the VCA. Attach the Gate output of the $\mu$Clock to the Gate input of the $\mu$ADSR module. You should see the output of the envelope flashing red in time with the incoming gate signal.
+
+Once you have wired up the envelope, create a $\mu$VCF module. Attach the Square output of the $\mu$VCO module to the input of the $\mu$VCF, and then wire the Envelope output of the $\mu$ADSR to the Modulation input of the $\mu$VCF.
+
+Next we'll create a VCA, and wire it similarly to the VCF module. Add a $\mu$VCA module and attach the audio output of the $\mu$VCF to the input of the $\mu$VCA, and then wire the Envelope output of the $\mu$ADSR to the Modulation input of the $\mu$VCA.
+
+Now that we have all the elements of our sequencer-driven subtractive synthesizer wired together, we just need to create an audio output. Add an Audio Output module and wire the output of the $\mu$VCA to the left and right inputs of the Audio Output module.
+
+The first thing to try is to change the notes of the sequencer. Turn each knob until you have a sequence going that you like, then try adjusting the knobs on the $\mu$ADSR module, and notice how the sound changes. If you change the PWM value of the $\mu$Clock module, you can get longer or shorter note durations which will interact with the settings of your $\mu$ADSR. Another thing to try is adjusting the Hz (cutoff) and Env knobs of the $\mu$VCF. The Hz knob sets the base frequency of the filter and the Env knob adjusts how much envelope modulation is applied to the cutoff control. Explore all of the controls of every module in this patch and you'll become familiar with what they do.
+
+\subsubsection{Advanced Sequencer-Driven Patch}
+
+There are two elements missing from the basic sequencer-driven patch above: rhythm and modulation. We can build on the basic patch by adding some modules and subbing out others.
+
+First, let's exchange the $\mu$Clock for the Master Clock module. The Master Clock offers many different subdivisions or clock speeds that are all rhythmically related. We'll use these different clock outputs to drive our sequencer and open and close our envelope to create rhythm.
+
+The next module we need to add is the 8 Step Sequential Switch. A sequential switch is a special sequencer that doesn't switch between knobs but instead switches between inputs. Only one input at a time is sent to the sequential switch's output, and we use the knobs to set which input is selected. At the bottom of the module is an indicator that shows which input is selected at each step.
+
+Now we can wire 8 different subdivisions into the sequential switch and choose a new subdivision for each step of the sequencer. You don't have to set the sequencer to switch between the inputs in order like this:
+
+\begin{center}
+$1 \rightarrow 2 \rightarrow 3 \rightarrow 4 \rightarrow 5 \rightarrow 6 \rightarrow 7 \rightarrow 8$
+\end{center}
+
+You can easily do something more interesting like this:
+
+\begin{center}
+	$5 \rightarrow 3 \rightarrow 8 \rightarrow 1 \rightarrow 1 \rightarrow 2 \rightarrow 5 \rightarrow 7$
+\end{center}
+
+
+To make the sequential switch work correctly for this application, we have to wire the output of the sequential switch back to its own Gate input. We also have to make sure all of the inputs are connected to a different clock division. If one of the inputs is left open, the sequencer will stop if you select that input.
+
+Once you have wired up your sequential switch, attach the output of the sequential switch to the Gate input of the 8 Step Sequencer and the Gate input of the $\mu$ADSR module. You should immediately hear that your sequence now has a rhythmic element.
+
+You might notice that the sequencers seem out of sync with one another. The sequential switch might be on step 1 when the sequencer is on step 5. Since you have two different modules controlling two different parameters of individual notes, it will be easier to program them if step 1 of the sequential switch equals step 1 of the sequencer.
+
+You can sync these modules in two different ways. The first and sometimes fastest is to simply close and reopen the patch. When you reopen the patch, everything will be reset and automatically be synchronized. Another option is to create a Trigger node and attach its output the Reset inputs of each module and press the button once.
+
+The next thing we can add to create a more interesting patch is modulation. We'll use two different types of modulation modules in a few places in our patch.
+
+The first module is an LFO.
+
+The second module is a Sample \& Hold.
+
+
+
 \subsection{Keyboard-Controlled FM Synthesizer}
+
 \subsection{Drum Patterns and Mixing}
+
 \subsection{Stereo Effects}
+
 \subsection{Generative Sequencing}
+
 \subsection{Automation}
+
 \subsection{DAW Integration}
+
 \subsection{Eurorack Integration}
+
+\section{Audulus Module Library Manual Organization}
+
+The modules presented in this manual are presented in the order they appear in the module menu. Each chapter represents a category of modules.
+
+In the in-app menu, modules may have reversed names like Clock Master and Gate Bernoulli when they are refered to here as Master Clock and Bernoulli Gate. Organizing them this way in the menu makes them easier to quickly find, especially in the right-click menu on Mac. Doing this also cuts down on the need for sub-folders, which are difficult to navigate past 2 levels.
+
+Modules in this manual are presented first with a screenshot and a table that outlines what each input, output, knob, and button does. Then, after a brief description of the module, a few example patches are presented.
 
 
 \chapter{Clock Modules}
