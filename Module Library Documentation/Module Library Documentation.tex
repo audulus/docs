@@ -222,13 +222,25 @@ You can sync these modules in two different ways. The first and sometimes fastes
 
 The next thing we can add to create a more interesting patch is modulation. We'll use two different types of modulation modules in a few places in our patch.
 
-The first module is an LFO.
+The first module we'll use is a $\mu$LFO. It has two outputs: Sine and Triangle. Attach the Triangle output to the Shape input of the $\mu$VCO. Modulation at the Shape input will change the pulse width of the square wave. The pulse width is the ratio of high-to-low time. If you want to really see how it's affecting the wave, copy and paste another $\mu$VCO to the side, attach a value of -9 to the 1/Octave input, and connect the Square output to the input of a Waveform node.
 
-The second module is a Sample \& Hold.
+If you set the LFO speed low, you can get a nice, slow, evolving sound that breaks up the monotony of the patch. If you set the LFO speed high, you can get almost a vibrato effect from it. You can also experiment with the Atten (attenuate) and Offst (offset) controls to get the modulation working in the range you want it to. The LFO will move only as much as you set the attenuate control, and will bottom out at the point you set with the offset control. If the value of the attenuate and offset controls are greater than 1 (set attenuate all the wave up and offset half way up) the wave will be clipped at a maximum of 1 so that only the bottom portion of the wave will come through.
 
+The second module we'll add is a Basic Sample \& Hold. Sample \& Hold modules output random stepped modulation signals. If we apply this modulation signal to the Hz knob of our $\mu$VCF, we can get a classic beep-boop robot sounding filter. This works best with quick modulation, so turn up the Hz control.
 
+The Basic Sample \& Hold module also has some extra controls that are worth trying out. The first one is the Distr (Distribution) knob. When the Distribution control is set to 0.5, there is an equal chance for any random number from 0 to 1 to be chosen. If you set the Distribution knob to 0, this biases the random numbers to be closer to 0. If you set the Distribution knob at 1, the numbers will be closer to 1. Generally on a filter, the modulation will sound better with a Distribution value of 0 to 0.5. This is because you still have an envelope input, and if the combined amount of the Sample \& Hold modulation and the incoming envelope exceeds 1, it just holds the filter wide open and you don't hear any change in the sound.
+
+The other cool thing we can do is sync the Sample \& Hold to our Master Clock. Press the Ext (External) button next to the Gate input and attach any subdivision you want from the Master Clock module. The random modulations will now be in time with your patch.
+
+Finally, try experimenting with the Slew knob which smooths the transitions between the random values. 
+
+As a bonus, we'll also replace the Chromatic Quantizer with the Quick Quantizer module. The Quick Quantizer allows you to dial in a root note and scale with just two knobs. This makes creating melodies much easier. We can then also attach a second clock-synced Sample \& Hold module to modulate the steps of the sequencer. Connect the output of the 8 Step Sequential Switch module to the external Gate input of the Sample \& Hold module and attach its output to any or all of the 8 Step Sequencer's knobs.
+
+Also try creating another $\mu$LFO and attaching a Triangle wave to the Offset control on the Quick Quantizer module. Set the speed to slow and use the attenuate and offset controls to get it modulating around the middle of the control. Now not only will all of some of your sequence sound random, but it will also be shifting up and down in octaves smoothly.
 
 \subsection{Keyboard-Controlled FM Synthesizer}
+
+
 
 \subsection{Drum Patterns and Mixing}
 
