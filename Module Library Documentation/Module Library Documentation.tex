@@ -370,7 +370,7 @@ Gate & \textit{The gate or clock signal you wish to randomly distribute to outpu
 
 \midrule
 \textbf{Output} \\
-A / B& \textit{Outputs a gate if chosen depending on random chance biased by A$\leftrightarrow$B knob.} \\
+A/B& \textit{Outputs a gate if chosen depending on random chance biased by A$\leftrightarrow$B knob.} \\
 
 \bottomrule
 \end{tabular}
@@ -392,15 +392,16 @@ A / B& \textit{Outputs a gate if chosen depending on random chance biased by A$\
 
 \toprule
 \textbf{Knob} \\
-A$\leftrightarrow$B & \textit{Sets the chance that the incoming gate will be sent to either output A or output B. If knob is set in the middle, there is a 50\% chance of A or B being chosen. If set all the way left, then A will be chosen 100\% of the time. If set all the way to the right, B will be chosen 100\% of the time.} \\
+A/B/C/D & \textit{Each knob sets the chance that their corresponding input will be chosen when the module is gated at the \textnormal{Gate} input. These knobs auto-scale, meaning if you turn one down, the chance for all others to be chosen goes up. That means if all knobs are set halfway all the way up, each input has a 25\% chance of being chosen, and if you turn A and B all the way down and C and D all the way up, then C and D inputs have a 50\% chance each of being chosen.} \\
 
 \midrule
 \textbf{Input} \\
-Gate & \textit{The gate or clock signal you wish to randomly distribute to output A or B.} \\
+A/B/C/D & Input gates or clock signals to be chosen from. It makes the most sense to put clock signals that are different speeds instead of \\
+Gate & \textit{Gating this input will trigger a new choice between inputs A/B/C/D. Usually it makes sense to clock this input equal to the slowest incoming gate or slower. Otherwise you may be switching between gates faster than the actual gate signals coming in.} \\
 
 \midrule
 \textbf{Output} \\
-A / B& \textit{Outputs a gate if chosen depending on random chance biased by A$\leftrightarrow$B knob.} \\
+A/B& \textit{Outputs a gate if chosen depending on random chance biased by A$\leftrightarrow$B knob.} \\
 
 \bottomrule
 \end{tabular}
