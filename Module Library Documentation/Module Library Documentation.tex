@@ -1,4 +1,7 @@
 \documentclass[11pt]{book}
+\usepackage{booktabs}
+\usepackage{array}
+
 
 \title{Audulus 3 Module Library Documentation}
 \author{Mark Boyd}
@@ -7,8 +10,10 @@
 
 \setlength{\parindent}{2em}
 \setlength{\parskip}{0em}
+\raggedbottom
 
 \begin{document}
+
 
 \maketitle
 
@@ -65,7 +70,7 @@ Modulation inputs and outputs may be marked Mod, Env (Envelope), a specific wave
 
 \subsection{1/Octave}
 
-The 1 per octave signal is a linearized pitch signal centered at 0 = A4 = 440Hz. To go an octave up, just add one: 1 = A5 = 880Hz. To go an octave down, subtract one: -1 = A3 = 220Hz. To go up or down in semitones, add or subtract in steps of 1/12th: 1/12 = A\sharp4 \ $\approx$ 466Hz; -1/12 = A\flat4 \ $\approx$ 415Hz. 
+The 1 per octave signal is a linearized pitch signal centered at 0 = A4 = 440Hz. To go an octave up, just add one: 1 = A5 = 880Hz. To go an octave down, subtract one: -1 = A3 = 220Hz. To go up or down in semitones, add or subtract in steps of 1/12th: 1/12 = A$\sharp$4 \ $\approx$ 466Hz; -1/12 = A$\flat$4 \ $\approx$ 415Hz. 
 
 Hardware modular synthesizers typically use 1 volt per octave tracking where 0 volts is the lowest note, often C1. Audulus's 1/Octave signal is instead centered at the reference pitch, which is defaulted to A = 440Hz. 
 
@@ -74,6 +79,8 @@ The Keyboard node only outputs Hz, so make sure you use the MIDI Input module if
 All non-gate sequencers in the Audulus module library generate a modulation signal only. This makes it easy to use these sequencers to modulate parameters as well as pitch. Their modulation output can be translated into a 1/Octave signal using a Modulation to 1/Oct utility module or with a quantizer module which all have this translation module built-in.
 
 Translating a sequencer's output is simple. The Range parameter multiplies the 0 to 1 modulation output of the sequencer by 0 to 8. If the range is set to 2 then each knob of the sequencer covers 2 octaves. If the range is set to 0.5 then each knob covers 1/2 of an octave. The Shift parameter sets you lowest note. At 0, your lowest note will be A4. At -1, your lowest note will be A3. At 1, your lowest note will be A5.
+
+1/Octave inputs may be marked 1/Oct or 1/O on thinner modules.
 
 The default reference pitch is set to A = 440Hz, but you can change this in any VCO if you wish. Enter any VCO and look for the 1/Oct to Hz converter (it may be a layer or two down in the module). Look for the RefHz variable and alter it to whatever pitch you wish. This change will only affect that particular VCO, so if you want to globally change the reference pitch you will have to make sure you do it in every VCO you use.
 
@@ -90,7 +97,6 @@ It is not recommended to plug an audio signal into a modulation input. Doing so 
 Audio inputs and outputs are unmarked by any lights. They may be labeled Audio, Aud, In/Out, Left/Right or L/R for stereo modules, or have context-specific labels like Sine or Saw on a VCO. Inputs labeled FM always expect an audio signal.
 
 When audio signals are mixed together, their total output may exceed a -1 to 1 range. You can even boost your audio signals creatively to drive a distortion module harder. The important thing to remember is that audio exiting Audulus to your speakers, headphones, or audio interface must be kept between -1 and 1 to prevent clipping distortion. 
-
 
 \section{Categories of Modules}
 
@@ -264,104 +270,259 @@ Modules in this manual are presented first with a screenshot and a table that ou
 
 
 \chapter{Clock Modules}
+
+Clock modules output gate signals. They keep time, trigger events, and open and close envelopes. In hardware modular synths, clocks typically output a very short gate signal called a pulse. In Audulus, however, clock signals can be long or short gates.
+
+This category of modules includes clocks as well as clock modifiers. Clock modifiers take an incoming clock signal and change it in some way. For example, the Clock Divider will take a fast incoming clock signal and make it slower, while the Bernoulli Gate module will take an incoming clock signal and send it to one destination or another based on chance.
+\pagebreak
+
 \section{Clock Divider}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+$\div$ & \textit{Sets clock speed divide-by factor from 1/1 to 1/64.} \\
+PWM & \textit{Sets the pulse width of the divided clock at the PWM output. Does not effect the Gate output.} \\
+
+\midrule
+\textbf{Input} \\
+Rset & \textit{Gate this input to reset the divide-by counter. Useful when attempting to sync multiple Clock Divider modules.} \\
+Gate & \textit{Connect the clock signal you want to divide to this input.} \\
+
+\midrule
+\textbf{Output} \\
+Gate & \textit{The divided gate signal output. This gate output will preserve the pulse width of the incoming gate signal.} \\
+PWM & \textit{The divided gate signal output. This gate output will have a pulse width set by the PWM knob.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
+
+The Clock Divider module takes an incoming clock signal and slows it down by dividing its speed. For example, if an incoming clock comes once per second and the Clock Divider divides the speed by 2, then the outgoing clock will come once every two seconds.
+
+\pagebreak
+
+
 \section{Master Clock}
+\pagebreak
+
 \section{Bernoulli Gate}
+\pagebreak
+
 \section{Chance Select Gate}
+\pagebreak
+
 \section{Pachinko Machine}
+\pagebreak
+
 \section{Random Bursts}
+\pagebreak
+
 \section{uClock}
+\pagebreak
 
 \chapter{Drum Modules}
-\section{uKick}
+\pagebreak
+\section{Percussion}
+\pagebreak
+\section{$\mu$Hat}
+\pagebreak
+\section{$\mu$Kick}
+\pagebreak
+\section{$\mu$Snare}
+\pagebreak
 
 \chapter{Effect Modules}
+\pagebreak
 \section{Delay}
+\pagebreak
 \subsection{Stereo Delay}
+\pagebreak
 \subsection{Looper Sync}
+\pagebreak
 \subsection{Tempo Sync}
+\pagebreak
 \subsection{uDelay}
+\pagebreak
 \section{Distortion}
+\pagebreak
 \subsection{Asymmetrical Drive}
+\pagebreak
 \subsection{Fold Processor}
-\section{Dynamics}
+\pagebreak
 \section{Reverb}
+\pagebreak
 \subsection{Really Humungous Reverb}
+\pagebreak
 \subsection{uVerb}
+\pagebreak
 
 \chapter{Envelope Modules}
+\pagebreak
 \section{Analog Envelope}
+\pagebreak
 \section{EOC Max ADSR}
-\section{uADSR}
+\pagebreak
+\section{$\mu$ADSR}
+\pagebreak
 
 \chapter{Input-Output Modules}
+\pagebreak
 \section{Audio Input}
+\pagebreak
 \section{Audio Output}
+\pagebreak
 \section{Expert Sleepers ES-3}
+\pagebreak
 \section{Expert Sleepers ES-6}
+\pagebreak
 \section{Expert Sleepers ES-8}
+\pagebreak
 \section{MIDI Input}
+\pagebreak
 \section{VPO Converter}
+\pagebreak
 
 \chapter{LFO Modules}
+\pagebreak
 \section{Basic LFO}
+\pagebreak
 \section{Octature Sine LFO}
+\pagebreak
 \section{TZFM LFO}
-\section{uLFO}
+\pagebreak
+\section{$\mu$LFO}
+\pagebreak
 
 \chapter{Mixer Modules}
-\section{uMix Audio}
-\section{uMix CV}
+\pagebreak
+\section{8 Channel Mixer}
+\pagebreak
+\section{CV Mixer}
+\pagebreak
+\section{$\mu$Mix Audio}
+\pagebreak
+\section{$\mu$Mix CV}
+\pagebreak
 
 \chapter{Quantizer Modules}
+\pagebreak
 \section{Chromatic Quantizer}
+\pagebreak
+\section{Church Modes Quantizer}
+\pagebreak
 \section{Gateable Quantizer}
+\pagebreak
 \section{Modulation Quantizer}
+\pagebreak
 \section{Neo-Reimannian Triad Transformer}
+\pagebreak
 \section{Quick Quantizer}
+\pagebreak
 
 \chapter{Sequencer Modules}
+\pagebreak
 \section{8 Step Sequencer}
+\pagebreak
 \section{16 Step Gate Sequencer}
+\pagebreak
 \section{Binary Gate Sequencer}
+\pagebreak
 \section{Euclidean Gate Sequencer}
+\pagebreak
 \section{Matrix Gate Sequencer}
+\pagebreak
 \section{Shape Gate Sequencer}
+\pagebreak
 
 \chapter{Utility Modules}
+\pagebreak
 \section{Attenuate-Offset}
+\pagebreak
 \section{Attenuverter}
+\pagebreak
 \section{Audio Attenuverter-Offset}
+\pagebreak
 \section{Automation Lane}
+\pagebreak
 \section{Chaos Generator}
+\pagebreak
 \section{Modulation to 1/Oct}
+\pagebreak
+\section{Poly to Mono}
+\pagebreak
 \section{Sample \& Hold}
+\pagebreak
 \section{Slew}
+\pagebreak
 \section{Switch Sequential 8 Step}
+\pagebreak
 \section{VC Switch}
-\section{uLogic}
-\section{uSample \& Hold}
+\pagebreak
+\section{$\mu$Logic}
+\pagebreak
+\section{Unison}
+\pagebreak
+\section{$\mu$Sample \& Hold}
+\pagebreak
 \section{Window Comparator}
+\pagebreak
 
 \chapter{VCA Modules}
+\pagebreak
 \section{Digital VCA}
+\pagebreak
 \section{Diode VCA}
-\section{uVCA}
+\pagebreak
+\section{$\mu$VCA}
+\pagebreak
 
 \chapter{VCF Modules}
-\section{Diode Ladder VCF}
+\pagebreak
+\section{303 VCF}
+\pagebreak
+\section{Basic EQ}
+\pagebreak
+\section{K35 VCF}
+\pagebreak
+\section{Ladder VCF}
+\pagebreak
+\section{LPG}
+\pagebreak
+\section{SEM VCF}
+\pagebreak
+\section{$\mu$VCF}
+\pagebreak
 
 \chapter{VCO Modules}
+\pagebreak
 \section{Basic VCO}
+\pagebreak
 \section{Chebyshev Additive VCO}
+\pagebreak
 \section{Karplus-Strong VCO}
+\pagebreak
 \section{Morphing VCO}
+\pagebreak
 \section{Noise}
+\pagebreak
 \section{Skew VCO}
+\pagebreak
 \section{Supersaw VCO}
+\pagebreak
 \section{TZFM VCO}
-\section{uNoise}
-\section{uVCO}
+\pagebreak
+\section{$\mu$Noise}
+\pagebreak
+\section{$\mu$VCO}
+\pagebreak
 
 
 
