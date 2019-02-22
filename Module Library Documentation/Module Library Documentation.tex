@@ -1,23 +1,24 @@
 \documentclass[11pt]{book}
+
 \usepackage{booktabs}
 \usepackage{array}
+\usepackage{graphicx}
 
-
-\title{Audulus 3 Module Library Documentation}
-\author{Mark Boyd}
-
-
+\graphicspath{ {./images/} }
 
 \setlength{\parindent}{2em}
 \setlength{\parskip}{0em}
 \raggedbottom
 
-\begin{document}
+\title{Audulus 3 Module Library Documentation}
+\author{Mark Boyd}
 
+\begin{document}
 
 \maketitle
 
 \tableofcontents
+
 \chapter{Modules and How They Work}
 
 Modular synthesis is an exciting, freeing way to create music and design sounds. The freedom it offers can be intimidating at first, especially to a total beginner, but grasping the fundamentals is easier than it appears.
@@ -276,7 +277,10 @@ Clock modules output gate signals. They keep time, trigger events, and open and 
 This category of modules includes clocks as well as clock modifiers. Clock modifiers take an incoming clock signal and change it in some way. For example, the Clock Divider will take a fast incoming clock signal and make it slower, while the Bernoulli Gate module will take an incoming clock signal and send it to one destination or another based on chance.
 \pagebreak
 
+
 \section{Clock Divider}
+
+\includegraphics[width=\textwidth]{clock-divider.png}
 
 \begin{table}[ht]
 \small
@@ -304,20 +308,106 @@ PWM & \textit{The divided gate signal output. This gate output will have a pulse
 \end{tabular}
 \end{table}% \\
 
-
-The Clock Divider module takes an incoming clock signal and slows it down by dividing its speed. For example, if an incoming clock comes once per second and the Clock Divider divides the speed by 2, then the outgoing clock will come once every two seconds.
-
 \pagebreak
 
 
 \section{Master Clock}
+
+\includegraphics[width=\textwidth]{master-clock.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+BPM & \textit{Sets the beats per minute (BPM) of the clock from 60 to 220 in steps of 1BPM.} \\
+PWM & \textit{Sets the pulse width of all outputs simultaneously.} \\
+
+\midrule
+\textbf{Button} \\
+Start & \textit{Press to start and stop the clock. Clock will reset when restarted. Gate input below will remotely turn clock on and off so long as the button itself is off.} \\
+
+\midrule
+\textbf{Input} \\
+Reset & \textit{Gate this input to reset the clock.} \\
+
+\midrule
+\textbf{Output} \\
+1/$x$ & \textit{Subdivided clock outputs, e.g. 1/16 = 16th note.} \\
+1/$x$t & \textit{Subdivided triplet clock outputs, e.g. 1/8t = 8th note triplet.} \\
+$x$b & \textit{Bar multiples of clock, e.g. 32b = 32 bars.} \\
+
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 
 \section{Bernoulli Gate}
+
+\includegraphics[width=\textwidth]{bernoulli-gate.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+A$\leftrightarrow$B & \textit{Sets the chance that the incoming gate will be sent to either output A or output B. If knob is set in the middle, there is a 50\% chance of A or B being chosen. If set all the way left, then A will be chosen 100\% of the time. If set all the way to the right, B will be chosen 100\% of the time.} \\
+
+\midrule
+\textbf{Input} \\
+Gate & \textit{The gate or clock signal you wish to randomly distribute to output A or B.} \\
+
+\midrule
+\textbf{Output} \\
+A / B& \textit{Outputs a gate if chosen depending on random chance biased by A$\leftrightarrow$B knob.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
 
+
 \section{Chance Select Gate}
+
+\includegraphics[width=\textwidth]{chance-select-gate.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+A$\leftrightarrow$B & \textit{Sets the chance that the incoming gate will be sent to either output A or output B. If knob is set in the middle, there is a 50\% chance of A or B being chosen. If set all the way left, then A will be chosen 100\% of the time. If set all the way to the right, B will be chosen 100\% of the time.} \\
+
+\midrule
+\textbf{Input} \\
+Gate & \textit{The gate or clock signal you wish to randomly distribute to output A or B.} \\
+
+\midrule
+\textbf{Output} \\
+A / B& \textit{Outputs a gate if chosen depending on random chance biased by A$\leftrightarrow$B knob.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 
 \section{Pachinko Machine}
 \pagebreak
