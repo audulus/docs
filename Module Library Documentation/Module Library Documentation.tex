@@ -1231,7 +1231,7 @@ VPO & \textit{Volt per octave output. Scaled to connect to Expert Sleepers ES-3 
 
 \section{Basic LFO}
 
-\includegraphics[width=\textwidth]{vpo-converter.png}
+\includegraphics[width=\textwidth]{basic-lfo.png}
 
 \begin{table}[ht]
 \small
@@ -1242,19 +1242,21 @@ VPO & \textit{Volt per octave output. Scaled to connect to Expert Sleepers ES-3 
 
 \toprule
 \textbf{Knob} \\
-Oct & \textit{Shifts input 1/Octave signal up and down by octaves.} \\
+Hz & \textit{Speed of the LFO from 0 to 20Hz, or 0 to 2Hz when $\div$10 button is engaged.} \\
+Atten & \textit{Attenuates LFO signal.} \\
+Offst & \textit{Shifts LFO up or down. Note: LFO output will clip if output exceeds the 0 to 1 modulation range.} \\
 
 \midrule
 \textbf{Button} \\
-Root & \textit{Sets the lowest note to either A or C.} \\
+$\div$10 & \textit{Divides maximum LFO speed by 10.} \\
 
 \midrule
 \textbf{Input} \\
-1/O & \textit{1/Octave input.} \\
+Sync & \textit{Uses a gate, LFO, or audio signal to hard reset LFO wave.} \\
 
 \midrule
 \textbf{Output} \\
-VPO & \textit{Volt per octave output. Scaled to connect to Expert Sleepers ES-3 and ES-8 or any DC-Coupled audio interface with a voltage swing of +/- 10 volts.} \\
+Sine/Tri/Saw/Sqr & \textit{Sine, triangle, saw, and square wave outputs.} \\
 
 \bottomrule
 \end{tabular}
@@ -1263,31 +1265,308 @@ VPO & \textit{Volt per octave output. Scaled to connect to Expert Sleepers ES-3 
 \pagebreak
 
 
-
 \section{Octature Sine LFO}
+
+\includegraphics[width=\textwidth]{octature-sine-lfo.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Hz & \textit{Speed of the LFO from 0 to 20Hz.} \\
+Atten & \textit{Attenuates LFO signal.} \\
+Offst & \textit{Shifts LFO up or down. Note: LFO output will clip if output exceeds the 0 to 1 modulation range.} \\
+Phase & \textit{Adjusts the phase ratios between each output from $0\,^{\circ}$ to $22.5\,^{\circ}$.} \\
+
+\midrule
+\textbf{Input} \\
+Sync & \textit{Uses a gate, LFO, or audio signal to hard reset LFO wave.} \\
+
+\midrule
+\textbf{Output} \\
+1-8 & \textit{Sine LFO outputs.} \\
+Odds/Evens & \textit{Groups outputs 1, 3, 5, 7 and 2, 4, 6, 8 into two quad  polyphonic signals.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{TZFM LFO}
+
+\includegraphics[width=\textwidth]{tzfm-lfo.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Hz & \textit{Speed of the LFO from 0 to 20Hz, or 0 to 2Hz when $\div$10 button is engaged.} \\
+FM & \textit{Attenuates the incoming modulation signal at the TZFM input.} \\
+Shape & \textit{Attenuates the incoming modulation signal at the Shape input} \\
+
+\midrule
+\textbf{Button} \\
+$\div$10 & \textit{Divides maximum LFO speed by 10.} \\
+
+\midrule
+\textbf{Input} \\
+TZFM & \textit{Modulation input for frequency modulation. Expects a 0 to 1 modulation signal and internally translates it into a bipolar -1 to 1 modulation signal.} \\
+Sync & \textit{Uses a gate, LFO, or audio signal to hard reset LFO wave.} \\
+Shape & \textit{Modulation input for shape modulation.} \\
+
+\midrule
+\textbf{Output} \\
+Sine/Tri/Saw/Sqr & \textit{Sine, triangle, saw, and square wave outputs.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{$\mu$LFO}
+
+\includegraphics[width=\textwidth]{ulfo.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Hz & \textit{Speed of the LFO from 0 to 20Hz.} \\
+Atten & \textit{Attenuates LFO signal.} \\
+Offst & \textit{Shifts LFO up or down. Note: LFO output will clip if output exceeds the 0 to 1 modulation range.} \\
+
+\midrule
+\textbf{Input} \\
+Sync & \textit{Uses a gate, LFO, or audio signal to hard reset LFO wave.} \\
+
+\midrule
+\textbf{Output} \\
+Sine/Tri & \textit{Sine and triangle wave outputs.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 
 \chapter{Mixer Modules}
 \pagebreak
+
 \section{8 Channel Mixer}
+
+\includegraphics[width=\textwidth]{8-channel-mixer.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Level & \textit{Adjusts the volume of the channel.} \\
+Pan & \textit{Adjusts the pan of the channel} \\
+Vol & \textit{Master volume for module.} \\
+
+\midrule
+\textbf{Button} \\
+Mute & \textit{Mutes the channel. Has internal envelope that prevents clicking when muting.} \\
+
+\midrule
+\textbf{Input} \\
+L/R & \textit{Left/Right stereo inputs for each channel.} \\
+
+\midrule
+\textbf{Output} \\
+L/R & \textit{Left/Right stereo outputs.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{CV Mixer}
+
+\includegraphics[width=\textwidth]{cv-mixer.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+A/B/C/D & \textit{Adjusts the level of corresponding modulation inputs.} \\
+Atten & \textit{Attenuates overall modulation signal.} \\
+Offst & \textit{Shifts modulation signal up or down. Note: Modulation output will clip if output exceeds the 0 to 1 modulation range.} \\
+
+\midrule
+\textbf{Input} \\
+In A/B/C/D & \textit{Modulation inputs.} \\
+
+\midrule
+\textbf{Output} \\
+Mod & \textit{Mixed modulation output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{$\mu$Mix Audio}
+
+\includegraphics[width=\textwidth]{umix-audio.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+In A/B/C & \textit{Audio input attenuators.} \\
+
+\midrule
+\textbf{Input} \\
+In A/B/C & \textit{Audio inputs.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Mixed audio output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{$\mu$Mix CV}
+
+\includegraphics[width=\textwidth]{umix-cv.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+In A/B/C & \textit{Modulation input attenuators.} \\
+
+\midrule
+\textbf{Input} \\
+In A/B/C & \textit{Modulation inputs.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Mixed modulation output. Note: Clips output to maximum 0 to 1 modulation range.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 
 \chapter{Quantizer Modules}
 \pagebreak
+
 \section{Chromatic Quantizer}
+
+\includegraphics[width=\textwidth]{chromatic-quantizer.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Range & \textit{Adjusts how many octaves the 1/Octave signal covers.} \\
+Shift & \textit{Shifts the 1/Octave signal up and down.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+1/O & \textit{Quantized 1/Octave output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Church Modes Quantizer}
+
+\includegraphics[width=\textwidth]{church-modes-quantizer.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Scale & \textit{Adjusts the type of scale.} \\
+Root & \textit{Shifts the root note of the quantizer. Note: If you need a scale in $B\flat$ use $A\sharp$, and so on.} \\
+Range & \textit{Adjusts how many octaves the 1/Octave signal covers.} \\
+Shift & \textit{Shifts the 1/Octave signal up and down.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+1/O & \textit{Quantized 1/Octave output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Gateable Quantizer}
 \pagebreak
 \section{Modulation Quantizer}
