@@ -1179,7 +1179,7 @@ Slew & \textit{Adjusts the amount of slew between notes.} \\
 \textbf{Button} \\
 Slur & \textit{When engaged, will not retrigger gate if notes overlap in monophonic mode.} \\
 Vel & \textit{When engaged, will allow velocity of notes to affect gate height.} \\
-Mode & \textit{Switches between two slew modes: off = equal time (digital); on = longer slew between notes further apart (analog).} \\
+Mode & \textit{Switches between two slew modes: off = equal time (digital); on = equal rate, or longer slew between notes further apart (analog).} \\
 
 \midrule
 \textbf{Output} \\
@@ -2173,15 +2173,176 @@ Out & \textit{Modulation output.} \\
 
 
 \section{Slew}
+
+\includegraphics[width=\textwidth]{slew.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Amt & \textit{Sets the amount of slew.} \\
+
+\midrule
+\textbf{Button} \\
+Mode & \textit{Switches between two slew modes: off = equal time (digital); on = equal rate, or longer slew between notes further apart (analog).} \\
+
+\midrule
+\textbf{Input} \\
+1/O & \textit{1/Octave input.} \\
+
+\midrule
+\textbf{Output} \\
+1/O & \textit{Slewed 1/Octave output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
-\section{Switch Sequential 8 Step}
+
+
+\section{8 Step Sequential Switch}
+
+\includegraphics[width=\textwidth]{8-step-sequential-switch.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+x8 Unmarked Knobs & \textit{Sequencer step values that indicate which input is selected. The display at the bottom of the module indicates which input is selected at each step.} \\
+Algo & \textit{Adjusts the sequencer pattern algorithm, indicated by the lights at the bottom of the sequencer. $\downarrow \downarrow$ = Top to bottom, left to right. $\rightarrow \downarrow$ = Left to right, top to bottom. $\downarrow \uparrow$ = Top to bottom, bottom to top. $X$ = crosswise pattern. $Rnd$ = Steps chosen at random.} \\
+Begin/End & \textit{Sets the beginning and end of the sequence. To reverse sequence, set Begin to higher than End.} \\
+
+\midrule
+\textbf{Button} \\
+$\leftrightarrow$ & \textit{Turns on ping-pong mode. Can be gated externally as long as button is turned off.} \\
+
+\midrule
+\textbf{Input} \\
+Reset & \textit{Restart sequencer from Begin step.} \\
+Gate & \textit{Steps sequencer forward.} \\
+1-8 & \textit{1-8 inputs - selected input indicated by a blue light.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Sequencer output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{VC Switch}
+
+\includegraphics[width=\textwidth]{8-step-sequential-switch.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+x8 Unmarked Knobs & \textit{Sequencer step values that indicate which input is selected. The display at the bottom of the module indicates which input is selected at each step.} \\
+Algo & \textit{Adjusts the sequencer pattern algorithm, indicated by the lights at the bottom of the sequencer. $\downarrow \downarrow$ = Top to bottom, left to right. $\rightarrow \downarrow$ = Left to right, top to bottom. $\downarrow \uparrow$ = Top to bottom, bottom to top. $X$ = crosswise pattern. $Rnd$ = Steps chosen at random.} \\
+Begin/End & \textit{Sets the beginning and end of the sequence. To reverse sequence, set Begin to higher than End.} \\
+
+\midrule
+\textbf{Button} \\
+$\leftrightarrow$ & \textit{Turns on ping-pong mode. Can be gated externally as long as button is turned off.} \\
+
+\midrule
+\textbf{Input} \\
+Reset & \textit{Restart sequencer from Begin step.} \\
+Gate & \textit{Steps sequencer forward.} \\
+1-8 & \textit{1-8 inputs - selected input indicated by a blue light.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Sequencer output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{$\mu$Logic}
+
+\includegraphics[width=\textwidth]{ulogic.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Input} \\
+A/B & \textit{Gate inputs.} \\
+
+\midrule
+\textbf{Output} \\
+AND & \textit{Outputs gate if both A and B inputs are high.} \\
+NAN & \textit{Outputs gate only if A and B are not high at the same time.} \\
+OR & \textit{Outputs gate if either A and B inputs are high.} \\
+NOR & \textit{Outputs gate if neither A and B inputs are high.} \\
+XOR & \textit{Outputs gate if only A or B inputs are high.} \\
+XNR & \textit{Outputs gate if A and B are either both low or both high.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Unison}
+
+\includegraphics[width=\textwidth]{unison.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Width & \textit{Adjusts detune spread amount for polyphonic 1/Oct signal.} \\
+
+\midrule
+\textbf{Input} \\
+1/O & \textit{Monophonic 1/Octave signal.} \\
+
+\midrule
+\textbf{Output} \\
+1/O & \textit{Polyphonic detuned 1/Octave signal.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{$\mu$Sample \& Hold}
 \pagebreak
 \section{Window Comparator}
