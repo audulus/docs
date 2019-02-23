@@ -1810,21 +1810,175 @@ Gate & \textit{Outputs a gate based on current step, e.g., if 4 steps in a row a
 \pagebreak
 
 
-
 \section{Euclidean Gate Sequencer}
+
+\includegraphics[width=\textwidth]{euclidean-gate-sequencer.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Lngth & \textit{Length of Euclidean pattern.} \\
+Hits & \textit{Density of hits within pattern.} \\
+Offst & \textit{Offsets the pattern's starting point.} \\
+Loop & \textit{Allows you to clip out a sub portion of the total length in more musically-useful subdivisions and loop it.} \\
+
+\midrule
+\textbf{Input} \\
+Gate & \textit{Steps sequencer forward.} \\
+
+\midrule
+\textbf{Output} \\
+Gate & \textit{Outputs a gate based on current step, e.g., if 4 steps in a row are engaged, the gate will stay high the duration of those 4 steps.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Matrix Gate Sequencer}
+
+\includegraphics[width=\textwidth]{matrix-gate-sequencer.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Gate Lngth & \textit{Length of output gates.} \\
+
+\midrule
+\textbf{Button} \\
+4x4 Button Field & \textit{Turn button on to make step active.} \\
+
+\midrule
+\textbf{Input} \\
+X/Y Gate & \textit{Steps sequencer forward on X or Y plane.} \\
+
+\midrule
+\textbf{Output} \\
+X/Y Gate & \textit{Outputs a gate if current step is active.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Shape Gate Sequencer}
+
+\includegraphics[width=\textwidth]{shape-gate-sequencer.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Shift & \textit{Shifts the pattern set by the buttons clockwise.} \\
+End & \textit{Sets the number of steps in the pattern.} \\
+
+\midrule
+\textbf{Button} \\
+5 button circle & \textit{Push button to make step active. Each step has a gate output associated that will go high when the step is selected and active.} \\
+
+\midrule
+\textbf{Input} \\
+Reset & \textit{Restart sequencer from beginning.} \\
+Gate & \textit{Steps sequencer forward.} \\
+
+\midrule
+\textbf{Output} \\
+Gate & \textit{Outputs a gate if current step is active.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 
 \chapter{Utility Modules}
 \pagebreak
+
 \section{Attenuate-Offset}
+
+\includegraphics[width=\textwidth]{attenuate-offset.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Atten & \textit{Attenuates incoming modulation signal.} \\
+Offst & \textit{Shifts modulation signal up or down. Note: Modulation output will clip if output exceeds the 0 to 1 modulation range.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+Mod & \textit{Modulation output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
-\section{Attenuverter}
-\pagebreak
+
 \section{Audio Attenuverter-Offset}
+
+
+\includegraphics[width=\textwidth]{audio-attenuverter-offset.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Attvt & \textit{Attenuverts incoming audio signal.} \\
+Offst & \textit{Shifts audio signal up or down. Note: Modulation output will clip if output exceeds the 0 to 1 modulation range.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Audio input.} \\
+
+\midrule
+\textbf{Output} \\
+Mod & \textit{Audio output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
+\pagebreak
+
+
+\section{Attenuverter}
 \pagebreak
 \section{Automation Lane}
 \pagebreak
