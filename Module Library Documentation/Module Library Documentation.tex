@@ -1948,7 +1948,6 @@ Mod & \textit{Modulation output.} \\
 
 \section{Audio Attenuverter-Offset}
 
-
 \includegraphics[width=\textwidth]{audio-attenuverter-offset.png}
 
 \begin{table}[ht]
@@ -1965,11 +1964,11 @@ Offst & \textit{Shifts audio signal up or down. Note: Modulation output will cli
 
 \midrule
 \textbf{Input} \\
-Mod & \textit{Audio input.} \\
+In & \textit{Audio input.} \\
 
 \midrule
 \textbf{Output} \\
-Mod & \textit{Audio output.} \\
+Out & \textit{Audio output.} \\
 
 \bottomrule
 \end{tabular}
@@ -1979,17 +1978,200 @@ Mod & \textit{Audio output.} \\
 
 
 \section{Attenuverter}
+
+\includegraphics[width=\textwidth]{attenuverter.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+-/+ & \textit{Attenuverts incoming modulation signal while keeping it within the 0 to 1 modulation range.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+Mod & \textit{Modulation output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Automation Lane}
+
+\includegraphics[width=\textwidth]{automation-lane.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Unmarked knob & \textit{Sets the number of total bars the Automation Lane module covers.} \\
+
+\midrule
+\textbf{Button} \\
+Loop & \textit{When turned on, the automation lane will loop back to beginning after it has completed a cycle. When turned off, it will reach the end and stop.} \\
+
+\midrule
+\textbf{Input} \\
+Chain & \textit{To chain modules, attach output of your first Automation Lane to the input of the next modulation lane and turn down the Bars knob of all but the master Automation Lane module.} \\
+Reset & \textit{Resets the automation to beginning. You can also manually reset the automation by pushing the button next to the input.} \\
+1/16 Gate & \textit{Insert a 1/16th note gate to advance the automation.} \\
+
+\midrule
+\textbf{Output} \\
+Chain & \textit{Connect this output to another Automation Lane module if you want to chain multiple instances together.} \\
+Mod & \textit{Modulation output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Chaos Generator}
+
+\includegraphics[width=\textwidth]{chaos-generator.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Range & \textit{Sets the slew range. Faster gate inputs should use a lower range value, while slow range values should use a higher range value.} \\
+Slew & \textit{The amount of smoothing between chaotic steps. If smoothing is inadequate while Slew is turned all the way up, try turning up the range knob.} \\
+
+\midrule
+\textbf{Input} \\
+Gate & \textit{Gate to create a new chaotic sample.} \\
+
+\midrule
+\textbf{Output} \\
+Mod & \textit{Modulation output.} \\
+Gate & \textit{When modulation output is greater than 0.5, gate output goes high.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Modulation to 1/Oct}
+
+\includegraphics[width=\textwidth]{modulation-to-1oct.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Range & \textit{Adjusts how many octaves the 1/Octave signal covers.} \\
+Shift & \textit{Shifts the 1/Octave signal up and down.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+1/O & \textit{1/Octave output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Poly to Mono}
+
+\includegraphics[width=\textwidth]{poly-to-mono.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Atten & \textit{Attenuates the combined polyphonic signal to keep it between the -1 to 1 audio range. If this range is exceeded, the clip light will flash red.} \\
+
+\midrule
+\textbf{Input} \\
+Poly & \textit{Polyphonic signal input.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Monophonic audio output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Sample \& Hold}
+
+\includegraphics[width=\textwidth]{sample-and-hold.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Hz & \textit{Sets the speed of the internal sampling clock from 0 to 20Hz.} \\
+Distr & \textit{Adjusts the distribution of the output samples. Turned down, the distribution is exponential with more low values being picked. Centered, the sampling is linear, with any value having an equal chance of being picked. Turned up, the distribution is logarithmic, with values close to 1 being more common.} \\
+Atten & \textit{Attenuates modulation signal.} \\
+Offst & \textit{Shifts modulation up or down. Note: modulation output will clip if output exceeds the 0 to 1 modulation range.} \\
+Slew & \textit{Smooths transitions between samples.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Allows you to sample an external modulation signal. To engage, press the Ext (External) button.} \\
+Gate & \textit{Allows you to gate the module externally. To engage, press the Ext (External) button.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Modulation output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Slew}
 \pagebreak
 \section{Switch Sequential 8 Step}
