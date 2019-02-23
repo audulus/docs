@@ -1685,14 +1685,8 @@ Scale & \textit{Adjusts the type of scale: (C)hromatic, (M)ajor, (m)inor, (h)arm
 Root & \textit{Shifts the root note of the quantizer. Note: If you need a scale in $B\flat$ use $A\sharp$, and so on.} \\
 
 \midrule
-\textbf{Button} \\
-$\leftrightarrow$ & \textit{Turns on ping-pong mode. Can be gated externally as long as button is turned off.} \\
-
-\midrule
 \textbf{Input} \\
-Reset & \textit{Restart sequencer from Begin step.} \\
-Gate & \textit{Steps sequencer forward.} \\
-
+Mod & \textit{Modulation input.} \\
 
 \midrule
 \textbf{Output} \\
@@ -1706,6 +1700,43 @@ Gate & \textit{Steps sequencer forward.} \\
 
 
 \chapter{Sequencer Modules}
+\pagebreak
+
+
+\section{16 Step Gate Sequencer}
+
+\includegraphics[width=\textwidth]{16-step-gate-sequencer.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Begin/End & \textit{Sets the beginning and end of the sequence. To reverse sequence, set Begin to higher than End.} \\
+
+\midrule
+\textbf{Button} \\
+Field of 6x16 buttons & \textit{6 lanes of 16 step sequences. Press button to turn step on.} \\
+$\leftrightarrow$ & \textit{Turns on ping-pong mode. Can be gated externally as long as button is turned off.} \\
+
+\midrule
+\textbf{Input} \\
+Rset & \textit{Restart sequencer from Begin step.} \\
+Gate & \textit{Steps sequencer forward.} \\
+
+\midrule
+\textbf{Output} \\
+Clk & \textit{Outputs the incoming clock if step is engaged.} \\
+Gate & \textit{Outputs a gate based on current step, e.g., if 4 steps in a row are pressed, the gate will stay high the duration of those 4 steps.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
 
 
@@ -1727,12 +1758,18 @@ Algo & \textit{Adjusts the sequencer pattern algorithm, indicated by the lights 
 Begin/End & \textit{Sets the beginning and end of the sequence. To reverse sequence, set Begin to higher than End.} \\
 
 \midrule
+\textbf{Button} \\
+$\leftrightarrow$ & \textit{Turns on ping-pong mode. Can be gated externally as long as button is turned off.} \\
+
+\midrule
 \textbf{Input} \\
-Mod & \textit{Modulation input.} \\
+Reset & \textit{Restart sequencer from Begin step.} \\
+Randomizer & \textit{Randomizes step values when Randomizer algo is selected.} \\
+Gate & \textit{Steps sequencer forward.} \\
 
 \midrule
 \textbf{Output} \\
-1/Oct & \textit{Quantized 1/Octave output.} \\
+Mod & \textit{Modulation output.} \\
 
 \bottomrule
 \end{tabular}
@@ -1741,10 +1778,39 @@ Mod & \textit{Modulation input.} \\
 \pagebreak
 
 
-\section{16 Step Gate Sequencer}
-\pagebreak
 \section{Binary Gate Sequencer}
+
+\includegraphics[width=\textwidth]{binary-gate-sequencer.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+1/2/3/4 & \textit{Each knob changes the on/off combination of steps for each row as indicated by the lights above.} \\
+
+\midrule
+\textbf{Input} \\
+Reset & \textit{Restart sequencer from beginning.} \\
+Gate & \textit{Steps sequencer forward.} \\
+
+\midrule
+\textbf{Output} \\
+Clock & \textit{Outputs the incoming clock if step is engaged.} \\
+Gate & \textit{Outputs a gate based on current step, e.g., if 4 steps in a row are engaged, the gate will stay high the duration of those 4 steps.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
+
 \section{Euclidean Gate Sequencer}
 \pagebreak
 \section{Matrix Gate Sequencer}
