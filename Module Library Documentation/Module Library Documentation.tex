@@ -526,8 +526,8 @@ Gate & \textit{Clock output.} \\
 \textbf{Knob} \\
 Pitch & \textit{Sets the pitch of the oscillators.} \\
 Decay & \textit{Controls the length of decay. If turned all the way up, the sound will stay on indefinitely.} \\
-Shape & \textit{Fades oscillator shape from sine to triangle.} \\
-Side Band & \textit{???} \\
+Shape & \textit{Fades oscillator shape from sine to triangle. Interactive with the Side Band control as the oscillators cross-modulate one another.} \\
+Side Band & \textit{Fades from pure oscillators to ring modulation through to a kind of digital modulation.} \\
 BPF & \textit{Adjusts the frequency center of the bandpass filter.} \\
 BW & \textit{Controls the bandwidth of the bandpass filter. Higher settings mean more bandwidth.} \\
 
@@ -547,11 +547,102 @@ Out & \textit{Audio output.} \\
 
 
 \section{$\mu$Hat}
+
+\includegraphics[width=\textwidth]{uhat.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Decay & \textit{Controls the length of decay.} \\
+Pitch & \textit{Sets the pitch of the hat.} \\
+BPF & \textit{Fades oscillator shape from sine to triangle.} \\
+
+\midrule
+\textbf{Input} \\
+Acc & \textit{When gated, the Accent input increases the decay time of the module, allowing for an open hat sound. The amount of decay time increase can be adjusted internally with a trimpot control.} \\
+Gate & \textit{Triggers drum sound.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Audio output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{$\mu$Kick}
+
+\includegraphics[width=\textwidth]{ukick.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Pitch & \textit{Sets the upper pitch the kick decays from.} \\
+Decay & \textit{Sets the decay time of the kick.} \\
+Accnt & \textit{Normalized accent control that, when turned up, actually lowers the volume of the unaccented sound relative to the accented sound.} \\
+
+\midrule
+\textbf{Input} \\
+Acc & \textit{When gated, the Accent input increases the volume of the drum as long as the Accnt control is turned up.} \\
+Gate & \textit{Triggers drum sound.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Audio output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{$\mu$Snare}
+
+\includegraphics[width=\textwidth]{usnare.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Decay & \textit{Sets the decay time of the snare.} \\
+Ring & \textit{Adjusts the loudness of the ringing fundamental tone.} \\
+Snare & \textit{Sets the loudness of the noise component of the drum known as the snares.} \\
+
+\midrule
+\textbf{Input} \\
+Gate & \textit{Triggers drum sound.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Audio output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 
 \chapter{Effect Modules}
 \pagebreak
