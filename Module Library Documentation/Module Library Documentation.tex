@@ -2299,12 +2299,12 @@ A/B & \textit{Gate inputs.} \\
 
 \midrule
 \textbf{Output} \\
-AND & \textit{Outputs gate if both A and B inputs are high.} \\
-NAN & \textit{Outputs gate only if A and B are not high at the same time.} \\
-OR & \textit{Outputs gate if either A and B inputs are high.} \\
-NOR & \textit{Outputs gate if neither A and B inputs are high.} \\
-XOR & \textit{Outputs gate if only A or B inputs are high.} \\
-XNR & \textit{Outputs gate if A and B are either both low or both high.} \\
+AND & \textit{AND gate: Outputs gate if both A and B inputs are high.} \\
+NAN & \textit{NAND gate: Outputs gate only if A and B are not high at the same time.} \\
+OR & \textit{OR Gate: Outputs gate if either A and B inputs are high.} \\
+NOR & \textit{NOR Gate: Outputs gate if neither A and B inputs are high.} \\
+XOR & \textit{XOR Gate: Outputs gate if only A or B inputs are high.} \\
+XNR & \textit{XNOR Gate: Outputs gate if A and B are either both low or both high.} \\
 
 \bottomrule
 \end{tabular}
@@ -2344,9 +2344,71 @@ Width & \textit{Adjusts detune spread amount for polyphonic 1/Oct signal.} \\
 
 
 \section{$\mu$Sample \& Hold}
+
+\includegraphics[width=\textwidth]{usample-and-hold.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Hz & \textit{Sets the speed of the internal sampling clock from 0 to 20Hz.} \\
+Atten & \textit{Attenuates modulation signal.} \\
+Offst & \textit{Shifts modulation up or down. Note: modulation output will clip if output exceeds the 0 to 1 modulation range.} \\
+
+\midrule
+\textbf{Input} \\
+Gate & \textit{Allows you to gate the module externally. To engage, press the Ext (External) button.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Modulation output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Window Comparator}
+
+\includegraphics[width=\textwidth]{uwindow-comparator.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Size & \textit{???} \\
+Shift & \textit{???} \\
+
+\midrule
+\textbf{Input} \\
+In & \textit{Comparator input.} \\
+
+\midrule
+\textbf{Button} \\
+Audio & \textit{When engaged, module input will expect a -1 to 1 audio input.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Gate output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 
 \chapter{VCA Modules}
 \pagebreak
