@@ -1559,7 +1559,7 @@ Mod & \textit{Modulation input.} \\
 
 \midrule
 \textbf{Output} \\
-1/O & \textit{Quantized 1/Octave output.} \\
+1/Oct & \textit{Quantized 1/Octave output.} \\
 
 \bottomrule
 \end{tabular}
@@ -1569,18 +1569,173 @@ Mod & \textit{Modulation input.} \\
 
 
 \section{Gateable Quantizer}
+
+\includegraphics[width=\textwidth]{gateable-quantizer.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Range & \textit{Adjusts how many octaves the 1/Octave signal covers.} \\
+Shift & \textit{Shifts the 1/Octave signal up and down.} \\
+
+\midrule
+\textbf{Button} \\
+Scale buttons & \textit{Switch buttons on to make notes active. Also includes a gateable input at each button that will remotely switch notes on and off so long as the button is turned off.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+1/O & \textit{Quantized 1/Octave output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Modulation Quantizer}
+
+\includegraphics[width=\textwidth]{modulation-quantizer.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Unlabeled knob & \textit{Sets the number of quantization levels from 2 to 64.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+Mod & \textit{Quantized modulation output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Neo-Reimannian Triad Transformer}
+
+\includegraphics[width=\textwidth]{neo-reimannian-triad-transformer.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Type & \textit{Sets the type of triad transformation indicated next to the knob.} \\
+
+\midrule
+\textbf{Input} \\
+Maj-Min & \textit{Low gate input = Major; high gate input = minor. The button next to the input will switch between major (off) and minor (on) as well.} \\
+Reset & \textit{Resets the transformation algorithm. The button next to the input can also be pushed to manually reset.} \\
+Gate & \textit{Triggers a new triad transformation.} \\
+1/Oct & \textit{1/Octave input.} \\
+
+\midrule
+\textbf{Output} \\
+1/Oct Root/3rd/5th & \textit{Quantized 1/Octave root, 3rd and 5th notes.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Quick Quantizer}
+
+\includegraphics[width=\textwidth]{quick-quantizer.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Range & \textit{Adjusts how many octaves the 1/Octave signal covers.} \\
+Shift & \textit{Shifts the 1/Octave signal up and down.} \\
+Scale & \textit{Adjusts the type of scale: (C)hromatic, (M)ajor, (m)inor, (h)armonic minor, (P)entatonic major, (p)entatonic minor.} \\
+Root & \textit{Shifts the root note of the quantizer. Note: If you need a scale in $B\flat$ use $A\sharp$, and so on.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+1/Oct & \textit{Quantized 1/Octave output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 
 \chapter{Sequencer Modules}
 \pagebreak
+
+
 \section{8 Step Sequencer}
+
+\includegraphics[width=\textwidth]{8-step-sequencer.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Range & \textit{Adjusts how many octaves the 1/Octave signal covers.} \\
+Shift & \textit{Shifts the 1/Octave signal up and down.} \\
+Scale & \textit{Adjusts the type of scale: (C)hromatic, (M)ajor, (m)inor, (h)armonic minor, (P)entatonic major, (p)entatonic minor.} \\
+Root & \textit{Shifts the root note of the quantizer. Note: If you need a scale in $B\flat$ use $A\sharp$, and so on.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+1/Oct & \textit{Quantized 1/Octave output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{16 Step Gate Sequencer}
 \pagebreak
 \section{Binary Gate Sequencer}
