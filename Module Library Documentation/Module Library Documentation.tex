@@ -646,16 +646,137 @@ Out & \textit{Audio output.} \\
 
 \chapter{Effect Modules}
 \pagebreak
+
 \section{Delay}
 \pagebreak
+
 \subsection{Stereo Delay}
+
+\includegraphics[width=\textwidth]{stereo-delay.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Left/Right & \textit{Sets the delay time for the Left/Right channels.} \\
+Fdbk & \textit{Sets the amount of feedback for both channels.} \\
+Mix & \textit{Balances the wet/dry mix.} \\
+Width & \textit{Adjusts the stereo separation of delays from mono to stereo.} \\
+
+\midrule
+\textbf{Input} \\
+Time L/R & \textit{Time inputs for the sync module. You can also use them as modulation inputs to create vibrato or chorus effects.} \\
+L/R & \textit{Stereo audio inputs for Left and Right channels.} \\
+
+\midrule
+\textbf{Output} \\
+L/R & \textit{Stereo audio outputs for Left and Right channels.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
-\subsection{Looper Sync}
+
+
+\subsection{Delay Looper Sync}
+
+\includegraphics[width=\textwidth]{delay-looper-sync.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Unlabeled knob & \textit{Switches between 1, 2, 4, or 8 bars of loop time. If total loop time exceeds the maximum 20 seconds of the Delay node, a red light will appear at the top.} \\
+
+\midrule
+\textbf{Input} \\
+1/16 & \textit{Gate input for syncing that expects a 1/16th note pulse. Use the 1/16th note output of the Master Clock module for consistent results.} \\
+
+\midrule
+\textbf{Output} \\
+Time & \textit{Outputs the number of seconds of loop time. Connect only to the Time inputs of delay modules.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
-\subsection{Tempo Sync}
+
+
+\subsection{Delay Tempo Sync}
+
+\includegraphics[width=\textwidth]{delay-tempo-sync.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Unlabeled knob & \textit{Switches between subdivisions of delay time. Top to bottom: 1/2, 1/4 dotted, 1/4, 1/8th dotted, 1/4 triplet, 1/8th, 1/8th triplet, 16th. If total delay time exceeds the maximum 20 seconds of the Delay node, a red light will appear at the top.} \\
+
+\midrule
+\textbf{Input} \\
+1/16 & \textit{Gate input for syncing that expects a 1/16th note pulse. Use the 1/16th note output of the Master Clock module for consistent results.} \\
+
+\midrule
+\textbf{Output} \\
+Time & \textit{Outputs the number of seconds of loop time. Connect only to the Time inputs of delay modules.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \subsection{uDelay}
+
+\includegraphics[width=\textwidth]{udelay.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Time & \textit{Sets the delay time.} \\
+Fdbk & \textit{Sets the amount of feedback.} \\
+Mix & \textit{Balances the wet/dry mix.} \\
+
+\midrule
+\textbf{Input} \\
+Time & \textit{Time input for the sync module. You can also use it as a modulation input to create vibrato or chorus effects.} \\
+In & \textit{Audio input.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Audio output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Distortion}
 \pagebreak
 \subsection{Asymmetrical Drive}
