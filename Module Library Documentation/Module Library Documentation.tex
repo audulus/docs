@@ -3,7 +3,10 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
 
+\restylefloat{table}
 \graphicspath{ {./images/} }
 
 \setlength{\parindent}{2em}
@@ -392,7 +395,7 @@ A/B& \textit{Outputs a gate if chosen depending on random chance biased by A$\le
 
 \toprule
 \textbf{Knob} \\
-A/B/C/D & \textit{Each knob sets the chance that their corresponding input will be chosen when the module is gated at the \textnormal{Gate} input. These knobs auto-scale, meaning if you turn one down, the chance for all others to be chosen goes up. That means if all knobs are set halfway all the way up, each input has a 25\% chance of being chosen, and if you turn A and B all the way down and C and D all the way up, then C and D inputs have a 50\% chance each of being chosen.} \\
+A/B/C/D & \textit{Each knob sets the chance that their corresponding input will be chosen when the module is gated at the \textnormal{Gate} input.} \\
 
 \midrule
 \textbf{Input} \\
@@ -411,18 +414,138 @@ A/B& \textit{Outputs a gate if chosen depending on random chance biased by A$\le
 
 
 \section{Pachinko Machine}
+
+\includegraphics[width=\textwidth]{pachinko-machine.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Tier 1/2/3 & \textit{Sets the balance of probability of each subsequent tier of Bernoulli Gate modules. Tier 1 has x1, Tier 2 has x2, and Tier 3 has x4.} \\
+
+\midrule
+\textbf{Input} \\
+Gate & \textit{Gating this input is like launching a  ball to the top of the Pachinko machine. Where the gate exits depends on the probability of each tier, indicated by the displays next to each output.} \\
+
+\midrule
+\textbf{Output} \\
+Left Column Gates & \textit{Outputs the incoming gate if selected by chance.} \\
+Right Column Gates & \textit{Outputs the incoming gate if selected by chance and stays high until selected again when it then goes low.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 
 \section{Random Bursts}
+
+\includegraphics[width=\textwidth]{random-bursts.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Rate & \textit{Sets the speed at which random bursts happen.} \\
+Dens & \textit{Sets how densely grouped the random bursts are.} \\
+
+\midrule
+\textbf{Input} \\
+Rte & \textit{Modulation input for Rate.} \\
+Dns & \textit{Modulation input for Density.} \\
+
+\midrule
+\textbf{Output} \\
+Gate & \textit{Outputs random bursts of gates.} \\
+Out & \textit{Outputs random bursts of bipolar white noise.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
 
+
 \section{uClock}
+
+\includegraphics[width=\textwidth]{uclock.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Hz & \textit{Sets the speed of the clock from 0 to 20Hz.} \\
+PWM & \textit{Sets the pulse width of the clock from 0 to 100\%.} \\
+
+\midrule
+\textbf{Button} \\
+Start & \textit{Press to start and stop the clock. Clock will reset when restarted. Gate input below will remotely turn clock on and off so long as the button itself is off.} \\
+
+\midrule
+\textbf{Output} \\
+Gate & \textit{Clock output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 
 \chapter{Drum Modules}
 \pagebreak
+
 \section{Percussion}
+
+\includegraphics[width=\textwidth]{percussion.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Pitch & \textit{Sets the pitch of the oscillators.} \\
+Decay & \textit{Controls the length of decay. If turned all the way up, the sound will stay on indefinitely.} \\
+Shape & \textit{Fades oscillator shape from sine to triangle.} \\
+Side Band & \textit{???} \\
+BPF & \textit{Adjusts the frequency center of the bandpass filter.} \\
+BW & \textit{Controls the bandwidth of the bandpass filter. Higher settings mean more bandwidth.} \\
+
+\midrule
+\textbf{Input} \\
+Gate & \textit{Triggers drum sound.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Audio output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{$\mu$Hat}
 \pagebreak
 \section{$\mu$Kick}
