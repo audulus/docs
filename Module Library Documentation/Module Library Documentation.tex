@@ -2388,16 +2388,12 @@ Out & \textit{Modulation output.} \\
 
 \toprule
 \textbf{Knob} \\
-Size & \textit{???} \\
-Shift & \textit{???} \\
+Size & \textit{The output gate will go low when the incoming signal exceeds the size parameter.} \\
+Shift & \textit{The output gate will go high when the incoming signal is greater than the Shift value.} \\
 
 \midrule
 \textbf{Input} \\
 In & \textit{Comparator input.} \\
-
-\midrule
-\textbf{Button} \\
-Audio & \textit{When engaged, module input will expect a -1 to 1 audio input.} \\
 
 \midrule
 \textbf{Output} \\
@@ -2412,52 +2408,668 @@ Out & \textit{Gate output.} \\
 
 \chapter{VCA Modules}
 \pagebreak
+
 \section{Digital VCA}
+
+\includegraphics[width=\textwidth]{digital-vca.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+In A/B & \textit{Input attenuators for inputs A and B.} \\
+CV A/B & \textit{CV attenuators for CV inputs A and B.} \\
+log\textbar lin\textbar exp& \textit{Changes CV input response from logarithmic to linear to exponential.} \\
+
+\midrule
+\textbf{Input} \\
+In A/B & \textit{Audio inputs.} \\
+In CV A/B & \textit{Modulation inputs.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Audio output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Diode VCA}
+
+\includegraphics[width=\textwidth]{diode-vca.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+In A/B & \textit{Input attenuators for inputs A and B.} \\
+Drive & \textit{Adjusts the amount of input gain to the diode clipper.} \\
+Fdbk & \textit{Sets the amount of feedback from the output back to the input.} \\
+
+\midrule
+\textbf{Input} \\
+In A/B & \textit{Audio inputs.} \\
+In CV A/B & \textit{Modulation inputs.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Audio output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{$\mu$VCA}
+
+\includegraphics[width=\textwidth]{uvca.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+In A & \textit{Input attenuators for inputs A and B.} \\
+CV & \textit{Adjusts the amount of input modulation.} \\
+lg\textbar ln\textbar ex& \textit{Changes CV input response from logarithmic to linear to exponential.} \\
+
+
+\midrule
+\textbf{Input} \\
+In & \textit{Audio input.} \\
+In CV & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Audio output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 
 \chapter{VCF Modules}
 \pagebreak
+
+
 \section{303 VCF}
+
+\includegraphics[width=\textwidth]{303-vcf.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Hz & \textit{Sets the cutoff of the filter.} \\
+Q & \textit{Adjusts the resonance of the filter.} \\
+Drive & \textit{Sets the input amplication to the filter. If input drive exceeds -1 to 1 output clipping indicator will flash. Clipping is OK as long as it sounds good to you.} \\
+Mod & \textit{Adjusts the input level of the modulation.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Modulation input.} \\
+In A/B & \textit{Audio inputs.} \\
+
+\midrule
+\textbf{Output} \\
+HPF & \textit{High pass filter output.} \\
+NOT & \textit{Notch filter output.} \\
+LPF & \textit{Low pass filter output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Basic EQ}
 \pagebreak
+
 \section{K35 VCF}
+
+\includegraphics[width=\textwidth]{k35-vcf.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Hz & \textit{Sets the cutoff of the filter.} \\
+Q & \textit{Adjusts the resonance of the filter.} \\
+Drive & \textit{Sets the input amplication to the filter. If input drive exceeds -1 to 1 output clipping indicator will flash. Clipping is OK as long as it sounds good to you.} \\
+Mod & \textit{Adjusts the input level of the modulation.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Modulation input.} \\
+In A/B & \textit{Audio inputs.} \\
+
+\midrule
+\textbf{Output} \\
+HPF & \textit{High pass filter output.} \\
+NOT & \textit{Notch filter output.} \\
+LPF & \textit{Low pass filter output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Ladder VCF}
+
+\includegraphics[width=\textwidth]{ladder-vcf.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Hz & \textit{Sets the cutoff of the filter.} \\
+Q & \textit{Adjusts the resonance of the filter.} \\
+Drive & \textit{Sets the input amplication to the filter. If input drive exceeds -1 to 1 output clipping indicator will flash. Clipping is OK as long as it sounds good to you.} \\
+Mod & \textit{Adjusts the input level of the modulation.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Modulation input.} \\
+In A/B & \textit{Audio inputs.} \\
+
+\midrule
+\textbf{Output} \\
+HP2p & \textit{High pass 2 pole filter output.} \\
+HP4p & \textit{High pass 4 pole filter output.} \\
+NOT & \textit{Notch filter output.} \\
+BP2p & \textit{High pass 2 pole filter output.} \\
+BP4p & \textit{High pass 4 pole filter output.} \\
+LP2p & \textit{High pass 2 pole filter output.} \\
+LP4p & \textit{Low pass 4 pole filter output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{LPG}
+
+\includegraphics[width=\textwidth]{lpg.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Hz & \textit{Sets the cutoff of the filter.} \\
+Decay & \textit{Adjusts the decay of the LPG.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Modulation input.} \\
+In A/B & \textit{Audio inputs.} \\
+
+\midrule
+\textbf{Output} \\
+6dB & \textit{6dB/oct lowpass filter output.} \\
+12d & \textit{12dB/oct lowpass filter output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{SEM VCF}
+
+\includegraphics[width=\textwidth]{sem-vcf.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Hz & \textit{Sets the cutoff of the filter.} \\
+Q & \textit{Adjusts the resonance of the filter.} \\
+Drive & \textit{Sets the input amplication to the filter. If input drive exceeds -1 to 1 output clipping indicator will flash. Clipping is OK as long as it sounds good to you.} \\
+Mod & \textit{Adjusts the input level of the modulation.} \\
+Morph & \textit{Morphs between LPF, Notch, and HPF at the Morph output.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Modulation input.} \\
+In A/B & \textit{Audio inputs.} \\
+
+\midrule
+\textbf{Output} \\
+Morph & \textit{Variable LPF-Notch-HPF filter set by the Morph control.} \\
+HPF & \textit{High pass filter output.} \\
+NOT & \textit{Notch filter output.} \\
+LPF & \textit{Low pass filter output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{$\mu$VCF}
+
+\includegraphics[width=\textwidth]{uvcf.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Hz & \textit{Sets the cutoff of the filter.} \\
+Q & \textit{Adjusts the resonance of the filter.} \\
+Mod & \textit{Adjusts the input level of the modulation.} \\
+
+\midrule
+\textbf{Input} \\
+Mod & \textit{Modulation input.} \\
+In & \textit{Audio input.} \\
+
+\midrule
+\textbf{Output} \\
+LPF & \textit{Lowpass filter output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 
 \chapter{VCO Modules}
 \pagebreak
+
 \section{Basic VCO}
+
+\includegraphics[width=\textwidth]{basic-vco.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Oct & \textit{Sets the cutoff of the filter.} \\
+Tune & \textit{Adjusts the resonance of the filter.} \\
+FM & \textit{Adjusts the input level of the modulation.} \\
+Shape & \textit{Adjusts the input level of the modulation.} \\
+
+\midrule
+\textbf{Input} \\
+1/Oct & \textit{Modulation input.} \\
+Lin FM & \textit{Audio input.} \\
+Sync & \textit{Modulation input.} \\
+Shape & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+Sine/Tri/Saw/Sqr & \textit{Lowpass filter output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Chebyshev Additive VCO}
+
+\includegraphics[width=\textwidth]{chebyshev-additive-vco.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Oct & \textit{Sets the cutoff of the filter.} \\
+Tune & \textit{Adjusts the resonance of the filter.} \\
+FM & \textit{Adjusts the input level of the modulation.} \\
+Bal & \textit{Adjusts the input level of the modulation.} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+
+\midrule
+\textbf{Input} \\
+1/Oct & \textit{Modulation input.} \\
+TZFM & \textit{Audio input.} \\
+Sync & \textit{Modulation input.} \\
+Balance & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
+-All/All & \textit{Lowpass filter output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Karplus-Strong VCO}
+
+\includegraphics[width=\textwidth]{karplus-strong-vco.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Oct & \textit{Sets the cutoff of the filter.} \\
+Tune & \textit{Adjusts the resonance of the filter.} \\
+FM & \textit{Adjusts the input level of the modulation.} \\
+Bal & \textit{Adjusts the input level of the modulation.} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+
+\midrule
+\textbf{Input} \\
+1/Oct & \textit{Modulation input.} \\
+TZFM & \textit{Audio input.} \\
+Sync & \textit{Modulation input.} \\
+Balance & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
+-All/All & \textit{Lowpass filter output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Morphing VCO}
+
+\includegraphics[width=\textwidth]{morphing-vco.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Oct & \textit{Sets the cutoff of the filter.} \\
+Tune & \textit{Adjusts the resonance of the filter.} \\
+FM & \textit{Adjusts the input level of the modulation.} \\
+Bal & \textit{Adjusts the input level of the modulation.} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+
+\midrule
+\textbf{Input} \\
+1/Oct & \textit{Modulation input.} \\
+TZFM & \textit{Audio input.} \\
+Sync & \textit{Modulation input.} \\
+Balance & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
+-All/All & \textit{Lowpass filter output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
+
 \section{Noise}
+
+\includegraphics[width=\textwidth]{noise.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Oct & \textit{Sets the cutoff of the filter.} \\
+Tune & \textit{Adjusts the resonance of the filter.} \\
+FM & \textit{Adjusts the input level of the modulation.} \\
+Bal & \textit{Adjusts the input level of the modulation.} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+
+\midrule
+\textbf{Input} \\
+1/Oct & \textit{Modulation input.} \\
+TZFM & \textit{Audio input.} \\
+Sync & \textit{Modulation input.} \\
+Balance & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
+-All/All & \textit{Lowpass filter output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
-\section{Skew VCO}
-\pagebreak
+
 \section{Supersaw VCO}
+
+\includegraphics[width=\textwidth]{supersaw-vco.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Oct & \textit{Sets the cutoff of the filter.} \\
+Tune & \textit{Adjusts the resonance of the filter.} \\
+FM & \textit{Adjusts the input level of the modulation.} \\
+Bal & \textit{Adjusts the input level of the modulation.} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+
+\midrule
+\textbf{Input} \\
+1/Oct & \textit{Modulation input.} \\
+TZFM & \textit{Audio input.} \\
+Sync & \textit{Modulation input.} \\
+Balance & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
+-All/All & \textit{Lowpass filter output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 \section{TZFM VCO}
+
+\includegraphics[width=\textwidth]{tzfm-vco.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Oct & \textit{Sets the cutoff of the filter.} \\
+Tune & \textit{Adjusts the resonance of the filter.} \\
+FM & \textit{Adjusts the input level of the modulation.} \\
+Bal & \textit{Adjusts the input level of the modulation.} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+
+\midrule
+\textbf{Input} \\
+1/Oct & \textit{Modulation input.} \\
+TZFM & \textit{Audio input.} \\
+Sync & \textit{Modulation input.} \\
+Balance & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
+-All/All & \textit{Lowpass filter output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 \section{$\mu$Noise}
+
+\includegraphics[width=\textwidth]{unoise.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Oct & \textit{Sets the cutoff of the filter.} \\
+Tune & \textit{Adjusts the resonance of the filter.} \\
+FM & \textit{Adjusts the input level of the modulation.} \\
+Bal & \textit{Adjusts the input level of the modulation.} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+
+\midrule
+\textbf{Input} \\
+1/Oct & \textit{Modulation input.} \\
+TZFM & \textit{Audio input.} \\
+Sync & \textit{Modulation input.} \\
+Balance & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
+-All/All & \textit{Lowpass filter output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 \section{$\mu$VCO}
+
+\includegraphics[width=\textwidth]{uvco.png}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Oct & \textit{Sets the cutoff of the filter.} \\
+Tune & \textit{Adjusts the resonance of the filter.} \\
+FM & \textit{Adjusts the input level of the modulation.} \\
+Bal & \textit{Adjusts the input level of the modulation.} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+
+\midrule
+\textbf{Input} \\
+1/Oct & \textit{Modulation input.} \\
+TZFM & \textit{Audio input.} \\
+Sync & \textit{Modulation input.} \\
+Balance & \textit{Modulation input.} \\
+
+\midrule
+\textbf{Output} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
+-All/All & \textit{Lowpass filter output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}% \\
+
 \pagebreak
+
 
 
 
