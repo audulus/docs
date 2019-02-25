@@ -21,6 +21,7 @@
 \restylefloat{table}
 \graphicspath{ {./images/} }
 \setlength{\columnsep}{1cm}
+\raggedcolumns
 
 \makeindex
 \makeglossaries
@@ -39,6 +40,8 @@
 \tableofcontents
 
 \chapter{Modules and How They Work}
+
+\begin{multicols*}{2}
 
 Modular synthesis is an exciting, freeing way to create music and design sounds. The freedom it offers can be intimidating at first, especially to a total beginner, but grasping the fundamentals is easier than it appears.
 
@@ -117,6 +120,7 @@ It is not recommended to plug an audio signal into a modulation input. Doing so 
 Audio inputs and outputs are unmarked by any lights. They may be labeled Audio, Aud, In/Out, Left/Right or L/R for stereo modules, or have context-specific labels like Sine or Saw on a VCO. Inputs labeled FM always expect an audio signal.
 
 When audio signals are mixed together, their total output may exceed a -1 to 1 range. You can even boost your audio signals creatively to drive a distortion module harder. The important thing to remember is that audio exiting Audulus to your speakers, headphones, or audio interface must be kept between -1 and 1 to prevent clipping distortion. 
+
 
 \section{Categories of Modules}
 
@@ -289,6 +293,9 @@ In the in-app menu, modules may have reversed names like Clock Master and Gate B
 Modules in this manual are presented first with a screenshot and a table that outlines what each input, output, knob, and button does. Then, after a brief description of the module, a few example patches are presented.
 
 
+\end{multicols*}
+
+
 \chapter{Clock Modules}
 
 Clock modules output gate signals. They keep time, trigger events, and open and close envelopes. In hardware modular synths, clocks typically output a very short gate signal called a pulse. In Audulus, however, clock signals can be long or short gates.
@@ -329,7 +336,7 @@ PWM & \textit{The divided gate signal output. This gate output will have a pulse
 
 \pagebreak
 
-\subsection*{Clock Divider Overview}
+\subsection*{Module Overview}
 \begin{multicols*}{2}
 The Clock Divider module takes an incoming clock signal and divides down its speed by a fixed ratio. If you want two related clock speeds in the same patch, it's much easier to to use a clock and clock divider pair rather than trying to syncronize two separate clocks.
 
@@ -353,7 +360,31 @@ Compare the outputs below and notice that the Gate output is short, preserving t
 \includegraphics[width=0.95\linewidth]{clock-divider-fig3.png}
 \end{center}
 
+The Reset input is useful for synchronizing multiple Clock Dividers together. If you create and wire up one Clock Divider and later add another, chances are the modules will be out of sync with one another. Clock Dividers can also get out of sync when changing the $\div$ control.
 
+Below is an example of 2 different Clock Divider modules out of sync with one another.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{clock-divider-fig4.png}
+\end{center}
+
+There are several ways to synchronize the modules together. The first way is to attach the Gate output of one to the Reset input of the other. This works only if you attach the output of the slower Clock Divider to the Reset input of the faster one and only if the slower division factor is divisible by the faster division factor.
+
+In the example below, the $\div$8 Divider is resetting the $\div$4 Divider.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{clock-divider-fig5.png}
+\end{center}
+
+Another way to synchronize the modules together is to attach a button to the reset input of both modules and press the button once.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{clock-divider-fig6.png}
+\end{center}
+
+\subsection*{Basic Example Patch}
+
+Using a Clock Divider module with a sequencer-driven patch can really open up rhythmic and melodic possibilities.
 
 \end{multicols*}
 
