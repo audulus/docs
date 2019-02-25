@@ -7,6 +7,8 @@
 \usepackage{float}
 \usepackage{hyperref}
 \usepackage[margin=1in]{geometry}
+\usepackage{makeidx}
+\usepackage{glossaries}
 
 \hypersetup{
     colorlinks,
@@ -17,6 +19,9 @@
 }
 \restylefloat{table}
 \graphicspath{ {./images/} }
+
+\makeindex
+\makeglossaries
 
 \setlength{\parindent}{2em}
 \setlength{\parskip}{0em}
@@ -2748,21 +2753,21 @@ LPF & \textit{Lowpass filter output.} \\
 
 \toprule
 \textbf{Knob} \\
-Oct & \textit{Sets the cutoff of the filter.} \\
-Tune & \textit{Adjusts the resonance of the filter.} \\
-FM & \textit{Adjusts the input level of the modulation.} \\
-Shape & \textit{Adjusts the input level of the modulation.} \\
+Oct & \textit{Offsets the octave of the oscillator -/+ 5 octaves.} \\
+Tune & \textit{Adjusts the tuning of the oscillator -/+ 1 semitone.} \\
+FM & \textit{Adjusts the level of input FM modulation. Light beneath knob will flash when internal Hz pitch value drops below zero.} \\
+Shape & \textit{Changes the shape of each oscillator. Sine = wavefold, triangle = waveshape, saw = supersaw, square = PWM.} \\
 
 \midrule
 \textbf{Input} \\
-1/Oct & \textit{Modulation input.} \\
-Lin FM & \textit{Audio input.} \\
-Sync & \textit{Modulation input.} \\
-Shape & \textit{Modulation input.} \\
+1/Oct & \textit{1/Octave input.} \\
+Lin FM & \textit{Linear FM input. Expects a bipolar -1 to 1 audio signal.} \\
+Sync & \textit{Hard resets waveform on positive zero crossings. Expects a bipolar -1 to 1 audio signal.} \\
+Shape & \textit{Modulation input for Shape control.} \\
 
 \midrule
 \textbf{Output} \\
-Sine/Tri/Saw/Sqr & \textit{Lowpass filter output.} \\
+Sine/Tri/Saw/Sqr & \textit{Audio outputs for Sine, Triangle, Saw, and Square waveshapes.} \\
 
 \bottomrule
 \end{tabular}
@@ -2784,23 +2789,23 @@ Sine/Tri/Saw/Sqr & \textit{Lowpass filter output.} \\
 
 \toprule
 \textbf{Knob} \\
-Oct & \textit{Sets the cutoff of the filter.} \\
-Tune & \textit{Adjusts the resonance of the filter.} \\
-FM & \textit{Adjusts the input level of the modulation.} \\
-Bal & \textit{Adjusts the input level of the modulation.} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+Oct & \textit{Offsets the octave of the oscillator -/+ 5 octaves.} \\
+Tune & \textit{Adjusts the tuning of the oscillator -/+ 1 semitone.} \\
+FM & \textit{Adjusts the level of input FM modulation.} \\
+Bal & \textit{Sets the balance of fundamental to harmonics at the All outputs. When all the way down, only the fundamental passes. When all the way up, the fundamental and all its harmonics pass.} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Level controls for the fundamental frequency up to the 5th harmonic at the All outputs. Does not affect individual outputs.} \\
 
 \midrule
 \textbf{Input} \\
-1/Oct & \textit{Modulation input.} \\
-TZFM & \textit{Audio input.} \\
-Sync & \textit{Modulation input.} \\
-Balance & \textit{Modulation input.} \\
+1/Oct & \textit{1/Octave input.} \\
+TZFM & \textit{Through-zero linear FM input. Expects a bipolar -1 to 1 audio signal.} \\
+Sync & \textit{Hard resets waveform on positive zero crossings. Expects a bipolar -1 to 1 audio signal.} \\
+Balance & \textit{Modulation input for Bal control.} \\
 
 \midrule
 \textbf{Output} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
--All/All & \textit{Lowpass filter output.} \\
+Fund/1st/2nd/3rd/4th/5th & \textit{Independent outputs for fundamental and each harmonic.} \\
+-All/All & \textit{Normal and inverted oscillator mix outputs.} \\
 
 \bottomrule
 \end{tabular}
@@ -2822,23 +2827,23 @@ Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
 
 \toprule
 \textbf{Knob} \\
-Oct & \textit{Sets the cutoff of the filter.} \\
-Tune & \textit{Adjusts the resonance of the filter.} \\
-FM & \textit{Adjusts the input level of the modulation.} \\
-Bal & \textit{Adjusts the input level of the modulation.} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+Fdbk & \textit{Sets the feedback amount of the delay lines, essentially acting like a decay control.} \\
+Drive & \textit{Adjusts the level of overdrive distortion.} \\
+Exctr & \textit{Sets the loudness of the exciter, or the initial burst of noise.} \\
+Damp & \textit{Dampens the feedback by filtering it.} \\
+
+\midrule
+\textbf{Button} \\
+Bipolar Noise & \textit{When engaged, changes the exciter to be bipolar -1 to 1 noise rather than monopolar 0 to 1, which changes how the sound resonates.} \\
 
 \midrule
 \textbf{Input} \\
 1/Oct & \textit{Modulation input.} \\
-TZFM & \textit{Audio input.} \\
-Sync & \textit{Modulation input.} \\
-Balance & \textit{Modulation input.} \\
+Gate & \textit{Gate input to trigger sound.} \\
 
 \midrule
 \textbf{Output} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
--All/All & \textit{Lowpass filter output.} \\
+Out & \textit{Audio output.} \\
 
 \bottomrule
 \end{tabular}
@@ -2860,23 +2865,21 @@ Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
 
 \toprule
 \textbf{Knob} \\
-Oct & \textit{Sets the cutoff of the filter.} \\
-Tune & \textit{Adjusts the resonance of the filter.} \\
-FM & \textit{Adjusts the input level of the modulation.} \\
-Bal & \textit{Adjusts the input level of the modulation.} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+Oct & \textit{Offsets the octave of the oscillator -/+ 5 octaves.} \\
+Tune & \textit{Adjusts the tuning of the oscillator -/+ 1 semitone.} \\
+Morph & \textit{Crossfades between oscillator shapes.} \\
+Shape & \textit{Changes the shape of each oscillator. Sine = wavefold, triangle = waveshape, saw = supersaw, square = PWM.} \\
 
 \midrule
 \textbf{Input} \\
-1/Oct & \textit{Modulation input.} \\
-TZFM & \textit{Audio input.} \\
-Sync & \textit{Modulation input.} \\
-Balance & \textit{Modulation input.} \\
+1/Oct & \textit{1/Octave input.} \\
+Shape & \textit{Modulation input for Morph control.} \\
+Shape & \textit{Modulation input for Shape control.} \\
 
 \midrule
 \textbf{Output} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
--All/All & \textit{Lowpass filter output.} \\
+SaSq & \textit{Morphs Sine-Triangle-Saw-Square.} \\
+SqSa & \textit{Morphs Sine-Triangle-Square-Saw.} \\
 
 \bottomrule
 \end{tabular}
@@ -2898,29 +2901,25 @@ Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
 
 \toprule
 \textbf{Knob} \\
-Oct & \textit{Sets the cutoff of the filter.} \\
-Tune & \textit{Adjusts the resonance of the filter.} \\
-FM & \textit{Adjusts the input level of the modulation.} \\
-Bal & \textit{Adjusts the input level of the modulation.} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+Hz & \textit{Noise frequency.} \\
+HPF & \textit{Highpass filter for noise.} \\
+LPF & \textit{Lowpass filter for noise.} \\
 
 \midrule
 \textbf{Input} \\
-1/Oct & \textit{Modulation input.} \\
-TZFM & \textit{Audio input.} \\
-Sync & \textit{Modulation input.} \\
-Balance & \textit{Modulation input.} \\
+1/Oct & \textit{1/Octave input. To track perfectly, turn Hz knob all the way down.} \\
 
 \midrule
 \textbf{Output} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
--All/All & \textit{Lowpass filter output.} \\
+White & \textit{White noise output.} \\
+Pink & \textit{Pink noise output.} \\
 
 \bottomrule
 \end{tabular}
 \end{table}% \\
 
 \pagebreak
+
 
 \section{Supersaw VCO}
 
@@ -2935,29 +2934,25 @@ Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
 
 \toprule
 \textbf{Knob} \\
-Oct & \textit{Sets the cutoff of the filter.} \\
-Tune & \textit{Adjusts the resonance of the filter.} \\
-FM & \textit{Adjusts the input level of the modulation.} \\
-Bal & \textit{Adjusts the input level of the modulation.} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+Oct & \textit{Offsets the octave of the oscillator -/+ 5 octaves.} \\
+Tune & \textit{Adjusts the tuning of the oscillator -/+ 1 semitone.} \\
+Det & \textit{Adjusts the detune spread of the oscillator swarm.} \\
 
 \midrule
 \textbf{Input} \\
-1/Oct & \textit{Modulation input.} \\
-TZFM & \textit{Audio input.} \\
-Sync & \textit{Modulation input.} \\
-Balance & \textit{Modulation input.} \\
+1/Oct & \textit{1/Octave input.} \\
+Det & \textit{Modulation input for Detune control.} \\
 
 \midrule
 \textbf{Output} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
--All/All & \textit{Lowpass filter output.} \\
+Sine/Tri/Saw/Sqr & \textit{Audio outputs for Sine, Triangle, Saw, and Square waveshape.} \\
 
 \bottomrule
 \end{tabular}
 \end{table}% \\
 
 \pagebreak
+
 
 \section{TZFM VCO}
 
@@ -2972,29 +2967,28 @@ Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
 
 \toprule
 \textbf{Knob} \\
-Oct & \textit{Sets the cutoff of the filter.} \\
-Tune & \textit{Adjusts the resonance of the filter.} \\
-FM & \textit{Adjusts the input level of the modulation.} \\
-Bal & \textit{Adjusts the input level of the modulation.} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+Oct & \textit{Offsets the octave of the oscillator -/+ 5 octaves.} \\
+Tune & \textit{Adjusts the tuning of the oscillator -/+ 1 semitone.} \\
+FM & \textit{Adjusts the level of input FM modulation.} \\
+Shape & \textit{Changes the shape of each oscillator. Sine = wavefold, triangle = waveshape, saw = supersaw, square = PWM.} \\
 
 \midrule
 \textbf{Input} \\
-1/Oct & \textit{Modulation input.} \\
-TZFM & \textit{Audio input.} \\
-Sync & \textit{Modulation input.} \\
-Balance & \textit{Modulation input.} \\
+1/Oct & \textit{1/Octave input.} \\
+TZFM & \textit{Through-zero linear FM input. Expects a bipolar -1 to 1 audio signal.} \\
+Sync & \textit{Hard resets waveform on positive zero crossings. Expects a bipolar -1 to 1 audio signal.} \\
+Shape & \textit{Modulation input for Shape control.} \\
 
 \midrule
 \textbf{Output} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
--All/All & \textit{Lowpass filter output.} \\
+Sine/Tri/Saw/Sqr & \textit{Audio outputs for Sine, Triangle, Saw, and Square waveshape.} \\
 
 \bottomrule
 \end{tabular}
 \end{table}% \\
 
 \pagebreak
+
 
 \section{$\mu$Noise}
 
@@ -3009,29 +3003,24 @@ Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
 
 \toprule
 \textbf{Knob} \\
-Oct & \textit{Sets the cutoff of the filter.} \\
-Tune & \textit{Adjusts the resonance of the filter.} \\
-FM & \textit{Adjusts the input level of the modulation.} \\
-Bal & \textit{Adjusts the input level of the modulation.} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+Hz & \textit{Noise frequency.} \\
+HPF & \textit{Highpass filter for noise.} \\
+LPF & \textit{Lowpass filter for noise.} \\
 
 \midrule
 \textbf{Input} \\
-1/Oct & \textit{Modulation input.} \\
-TZFM & \textit{Audio input.} \\
-Sync & \textit{Modulation input.} \\
-Balance & \textit{Modulation input.} \\
+Hz & \textit{Modulation input for Hz control.} \\
 
 \midrule
 \textbf{Output} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
--All/All & \textit{Lowpass filter output.} \\
+Out & \textit{White noise output.} \\
 
 \bottomrule
 \end{tabular}
 \end{table}% \\
 
 \pagebreak
+
 
 \section{$\mu$VCO}
 
@@ -3046,23 +3035,18 @@ Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
 
 \toprule
 \textbf{Knob} \\
-Oct & \textit{Sets the cutoff of the filter.} \\
-Tune & \textit{Adjusts the resonance of the filter.} \\
-FM & \textit{Adjusts the input level of the modulation.} \\
-Bal & \textit{Adjusts the input level of the modulation.} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Adjusts the input level of the modulation.} \\
+Oct & \textit{Offsets the octave of the oscillator -/+ 5 octaves.} \\
+Tune & \textit{Adjusts the tuning of the oscillator -/+ 1 semitone.} \\
+Shape & \textit{Changes the shape of each oscillator. Saw = supersaw, square = PWM.} \\
 
 \midrule
 \textbf{Input} \\
-1/Oct & \textit{Modulation input.} \\
-TZFM & \textit{Audio input.} \\
-Sync & \textit{Modulation input.} \\
-Balance & \textit{Modulation input.} \\
+1/O & \textit{1/Octave input.} \\
+Shape & \textit{Modulation input for Shape control.} \\
 
 \midrule
 \textbf{Output} \\
-Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
--All/All & \textit{Lowpass filter output.} \\
+Saw/Sqr & \textit{Audio outputs for Sine, Triangle, Saw, and Square waveshape.} \\
 
 \bottomrule
 \end{tabular}
@@ -3071,10 +3055,9 @@ Fund/1st/2nd/3rd/4th/5th & \textit{Lowpass filter output.} \\
 \pagebreak
 
 
+\printglossaries
 
-
-
-
+\printindex
 
 
 \end{document}
