@@ -382,9 +382,33 @@ Another way to synchronize the modules together is to attach a button to the res
 \includegraphics[width=0.95\linewidth]{clock-divider-fig6.png}
 \end{center}
 
-\subsection*{Basic Example Patch}
+\subsection*{Example Patches}
 
-Using a Clock Divider module with a sequencer-driven patch can really open up rhythmic and melodic possibilities.
+\subsubsection*{Example 1: Basic Drum Machine}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{clock-divider-fig7.png}
+\end{center}
+
+A Clock Divider can create a simple rhythm when used with a clock and drum modules. 
+
+In the example above, the output of the $\mu$Clock module is triggering the $\mu$Kick. The Clock Divider is set to $\div$2 and its output is triggering the $\mu$Snare. The resulting rhythm is a four-on-the-floor kick with a snare hitting every other beat.
+
+\subsubsection*{Example 2: Random Hi-Hat Divisions}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{clock-divider-fig8.png}
+\end{center}
+
+We can build on the previous example and create something more musically useful by adding a $\mu$Hat module and modulating its Clock Divider with a Sample \& Hold module.
+
+In this example, we speed up the clock to the maximum fastest beat we want the hi-hat to trigger at. We then divide down the kick and snares' gates to get them sounding closer to the original example. We want the hi-hat to be triggered at random times that are still divisible by the main clock signal, so we add an externally clocked Sample \& Hold module to modulate the $\div$ knob of the hi-hat's Clock Divider. Since we want the hat to hit more often than not, we bias the randomness towards the low end and attenuate the overall range of the Sample \& Hold modulation.
+
+To add a little more flavor, we add a second Sample \& Hold module to modulate the decay of the hi-hat. This simulates closing and opening the hat while being struck.
+
+Note: Since we have two or more Sample \& Hold modules controlling the same module, we have to make sure the Seed value for the random nodes inside them are different. If we don't set the seeds differently, they will end up producing the same modulation.
+
+
 
 \end{multicols*}
 
