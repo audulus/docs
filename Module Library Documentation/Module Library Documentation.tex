@@ -382,6 +382,7 @@ Another way to synchronize the modules together is to attach a button to the res
 \includegraphics[width=0.95\linewidth]{clock-divider-fig6.png}
 \end{center}
 
+
 \subsection*{Example Patches}
 
 \subsubsection*{Example 1: Basic Drum Machine}
@@ -409,6 +410,29 @@ To add a little more flavor, we add a second Sample \& Hold module to modulate t
 Note: Since we have two or more Sample \& Hold modules controlling the same module, we have to make sure the Seed value for the random nodes inside them are different. If we don't set the seeds differently, they will end up producing the same modulation.
 
 
+\subsubsection*{Example 3: Ratcheting Sequencer}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{clock-divider-fig9.png}
+\end{center}
+
+Ratcheting is a sequencing technique where a single step is triggered multiple times. We can use a Clock Divider module to create a ratcheting effect with any sequencer.
+
+In this example, we have an 8 Step Sequencer that is driven by the output of the Clock Divider module with an envelope that is triggered by the clock module. Since the Clock Divider is set to only advance the sequencer every 4 pulses, the envelope will trigger 4 times per step.
+
+\subsubsection*{Example 4: Arpeggiator}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{clock-divider-fig10.png}
+\end{center}
+
+You can turn any modulation sequencer into an arpeggiator using a Clock Divider. This is similar to creating a ratcheting sequencer, but with a twist on how you implement your sequencers.
+
+In the example above, we have two 8 Step Sequencer modules. The sequencer on the left is controlling the Shift parameter of the quantizer module. This is acting like our finger on the keyboard playing a note. It recieves a $\div$8 clock. The sequencer on the right is the arpeggiation pattern. It runs for 8 notes. If we want the arpeggiation pattern to be 4 notes, we would set the Clock Divider to $\div$4 and set the maximum steps on the arpeggiation sequencer to 4.
+
+We're also using the PWM output of the $\div$8 Clock Divider to open and close the envelope that is modulating the VCA. By using the PWM output, we can keep the envelope open for the entire sequence, which gives a sense of the arpeggiator being slurred.
+
+As an added bonus, we have a clock divider triggering a separate envelope for the VCF module at an odd division of $\div$3. This creates the sense of an evolving syncopated rhythm.
 
 \end{multicols*}
 
