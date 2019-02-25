@@ -3,6 +3,7 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{graphicx}
+\usepackage{multicol}
 \usepackage{longtable}
 \usepackage{float}
 \usepackage{hyperref}
@@ -19,6 +20,7 @@
 }
 \restylefloat{table}
 \graphicspath{ {./images/} }
+\setlength{\columnsep}{1cm}
 
 \makeindex
 \makeglossaries
@@ -327,6 +329,37 @@ PWM & \textit{The divided gate signal output. This gate output will have a pulse
 
 \pagebreak
 
+\subsection*{Clock Divider Overview}
+\begin{multicols*}{2}
+The Clock Divider module takes an incoming clock signal and divides down its speed by a fixed ratio. If you want two related clock speeds in the same patch, it's much easier to to use a clock and clock divider pair rather than trying to syncronize two separate clocks.
+
+To wire the clock divider module, simply attach a clock gate output into the Gate input of the module. If we set the $\div$ control to 1/2, only one out of every two incoming clock pulses will pass from the input to the Gate output.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{clock-divider-fig1.png}
+\end{center}
+
+This Gate output of the Clock Divider module also preserves the pulse-width of the incoming clock. Notice the difference in the two set ups below. The top pair has a clock with a wide pulse width while the bottom pair has a clock with a narrow pulse width. 
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{clock-divider-fig2.png}
+\end{center}
+
+The PWM control of the Clock Divider module lets you set the pulse width of the divided clock independent of the incoming clock which is outputted at the PWM gate output.
+
+Compare the outputs below and notice that the Gate output is short, preserving the incoming pulse width, while the PWM output has a longer high time as set by the PWM knob.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{clock-divider-fig3.png}
+\end{center}
+
+
+
+\end{multicols*}
+
+
+\pagebreak
+
 
 \section{Master Clock}
 
@@ -523,6 +556,11 @@ Gate & \textit{Clock output.} \\
 
 
 \chapter{Drum Modules}
+
+Drum modules create synthesized percussion sounds. They are like a modular synthesizer patch inside a module, with oscillators, filters, and effects all in one.
+
+These drum modules are all triggered by gates, and pair well with any of the gate sequencer modules.
+
 \pagebreak
 
 \section{Percussion}
@@ -541,7 +579,7 @@ Gate & \textit{Clock output.} \\
 Pitch & \textit{Sets the pitch of the oscillators.} \\
 Decay & \textit{Controls the length of decay. If turned all the way up, the sound will stay on indefinitely.} \\
 Shape & \textit{Fades oscillator shape from sine to triangle. Interactive with the Side Band control as the oscillators cross-modulate one another.} \\
-Side Band & \textit{Fades from pure oscillators to ring modulation through to a kind of digital modulation.} \\
+Side Band & \textit{The Side Band parameter goes from plain oscillators to ring-modulated signals, adding more inharmonic overtones (or side bands). The side bands will make the tone brighter and more metallic.} \\
 BPF & \textit{Adjusts the frequency center of the bandpass filter.} \\
 BW & \textit{Controls the bandwidth of the bandpass filter. Higher settings mean more bandwidth.} \\
 
