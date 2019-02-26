@@ -81,10 +81,10 @@
 \contentsline {chapter}{\numberline {10}Sequencer Modules}{77}{chapter.10}
 \contentsline {section}{\numberline {10.1}16 Step Gate Sequencer}{78}{section.10.1}
 \contentsline {section}{\numberline {10.2}8 Step Sequencer}{79}{section.10.2}
-\contentsline {section}{\numberline {10.3}Binary Gate Sequencer}{81}{section.10.3}
-\contentsline {section}{\numberline {10.4}Euclidean Gate Sequencer}{82}{section.10.4}
-\contentsline {section}{\numberline {10.5}Matrix Gate Sequencer}{83}{section.10.5}
-\contentsline {section}{\numberline {10.6}Shape Gate Sequencer}{84}{section.10.6}
+\contentsline {section}{\numberline {10.3}Binary Gate Sequencer}{80}{section.10.3}
+\contentsline {section}{\numberline {10.4}Euclidean Gate Sequencer}{81}{section.10.4}
+\contentsline {section}{\numberline {10.5}Matrix Gate Sequencer}{82}{section.10.5}
+\contentsline {section}{\numberline {10.6}Shape Gate Sequencer}{83}{section.10.6}
 \contentsline {chapter}{\numberline {11}Utility Modules}{85}{chapter.11}
 \contentsline {section}{\numberline {11.1}Attenuate-Offset}{86}{section.11.1}
 \contentsline {section}{\numberline {11.2}Audio Attenuverter-Offset}{87}{section.11.2}
