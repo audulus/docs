@@ -336,8 +336,10 @@ PWM & \textit{The divided gate signal output. This gate output will have a pulse
 
 \pagebreak
 
-\subsection*{Module Overview}
 \begin{multicols*}{2}
+
+\subsection*{Module Overview}
+
 The Clock Divider module takes an incoming clock signal and divides down its speed by a fixed ratio. If you want two related clock speeds in the same patch, it's much easier to to use a clock and clock divider pair rather than trying to syncronize two separate clocks.
 
 To wire the clock divider module, simply attach a clock gate output into the Gate input of the module. If we set the $\div$ control to 1/2, only one out of every two incoming clock pulses will pass from the input to the Gate output.
@@ -477,6 +479,34 @@ $x$b & \textit{Bar multiples of clock, e.g. 32b = 32 bars.} \\
 
 \pagebreak
 
+\begin{multicols*}{2}
+
+\subsection*{Module Overview}
+
+The Master Clock module has 16 musically-useful clock outputs from 1/64th notes all the way up to 64 bars. It's the perfect clock to keep time in any patch where you need more than one clock signal. The slower clocks also help you develop entire songs rather than just short repetitive sequences.
+
+The BPM control sets the beats per minute, measured relative to the speed of the 1/4 note output. The range of the Master Clock is from 60 to 220 BPM.
+
+The PWM knob allows you to adjust the pulse width of all of the clock outputs simultaneously. This is useful for when you want to use the outputs as gates to open and close envelopes.
+
+You can start and stop the clock with the Start button. When the clock restarts, it also resets. To reset the clock without starting and stopping it, just gate the Reset input.
+
+\subsection*{Example Patches}
+
+\subsubsection*{Example 1: Basic Counterpoint}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{master-clock-fig1.png}
+\end{center}
+
+In this example we've created three separate but nearly identical Karplus-Strong voices. Their melodies are generated randomly by taking the output of a clocked $\mu$Sample and Hold module and quantizing it. This creates a random string of tuned notes we can feed into the VCOs.
+
+Instead of using the same clock pulse for every voice, however, we've used the 1 bar output for the high lead, the 1/4 note for the driving middle voice, and the 2 bar output for the lowest voice. The result is a soothing lullabye that sounds emotional, wistful, and composed - all the result of simply using different clock speeds at the right tempo.
+
+\end{multicols*}
+
+
+\pagebreak
 
 \section{Bernoulli Gate}
 

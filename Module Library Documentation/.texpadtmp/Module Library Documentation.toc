@@ -27,11 +27,11 @@
 \contentsline {chapter}{\numberline {2}Clock Modules}{15}{chapter.2}
 \contentsline {section}{\numberline {2.1}Clock Divider}{16}{section.2.1}
 \contentsline {section}{\numberline {2.2}Master Clock}{20}{section.2.2}
-\contentsline {section}{\numberline {2.3}Bernoulli Gate}{21}{section.2.3}
-\contentsline {section}{\numberline {2.4}Chance Select Gate}{22}{section.2.4}
-\contentsline {section}{\numberline {2.5}Pachinko Machine}{23}{section.2.5}
-\contentsline {section}{\numberline {2.6}Random Bursts}{24}{section.2.6}
-\contentsline {section}{\numberline {2.7}uClock}{25}{section.2.7}
+\contentsline {section}{\numberline {2.3}Bernoulli Gate}{22}{section.2.3}
+\contentsline {section}{\numberline {2.4}Chance Select Gate}{23}{section.2.4}
+\contentsline {section}{\numberline {2.5}Pachinko Machine}{24}{section.2.5}
+\contentsline {section}{\numberline {2.6}Random Bursts}{25}{section.2.6}
+\contentsline {section}{\numberline {2.7}uClock}{26}{section.2.7}
 \contentsline {chapter}{\numberline {3}Drum Modules}{27}{chapter.3}
 \contentsline {section}{\numberline {3.1}Percussion}{28}{section.3.1}
 \contentsline {section}{\numberline {3.2}$\mu $Hat}{29}{section.3.2}
