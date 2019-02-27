@@ -543,6 +543,69 @@ A/B& \textit{Outputs a gate if chosen depending on random chance biased by A$\le
 
 \pagebreak
 
+\begin{multicols*}{2}
+
+\subsection*{Module Overview}
+
+The Bernoulli Gate is named after Bernoulli distribution, which is a mathematical concept described by Danish mathematician Jacob Bernoulli. The short desciption of Beronoulli distribution is it's a way to describe the probability of a yes/no heads/tails event that may have some bias in one direction or another.
+
+The module works by connecting a clock to the Gate input, as seen below.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{bernoulli-gate-fig1.png}
+\end{center}
+
+Every time the incoming gate pulses, a random choice is made inside the module that decides to output that gate at either Gate output A or output B. The probability of A or B being picked is biased by the A$\leftrightarrow$B knob.
+
+When set almost all the way to A, output A will almost always be chosen.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{bernoulli-gate-fig2.png}
+\end{center}
+
+When set to almost all the way to B, otuput B will almost always be chosen.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{bernoulli-gate-fig3.png}
+\end{center}
+
+The Bernoulli Gate module is useful whenever you want one thing or another to happen based on chance. You can also just use one of its outputs and use it to create some random rhythm in a patch.
+
+\subsection*{Example Patches}
+
+\subsubsection*{Example 1: Random Open Hat}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{bernoulli-gate-fig4.png}
+\end{center}
+
+This patch has a clock sending 16th notes to the $\mu$Hat's gate input, and to liven it up, adds a random accent using the Bernoulli Gate. The same clock that is triggering the hi-hat is sent through the Bernoulli Gate module and output A is used as an accent, lengthening the decay of the hat so it sounds open.
+
+The A$\leftrightarrow$B control is biased a little more towards B, meaning the A output gets less than 50\% of the outgoing gates. This means the open hats are slightly less frequent than the closed ones, which is natural to most drumming patterns.
+
+Ultimately what this example shows is how adding a little bit of randomness to just one element of a patch can really bring it to life and remove the mechanical sameness of a rote pattern. 
+
+\subsubsection*{Example 2: Bernoulli Drum Machine}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{bernoulli-gate-fig5.png}
+\end{center}
+
+Here is a drum machine made entirely out of Bernoulli Gate modules. When you start stringing them together, you can come up with some pretty complex random rhythms.
+
+The first Bernoulli Gate chooses between triggering the kick and the snare. When the kick is triggered, it also triggers another Bernoulli Gate that will randomly add accents to the kick. 
+
+It again triggers yet another Bernoulli Gate that will either trigger the Percussion module, or trigger the $\mu$Sample and Hold module to choose a new pitch for the Percussion module. Finally, the gate that triggers the kick also acts like a VCA opening and closing the Percussion module's sound to get a kind of staccato feel.
+
+Playing with the A$\leftrightarrow$B knobs of each Bernoulli Gate will radically change the rhythms you hear. This example shows you just how easy it is to quickly get a complex-sounding drum pattern that would take ages to program in a MIDI roll or sequencer.
+
+Note that when you have multiple Bernoulli Gates in one patch, it's good practice to enter the module and change the seed of the Random node. This prevents the modules from locking up or acting identically to one another when you restart the patch. 
+
+\end{multicols*}
+
+
+\pagebreak
+
 
 \section{Chance Select Gate}
 
