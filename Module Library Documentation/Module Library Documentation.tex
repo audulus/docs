@@ -270,8 +270,6 @@ Also try creating another $\mu$LFO and attaching a Triangle wave to the Offset c
 
 \subsection{Keyboard-Controlled FM Synthesizer}
 
-
-
 \subsection{Drum Patterns and Mixing}
 
 \subsection{Stereo Effects}
@@ -292,7 +290,6 @@ In the in-app menu, modules may have reversed names like Clock Master and Gate B
 
 Modules in this manual are presented first with a screenshot and a table that outlines what each input, output, knob, and button does. Then, after a brief description of the module, a few example patches are presented.
 
-
 \end{multicols*}
 
 
@@ -301,6 +298,7 @@ Modules in this manual are presented first with a screenshot and a table that ou
 Clock modules output gate signals. They keep time, trigger events, and open and close envelopes. In hardware modular synths, clocks typically output a very short gate signal called a pulse. In Audulus, however, clock signals can be long or short gates.
 
 This category of modules includes clocks as well as clock modifiers. Clock modifiers take an incoming clock signal and change it in some way. For example, the Clock Divider will take a fast incoming clock signal and make it slower, while the Bernoulli Gate module will take an incoming clock signal and send it to one destination or another based on chance.
+
 \pagebreak
 
 
@@ -334,7 +332,7 @@ PWM & \textit{The divided gate signal output. This gate output will have a pulse
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -386,7 +384,6 @@ Another way to synchronize the modules together is to attach a button to the res
 \includegraphics[width=0.95\linewidth]{clock-divider-fig6.png}
 \end{center}
 
-
 \subsection*{Example Patches}
 
 \subsubsection*{Example 1: Basic Drum Machine}
@@ -413,7 +410,6 @@ To add a little more flavor, we add a second Sample \& Hold module to modulate t
 
 Note: Since we have two or more Sample \& Hold modules controlling the same module, we have to make sure the Seed value for the random nodes inside them are different. If we don't set the seeds differently, they will end up producing the same modulation.
 
-
 \subsubsection*{Example 3: Ratcheting Sequencer}
 
 \begin{center}
@@ -439,7 +435,6 @@ We're also using the PWM output of the $\div$8 Clock Divider to open and close t
 As an added bonus, we have a clock divider triggering a separate envelope for the VCF module at an odd division of $\div$3. This creates the sense of an evolving syncopated rhythm.
 
 \end{multicols*}
-
 
 \pagebreak
 
@@ -476,10 +471,9 @@ Reset & \textit{Gate this input to reset the clock.} \\
 1/$x$t & \textit{Subdivided triplet clock outputs, e.g. 1/8t = 8th note triplet.} \\
 $x$b & \textit{Bar multiples of clock, e.g. 32b = 32 bars.} \\
 
-
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -539,7 +533,7 @@ A/B& \textit{Outputs a gate if chosen depending on random chance biased by A$\le
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -603,7 +597,6 @@ Note that when you have multiple Bernoulli Gates in one patch, it's good practic
 
 \end{multicols*}
 
-
 \pagebreak
 
 
@@ -635,7 +628,7 @@ A/B& \textit{Outputs a gate if chosen depending on random chance biased by A$\le
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -668,7 +661,7 @@ Right Column Gates & \textit{Outputs the incoming gate if selected by chance and
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -703,7 +696,7 @@ Out & \textit{Outputs random bursts of bipolar white noise.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -736,7 +729,7 @@ Gate & \textit{Clock output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -781,7 +774,7 @@ Out & \textit{Audio output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -816,7 +809,7 @@ Out & \textit{Audio output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -851,7 +844,7 @@ Out & \textit{Audio output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -885,7 +878,7 @@ Out & \textit{Audio output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -927,7 +920,7 @@ L/R & \textit{Stereo audio outputs for Left and Right channels.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -959,7 +952,7 @@ Time & \textit{Outputs the number of seconds of loop time. Connect only to the T
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -991,7 +984,7 @@ Time & \textit{Outputs the number of seconds of loop time. Connect only to the T
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1026,7 +1019,7 @@ Out & \textit{Audio output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1061,7 +1054,7 @@ Out & \textit{Audio output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1095,7 +1088,7 @@ Out & \textit{Audio output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1137,7 +1130,7 @@ Left/Right & \textit{Stereo audio output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1172,7 +1165,7 @@ Left/Right & \textit{Stereo audio output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1208,7 +1201,7 @@ Mod & \textit{Envelope output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1246,7 +1239,7 @@ Mod & \textit{Envelope output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1281,7 +1274,7 @@ Mod & \textit{Envelope output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1313,7 +1306,7 @@ Left/Right & \textit{Stereo audio input from channels 1 and 2 (can change channe
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1347,7 +1340,7 @@ Left/Right & \textit{Stereo audio output to channels 1 and 2 (can change channel
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1371,7 +1364,7 @@ Left/Right & \textit{Stereo audio output to channels 1 and 2 (can change channel
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1395,7 +1388,7 @@ Left/Right & \textit{Stereo audio output to channels 1 and 2 (can change channel
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1423,7 +1416,7 @@ Left/Right & \textit{Stereo audio output to channels 1 and 2 (can change channel
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1459,7 +1452,7 @@ Gate & \textit{Gate output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1495,7 +1488,7 @@ VPO & \textit{Volt per octave output. Scaled to connect to Expert Sleepers ES-3 
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1536,7 +1529,7 @@ Sine/Tri/Saw/Sqr & \textit{Sine, triangle, saw, and square wave outputs.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1572,7 +1565,7 @@ Odds/Evens & \textit{Groups outputs 1, 3, 5, 7 and 2, 4, 6, 8 into two quad  pol
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1612,7 +1605,7 @@ Sine/Tri/Saw/Sqr & \textit{Sine, triangle, saw, and square wave outputs.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1646,7 +1639,7 @@ Sine/Tri & \textit{Sine and triangle wave outputs.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1687,7 +1680,7 @@ L/R & \textit{Left/Right stereo outputs.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1721,7 +1714,7 @@ Mod & \textit{Mixed modulation output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1753,7 +1746,7 @@ Out & \textit{Mixed audio output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1785,7 +1778,7 @@ Out & \textit{Mixed modulation output. Note: Clips output to maximum 0 to 1 modu
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1821,7 +1814,7 @@ Mod & \textit{Modulation input.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1856,7 +1849,7 @@ Mod & \textit{Modulation input.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1893,7 +1886,7 @@ Mod & \textit{Modulation input.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1925,7 +1918,7 @@ Mod & \textit{Quantized modulation output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1960,7 +1953,7 @@ Gate & \textit{Triggers a new triad transformation.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -1995,7 +1988,7 @@ Mod & \textit{Modulation input.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2038,7 +2031,7 @@ Gate & \textit{Outputs a gate based on current step, e.g., if 4 steps in a row a
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2078,7 +2071,7 @@ Mod & \textit{Modulation output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2112,7 +2105,7 @@ Gate & \textit{Outputs a gate based on current step, e.g., if 4 steps in a row a
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2147,7 +2140,7 @@ Gate & \textit{Outputs a gate based on current step, e.g., if 4 steps in a row a
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2183,7 +2176,7 @@ X/Y Gate & \textit{Outputs a gate if current step is active.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2221,7 +2214,7 @@ Gate & \textit{Outputs a gate if current step is active.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2257,39 +2250,61 @@ Mod & \textit{Modulation output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
-\section{Audio Attenuverter-Offset}
+\begin{multicols*}{2}
+
+\subsection*{Module Overview}
+
+The Attenuate-Offset module translates modulation signals so they sit within a particular range. In most cases, when you modulate any parameter in modular synthesis, you don't want your modulation to sweep through the entire possible range of that parameter. The Attenuate-Offset module will help you dial in the modulation so that it only moves the knob so much and only in a particular range.
+
+The easy way to think about how to use the module is to first set the Offset knob where you want the modulation to bottom out and then set the Attenuate control to adjust the range of modulation.
+
+The formula for how this translation works is simple: 
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{audio-attenuverter-offset.png}
+	$\textrm{Input} \times \textrm{Attenuate} + \textrm{Offset} = \textrm{Output}$ 
 \end{center}
 
-\begin{table}[ht]
-\small
-\sffamily
-\renewcommand\arraystretch{1.5}
-\centering
-\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+\begin{center}
+\includegraphics[width=0.95\linewidth]{attenuate-offset-fig1.png}
+\end{center}
 
-\toprule
-\textbf{Knob} \\
-Attvt & \textit{Attenuverts incoming audio signal.} \\
-Offst & \textit{Shifts audio signal up or down. Note: Modulation output will clip if output exceeds the 0 to 1 modulation range.} \\
+So for example, if your incoming modulation ranges from 0 to 1, the attenuate control is set to 0.25, and the offset control is set to 0.5, the resulting output range is from 0.5 to 0.75.
 
-\midrule
-\textbf{Input} \\
-In & \textit{Audio input.} \\
+\begin{center}
+	$[0 \ \textrm{to} \ 1] \times 0.25+0.5=[0.5 \ \textrm{to} \ 0.75]$ 
+\end{center}
 
-\midrule
-\textbf{Output} \\
-Out & \textit{Audio output.} \\
+\begin{center}
+\includegraphics[width=0.95\linewidth]{attenuate-offset-fig2.png}
+\end{center}
 
-\bottomrule
-\end{tabular}
-\end{table}% \\
+As you can see from the order of operations, the signal is first attenuated, then offset. If the signal exceeds the 0 to 1 modulation range after being attenuated and offset, the output will clip to keep it within the 0 to 1 range.
+
+\begin{center}
+	$[0 \ \textrm{to} \ 1] \times 0.8+0.75=[0.75 \ \textrm{to} \ 1]$ 
+\end{center}
+
+Clipping your modulation isn't bad, per se; it is just something to be aware of.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{attenuate-offset-fig3.png}
+\end{center}
+
+\subsection*{Example Patches}
+
+\subsubsection*{Example 1: PWM Envelope}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{attenuate-offset-fig4.png}
+\end{center}
+
+In this example, we've used an envelope to modulate the pulse width of the square oscillator. The Attenuate-Offset module greatly influences how this effect sounds.
+
+\end{multicols*}
 
 \pagebreak
 
@@ -2309,7 +2324,8 @@ Out & \textit{Audio output.} \\
 
 \toprule
 \textbf{Knob} \\
--/+ & \textit{Attenuverts incoming modulation signal while keeping it within the 0 to 1 modulation range.} \\
+Attvt & \textit{Attenuverts incoming modulation signal while keeping it within the 0 to 1 modulation range at the -+M output.} \\
+-Mod & \textit{Attenuates the inverted modulation signal at the -M output.} \\
 
 \midrule
 \textbf{Input} \\
@@ -2317,11 +2333,99 @@ Mod & \textit{Modulation input.} \\
 
 \midrule
 \textbf{Output} \\
-Mod & \textit{Modulation output.} \\
+-+M & \textit{Attenuverted modulation output.} \\
+-M & \textit{Attenuated inverted modulation output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
+
+\pagebreak
+
+\begin{multicols*}{2}
+
+\subsection*{Module Overview}
+
+The Attenuverter module allows you to simultaneously attenuate and invert a modulation signal while keeping it within the 0 to 1 modulation range. It also provides a dedicated inverted modulation output with an attenuator.
+
+The Attvrt or Attenuverter control is divided into two halves: inverted attenuator and uninverted attenuator. When the knob is set all the way down, the signal passes inverted and unattenuated. When the knob is set to 0.25, the signal is inverted and attenuated by half. 
+
+When the knob is set to 0.5, the signal is completely attenuated (no signal passes). 
+
+When the knob is set to 0.75, the signal passes uninverted and is attenuated by half. Finally, when the knob is set all the way up, the signal passes uninverted and unattenuated.
+
+The -Mod knob attenuates the inverted signal at the -M output. 
+
+\subsection*{Example Patches}
+
+\subsubsection*{Example 1: Example}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{attenuate-offset-fig4.png}
+\end{center}
+
+Example patch description.
+
+\end{multicols*}
+
+\pagebreak
+
+
+\section{Audio Attenuverter-Offset}
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{audio-attenuverter-offset.png}
+\end{center}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Attvt & \textit{Attenuverts incoming audio signal.} \\
+Offst & \textit{Shifts audio signal up or down. Note: Output may exceed -1 to 1 audio range to enable creative clipping in VCFs and distortion modules.} \\
+
+\midrule
+\textbf{Input} \\
+In & \textit{Audio input.} \\
+
+\midrule
+\textbf{Output} \\
+Out & \textit{Audio output.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+\pagebreak
+
+\begin{multicols*}{2}
+
+\subsection*{Module Overview}
+
+The Audio Attenuverter-Offset module allows you to attenuvert and offset audio signals for the purposes of modulation and tonal manipulation.
+
+The Attvrt or Attenuvert knob will attenuate or invert and attenuate the incoming audio signal. The Offst or Offset knob will offset the audio up or down by a value of -1 to 1.
+
+Inverting an audio signal as it enters an FM input of a VCO can change the timbre of the oscillator. Offsetting the signal will further change the timbre.
+
+Inverting and offsetting can also change how an audio signal will sound when going through any audio module with a clipping expression like a VCF or distortion module.
+
+\subsection*{Example Patches}
+
+\subsubsection*{Example 1: Example}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{attenuate-offset-fig4.png}
+\end{center}
+
+Example patch description.
+
+\end{multicols*}
 
 \pagebreak
 
@@ -2360,7 +2464,7 @@ Mod & \textit{Modulation output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2394,7 +2498,7 @@ Gate & \textit{When modulation output is greater than 0.5, gate output goes high
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2427,7 +2531,35 @@ Mod & \textit{Modulation input.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
+
+\pagebreak
+
+\begin{multicols*}{2}
+
+\subsection*{Module Overview}
+
+The Modulation to 1/Oct module translates a Modulation signal into a 1/Octave signal. It does this by multiplying the Modulation signal by a Range factor and then adding a Shift factor.
+
+Because all Quantizer modules have a built-in Modulation to 1/Oct converter, this module is primarily useful when you do not need to quantizer your pitch signals.
+
+The Range knob controls how many octaves the outgoing 1/Octave signal covers from 0 to 5 octaves. If the Range is set to 0.5, then it will cover half an octave. If set to 1, it will cover 1 octave. If set to 2, it will cover 2 octaves, and so on.
+
+The Shift knob controls the bottom limit of the 1/Octave signal. It can shift the 1/Octave output up or down by 4 octaves.
+
+If a polyphonic signal is fed into the input, only the first channel will be shown as a result at the $=x$ Value node display. 
+
+\subsection*{Example Patches}
+
+\subsubsection*{Example 1: Example}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{attenuate-offset-fig4.png}
+\end{center}
+
+Example patch description.
+
+\end{multicols*}
 
 \pagebreak
 
@@ -2459,7 +2591,7 @@ Out & \textit{Monophonic audio output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2496,7 +2628,7 @@ Out & \textit{Modulation output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2532,7 +2664,7 @@ Mode & \textit{Switches between two slew modes: off = equal time (digital); on =
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2572,7 +2704,7 @@ Out & \textit{Sequencer output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2612,7 +2744,7 @@ Out & \textit{Sequencer output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2645,7 +2777,7 @@ XNR & \textit{XNOR Gate: Outputs gate if A and B are either both low or both hig
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2677,7 +2809,7 @@ Width & \textit{Adjusts detune spread amount for polyphonic 1/Oct signal.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2711,7 +2843,7 @@ Out & \textit{Modulation output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2744,7 +2876,7 @@ Out & \textit{Gate output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2782,7 +2914,7 @@ Out & \textit{Audio output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2817,7 +2949,7 @@ Out & \textit{Audio output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2853,7 +2985,7 @@ Out & \textit{Audio output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2895,7 +3027,7 @@ LPF & \textit{Low pass filter output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2936,7 +3068,7 @@ LPF & \textit{Low pass filter output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -2978,7 +3110,7 @@ LP4p & \textit{Low pass 4 pole filter output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -3013,7 +3145,7 @@ In A/B & \textit{Audio inputs.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -3053,7 +3185,7 @@ LPF & \textit{Low pass filter output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -3088,7 +3220,7 @@ LPF & \textit{Lowpass filter output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -3129,7 +3261,7 @@ Sine/Tri/Saw/Sqr & \textit{Audio outputs for Sine, Triangle, Saw, and Square wav
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -3169,7 +3301,7 @@ Fund/1st/2nd/3rd/4th/5th & \textit{Independent outputs for fundamental and each 
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -3209,7 +3341,7 @@ Out & \textit{Audio output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -3247,7 +3379,7 @@ SqSa & \textit{Morphs Sine-Triangle-Square-Saw.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -3282,7 +3414,7 @@ Pink & \textit{Pink noise output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -3317,7 +3449,7 @@ Sine/Tri/Saw/Sqr & \textit{Audio outputs for Sine, Triangle, Saw, and Square wav
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -3355,7 +3487,7 @@ Sine/Tri/Saw/Sqr & \textit{Audio outputs for Sine, Triangle, Saw, and Square wav
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -3389,7 +3521,7 @@ Out & \textit{White noise output.} \\
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
@@ -3424,7 +3556,7 @@ Saw/Sqr & \textit{Audio outputs for Sine, Triangle, Saw, and Square waveshape.} 
 
 \bottomrule
 \end{tabular}
-\end{table}% \\
+\end{table}
 
 \pagebreak
 
