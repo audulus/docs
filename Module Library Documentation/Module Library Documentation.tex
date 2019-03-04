@@ -750,6 +750,73 @@ Right Column Gates & \textit{Outputs the incoming gate if selected by chance and
 
 \pagebreak
 
+\begin{multicols*}{2}
+
+\subsection*{Module Overview}
+
+Pachinko Machines are a kind of gambling pinball game popular in Japan. A ball shoots up to the top of the machine and falls down, hitting pegs along the way that determine if the ball goes left or right. This module takes inspiration from this machine and sends a gate "tumbling" through a series of "pins" in the form of Bernoulli Gates that will send the gate to one of 8 outputs.
+
+If you enter the Pachinko Machine module you can see how one module splits into two which finally splits into four.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{pachinko-machine-fig1.png}
+\end{center}
+
+Each level at which they split is called a Tier. The Tier 1 knob controls the first Bernoulli Gate, the Tier 2 knob controls the second set of Bernoulli Gates, and Tier 3 controls the four remaining Bernoulli gates.
+
+The chance that any given output will be selected is shown next to the output.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{pachinko-machine-fig2.png}
+\end{center}
+
+If we turn the Tier 1 knob all the way down, we can see that the top 4 outputs will be the only options chosen from as seen below.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{pachinko-machine-fig3.png}
+\end{center}
+
+If we turn the Tier 2 knob all the way down, only the first two of each set of 4 will be chosen as seen below.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{pachinko-machine-fig4.png}
+\end{center}
+
+If we turn the Tier 3 knob all the way down, only the first two of every other output will be chosen as seen below.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{pachinko-machine-fig5.png}
+\end{center}
+
+The first column of outputs is the gate output as it passes through from input to output. The second column of outputs have flip-flops before their outputs. This means when that output is chosen, it will go high and stay high until it is chosen again, when it will go low.
+
+These flip-flop outputs are mostly used for opening and closing envelopes whereas the gate outputs are mostly used for triggering sequencers or drums.
+
+
+\subsection*{Example Patches}
+
+\subsubsection*{Example 1: Drum Machine}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{pachinko-machine-fig6.png}
+\end{center}
+
+Here we have a single clock distributed to 8 different Percussion modules using the Pachinko Machine module. This is a way to turn a straightforward clock pulse into a kind of rhythm where instead of changing the rhythm itself you change the sound being played.
+
+\subsubsection*{Example 2: Pad Windchime}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{pachinko-machine-fig7.png}
+\end{center}
+
+This example uses Pachinko Machine with polyphony to create a random moving chord structure using two separate 4 voice synths.
+
+The flip-flop outputs of the Pachinko Machine are condensed into two separate polyphonic chains and sent to envelopes that open and close the VCF and VCA of each synth. These gates also choose a new random pitch each time they go high to keep the music moving along.
+
+\end{multicols*}
+
+\pagebreak
+
 
 \section{Random Bursts}
 
