@@ -467,6 +467,7 @@ Reset & \textit{Gate this input to reset the clock.} \\
 
 \midrule
 \textbf{Output} \\
+Reset & \textit{Pulses one time upon clock reset. Used for resetting sequencers, automation lanes, and other modules.} \\
 1/$x$ & \textit{Subdivided clock outputs, e.g. 1/16 = 16th note.} \\
 1/$x$t & \textit{Subdivided triplet clock outputs, e.g. 1/8t = 8th note triplet.} \\
 $x$b & \textit{Bar multiples of clock, e.g. 32b = 32 bars.} \\
@@ -489,6 +490,8 @@ The PWM knob allows you to adjust the pulse width of all of the clock outputs si
 
 You can start and stop the clock with the Start button. When the clock restarts, it also resets. To reset the clock without starting and stopping it, just gate the Reset input.
 
+The Master Clock also has a Reset output that will pulse once upon resetting the clock either by turning it off and on or remotely resetting it. Use this Reset output to synchronize all of the sequencers, automation lanes, LFOs, etc. in your patch.
+
 \subsection*{Example Patches}
 
 \subsubsection*{Example 1: Basic Counterpoint}
@@ -499,7 +502,19 @@ You can start and stop the clock with the Start button. When the clock restarts,
 
 In this example we've created three separate but nearly identical Karplus-Strong voices. Their melodies are generated randomly by taking the output of a clocked $\mu$Sample and Hold module and quantizing it. This creates a random string of tuned notes we can feed into the VCOs.
 
-Instead of using the same clock pulse for every voice, however, we've used the 1 bar output for the high lead, the 1/4 note for the driving middle voice, and the 2 bar output for the lowest voice. The result is a soothing lullabye that sounds emotional, wistful, and composed - all the result of simply using different clock speeds at the right tempo.
+Instead of using the same clock pulse for every voice, however, we've used the 1 bar output for the high lead, the 1/4 note for the driving middle voice, and the 2 bar output for the lowest voice. The result is a soothing lullabye that sounds emotional, wistful, and composed; all the result of simply using different clock speeds at the right tempo.
+
+\subsubsection*{Example 2: Gate to Modulation}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{master-clock-fig2.png}
+\end{center}
+
+The outputs of the Master Clock can be used as a modulation source; essentially acting like a two step, on/off pattern sequencer. In this example, you see multiple ways in which the outputs can be used other than just for clocking.
+
+The 4 bar clock output is passed through an attenuverter to switch between two arpeggiation chords on the Gateable Quantizer. The 16 bar clock output is fed through a Attenuate-Offset module to adjust the sequencer algorithm from $\downarrow \downarrow$ to $\rightarrow \downarrow$. The 1/4 note output alternates between two settings on the 1/Octave Slew module. Finally, the 8 bar output switches between two decay and release settings on the envelope with the help of an Attenuate-Offset module.
+
+As you can see, when you want to use a gate signal as a modulation signal, it often helps to use either an Attenuverter or Attenuate-Offset module to adjust where and how you want the signal to alternate.
 
 \end{multicols*}
 
@@ -629,6 +644,76 @@ A/B& \textit{Outputs a gate if chosen depending on random chance biased by A$\le
 \bottomrule
 \end{tabular}
 \end{table}
+
+\pagebreak
+
+\begin{multicols*}{2}
+
+\subsection*{Module Overview}
+
+The Chance Gate Select module takes an input of four gates and chooses randomly between them. The knobs A through D set the chance that their corresponding inputs will be chosen when the module is gated at the Gate input. This turns an ordinary series of straight clock pulses into controllable random rhythmic material to drive sequencers, open envelopes, and trigger drums.
+
+In the example below, we have a Master Clock module feeding several clock outputs to the inputs of the Chance Gate Select module. The 1/2 note clock is triggering the choice between the four input gates. The top, unlabeled output is a constant stream switching between different clock speeds and the bottom output labeled Gated only outputs gates when the triggering 1/2 note clock input is high.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{chance-gate-select-fig1.png}
+\end{center}
+
+When you turn one knob down, the chance that all other gates are chosen will go up. When you turn one knob up, the chance that all other gates are chosen will go down.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{chance-gate-select-fig2.png}
+\end{center}
+
+If you only want to use 3 or fewer inputs just set the corresponding knob to zero as seen below.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{chance-gate-select-fig3.png}
+\end{center}
+
+If you want no gate to pass when an input is selected, just leave the corresponding input unplugged and set the knob above zero as seen below.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{chance-gate-select-fig4.png}
+\end{center}
+
+In general, a clock speed equal to or slower than the slowest clock input should trigger the module. Otherwise you can end up with a situation where you are triggering the new choice with a clock that is going at 1/8 note pulses, and one of the inputs is 1 bar, where the output will almost never actually equal 1 bar. You can use this creatively to your advantage, but when first experimenting with the module, try to stick to using relatively slow clocks to choose the new gate.
+
+\subsection*{Example Patches}
+
+\subsubsection*{Example 1: Regular Random Rhythms}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{chance-gate-select-fig5.png}
+\end{center}
+
+In this example, we have several clock outputs from the Master Clock fed into the Chance Gate Select module and are choosing a random speed every 1/4 note. The output of the Chance Gate Select is then choosing a new random note and triggering the envelope of the subtractive synthesizer.
+
+\subsubsection*{Example 2: Irregular Random Rhythms}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{chance-gate-select-fig6.png}
+\end{center}
+
+This example is the same as the one above, but with a twist: the output of the Chance Gate Select module is fed back into the Gate input. This means that instead of outputting a stream of clocks in the space of a 1/4 note clock, each newly chosen gate in turn chooses the next input.
+
+Note that if you want to use this feedback method, all four inputs have to have some kind of gate present. If one of the inputs is left unhooked and that input is chosen, the module will effectively freeze there because there will be no new incoming pulse to choose a new gate.
+
+\subsubsection*{Example 3: Drum Machine}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{chance-gate-select-fig6.png}
+\end{center}
+
+In this example, each drum module has its own Chance Gate Select module. By using unique settings and inputs, we can create a random drum machine.
+
+The kick is controlled by 16th, 8th, and 1/4 note clocks. One input is left unused and the chance of selecting is zero, because we have a feedback configuration as explained in Example 2 where the output of the module chooses a new input.
+
+The snare's Chance Gate Select module is choosing between the no clock, 1/4 note triplet, 1/4 note, and 1/2 note clocks with a new choice made every bar. Unlike the kick, we have an external gate choosing the new input, so we can leave one input free as a kind of rest.
+
+The hat's inputs are no clock, 1/16th note, 1/8th note triplet, and 1/8th note, again being chosen every 1 bar. The hat's Accent input is also triggered by the Gated output of the snare's Chance Gate Select module, causing an open hat sound to trigger ever bar.
+
+\end{multicols*}
 
 \pagebreak
 

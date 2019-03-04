@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  27 FEB 2019 12:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 MAR 2019 11:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -642,788 +642,834 @@ Package pdftex.def Info: ./images/master-clock.png  used on input line 445.
 <./images/master-clock-fig1.png, id=752, 578.16pt x 361.35pt>
 File: ./images/master-clock-fig1.png Graphic file (type png)
 <use ./images/master-clock-fig1.png>
-Package pdftex.def Info: ./images/master-clock-fig1.png  used on input line 497.
+Package pdftex.def Info: ./images/master-clock-fig1.png  used on input line 500.
 (pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
- [21 <./images/master-clock-fig1.png>]
-<./images/bernoulli-gate.png, id=761, 578.16pt x 361.35pt>
+<./images/master-clock-fig2.png, id=753, 578.16pt x 361.35pt>
+File: ./images/master-clock-fig2.png Graphic file (type png)
+<use ./images/master-clock-fig2.png>
+Package pdftex.def Info: ./images/master-clock-fig2.png  used on input line 510.
+(pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
+ [21 <./images/master-clock-fig1.png> <./images/master-clock-fig2.png>]
+<./images/bernoulli-gate.png, id=764, 578.16pt x 361.35pt>
 File: ./images/bernoulli-gate.png Graphic file (type png)
 <use ./images/bernoulli-gate.png>
-Package pdftex.def Info: ./images/bernoulli-gate.png  used on input line 512.
+Package pdftex.def Info: ./images/bernoulli-gate.png  used on input line 527.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
  [22 <./images/bernoulli-gate.png>]
-<./images/bernoulli-gate-fig1.png, id=767, 578.16pt x 361.35pt>
+<./images/bernoulli-gate-fig1.png, id=770, 578.16pt x 361.35pt>
 File: ./images/bernoulli-gate-fig1.png Graphic file (type png)
 <use ./images/bernoulli-gate-fig1.png>
-Package pdftex.def Info: ./images/bernoulli-gate-fig1.png  used on input line 549.
+Package pdftex.def Info: ./images/bernoulli-gate-fig1.png  used on input line 564.
 (pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
-<./images/bernoulli-gate-fig2.png, id=768, 578.16pt x 361.35pt>
+<./images/bernoulli-gate-fig2.png, id=771, 578.16pt x 361.35pt>
 File: ./images/bernoulli-gate-fig2.png Graphic file (type png)
 <use ./images/bernoulli-gate-fig2.png>
-Package pdftex.def Info: ./images/bernoulli-gate-fig2.png  used on input line 557.
+Package pdftex.def Info: ./images/bernoulli-gate-fig2.png  used on input line 572.
 (pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
-<./images/bernoulli-gate-fig3.png, id=769, 578.16pt x 361.35pt>
+<./images/bernoulli-gate-fig3.png, id=772, 578.16pt x 361.35pt>
 File: ./images/bernoulli-gate-fig3.png Graphic file (type png)
 <use ./images/bernoulli-gate-fig3.png>
-Package pdftex.def Info: ./images/bernoulli-gate-fig3.png  used on input line 563.
+Package pdftex.def Info: ./images/bernoulli-gate-fig3.png  used on input line 578.
 (pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
-<./images/bernoulli-gate-fig4.png, id=770, 578.16pt x 361.35pt>
+<./images/bernoulli-gate-fig4.png, id=773, 578.16pt x 361.35pt>
 File: ./images/bernoulli-gate-fig4.png Graphic file (type png)
 <use ./images/bernoulli-gate-fig4.png>
-Package pdftex.def Info: ./images/bernoulli-gate-fig4.png  used on input line 573.
+Package pdftex.def Info: ./images/bernoulli-gate-fig4.png  used on input line 588.
 (pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
-<./images/bernoulli-gate-fig5.png, id=771, 578.16pt x 361.35pt>
+<./images/bernoulli-gate-fig5.png, id=774, 578.16pt x 361.35pt>
 File: ./images/bernoulli-gate-fig5.png Graphic file (type png)
 <use ./images/bernoulli-gate-fig5.png>
-Package pdftex.def Info: ./images/bernoulli-gate-fig5.png  used on input line 585.
+Package pdftex.def Info: ./images/bernoulli-gate-fig5.png  used on input line 600.
 (pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
  [23 <./images/bernoulli-gate-fig1.png> <./images/bernoulli-gate-fig2.png> <./images/bernoulli-gate-fig3.png> <./images/bernoulli-gate-fig4.png>]
-Underfull \hbox (badness 5533) in paragraph at lines 596--597
+Underfull \hbox (badness 5533) in paragraph at lines 611--612
 []\OT1/cmr/m/n/10.95 Note that when you have mul-ti-ple
  []
 
 [24 <./images/bernoulli-gate-fig5.png>]
-<./images/chance-select-gate.png, id=789, 578.16pt x 361.35pt>
+<./images/chance-select-gate.png, id=792, 578.16pt x 361.35pt>
 File: ./images/chance-select-gate.png Graphic file (type png)
 <use ./images/chance-select-gate.png>
-Package pdftex.def Info: ./images/chance-select-gate.png  used on input line 606.
+Package pdftex.def Info: ./images/chance-select-gate.png  used on input line 621.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
  [25 <./images/chance-select-gate.png>]
-<./images/pachinko-machine.png, id=796, 578.16pt x 361.35pt>
+<./images/chance-gate-select-fig1.png, id=799, 578.16pt x 361.35pt>
+File: ./images/chance-gate-select-fig1.png Graphic file (type png)
+<use ./images/chance-gate-select-fig1.png>
+Package pdftex.def Info: ./images/chance-gate-select-fig1.png  used on input line 659.
+(pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
+<./images/chance-gate-select-fig2.png, id=800, 578.16pt x 361.35pt>
+File: ./images/chance-gate-select-fig2.png Graphic file (type png)
+<use ./images/chance-gate-select-fig2.png>
+Package pdftex.def Info: ./images/chance-gate-select-fig2.png  used on input line 665.
+(pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
+<./images/chance-gate-select-fig3.png, id=801, 578.16pt x 361.35pt>
+File: ./images/chance-gate-select-fig3.png Graphic file (type png)
+<use ./images/chance-gate-select-fig3.png>
+Package pdftex.def Info: ./images/chance-gate-select-fig3.png  used on input line 671.
+(pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
+<./images/chance-gate-select-fig4.png, id=802, 578.16pt x 361.35pt>
+File: ./images/chance-gate-select-fig4.png Graphic file (type png)
+<use ./images/chance-gate-select-fig4.png>
+Package pdftex.def Info: ./images/chance-gate-select-fig4.png  used on input line 677.
+(pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
+<./images/chance-gate-select-fig5.png, id=803, 578.16pt x 361.35pt>
+File: ./images/chance-gate-select-fig5.png Graphic file (type png)
+<use ./images/chance-gate-select-fig5.png>
+Package pdftex.def Info: ./images/chance-gate-select-fig5.png  used on input line 687.
+(pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
+ [26 <./images/chance-gate-select-fig1.png> <./images/chance-gate-select-fig2.png> <./images/chance-gate-select-fig3.png> <./images/chance-gate-select-fig4.png>]
+<./images/chance-gate-select-fig6.png, id=813, 578.16pt x 361.35pt>
+File: ./images/chance-gate-select-fig6.png Graphic file (type png)
+<use ./images/chance-gate-select-fig6.png>
+Package pdftex.def Info: ./images/chance-gate-select-fig6.png  used on input line 695.
+(pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
+File: ./images/chance-gate-select-fig6.png Graphic file (type png)
+<use ./images/chance-gate-select-fig6.png>
+Package pdftex.def Info: ./images/chance-gate-select-fig6.png  used on input line 705.
+(pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
+ [27 <./images/chance-gate-select-fig5.png> <./images/chance-gate-select-fig6.png>]
+<./images/pachinko-machine.png, id=825, 578.16pt x 361.35pt>
 File: ./images/pachinko-machine.png Graphic file (type png)
 <use ./images/pachinko-machine.png>
-Package pdftex.def Info: ./images/pachinko-machine.png  used on input line 639.
+Package pdftex.def Info: ./images/pachinko-machine.png  used on input line 724.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [26 <./images/pachinko-machine.png>]
-<./images/random-bursts.png, id=802, 578.16pt x 361.35pt>
+ [28 <./images/pachinko-machine.png>]
+<./images/random-bursts.png, id=831, 578.16pt x 361.35pt>
 File: ./images/random-bursts.png Graphic file (type png)
 <use ./images/random-bursts.png>
-Package pdftex.def Info: ./images/random-bursts.png  used on input line 672.
+Package pdftex.def Info: ./images/random-bursts.png  used on input line 757.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [27 <./images/random-bursts.png>]
-<./images/uclock.png, id=808, 578.16pt x 361.35pt>
+ [29 <./images/random-bursts.png>]
+<./images/uclock.png, id=837, 578.16pt x 361.35pt>
 File: ./images/uclock.png Graphic file (type png)
 <use ./images/uclock.png>
-Package pdftex.def Info: ./images/uclock.png  used on input line 707.
+Package pdftex.def Info: ./images/uclock.png  used on input line 792.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [28 <./images/uclock.png>]
+ [30 <./images/uclock.png>]
 Chapter 3.
-[29
+[31
 
 ]
-<./images/percussion.png, id=819, 578.16pt x 361.35pt>
+<./images/percussion.png, id=848, 578.16pt x 361.35pt>
 File: ./images/percussion.png Graphic file (type png)
 <use ./images/percussion.png>
-Package pdftex.def Info: ./images/percussion.png  used on input line 748.
+Package pdftex.def Info: ./images/percussion.png  used on input line 833.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [30 <./images/percussion.png>]
+ [32 <./images/percussion.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 782.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mu' on input line 782.
+(hyperref)                removing `math shift' on input line 867.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 782.
+(hyperref)                removing `\mu' on input line 867.
 
-<./images/uhat.png, id=825, 578.16pt x 361.35pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 867.
+
+<./images/uhat.png, id=854, 578.16pt x 361.35pt>
 File: ./images/uhat.png Graphic file (type png)
 <use ./images/uhat.png>
-Package pdftex.def Info: ./images/uhat.png  used on input line 785.
+Package pdftex.def Info: ./images/uhat.png  used on input line 870.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
-[31 <./images/uhat.png>]
+[33 <./images/uhat.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 817.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mu' on input line 817.
+(hyperref)                removing `math shift' on input line 902.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 817.
+(hyperref)                removing `\mu' on input line 902.
 
-<./images/ukick.png, id=833, 1445.4pt x 903.375pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 902.
+
+<./images/ukick.png, id=861, 1445.4pt x 903.375pt>
 File: ./images/ukick.png Graphic file (type png)
 <use ./images/ukick.png>
-Package pdftex.def Info: ./images/ukick.png  used on input line 820.
+Package pdftex.def Info: ./images/ukick.png  used on input line 905.
 (pdftex.def)             Requested size: 352.31625pt x 220.1916pt.
-[32 <./images/ukick.png>]
+[34 <./images/ukick.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 852.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mu' on input line 852.
+(hyperref)                removing `math shift' on input line 937.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 852.
+(hyperref)                removing `\mu' on input line 937.
 
-<./images/usnare.png, id=839, 578.16pt x 361.35pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 937.
+
+<./images/usnare.png, id=867, 578.16pt x 361.35pt>
 File: ./images/usnare.png Graphic file (type png)
 <use ./images/usnare.png>
-Package pdftex.def Info: ./images/usnare.png  used on input line 855.
+Package pdftex.def Info: ./images/usnare.png  used on input line 940.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
-[33 <./images/usnare.png>] [34
+[35 <./images/usnare.png>] [36
 
 ]
 Chapter 4.
-[35] [36]
-<./images/stereo-delay.png, id=857, 578.16pt x 361.35pt>
+[37] [38]
+<./images/stereo-delay.png, id=886, 578.16pt x 361.35pt>
 File: ./images/stereo-delay.png Graphic file (type png)
 <use ./images/stereo-delay.png>
-Package pdftex.def Info: ./images/stereo-delay.png  used on input line 895.
+Package pdftex.def Info: ./images/stereo-delay.png  used on input line 980.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [37 <./images/stereo-delay.png>]
-<./images/delay-looper-sync.png, id=864, 578.16pt x 361.35pt>
+ [39 <./images/stereo-delay.png>]
+<./images/delay-looper-sync.png, id=892, 578.16pt x 361.35pt>
 File: ./images/delay-looper-sync.png Graphic file (type png)
 <use ./images/delay-looper-sync.png>
-Package pdftex.def Info: ./images/delay-looper-sync.png  used on input line 931.
+Package pdftex.def Info: ./images/delay-looper-sync.png  used on input line 1016.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [38 <./images/delay-looper-sync.png>]
-<./images/delay-tempo-sync.png, id=870, 578.16pt x 361.35pt>
+ [40 <./images/delay-looper-sync.png>]
+<./images/delay-tempo-sync.png, id=898, 578.16pt x 361.35pt>
 File: ./images/delay-tempo-sync.png Graphic file (type png)
 <use ./images/delay-tempo-sync.png>
-Package pdftex.def Info: ./images/delay-tempo-sync.png  used on input line 963.
+Package pdftex.def Info: ./images/delay-tempo-sync.png  used on input line 1048.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [39 <./images/delay-tempo-sync.png>]
-<./images/udelay.png, id=876, 578.16pt x 361.35pt>
+ [41 <./images/delay-tempo-sync.png>]
+<./images/udelay.png, id=904, 578.16pt x 361.35pt>
 File: ./images/udelay.png Graphic file (type png)
 <use ./images/udelay.png>
-Package pdftex.def Info: ./images/udelay.png  used on input line 995.
+Package pdftex.def Info: ./images/udelay.png  used on input line 1080.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [40 <./images/udelay.png>] [41]
-<./images/asymmetrical-drive.png, id=886, 578.16pt x 361.35pt>
+ [42 <./images/udelay.png>] [43]
+<./images/asymmetrical-drive.png, id=915, 578.16pt x 361.35pt>
 File: ./images/asymmetrical-drive.png Graphic file (type png)
 <use ./images/asymmetrical-drive.png>
-Package pdftex.def Info: ./images/asymmetrical-drive.png  used on input line 1033.
+Package pdftex.def Info: ./images/asymmetrical-drive.png  used on input line 1118.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [42 <./images/asymmetrical-drive.png>]
-<./images/fold-processor.png, id=892, 578.16pt x 361.35pt>
+ [44 <./images/asymmetrical-drive.png>]
+<./images/fold-processor.png, id=921, 578.16pt x 361.35pt>
 File: ./images/fold-processor.png Graphic file (type png)
 <use ./images/fold-processor.png>
-Package pdftex.def Info: ./images/fold-processor.png  used on input line 1065.
+Package pdftex.def Info: ./images/fold-processor.png  used on input line 1150.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [43 <./images/fold-processor.png>] [44]
-<./images/really-humongous-reverb.png, id=903, 578.16pt x 361.35pt>
+ [45 <./images/fold-processor.png>] [46]
+<./images/really-humongous-reverb.png, id=931, 578.16pt x 361.35pt>
 File: ./images/really-humongous-reverb.png Graphic file (type png)
 <use ./images/really-humongous-reverb.png>
-Package pdftex.def Info: ./images/really-humongous-reverb.png  used on input line 1102.
+Package pdftex.def Info: ./images/really-humongous-reverb.png  used on input line 1187.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [45 <./images/really-humongous-reverb.png>]
-<./images/uverb.png, id=909, 578.16pt x 361.35pt>
+ [47 <./images/really-humongous-reverb.png>]
+<./images/uverb.png, id=937, 578.16pt x 361.35pt>
 File: ./images/uverb.png Graphic file (type png)
 <use ./images/uverb.png>
-Package pdftex.def Info: ./images/uverb.png  used on input line 1141.
+Package pdftex.def Info: ./images/uverb.png  used on input line 1226.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [46 <./images/uverb.png>]
+ [48 <./images/uverb.png>]
 Chapter 5.
-[47
+[49
 
 ]
-<./images/analog-envelope.png, id=919, 578.16pt x 361.35pt>
+<./images/analog-envelope.png, id=948, 578.16pt x 361.35pt>
 File: ./images/analog-envelope.png Graphic file (type png)
 <use ./images/analog-envelope.png>
-Package pdftex.def Info: ./images/analog-envelope.png  used on input line 1179.
+Package pdftex.def Info: ./images/analog-envelope.png  used on input line 1264.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [48 <./images/analog-envelope.png>]
-<./images/eoc-max-adsr.png, id=925, 578.16pt x 361.35pt>
+ [50 <./images/analog-envelope.png>]
+<./images/eoc-max-adsr.png, id=954, 578.16pt x 361.35pt>
 File: ./images/eoc-max-adsr.png Graphic file (type png)
 <use ./images/eoc-max-adsr.png>
-Package pdftex.def Info: ./images/eoc-max-adsr.png  used on input line 1212.
+Package pdftex.def Info: ./images/eoc-max-adsr.png  used on input line 1297.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [49 <./images/eoc-max-adsr.png>]
+ [51 <./images/eoc-max-adsr.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1247.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mu' on input line 1247.
+(hyperref)                removing `math shift' on input line 1332.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1247.
+(hyperref)                removing `\mu' on input line 1332.
 
-<./images/uadsr.png, id=932, 578.16pt x 361.35pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1332.
+
+<./images/uadsr.png, id=960, 578.16pt x 361.35pt>
 File: ./images/uadsr.png Graphic file (type png)
 <use ./images/uadsr.png>
-Package pdftex.def Info: ./images/uadsr.png  used on input line 1250.
+Package pdftex.def Info: ./images/uadsr.png  used on input line 1335.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
-[50 <./images/uadsr.png>]
+[52 <./images/uadsr.png>]
 Chapter 6.
-[51
+[53
 
 ]
-<./images/audio-input.png, id=942, 578.16pt x 361.35pt>
+<./images/audio-input.png, id=971, 578.16pt x 361.35pt>
 File: ./images/audio-input.png Graphic file (type png)
 <use ./images/audio-input.png>
-Package pdftex.def Info: ./images/audio-input.png  used on input line 1288.
+Package pdftex.def Info: ./images/audio-input.png  used on input line 1373.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [52 <./images/audio-input.png>]
-<./images/audio-output.png, id=948, 578.16pt x 361.35pt>
+ [54 <./images/audio-input.png>]
+<./images/audio-output.png, id=977, 578.16pt x 361.35pt>
 File: ./images/audio-output.png Graphic file (type png)
 <use ./images/audio-output.png>
-Package pdftex.def Info: ./images/audio-output.png  used on input line 1317.
+Package pdftex.def Info: ./images/audio-output.png  used on input line 1402.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [53 <./images/audio-output.png>]
-<./images/expert-sleepers-es-3.png, id=955, 578.16pt x 361.35pt>
+ [55 <./images/audio-output.png>]
+<./images/expert-sleepers-es-3.png, id=984, 578.16pt x 361.35pt>
 File: ./images/expert-sleepers-es-3.png Graphic file (type png)
 <use ./images/expert-sleepers-es-3.png>
-Package pdftex.def Info: ./images/expert-sleepers-es-3.png  used on input line 1351.
+Package pdftex.def Info: ./images/expert-sleepers-es-3.png  used on input line 1436.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [54 <./images/expert-sleepers-es-3.png>]
-<./images/expert-sleepers-es-6.png, id=961, 578.16pt x 361.35pt>
+ [56 <./images/expert-sleepers-es-3.png>]
+<./images/expert-sleepers-es-6.png, id=990, 578.16pt x 361.35pt>
 File: ./images/expert-sleepers-es-6.png Graphic file (type png)
 <use ./images/expert-sleepers-es-6.png>
-Package pdftex.def Info: ./images/expert-sleepers-es-6.png  used on input line 1375.
+Package pdftex.def Info: ./images/expert-sleepers-es-6.png  used on input line 1460.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [55 <./images/expert-sleepers-es-6.png>]
-<./images/expert-sleepers-es-8.png, id=968, 578.16pt x 361.35pt>
+ [57 <./images/expert-sleepers-es-6.png>]
+<./images/expert-sleepers-es-8.png, id=996, 578.16pt x 361.35pt>
 File: ./images/expert-sleepers-es-8.png Graphic file (type png)
 <use ./images/expert-sleepers-es-8.png>
-Package pdftex.def Info: ./images/expert-sleepers-es-8.png  used on input line 1399.
+Package pdftex.def Info: ./images/expert-sleepers-es-8.png  used on input line 1484.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [56 <./images/expert-sleepers-es-8.png>]
-<./images/midi-input.png, id=974, 578.16pt x 361.35pt>
+ [58 <./images/expert-sleepers-es-8.png>]
+<./images/midi-input.png, id=1002, 578.16pt x 361.35pt>
 File: ./images/midi-input.png Graphic file (type png)
 <use ./images/midi-input.png>
-Package pdftex.def Info: ./images/midi-input.png  used on input line 1427.
+Package pdftex.def Info: ./images/midi-input.png  used on input line 1512.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [57 <./images/midi-input.png>]
-<./images/vpo-converter.png, id=980, 578.16pt x 361.35pt>
+ [59 <./images/midi-input.png>]
+<./images/vpo-converter.png, id=1008, 578.16pt x 361.35pt>
 File: ./images/vpo-converter.png Graphic file (type png)
 <use ./images/vpo-converter.png>
-Package pdftex.def Info: ./images/vpo-converter.png  used on input line 1463.
+Package pdftex.def Info: ./images/vpo-converter.png  used on input line 1548.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [58 <./images/vpo-converter.png>]
+ [60 <./images/vpo-converter.png>]
 Chapter 7.
-[59
+[61
 
 ]
-<./images/basic-lfo.png, id=990, 578.16pt x 361.35pt>
+<./images/basic-lfo.png, id=1019, 578.16pt x 361.35pt>
 File: ./images/basic-lfo.png Graphic file (type png)
 <use ./images/basic-lfo.png>
-Package pdftex.def Info: ./images/basic-lfo.png  used on input line 1502.
+Package pdftex.def Info: ./images/basic-lfo.png  used on input line 1587.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [60 <./images/basic-lfo.png>]
-<./images/octature-sine-lfo.png, id=996, 578.16pt x 361.35pt>
+ [62 <./images/basic-lfo.png>]
+<./images/octature-sine-lfo.png, id=1025, 578.16pt x 361.35pt>
 File: ./images/octature-sine-lfo.png Graphic file (type png)
 <use ./images/octature-sine-lfo.png>
-Package pdftex.def Info: ./images/octature-sine-lfo.png  used on input line 1540.
+Package pdftex.def Info: ./images/octature-sine-lfo.png  used on input line 1625.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [61 <./images/octature-sine-lfo.png>]
-<./images/tzfm-lfo.png, id=1004, 578.16pt x 361.35pt>
+ [63 <./images/octature-sine-lfo.png>]
+<./images/tzfm-lfo.png, id=1032, 578.16pt x 361.35pt>
 File: ./images/tzfm-lfo.png Graphic file (type png)
 <use ./images/tzfm-lfo.png>
-Package pdftex.def Info: ./images/tzfm-lfo.png  used on input line 1576.
+Package pdftex.def Info: ./images/tzfm-lfo.png  used on input line 1661.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [62 <./images/tzfm-lfo.png>]
+ [64 <./images/tzfm-lfo.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1613.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mu' on input line 1613.
+(hyperref)                removing `math shift' on input line 1698.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1613.
+(hyperref)                removing `\mu' on input line 1698.
 
-<./images/ulfo.png, id=1010, 1445.4pt x 903.375pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1698.
+
+<./images/ulfo.png, id=1038, 1445.4pt x 903.375pt>
 File: ./images/ulfo.png Graphic file (type png)
 <use ./images/ulfo.png>
-Package pdftex.def Info: ./images/ulfo.png  used on input line 1616.
+Package pdftex.def Info: ./images/ulfo.png  used on input line 1701.
 (pdftex.def)             Requested size: 352.31625pt x 220.1916pt.
-[63 <./images/ulfo.png>] [64
+[65 <./images/ulfo.png>] [66
 
 ]
 Chapter 8.
-[65]
-<./images/8-channel-mixer.png, id=1024, 578.16pt x 361.35pt>
+[67]
+<./images/8-channel-mixer.png, id=1053, 578.16pt x 361.35pt>
 File: ./images/8-channel-mixer.png Graphic file (type png)
 <use ./images/8-channel-mixer.png>
-Package pdftex.def Info: ./images/8-channel-mixer.png  used on input line 1653.
+Package pdftex.def Info: ./images/8-channel-mixer.png  used on input line 1738.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [66 <./images/8-channel-mixer.png>]
-<./images/cv-mixer.png, id=1030, 1445.4pt x 903.375pt>
+ [68 <./images/8-channel-mixer.png>]
+<./images/cv-mixer.png, id=1059, 1445.4pt x 903.375pt>
 File: ./images/cv-mixer.png Graphic file (type png)
 <use ./images/cv-mixer.png>
-Package pdftex.def Info: ./images/cv-mixer.png  used on input line 1691.
+Package pdftex.def Info: ./images/cv-mixer.png  used on input line 1776.
 (pdftex.def)             Requested size: 352.31625pt x 220.1916pt.
- [67 <./images/cv-mixer.png>]
+ [69 <./images/cv-mixer.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1722.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mu' on input line 1722.
+(hyperref)                removing `math shift' on input line 1807.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1722.
+(hyperref)                removing `\mu' on input line 1807.
 
-<./images/umix-audio.png, id=1037, 578.16pt x 361.35pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1807.
+
+<./images/umix-audio.png, id=1065, 578.16pt x 361.35pt>
 File: ./images/umix-audio.png Graphic file (type png)
 <use ./images/umix-audio.png>
-Package pdftex.def Info: ./images/umix-audio.png  used on input line 1725.
+Package pdftex.def Info: ./images/umix-audio.png  used on input line 1810.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
-[68 <./images/umix-audio.png>]
+[70 <./images/umix-audio.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1754.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mu' on input line 1754.
+(hyperref)                removing `math shift' on input line 1839.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1754.
+(hyperref)                removing `\mu' on input line 1839.
 
-<./images/umix-cv.png, id=1043, 1445.4pt x 903.375pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1839.
+
+<./images/umix-cv.png, id=1071, 1445.4pt x 903.375pt>
 File: ./images/umix-cv.png Graphic file (type png)
 <use ./images/umix-cv.png>
-Package pdftex.def Info: ./images/umix-cv.png  used on input line 1757.
+Package pdftex.def Info: ./images/umix-cv.png  used on input line 1842.
 (pdftex.def)             Requested size: 352.31625pt x 220.1916pt.
-[69 <./images/umix-cv.png>] [70
+[71 <./images/umix-cv.png>] [72
 
 ]
 Chapter 9.
-[71]
-<./images/chromatic-quantizer.png, id=1057, 1445.4pt x 903.375pt>
+[73]
+<./images/chromatic-quantizer.png, id=1086, 1445.4pt x 903.375pt>
 File: ./images/chromatic-quantizer.png Graphic file (type png)
 <use ./images/chromatic-quantizer.png>
-Package pdftex.def Info: ./images/chromatic-quantizer.png  used on input line 1792.
+Package pdftex.def Info: ./images/chromatic-quantizer.png  used on input line 1877.
 (pdftex.def)             Requested size: 352.31625pt x 220.1916pt.
- [72 <./images/chromatic-quantizer.png>]
-<./images/church-modes-quantizer.png, id=1063, 1445.4pt x 903.375pt>
+ [74 <./images/chromatic-quantizer.png>]
+<./images/church-modes-quantizer.png, id=1092, 1445.4pt x 903.375pt>
 File: ./images/church-modes-quantizer.png Graphic file (type png)
 <use ./images/church-modes-quantizer.png>
-Package pdftex.def Info: ./images/church-modes-quantizer.png  used on input line 1825.
+Package pdftex.def Info: ./images/church-modes-quantizer.png  used on input line 1910.
 (pdftex.def)             Requested size: 352.31625pt x 220.1916pt.
- [73 <./images/church-modes-quantizer.png>]
-<./images/gateable-quantizer.png, id=1070, 578.16pt x 361.35pt>
+ [75 <./images/church-modes-quantizer.png>]
+<./images/gateable-quantizer.png, id=1098, 578.16pt x 361.35pt>
 File: ./images/gateable-quantizer.png Graphic file (type png)
 <use ./images/gateable-quantizer.png>
-Package pdftex.def Info: ./images/gateable-quantizer.png  used on input line 1860.
+Package pdftex.def Info: ./images/gateable-quantizer.png  used on input line 1945.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [74 <./images/gateable-quantizer.png>]
-<./images/modulation-quantizer.png, id=1076, 578.16pt x 361.35pt>
+ [76 <./images/gateable-quantizer.png>]
+<./images/modulation-quantizer.png, id=1104, 578.16pt x 361.35pt>
 File: ./images/modulation-quantizer.png Graphic file (type png)
 <use ./images/modulation-quantizer.png>
-Package pdftex.def Info: ./images/modulation-quantizer.png  used on input line 1897.
+Package pdftex.def Info: ./images/modulation-quantizer.png  used on input line 1982.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [75 <./images/modulation-quantizer.png>]
-<./images/neo-reimannian-triad-transformer.png, id=1082, 578.16pt x 361.35pt>
+ [77 <./images/modulation-quantizer.png>]
+<./images/neo-reimannian-triad-transformer.png, id=1111, 578.16pt x 361.35pt>
 File: ./images/neo-reimannian-triad-transformer.png Graphic file (type png)
 <use ./images/neo-reimannian-triad-transformer.png>
-Package pdftex.def Info: ./images/neo-reimannian-triad-transformer.png  used on input line 1929.
+Package pdftex.def Info: ./images/neo-reimannian-triad-transformer.png  used on input line 2014.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [76 <./images/neo-reimannian-triad-transformer.png>]
-<./images/quick-quantizer.png, id=1088, 578.16pt x 361.35pt>
+ [78 <./images/neo-reimannian-triad-transformer.png>]
+<./images/quick-quantizer.png, id=1117, 578.16pt x 361.35pt>
 File: ./images/quick-quantizer.png Graphic file (type png)
 <use ./images/quick-quantizer.png>
-Package pdftex.def Info: ./images/quick-quantizer.png  used on input line 1964.
+Package pdftex.def Info: ./images/quick-quantizer.png  used on input line 2049.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [77 <./images/quick-quantizer.png>] [78
+ [79 <./images/quick-quantizer.png>] [80
 
 ]
 Chapter 10.
-[79]
-<./images/16-step-gate-sequencer.png, id=1104, 578.16pt x 361.35pt>
+[81]
+<./images/16-step-gate-sequencer.png, id=1132, 578.16pt x 361.35pt>
 File: ./images/16-step-gate-sequencer.png Graphic file (type png)
 <use ./images/16-step-gate-sequencer.png>
-Package pdftex.def Info: ./images/16-step-gate-sequencer.png  used on input line 2003.
+Package pdftex.def Info: ./images/16-step-gate-sequencer.png  used on input line 2088.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [80 <./images/16-step-gate-sequencer.png>]
-<./images/8-step-sequencer.png, id=1110, 578.16pt x 361.35pt>
+ [82 <./images/16-step-gate-sequencer.png>]
+<./images/8-step-sequencer.png, id=1138, 578.16pt x 361.35pt>
 File: ./images/8-step-sequencer.png Graphic file (type png)
 <use ./images/8-step-sequencer.png>
-Package pdftex.def Info: ./images/8-step-sequencer.png  used on input line 2042.
+Package pdftex.def Info: ./images/8-step-sequencer.png  used on input line 2127.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [81 <./images/8-step-sequencer.png>]
-<./images/binary-gate-sequencer.png, id=1116, 578.16pt x 361.35pt>
+ [83 <./images/8-step-sequencer.png>]
+<./images/binary-gate-sequencer.png, id=1144, 578.16pt x 361.35pt>
 File: ./images/binary-gate-sequencer.png Graphic file (type png)
 <use ./images/binary-gate-sequencer.png>
-Package pdftex.def Info: ./images/binary-gate-sequencer.png  used on input line 2082.
+Package pdftex.def Info: ./images/binary-gate-sequencer.png  used on input line 2167.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [82 <./images/binary-gate-sequencer.png>]
-<./images/euclidean-gate-sequencer.png, id=1122, 578.16pt x 361.35pt>
+ [84 <./images/binary-gate-sequencer.png>]
+<./images/euclidean-gate-sequencer.png, id=1150, 578.16pt x 361.35pt>
 File: ./images/euclidean-gate-sequencer.png Graphic file (type png)
 <use ./images/euclidean-gate-sequencer.png>
-Package pdftex.def Info: ./images/euclidean-gate-sequencer.png  used on input line 2116.
+Package pdftex.def Info: ./images/euclidean-gate-sequencer.png  used on input line 2201.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [83 <./images/euclidean-gate-sequencer.png>]
-<./images/matrix-gate-sequencer.png, id=1128, 578.16pt x 361.35pt>
+ [85 <./images/euclidean-gate-sequencer.png>]
+<./images/matrix-gate-sequencer.png, id=1157, 578.16pt x 361.35pt>
 File: ./images/matrix-gate-sequencer.png Graphic file (type png)
 <use ./images/matrix-gate-sequencer.png>
-Package pdftex.def Info: ./images/matrix-gate-sequencer.png  used on input line 2151.
+Package pdftex.def Info: ./images/matrix-gate-sequencer.png  used on input line 2236.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [84 <./images/matrix-gate-sequencer.png>]
-<./images/shape-gate-sequencer.png, id=1134, 578.16pt x 361.35pt>
+ [86 <./images/matrix-gate-sequencer.png>]
+<./images/shape-gate-sequencer.png, id=1163, 578.16pt x 361.35pt>
 File: ./images/shape-gate-sequencer.png Graphic file (type png)
 <use ./images/shape-gate-sequencer.png>
-Package pdftex.def Info: ./images/shape-gate-sequencer.png  used on input line 2187.
+Package pdftex.def Info: ./images/shape-gate-sequencer.png  used on input line 2272.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [85 <./images/shape-gate-sequencer.png>] [86
+ [87 <./images/shape-gate-sequencer.png>] [88
 
 ]
 Chapter 11.
-[87]
-<./images/attenuate-offset.png, id=1149, 578.16pt x 361.35pt>
+[89]
+<./images/attenuate-offset.png, id=1177, 578.16pt x 361.35pt>
 File: ./images/attenuate-offset.png Graphic file (type png)
 <use ./images/attenuate-offset.png>
-Package pdftex.def Info: ./images/attenuate-offset.png  used on input line 2228.
+Package pdftex.def Info: ./images/attenuate-offset.png  used on input line 2313.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [88 <./images/attenuate-offset.png>]
-<./images/attenuate-offset-fig1.png, id=1155, 578.16pt x 361.35pt>
+ [90 <./images/attenuate-offset.png>]
+<./images/attenuate-offset-fig1.png, id=1183, 578.16pt x 361.35pt>
 File: ./images/attenuate-offset-fig1.png Graphic file (type png)
 <use ./images/attenuate-offset-fig1.png>
-Package pdftex.def Info: ./images/attenuate-offset-fig1.png  used on input line 2272.
+Package pdftex.def Info: ./images/attenuate-offset-fig1.png  used on input line 2357.
 (pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
-<./images/attenuate-offset-fig2.png, id=1156, 578.16pt x 361.35pt>
+<./images/attenuate-offset-fig2.png, id=1184, 578.16pt x 361.35pt>
 File: ./images/attenuate-offset-fig2.png Graphic file (type png)
 <use ./images/attenuate-offset-fig2.png>
-Package pdftex.def Info: ./images/attenuate-offset-fig2.png  used on input line 2282.
+Package pdftex.def Info: ./images/attenuate-offset-fig2.png  used on input line 2367.
 (pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
-<./images/attenuate-offset-fig3.png, id=1157, 578.16pt x 361.35pt>
+<./images/attenuate-offset-fig3.png, id=1185, 578.16pt x 361.35pt>
 File: ./images/attenuate-offset-fig3.png Graphic file (type png)
 <use ./images/attenuate-offset-fig3.png>
-Package pdftex.def Info: ./images/attenuate-offset-fig3.png  used on input line 2294.
+Package pdftex.def Info: ./images/attenuate-offset-fig3.png  used on input line 2379.
 (pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
-<./images/attenuate-offset-fig4.png, id=1158, 578.16pt x 361.35pt>
+<./images/attenuate-offset-fig4.png, id=1186, 578.16pt x 361.35pt>
 File: ./images/attenuate-offset-fig4.png Graphic file (type png)
 <use ./images/attenuate-offset-fig4.png>
-Package pdftex.def Info: ./images/attenuate-offset-fig4.png  used on input line 2302.
+Package pdftex.def Info: ./images/attenuate-offset-fig4.png  used on input line 2387.
 (pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
- [89 <./images/attenuate-offset-fig1.png> <./images/attenuate-offset-fig2.png> <./images/attenuate-offset-fig3.png> <./images/attenuate-offset-fig4.png>]
-<./images/attenuverter.png, id=1170, 578.16pt x 361.35pt>
+ [91 <./images/attenuate-offset-fig1.png> <./images/attenuate-offset-fig2.png> <./images/attenuate-offset-fig3.png> <./images/attenuate-offset-fig4.png>]
+<./images/attenuverter.png, id=1199, 578.16pt x 361.35pt>
 File: ./images/attenuverter.png Graphic file (type png)
 <use ./images/attenuverter.png>
-Package pdftex.def Info: ./images/attenuverter.png  used on input line 2315.
+Package pdftex.def Info: ./images/attenuverter.png  used on input line 2400.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [90 <./images/attenuverter.png>]
+ [92 <./images/attenuverter.png>]
 File: ./images/attenuate-offset-fig4.png Graphic file (type png)
 <use ./images/attenuate-offset-fig4.png>
-Package pdftex.def Info: ./images/attenuate-offset-fig4.png  used on input line 2364.
-(pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
- [91]
-<./images/audio-attenuverter-offset.png, id=1184, 578.16pt x 361.35pt>
-File: ./images/audio-attenuverter-offset.png Graphic file (type png)
-<use ./images/audio-attenuverter-offset.png>
-Package pdftex.def Info: ./images/audio-attenuverter-offset.png  used on input line 2377.
-(pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [92 <./images/audio-attenuverter-offset.png>]
-File: ./images/attenuate-offset-fig4.png Graphic file (type png)
-<use ./images/attenuate-offset-fig4.png>
-Package pdftex.def Info: ./images/attenuate-offset-fig4.png  used on input line 2421.
+Package pdftex.def Info: ./images/attenuate-offset-fig4.png  used on input line 2449.
 (pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
  [93]
-<./images/automation-lane.png, id=1197, 578.16pt x 361.35pt>
+<./images/audio-attenuverter-offset.png, id=1212, 578.16pt x 361.35pt>
+File: ./images/audio-attenuverter-offset.png Graphic file (type png)
+<use ./images/audio-attenuverter-offset.png>
+Package pdftex.def Info: ./images/audio-attenuverter-offset.png  used on input line 2462.
+(pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
+ [94 <./images/audio-attenuverter-offset.png>]
+File: ./images/attenuate-offset-fig4.png Graphic file (type png)
+<use ./images/attenuate-offset-fig4.png>
+Package pdftex.def Info: ./images/attenuate-offset-fig4.png  used on input line 2508.
+(pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
+ [95]
+<./images/automation-lane.png, id=1225, 578.16pt x 361.35pt>
 File: ./images/automation-lane.png Graphic file (type png)
 <use ./images/automation-lane.png>
-Package pdftex.def Info: ./images/automation-lane.png  used on input line 2434.
+Package pdftex.def Info: ./images/automation-lane.png  used on input line 2521.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [94 <./images/automation-lane.png>]
-<./images/chaos-generator.png, id=1203, 578.16pt x 361.35pt>
+ [96 <./images/automation-lane.png>]
+<./images/chaos-generator.png, id=1231, 578.16pt x 361.35pt>
 File: ./images/chaos-generator.png Graphic file (type png)
 <use ./images/chaos-generator.png>
-Package pdftex.def Info: ./images/chaos-generator.png  used on input line 2473.
+Package pdftex.def Info: ./images/chaos-generator.png  used on input line 2560.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [95 <./images/chaos-generator.png>]
-<./images/modulation-to-1oct.png, id=1209, 578.16pt x 361.35pt>
+ [97 <./images/chaos-generator.png>]
+<./images/modulation-to-1oct.png, id=1238, 578.16pt x 361.35pt>
 File: ./images/modulation-to-1oct.png Graphic file (type png)
 <use ./images/modulation-to-1oct.png>
-Package pdftex.def Info: ./images/modulation-to-1oct.png  used on input line 2507.
+Package pdftex.def Info: ./images/modulation-to-1oct.png  used on input line 2594.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [96 <./images/modulation-to-1oct.png>]
-<./images/poly-to-mono.png, id=1215, 578.16pt x 361.35pt>
+ [98 <./images/modulation-to-1oct.png>]
+File: ./images/attenuate-offset-fig4.png Graphic file (type png)
+<use ./images/attenuate-offset-fig4.png>
+Package pdftex.def Info: ./images/attenuate-offset-fig4.png  used on input line 2642.
+(pdftex.def)             Requested size: 209.6179pt x 131.0067pt.
+ [99]
+<./images/poly-to-mono.png, id=1251, 578.16pt x 361.35pt>
 File: ./images/poly-to-mono.png Graphic file (type png)
 <use ./images/poly-to-mono.png>
-Package pdftex.def Info: ./images/poly-to-mono.png  used on input line 2540.
+Package pdftex.def Info: ./images/poly-to-mono.png  used on input line 2655.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [97 <./images/poly-to-mono.png>]
-<./images/sample-and-hold.png, id=1222, 578.16pt x 361.35pt>
+ [100 <./images/poly-to-mono.png>]
+<./images/sample-and-hold.png, id=1257, 578.16pt x 361.35pt>
 File: ./images/sample-and-hold.png Graphic file (type png)
 <use ./images/sample-and-hold.png>
-Package pdftex.def Info: ./images/sample-and-hold.png  used on input line 2572.
+Package pdftex.def Info: ./images/sample-and-hold.png  used on input line 2687.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [98 <./images/sample-and-hold.png>]
-<./images/slew.png, id=1228, 578.16pt x 361.35pt>
+ [101 <./images/sample-and-hold.png>]
+<./images/slew.png, id=1264, 578.16pt x 361.35pt>
 File: ./images/slew.png Graphic file (type png)
 <use ./images/slew.png>
-Package pdftex.def Info: ./images/slew.png  used on input line 2609.
+Package pdftex.def Info: ./images/slew.png  used on input line 2724.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [99 <./images/slew.png>]
-<./images/8-step-sequential-switch.png, id=1234, 578.16pt x 361.35pt>
+ [102 <./images/slew.png>]
+<./images/8-step-sequential-switch.png, id=1270, 578.16pt x 361.35pt>
 File: ./images/8-step-sequential-switch.png Graphic file (type png)
 <use ./images/8-step-sequential-switch.png>
-Package pdftex.def Info: ./images/8-step-sequential-switch.png  used on input line 2645.
+Package pdftex.def Info: ./images/8-step-sequential-switch.png  used on input line 2760.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [100 <./images/8-step-sequential-switch.png>]
+ [103 <./images/8-step-sequential-switch.png>]
 File: ./images/8-step-sequential-switch.png Graphic file (type png)
 <use ./images/8-step-sequential-switch.png>
-Package pdftex.def Info: ./images/8-step-sequential-switch.png  used on input line 2685.
+Package pdftex.def Info: ./images/8-step-sequential-switch.png  used on input line 2800.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [101]
+ [104]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2722.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mu' on input line 2722.
+(hyperref)                removing `math shift' on input line 2837.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2722.
+(hyperref)                removing `\mu' on input line 2837.
 
-<./images/ulogic.png, id=1244, 578.16pt x 361.35pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2837.
+
+<./images/ulogic.png, id=1281, 578.16pt x 361.35pt>
 File: ./images/ulogic.png Graphic file (type png)
 <use ./images/ulogic.png>
-Package pdftex.def Info: ./images/ulogic.png  used on input line 2725.
+Package pdftex.def Info: ./images/ulogic.png  used on input line 2840.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
-[102 <./images/ulogic.png>]
-<./images/unison.png, id=1251, 578.16pt x 361.35pt>
+[105 <./images/ulogic.png>]
+<./images/unison.png, id=1287, 578.16pt x 361.35pt>
 File: ./images/unison.png Graphic file (type png)
 <use ./images/unison.png>
-Package pdftex.def Info: ./images/unison.png  used on input line 2758.
+Package pdftex.def Info: ./images/unison.png  used on input line 2873.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [103 <./images/unison.png>]
+ [106 <./images/unison.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2787.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mu' on input line 2787.
+(hyperref)                removing `math shift' on input line 2902.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2787.
+(hyperref)                removing `\mu' on input line 2902.
 
-<./images/usample-and-hold.png, id=1258, 578.16pt x 361.35pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2902.
+
+<./images/usample-and-hold.png, id=1293, 578.16pt x 361.35pt>
 File: ./images/usample-and-hold.png Graphic file (type png)
 <use ./images/usample-and-hold.png>
-Package pdftex.def Info: ./images/usample-and-hold.png  used on input line 2790.
+Package pdftex.def Info: ./images/usample-and-hold.png  used on input line 2905.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
-[104 <./images/usample-and-hold.png>]
-<./images/uwindow-comparator.png, id=1264, 578.16pt x 361.35pt>
+[107 <./images/usample-and-hold.png>]
+<./images/uwindow-comparator.png, id=1299, 578.16pt x 361.35pt>
 File: ./images/uwindow-comparator.png Graphic file (type png)
 <use ./images/uwindow-comparator.png>
-Package pdftex.def Info: ./images/uwindow-comparator.png  used on input line 2824.
+Package pdftex.def Info: ./images/uwindow-comparator.png  used on input line 2939.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [105 <./images/uwindow-comparator.png>] [106
+ [108 <./images/uwindow-comparator.png>]
+Chapter 12.
+[109
 
 ]
-Chapter 12.
-[107]
-<./images/digital-vca.png, id=1278, 578.16pt x 361.35pt>
+<./images/digital-vca.png, id=1310, 578.16pt x 361.35pt>
 File: ./images/digital-vca.png Graphic file (type png)
 <use ./images/digital-vca.png>
-Package pdftex.def Info: ./images/digital-vca.png  used on input line 2860.
+Package pdftex.def Info: ./images/digital-vca.png  used on input line 2975.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 2874.
-LaTeX Font Info:    No file OMScmss.fd. on input line 2874.
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 2989.
+LaTeX Font Info:    No file OMScmss.fd. on input line 2989.
 
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbar' on input line 2874.
+(Font)              for symbol `textbar' on input line 2989.
 
-[108 <./images/digital-vca.png>]
-<./images/diode-vca.png, id=1284, 578.16pt x 361.35pt>
+[110 <./images/digital-vca.png>]
+<./images/diode-vca.png, id=1316, 578.16pt x 361.35pt>
 File: ./images/diode-vca.png Graphic file (type png)
 <use ./images/diode-vca.png>
-Package pdftex.def Info: ./images/diode-vca.png  used on input line 2895.
+Package pdftex.def Info: ./images/diode-vca.png  used on input line 3010.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [109 <./images/diode-vca.png>]
+ [111 <./images/diode-vca.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2927.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mu' on input line 2927.
+(hyperref)                removing `math shift' on input line 3042.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2927.
+(hyperref)                removing `\mu' on input line 3042.
 
-<./images/uvca.png, id=1291, 578.16pt x 361.35pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3042.
+
+<./images/uvca.png, id=1322, 578.16pt x 361.35pt>
 File: ./images/uvca.png Graphic file (type png)
 <use ./images/uvca.png>
-Package pdftex.def Info: ./images/uvca.png  used on input line 2930.
+Package pdftex.def Info: ./images/uvca.png  used on input line 3045.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
-[110 <./images/uvca.png>]
+[112 <./images/uvca.png>]
 Chapter 13.
-[111
+[113
 
 ]
-<./images/303-vcf.png, id=1301, 578.16pt x 361.35pt>
+<./images/303-vcf.png, id=1332, 578.16pt x 361.35pt>
 File: ./images/303-vcf.png Graphic file (type png)
 <use ./images/303-vcf.png>
-Package pdftex.def Info: ./images/303-vcf.png  used on input line 2970.
+Package pdftex.def Info: ./images/303-vcf.png  used on input line 3085.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [112 <./images/303-vcf.png>] [113]
-<./images/k35-vcf.png, id=1311, 578.16pt x 361.35pt>
+ [114 <./images/303-vcf.png>] [115]
+<./images/k35-vcf.png, id=1343, 578.16pt x 361.35pt>
 File: ./images/k35-vcf.png Graphic file (type png)
 <use ./images/k35-vcf.png>
-Package pdftex.def Info: ./images/k35-vcf.png  used on input line 3011.
+Package pdftex.def Info: ./images/k35-vcf.png  used on input line 3126.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [114 <./images/k35-vcf.png>]
-<./images/ladder-vcf.png, id=1317, 578.16pt x 361.35pt>
+ [116 <./images/k35-vcf.png>]
+<./images/ladder-vcf.png, id=1349, 578.16pt x 361.35pt>
 File: ./images/ladder-vcf.png Graphic file (type png)
 <use ./images/ladder-vcf.png>
-Package pdftex.def Info: ./images/ladder-vcf.png  used on input line 3049.
+Package pdftex.def Info: ./images/ladder-vcf.png  used on input line 3164.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [115 <./images/ladder-vcf.png>]
-<./images/lpg.png, id=1324, 578.16pt x 361.35pt>
+ [117 <./images/ladder-vcf.png>]
+<./images/lpg.png, id=1355, 578.16pt x 361.35pt>
 File: ./images/lpg.png Graphic file (type png)
 <use ./images/lpg.png>
-Package pdftex.def Info: ./images/lpg.png  used on input line 3091.
+Package pdftex.def Info: ./images/lpg.png  used on input line 3206.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [116 <./images/lpg.png>]
-<./images/sem-vcf.png, id=1330, 578.16pt x 361.35pt>
+ [118 <./images/lpg.png>]
+<./images/sem-vcf.png, id=1361, 578.16pt x 361.35pt>
 File: ./images/sem-vcf.png Graphic file (type png)
 <use ./images/sem-vcf.png>
-Package pdftex.def Info: ./images/sem-vcf.png  used on input line 3126.
+Package pdftex.def Info: ./images/sem-vcf.png  used on input line 3241.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [117 <./images/sem-vcf.png>]
+ [119 <./images/sem-vcf.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3163.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mu' on input line 3163.
+(hyperref)                removing `math shift' on input line 3278.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3163.
+(hyperref)                removing `\mu' on input line 3278.
 
-<./images/uvcf.png, id=1336, 578.16pt x 361.35pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3278.
+
+<./images/uvcf.png, id=1367, 578.16pt x 361.35pt>
 File: ./images/uvcf.png Graphic file (type png)
 <use ./images/uvcf.png>
-Package pdftex.def Info: ./images/uvcf.png  used on input line 3166.
+Package pdftex.def Info: ./images/uvcf.png  used on input line 3281.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
-[118 <./images/uvcf.png>]
+[120 <./images/uvcf.png>]
 Chapter 14.
-[119
+[121
 
 ]
-<./images/basic-vco.png, id=1346, 578.16pt x 361.35pt>
+<./images/basic-vco.png, id=1378, 578.16pt x 361.35pt>
 File: ./images/basic-vco.png Graphic file (type png)
 <use ./images/basic-vco.png>
-Package pdftex.def Info: ./images/basic-vco.png  used on input line 3204.
+Package pdftex.def Info: ./images/basic-vco.png  used on input line 3319.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [120 <./images/basic-vco.png>]
-<./images/chebyshev-additive-vco.png, id=1352, 578.16pt x 361.35pt>
+ [122 <./images/basic-vco.png>]
+<./images/chebyshev-additive-vco.png, id=1384, 578.16pt x 361.35pt>
 File: ./images/chebyshev-additive-vco.png Graphic file (type png)
 <use ./images/chebyshev-additive-vco.png>
-Package pdftex.def Info: ./images/chebyshev-additive-vco.png  used on input line 3242.
+Package pdftex.def Info: ./images/chebyshev-additive-vco.png  used on input line 3357.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [121 <./images/chebyshev-additive-vco.png>]
-<./images/karplus-strong-vco.png, id=1359, 578.16pt x 361.35pt>
+ [123 <./images/chebyshev-additive-vco.png>]
+<./images/karplus-strong-vco.png, id=1390, 578.16pt x 361.35pt>
 File: ./images/karplus-strong-vco.png Graphic file (type png)
 <use ./images/karplus-strong-vco.png>
-Package pdftex.def Info: ./images/karplus-strong-vco.png  used on input line 3282.
+Package pdftex.def Info: ./images/karplus-strong-vco.png  used on input line 3397.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [122 <./images/karplus-strong-vco.png>]
-<./images/morphing-vco.png, id=1365, 578.16pt x 361.35pt>
+ [124 <./images/karplus-strong-vco.png>]
+<./images/morphing-vco.png, id=1396, 578.16pt x 361.35pt>
 File: ./images/morphing-vco.png Graphic file (type png)
 <use ./images/morphing-vco.png>
-Package pdftex.def Info: ./images/morphing-vco.png  used on input line 3322.
+Package pdftex.def Info: ./images/morphing-vco.png  used on input line 3437.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [123 <./images/morphing-vco.png>]
-<./images/noise.png, id=1371, 1445.4pt x 903.375pt>
+ [125 <./images/morphing-vco.png>]
+<./images/noise.png, id=1402, 1445.4pt x 903.375pt>
 File: ./images/noise.png Graphic file (type png)
 <use ./images/noise.png>
-Package pdftex.def Info: ./images/noise.png  used on input line 3360.
+Package pdftex.def Info: ./images/noise.png  used on input line 3475.
 (pdftex.def)             Requested size: 352.31625pt x 220.1916pt.
- [124 <./images/noise.png>]
-<./images/supersaw-vco.png, id=1377, 578.16pt x 361.35pt>
+ [126 <./images/noise.png>]
+<./images/supersaw-vco.png, id=1409, 578.16pt x 361.35pt>
 File: ./images/supersaw-vco.png Graphic file (type png)
 <use ./images/supersaw-vco.png>
-Package pdftex.def Info: ./images/supersaw-vco.png  used on input line 3395.
+Package pdftex.def Info: ./images/supersaw-vco.png  used on input line 3510.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [125 <./images/supersaw-vco.png>]
-<./images/tzfm-vco.png, id=1383, 578.16pt x 361.35pt>
+ [127 <./images/supersaw-vco.png>]
+<./images/tzfm-vco.png, id=1416, 578.16pt x 361.35pt>
 File: ./images/tzfm-vco.png Graphic file (type png)
 <use ./images/tzfm-vco.png>
-Package pdftex.def Info: ./images/tzfm-vco.png  used on input line 3430.
+Package pdftex.def Info: ./images/tzfm-vco.png  used on input line 3545.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [126 <./images/tzfm-vco.png>]
+ [128 <./images/tzfm-vco.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3465.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mu' on input line 3465.
+(hyperref)                removing `math shift' on input line 3580.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3465.
+(hyperref)                removing `\mu' on input line 3580.
 
-<./images/unoise.png, id=1389, 578.16pt x 361.35pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3580.
+
+<./images/unoise.png, id=1422, 578.16pt x 361.35pt>
 File: ./images/unoise.png Graphic file (type png)
 <use ./images/unoise.png>
-Package pdftex.def Info: ./images/unoise.png  used on input line 3468.
+Package pdftex.def Info: ./images/unoise.png  used on input line 3583.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
-[127 <./images/unoise.png>]
+[129 <./images/unoise.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3499.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mu' on input line 3499.
+(hyperref)                removing `math shift' on input line 3614.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3499.
+(hyperref)                removing `\mu' on input line 3614.
 
-<./images/uvco.png, id=1396, 578.16pt x 361.35pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3614.
+
+<./images/uvco.png, id=1428, 578.16pt x 361.35pt>
 File: ./images/uvco.png Graphic file (type png)
 <use ./images/uvco.png>
-Package pdftex.def Info: ./images/uvco.png  used on input line 3502.
+Package pdftex.def Info: ./images/uvco.png  used on input line 3617.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
-[128 <./images/uvco.png>] (/Users/markboyd/Documents/GitHub/docs/Module Library Documentation/.texpadtmp/Module Library Documentation.gls) (/Users/markboyd/Documents/GitHub/docs/Module Library Documentation/.texpadtmp/Module Library Documentation.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3539.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3539.
+[130 <./images/uvco.png>] (/Users/markboyd/Documents/GitHub/docs/Module Library Documentation/.texpadtmp/Module Library Documentation.gls) (/Users/markboyd/Documents/GitHub/docs/Module Library Documentation/.texpadtmp/Module Library Documentation.ind)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3654.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3654.
  (/Users/markboyd/Documents/GitHub/docs/Module Library Documentation/.texpadtmp/Module Library Documentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3539.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3539.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3654.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3654.
 Package rerunfilecheck Info: File `"Module Library Documentation".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3539.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3654.
  ) 
 Here is how much of TeX's memory you used:
- 11160 strings out of 492649
- 172985 string characters out of 6129622
+ 11206 strings out of 492649
+ 174400 string characters out of 6129622
  317569 words of memory out of 5000000
- 14486 multiletter control sequences out of 15000+600000
+ 14514 multiletter control sequences out of 15000+600000
  13522 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  45i,12n,39p,1995b,523s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on "/Users/markboyd/Documents/GitHub/docs/Module Library Documentation/.texpadtmp/Module Library Documentation.pdf" (128 pages, 11697916 bytes).
+Output written on "/Users/markboyd/Documents/GitHub/docs/Module Library Documentation/.texpadtmp/Module Library Documentation.pdf" (130 pages, 13930505 bytes).
 PDF statistics:
- 1511 PDF objects out of 1728 (max. 8388607)
- 1154 compressed objects within 12 object streams
- 277 named destinations out of 1000 (max. 500000)
- 1490 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1543 PDF objects out of 1728 (max. 8388607)
+ 1170 compressed objects within 12 object streams
+ 288 named destinations out of 1000 (max. 500000)
+ 1525 words of extra memory for PDF output out of 10000 (max. 10000000)
 
