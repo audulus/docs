@@ -844,7 +844,6 @@ Dns & \textit{Modulation input for Density.} \\
 \midrule
 \textbf{Output} \\
 Gate & \textit{Outputs random bursts of gates.} \\
-Out & \textit{Outputs random bursts of bipolar white noise.} \\
 
 \bottomrule
 \end{tabular}
@@ -856,20 +855,39 @@ Out & \textit{Outputs random bursts of bipolar white noise.} \\
 
 \subsection*{Module Overview}
 
-Module overview
+The Random Bursts module outputs very short gate pulses at random intervals. Note that the gates happen so quickly they might not always completely trigger the Gate output light, but they are still happening, as you can see by attaching a Waveform node to its output.
 
 \begin{center}
-\includegraphics[width=0.95\linewidth]{bernoulli-gate-fig1.png}
+\includegraphics[width=0.95\linewidth]{random-bursts-fig1.png}
 \end{center}
+
+The Rate knob controls the speed of an internal clock that is triggering a Sample \& Hold node which in turn takes a sample of the Random node. If this sample is greater than 0.5, the module will output a quick pulse.
+
+The Density control adjusts the chance that the random sample will be above or below 0.5 by applying a transfer curve similar to the Logarithmic-Linear-Exponential shaping that goes on in the VCA modules.
 
 \subsection*{Example Patches}
 
-\subsubsection*{Example 1: XXX}
+\subsubsection*{Example 1: Bleeps and Bloops}
 
 \begin{center}
-\includegraphics[width=0.95\linewidth]{bernoulli-gate-fig4.png}
+\includegraphics[width=0.95\linewidth]{random-bursts-fig2.png}
 \end{center}
 
+Here is a classic example of what modular synthesis excels at: bleeps and bloops. The Random Bursts module is gating a sample and hold which is fed back into its Rate modulation input, influencing the speed of random clock events. The output of the sample and hold is used to drive unquantized pitches for subtractive synthesizer.
+
+Instead of using an envelope, another sample and hold module is clocked by the Random Bursts module (with a different random seed set internally) which then modulates the cutoff of the VCF. The output of this sample and hold also modulates the Density control at its modulation input.
+
+Finally, one more sample and hold module is clocked by the Random Bursts module, and it modulates the feedback of the delay, while the Delay Tempo Sync module is also clocked by the Random Bursts module.
+
+\subsubsection*{Example 2: Random Percussive Bursts}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{random-bursts-fig3.png}
+\end{center}
+
+A simpler patch than the first example, this percussive patch shows how you can use the Random Bursts module to trigger drums.
+
+A Random Bursts module clocks a sample and hold that modulates the pitch of the percussion module while also gating the Percussion module at the same time.
 
 \end{multicols*}
 
@@ -905,6 +923,42 @@ Gate & \textit{Clock output.} \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\pagebreak
+
+\begin{multicols*}{2}
+
+\subsection*{Module Overview}
+
+The $\mu$Clock module is a small, lightweight clock that's useful when you don't need the multiple outputs of the Master Clock module.
+
+The Hz control sets the clock speed from 0 to 20Hz which covers most of the musical range for sequencers.
+
+The PWM knob sets the pulse width of the clock from 0 to 100\%. Since sequencers and trigger inputs ignore the length of incoming gates, this control is mostly useful in modifying the way the clock interacts with envelopes. Note that a value of 0 or 1 will effectively shut off the clock, even though internally it is still running.
+
+The Start button will start and stop the clock, resetting it upon restart. You can also remotely start the clock with an incoming gate as long as the Start button is off.
+
+\subsection*{Example Patches}
+
+\subsubsection*{Example 1: Modulating PWM}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{uclock-fig1.png}
+\end{center}
+
+This example shows you the difference that PWM can make to the sound of an envelope. You can think of the PWM as how long you hold a note down when you press a key or how you articulate a note. If you play 1/8th notes and press the key quickly every note, that's like a low PWM value. If you press the keys longer in between notes, that's like a high PWM value.
+
+\subsubsection*{Example 2: Sequencing PWM}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{uclock-fig2.png}
+\end{center}
+
+In this example, we have substituted the free-running LFO for a sequencer to modulate $\mu$Clock's PWM. Doing it this way allows you to set per-step PWM for the clock and get consistent results on each note.
+
+
+
+\end{multicols*}
 
 \pagebreak
 
