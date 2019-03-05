@@ -956,8 +956,6 @@ This example shows you the difference that PWM can make to the sound of an envel
 
 In this example, we have substituted the free-running LFO for a sequencer to modulate $\mu$Clock's PWM. Doing it this way allows you to set per-step PWM for the clock and get consistent results on each note.
 
-
-
 \end{multicols*}
 
 \pagebreak
@@ -986,7 +984,7 @@ These drum modules are all triggered by gates, and pair well with any of the gat
 
 \toprule
 \textbf{Knob} \\
-Pitch & \textit{Sets the pitch of the oscillators.} \\
+Pitch & \textit{Sets the pitch of the oscillator.} \\
 Decay & \textit{Controls the length of decay. If turned all the way up, the sound will stay on indefinitely.} \\
 Shape & \textit{Fades oscillator shape from sine to triangle. Interactive with the Side Band control as the oscillators cross-modulate one another.} \\
 Side Band & \textit{The Side Band parameter goes from plain oscillators to ring-modulated signals, adding more inharmonic overtones (or side bands). The side bands will make the tone brighter and more metallic.} \\
@@ -1004,6 +1002,42 @@ Out & \textit{Audio output.} \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\pagebreak
+
+\begin{multicols*}{2}
+
+\subsection*{Module Overview}
+
+The Percussion module is capabable of generating all sorts of percussive sounds. Although it excels most for cymbals, you can also coax claps, snares, bells, and kicks out of it.
+
+The Pitch knob sets the fundamental of the percussion oscillator. For things like hats and cymbals, pitch would be high, and for things like kick and clap, pitch is low.
+
+The Decay control sets the time the sound takes to decay after being triggered. If you turn the Decay control all the way up, the sound will stay on indefinitely. This is useful for when you want to gate your sound with an external VCA.
+
+The Shape knob fades between sine and triangle oscillators. This control is highly interactive with the Side Band knob, which modulates the pitch of the oscillators. Sine waves will give a more rubbery sound whereas triangle waves will give a more harsh metallic sound. If you turn the Side Band control all the way down, it sounds bell-like.
+
+The BPF (bandpass filter) and BW (Bandwidth) knobs adjust the cutoff and bandwidth of a finishing bandpass filter. Low Bandwidth controls mean a sharper concentration of frequencies around the cutoff point.
+
+\subsection*{Example Patches}
+
+\subsubsection*{Example 1: Random Percussion}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{percussion-fig1.png}
+\end{center}
+
+This example quickly exhibits the amount of tonal range the Percussion module has. The patch uses 6 sample and hold modules to randomly modulate each control of the Percussion module. Each sample and hold is triggered by a step on the 16 Step Gate Sequencer.
+
+\subsubsection*{Example 2: Drumkit}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{percussion-fig2.png}
+\end{center}
+
+Here we have 6 different Percussion modules making (top to bottom, left to right) kick, snare, clap, hat, cowbell, and ride sounds. Each sound is triggered individually by a separate lane of the 16 Step Gate Sequencer.
+
+\end{multicols*}
 
 \pagebreak
 
@@ -1039,6 +1073,39 @@ Out & \textit{Audio output.} \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\pagebreak
+
+\begin{multicols*}{2}
+
+\subsection*{Module Overview}
+
+The $\mu$Hat is a simple yet versatile hi-hat module. It is actually built around the Percussion module but tuned so that no matter how the controls are set, you get some kind of hat sound.
+
+The Decay knob controls the length of decay of the sound. The Pitch knob controls the fundamental frequency of the hat, and the BPF control sets the center frequency of the bandpass filter.
+
+The Acc or Accent input adds a set time to the Decay value when gated. This means if the Accent input and the Gate input are gated at the same time, you get an open hat sound. You can adjust the amount of decay that is added with the internal trimpot highlighted below.
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{uhat-fig1.png}
+\end{center}
+
+\subsection*{Example Patches}
+
+\subsubsection*{Example 1: Sequencing Closed-Open Hats}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{uhat-fig2.png}
+\end{center}
+
+This example shows a way to sequence hats with the 16 Step Gate Sequencer. The top lane of the sequencer actually triggers the $\mu$Hat and the second lane opens the hat. 
+
+If you only have 
+
+
+
+
+\end{multicols*}
 
 \pagebreak
 
