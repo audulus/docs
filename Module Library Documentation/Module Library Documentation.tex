@@ -1155,6 +1155,54 @@ Out & \textit{Audio output.} \\
 
 \pagebreak
 
+\begin{multicols*}{2}
+
+\subsection*{Module Overview}
+
+The $\mu$Kick is a compact kick drum module with a simple control scheme modeled loosely after an 808 kick. 
+
+The Pitch knob sets the initial pitch of the kick which it decays from. The Decay knob sets the time it takes to decay both in pitch and in volume. 
+
+The Accnt or Accent knob controls the difference in pitch and volume between the unaccented and accented drums. Instead of making the accented kick louder, it makes the unaccented kick softer and start from a lower pitch. The decay time is the same for both accented and unaccented kicks.
+
+The Acc or Accent input increases the loudness of the kick as long as the Accent knob is turned up. This means if the Accent input and the Gate input are gated at the same time, you get an accented kick sound. The accented kick also has a short burst of noise at the beginning.
+
+\subsection*{Example Patches}
+
+\subsubsection*{Example 1: Accented Kick}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{ukick-fig1.png}
+\end{center}
+
+This example shows you how to use a 16 Step Gate Sequencer to trigger both accented and unaccented sounds on the $\mu$Kick module.
+
+The first lane triggers the kick sound and the second lane engages the accent. When both the trigger and accent lanes overlap, the $\mu$Kick triggers an accented kick sound. Note that the accent will not trigger the kick by itself.
+
+\subsubsection*{Example 2: Dropped Kicks}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{ukick-fig2.png}
+\end{center}
+
+This example patch uses a Bernoulli Gate module to create a rhythm from a straight 1/4 note pulse. It does this by dropping 1 clock signal every 9 or so beats. This little bit of variation can help your otherwise straightforward kicks from becoming monotonous.
+
+Additionally, the first kick of every measure is accented by the 1 bar output of the Master Clock. The trick is to set the PWM low so that the 1 bar output only stays high for the first beat. Otherwise, at 50\% duty cycle, it will accent the first two beats of the measure.
+
+\subsubsection*{Example 2: Dropped Kicks}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{ukick-fig3.png}
+\end{center}
+
+In this patch, the kick is controlled by two sequencers: the 16 Step Gate Sequencer which in turn clocks an 8 Step Sequential Switch in random mode. 
+
+Each time the gate sequencer lets through a clock, a new clock speed is chosen by the sequential switch. Only 6 of the inputs are used with one input unconnected acting as a step skip.
+
+\end{multicols*}
+
+\pagebreak
+
 
 \section{$\mu$Snare}
 

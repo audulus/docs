@@ -36,7 +36,7 @@
 \contentsline {section}{\numberline {3.1}Percussion}{36}{section.3.1}
 \contentsline {section}{\numberline {3.2}$\mu $Hat}{38}{section.3.2}
 \contentsline {section}{\numberline {3.3}$\mu $Kick}{40}{section.3.3}
-\contentsline {section}{\numberline {3.4}$\mu $Snare}{41}{section.3.4}
+\contentsline {section}{\numberline {3.4}$\mu $Snare}{42}{section.3.4}
 \contentsline {chapter}{\numberline {4}Effect Modules}{43}{chapter.4}
 \contentsline {section}{\numberline {4.1}Delay}{44}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Stereo Delay}{45}{subsection.4.1.1}
