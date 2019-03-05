@@ -1100,10 +1100,21 @@ The Acc or Accent input adds a set time to the Decay value when gated. This mean
 
 This example shows a way to sequence hats with the 16 Step Gate Sequencer. The top lane of the sequencer actually triggers the $\mu$Hat and the second lane opens the hat. 
 
-If you only have 
+Remember that the Accent input doesn't actually trigger the open hat sound - it merely sets the module up to play an open hat when triggered.
 
+We have the sequencer set up to at first let the open hat ring out by using the Gate output of the sequencer to keep the accent high for as long as it decays. We then have it set so that you get a choke sound from closing the hat prematurely and triggering it again. Then we can also get a choke sound without triggering the hat again just by limiting the length of the Accent gate.
 
+\subsubsection*{Example 2: Hat Variety}
 
+\begin{center}
+\includegraphics[width=0.95\linewidth]{uhat-fig3.png}
+\end{center}
+
+One of the great things about modular synthesis is being able to modulate any parameter, and a great way to add variety to your drum kit is to simply modulate your hi-hat.
+
+In this example, we have different kinds of modulation on each of the parameters of the hi-hat. An LFO slightly wiggles the Decay knob, and two sequencer-triggered sample and hold modules randomly modulate the Pitch and BPF knobs.
+
+Another great way to add variety and rhythmic depth to a hat is to use a delay effect. Settings the Feedback down to zero and Mix just a little more on the dry side gives the sense of playing ghost notes.
 
 \end{multicols*}
 
