@@ -40,15 +40,15 @@
 \contentsline {chapter}{\numberline {4}Effect Modules}{45}{chapter.4}
 \contentsline {section}{\numberline {4.1}Delay}{46}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Stereo Delay}{47}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Delay Looper Sync}{49}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Delay Tempo Sync}{50}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}uDelay}{51}{subsection.4.1.4}
-\contentsline {section}{\numberline {4.2}Distortion}{52}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Asymmetrical Drive}{53}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Fold Processor}{54}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}Reverb}{55}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Really Humungous Reverb}{56}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}uVerb}{57}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.1.2}Delay Looper Sync}{50}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Delay Tempo Sync}{51}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}uDelay}{52}{subsection.4.1.4}
+\contentsline {section}{\numberline {4.2}Distortion}{53}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Asymmetrical Drive}{54}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Fold Processor}{55}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Reverb}{56}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Really Humungous Reverb}{57}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}uVerb}{58}{subsection.4.3.2}
 \contentsline {chapter}{\numberline {5}Envelope Modules}{59}{chapter.5}
 \contentsline {section}{\numberline {5.1}Analog Envelope}{60}{section.5.1}
 \contentsline {section}{\numberline {5.2}EOC Max ADSR}{61}{section.5.2}
