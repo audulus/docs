@@ -1268,10 +1268,11 @@ Additionally, the stepping algorithm of the 8 Step Sequential Switch is changed 
 \section{Delay}
 \pagebreak
 
-\subsection{Stereo Delay}
+
+\subsection{Analog Delay}
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{stereo-delay.png}
+\includegraphics[width=0.75\textwidth]{analog-delay.png}
 \end{center}
 
 \begin{table}[ht]
@@ -1305,9 +1306,9 @@ L/R & \textit{Stereo audio outputs for Left and Right channels.} \\
 
 \begin{multicols*}{2}
 
-\subsection*{Module Overview}
+\subsubsection*{Module Overview}
 
-The Stereo Delay module is an uncolored digital delay that is great for creating spatial atmosphere. As you'll see in the examples, there are some creative uses of that turn it into a powerful mono delay as well.
+The Analog Delay module is an filtered and distorted delay effect. Each repeat gets darker and more distorted over time. The module has an internal feedback limiting function which means this delay is great for turning the feedback all the way up and creating screeching howling feedback noise.
 
 The Left and Right knobs control the delay times for the left and right channels. They go from 0 to 1 second of delay time, although the module is capable of up to 20 seconds of delay time.
 
@@ -1317,39 +1318,23 @@ The Time L/R inputs are special inputs for the Delay and Looper Sync modules. Th
 
 If you are using a stereo source, plug the appropriate Left/Right channels into the L/R inputs. If using a mono source, just plug the mono channel into both the L/R inputs.
 
-\subsection*{Example Patches}
+\subsubsection*{Example Patches}
 
-\subsubsection*{Example 1: Spatial Stereo Delay}
-
-\begin{center}
-\includegraphics[width=0.95\linewidth]{stereo-delay-fig1.png}
-\end{center}
-
-The Stereo Delay in this example is set up to be almost a kind of reverb, with very short delay times slightly offset from one another. With a high Feedback level, the delays smear into one another and turn a mono synth into a spacious stereo one.
-
-\subsubsection*{Example 2: Synced Stereo Delay}
+\subsubsection*{Example 1: Dark Rhythmic Delays}
 
 \begin{center}
-\includegraphics[width=0.95\linewidth]{stereo-delay-fig2.png}
+\includegraphics[width=0.95\linewidth]{analog-delay-fig1.png}
 \end{center}
 
-Beat-synchronized delay times are great for creating arpeggiation and rhythmic fields of floating delays and can really liven up an otherwise uninteresting monophonic synth line.
+This patch is set up to show how the delay reacts to the changing harmonic content of the synthesizer. The delays are clearly a lot darker than the clean digital sound of the Stereo Delay module, and the effect becomes really pronounced when you turn the feedback up.
 
-To set up a beat-synchronized Stereo Delay module, you need a set of two helper modules called the Delay Tempo Sync; one for each stereo channel.
-
-In this example, the delays are synced to 1/8th note and dotted 1/8th note. The Left/Right delay time knobs are turned all the way down because that allows the Delay Tempo Sync module to take over completely.
-
-\subsubsection*{Example 3: Delay Pseudopolyphony}
+\subsubsection*{Example 2: Waving Chords}
 
 \begin{center}
-\includegraphics[width=0.95\linewidth]{stereo-delay-fig3.png}
+\includegraphics[width=0.95\linewidth]{analog-delay-fig2.png}
 \end{center}
 
-We can use the Stereo Delay module in conjunction with syncronized delays creatively to create a kind of polyphony.
-
-In this patch, the Width control on the stereo delay is set to mono and the delay times for each channel are set to 1/8th note and 1/4 note. With an incoming 1/8th note pulse, this means that the last note and the note before that get stacked on top of the current note, creating a triad progression that sounds like it is being played in 1/8th notes.
-
-To use this effect with other divisions, just make sure they are multiples of one another, like 1/4 and 1/2.
+In this example, we have a chord progression going through the Analog Delay with an LFO modulating the feedback control. This creates a kind of shifting lo-fi wave motion coming in and out.
 
 \end{multicols*}
 
@@ -1387,6 +1372,40 @@ Time & \textit{Outputs the number of seconds of loop time. Connect only to the T
 
 \pagebreak
 
+\begin{multicols*}{2}
+
+\subsubsection*{Module Overview}
+
+The Delay Looper Sync module allows you to use a delay module as a looper - or just a delay with a very long delay time.
+
+The unlabled knob controls the amount of loop time from 1 bar to 8 bars. The 1/16 gate input expects a 1/16th gate pulse. This is how the loop time is derived. If the 1/16th note is too slow, a light next to the $>$20s display will turn red - this means that you've exceeded the 20 second maximum of the looper.
+
+The Time output is meant to be attached to the Time input of any delay module.
+
+The basic set up looks like this below:
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{delay-looper-sync-fig1.png}
+\end{center}
+
+Make sure that on the delay module you turn the feedback all the way up and the mix to 50\%. 
+
+\subsubsection*{Example Patches}
+
+\subsubsection*{Example 1: Rhythmic Warping}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{delay-looper-sync-fig2.png}
+\end{center}
+
+In this example, the Delay Loop Sync module is randomly modulated by a clocked sample and hold. Every so often it shifts suddenly between the number of bars of loop time, creating a kind of warped, repeating sound.
+
+The delay module has just a touch under full feedback so that sounds eventually fade away and don't build on one another indefinitely. The result is a kind of tape-warping moving chord structure built one note at a time.
+
+\end{multicols*}
+
+\pagebreak
+
 
 \subsection{Delay Tempo Sync}
 
@@ -1416,6 +1435,140 @@ Time & \textit{Outputs the number of seconds of loop time. Connect only to the T
 \bottomrule
 \end{tabular}
 \end{table}
+
+\pagebreak
+
+\begin{multicols*}{2}
+
+\subsubsection*{Module Overview}
+
+The Delay Tempo Sync module allows you to create rhythmic delay times
+
+The unlabled knob controls the rhythm from 16th notes up to half notes. The 1/16 gate input expects a 1/16th gate pulse. This is how the loop time is derived.
+
+The Time output is meant to be attached to the Time input of any delay module.
+
+The basic set up looks like this below:
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{delay-tempo-sync-fig1.png}
+\end{center}
+
+Use two modules when setting up a stereo delay, like this:
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{delay-tempo-sync-fig2.png}
+\end{center}
+
+\subsubsection*{Example Patches}
+
+\subsubsection*{Example 1: Dotted 8th Delay}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{delay-tempo-sync-fig3.png}
+\end{center}
+
+Here is a simple implementation of a rhythmic delay using the Delay Tempo Sync module. The dotted 8th note creates a nice syncopated rhythm against the 1/4 note backdrop.
+
+\subsubsection*{Example 2: Video Game Glitter}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{delay-tempo-sync-fig3.png}
+\end{center}
+
+This example expands on the first by using a sample and hold module to modulate the delay subdivision time randomly while also using an LFO to wiggle the time knob of the delay. By doing so we get a kind of seasick warble atop an ever-changing counterpoint-like rhythm.
+
+Note that the delay time shift used in vibrato is very small, so if you want to try increasing or decreasing the vibrato effect, entering small numbers like 0.0002 manually will be easier than trying to dial it in with just the knob.
+
+\end{multicols*}
+
+\pagebreak
+
+
+\subsection{Stereo Delay}
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{stereo-delay.png}
+\end{center}
+
+\begin{table}[ht]
+\small
+\sffamily
+\renewcommand\arraystretch{1.5}
+\centering
+\begin{tabular}{l*{1}{>{\raggedright\arraybackslash}p{0.7\linewidth}}}
+
+\toprule
+\textbf{Knob} \\
+Left/Right & \textit{Sets the delay time for the Left/Right channels.} \\
+Fdbk & \textit{Sets the amount of feedback for both channels.} \\
+Mix & \textit{Balances the wet/dry mix.} \\
+Width & \textit{Adjusts the stereo separation of delays from mono to stereo.} \\
+
+\midrule
+\textbf{Input} \\
+Time L/R & \textit{Time inputs for the sync module. You can also use them as modulation inputs to create vibrato or chorus effects.} \\
+L/R & \textit{Stereo audio inputs for Left and Right channels.} \\
+
+\midrule
+\textbf{Output} \\
+L/R & \textit{Stereo audio outputs for Left and Right channels.} \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+\pagebreak
+
+\begin{multicols*}{2}
+
+\subsubsection*{Module Overview}
+
+The Stereo Delay module is an uncolored digital delay that is great for creating spatial atmosphere. As you'll see in the examples, there are some creative uses of that turn it into a powerful mono delay as well.
+
+The Left and Right knobs control the delay times for the left and right channels. They go from 0 to 1 second of delay time, although the module is capable of up to 20 seconds of delay time.
+
+The Fdbk or Feedback control sets the length of the decay of the delays. The Mix knob sets the dry/wet effect balance, and the Width control spreads the delays apart in the stereo field from completely mono to totally stereo.
+
+The Time L/R inputs are special inputs for the Delay and Looper Sync modules. These modules synchronize the delays to a beat. You can use these inputs for modulation as well.
+
+If you are using a stereo source, plug the appropriate Left/Right channels into the L/R inputs. If using a mono source, just plug the mono channel into both the L/R inputs.
+
+\subsubsection*{Example Patches}
+
+\subsubsection*{Example 1: Spatial Stereo Delay}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{stereo-delay-fig1.png}
+\end{center}
+
+The Stereo Delay in this example is set up to be almost a kind of reverb, with very short delay times slightly offset from one another. With a high Feedback level, the delays smear into one another and turn a mono synth into a spacious stereo one.
+
+\subsubsection*{Example 2: Synced Stereo Delay}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{stereo-delay-fig2.png}
+\end{center}
+
+Beat-synchronized delay times are great for creating arpeggiation and rhythmic fields of floating delays and can really liven up an otherwise uninteresting monophonic synth line.
+
+To set up a beat-synchronized Stereo Delay module, you need a set of two helper modules called the Delay Tempo Sync; one for each stereo channel.
+
+In this example, the delays are synced to 1/8th note and dotted 1/8th note. The Left/Right delay time knobs are turned all the way down because that allows the Delay Tempo Sync module to take over completely.
+
+\subsubsection*{Example 3: Delay Pseudopolyphony}
+
+\begin{center}
+\includegraphics[width=0.95\linewidth]{stereo-delay-fig3.png}
+\end{center}
+
+We can use the Stereo Delay module in conjunction with syncronized delays creatively to create a kind of polyphony.
+
+In this patch, the Width control on the stereo delay is set to mono and the delay times for each channel are set to 1/8th note and 1/4 note. With an incoming 1/8th note pulse, this means that the last note and the note before that get stacked on top of the current note, creating a triad progression that sounds like it is being played in 1/8th notes.
+
+To use this effect with other divisions, just make sure they are multiples of one another, like 1/4 and 1/2.
+
+\end{multicols*}
 
 \pagebreak
 
