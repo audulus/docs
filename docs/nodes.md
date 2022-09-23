@@ -12,7 +12,7 @@ Wires can go from any output anywhere to any input anywhere: up, down, left, or 
 
 Nodes send and receive signals through wires. Every signal is a number. [^1] Although all signals are numbers, there are several categories of signals. These categories are defined by their range, unit, and how they are used.
 
-[^1]: Audulus signals are 32-bit signed floats
+[^1]: Audulus signals are signed 32-bit floats
 
 The table below describes every type of signal that nodes use.
 
@@ -198,6 +198,15 @@ The `zero cross` node counts the time between two zero-crossings and outputs tha
 
 
 ##math
+
+**description**
+
+The `math` nodes are some of the most powerful and versatile nodes. 
+
+- The `expr` node alone has over 20 functions and boolean operators. 
+- `sum` and `product` are elegant ways to visually emphasize how signals are combining and can be expanded to have as many inputs as necessary. 
+- The `random` node has a `seed` input that ensures multiple copies of the same module can produce different random results with different `seed` values.
+
 ###expr
 ###sum
 ###product
