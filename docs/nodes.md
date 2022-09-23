@@ -1,4 +1,142 @@
-# Nodes Reference
+# nodes reference
+
+###introduction
+
+Everything in Audulus is built with `nodes`. Nodes are packets of code that do things. A node may have inputs, outputs, or both.
+
+You connect nodes together by dragging a wire from an output to an input. You cannot drag a wire from an input to an output. You can connect one output to as many inputs as you want.
+
+You disconnect nodes by unhooking a wire from an input. Wires cannot be disconnected from an output. An input only accepts one wire.
+
+Wires can go from any output anywhere to any input anywhere: up, down, left, or right. However, overall signal flow in Audulus is from left to right.
+
+Nodes send and receive signals through wires. Every signal is a number. [^1] Although all signals are numbers, there are several categories of signals. These categories are defined by their range, unit, and how they are used.
+
+[^1]: Audulus signals are 32-bit signed floats
+
+The table below describes every type of signal that nodes use.
+
+signal | range
+:-- | :--
+`any` | `any` signals can be any number and type of signal
+`audio` | `-1 to 1`[^2]
+`gate` | `0 or high` where `high` is a non-zero positive number.
+`hz`| `0 to sampleRate/2`[^3]
+`mod`| `0 to 1`
+`seconds` | `0 to 2^32-1`
+
+[^2]: Audio signals can exceed the `-1 to 1` range, but they will be clipped to that range upon output.
+[^3]: Hz values above `sampleRate/2` can be generated but are limited in use. Negative `hz` signals can be used to flip the phase of the phasor node, useful for through-zero FM.
+
+Nodes can be packaged into `modules` and `submodules`. Modules are containers for nodes that allow you to create a user interface for you to interact with. Submodules are used inside of modules. They are like user-created nodes.
+
+There are 10 different categories of nodes. The table below lists each category provides a short description.
+
+category | description
+:-- | :--
+`util` | various utilities
+`math` | use math and logic to manipulate and create signals
+`meter` | displays for monitoring signals
+`midi`| MIDI utilities
+`level`| tools for adjusting and analyzing signal levels
+`dsp`| digital signal processing tools
+`synth`| essential primitive-level synthesis tools
+`module`| everything used for creating modules and submodules
+`poly`| utilities for creating and managing polyphonic signals
+`switch`| tools for routing signals
+
+
+##util
+###adc
+###dac
+###text
+###timer
+
+input        | signal
+:------------- | :-------------
+`trigger`   | `gate`
+
+output        | signal
+:------------- | :-------------
+`time`   | `seconds since last reset`
+
+###zero cross
+
+input        | signal
+:------------- | :-------------
+`in`   | `any`
+
+output        | signal
+:------------- | :-------------
+`out`   | `hz`
+
+##math
+###expr
+###sum
+###product
+###random
+
+##meter
+###meter
+###waveform
+###value
+###light
+###rgb light
+###scope
+###shader
+###canvas
+
+##midi
+###keyboard
+###note send
+###cc send
+###trigger
+
+##level
+###spline
+###mapper
+###env follow
+
+##dsp
+###unit delay
+###biquad
+###low-pass
+###high-pass
+###delay line
+###dc blocker
+###sample rate
+###resample
+###memory
+
+##synth
+###osc
+###phasor
+###sample & hold
+###adsr
+
+##module
+###module
+###input
+###output
+###knob
+###xy pad
+###slider
+###toggle
+###touch pad
+
+##poly
+###combine
+###split
+###poly mix
+###channel index
+###channel count
+
+##switch
+###mux
+###demux
+###spigot
+
+<!--# Nodes Reference
 
 ## Synthesis
 
@@ -1735,3 +1873,4 @@ which of the 8 outputs the input is routed to.
 
 The **Mux8** node is an 8-way multiplexer. The **sel** input selects
 which of the 8 inputs are routed to the output.
+-->
