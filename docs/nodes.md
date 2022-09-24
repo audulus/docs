@@ -128,6 +128,7 @@ width="200"/>
 **description**
 
 The `text` node has no inputs or outputs. `text` nodes are used for labeling and commenting inside your patches. Click or tap on the node and open the inspector window (pictured below). You can then type in the text field and text will appear inside the node.
+The `text` node has no inputs or outputs. `text` nodes are used for labeling and commenting inside your patches. Click or tap on the node and open the `inspector panel` (pictured below). You can then type in the text field and text will appear inside the node.
 
 <img src="img/nodes_reference/util/text/text_inspector.png"
 alt="text inspector panel" 
@@ -163,15 +164,16 @@ Text size cannot be changed. The `canvas` node can do many manipulations with te
 ###timer
 
 <img src="img/nodes_reference/util/timer/timer_node.png"
-alt="timer node" width="200"/>
+alt="timer node"
+width="200"/>
 
 input | signal
 :-- | :--
-`trigger`   | `gate`
+`trigger` | `gate`
 
 output | signal
 :-- | :--
-`time`   | `seconds` since last reset
+`time` | `seconds` since last reset
 
 **description**
 
@@ -182,15 +184,16 @@ The `timer` output increases smoothly from second to second. Its functional prec
 ###zero cross
 
 <img src="img/nodes_reference/util/zero_cross/zero_cross_node.png"
-alt="timer node" width="200"/>
+alt="zero cross node"
+width="200"/>
 
 input | signal
 :-- | :--
-`in`   | `any` but it must cross through or at least touch `0`
+`in` | `any` but it must cross through or at least touch `0`
 
 output | signal
 :-- | :--
-`out`   | `hz`
+`out` | `hz`
 
 **description**
 
@@ -203,11 +206,116 @@ The `zero cross` node counts the time between two zero-crossings and outputs tha
 
 The `math` nodes are some of the most powerful and versatile nodes. 
 
-- The `expr` node alone has over 20 functions and boolean operators. 
+- The `expr` node alone has 40 operators and functions which can be combined in many ways. 
 - `sum` and `product` are elegant ways to visually emphasize how signals are combining and can be expanded to have as many inputs as necessary. 
 - The `random` node has a `seed` input that ensures multiple copies of the same module can produce different random results with different `seed` values.
 
+
 ###expr
+
+<img src="img/nodes_reference/math/expr/expr_node.png"
+alt="expr node"
+width="200"/>
+
+arithmetic operator | description
+:-- | :--
+`x + y` | addition
+`x - y` | subtraction
+`x * y` | multiplication
+`x / y` | division
+`x^y` | exponentiation
+`-x` | negation
+`(x)` | parenthetical grouping
+
+exponential function | description
+:-- | :--
+`pow(x, y)` | exponentiation
+`exp(x)` | `e^x`
+`ln(x)` | natural log
+`log2(x)` | log base 2
+`log10(x)` | log base 10
+`exp2(x)` | `2^x`
+`sqrt(x)` | square root[^4]
+
+[^4]: Cube roots and beyond are accessible like this: `x^(1/y)` where `y = degree` and `x = radicand`. 
+
+boolean operator | description
+:-- | :--
+`x == y` | `x` is exactly equal to `y`
+`x != y` | `x` is not `y`
+`x < y` | `x` is less than `y`
+`x <= y` | `x` is less than or equal to `y`
+`x > y` | `x` is greater than `y`
+`x >= y` | `x` is greater than or equal to `y`
+
+common function | description
+:-- | :--
+`abs(x)` | absolute value
+`floor(x)` | round down to integer
+`ceil(x)` | round up to integer
+`fract(x)` | `x - floor(x)`
+`mod(x,y)` | remainder of `x / y`
+`min(x, y)` | returns lesser of `x` and `y`
+`max(x, y)` | returns greater of `x` and `y`
+`clamp(x, a, b)` | restricts `x` to the interval `[a, b]`
+`step(x, edge)` | `1` if `x > edge` otherwise `0`
+`smoothstep(a, b, x)` | smooth step from `0 to 1` at the interval `[a, b]`
+`mix(x, a, b)` | `0 to 1` at `x` smoothly transitions between the interval `[a, b]`
+
+trigonometric function | description
+:-- | :--
+`sin(x)` | sine
+`cos(x)` | cosine
+`tan(x)` | tangent
+`asin(x)` | arc sine
+`acos(x)` | arc cosine
+`atan(x)` | arc tangent
+`sinh(x)` | hyper sine
+`cosh(x)` | hyper cosine
+`tanh(x)` | hyper tangent
+
+constant | description
+:-- | :--
+`pi` | π
+`e` | Euler's number
+
+**description**
+
+The `expr` node is the most versatile node. It does math and basic programming operations.
+
+You enter equations into the `inspector panel`, pictured below.
+
+<img src="img/nodes_reference/math/expr/expr_inspector.png"
+alt="expr node inspector panel"
+width="200"/>
+
+You can drag and drop various selected functions into the text field, or if you know their syntax, type them directly into the text box.
+
+Entering letters or words will create variables as inputs, pictured below.
+
+<img src="img/nodes_reference/math/expr/expr_var.png"
+alt="expr node variables"
+width="200"/>
+
+Variables are case-sensitive, meaning `x` is not the same as `X`. Spaces and underscores are not allowed. For long variables, you can use camel case. For example: `thisIsALongVariable`.
+
+Certain variable names are reserved, like `mod`, `e`, and `pi`. If you need to use them as variables you can capitalize the first letter, like this: `Mod`, `E`, `Pi`.
+
+You can call a variable multiple times within an expression, like `x * x * x`.
+
+Spaces between variables and operators and within functions are optional. `x*y` is the same as `x * y` and `clamp(x,0,1)` is the same as `clamp(x, 0, 1)`.
+
+Functions can be nested within one another, like `max(0, min(x, 1)`.
+
+Expressions like the `1/3` in `x * (1/3)` are evaluated once and replaced by a float in the background of Audulus. In other words, `1/3` is calculated once on start up and replaced internally by the number `0.3333...`, saving some compute time.
+
+Divide-by-zero functions return a `0`. In other rare cases it is possible to create an expression that outputs a `nan` value, or "Not a number." The node producing the `nan` will immediately self-disconnect from your signal chain to prevent damage to speakers. A `nan` will be displayed in the `value` node, as pictured below.
+
+<img src="img/nodes_reference/math/expr/expr_nan.png"
+alt="expr node not a number error"
+width="400"/>
+
+
 ###sum
 ###product
 ###random
