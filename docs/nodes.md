@@ -282,7 +282,9 @@ constant | description
 
 The `expr` node is the most versatile node. It does math and basic programming operations.
 
-You enter equations into the `inspector panel`, pictured below.
+Double clicking on any input will create an `expr` node.
+
+You enter equations into the `inspector panel`, pictured below. You do not need to add an `=` sign after your expression.
 
 <img src="img/nodes_reference/math/expr/expr_inspector.png"
 alt="expr node inspector panel"
@@ -316,8 +318,95 @@ Expressions like the `1/3` in `x * (1/3)` are evaluated once during start-up and
 
 
 ###sum
+
+<img src="img/nodes_reference/math/sum/sum_node.png"
+alt="sum node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+`in` | `any`
+`...` | `any`
+
+output | signal
+:-- | :--
+`sum` | `any`
+
+**description**
+
+The `sum` node adds two or more signals together.
+
+In the `inspector channel` you can specify how many channels you want to add together. The maximum is `256`.
+
+<img src="img/nodes_reference/math/sum/sum_inspector.png"
+alt="sum inspector"
+width="200"/>
+
+When you increase the number of channels, the number of inputs increases accordingly.
+
+<img src="img/nodes_reference/math/sum/sum_multiple_inputs.png"
+alt="sum multiple inputs"
+width="200"/>
+
+
 ###product
+
+<img src="img/nodes_reference/math/product/product_node.png"
+alt="product node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+`in` | `any`
+`...` | `any`
+
+output | signal
+:-- | :--
+`out` | `any`
+
+**description**
+
+The `product` node multiplies two or more signals together.
+
+In the `inspector channel` you can specify how many channels you want to multiply together. The maximum is `256`.
+
+<img src="img/nodes_reference/math/product/product_inspector.png"
+alt="product inspector"
+width="200"/>
+
+When you increase the number of channels, the number of inputs increases accordingly.
+
+<img src="img/nodes_reference/math/product/product_multiple_inputs.png"
+alt="product multiple inputs"
+width="200"/>
+
+
 ###random
+
+<img src="img/nodes_reference/math/random/random_node.png"
+alt="random node"
+width="200"/>
+
+input | signal
+:-- | :--
+`Seed` | `any`
+
+output | signal
+:-- | :--
+`out` | `mod`
+
+The `random` node outputs a new random number between `0 and 1` for every sample. In other words, it produces `white noise.`
+
+The `Seed` value can be changed in the `inspector panel`, pictured below. Changing the `Seed` value is necessary in cases where you have two or more random nodes in a patch and want them to produce a different string of random numbers.
+
+<img src="img/nodes_reference/math/random/random_inspector.png"
+alt="random node"
+width="200"/>
+
+If the `Seed` value remains the same, every time the patch is reopened, the same string of random numbers will be produced.
+
 
 
 
