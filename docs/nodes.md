@@ -430,9 +430,56 @@ If the `Seed` value remains the same, every time the patch is reopened, the same
 
 
 
-
 ## meter
+
+**description**
+
+The `meter` nodes are vital for displaying information about signals.
+
+- The `meter` node is responsive and versatile.
+- The `waveform` node is a simple way to see how signals change over time.
+- The `value` node can help with debugging as well as displaying information on UIs.
+- The `light` and `rgb light` nodes are great for adding visual feedback to modules.
+- The `scope` node is like the `waveform` node, but suited for examining audio rate signals.
+- With the `shader` and `canvas` nodes you can use your own code to create your own beautiful custom meters, visualizers, and UI elements using GLSL and Lua.
+
+
 ### meter
+<img src="img/nodes_reference/meter/meter/meter_node.png"
+alt="meter node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `audio`
+
+**description**
+
+The `meter` node displays the amplitude of a signal. The input works in a range of `-1 to 1`. However, `0 to 1` will display the same as `0 to -1`, as you can see below:
+
+<img src="img/nodes_reference/meter/meter/meter_negative.png"
+alt="meter negative"
+width="400"/>
+
+In the `inspector panel` the `meter` node can be resized by altering the height and width parameters, as seen below. t also has an option to be exposed to a module's UI.
+
+<img src="img/nodes_reference/meter/meter/meter_inspector.png"
+alt="meter inspector"
+width="200"/>
+
+If both `W` and `H` values are `0`, then the node defaults to its standard size. The node can be resized however you want, but it cannot be rotated.
+
+<img src="img/nodes_reference/meter/meter/meter_sizes.png"
+alt="meter sizes"
+width="200"/>
+
+If you plug a `poly` signal into a `meter` node, it automatically creates one meter per channel. 
+
+<img src="img/nodes_reference/meter/meter/meter_poly.png"
+alt="meter poly"
+width="200"/>
+
+
 ### waveform
 ### value
 ### light
