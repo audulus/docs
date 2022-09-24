@@ -127,7 +127,6 @@ width="200"/>
 
 **description**
 
-The `text` node has no inputs or outputs. `text` nodes are used for labeling and commenting inside your patches. Click or tap on the node and open the inspector window (pictured below). You can then type in the text field and text will appear inside the node.
 The `text` node has no inputs or outputs. `text` nodes are used for labeling and commenting inside your patches. Click or tap on the node and open the `inspector panel` (pictured below). You can then type in the text field and text will appear inside the node.
 
 <img src="img/nodes_reference/util/text/text_inspector.png"
@@ -291,7 +290,7 @@ width="200"/>
 
 You can drag and drop various selected functions into the text field, or if you know their syntax, type them directly into the text box.
 
-Entering letters or words will create variables as inputs, pictured below.
+Entering letters or words will create variables as inputs, as pictured below.
 
 <img src="img/nodes_reference/math/expr/expr_var.png"
 alt="expr node variables"
@@ -305,15 +304,15 @@ You can call a variable multiple times within an expression, like `x * x * x`.
 
 Spaces between variables and operators and within functions are optional. `x*y` is the same as `x * y` and `clamp(x,0,1)` is the same as `clamp(x, 0, 1)`.
 
-Functions can be nested within one another, like `max(0, min(x, 1)`.
-
-Expressions like the `1/3` in `x * (1/3)` are evaluated once and replaced by a float in the background of Audulus. In other words, `1/3` is calculated once on start up and replaced internally by the number `0.3333...`, saving some compute time.
+Functions can be nested within one another, like `max(0, min(x, 1))`.
 
 Divide-by-zero functions return a `0`. In other rare cases it is possible to create an expression that outputs a `nan` value, or "Not a number." The node producing the `nan` will immediately self-disconnect from your signal chain to prevent damage to speakers. A `nan` will be displayed in the `value` node, as pictured below.
 
 <img src="img/nodes_reference/math/expr/expr_nan.png"
 alt="expr node not a number error"
 width="400"/>
+
+Expressions like the `1/3` in `x * (1/3)` are evaluated once during start-up and replaced by a float in the background of Audulus, saving some compute time.
 
 
 ###sum
