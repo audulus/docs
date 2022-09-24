@@ -319,6 +319,8 @@ width="200"/>
 
 Variables are case-sensitive, meaning `x` is not the same as `X`. Spaces and underscores are not allowed. For long variables, you can use camel case. For example: `thisIsALongVariable`.
 
+Variables can contain numbers, but they must start with a letter. `input1` will generate an input but `1input` will not. Variables cannot contain symbols.
+
 Certain variable names are reserved, like `mod`, `e`, and `pi`. If you need to use them as variables you can capitalize the first letter, like this: `Mod`, `E`, `Pi`.
 
 You can call a variable multiple times within an expression, like `x * x * x`.
