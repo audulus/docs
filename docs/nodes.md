@@ -410,23 +410,19 @@ width="200"/>
 alt="random node"
 width="200"/>
 
-input | signal
-:-- | :--
-`Seed` | `any`
-
 output | signal
 :-- | :--
 `out` | `mod`
 
 The `random` node outputs a new random number between `0 and 1` for every sample. In other words, it produces `white noise.`
 
-The `Seed` value can be changed in the `inspector panel`, pictured below. Changing the `Seed` value is necessary in cases where you have two or more random nodes in a patch and want them to produce a different string of random numbers.
+The `Seed` value can be changed in the `inspector panel`, pictured below. Changing the `Seed` is necessary in cases where you have two or more `random` nodes in a patch and want them to produce a different string of random numbers.
 
 <img src="img/nodes_reference/math/random/random_inspector.png"
 alt="random node"
 width="200"/>
 
-If the `Seed` value remains the same, every time the patch is reopened, the same string of random numbers will be produced.
+If the `Seed` remains the same, every time the patch is reopened, the same string of random numbers will be produced.
 
 
 
