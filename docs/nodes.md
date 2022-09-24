@@ -1,8 +1,14 @@
 # nodes reference
 
-###introduction to nodes
+##introduction to nodes
 
-Everything in Audulus is built with `nodes`. Nodes are packets of code that do things. A node may have inputs, outputs, or both.
+<img src="img/nodes_reference/introduction_to_nodes/all_nodes.png"
+alt="all node" 
+width="600"/>
+
+Everything in Audulus is built with `nodes`. There are 53 nodes all together.
+
+Nodes are packets of code that do things. A node may have inputs, outputs, or both.
 
 You connect nodes together by dragging a wire from an output to an input. You cannot drag a wire from an input to an output. You can connect one output to as many inputs as you want.
 
