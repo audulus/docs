@@ -1,6 +1,6 @@
 # nodes reference
 
-##introduction to nodes
+## introduction to nodes
 
 <img src="img/nodes_reference/introduction_to_nodes/all_nodes.png"
 alt="all node" 
@@ -68,7 +68,7 @@ Some nodes count as outputs. Examples of outputs are `value`, `light`, and `dac`
 If a node is not connected to an output, it will not be evaluated.
 
 
-##util
+## util
 
 **description**
 
@@ -80,7 +80,7 @@ If a node is not connected to an output, it will not be evaluated.
 - The `zero cross` node analyzes incoming audio and outputs its frequency in `hz`.
 
 
-###adc
+### adc
 
 <img src="img/nodes_reference/util/adc/adc_node.png"
 alt="adc node" 
@@ -108,7 +108,7 @@ The channels are indexed from `0`. Clicking or tapping on the channel number wil
 In most cases, `0` is the left channel and `1` is the right channel.
 
 
-###dac
+### dac
 
 <img src="img/nodes_reference/util/dac/dac_node.png"
 alt="dac node" 
@@ -138,7 +138,7 @@ The `dac` node does not include any DC-offset filtering. A constant DC offset ca
 
 It is best practice to use a `dc blocker` node before a `dac` node unless you explicitly need to send a `mod` or `gate` signal to an external instrument.
 
-###text
+### text
 
 <img src="img/nodes_reference/util/text/text_node.png"
 alt="text node" 
@@ -179,7 +179,7 @@ _`{|}~£×¿®¬½¼¡«»©¢¥¤ı¦µ¯´¬
 Text size cannot be changed. The `canvas` node can do many manipulations with text that the `text` node cannot.
 
 
-###timer
+### timer
 
 <img src="img/nodes_reference/util/timer/timer_node.png"
 alt="timer node"
@@ -199,7 +199,7 @@ The `timer` node outputs a signal in `seconds` since its last reset. The node re
 
 The `timer` output increases smoothly from second to second. Its functional precision is `1/sampleRate seconds`. For example: at a sample rate of 44.1kHz the precision is `1/44,100` or approximately `0.00002 seconds`.
 
-###zero cross
+### zero cross
 
 <img src="img/nodes_reference/util/zero_cross/zero_cross_node.png"
 alt="zero cross node"
@@ -218,7 +218,7 @@ output | signal
 The `zero cross` node counts the time between two zero-crossings and outputs that value as a `hz` signal. To be counted as a zero-crossing, the signal must either pass through `0` or be `= 0` at some point during its cycle.
 
 
-##math
+## math
 
 **description**
 
@@ -229,7 +229,7 @@ The `math` nodes are some of the most powerful and versatile nodes.
 - The `random` node has a `seed` input that ensures multiple copies of the same module can produce different random results with different `seed` values.
 
 
-###expr
+### expr
 
 <img src="img/nodes_reference/math/expr/expr_node.png"
 alt="expr node"
@@ -338,7 +338,7 @@ width="400"/>
 Expressions like the `1/3` in `x * (1/3)` are evaluated once during start-up and replaced by a float in the background of Audulus, saving some compute time.
 
 
-###sum
+### sum
 
 <img src="img/nodes_reference/math/sum/sum_node.png"
 alt="sum node"
@@ -371,7 +371,7 @@ alt="sum multiple inputs"
 width="200"/>
 
 
-###product
+### product
 
 <img src="img/nodes_reference/math/product/product_node.png"
 alt="product node"
@@ -404,7 +404,7 @@ alt="product multiple inputs"
 width="200"/>
 
 
-###random
+### random
 
 <img src="img/nodes_reference/math/random/random_node.png"
 alt="random node"
@@ -431,76 +431,76 @@ If the `Seed` value remains the same, every time the patch is reopened, the same
 
 
 
-##meter
-###meter
-###waveform
-###value
-###light
-###rgb light
-###scope
-###shader
-###canvas
+## meter
+### meter
+### waveform
+### value
+### light
+### rgb light
+### scope
+### shader
+### canvas
 
 
 
-##midi
-###keyboard
-###note send
-###cc send
-###trigger
+## midi
+### keyboard
+### note send
+### cc send
+### trigger
 
 
 
-##level
-###spline
-###mapper
-###env follow
+## level
+### spline
+### mapper
+### env follow
 
 
 
-##dsp
-###unit delay
-###biquad
-###low-pass
-###high-pass
-###delay line
-###dc blocker
-###sample rate
-###resample
-###memory
+## dsp
+### unit delay
+### biquad
+### low-pass
+### high-pass
+### delay line
+### dc blocker
+### sample rate
+### resample
+### memory
 
 
 
-##synth
-###osc
-###phasor
-###sample & hold
-###adsr
+## synth
+### osc
+### phasor
+### sample & hold
+### adsr
 
 
 
-##module
-###module
-###input
-###output
-###knob
-###xy pad
-###slider
-###toggle
-###touch pad
+## module
+### module
+### input
+### output
+### knob
+### xy pad
+### slider
+### toggle
+### touch pad
 
 
 
-##poly
-###combine
-###split
-###poly mix
-###channel index
-###channel count
+## poly
+### combine
+### split
+### poly mix
+### channel index
+### channel count
 
 
 
-##switch
-###mux
-###demux
-###spigot
+## switch
+### mux
+### demux
+### spigot
