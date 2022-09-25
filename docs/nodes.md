@@ -469,7 +469,7 @@ If both `W` and `H` values are `0`, then the node defaults to its standard size.
 alt="meter sizes"
 width="200"/>
 
-If you plug a `poly` signal into a `meter` node, it automatically creates one meter per channel. 
+If you wire a `poly` signal to a `meter` node, it automatically creates one meter per channel. 
 
 <img src="img/nodes_reference/meter/meter/meter_poly.png"
 alt="meter poly"
@@ -477,7 +477,63 @@ width="200"/>
 
 
 ### waveform
+<img src="img/nodes_reference/meter/waveform/waveform_node.png"
+alt="waveform node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `audio`
+
+**description**
+
+The `waveform` node allows you to see signals change over time. It has a fixed 5-second window and moves from left to right.
+
+Since it works with the `audio` range, the top limit of the node is `1`, the center is `0`, and the bottom is `-1`.
+
+<img src="img/nodes_reference/meter/waveform/waveform_range.png"
+alt="waveform range"
+width="400"/>
+
+The `waveform` node works best with low frequency signals. If you want to examine audio-rate signals, use a `scope` node.
+
+<img src="img/nodes_reference/meter/waveform/waveform_mod_v_audio.png"
+alt="waveform mod vs audio"
+width="200"/>
+
+
 ### value
+<img src="img/nodes_reference/meter/value/value_node.png"
+alt="value node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+
+**description**
+
+The `value` node displays the current value of any signal.
+
+In the `inspector panel`, you can set precision from `0` to `0.0000`, and an option to alight `Left`, `Right`, or `Center`. The `value` node is also exposable.
+
+<img src="img/nodes_reference/meter/value/value_inspector.png"
+alt="value inspector"
+width="200"/>
+
+Changing precision can be useful for UI displays. For example, a sequencer's `current step` display should be a whole number, not a decimal.
+
+<img src="img/nodes_reference/meter/value/value_precision.png"
+alt="value precision"
+width="200"/>
+
+If you wire a `poly` signal to a `value` node, it automatically creates one value display per channel. 
+
+<img src="img/nodes_reference/meter/value/value_poly.png"
+alt="value precision"
+width="400"/>
+
+
 ### light
 ### rgb light
 ### scope

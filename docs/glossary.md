@@ -95,6 +95,7 @@ VCA
 wave
 waveshaper
 wavefolder
+window
 wire
 ##z
 (z-1)
