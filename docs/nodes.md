@@ -68,6 +68,7 @@ Some nodes count as outputs. Examples of outputs are `value`, `light`, and `dac`
 If a node is not connected to an output, it will not be evaluated.
 
 <br>
+
 ---
 
 
@@ -83,6 +84,7 @@ If a node is not connected to an output, it will not be evaluated.
 - The `zero cross` node analyzes incoming audio and outputs its frequency in `hz`.
 
 <br>
+
 ---
 
 
@@ -117,6 +119,7 @@ The channels are indexed from `0`. Clicking or tapping on the channel number wil
 In most cases, `0` is the left channel and `1` is the right channel.
 
 <br>
+
 ---
 
 
@@ -154,6 +157,7 @@ The `dac` node does not include any DC-offset filtering. A constant DC offset ca
 It is best practice to use a `dc blocker` node before a `dac` node unless you explicitly need to send a `mod` or `gate` signal to an external instrument.
 
 <br>
+
 ---
 
 
@@ -201,6 +205,7 @@ _`{|}~£×¿®¬½¼¡«»©¢¥¤ı¦µ¯´¬
 Text size cannot be changed. The `canvas` node can do many manipulations with text that the `text` node cannot.
 
 <br>
+
 ---
 
 
@@ -228,6 +233,7 @@ The `timer` node outputs a signal in `seconds` since its last reset. The node re
 The `timer` output increases smoothly from second to second. Its functional precision is `1/sampleRate seconds`. For example: at a sample rate of 44.1kHz the precision is `1/44,100` or approximately `0.00002 seconds`.
 
 <br>
+
 ---
 
 
@@ -253,6 +259,7 @@ exposable | ❌
 The `zero cross` node counts the time between two zero-crossings and outputs that value as a `hz` signal. To be counted as a zero-crossing, the signal must either pass through `0` or be `= 0` at some point during its cycle.
 
 <br>
+
 ---
 
 
@@ -267,6 +274,7 @@ The `math` nodes are some of the most powerful and versatile nodes.
 - The `random` node has a `seed` input that ensures multiple copies of the same module can produce different random results with different `seed` values.
 
 <br>
+
 ---
 
 
@@ -382,6 +390,7 @@ width="400"/>
 Expressions like the `1/3` in `x * (1/3)` are evaluated once during start-up and replaced by a float in the background of Audulus, saving some compute time.
 
 <br>
+
 ---
 
 
@@ -421,6 +430,7 @@ alt="sum multiple inputs"
 width="200"/>
 
 <br>
+
 ---
 
 
@@ -460,6 +470,7 @@ alt="product multiple inputs"
 width="200"/>
 
 <br>
+
 ---
 
 
@@ -487,6 +498,7 @@ width="200"/>
 If the `Seed` remains the same, every time the patch is reopened, the same string of random numbers will be produced.
 
 <br>
+
 ---
 
 
@@ -505,6 +517,7 @@ The `meter` nodes are vital for displaying information about signals.
 - With the `shader` and `canvas` nodes you can use your own code to create your own beautiful custom meters, visualizers, and UI elements using GLSL and Lua.
 
 <br>
+
 ---
 
 
@@ -548,6 +561,7 @@ alt="meter poly"
 width="200"/>
 
 <br>
+
 ---
 
 
@@ -581,6 +595,7 @@ alt="waveform mod vs audio"
 width="200"/>
 
 <br>
+
 ---
 
 
@@ -620,6 +635,7 @@ alt="value precision"
 width="400"/>
 
 <br>
+
 ---
 
 
@@ -646,6 +662,7 @@ alt="light on"
 width="400"/>
 
 <br>
+
 ---
 
 
@@ -686,6 +703,7 @@ alt="light node"
 width="200"/>
 
 <br>
+
 ---
 
 ### scope
@@ -709,7 +727,7 @@ exposable | ✅
 
 **description**
 
-The `scope` node can visualize high frequency waveforms that you otherwise could not see using the `waveform` node.
+The `scope` node can visualize high frequency waveforms, phase relationships, and Lissajous curves that you otherwise could not with the `waveform` node.
 
 A cursor draws a dot with a color of `{r, g, b}` at the coordinates `(x, y)` where both `x` and `y` have a range of `-1 to 1`. The point `(0, 0)` is the center of the display.
 
@@ -735,10 +753,8 @@ For a crisp, clean-looking line, the `Image Size` should be at least double the 
 alt="scope sizes"
 width="400"/>
 
-
-
-
 <br>
+
 ---
 
 
