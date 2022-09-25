@@ -457,7 +457,7 @@ The `meter` node displays the amplitude of a signal. The input works in a range 
 alt="meter negative"
 width="400"/>
 
-In the `inspector panel` the `meter` node can be resized by altering the height and width parameters, as seen below. t also has an option to be exposed to a module's UI.
+In the `inspector panel` the `meter` node can be resized by altering the height and width parameters, as seen below. It is also exposable.
 
 <img src="img/nodes_reference/meter/meter/meter_inspector.png"
 alt="meter inspector"
