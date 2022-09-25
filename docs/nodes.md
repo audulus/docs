@@ -759,7 +759,94 @@ width="400"/>
 
 
 ### shader
+
+<img src="img/nodes_reference/meter/shader/shader_node.png"
+alt="shader node"
+width="200"/>
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `shader` node is an OpenGL shader that allows you to write your own shader using GLSL, a programming language similar to C.
+
+Although the default example has `r` `g` `b` inputs, you are not limited to just those inputs. You can have 0 inputs or as many as you need to run your code.
+
+You write code in the `inspector panel`.
+
+<img src="img/nodes_reference/meter/shader/shader_code.png"
+alt="shader code"
+width="400"/>
+
+At the bottom of the `inspector panel` you can also find `Size` and `Image Size` parameters.
+
+<img src="img/nodes_reference/meter/shader/shader_inspector.png"
+alt="shader inspector"
+width="200"/>
+
+Error messages, if any, appear above these parameters.
+
+<img src="img/nodes_reference/meter/shader/shader_errors.png"
+alt="shader errors"
+width="200"/>
+
+<br>
+
+---
+
+
 ### canvas
+
+<img src="img/nodes_reference/meter/canvas/canvas_node.png"
+alt="canvas node"
+width="200"/>
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `canvas` node is an allows you to draw things using Lua, a simple interpreted programming language.
+
+Although the default example has no inputs or outputs, you can create as many as you'd like by declaring them in the inspector panel above the code block.
+
+<img src="img/nodes_reference/meter/canvas/canvas_io.png"
+alt="canvas io"
+width="200"/>
+
+To create inputs and outputs, you must enter each variable with a space in between.
+
+<img src="img/nodes_reference/meter/canvas/canvas_declare_variables.png"
+alt="canvas declare variables"
+width="400"/>
+
+Below the field where you declare variables you can use Lua code to draw things on the `canvas` node.
+
+<img src="img/nodes_reference/meter/canvas/canvas_code.png"
+alt="canvas code"
+width="400"/>
+
+Below the code block are all of the available Lua functions which you can drag and drop into your code.
+
+<img src="img/nodes_reference/meter/canvas/canvas_functions.png"
+alt="canvas functions"
+width="400"/>
+
+Below the functions are options to change the `Size` of the `canvas` node and `Save Data` between patch loads.
+
+<img src="img/nodes_reference/meter/canvas/canvas_inspector.png"
+alt="canvas inspector"
+width="200"/>
+
+Unlike other nodes, the `canvas` node does not run at audio rate, making it unsuitable to be within any audio or time-critical control paths. As the name implies, it is intended to be space to draw things.
+
+<br>
+
+---
+
 
 
 
