@@ -67,6 +67,7 @@ Some nodes count as outputs. Examples of outputs are `value`, `light`, and `dac`
 
 If a node is not connected to an output, it will not be evaluated.
 
+<br>
 ---
 
 
@@ -81,6 +82,7 @@ If a node is not connected to an output, it will not be evaluated.
 - The `timer` node has a variety of uses including creating envelopes and driving automation. 
 - The `zero cross` node analyzes incoming audio and outputs its frequency in `hz`.
 
+<br>
 ---
 
 
@@ -114,6 +116,7 @@ The channels are indexed from `0`. Clicking or tapping on the channel number wil
 
 In most cases, `0` is the left channel and `1` is the right channel.
 
+<br>
 ---
 
 
@@ -150,6 +153,7 @@ The `dac` node does not include any DC-offset filtering. A constant DC offset ca
 
 It is best practice to use a `dc blocker` node before a `dac` node unless you explicitly need to send a `mod` or `gate` signal to an external instrument.
 
+<br>
 ---
 
 
@@ -196,6 +200,7 @@ _`{|}~£×¿®¬½¼¡«»©¢¥¤ı¦µ¯´¬
 ```
 Text size cannot be changed. The `canvas` node can do many manipulations with text that the `text` node cannot.
 
+<br>
 ---
 
 
@@ -222,6 +227,7 @@ The `timer` node outputs a signal in `seconds` since its last reset. The node re
 
 The `timer` output increases smoothly from second to second. Its functional precision is `1/sampleRate seconds`. For example: at a sample rate of 44.1kHz the precision is `1/44,100` or approximately `0.00002 seconds`.
 
+<br>
 ---
 
 
@@ -246,6 +252,7 @@ exposable | ❌
 
 The `zero cross` node counts the time between two zero-crossings and outputs that value as a `hz` signal. To be counted as a zero-crossing, the signal must either pass through `0` or be `= 0` at some point during its cycle.
 
+<br>
 ---
 
 
@@ -259,6 +266,7 @@ The `math` nodes are some of the most powerful and versatile nodes.
 - `sum` and `product` are elegant ways to visually emphasize how signals are combining and can be expanded to have as many inputs as necessary. 
 - The `random` node has a `seed` input that ensures multiple copies of the same module can produce different random results with different `seed` values.
 
+<br>
 ---
 
 
@@ -373,6 +381,7 @@ width="400"/>
 
 Expressions like the `1/3` in `x * (1/3)` are evaluated once during start-up and replaced by a float in the background of Audulus, saving some compute time.
 
+<br>
 ---
 
 
@@ -411,6 +420,7 @@ When you increase the number of channels, the number of inputs increases accordi
 alt="sum multiple inputs"
 width="200"/>
 
+<br>
 ---
 
 
@@ -449,6 +459,7 @@ When you increase the number of channels, the number of inputs increases accordi
 alt="product multiple inputs"
 width="200"/>
 
+<br>
 ---
 
 
@@ -475,6 +486,7 @@ width="200"/>
 
 If the `Seed` remains the same, every time the patch is reopened, the same string of random numbers will be produced.
 
+<br>
 ---
 
 
@@ -492,6 +504,7 @@ The `meter` nodes are vital for displaying information about signals.
 - The `scope` node is like the `waveform` node, but suited for examining audio rate signals.
 - With the `shader` and `canvas` nodes you can use your own code to create your own beautiful custom meters, visualizers, and UI elements using GLSL and Lua.
 
+<br>
 ---
 
 
@@ -534,6 +547,7 @@ If you wire a `poly` signal to a `meter` node, it automatically creates one mete
 alt="meter poly"
 width="200"/>
 
+<br>
 ---
 
 
@@ -566,6 +580,7 @@ The `waveform` node works best with low frequency signals. If you want to examin
 alt="waveform mod vs audio"
 width="200"/>
 
+<br>
 ---
 
 
@@ -604,6 +619,7 @@ If you wire a `poly` signal to a `value` node, it automatically creates one valu
 alt="value precision"
 width="400"/>
 
+<br>
 ---
 
 
@@ -615,7 +631,7 @@ width="200"/>
 
 input | signal
 :-- | :--
-`in` | `any` but will only turn on for non-zero positive numbers
+`in` | `gate`
 
 exposable | ✅ automatic
 :-- | :--
@@ -623,14 +639,83 @@ exposable | ✅ automatic
 
 **description**
 
-The `light` node turns on when the incoming signal is any non-zero positive number. Otherwise it stays off.
+The `light` node turns on when the incoming signal is `high` (any non-zero positive number). Otherwise it stays off.
 
 <img src="img/nodes_reference/meter/light/light_on.png"
 alt="light on"
 width="400"/>
 
+<br>
+---
+
+
 ### rgb light
+
+<img src="img/nodes_reference/meter/rgb_light/rgb_light_node.png"
+alt="rgb light node"
+width="200"/>
+
+input | signal
+:-- | :--
+`r` | `mod`
+`g` | `mod`
+`b` | `mod`
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `rgb light` node has 3 inputs: one for red `r`, one for green `g`, and one for blue `b`.
+
+<img src="img/nodes_reference/meter/rgb_light/rgb_light_colors.png"
+alt="rgb light colors"
+width="200"/>
+
+Each input works with a `mod` signal. When the signal is `0`, the light is off. When the signal is `1`, the light is fully on.
+
+<img src="img/nodes_reference/meter/rgb_light/rgb_light_brightness.png"
+alt="light node"
+width="400"/>
+
+Colors can be mixed by sending different values to each input.
+
+<img src="img/nodes_reference/meter/rgb_light/rgb_light_mix.png"
+alt="light node"
+width="200"/>
+
+<br>
+---
+
 ### scope
+
+<img src="img/nodes_reference/meter/scope/scope_node.png"
+alt="scope node"
+width="200"/>
+
+input | signal
+:-- | :--
+`x` | `audio`
+`y` | `audio`
+`r` | `mod`
+`g` | `mod`
+`b` | `mod`
+`s` | `mod`
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `rgb light` node has 3 inputs: one for red `r`, one for green `g`, and one for blue `b`.
+
+
+<br>
+---
+
+
 ### shader
 ### canvas
 
