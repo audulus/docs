@@ -849,9 +849,57 @@ Unlike other nodes, the `canvas` node does not run at audio rate, making it unsu
 
 
 
-
 ## midi
+
+**description**
+
+The `midi` nodes send and receive MIDI signals in and out of Audulus.
+
+- The `keyboard` allows you to play Audulus synths with an external MIDI controller or feed in MIDI notes from a DAW.
+- The `note send` node sends MIDI notes out of Audulus to hardware or DAWs.
+- The `cc send` node sends MIDI CC messages from Audulus to hardware or or DAWs.
+- The `trigger` node can both act like a button within Audulus and can also receive on/off MIDI messages.
+
+<br>
+
+---
+
+
+
 ### keyboard
+
+<img src="img/nodes_reference/midi/keyboard/keyboard_node.png"
+alt="scope node"
+width="200"/>
+
+output | signal
+:-- | :--
+`Hz` | `Hz`
+`gate` | `gate`
+
+control | description
+:-- | :--
+`Legato/Poly(2,4,8,16)` | sets the number of voices
+`Omni/(1-16)` | sets the MIDI channel
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `keyboard` node receives input from MIDI keyboards, DAWs, and other input MIDI devices.
+
+It outputs a `Hz` value for the note and a `gate` signal for note on/off. The height of the gate represents the velocity.
+
+There are also two controls on the `keyboard` node. The first cycles through `Legato` and `Poly(2,4,8,16)`. 
+
+`Legato` means only one note (the last played) will be outputted. `Poly 2` means 2 notes can be played at once, `Poly 4` means 4, and so on.
+
+Higher poly counts multiply CPU usage, so only set it to the count you need.
+
+The `Omni/(1-16)` control specifies which incoming MIDI channel is referenced. On `Omni`, any messages from any of the channels will come through. You can also set the keyboard node to listen to a specific channel `1-16`.
+
 ### note send
 ### cc send
 ### trigger
