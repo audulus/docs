@@ -67,6 +67,8 @@ Some nodes count as outputs. Examples of outputs are `value`, `light`, and `dac`
 
 If a node is not connected to an output, it will not be evaluated.
 
+---
+
 
 ## util
 
@@ -78,6 +80,8 @@ If a node is not connected to an output, it will not be evaluated.
 - The `text` node is used for labeling and commenting inside of patches. 
 - The `timer` node has a variety of uses including creating envelopes and driving automation. 
 - The `zero cross` node analyzes incoming audio and outputs its frequency in `hz`.
+
+---
 
 
 ### adc
@@ -95,6 +99,9 @@ control | description
 :-- | :--
 `channel number` | access to 1 of 16 channels indexed from `0`
 
+exposable | ❌
+:-- | :--
+
 **description**
 
 The `adc` node is how you get `audio` and `CV` into Audulus from an external source. An external source could be a microphone, a DAW, or a CV input from a hardware modular synth.
@@ -106,6 +113,8 @@ The `adc` node can access the first 16 inputs of any class-compliant audio inter
 The channels are indexed from `0`. Clicking or tapping on the channel number will increment it by 1 up to 15 when it will wrap around to 0 again.
 
 In most cases, `0` is the left channel and `1` is the right channel.
+
+---
 
 
 ### dac
@@ -121,6 +130,9 @@ input | signal
 control | description
 :-- | :--
 `channel number` | access to 1 of 16 channels indexed from `0`
+
+exposable | ❌
+:-- | :--
 
 **description**
 
@@ -138,11 +150,17 @@ The `dac` node does not include any DC-offset filtering. A constant DC offset ca
 
 It is best practice to use a `dc blocker` node before a `dac` node unless you explicitly need to send a `mod` or `gate` signal to an external instrument.
 
+---
+
+
 ### text
 
 <img src="img/nodes_reference/util/text/text_node.png"
 alt="text node" 
 width="200"/>
+
+exposable | ✅
+:-- | :--
 
 **description**
 
@@ -178,6 +196,8 @@ _`{|}~£×¿®¬½¼¡«»©¢¥¤ı¦µ¯´¬
 ```
 Text size cannot be changed. The `canvas` node can do many manipulations with text that the `text` node cannot.
 
+---
+
 
 ### timer
 
@@ -193,11 +213,17 @@ output | signal
 :-- | :--
 `time` | `seconds` since last reset
 
+exposable | ❌
+:-- | :--
+
 **description**
 
 The `timer` node outputs a signal in `seconds` since its last reset. The node resets on the rising edge of an incoming `gate` signal.
 
 The `timer` output increases smoothly from second to second. Its functional precision is `1/sampleRate seconds`. For example: at a sample rate of 44.1kHz the precision is `1/44,100` or approximately `0.00002 seconds`.
+
+---
+
 
 ### zero cross
 
@@ -213,9 +239,14 @@ output | signal
 :-- | :--
 `out` | `hz`
 
+exposable | ❌
+:-- | :--
+
 **description**
 
 The `zero cross` node counts the time between two zero-crossings and outputs that value as a `hz` signal. To be counted as a zero-crossing, the signal must either pass through `0` or be `= 0` at some point during its cycle.
+
+---
 
 
 ## math
@@ -227,6 +258,8 @@ The `math` nodes are some of the most powerful and versatile nodes.
 - The `expr` node alone has 40 operators and functions which can be combined in many ways. 
 - `sum` and `product` are elegant ways to visually emphasize how signals are combining and can be expanded to have as many inputs as necessary. 
 - The `random` node has a `seed` input that ensures multiple copies of the same module can produce different random results with different `seed` values.
+
+---
 
 
 ### expr
@@ -297,6 +330,9 @@ constant | description
 `pi` | π
 `e` | Euler's number
 
+exposable | ❌
+:-- | :--
+
 **description**
 
 The `expr` node is the most versatile node. It does math and basic programming operations.
@@ -337,6 +373,8 @@ width="400"/>
 
 Expressions like the `1/3` in `x * (1/3)` are evaluated once during start-up and replaced by a float in the background of Audulus, saving some compute time.
 
+---
+
 
 ### sum
 
@@ -354,6 +392,9 @@ output | signal
 :-- | :--
 `sum` | `any`
 
+exposable | ❌
+:-- | :--
+
 **description**
 
 The `sum` node adds two or more signals together.
@@ -369,6 +410,8 @@ When you increase the number of channels, the number of inputs increases accordi
 <img src="img/nodes_reference/math/sum/sum_multiple_inputs.png"
 alt="sum multiple inputs"
 width="200"/>
+
+---
 
 
 ### product
@@ -387,6 +430,9 @@ output | signal
 :-- | :--
 `out` | `any`
 
+exposable | ❌
+:-- | :--
+
 **description**
 
 The `product` node multiplies two or more signals together.
@@ -403,6 +449,8 @@ When you increase the number of channels, the number of inputs increases accordi
 alt="product multiple inputs"
 width="200"/>
 
+---
+
 
 ### random
 
@@ -414,6 +462,9 @@ output | signal
 :-- | :--
 `out` | `mod`
 
+exposable | ❌
+:-- | :--
+
 The `random` node outputs a new random number between `0 and 1` for every sample. In other words, it produces `white noise.`
 
 The `Seed` value can be changed in the `inspector panel`, pictured below. Changing the `Seed` is necessary in cases where you have two or more `random` nodes in a patch and want them to produce a different string of random numbers.
@@ -423,6 +474,8 @@ alt="random node"
 width="200"/>
 
 If the `Seed` remains the same, every time the patch is reopened, the same string of random numbers will be produced.
+
+---
 
 
 
@@ -439,8 +492,11 @@ The `meter` nodes are vital for displaying information about signals.
 - The `scope` node is like the `waveform` node, but suited for examining audio rate signals.
 - With the `shader` and `canvas` nodes you can use your own code to create your own beautiful custom meters, visualizers, and UI elements using GLSL and Lua.
 
+---
+
 
 ### meter
+
 <img src="img/nodes_reference/meter/meter/meter_node.png"
 alt="meter node"
 width="200"/>
@@ -448,6 +504,9 @@ width="200"/>
 input | signal
 :-- | :--
 `in` | `audio`
+
+exposable | ✅ 
+:-- | :--
 
 **description**
 
@@ -475,8 +534,11 @@ If you wire a `poly` signal to a `meter` node, it automatically creates one mete
 alt="meter poly"
 width="200"/>
 
+---
+
 
 ### waveform
+
 <img src="img/nodes_reference/meter/waveform/waveform_node.png"
 alt="waveform node"
 width="200"/>
@@ -484,6 +546,9 @@ width="200"/>
 input | signal
 :-- | :--
 `in` | `audio`
+
+exposable | ✅
+:-- | :--
 
 **description**
 
@@ -501,8 +566,11 @@ The `waveform` node works best with low frequency signals. If you want to examin
 alt="waveform mod vs audio"
 width="200"/>
 
+---
+
 
 ### value
+
 <img src="img/nodes_reference/meter/value/value_node.png"
 alt="value node"
 width="200"/>
@@ -510,6 +578,9 @@ width="200"/>
 input | signal
 :-- | :--
 `in` | `any`
+
+exposable | ✅
+:-- | :--
 
 **description**
 
@@ -533,8 +604,31 @@ If you wire a `poly` signal to a `value` node, it automatically creates one valu
 alt="value precision"
 width="400"/>
 
+---
+
 
 ### light
+
+<img src="img/nodes_reference/meter/light/light_node.png"
+alt="light node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any` but will only turn on for non-zero positive numbers
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `light` node turns on when the incoming signal is any non-zero positive number. Otherwise it stays off.
+
+<img src="img/nodes_reference/meter/light/light_on.png"
+alt="light on"
+width="400"/>
+
 ### rgb light
 ### scope
 ### shader
