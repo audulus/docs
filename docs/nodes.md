@@ -4,7 +4,7 @@
 
 <img src="img/nodes_reference/introduction_to_nodes/all_nodes.png"
 alt="all node" 
-width="600"/>
+width="800"/>
 
 Everything in Audulus is built with `nodes`. There are 53 nodes in total.
 
@@ -709,7 +709,33 @@ exposable | ✅
 
 **description**
 
-The `rgb light` node has 3 inputs: one for red `r`, one for green `g`, and one for blue `b`.
+The `scope` node can visualize high frequency waveforms that you otherwise could not see using the `waveform` node.
+
+A cursor draws a dot with a color of `{r, g, b}` at the coordinates `(x, y)` where both `x` and `y` have a range of `-1 to 1`. The point `(0, 0)` is the center of the display.
+
+<img src="img/nodes_reference/meter/scope/scope_circle.png"
+alt="scope circle"
+width="400"/>
+
+The `s` variable is a measure of the persistence of the line drawn where `0` means only the current position of the cursor is shown and `1` means the cursor will draw a line that persists infinitely. `s` values between `0` and `1` will cause the line to fade quickly or gradually over time.
+
+There can be a large difference between what an `s` value of `0.9`, `0.99`, and `0.999` look like, so experiment with what works best for your use.
+
+In the `scope` node's `inspector panel` there are options to change both the `Size` and resolution (`Image Size`) of the scope.
+
+<img src="img/nodes_reference/meter/scope/scope_inspector.png"
+alt="scope inspector"
+width="200"/>
+
+The default size is `W = 200` and `H = 200` with an image size of `W = 512` and `H = 512`. 
+
+For a crisp, clean-looking line, the `Image Size` should be at least double the `Size` parameter. For a more digital-looking, stair-stepped size, the `Image Size` should be the same or smaller than the `Size.`
+
+<img src="img/nodes_reference/meter/scope/scope_size_resolution.png"
+alt="scope sizes"
+width="400"/>
+
+
 
 
 <br>
