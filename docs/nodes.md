@@ -32,6 +32,10 @@ signal | range
 `audio` | `-1 to 1`[^2]
 `gate` | `0 or high` where `high` is any non-zero positive 32-bit number.
 `hz`| `0 to sampleRate/2`[^3]
+`midi cc` | integers `0 to 127`
+`midi channel` | integers `1 - 16`
+`midi note` | integers `0 to 127`
+`midi velocity` | integers `0 to 127`
 `mod`| `0 to 1`
 `seconds` | `0 to 2^32-1`
 
@@ -869,7 +873,7 @@ The `midi` nodes send and receive MIDI signals in and out of Audulus.
 ### keyboard
 
 <img src="img/nodes_reference/midi/keyboard/keyboard_node.png"
-alt="scope node"
+alt="keyboard node"
 width="200"/>
 
 output | signal
@@ -900,8 +904,69 @@ Higher poly counts multiply CPU usage, so only set it to the count you need.
 
 The `Omni/(1-16)` control specifies which incoming MIDI channel is referenced. On `Omni`, any messages from any of the channels will come through. You can also set the keyboard node to listen to a specific channel `1-16`.
 
+<br>
+
+---
+
+
 ### note send
+
+<img src="img/nodes_reference/midi/note_send/note_send_node.png"
+alt="note send node"
+width="200"/>
+
+input | signal
+:-- | :--
+`note` | `midi note`
+`gate` | `gate`
+`velocity` | `midi velocity`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `note send` node sends MIDI note, gate, and velocity data from Audulus to external instruments.
+
+The `note` and `velocity` inputs correspond to the `0-127` integer values expected by MIDI. Inputs are floored, so if the value is between `0` and `1`, `0` is the output.
+
+The `gate` input sends a note on/off signal where `high` is on and `0` is off.
+
+<br>
+
+---
+
+
 ### cc send
+
+<img src="img/nodes_reference/midi/cc_send/cc_send_node.png"
+alt="cc send node"
+width="200"/>
+
+input | signal
+:-- | :--
+`value` | `cc value`
+`number` | `midi channel`
+`trigger` | `gate`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `cc send` node sends MIDI CC value from Audulus to external instruments.
+
+The `note` and `velocity` inputs correspond to the `0-127` integer values expected by MIDI. Inputs are floored, so if the value is between `0` and `1`, `0` is the output.
+
+The `gate` input sends a note on/off signal where `high` is on and `0` is off.
+
+<br>
+
+---
+
+
 ### trigger
 
 
