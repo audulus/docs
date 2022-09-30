@@ -300,13 +300,14 @@ arithmetic operator | description
 
 exponential function | description
 :-- | :--
-`pow(x, y)` | exponentiation
 `exp(x)` | `e^x`
+`exp2(x)` | `2^x`
+`pow(x, y)` | exponentiation `x^y`
+`sqrt(x)` | square root[^4]
 `ln(x)` | natural log
 `log2(x)` | log base 2
 `log10(x)` | log base 10
-`exp2(x)` | `2^x`
-`sqrt(x)` | square root[^4]
+
 
 [^4]: Cube roots and beyond are accessible like this: `x^(1/y)` where `y = degree` and `x = radicand`. 
 
@@ -325,7 +326,7 @@ common function | description
 `floor(x)` | round down to integer
 `ceil(x)` | round up to integer
 `fract(x)` | `x - floor(x)`
-`mod(x,y)` | remainder of `x / y`
+`mod(x, y)` | remainder of `x / y`
 `min(x, y)` | returns lesser of `x` and `y`
 `max(x, y)` | returns greater of `x` and `y`
 `clamp(x, a, b)` | restricts `x` to the interval `[a, b]`
@@ -338,12 +339,15 @@ trigonometric function | description
 `sin(x)` | sine
 `cos(x)` | cosine
 `tan(x)` | tangent
-`asin(x)` | arc sine
-`acos(x)` | arc cosine
-`atan(x)` | arc tangent
+`asin(x)` | inverse sine
+`acos(x)` | inverse cosine
+`atan(x)` | inverse tangent
 `sinh(x)` | hyper sine
 `cosh(x)` | hyper cosine
 `tanh(x)` | hyper tangent
+`asinh(x)` | inverse hyper sine
+`acosh(x)` | inverse hyper cosine
+`atanh(x)` | inverse hyper tangent
 
 constant | description
 :-- | :--
