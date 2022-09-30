@@ -32,10 +32,7 @@ signal | range
 `audio` | `-1 to 1`[^2]
 `gate` | `0 or high` where `high` is any non-zero positive 32-bit number.
 `hz`| `0 to sampleRate/2`[^3]
-`midi cc` | integers `0 to 127`
-`midi channel` | integers `1 - 16`
-`midi note` | integers `0 to 127`
-`midi velocity` | integers `0 to 127`
+`midi value` | integers `0 to 127`
 `mod`| `0 to 1`
 `seconds` | `0 to 2^32-1`
 
@@ -921,9 +918,9 @@ width="200"/>
 
 input | signal
 :-- | :--
-`note` | `midi note`
+`note` | `midi value`
 `gate` | `gate`
-`velocity` | `midi velocity`
+`velocity` | `midi value`
 
 exposable | ❌
 :-- | :--
@@ -950,8 +947,8 @@ width="200"/>
 
 input | signal
 :-- | :--
-`value` | `cc value`
-`number` | `midi channel`
+`value` | `midi value`
+`number` | `midi value`
 `trigger` | `gate`
 
 exposable | ❌
@@ -962,9 +959,7 @@ exposable | ❌
 
 The `cc send` node sends MIDI CC value from Audulus to external instruments.
 
-The `note` and `velocity` inputs correspond to the `0-127` integer values expected by MIDI. Inputs are floored, so if the value is between `0` and `1`, `0` is the output.
-
-The `gate` input sends a note on/off signal where `high` is on and `0` is off.
+When the `trigger` input goes high, the signal present at the `value` input is sent to the `number` CC.
 
 <br>
 
