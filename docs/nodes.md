@@ -1446,8 +1446,8 @@ width="200"/>
 
 The `synth` nodes are low-level building blocks specific to audio synthesis.
 
-- The `osc` node outputs one of 4 classic anti-aliased waveshapes.
-- The `phasor` node outputs an un-aliased phasor signal from `0` to `2π` useful for creating custom oscillators
+- The `osc` node outputs one of 4 classic anti-aliased waveforms.
+- The `phasor` node outputs an un-aliased phasor signal from `0 to 2π` useful for creating custom oscillators
 - The `sample & hold` node can sample an input signal, store it, and hold that value at its output.
 - The `adsr` node generates an envelope according to an incoming `gate` signal.
 
@@ -1458,7 +1458,112 @@ The `synth` nodes are low-level building blocks specific to audio synthesis.
 
 
 ### osc
+
+<img src="img/nodes_reference/synth/osc/osc_node.png"
+alt="osc node"
+width="200"/>
+
+in | signal
+:-- | :--
+`Hz` | `Hz`
+`amp` | `mod`
+`sync` | `gate` or `audio`
+`shp` | `mod` 
+
+out | signal
+:-- | :--
+`out` | `audio`
+
+control | description
+:-- | :--
+`waveform selector` | selects one of 4 waveforms
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `osc` node outputs as `audio` one of four anti-aliased elemental waveforms, selectable on the panel of the node: sine, square, triangle, and saw.
+
+The `osc` node is intended as an audio-rate oscillator. This means it is anti-aliased. Using the `osc` node as an LFO can lead to some unpredictable behavior with overshooting caused by the anti-aliasing.
+
+The `Hz` input controls the speed of the oscillator from `0` to `sampleRate/2 Hz`. 
+
+The `amp` input uses a `mod` signal to control the amplitude of the wave. For example: An amplitude value of `1` will set the output of the `osc` node to range between `-1 and 1`, whereas a value of `0.5` will oscillate between `-0.5 and 0.5`.
+
+<img src="img/nodes_reference/synth/osc/osc_hz_amp.png"
+alt="osc hz amp"
+width="400"/>
+
+The `sync` input will restart the waveform on the rising edge of an incoming `gate` or `audio` signal. It is a hard sync, meaning it will reset regardless of where it is in its cycle.
+
+<img src="img/nodes_reference/synth/osc/osc_sync.png"
+alt="osc sync"
+width="400"/>
+
+The `shp` input changes the shape of the square and saw waves. For the square wave, `shp` controls the pulse width from `50% to 100%`. For the saw wave, `shp` will transform the saw wave into a supersaw which, when modulated, simulates the chorusing effect of two detuned saw waves.
+
+<img src="img/nodes_reference/synth/osc/osc_shp.png"
+alt="osc shp"
+width="400"/>
+
+The waveform selector is exposable.
+
+
+<br>
+
+---
+
+
 ### phasor
+
+<img src="img/nodes_reference/synth/phasor/phasor_node.png"
+alt="phasor node"
+width="200"/>
+
+in | signal
+:-- | :--
+`freq` | `Hz` or `-Hz`
+`sync` | `gate` or `audio`
+
+out | signal
+:-- | :--
+`out` | `0 to 2π`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `phasor` node outputs a phasor from `0 to 2π` with 64-bit internal precision.
+
+The `phasor` node is not anti-aliased, making it suitable for creating custom LFOs. If you want to create a custom VCO with a `phasor` node, refer to the `resample` node section to see how to anti-alias its output. You can use an `expr` node to shape and scale the output of the `phasor` node.
+
+<img src="img/nodes_reference/synth/phasor/phasor_waveforms.png"
+alt="phasor waveforms"
+width="800"/>
+
+The `sync` input will reset the phasor on the rising edge of a `gate` or `audio` signal.
+
+<img src="img/nodes_reference/synth/phasor/phasor_sync.png"
+alt="phasor sync"
+width="800"/>
+
+Positive `Hz` values at the `freq` input will run the `phasor` from `0 to 2π`, while negative `Hz` values will reverse the direction, running from `2π to 0`.
+
+<img src="img/nodes_reference/synth/phasor/phasor_tzfm.png"
+alt="phasor tzfm"
+width="800"/>
+
+
+<br>
+
+---
+
+
+
 ### sample & hold
 ### adsr
 
