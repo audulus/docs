@@ -306,7 +306,7 @@ exponential function | description
 `log10(x)` | log base 10
 
 
-[^4]: Cube roots and beyond are accessible like this: `x^(1/y)` where `y = degree` and `x = radicand`. 
+[^4]: Cube roots and beyond are accessible like this: `x^(1/y)` where `x = radicand` and `y = degree`. 
 
 boolean operator | description
 :-- | :--
@@ -1608,6 +1608,38 @@ width="800"/>
 
 ### adsr
 
+<img src="img/nodes_reference/synth/adsr/adsr_node.png"
+alt="adsr node"
+width="200"/>
+
+in | signal
+:-- | :--
+`gate` | `gate`
+`a` | `seconds`
+`d` | `seconds`
+`s` | `mod`
+`r` | `seconds`
+
+out | signal
+:-- | :--
+`out` | `mod`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `adsr` node outputs an envelope when the `gate` input is held `high`.
+
+The `a` input is the attack time, `d` is decay time, `s` is sustain level, and `r` is release time.
+
+As long as the `gate` input is held `high`, the envelope increases from `0` to `1` for `a` seconds, decreases to the `s` level for `d` seconds, then once the gate goes `low`, decreases from the `s` level back to `0`.
+
+
+<br>
+
+---
 
 
 ## module
