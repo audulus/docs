@@ -1563,8 +1563,49 @@ width="800"/>
 ---
 
 
-
 ### sample & hold
+
+<img src="img/nodes_reference/synth/sample_and_hold/sample_and_hold_node.png"
+alt="sample and hold node"
+width="200"/>
+
+in | signal
+:-- | :--
+`in` | `any`
+`trigger` | `gate`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `sample & hold` node will sample a value at its input on the rising edge of a `gate` signal at the `trigger` input and hold that value at its output until the `trigger` input is gated again.
+
+You can think of it like a single-sample `memory` node.
+
+In the `inspector` you can select the `Save Data` checkbox to save the held value in between patch loads.
+
+<img src="img/nodes_reference/synth/sample_and_hold/sample_and_hold_inspector.png"
+alt="sample and hold inspector"
+width="200"/>
+
+In the example below, on the top, a `phasor`-based sine generator is being sampled at `10Hz`, and underneath, the `sample & hold` node is sampling random values produced by a `random` node.
+
+<img src="img/nodes_reference/synth/sample_and_hold/sample_and_hold_example.png"
+alt="sample and hold example"
+width="800"/>
+
+
+<br>
+
+---
+
+
 ### adsr
 
 
