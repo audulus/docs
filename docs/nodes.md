@@ -1138,7 +1138,7 @@ The `env follow` node extracts an envelope from an incoming audio signal and tra
 
 DSP is an acronym that means digital signal processing. The `dsp` nodes are essentials for creating filters and manipulating signals at a conceptually low level.
 
-- The `unit delay` node delays a signal by a single sample.
+- The `unit delay` node delays a signal by a single sample and marks precisely where a feedback delay happens within a feedback loop.
 - The `biquad` node is a building block for creating custom biquad filters.
 - The `low-pass` and `high-pass` nodes are conveniently packaged, non-resonant filters.
 - The `delay line` node can delay a signal up to 20 seconds.
@@ -1153,6 +1153,34 @@ DSP is an acronym that means digital signal processing. The `dsp` nodes are esse
 
 
 ### unit delay
+
+<img src="img/nodes_reference/dsp/unit_delay/unit_delay_node.png"
+alt="env follow node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `unit delay` node delays an incoming signal by `1` sample. It also explicitly tells Audulus where to insert a single sample feedback delay within a feedback loop. 
+
+If a `unit delay` is not inserted somewhere within a feedback loop, Audulus will guess where to put it. Much of the time this is ok, but in some cases, like when creating analog-modelling filters, you need to be explicit about where the feedback delay goes.
+
+<br>
+
+---
+
+
 ### biquad
 ### low-pass
 ### high-pass
