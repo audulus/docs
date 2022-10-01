@@ -1155,7 +1155,7 @@ DSP is an acronym that means digital signal processing. The `dsp` nodes are esse
 ### unit delay
 
 <img src="img/nodes_reference/dsp/unit_delay/unit_delay_node.png"
-alt="env follow node"
+alt="unit delay node"
 width="200"/>
 
 input | signal
@@ -1174,7 +1174,7 @@ exposable | ❌
 
 The `unit delay` node delays an incoming signal by `1` sample. It also explicitly tells Audulus where to insert a single sample feedback delay within a feedback loop. 
 
-If a `unit delay` is not inserted somewhere within a feedback loop, Audulus will guess where to put it. Much of the time this is ok, but in some cases, like when creating analog-modelling filters, you need to be explicit about where the feedback delay goes.
+If a `unit delay` is not inserted somewhere within a feedback loop, Audulus will guess where to put it. Much of the time this is ok, but in some cases, like when creating analog-modeling filters, you need to be explicit about where the feedback delay goes.
 
 <br>
 
@@ -1182,6 +1182,40 @@ If a `unit delay` is not inserted somewhere within a feedback loop, Audulus will
 
 
 ### biquad
+
+<img src="img/nodes_reference/dsp/biquad/biquad_node.png"
+alt="biquad node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+`a1` | a1 coefficient
+`a2` | a2 coefficient
+`a3` | a3 coefficient
+`b1` | b1 coefficient
+`b2` | b2 coefficient
+
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `biquad` node allows you to create all different types of biquadratic filters. Refer to [this guide](https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html) for more information. 
+
+You need to calculate the coefficient inputs separately from the node using `expr` nodes.
+
+<br>
+
+---
+
+
 ### low-pass
 ### high-pass
 ### delay line
