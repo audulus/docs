@@ -422,7 +422,7 @@ exposable | ❌
 
 The `sum` node adds two or more signals together.
 
-In the `inspector channel` you can specify how many channels you want to add together. The maximum is `256`.
+In the `inspector panel` you can specify how many channels you want to add together. The maximum is `256`.
 
 <img src="img/nodes_reference/math/sum/sum_inspector.png"
 alt="sum inspector"
@@ -462,7 +462,7 @@ exposable | ❌
 
 The `product` node multiplies two or more signals together.
 
-In the `inspector channel` you can specify how many channels you want to multiply together. The maximum is `256`.
+In the `inspector panel` you can specify how many channels you want to multiply together. The maximum is `256`.
 
 <img src="img/nodes_reference/math/product/product_inspector.png"
 alt="product inspector"
@@ -816,7 +816,7 @@ exposable | ✅
 
 The `canvas` node is an allows you to draw things using Lua, a simple interpreted programming language.
 
-Although the default example has no inputs or outputs, you can create as many as you'd like by declaring them in the inspector panel above the code block.
+Although the default example has no inputs or outputs, you can create as many as you'd like by declaring them in the `inspector panel` above the code block.
 
 <img src="img/nodes_reference/meter/canvas/canvas_io.png"
 alt="canvas io"
@@ -1372,7 +1372,7 @@ exposable | ❌
 
 The `resample` node lets you run a portion of a patch at a higher sample rate, also known as supersampling.
 
-In the `inspector` you can choose from different multiples of the base sample rate from `1x` to `16x`. Higher sample rates use more CPU time.
+In the `inspector panel` you can choose from different multiples of the base sample rate from `1x` to `16x`. Higher sample rates use more CPU time.
 
 <img src="img/nodes_reference/dsp/resample/resample_inspector.png"
 alt="resample inspector"
@@ -1588,7 +1588,7 @@ The `sample & hold` node will sample a value at its input on the rising edge of 
 
 You can think of it like a single-sample `memory` node.
 
-In the `inspector` you can select the `Save Data` checkbox to save the held value in between patch loads.
+In the `inspector panel` you can select the `Save Data` checkbox to save the held value in between patch loads.
 
 <img src="img/nodes_reference/synth/sample_and_hold/sample_and_hold_inspector.png"
 alt="sample and hold inspector"
@@ -1665,6 +1665,72 @@ The `module` nodes important elements for creating `modules` and `submodules`.
 
 
 ### module
+
+<img src="img/nodes_reference/module/module/module_node.png"
+alt="module node"
+width="200"/>
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `module` node lets you encase nodes inside of a UI.
+
+In the `inspector panel`, you have options to name the module, define its size, whether or not it is exposed, when it is exposed if it should hide its `inputs` and `outputs`, and a field to enter a description of what it does.
+
+<img src="img/nodes_reference/module/module/module_inspector.png"
+alt="module inspector"
+width="200"/>
+
+Exposed elements within a `module` node will appear automatically on the UI. You can move them around by clicking or tapping the `lock icon` to enter `Edit Modules` mode.
+
+<img src="img/nodes_reference/module/module/module_move_ui.png"
+alt="module move ui"
+width="400"/>
+
+You can either define an explicit size for the `module` node, or let the UI elements determine the size. In the example below, the first `module` has a dimension of `0x0` and the size of the module is determined by where the `input` and `output` nodes are placed. In the second example, the module has a fixed size of `200x200` and the output can be placed wherever without shrinking the size of the module. In the third example, you can see how with a fixed size, you can even put UI elements outside of modules, which can be useful for both creative and practical purposes.
+
+<img src="img/nodes_reference/module/module/module_size_io.png"
+alt="module size io"
+width="400"/>
+
+There are two classes of things you can create with the `module` nodes: `modules` and `submodules`.
+
+The difference between them is that `modules` are meant to be interacted with while `submodules` are like custom nodes used to create `modules`. Below you can see some `modules` on the left and `submodules` on the right.
+
+<img src="img/nodes_reference/module/module/module_modules_submodules.png"
+alt="module modules submodules"
+width="800"/>
+
+You can open any `module` and see how it works inside. This is the interior of the `8-Step Sequencer` which has in itself a `Begin-End Counter + Direction` `submodule` in the top right. You can also see in the top right of the menu bar a directory showing `root >` `8-Step Sequencer`. This means we are inside of the sequencer.
+
+<img src="img/nodes_reference/module/module/module_sequencer_interior.png"
+alt="module sequencer interior"
+width="800"/>
+
+Below is the inside of the `Begin-End Counter + Direction submodule` that is inside of the `8-Step Sequencer`. Notice that the directory now reads `root >` `8-Step Sequencer >` `Begin-End Counter + Direction`.
+
+<img src="img/nodes_reference/module/module/module_counter_interior.png"
+alt="module counter interior"
+width="800"/>
+
+There is no limit to the number of `module` nodes you can nest in one another, though it is rare to need more than 5 levels.
+
+`Modules` themselves can also be exposed to the UI of `module` nodes. This means you can create synthesizers from individual module elements. Below is a screenshot of a synthesizer `module` on the left made mostly of other `modules` and a few extra `nodes` that you see on the right.
+
+<img src="img/nodes_reference/module/module/module_minisynth.png"
+alt="module minisynth"
+width="800"/>
+
+
+<br>
+
+---
+
+
+
 ### input
 ### output
 ### knob
