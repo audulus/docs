@@ -1217,7 +1217,61 @@ You need to calculate the coefficient inputs separately from the node using `exp
 
 
 ### low-pass
+
+<img src="img/nodes_reference/dsp/low-pass/low-pass_node.png"
+alt="low-pass node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+`alpha` | `mod`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `low pass` node is a simple non-resonant `6dB/oct` low-pass filter. The `alpha` input is the smoothing factor where `1 = no filtering` and `0 = maximum filtering`. 
+
+<br>
+
+---
+
+
 ### high-pass
+
+<img src="img/nodes_reference/dsp/high-pass/high-pass_node.png"
+alt="high-pass node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+`alpha` | `mod`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `low pass` node is a simple non-resonant `6dB/oct` high-pass filter. The `alpha` input is the smoothing factor where `1 = maximum filtering` and `0 = no filtering`. 
+
+<br>
+
+---
+
+
 ### delay line
 ### dc blocker
 ### sample rate
