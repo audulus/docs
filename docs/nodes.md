@@ -1051,6 +1051,58 @@ width="400"/>
 
 
 ### mapper
+
+<img src="img/nodes_reference/level/mapper/mapper_node.png"
+alt="mapper node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `mod`
+
+out | signal
+:-- | :--
+`out` | `mod` [^5]
+
+[^5]: The output of the `mapper` node can overshoot the maximum and minimum of the `mod` signal by `~0.12`.
+
+control | description
+:-- | :--
+`mapper` | move one of three breakpoints up or down to shape curve
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `mapper` node allows you to change the response of an incoming modulation signal depending on the curve drawn in the node's field.
+
+Below are some of the possible shapes you can draw using the mapper node.
+
+<img src="img/nodes_reference/level/mapper/mapper_shapes.png"
+alt="mapper shapes"
+width="400"/>
+
+The coordinate system determining the output is `(in, line)`. The bottom left of the field is `(0, 0)` and the top right is `(1, 1)`. The output of the node is the `y` value of the line given `x` input.
+
+The image below shows how the different shapes transform the incoming saw LFO.
+
+<img src="img/nodes_reference/level/mapper/mapper_lfo.png"
+alt="mapper lfo"
+width="400"/>
+
+As you can see in the above image, the mapper node can overshoot the modulation signal. This exception is a maximum of approximately `+/- 0.12`.
+
+<img src="img/nodes_reference/level/mapper/mapper_overshoot.png"
+alt="mapper overshoot"
+width="400"/>
+
+<br>
+
+---
+
+
 ### env follow
 
 
