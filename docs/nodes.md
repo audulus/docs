@@ -1634,9 +1634,13 @@ The `adsr` node outputs an envelope when the `gate` input is held `high`.
 
 The `a` input is the attack time, `d` is decay time, `s` is sustain level, and `r` is release time.
 
-As long as the `gate` input is held `high`, the output of the `envelope` node increases from `0` to `gate height` for `a` seconds, decreases to the `s` level over `d` seconds, then once the gate goes `low`, decreases from the `s` level back to `0` over `r` seconds.
+As long as the `gate` input is held `high`, the output of the `envelope` node increases from `0` to `gate height` over `a` seconds, decreases to the `s` level over `d` seconds, then once the gate goes `low`, decreases from the `s` level back to `0` over `r` seconds.
 
 Below you can see the `envelope` node going through its full cycle.
+
+<img src="img/nodes_reference/synth/adsr/adsr_cycle.png"
+alt="adsr cycle"
+width="400"/>
 
 
 <br>
