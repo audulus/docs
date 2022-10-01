@@ -1301,6 +1301,32 @@ The `delay line` node delays an incoming signal by a set number of seconds, dete
 
 
 ### dc blocker
+
+<img src="img/nodes_reference/dsp/dc_blocker/dc_blocker_node.png"
+alt="dc blocker node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `audio`
+
+out | signal
+:-- | :--
+`out` | `audio`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `dc blocker` node removes any DC offset from an `audio` signal. 
+
+<br>
+
+---
+
+
 ### sample rate
 ### resample
 ### memory
