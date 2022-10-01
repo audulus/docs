@@ -22,7 +22,7 @@ Wires can go from any output anywhere to any input anywhere: up, down, left, or 
 
 Nodes send and receive signals through wires. Every signal is a number. [^1] Although all signals are numbers, there are several categories of signals. These categories are defined by their range, unit, and how they are used.
 
-[^1]: Audulus signals are signed 32-bit floats
+[^1]: Audulus signals are signed 32-bit floats.
 
 The table below describes every type of signal that nodes use.
 
@@ -1104,6 +1104,32 @@ width="400"/>
 
 
 ### env follow
+
+<img src="img/nodes_reference/level/env_follow/env_follow_node.png"
+alt="env follow node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `audio`
+
+out | signal
+:-- | :--
+`out` | `mod` [^6]
+
+[^6]: In most cases, the `env follow` node is used to extract an amplitude envelope of an `audio` signal, and `abs(audio) = mod`. However, in reality the `env follow` node outputs `abs(any)` with some minor filtering to smooth transitions between samples.
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `env follow` node extracts an envelope from an incoming audio signal and transforms it into a modulation signal. It does this by taking the absolute value of the incoming signal and applying a small amount of filtering to smooth transitions between samples.
+
+<br>
+
+---
 
 
 
