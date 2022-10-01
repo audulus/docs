@@ -1328,6 +1328,28 @@ The `dc blocker` node removes any DC offset from an `audio` signal.
 
 
 ### sample rate
+
+<img src="img/nodes_reference/dsp/sample_rate/sample_rate_node.png"
+alt="sample rate node"
+width="200"/>
+
+out | signal
+:-- | :--
+`sample rate` | `Hz`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `sample rate` node outputs the current sample rate in `Hz`.
+
+<br>
+
+---
+
+
 ### resample
 ### memory
 
