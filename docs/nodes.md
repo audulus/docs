@@ -1273,6 +1273,33 @@ The `low pass` node is a simple non-resonant `6dB/oct` high-pass filter. The `al
 
 
 ### delay line
+
+<img src="img/nodes_reference/dsp/delay_line/delay_line_node.png"
+alt="delay line node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+`time` | `seconds`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `delay line` node delays an incoming signal by a set number of seconds, determined by the value at the `time` input.
+
+<br>
+
+---
+
+
 ### dc blocker
 ### sample rate
 ### resample
