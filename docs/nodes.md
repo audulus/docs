@@ -969,7 +969,7 @@ When the `trigger` input goes high, the signal present at the `value` input is s
 ### trigger
 
 <img src="img/nodes_reference/midi/trigger/trigger_node.png"
-alt="cc send node"
+alt="trigger node"
 width="200"/>
 
 control | description
@@ -990,7 +990,66 @@ The `trigger` node outputs a gate when its button is pressed. The button can be 
 
 
 ## level
+
+**description**
+
+The `level` nodes are tools helpful for manipulating the level of a signal.
+
+- You can create custom lines with the `spline` node and trace over them to output a continuous series of custom values.
+- The `mapper` node allows you to shape the response curve of a knob or signal moving through it.
+- The `env follow` node traces the loudness envelope of an incoming signal and outputs it as a `mod` signal.
+
+<br>
+
+---
+
+
 ### spline
+
+<img src="img/nodes_reference/level/spline/spline_node.png"
+alt="spline node"
+width="400"/>
+
+input | signal
+:-- | :--
+`in` | `mod`
+
+out | signal
+:-- | :--
+`out` | `mod`
+
+
+control | description
+:-- | :--
+`spline` | create breakpoints to draw spline
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `spline` node allows you to draw a line using two or more breakpoints and then trace over that line using a `mod` input.
+
+Breakpoints are added by double clicking or tapping on the blank field inside the node. Once created, they can be dragged around anywhere inside of the field.
+
+<img src="img/nodes_reference/level/spline/spline_draw.png"
+alt="spline draw"
+width="400"/>
+
+The coordinate system determining the output is `(in, line)`. The bottom left of the field is `(0, 0)` and the top right is `(1, 1)`. The output of the node is the `y` value of the line given `x` input.
+
+In the example below, identical spline nodes are driven by two different LFO shapes. The top is a saw wave and the bottom is a triangle wave.
+
+<img src="img/nodes_reference/level/spline/spline_lfo.png"
+alt="spline lfo"
+width="400"/>
+
+<br>
+
+---
+
+
 ### mapper
 ### env follow
 
