@@ -1132,8 +1132,26 @@ The `env follow` node extracts an envelope from an incoming audio signal and tra
 ---
 
 
-
 ## dsp
+
+**description**
+
+DSP is an acronym that means digital signal processing. The `dsp` nodes are essentials for creating filters and manipulating signals at a conceptually low level.
+
+- The `unit delay` node delays a signal by a single sample.
+- The `biquad` node is a building block for creating custom biquad filters.
+- The `low-pass` and `high-pass` nodes are conveniently packaged, non-resonant filters.
+- The `delay line` node can delay a signal up to 20 seconds.
+- The `dc blocker` node prevents a signal with a DC-offset from harming speakers.
+- The `sample rate` node outputs the current sample rate, useful in many calculations where the precise sample rate is needed.
+- The `resample` node allows you to up- and then down-sample a signal to run certain parts of a module at a higher sample rate.
+- The `memory` node allows you to record, playback, and import audio or control signals.
+
+<br>
+
+---
+
+
 ### unit delay
 ### biquad
 ### low-pass
