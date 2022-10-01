@@ -1370,15 +1370,17 @@ exposable | ❌
 
 **description**
 
-The `resample` node lets you run a portion of a patch at a higher sample rate.
+The `resample` node lets you run a portion of a patch at a higher sample rate, also known as supersampling.
 
-In the `inspector` you can choose from different multiples of the base sample rate from `x1` to `x16`. Higher sample rates use more CPU time.
+In the `inspector` you can choose from different multiples of the base sample rate from `1x` to `16x`. Higher sample rates use more CPU time.
 
 <img src="img/nodes_reference/dsp/resample/resample_inspector.png"
 alt="resample inspector"
 width="200"/>
 
-To properly use the `resample` node, you have to have two `resample` nodes, one to mark where you want to begin supersampling and one to mark where you want to downsample back to the original sample rate, as well as a pre-downsampling low-pass filter.
+For example, given a base sample rate of `44.1kHz`, `4x` sample rate would be `176.4kHz`.
+
+To properly use the `resample` node, you have to have two `resample` nodes in your patch, one to mark where you want to begin supersampling and one to mark where you want to downsample back to the original sample rate, as well as a pre-downsampling low-pass filter with a cutoff set to half the base sample rate.
 
 <img src="img/nodes_reference/dsp/resample/resample_example.png"
 alt="resample example"
