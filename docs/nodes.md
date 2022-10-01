@@ -1649,6 +1649,21 @@ width="800"/>
 
 
 ## module
+
+**description**
+
+The `module` nodes important elements for creating `modules` and `submodules`.
+
+- The `module` node encases nodes into a `module` or `submodule`.
+- The `input` and `output` nodes allow signals to flow into and out of `modules` and `submodules`.
+- The `knob`, `xy pad`, `slider`, `toggle`, and `touch pad` are all elements you can interact with that you can set up to control what's going inside a `module`.
+
+
+<br>
+
+---
+
+
 ### module
 ### input
 ### output
