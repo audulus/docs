@@ -968,6 +968,25 @@ When the `trigger` input goes high, the signal present at the `value` input is s
 
 ### trigger
 
+<img src="img/nodes_reference/midi/trigger/trigger_node.png"
+alt="cc send node"
+width="200"/>
+
+control | description
+:-- | :--
+`button` | outputs `gate` when pressed
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `trigger` node outputs a gate when its button is pressed. The button can be clicked, tapped, or assigned to an external hardware MIDI signal in MIDI mapping mode.
+
+<br>
+
+---
 
 
 ## level
