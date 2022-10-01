@@ -1351,6 +1351,48 @@ The `sample rate` node outputs the current sample rate in `Hz`.
 
 
 ### resample
+
+<img src="img/nodes_reference/dsp/resample/resample_node.png"
+alt="resample node"
+width="200"/>
+
+in | signal
+:-- | :--
+`in` | `any`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `resample` node lets you run a portion of a patch at a higher sample rate.
+
+In the `inspector` you can choose from different multiples of the base sample rate from `x1` to `x16`. Higher sample rates use more CPU time.
+
+<img src="img/nodes_reference/dsp/resample/resample_inspector.png"
+alt="resample inspector"
+width="200"/>
+
+To properly use the `resample` node, you have to have two `resample` nodes, one to mark where you want to begin supersampling and one to mark where you want to downsample back to the original sample rate, as well as a pre-downsampling low-pass filter.
+
+<img src="img/nodes_reference/dsp/resample/resample_example.png"
+alt="resample example"
+width="800"/>
+
+Nodes that are super-sampled have a multiple in parentheses next to their titles, like `Resample (4x)`.
+
+
+<br>
+
+---
+
+
+
 ### memory
 
 
