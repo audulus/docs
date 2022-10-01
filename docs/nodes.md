@@ -1394,9 +1394,50 @@ Nodes that are super-sampled have a multiple in parentheses next to their titles
 ---
 
 
-
 ### memory
 
+<img src="img/nodes_reference/dsp/memory/memory_node.png"
+alt="memory node"
+width="400"/>
+
+in | signal
+:-- | :--
+`read index` | `any` (positive)
+`write index` | `any` (positive)
+`write value` | `any` 
+`write enable` | `gate` 
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `memory` node can read, write, and store `audio` and control signals. Information is stored in the `memory` node as a series of samples.
+
+The `read index` is the sample number currently outputted, indexed from `0`.
+
+The `write index` is the sample number currently selected to be (over)written, indexed from `0`.
+
+The `write value` is the value of the sample to be written.
+
+The `write enable` input will, if held `high`, write the `write value` to the `write index`.
+
+Reading and writing to the `memory` node can happen at different index values at the same time.
+
+You can also import audio to the memory node. On Mac, you do this by dragging an `.AIFF` or `.WAV` file from a Finder window into the space marked `Drop audio file here`. There is also a check box labeled `Save Data` that, when checked, will save the contents of the `memory` node in between patch loads.
+
+<img src="img/nodes_reference/dsp/memory/memory_inspector.png"
+alt="memory inspector"
+width="200"/>
+
+<br>
+
+---
 
 
 ## synth
