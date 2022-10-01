@@ -1441,6 +1441,22 @@ width="200"/>
 
 
 ## synth
+
+**description**
+
+The `synth` nodes are low-level building blocks specific to audio synthesis.
+
+- The `osc` node outputs one of 4 classic anti-aliased waveshapes.
+- The `phasor` node outputs an un-aliased phasor signal from `0` to `2π` useful for creating custom oscillators
+- The `sample & hold` node can sample an input signal, store it, and hold that value at its output.
+- The `adsr` node generates an envelope according to an incoming `gate` signal.
+
+
+<br>
+
+---
+
+
 ### osc
 ### phasor
 ### sample & hold
