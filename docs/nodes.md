@@ -2318,3 +2318,47 @@ width="800"/>
 
 
 ### spigot
+
+<img src="img/nodes_reference/switch/spigot/spigot_node.png"
+alt="spigot node"
+width="200"/>
+
+in | signal
+:-- | :--
+`active` | `gate`
+`in` | `any`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `spigot` node turns off processing for all nodes to the left of it in the signal path that are not connected to some form of output like a `meter` or `speaker` node.
+
+When the `active` input is `0`, nothing passes, and processing is halted. When the `active` input is `high`, the signal passes and everything is processed normally.
+
+<img src="img/nodes_reference/switch/spigot/spigot_values.png"
+alt="spigot values"
+width="400"/>
+
+Nodes that are not processing show `inactive` next to their name when in `timing mode`. As you can see below, the first `osc` node is shut off by the `spigot` node whereas the second is not.
+
+<img src="img/nodes_reference/switch/spigot/spigot_off_on.png"
+alt="spigot off on"
+width="800"/>
+
+Beware that if you have any kind of `meter` or other type of terminal output node connected to a node or series of nodes that you want to turn off using a spigot node, the node will not turn off.
+
+<img src="img/nodes_reference/switch/spigot/spigot_interrupt.png"
+alt="spigot interrupt"
+width="800"/>
+
+<br>
+
+
+
