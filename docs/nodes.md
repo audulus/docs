@@ -1791,6 +1791,56 @@ width="200"/>
 
 
 ### knob
+
+<img src="img/nodes_reference/module/knob/knob_node.png"
+alt="knob node"
+width="200"/>
+
+out | signal
+:-- | :--
+`out` | `mod`
+
+control | description
+:-- | :--
+`knob` | moved with up/down or left/right motion
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `knob` node is used to modify other nodes. It outputs a `0 to 1` `mod` signal. This signal can be scaled and shaped by `expr`, `mapper`, and `spline` nodes.
+
+There are several options for the `knob` node in the `inspector panel`. You can directly set the `Value`, change the `Style`, `Icon`, color, and `MIDI CC` and `Channel`.
+
+<img src="img/nodes_reference/module/knob/knob_inspector.png"
+alt="knob inspector"
+width="200"/>
+
+There are six `Style` options for the `knob` node that change its shape: `Standard`, `Mini`, `Large`, `Drive`, `Mix`, and `Bipolar`. The three color options are blue, green, and red.
+
+<img src="img/nodes_reference/module/knob/knob_styles.png"
+alt="knob styles"
+width="400"/>
+
+You can also select one of 16 animated `Icon` options: `Cutoff`, `Res`, `Drive`, `Freq`, `Level`, `Offset`, `PW`, `Explog`, `Length`, `Random`, `Density`, `Attack`, `Decay/Release`, `Sustain`, `Waves`.
+
+<img src="img/nodes_reference/module/knob/knob_icons.png"
+alt="knob icons"
+width="800"/>
+
+Wires can be attached directly to knobs. When a wire is attached to a knob, a blue circle appears at the center. The input signal of the wire will be clamped to the `0 to 1` `mod` signal range.
+
+<img src="img/nodes_reference/module/knob/knob_wire.png"
+alt="knob wire"
+width="400"/>
+
+<br>
+
+---
+
+
 ### xy pad
 ### slider
 ### toggle
