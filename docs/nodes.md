@@ -2231,7 +2231,7 @@ The `switch` nodes route signals and turn them on or off.
 alt="mux node"
 width="200"/>
 
-out | signal
+in | signal
 :-- | :--
 `sel` | `any`
 `0` | `any`
@@ -2248,7 +2248,7 @@ exposable | ❌
 
 **description**
 
-The `mux` node routes one of `2` to `256` inputs to a single output according to the `sel` value, indexed from `0`.
+The `mux` node routes one of `2` to `256` inputs to a single output according to the `sel` value, which is indexed from `0`.
 
 In the `inspector panel` you can set the number of inputs.
 
@@ -2256,7 +2256,7 @@ In the `inspector panel` you can set the number of inputs.
 alt="mux inspector"
 width="200"/>
 
-When the `sel` value is equal to or greater than `0` but less than 1, then the `0` input is sent to the output. When the `sel` value is equal to or greater than `1` but less than 2, then the 1 input is sent to the output, and so on.
+When the `sel` value is equal to or greater than `0` but less than `1`, then the `0` input is sent to the output. When the `sel` value is equal to or greater than `1` but less than `2`, then the `1` input is sent to the output, and so on.
 
 If the `sel` value exceeds the number of inputs, then it will wrap around to the beginning. That means a `mux` node with 2 inputs and a `sel` value of `2` will send the `0` input to the output.
 
@@ -2272,4 +2272,49 @@ width="800"/>
 
 
 ### demux
+
+<img src="img/nodes_reference/switch/demux/demux_node.png"
+alt="demux node"
+width="200"/>
+
+in | signal
+:-- | :--
+`sel` | `any`
+`in` | `any`
+
+out | signal
+:-- | :--
+`0` | `any`
+`1` | `any`
+`...` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `demux` node routes one signal to `2` or up to `256` outputs according to the `sel` value, which is indexed from `0`.
+
+In the `inspector panel` you can set the number of outputs.
+
+<img src="img/nodes_reference/switch/demux/demux_inspector.png"
+alt="demux inspector"
+width="200"/>
+
+When the `sel` value is equal to or greater than `0` but less than `1`, then the input is sent to the `0` output. When the `sel` value is equal to or greater than `1` but less than `2`, then the input is sent to the `1` output, and so on.
+
+If the `sel` value exceeds the number of outputs, then it will wrap around to the beginning. That means a `demux` node with 2 outputs and a `sel` value of `2` will send the input to the `0` output.
+
+If the `sel` value is negative, the selection wraps around backwards. So a `demux` node with 2 inputs and a `sel` value of `-1` will send the input to the `1` output.
+
+<img src="img/nodes_reference/switch/demux/demux_values.png"
+alt="demux values"
+width="800"/>
+
+<br>
+
+---
+
+
 ### spigot
