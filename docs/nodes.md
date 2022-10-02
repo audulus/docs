@@ -1730,9 +1730,66 @@ width="800"/>
 ---
 
 
-
 ### input
+
+<img src="img/nodes_reference/module/input/input_node.png"
+alt="input node"
+width="200"/>
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `input` node is used to get signals into a `module` node. It must be placed inside the `module` node. 
+
+It can be renamed in the `inspector panel`.
+
+<img src="img/nodes_reference/module/input/input_inspector.png"
+alt="input inspector"
+width="200"/>
+
+
+<br>
+
+---
+
+
 ### output
+
+<img src="img/nodes_reference/module/output/output_node.png"
+alt="output node"
+width="200"/>
+
+in | signal
+:-- | :--
+`in` | `any`
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `output` node is used to get signals out of a `module` node. It must be placed inside the `module` node. 
+
+It can be renamed in the `inspector panel`.
+
+<img src="img/nodes_reference/module/output/output_inspector.png"
+alt="input inspector"
+width="200"/>
+
+
+<br>
+
+---
+
+
 ### knob
 ### xy pad
 ### slider
