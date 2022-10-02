@@ -1802,7 +1802,7 @@ out | signal
 
 control | description
 :-- | :--
-`knob` | moved with up/down or left/right motion
+`knob` | move with up/down or left/right motion
 
 exposable | ✅ automatic
 :-- | :--
@@ -1842,7 +1842,53 @@ width="400"/>
 
 
 ### xy pad
+
+<img src="img/nodes_reference/module/xy_pad/xy_pad_node.png"
+alt="xy pad node"
+width="200"/>
+
+out | signal
+:-- | :--
+`x` | `mod`
+`y` | `mod`
+
+control | description
+:-- | :--
+`xy pad` | click or tap anywhere on field
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `xy pad` node outputs two `mod` signals that correspond to the `(x, y)` coordinates of where you click or touch. This point is marked by a colored dot.
+
+<img src="img/nodes_reference/module/xy_pad/xy_pad_values.png"
+alt="xy pad values"
+width="400"/>
+
+In the `inspector panel` you can change the `Size` of the node and its color.
+
+<img src="img/nodes_reference/module/xy_pad/xy_pad_inspector.png"
+alt="xy pad inspector"
+width="200"/>
+
+You can make the node smaller, larger, or rectangular.
+
+<img src="img/nodes_reference/module/xy_pad/xy_pad_size.png"
+alt="xy pad size"
+width="400"/>
+
+
+
+<br>
+
+---
+
+
 ### slider
+
 ### toggle
 ### touch pad
 
