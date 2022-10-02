@@ -32,6 +32,7 @@ signal | range
 `audio` | `-1 to 1`[^2]
 `gate` | `0 or high` where `high` is any non-zero positive 32-bit number.
 `hz`| `0 to sampleRate/2`[^3]
+`integer` | an integer value
 `midi value` | integers `0 to 127`
 `mod`| `0 to 1`
 `seconds` | `0 to 2^32-1`
@@ -2078,13 +2079,13 @@ width="200"/>
 
 in | signal
 :-- | :--
-`0` | `any`
-`1` | `any`
-`...` | `any`
+`in` | `any`
 
 out | signal
 :-- | :--
-`out` | `any`
+`0` | `any`
+`1` | `any`
+`...` | `any`
 
 exposable | ❌
 :-- | :--
@@ -2111,9 +2112,103 @@ width="400"/>
 
 
 ### poly mix
+
+<img src="img/nodes_reference/poly/poly_mix/poly_mix_node.png"
+alt="poly mix node"
+width="200"/>
+
+in | signal
+:-- | :--
+`0` | `any`
+`1` | `any`
+`...` | `any`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `split` node takes a poly signal and splits it into `1` to `256` mono signals.
+
+In the `inspector panel` you can set the number of `Channels`.
+
+<img src="img/nodes_reference/poly/split/split_inspector.png"
+alt="split inspector"
+width="200"/>
+
+<img src="img/nodes_reference/poly/split/split_values.png"
+alt="split values"
+width="400"/>
+
+
+<br>
+
+---
+
+
 ### channel index
+
+<img src="img/nodes_reference/poly/channel_index/channel_index_node.png"
+alt="channel index node"
+width="200"/>
+
+out | signal
+:-- | :--
+`out` | `integers 1 - 256`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `channel index` node creates a signal with `1` to `256` channels where each channel is an integer index number that is indexed from `0`.
+
+In the `inspector panel` you can set the number of `Channels`.
+
+<img src="img/nodes_reference/poly/channel_index/channel_index_inspector.png"
+alt="channel index inspector"
+width="200"/>
+
+<img src="img/nodes_reference/poly/channel_index/channel_index_values.png"
+alt="channel index values"
+width="400"/>
+
+<br>
+
+---
+
+
 ### channel count
 
+<img src="img/nodes_reference/poly/channel_count/channel_count_node.png"
+alt="channel count node"
+width="200"/>
+
+out | signal
+:-- | :--
+`out` | `integers 1 - 256`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `channel count` node outputs the number of channels in a signal as an integer.
+
+<img src="img/nodes_reference/poly/channel_count/channel_count_values.png"
+alt="channel count values"
+width="400"/>
+
+<br>
+
+---
 
 
 ## switch
