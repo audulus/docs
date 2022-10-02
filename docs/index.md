@@ -40,7 +40,41 @@ When you open a new `patch` in Audulus, you are presented with a blank `canvas`.
 alt="An empty Audulus patch"
 width="800"/>
 
+For starters, we'll create a `text` node using the `node browser` in the bottom left corner of the `canvas`. Simply drag the `text` node from the browser anywhere onto the canvas.
 
+<img src="img/index/overview/text_node.png"
+alt="A patch with a single text node in it"
+width="800"/>
+
+Select the text node and open the `inspector panel` by clicking or tapping on the top right icon in the menu bar. When you open it, you should see a field where you can write text. Select the field and type `Hello world!`
+
+<img src="img/index/overview/text_node_inspector.png"
+alt="A text node selected with an open inspector panel"
+width="800"/>
+
+When you do that, the text will probably look like this:
+
+<img src="img/index/overview/hello_world_column.png"
+alt="A 'Hello world!' message that is incorrectly formatted"
+width="200"/>
+
+To resize the `text` node, drag the blue ball at the bottom of the node to the right until the whole message can be read on one line.
+
+<img src="img/index/overview/hello_world_fixed.png"
+alt="A 'Hello world!' message that is correctly formatted"
+width="200"/>
+
+To duplicate a node, simply select it and then copy and paste it.
+
+<img src="img/index/overview/hello_world_duplicate.png"
+alt="One node has been copy and pasted to create a duplicate"
+width="200"/>
+
+Now try selecting both nodes at once using the lasso. Click or tap on a blank space in the `canvas` and drag around the nodes to select them.
+
+<img src="img/index/overview/lasso.png"
+alt="A demonstration of the lasso used to select two text nodes"
+width="200"/>
 
 
 
