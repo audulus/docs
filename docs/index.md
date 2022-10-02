@@ -1,4 +1,50 @@
-<img src="img/Audulus_logo.svg" style="width: 200px;"/>
+<img src="img/index/title/Audulus_logo.svg"
+alt="Audulus logo"
+width="200"/>
+
+# welcome to audulus
+
+Audulus is a modular synthesizer visual programming environment built for iPad, iPhone, and Mac.
+
+With Audulus, you can build synthesizers from first principles, design new sounds, or process audio with real-time, low-latency processing suitable for live performance.
+
+**Developer:** Taylor Holliday  
+**Module Library & Documentation:** Mark Boyd
+
+<a href="#quick-start-guide">`quick start guide`</a>: get up and running as quickly as possible  
+<a href="#quick-start-guide">`overview`</a>: learn about Audulus' UI and workflow
+
+
+## help & support
+
+To get help understanding Audulus or building something, go to the [Audulus Discord](https://discord.gg/DyVNeBhK2b) or the [Audulus Forum](https://forum.audulus.com).
+
+For support-related requests, email:
+
+<img src="img/index/help_and_support/support_email.png"
+alt="support at audulus dot com"
+width="200"/>
+
+
+## quick start guide
+
+
+
+## overview
+
+An Audulus file is called a `patch`. The `canvas` is the area in which you create `patches`.
+
+When you open a new `patch` in Audulus, you are presented with a blank `canvas`. If there is nothing in the `canvas`, you'll see `Empty patch` written in the middle.
+
+<img src="img/index/overview/empty_patch.png"
+alt="An empty Audulus patch"
+width="800"/>
+
+
+
+
+
+<!--<img src="img/Audulus_logo.svg" style="width: 200px;"/>
 
 *Welcome to Audulus!*
 
@@ -165,3 +211,4 @@ The Audulus Audio Unit will appear under the manufacturer name
 Audulus.app must be present in the Applications folder for the Audio Unit to work.
 
 
+-->
