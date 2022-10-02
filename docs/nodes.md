@@ -1266,7 +1266,7 @@ exposable | ❌
 
 **description**
 
-The `low pass` node is a simple non-resonant `6dB/oct` high-pass filter. The `alpha` input is the smoothing factor where `1 = maximum filtering` and `0 = no filtering`. 
+The `high pass` node is a simple non-resonant `6dB/oct` high-pass filter. The `alpha` input is the smoothing factor where `1 = maximum filtering` and `0 = no filtering`. 
 
 <br>
 
@@ -2212,6 +2212,64 @@ width="400"/>
 
 
 ## switch
+
+**description**
+
+The `switch` nodes route signals and turn them on or off.
+
+- The `mux` node sends one of several inputs to one output while the `demux` node sends one input to several outputs.
+- The `spigot` node allows you to turn off a section of a patch to prevent it from wasting CPU time when not needed.
+
+<br>
+
+---
+
+
 ### mux
+
+<img src="img/nodes_reference/switch/mux/mux_node.png"
+alt="mux node"
+width="200"/>
+
+out | signal
+:-- | :--
+`sel` | `any`
+`0` | `any`
+`1` | `any`
+`...` | `any`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `mux` node routes one of `2` to `256` inputs to a single output according to the `sel` value, indexed from `0`.
+
+In the `inspector panel` you can set the number of inputs.
+
+<img src="img/nodes_reference/switch/mux/mux_inspector.png"
+alt="mux inspector"
+width="200"/>
+
+When the `sel` value is equal to or greater than `0` but less than 1, then the `0` input is sent to the output. When the `sel` value is equal to or greater than `1` but less than 2, then the 1 input is sent to the output, and so on.
+
+If the `sel` value exceeds the number of inputs, then it will wrap around to the beginning. That means a `mux` node with 2 inputs and a `sel` value of `2` will send the `0` input to the output.
+
+If the `sel` value is negative, the selection wraps around backwards. So a `mux` node with 2 inputs and a `sel` value of `-1` will send the `1` input to the output.
+
+<img src="img/nodes_reference/switch/mux/mux_values.png"
+alt="mux values"
+width="800"/>
+
+<br>
+
+---
+
+
 ### demux
 ### spigot
