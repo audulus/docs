@@ -1931,8 +1931,87 @@ width="200"/>
 
 
 ### toggle
+
+<img src="img/nodes_reference/module/toggle/toggle_node.png"
+alt="toggle node"
+width="200"/>
+
+out | signal
+:-- | :--
+`out` | `gate`
+
+control | description
+:-- | :--
+`toggle switch` | click or tap to switch
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `toggle` node outputs a `0 or 1` gate signal. When the switch is set to the left, the output is `0`, and when it's set to the right, it is `1`.
+
+In the `inspector panel` you can set the color of the switch as blue, green, or red.
+
+<img src="img/nodes_reference/module/toggle/toggle_inspector.png"
+alt="toggle inspector"
+width="200"/>
+
+<img src="img/nodes_reference/module/toggle/toggle_colors.png"
+alt="toggle colors"
+width="200"/>
+
+
+<br>
+
+---
+
+
 ### touch pad
 
+<img src="img/nodes_reference/module/touch_pad/touch_pad_node.png"
+alt="touch pad node"
+width="200"/>
+
+out | signal
+:-- | :--
+`x` | `mod`
+`y` | `mod`
+`touch` | `gate`
+
+control | description
+:-- | :--
+`touch pad` | click or tap anywhere on field
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `touch pad` node outputs two `mod` signals that correspond to the `(x, y)` coordinates of where you click or touch. This point is marked by a blue circle.
+
+<img src="img/nodes_reference/module/touch_pad/touch_pad_values.png"
+alt="touch pad values"
+width="400"/>
+
+In the `inspector panel` you can change the `Size` of the node and the number of `Channels` (for iOS multitouch).
+
+<img src="img/nodes_reference/module/touch_pad/touch_pad_inspector.png"
+alt="touch pad inspector"
+width="200"/>
+
+You can make the node smaller, larger, or rectangular.
+
+<img src="img/nodes_reference/module/touch_pad/touch_pad_size.png"
+alt="xy pad size"
+width="400"/>
+
+
+<br>
+
+---
 
 
 ## poly
