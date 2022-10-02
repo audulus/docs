@@ -2015,8 +2015,101 @@ width="400"/>
 
 
 ## poly
+
+**description**
+
+The `poly` nodes help create and manage polyphonic signals.
+
+- The `combine` and `split` nodes allow you to merge several mono signals together and then take them back apart.
+- The `poly mix` node takes a poly signal and mixes it down to a mono signal.
+- The `channel index` node outputs a poly signal of integers indexed from `0`.
+- The `channel count` node outputs the current number of polyphony at its input.
+
+<br>
+
+---
+
+
 ### combine
+
+<img src="img/nodes_reference/poly/combine/combine_node.png"
+alt="combine node"
+width="200"/>
+
+in | signal
+:-- | :--
+`0` | `any`
+`1` | `any`
+`...` | `any`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `combine` node takes from `2` up to `256` mono signals and combines them into one polyphonic signal.
+
+In the `inspector panel` you can set the number of channels.
+
+<img src="img/nodes_reference/poly/combine/combine_inspector.png"
+alt="combine inspector"
+width="200"/>
+
+<img src="img/nodes_reference/poly/combine/combine_values.png"
+alt="combine values"
+width="400"/>
+
+
+<br>
+
+---
+
+
 ### split
+
+<img src="img/nodes_reference/poly/split/split_node.png"
+alt="split node"
+width="200"/>
+
+in | signal
+:-- | :--
+`0` | `any`
+`1` | `any`
+`...` | `any`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `split` node takes a poly signal and splits it into `1` to `256` mono signals.
+
+In the `inspector panel` you can set the number of channels.
+
+<img src="img/nodes_reference/poly/split/split_inspector.png"
+alt="split inspector"
+width="200"/>
+
+<img src="img/nodes_reference/poly/split/split_values.png"
+alt="split values"
+width="400"/>
+
+
+<br>
+
+---
+
+
 ### poly mix
 ### channel index
 ### channel count
