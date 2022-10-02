@@ -1881,13 +1881,54 @@ alt="xy pad size"
 width="400"/>
 
 
-
 <br>
 
 ---
 
 
 ### slider
+
+<img src="img/nodes_reference/module/slider/slider_node.png"
+alt="slider node"
+width="200"/>
+
+out | signal
+:-- | :--
+`out` | `mod`
+
+control | description
+:-- | :--
+`slider` | click or tap to move up or down
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `slider` node is used to modify other nodes. It outputs a `0 to 1` `mod` signal. This signal can be scaled and shaped by `expr`, `mapper`, and `spline` nodes.
+
+When the `slider` node is zeroed (turned all the way down) a square appears in the center of the small circle.
+
+<img src="img/nodes_reference/module/slider/slider_zeroed.png"
+alt="slider node"
+width="400"/>
+
+In the `inspector panel` you can change the color of the slider to blue, green, or red, and assign `MIDI CC` and `Channel`.
+
+<img src="img/nodes_reference/module/slider/slider_inspector.png"
+alt="slider inspector"
+width="200"/>
+
+<img src="img/nodes_reference/module/slider/slider_colors.png"
+alt="slider colors"
+width="200"/>
+
+
+<br>
+
+---
+
 
 ### toggle
 ### touch pad
