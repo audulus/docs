@@ -8,12 +8,27 @@ Audulus is a modular synthesizer visual programming environment built for iPad a
 
 With Audulus, you can build synthesizers from first principles, design new sounds, or process audio with real-time, low-latency processing suitable for live performance.
 
-**Developer:** Taylor Holliday  
-**Module Library & Documentation:** Mark Boyd
-
 <a href="#quick-start-guide">`quick start guide`</a> get started using Audulus as quickly as possible  
 <a href="#overview">`overview`</a> read a concise explanation of Audulus' user interface and features  
 <a href="#walkthrough">`walkthrough`</a> learn everything about Audulus' user interface and workflow step by step
+
+**Engineering**  
+W. Taylor Holliday  
+Bas Alphenaar  
+Mike Lee  
+
+**Design**  
+W. Taylor Holliday  
+Hannes Pasqualini / Papernoise  
+
+**Patch Design**  
+Hannes Pasqualini / Papernoise  
+Mark Boyd  
+Jody Golick  
+
+**Documentation**  
+Mark Boyd  
+
 
 <br>
 
@@ -182,7 +197,7 @@ width="200"/>
 alt="The search bar, located in the center of the menu bar"
 width="400"/>
 
---
+---
 
 `tag menu` allows you to filter modules by tags.
 
@@ -202,6 +217,16 @@ width="50"/>
 <br>
 
 ---
+
+### 3. Mac Menu Options
+
+This section describes the Mac system menu bar for Audulus. Only Audulus-specific menu options will be mentioned.
+
+
+Menu | Item | Description
+:-- | :-- | :--
+`Audulus 4` ||
+`File` ||
 
 
 ## walkthrough
