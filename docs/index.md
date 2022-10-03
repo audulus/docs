@@ -66,7 +66,7 @@ width="400"/>
 
 ---
 
-`menu bar` displays the name of the patch and holds buttons for modes and 
+`menu bar` displays the name of the patch and holds function buttons 
 
 <img src="img/index/overview/user_interface/menu_bar.png"
 alt="The menu bar, located at the top of the window"
@@ -236,7 +236,7 @@ This section describes the Mac system menu bar for Audulus. Only Audulus-specifi
 - `Group` `⌘ G` groups selected nodes into a module.  
 - `Send to Back` `^ ⌥ ⌘ ▾` when nodes are stacked on one another, will send the top node behind all the others.  
 - `Snap to Grid` `⌘ '` reveals the coordinate grid and makes nodes and modules snap to it.  
-- `Edit Modules` `⌘ E` toggles `edit module mode`
+- `Edit Modules` `⌘ E` toggles `edit module mode`.
 
 **View**  
 - `Exit Module` `⌘ ⎋` exits the current module node.  
