@@ -53,9 +53,9 @@ width="400"/>
 
 `menu bar` displays the name of the patch and holds buttons for modes and 
 
-<img src="img/index/overview/user_interface/patch_name.png"
-alt="The patch name, located in the upper left of the window"
-width="100"/>
+<img src="img/index/overview/user_interface/menu_bar.png"
+alt="The menu bar, located at the top of the window"
+width="800"/>
 
 --
 
