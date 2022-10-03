@@ -49,7 +49,7 @@ width="200"/>
 alt="A blank canvas UI"
 width="400"/>
 
---
+---
 
 `menu bar` displays the name of the patch and holds buttons for modes and 
 
@@ -57,7 +57,7 @@ width="400"/>
 alt="The menu bar, located at the top of the window"
 width="800"/>
 
---
+---
 
 `patch name` the name of your patch
 
@@ -65,7 +65,7 @@ width="800"/>
 alt="The patch name, located in the upper left of the window"
 width="100"/>
 
---
+---
 
 `midi assign mode` used to pair `knob`, `slider`, and `trigger` nodes with external MIDI devices.
 
@@ -73,7 +73,7 @@ width="100"/>
 alt="MIDI assign mode button, located in the upper right of the window"
 width="400"/>
 
---
+---
 
 `edit module mode` allows you to move UI elements around a `module` node.
 
@@ -81,7 +81,7 @@ width="400"/>
 alt="Edit module mode button, located in the upper right of the window"
 width="400"/>
 
---
+---
 
 `timing mode` shows the percentage of total CPU time each node or module of a patch is using.
 
@@ -89,7 +89,7 @@ width="400"/>
 alt="Timing mode button, located in the upper right of the window"
 width="400"/>
 
---
+---
 
 `mute` starts and stops patch processing.
 
@@ -97,7 +97,7 @@ width="400"/>
 alt="Mute button, located in the upper right of the window"
 width="400"/>
 
---
+---
 
 `add module` opens the `module browser`.
 
@@ -105,7 +105,7 @@ width="400"/>
 alt="The add module button, located in the upper right of the window"
 width="400"/>
 
---
+---
 
 `inspector` opens the `inspector panel`.
 
@@ -113,7 +113,7 @@ width="400"/>
 alt="The inspector button, located in the upper right of the window"
 width="400"/>
 
---
+---
 
 `node browser` the panel from which you can drag and drop nodes onto the canvas.
 
@@ -121,7 +121,7 @@ width="400"/>
 alt="The node browser, located in the bottom right of the window"
 width="400"/>
 
---
+---
 
 `cpu meter` tracks the current percentage of your CPU that Audulus is using.
 
@@ -129,7 +129,7 @@ width="400"/>
 alt="The CPU meter, located in the bottom left of the window"
 width="100"/>
 
---
+---
 
 `inspector panel` context-dependent information and attributes of nodes, modules, and the patch.
 
@@ -137,7 +137,7 @@ width="100"/>
 alt="The inspector panel appears on the right side of the window"
 width="800"/>
 
---
+---
 
 `elided options` when working in windowed mode and the window is too small to display all of the menu items, the elided options button appears and allows you to access the remaining menu items.
 
@@ -158,7 +158,7 @@ width="50"/>
 alt="The module browser appears over the canvas"
 width="800"/>
 
---
+---
 
 `default library tab` displays the default module library.
 
@@ -166,7 +166,7 @@ width="800"/>
 alt="The default library tab, located in the center of the menu bar"
 width="200"/>
 
---
+---
 
 `user library tab` displays the user module library.
 
@@ -174,7 +174,7 @@ width="200"/>
 alt="The user library tab, located in the center of the menu bar"
 width="200"/>
 
---
+---
 
 `search bar` allows you to search for modules by name.
 
@@ -190,7 +190,7 @@ width="400"/>
 alt="The tag menu, located on the right side of the menu bar"
 width="200"/>
 
---
+---
 
 `close module browser` closes the module browser.
 
