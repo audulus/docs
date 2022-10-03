@@ -218,15 +218,38 @@ width="50"/>
 
 ---
 
-### 3. Mac Menu Options
+### 3. mac menu options and preferences
 
 This section describes the Mac system menu bar for Audulus. Only Audulus-specific menu options will be mentioned.
 
 
-Menu | Item | Description
-:-- | :-- | :--
-`Audulus 4` ||
-`File` ||
+`Audulus 4`  
+\> `About Audulus 4` credits and current version of the application.  
+\> `Open Modules Folder` opens the folder where you can place modules that will appear in your `user library`.  
+\> `Preferences...` opens the Preferences window.
+
+`File`  
+\> `Revert To >`
+
+`Edit`  
+\> `Add Module`  
+\> `Group`  
+\> `Send to Back`  
+\> `Snap to Grid`  
+\> `Edit Modules`  
+
+`View`  
+\> `Exit Module`  
+\> `Zoom to Fit`  
+\> `Actual Size`  
+\> `Zoom In`  
+\> `Zoom Out`  
+\> `Show Inspector`  
+
+`Help`  
+\> `Search`  
+\> `Audulus Documentation`  
+\> `Audulus Forum`  
 
 
 ## walkthrough
