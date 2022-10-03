@@ -4,77 +4,112 @@ width="200"/>
 
 # welcome to audulus
 
-Audulus is a modular synthesizer visual programming environment built for iPad, iPhone, and Mac.
+Audulus is a modular synthesizer visual programming environment built for iPad and Mac.
 
 With Audulus, you can build synthesizers from first principles, design new sounds, or process audio with real-time, low-latency processing suitable for live performance.
 
 **Developer:** Taylor Holliday  
 **Module Library & Documentation:** Mark Boyd
 
-<a href="#quick-start-guide">`quick start guide`</a>: get up and running as quickly as possible  
-<a href="#quick-start-guide">`overview`</a>: learn about Audulus' UI and workflow
+<a href="#quick-start-guide">`quick start guide`</a> get started using Audulus as quickly as possible  
+<a href="#overview">`overview`</a> read a concise explanation of Audulus' user interface and features  
+<a href="#walkthrough">`walkthrough`</a> learn everything about Audulus' user interface and workflow step by step
 
+<br>
 
 ## help & support
 
 To get help understanding Audulus or building something, go to the [Audulus Discord](https://discord.gg/DyVNeBhK2b) or the [Audulus Forum](https://forum.audulus.com).
 
-For support-related requests, email:
+For support-related requests, send us an email.
 
 <img src="img/index/help_and_support/support_email.png"
 alt="support at audulus dot com"
 width="200"/>
 
+<br>
+
 
 ## quick start guide
 
+### 1. sequencer-driven patch
+### 2. keyboard-controlled synth
+### 3. AU effect setup
+
+<br>
 
 
 ## overview
+
+### 1. user interface
+
+`canvas` The canvas is the blank, black area of an Audulus window in which patching takes place. 
+
+<img src="img/index/overview/canvas.png"
+alt="support at audulus dot com"
+width="200"/>
+
+### 2. signals
+### 3. nodes
+### 4. modules & submodules
+### 5. list of shortcuts
+
+<br>
+
+
+## walkthrough
+
+This walkthrough will take you through every aspect of Audulus one concept at a time.
+
+### 1. hello world!
 
 An Audulus file is called a `patch`. The `canvas` is the area in which you create `patches`.
 
 When you open a new `patch` in Audulus, you are presented with a blank `canvas`. If there is nothing in the `canvas`, you'll see `Empty patch` written in the middle.
 
-<img src="img/index/overview/empty_patch.png"
+<img src="img/index/walkthrough/empty_patch.png"
 alt="An empty Audulus patch"
 width="800"/>
 
 For starters, we'll create a `text` node using the `node browser` in the bottom left corner of the `canvas`. Simply drag the `text` node from the browser anywhere onto the canvas.
 
-<img src="img/index/overview/text_node.png"
+<img src="img/index/walkthrough/text_node.png"
 alt="A patch with a single text node in it"
 width="800"/>
 
 Select the text node and open the `inspector panel` by clicking or tapping on the top right icon in the menu bar. When you open it, you should see a field where you can write text. Select the field and type `Hello world!`
 
-<img src="img/index/overview/text_node_inspector.png"
+<img src="img/index/walkthrough/text_node_inspector.png"
 alt="A text node selected with an open inspector panel"
 width="800"/>
 
 When you do that, the text will probably look like this:
 
-<img src="img/index/overview/hello_world_column.png"
+<img src="img/index/walkthrough/hello_world_column.png"
 alt="A 'Hello world!' message that is incorrectly formatted"
 width="200"/>
 
 To resize the `text` node, drag the blue ball at the bottom of the node to the right until the whole message can be read on one line.
 
-<img src="img/index/overview/hello_world_fixed.png"
+<img src="img/index/walkthrough/hello_world_fixed.png"
 alt="A 'Hello world!' message that is correctly formatted"
 width="200"/>
 
+You can move a node by tapping or clicking on it and dragging it around the canvas.
+
 To duplicate a node, simply select it and then copy and paste it.
 
-<img src="img/index/overview/hello_world_duplicate.png"
+<img src="img/index/walkthrough/hello_world_duplicate.png"
 alt="One node has been copy and pasted to create a duplicate"
 width="200"/>
 
-Now try selecting both nodes at once using the lasso. Click or tap on a blank space in the `canvas` and drag around the nodes to select them.
+Now try selecting both nodes at once using the lasso. Click or tap on a blank space in the `canvas` and drag around the nodes to select them. Once you've selected them try moving them around. This is how you can move multiple nodes at once.
 
-<img src="img/index/overview/lasso.png"
+<img src="img/index/walkthrough/lasso.png"
 alt="A demonstration of the lasso used to select two text nodes"
 width="200"/>
+
+
 
 
 
