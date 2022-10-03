@@ -10,7 +10,7 @@ With Audulus, you can build synthesizers from first principles, design new sound
 
 <a href="#quick-start-guide">`quick start guide`</a> get started using Audulus as quickly as possible  
 <a href="#overview">`overview`</a> read a concise explanation of Audulus' user interface and features  
-<a href="#walkthrough">`walkthrough`</a> learn everything about Audulus' user interface and workflow step by step
+<!--<a href="#walkthrough">`walkthrough`</a> learn everything about Audulus' user interface and workflow step by step-->
 
 **Engineering**  
 W. Taylor Holliday  
@@ -223,36 +223,36 @@ width="50"/>
 This section describes the Mac system menu bar for Audulus. Only Audulus-specific menu options will be mentioned.
 
 
-`Audulus 4`  
-\> `About Audulus 4` credits and current version of the application.  
-\> `Open Modules Folder` opens the folder where you can place modules that will appear in your `user library`.  
-\> `Preferences...` opens the Preferences window.
+**Audulus 4**  
+- `About Audulus 4` credits and current version of the application.  
+- `Open Modules Folder` opens the folder where you can place modules that will appear in your `user library`.  
+- `Preferences...` opens the Preferences window.
 
-`File`  
-\> `Revert To >`
+**File**  
+- `Revert To >` useful function to return your patch to a previous state.
 
-`Edit`  
-\> `Add Module`  
-\> `Group`  
-\> `Send to Back`  
-\> `Snap to Grid`  
-\> `Edit Modules`  
+**Edit**  
+- `Add Module` `⌘ ⏎` opens the module browser.  
+- `Group` `⌘ G` groups selected nodes into a module.  
+- `Send to Back` `^ ⌥ ⌘ ▾` when nodes are stacked on one another, will send the top node behind all the others.  
+- `Snap to Grid` `⌘ '` reveals the coordinate grid and makes nodes and modules snap to it.  
+- `Edit Modules` `⌘ E` toggles `edit module mode`
 
-`View`  
-\> `Exit Module`  
-\> `Zoom to Fit`  
-\> `Actual Size`  
-\> `Zoom In`  
-\> `Zoom Out`  
-\> `Show Inspector`  
+**View**  
+- `Exit Module` `⌘ ⎋` exits the current module node.  
+- `Zoom to Fit` `⌘ F` frames the screen with everything on the `canvas`.   
+- `Actual Size` `⌘ 0` resets zoom level.    
+- `Zoom In` `⌘ +` zooms in by increments.    
+- `Zoom Out` `⌘ -` zooms out by increments.    
+- `Show Inspector` `⌘ ;` toggles inspector panel.    
 
-`Help`  
-\> `Search`  
-\> `Audulus Documentation`  
-\> `Audulus Forum`  
+**Help**  
+- `Search` search through the documentation.  
+- `Audulus Documentation` opens documentation in a web browser.  
+- `Audulus Forum` opens the Audulus forum in a web browser.
 
 
-## walkthrough
+<!--## walkthrough
 
 This walkthrough will take you through every aspect of Audulus one concept at a time.
 
@@ -303,7 +303,7 @@ Now try selecting both nodes at once using the lasso. Click or tap on a blank sp
 <img src="img/index/walkthrough/lasso.png"
 alt="A demonstration of the lasso used to select two text nodes"
 width="200"/>
-
+-->
 
 
 
