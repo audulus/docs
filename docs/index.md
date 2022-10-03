@@ -41,20 +41,167 @@ width="200"/>
 
 ## overview
 
-### 1. user interface
+### 1. canvas user interface
 
-`canvas` The canvas is the blank, black area of an Audulus window in which patching takes place. 
+`canvas` the blank, black area of an Audulus window in which patching takes place. 
 
-<img src="img/index/overview/canvas.png"
-alt="support at audulus dot com"
-width="200"/>
+<img src="img/index/overview/user_interface/canvas.png"
+alt="A blank canvas UI"
+width="400"/>
 
-### 2. signals
-### 3. nodes
-### 4. modules & submodules
-### 5. list of shortcuts
+--
+
+`menu bar` displays the name of the patch and holds buttons for modes and 
+
+<img src="img/index/overview/user_interface/patch_name.png"
+alt="The patch name, located in the upper left of the window"
+width="100"/>
+
+--
+
+`patch name` the name of your patch
+
+<img src="img/index/overview/user_interface/patch_name.png"
+alt="The patch name, located in the upper left of the window"
+width="100"/>
+
+--
+
+`midi assign mode` used to pair `knob`, `slider`, and `trigger` nodes with external MIDI devices.
+
+<img src="img/index/overview/user_interface/midi_assign.png"
+alt="MIDI assign mode button, located in the upper right of the window"
+width="400"/>
+
+--
+
+`edit module mode` allows you to move UI elements around a `module` node.
+
+<img src="img/index/overview/user_interface/edit_modules.png"
+alt="Edit module mode button, located in the upper right of the window"
+width="400"/>
+
+--
+
+`timing mode` shows the percentage of total CPU time each node or module of a patch is using.
+
+<img src="img/index/overview/user_interface/timing_mode.png"
+alt="Timing mode button, located in the upper right of the window"
+width="400"/>
+
+--
+
+`mute` starts and stops patch processing.
+
+<img src="img/index/overview/user_interface/mute.png"
+alt="Mute button, located in the upper right of the window"
+width="400"/>
+
+--
+
+`add module` opens the `module browser`.
+
+<img src="img/index/overview/user_interface/add_module.png"
+alt="The add module button, located in the upper right of the window"
+width="400"/>
+
+--
+
+`inspector` opens the `inspector panel`.
+
+<img src="img/index/overview/user_interface/inspector.png"
+alt="The inspector button, located in the upper right of the window"
+width="400"/>
+
+--
+
+`node browser` the panel from which you can drag and drop nodes onto the canvas.
+
+<img src="img/index/overview/user_interface/node_browser.png"
+alt="The node browser, located in the bottom right of the window"
+width="400"/>
+
+--
+
+`cpu meter` tracks the current percentage of your CPU that Audulus is using.
+
+<img src="img/index/overview/user_interface/cpu_meter.png"
+alt="The CPU meter, located in the bottom left of the window"
+width="100"/>
+
+--
+
+`inspector panel` context-dependent information and attributes of nodes, modules, and the patch.
+
+<img src="img/index/overview/user_interface/inspector_panel.png"
+alt="The inspector panel appears on the right side of the window"
+width="800"/>
+
+--
+
+`elided options` when working in windowed mode and the window is too small to display all of the menu items, the elided options button appears and allows you to access the remaining menu items.
+
+<img src="img/index/overview/user_interface/elided_options.png"
+alt="The close module browser button, located on top right of the menu bar"
+width="50"/>
 
 <br>
+
+---
+
+
+### 2. module browser user interface
+
+`module browser` screen from which you can add modules and submodules from either the default library or your own user library.
+
+<img src="img/index/overview/user_interface/module_browser.png"
+alt="The module browser appears over the canvas"
+width="800"/>
+
+--
+
+`default library tab` displays the default module library.
+
+<img src="img/index/overview/user_interface/default_library.png"
+alt="The default library tab, located in the center of the menu bar"
+width="200"/>
+
+--
+
+`user library tab` displays the user module library.
+
+<img src="img/index/overview/user_interface/user_library.png"
+alt="The user library tab, located in the center of the menu bar"
+width="200"/>
+
+--
+
+`search bar` allows you to search for modules by name.
+
+<img src="img/index/overview/user_interface/search_bar.png"
+alt="The search bar, located in the center of the menu bar"
+width="400"/>
+
+--
+
+`tag menu` allows you to filter modules by tags.
+
+<img src="img/index/overview/user_interface/tag_menu.png"
+alt="The tag menu, located on the right side of the menu bar"
+width="200"/>
+
+--
+
+`close module browser` closes the module browser.
+
+<img src="img/index/overview/user_interface/close_module_browser.png"
+alt="The close module browser button, located on top right of the menu bar"
+width="50"/>
+
+
+<br>
+
+---
 
 
 ## walkthrough
