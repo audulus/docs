@@ -8,7 +8,6 @@ Audulus is a modular synthesizer visual programming environment built for iPad a
 
 With Audulus, you can build synthesizers from first principles, design new sounds, or process audio with real-time, low-latency processing suitable for live performance.
 
-<a href="#quick-start-guide">`quick start guide`</a>  
 <a href="#mac overview">`iPad overview`</a>  
 <a href="#mac overview">`Mac overview`</a>
 
@@ -44,14 +43,6 @@ width="200"/>
 
 <br>
 
-
-## quick start guide
-
-### 1. sequencer-driven patch
-### 2. keyboard-controlled synth
-### 3. AU effect setup
-
-<br>
 
 
 ## Mac overview
