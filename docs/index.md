@@ -8,9 +8,9 @@ Audulus is a modular synthesizer visual programming environment built for iPad a
 
 With Audulus, you can build synthesizers from first principles, design new sounds, or process audio with real-time, low-latency processing suitable for live performance.
 
-<a href="#quick-start-guide">`quick start guide`</a> get started using Audulus as quickly as possible  
-<a href="#overview">`overview`</a> read a concise explanation of Audulus' user interface and features  
-<!--<a href="#walkthrough">`walkthrough`</a> learn everything about Audulus' user interface and workflow step by step-->
+<a href="#quick-start-guide">`quick start guide`</a>  
+<a href="#mac overview">`iPad overview`</a>  
+<a href="#mac overview">`Mac overview`</a>
 
 **Engineering**  
 W. Taylor Holliday  
@@ -54,13 +54,13 @@ width="200"/>
 <br>
 
 
-## overview
+## Mac overview
 
 ### 1. canvas user interface
 
 `canvas` the blank, black area of an Audulus window in which patching takes place. 
 
-<img src="img/index/overview/user_interface/canvas.png"
+<img src="img/index/mac_overview/canvas_user_interface/canvas.png"
 alt="A blank canvas UI"
 width="400"/>
 
@@ -68,7 +68,7 @@ width="400"/>
 
 `menu bar` displays the name of the patch and holds function buttons 
 
-<img src="img/index/overview/user_interface/menu_bar.png"
+<img src="img/index/mac_overview/canvas_user_interface/menu_bar.png"
 alt="The menu bar, located at the top of the window"
 width="800"/>
 
@@ -76,7 +76,7 @@ width="800"/>
 
 `patch name` the name of your patch
 
-<img src="img/index/overview/user_interface/patch_name.png"
+<img src="img/index/mac_overview/canvas_user_interface/patch_name.png"
 alt="The patch name, located in the upper left of the window"
 width="100"/>
 
@@ -84,7 +84,7 @@ width="100"/>
 
 `midi assign mode` used to pair `knob`, `slider`, and `trigger` nodes with external MIDI devices.
 
-<img src="img/index/overview/user_interface/midi_assign.png"
+<img src="img/index/mac_overview/canvas_user_interface/midi_assign.png"
 alt="MIDI assign mode button, located in the upper right of the window"
 width="400"/>
 
@@ -92,7 +92,7 @@ width="400"/>
 
 `edit module mode` allows you to move UI elements around a `module` node.
 
-<img src="img/index/overview/user_interface/edit_modules.png"
+<img src="img/index/mac_overview/canvas_user_interface/edit_modules.png"
 alt="Edit module mode button, located in the upper right of the window"
 width="400"/>
 
@@ -100,7 +100,7 @@ width="400"/>
 
 `timing mode` shows the percentage of total CPU time each node or module of a patch is using.
 
-<img src="img/index/overview/user_interface/timing_mode.png"
+<img src="img/index/mac_overview/canvas_user_interface/timing_mode.png"
 alt="Timing mode button, located in the upper right of the window"
 width="400"/>
 
@@ -108,7 +108,7 @@ width="400"/>
 
 `mute` starts and stops patch processing.
 
-<img src="img/index/overview/user_interface/mute.png"
+<img src="img/index/mac_overview/canvas_user_interface/mute.png"
 alt="Mute button, located in the upper right of the window"
 width="400"/>
 
@@ -116,7 +116,7 @@ width="400"/>
 
 `add module` opens the `module browser`.
 
-<img src="img/index/overview/user_interface/add_module.png"
+<img src="img/index/mac_overview/canvas_user_interface/add_module.png"
 alt="The add module button, located in the upper right of the window"
 width="400"/>
 
@@ -124,7 +124,7 @@ width="400"/>
 
 `inspector` opens the `inspector panel`.
 
-<img src="img/index/overview/user_interface/inspector.png"
+<img src="img/index/mac_overview/canvas_user_interface/inspector.png"
 alt="The inspector button, located in the upper right of the window"
 width="400"/>
 
@@ -132,7 +132,7 @@ width="400"/>
 
 `node browser` the panel from which you can drag and drop nodes onto the canvas.
 
-<img src="img/index/overview/user_interface/node_browser.png"
+<img src="img/index/mac_overview/canvas_user_interface/node_browser.png"
 alt="The node browser, located in the bottom right of the window"
 width="400"/>
 
@@ -140,7 +140,7 @@ width="400"/>
 
 `cpu meter` tracks the current percentage of your CPU that Audulus is using.
 
-<img src="img/index/overview/user_interface/cpu_meter.png"
+<img src="img/index/mac_overview/canvas_user_interface/cpu_meter.png"
 alt="The CPU meter, located in the bottom left of the window"
 width="100"/>
 
@@ -148,7 +148,7 @@ width="100"/>
 
 `inspector panel` context-dependent information and attributes of nodes, modules, and the patch.
 
-<img src="img/index/overview/user_interface/inspector_panel.png"
+<img src="img/index/mac_overview/canvas_user_interface/inspector_panel.png"
 alt="The inspector panel appears on the right side of the window"
 width="800"/>
 
@@ -156,7 +156,7 @@ width="800"/>
 
 `elided options` when working in windowed mode and the window is too small to display all of the menu items, the elided options button appears and allows you to access the remaining menu items.
 
-<img src="img/index/overview/user_interface/elided_options.png"
+<img src="img/index/mac_overview/canvas_user_interface/elided_options.png"
 alt="The close module browser button, located on top right of the menu bar"
 width="50"/>
 
@@ -169,7 +169,7 @@ width="50"/>
 
 `module browser` screen from which you can add modules and submodules from either the default library or your own user library.
 
-<img src="img/index/overview/user_interface/module_browser.png"
+<img src="img/index/mac_overview/module_browser/module_browser.png"
 alt="The module browser appears over the canvas"
 width="800"/>
 
@@ -177,7 +177,7 @@ width="800"/>
 
 `default library tab` displays the default module library.
 
-<img src="img/index/overview/user_interface/default_library.png"
+<img src="img/index/mac_overview/module_browser/default_library.png"
 alt="The default library tab, located in the center of the menu bar"
 width="200"/>
 
@@ -185,7 +185,7 @@ width="200"/>
 
 `user library tab` displays the user module library.
 
-<img src="img/index/overview/user_interface/user_library.png"
+<img src="img/index/mac_overview/module_browser/user_library.png"
 alt="The user library tab, located in the center of the menu bar"
 width="200"/>
 
@@ -193,7 +193,7 @@ width="200"/>
 
 `search bar` allows you to search for modules by name.
 
-<img src="img/index/overview/user_interface/search_bar.png"
+<img src="img/index/mac_overview/module_browser/search_bar.png"
 alt="The search bar, located in the center of the menu bar"
 width="400"/>
 
@@ -201,7 +201,7 @@ width="400"/>
 
 `tag menu` allows you to filter modules by tags.
 
-<img src="img/index/overview/user_interface/tag_menu.png"
+<img src="img/index/mac_overview/module_browser/tag_menu.png"
 alt="The tag menu, located on the right side of the menu bar"
 width="200"/>
 
@@ -209,7 +209,7 @@ width="200"/>
 
 `close module browser` closes the module browser.
 
-<img src="img/index/overview/user_interface/close_module_browser.png"
+<img src="img/index/mac_overview/module_browser/close_module_browser.png"
 alt="The close module browser button, located on top right of the menu bar"
 width="50"/>
 
@@ -218,9 +218,9 @@ width="50"/>
 
 ---
 
-### 3. mac menu options and preferences
+### 3. menu options and preferences
 
-This section describes the Mac system menu bar for Audulus. Only Audulus-specific menu options will be mentioned.
+This section describes the Mac system menu bar for Audulus. Only Audulus-specific menu options are mentioned.
 
 
 **Audulus 4**  
@@ -234,7 +234,7 @@ This section describes the Mac system menu bar for Audulus. Only Audulus-specifi
 **Edit**  
 - `Add Module` `⌘ ⏎` opens the module browser.  
 - `Group` `⌘ G` groups selected nodes into a module.  
-- `Send to Back` `^ ⌥ ⌘ ▾` when nodes are stacked on one another, will send the top node behind all the others.  
+- `Send to Back` `^ ⌥ ⌘ ▾` when nodes are stacked on one another, this will send the top node behind all the others.  
 - `Snap to Grid` `⌘ '` reveals the coordinate grid and makes nodes and modules snap to it.  
 - `Edit Modules` `⌘ E` toggles `edit module mode`.
 
@@ -251,6 +251,10 @@ This section describes the Mac system menu bar for Audulus. Only Audulus-specifi
 - `Audulus Documentation` opens documentation in a web browser.  
 - `Audulus Forum` opens the Audulus forum in a web browser.
 
+**Preferences Window**  
+- `MIDI Output Device` select which connected MIDI output device to use.  
+- `Audio Device` select which input/output audio device to use.  
+- `Audio Buffer Size` select the buffer sample size - lower buffer size will feel more responsive but use more CPU time, and higher buffer will feel less responsive but take less CPU time.
 
 <!--## walkthrough
 
