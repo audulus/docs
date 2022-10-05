@@ -8,8 +8,8 @@ Audulus is a modular synthesizer visual programming environment built for iPad a
 
 With Audulus, you can build synthesizers from first principles, design new sounds, or process audio with real-time, low-latency processing suitable for live performance.
 
-<a href="#mac overview">`iPad overview`</a>  
-<a href="#mac overview">`Mac overview`</a>
+<a href="#iPad-overview">`iPad overview`</a>  
+<a href="#Mac-overview">`Mac overview`</a>
 
 **Engineering**  
 W. Taylor Holliday  
@@ -129,6 +129,15 @@ width="400"/>
 
 ---
 
+`right click node browser` right click opens an alternate version of the `node browser`
+
+<img src="img/index/mac_overview/canvas_user_interface/right_click_menu.png"
+alt="The inspector panel appears on the right side of the window"
+width="200"/>
+
+
+---
+
 `cpu meter` tracks the current percentage of your CPU that Audulus is using.
 
 <img src="img/index/mac_overview/canvas_user_interface/cpu_meter.png"
@@ -145,11 +154,12 @@ width="800"/>
 
 ---
 
-`elided options` when working in windowed mode and the window is too small to display all of the menu items, the elided options button appears and allows you to access the remaining menu items.
+`elided options` when working in windowed mode and the window is too small to display all of the menu items, the elided options button appears in the top right of the window and allows you to access the remaining menu items.
 
 <img src="img/index/mac_overview/canvas_user_interface/elided_options.png"
 alt="The close module browser button, located on top right of the menu bar"
 width="50"/>
+
 
 <br>
 
