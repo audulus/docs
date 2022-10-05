@@ -44,12 +44,281 @@ width="200"/>
 <br>
 
 
+## iPad overview
+
+### 1. patch browser
+
+`patch browser` where you create, store, organize, and load Audulus patches.
+
+<img src="img/index/ipad_overview/patch_browser/patch_browser.png"
+alt="The iPad patch browser"
+width="400"/>
+
+---
+
+`new patch browser` create a new patch or load an example patch.
+
+<img src="img/index/ipad_overview/patch_browser/new_patch_browser.png"
+alt="A blank canvas UI"
+width="400"/>
+
+---
+
+
+### 2. canvas user interface
+
+`canvas` the blank, black area of an Audulus window where you create patches. 
+
+<img src="img/index/ipad_overview/canvas_user_interface/canvas.png"
+alt="A blank canvas UI"
+width="400"/>
+
+---
+
+`menu bar` displays the name of the patch and holds function buttons. 
+
+<img src="img/index/ipad_overview/canvas_user_interface/menu_bar.png"
+alt="The menu bar, located at the top of the window"
+width="800"/>
+
+---
+
+`patch browser` exits to the `patch browser`
+
+<img src="img/index/ipad_overview/canvas_user_interface/exit_to_patch_browser.png"
+alt="Button to exit to the patch browser that looks like four squares stacked in a square"
+width="50"/>
+
+---
+
+`undo` steps backwards through history of the patch.
+
+<img src="img/index/ipad_overview/canvas_user_interface/undo.png"
+alt="The undo button, a curved arrow pointing to the left"
+width="50"/>
+
+---
+
+`redo` steps forwards through history of the patch.
+
+<img src="img/index/ipad_overview/canvas_user_interface/redo.png"
+alt="The redo button, a curved arrow pointing to the right"
+width="50"/>
+
+---
+
+`snap to grid` reveals the coordinate grid and makes nodes and modules snap to it.
+
+<img src="img/index/ipad_overview/canvas_user_interface/snap_to_grid.png"
+alt="A hash tag symbol that toggles snap to grid on and off"
+width="50"/>
+
+---
+
+`edit module mode` allows you to move UI elements around a `module` node.
+
+<img src="img/index/ipad_overview/canvas_user_interface/edit_module.png"
+alt="A lock icon button that toggles edit module mode"
+width="50"/>
+
+---
+
+`timing mode` shows the percentage of total CPU time each node or module of a patch is using.
+
+<img src="img/index/ipad_overview/canvas_user_interface/timing_mode.png"
+alt="A clock icon button that toggles timing mode"
+width="50"/>
+
+---
+
+`more options` displays the `more options window`.
+
+<img src="img/index/ipad_overview/canvas_user_interface/more_options.png"
+alt="Three stacked icons of horizontal sliders representing options"
+width="50"/>
+
+---
+
+`inspector` opens the `inspector panel`.
+
+<img src="img/index/ipad_overview/canvas_user_interface/inspector_panel.png"
+alt="The inspector button, located in the upper right of the window"
+width="50"/>
+
+---
+
+`node browser` the panel from which you can drag and drop nodes onto the canvas.
+
+<img src="img/index/ipad_overview/canvas_user_interface/node_browser.png"
+alt="The node browser, located in the bottom right of the window"
+width="400"/>
+
+---
+
+`cpu meter` tracks the current percentage of your CPU that Audulus is using.
+
+<img src="img/index/ipad_overview/canvas_user_interface/cpu_meter.png"
+alt="The CPU meter, located in the bottom left of the window"
+width="100"/>
+
+---
+
+`inspector panel` context-dependent information and attributes of nodes, modules, and the patch. Also includes options for `MIDI Assign` and `Performance Mode` which locks zoom level and permits multitouch.
+
+<img src="img/index/ipad_overview/canvas_user_interface/inspector_panel.png"
+alt="The inspector panel appears on the right side of the window"
+width="400"/>
+
+---
+
+`elided options` when working in windowed mode and the window is too small to display all of the menu items, the elided options button appears in the top right of the window and allows you to access the remaining menu items.
+
+<img src="img/index/mac_overview/canvas_user_interface/elided_options.png"
+alt="The close module browser button, located on top right of the menu bar"
+width="50"/>
+
+
+<br>
+
+---
+
+
+### 3. module browser user interface
+
+`module browser` screen from which you can add modules and submodules from either the default library or your own user library.
+
+<img src="img/index/ipad_overview/module_browser/module_browser.png"
+alt="The module browser appears over the canvas"
+width="400"/>
+
+---
+
+`default library tab` displays the default module library.
+
+<img src="img/index/ipad_overview/module_browser/module_library_user.png"
+alt="The default library tab, located on the left of the menu bar"
+width="200"/>
+
+---
+
+`user library tab` displays the user module library.
+
+<img src="img/index/ipad_overview/module_browser/module_library_user.png"
+alt="The user library tab, located on the left of the menu bar"
+width="200"/>
+
+---
+
+`search bar` allows you to search for modules by name.
+
+<img src="img/index/ipad_overview/module_browser/search_bar.png"
+alt="The search bar, located in the center of the menu bar"
+width="200"/>
+
+---
+
+`tag menu` allows you to filter modules by tags.
+
+<img src="img/index/ipad_overview/module_browser/tag_menu.png"
+alt="The tag menu, located on the right side of the menu bar"
+width="200"/>
+
+
+<br>
+
+---
+
+
+### 4. more options window
+
+`more options window` holds several preferences, help info, and patch description and tags. 
+
+<img src="img/index/ipad_overview/more_options_window/more_options_window.png"
+alt="The more options window"
+width="400"/>
+
+---
+
+`Node Labels` turns node and module labels on or off. 
+
+<img src="img/index/ipad_overview/more_options_window/node_labels.png"
+alt="A toggle switch for node labels"
+width="400"/>
+
+---
+
+`Inspector Position` changes where the `inspector panel` appears: on the right or on top of the screen. 
+
+<img src="img/index/ipad_overview/more_options_window/inspector_position.png"
+alt="Toggle button that displays inspector on right or top"
+width="400"/>
+
+---
+
+`Background Audio` when turned on, Audulus will keep running even when in the background. 
+
+<img src="img/index/ipad_overview/more_options_window/background_audio.png"
+alt="Toggle switch for background audio"
+width="400"/>
+
+---
+
+`MIDI Output Device` select which connected MIDI output device to use. 
+
+<img src="img/index/ipad_overview/more_options_window/midi_output_device.png"
+alt="Toggle button that displays inspector on right or top"
+width="400"/>
+
+---
+
+`Target Frame Rate` select between a target frame rate of `30`, `60`, or `120Hz`. Faster frame rates look smoother but use more power. `Target frame rate` means if you have a very CPU-intensive patch, the refresh rate may slow below the target to prioritize audio playback. You must close and reopen the patch for changes to take effect.
+
+<img src="img/index/ipad_overview/more_options_window/target_frame_rate.png"
+alt="Three option toggle to set the target frame rate to 30, 60, or 120Hz"
+width="400"/>
+
+---
+
+`Forum` a link to the Audulus forum that opens up in an external browser. 
+
+<img src="img/index/ipad_overview/more_options_window/forum.png"
+alt="Button with a speech bubble icon with the word Forum"
+width="100"/>
+
+---
+
+`Documentation` a link to the Audulus documentation that opens up in an external browser. 
+
+<img src="img/index/ipad_overview/more_options_window/documentation.png"
+alt="Button with a text-on-paper icon with the word Documentation"
+width="150"/>
+
+---
+
+`Patch Description` a field where you can enter a text description of your patch.
+
+<img src="img/index/ipad_overview/more_options_window/patch_description.png"
+alt="An empty text box with Patch Description written above"
+width="400"/>
+
+---
+
+`Patch Tags` a field where you can enter a tags for your patch.
+
+<img src="img/index/ipad_overview/more_options_window/patch_tags.png"
+alt="An empty text box with Patch Tags written above"
+width="400"/>
+
+<br>
+
+---
+
 
 ## Mac overview
 
 ### 1. canvas user interface
 
-`canvas` the blank, black area of an Audulus window in which patching takes place. 
+`canvas` the blank, black area of an Audulus window where you create patches. 
 
 <img src="img/index/mac_overview/canvas_user_interface/canvas.png"
 alt="A blank canvas UI"
