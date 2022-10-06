@@ -2338,7 +2338,7 @@ exposable | ❌
 
 **description**
 
-The `spigot` node turns off processing for all nodes to the left of it in the signal path that are not connected to some form of output like a `meter` or `speaker` node.
+The `spigot` node turns off processing for all nodes to the left of it in the signal path that are not connected to some form of output like a `meter` or `dac` node.
 
 When the `active` input is `0`, nothing passes, and processing is halted. When the `active` input is `high`, the signal passes and everything is processed normally.
 
