@@ -1,8 +1,6 @@
 site_name: Audulus
 nav:
     - Getting Started: index.md
-    - Nodes Reference: nodes.md
-    - Modules References: modules.md
 
 # Repository
 repo_name: 'audulus/docs'
