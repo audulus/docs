@@ -185,6 +185,8 @@ width="50"/>
 
 ### 3. module browser user interface
 
+Click on the blank background of the `canvas` and press `add` to add a module.
+
 `module browser` screen from which you can add modules and submodules from either the default library or your own user library.
 
 <img src="img/index/ipad_overview/module_browser/module_browser.png"
