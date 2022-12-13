@@ -1,1737 +1,2364 @@
-# Nodes Reference
+# nodes reference
 
-## Synthesis
+## introduction to nodes
 
-### ADSR
+<img src="img/nodes_reference/introduction_to_nodes/all_nodes.png"
+alt="all node" 
+width="800"/>
 
-![Node](img/Nodes/ADSR/ADSR-Node.png)  
+Everything in Audulus is built with `nodes`. There are 53 nodes in total.
 
-Input        | Signal Range (Default / Maximum)
-:------------- | :-------------
-Gate   | `Gate (rising edge)`
-Attack (knob 1)   | `0 to 1 second / 0 to >1 (hour)`
-Decay (knob 2)   | `0 to 1 second / 0 to >1 (hour)`
-Sustain (knob 3)   | `0 to 1`
-Release (knob 4)   | `0 to 1 second / 0 to >1 (hour)`
+Nodes are packets of code that do things. A node may have inputs, outputs, both, or none.
 
-Output        | Signal Range
-:------------- | :-------------
-Control Signal (Envelope)   | `0 to Gate Height`
+`Inputs` are on the left side of nodes and are blue. `Outputs` are on the right side of nodes and are red.
 
-**iOS Symbol**
+Nodes can be moved around the canvas, but they cannot be rotated.
 
-![icon](img/icons/adsr.png)
+You connect nodes together by dragging a wire from an output to an input. You cannot drag a wire from an input to an output. You can connect one output to as many inputs as you want.
 
-**Exposable Element** - Envelope shape.  Note: you cannot change the envelope shape directly - you must use knobs or modulation signals connected to the ADSR knob inputs.
+You disconnect nodes by unhooking a wire from an input. Wires cannot be disconnected from an output. An input only accepts one wire. To connect multiple wires to one input, you must use an `add` node to first add the signals together.
 
-![ADSR Exposed](img/Nodes/ADSR/ADSR-Exposed.png)  
+Wires can go from any output anywhere to any input anywhere: up, down, left, or right. However, overall signal flow in Audulus is from left to right.
 
-**Warnings** - Do not apply negative numbers to any control.  Sustain values >1 will cause distortion of envelope shape.
+Nodes send and receive signals through wires. Every signal is a number. [^1] Although all signals are numbers, there are several categories of signals. These categories are defined by their range, unit, and how they are used.
 
-**Typical Use** - Modulating volume of oscillators and their filters' cutoff frequencies.
+[^1]: Audulus signals are signed 32-bit floats.
 
-The ADSR (Attack, Decay, Sustain, Release) node generates a special type of control signal called an envelope. Envelopes are often used to modulate the volume of an oscillator. With different envelope settings you can make an oscillator sound like a drum, organ, or violin. The trick is all in knowing how to set the Attack, Decay, Sustain, and Release.
+The table below describes every type of signal that nodes use.
 
-![ADSR Envelope Diagram](img/adsr.png)
+signal | range
+:-- | :--
+`any` | `any` signals can be any number and type of signal
+`audio` | `-1 to 1`[^2]
+`gate` | `0 or high` where `high` is any non-zero positive 32-bit number.
+`hz`| `0 to sampleRate/2`[^3]
+`integer` | an integer value
+`midi value` | integers `0 to 127`
+`mod`| `0 to 1`
+`seconds` | `0 to 2^32-1`
 
-The ADSR node creates a signal that begins at 0, increases to the gate height (Attack), dips (Decay) to a constant level (Sustain), and finally, once the gate goes low (e.g., when the key is released), it tapers off back to 0 (Release).
+[^2]: Audio signals can exceed the `-1 to 1` range, but they will be clipped to that range upon output.
+[^3]: Hz values above `sampleRate/2` can be generated but are limited in use. Negative `hz` signals can be used to flip the phase of the phasor node, useful for through-zero FM.
 
-To test the ADSR node, attach a MIDI Trigger node to its input, then attach both a Waveform and Value node to its output as pictured below. Tap the trigger a few times, hold it down, and adjust the ADSR node's settings to see how they react.
+Some nodes have attributes that are accessible in the `inspector panel`. Every node has an `(x, y)` position attribute in this panel.
 
-![ADSR Waveform Demo](img/Nodes/ADSR/ADSR-Waveform-Demo.png)
+Nodes can be packaged into `modules` and `submodules`. `Modules` are containers for nodes that allow you to create a user interface for you to interact with. `Submodules` are used inside of `modules`. They are like user-created nodes.
 
-The ADSR node creates a control signal, meaning the ADSR node does not create sound by itself.
+Some nodes are exposable, meaning they have some element that can appear on UI of a `module`. Some, like the `knob` node, are automatically exposed while others, like the `text` node, have an option to expose.
 
-In its most common use, an ADSR signal is like an invisible hand turning the volume control on an oscillator.
+If a node is exposable, a node will have an `(x, y)` coordinate for where it is inside the module and another `(x, y)` coordinate for where it is on the UI of the module.
 
-![ADSR Level Node Modulation](img/Nodes/ADSR/ADSR-Level-Node-Modulation.png)
+Other nodes have attributes you can change directly on the node.
 
-Those familiar with hardware modular synthesis might note the absence of a VCA, or Voltage Controlled Amplifier. Separate VCA modules are unnecessary in Audulus because their functions can be replicated in several different ways (see below).
+There are 10 different categories of nodes. The table below lists each category and provides a short description.
 
-![ADSR Look Ma No VCAs](img/Nodes/ADSR/ADSR-Look-Ma-No-VCAs.png)
+category | description
+:-- | :--
+`util` | various utilities
+`math` | use math and logic to manipulate and create signals
+`meter` | displays for monitoring signals
+`midi`| MIDI utilities
+`level`| tools for adjusting and analyzing signal levels
+`dsp`| digital signal processing tools
+`synth`| essential primitive-level synthesis tools
+`module`| used for creating modules and submodules
+`poly`| utilities for creating and managing polyphonic signals
+`switch`| tools for routing signals
 
-The maximum gate height used in the Audulus Module Library is 1.  The ADSR node will accept larger gates, but it typically makes more sense to create a 0-1 envelope, and then multiply the envelope signal into the range you need it to be.
+Some nodes count as outputs. Examples of outputs are `value`, `light`, and `dac` nodes.
 
-![ADSR Multiply Filter](img/Nodes/ADSR/ADSR-Multiply-Filter.png)
+If a node is not connected to an output, it will not be evaluated.
 
-Despite its illustration, the output of the ADSR node is linear. This means the ADR periods have linear slopes to them.
-
-Many instruments, especially percussive ones, have non-linear volume envelopes. The easiest way to make a non-linear envelope is to square the ADSR's output with a Multiplication node (see below).
-
-![ADSR Squared](img/Nodes/ADSR/ADSR-Squared.png)
-
-You can also use the Mapper and Spline nodes to create unique envelope shapes (see below).
-
-![ADSR Mapper and Spline](img/Nodes/ADSR/ADSR-Mapper-and-Spline.png)
-
-If the Attack, Decay, or Release settings are set to 0, they may sometimes cause an audible clicking noise.  To prevent this from happening, you can adjust their ranges with an expression node (see below) or set their value ranges directly by clicking or tapping on the knob.  Any small non-zero value will do.
-
-![ADSR Click Prevention](img/Nodes/ADSR/ADSR-Click-Prevention.png)
-
-**Suggested ADSR settings for various instrument analogs**
-
-Instrument        | A / D / S / R Values
-:------------- | :-------------
-Snare   | `0.01 / 0.1 / 0 / 0.15`
-Kick / Tom   | `0.01 / 0.1 / 0 / 0.75`
-Hi-Hat (Closed)   | `0.01 / 0.15 / 0 / 0.2`
-Hi-Hat (Open)     | `0.01 / 0.9 / 0 / 0.2`
-Violin (Bowed)     | `2 / 0 / 1 / 1`
-Organ     | `0.01 / 0 / 1 / 0.01`
-Horn Stab     | `0.05 / 0.15 / 0.3 / 0.5`
-Ocean Surf     | `4 / 4 / 0 / 4` (Env^2)
-
-Often you will find two different envelopes in a patch - one controlling the oscillator's volume and the other controlling a filter's cutoff frequency.
-
-Using two different envelopes allows you to create an enormous variety of sounds. Try creating a patch like the one pictured below and play around with different ADSR settings for each node. Make sure you use a harmonic-rich waveform like the square or saw wave to really hear what's happening.
-
-![ADSR Oscillator and Filter](img/Nodes/ADSR/ADSR-Oscillator-and-Filter.png)
-
-You might find you want to add some more control to the filter's sweep range. The patch above makes the filter move through its entire range. To make the envelope move the filter between two set frequencies, you can make a patch like the one pictured below (available HERE on the Audulus Forum). Go ahead and also attach a knob to the resonance setting and play around with that (just be careful you don't leave it set all the way up or it will squeal in self-oscillation).
-
-Also note the added volume control before the Speaker node, which you'll need to prevent clipping your output.
-
-![ADSR Oscillator and Filter Adjustments](img/Nodes/ADSR/ADSR-Oscillator-and-Filter-Adjustments.png)
-
-### Osc
-
-![Node](img/Nodes/OSC/Osc-Node.png)  
-
-Input        | Signal Range
-:------------- | :-------------
-Hz (Hertz / Frequency)   | `0 to 20,000`
-amp (Amplitude)   | `0 to any positive 32-bit number*`
-sync   | `Gate (rising edge only)`
-shp (Shape)   | `0 to 1 (only modifies saw and square waves)`
-Wave Shape   | `Click/tap to cycle - sine, square, triangle, saw`
-* - the maximum audio output for Audulus is -1 to 1. Beyond that range causes hard clipping.
-
-
-Output        | Signal Range
-:------------- | :-------------
-Anti-Aliased Waveform   | `-amp to +amp`
-
-**iOS Symbol**
-
-![icon](img/icons/osc.png)
-
-**Exposable Element** - Wave shape.
-
-![Osc Exposed](img/Nodes/OSC/Osc-Exposed.png)  
-
-**Warnings** - Because this is an anti-aliased oscillator, its best use is as an audio oscillator (20Hz-20kHz).  To create LFOs (oscillators that generate control signals) use a Phasor node-based oscillato. Phasor-based oscillators use much less CPU and do not ring at their transitions (see: Gibbs Phenomenon).
-
-**Typical Use** - Creating the voice of the synthesizer, i.e., the origin of the audio signal.
-
-The oscillator is the foundation most types of synthesis. It is like the vocal chords of the synthesizer - the vibrating portion that creates the sound.
-
-The Osc node has four waveforms - sine, triangle, saw, and square. The saw and square wave shapes are also variable using the shp control. Each waveform has a characteristic sound.
-
-![Osc Wave Shapes](img/Nodes/OSC/Osc-Wave-Shapes.png)
-
-A waveform is a graph of amplitude over time.  As a sound wave travels through the air, it creates alternating bands of high and low pressure.
-
-In the animation below, the darker bands represent densely packed air molecules while the lighter bands represent sparsely packed air molecules.
-
-![Osc Spherical Sound Waves](img/Nodes/OSC/Osc-Spherical-Sound-Waves.gif)  
-*source:* Wikipedia
-
-The dense portion of the wave is the positive part of the oscillation (0 to 1), and the sparse portion of the wave is the negative portion of the oscillation (0 to -1). A value of 0 represents the average ambient air pressure of the space.
-
-When a speaker cone is pushing out, it creates the high pressure (positive) portion of the wave.  When a speaker cone is pulling in, it creates a low pressure (negative) portion of the wave.  Animagraffs has an excellent animated illustration of how a speaker works here: http://animagraffs.com/loudspeaker/
-
-To hear how different each wave sounds, create a patch like the one below and cycle through the wave shapes by tapping or clicking on the wave icon.
-
-![Osc Wave Sounds](img/Nodes/OSC/Osc-Wave-Sounds.png)
-
-To understand why each wave sounds different, we have to understand a little bit about Fourier transformations.
-
-![Osc Fourier](img/Nodes/OSC/Osc-Fourier.png)  
-*source:* Wikipedia
-
-Joseph Fourier was a French mathematician born in the 1700s.  He discovered that all sound waves, no matter how complex, are composed of sine waves of different but related frequencies.
-
-There is a lot of heavy math behind why this is, but you don't need to understand the math to see how it works.
-
-First, let's have a look at the diagram below to see how a series of sine waves added together can start transforming into a square wave.
-
-![Osc Fourier Series Square](img/Nodes/OSC/Osc-Fourier-Series-Square.svg)  
-*source:* Wikipedia
-
-The first sine wave oscillates at the fundamental frequency, while each additional sine wave oscillates at a multiple or harmonic of that frequency.
-
-If you still can't picture what is going on, have a look at this animation (ignore the math if it's confusing):
-
-![Osc Fourier Series Transform](img/Nodes/OSC/Osc-Fourier-Series-Transform.gif)  
-*source:* Wikipedia
-
-The animation first shows the square wave superimposed on a series of the 6 sine waves. When these sine waves are added together, they create the square(-ish) wave that you see.
-
-The animation then separates these sine waves and creates a bar graph out of the amplitudes of each sine wave.  The first bar on the left is the fundamental frequency (1st harmonic), while the other bars are the 2nd-6th harmonic, related to the fundamental.
-
-Below you can see the same transformation happening with a saw wave - this time with 50 sine waves added together.
-
-![Osc Synthesis Sawtooth LucasVB](img/Nodes/OSC/Osc-Synthesis-Sawtooth-LucasVB.gif)  
-*source:* Wikipedia
-
-As you can see, the more sine waves you add, the closer your approximation of the idealized waveform becomes.
-
-What makes wave shapes sound different are the relative loudness of their harmonics.
-
-A harmonic is a wave that vibrates at an integer multiple (x1, x2, x3, x4, ...etc.) of a fundamental frequency (see below).
-
-![Osc Harmonics](img/Nodes/OSC/Osc-Harmonics.png)  
-
-If we take as our base a note that vibrates at 440Hz, then its second harmonic would be at 880Hz (440x2), its third at 1320Hz (440x3), and its fourth at 1760Hz (440x4).
-
-A sine only has one harmonic (the 1st or fundamental). Saw waves contain all harmonics, while triangle and square waves have only odd-order harmonics (3rd, 5th, 7th, ...etc.).
-
-The ratio of the amplitude of each harmonic is 1/N where N = the harmonic number. This means the amplitude of the 1st harmonic is 1/1; the 2nd is 1/2; the 3rd is 1/3; the 4th is 1/4; ...etc. (see below).
-
-![Osc Integral Harmonics](img/Nodes/OSC/Osc-Integral-Harmonics.png)
-*source:* Wikipedia
-
-Download the patch pictured below from the Audulus Forum to see and listen to the first six harmonics of a saw wave.
-
-![Osc Saw Harmonics](img/Nodes/OSC/Osc-Saw-Harmonics.png)  
-
-Adding sine wave harmonics together like this is called additive synthesis. You can make all sorts of complex sounds by varying the amplitude of each harmonic or even applying different volume envelopes to each oscillator.
-
-A simpler place to start, however - now that we know what harmonics are and what they sound like - is subtractive synthesis.
-
-Subtractive synthesis is a technique that starts with a harmonically rich waveform, like a saw or square wave, and uses a filter to attenuate or subtract frequencies.
-
-Subtractive synthesis is covered in more depth under the Filter node heading, but you can look below to see the basic setup of a subtractive synthesizer. You can also download this patch at the Audulus Forum.
-
-![Osc Subtractive Synth](img/Nodes/OSC/Osc-Subtractive-Synth.png)  
-
-Syncing two or more oscillators together is a great way to add even more complex harmonics to your sound.
-
-![Osc Hard Sync](img/Nodes/OSC/Osc-Hard-Sync.png)   
-
-To understand what syncing does, first we have to understand what phase relationships are.
-
-When you create two oscillators in Audulus, the chances of them being perfectly in phase are slim. Look at the patch below - these are two oscillators created at two different times.  Notice how their waves do not overlap perfectly.
-
-![Osc Out of Phase](img/Nodes/OSC/Osc-Out-of-Phase.png)
-
-Phase is measured in degrees (θ) from 0 to 360.
-
-![Osc Wave Phase](img/Nodes/OSC/Osc-Wave-Phase.png)  
-
-A wave with a 0 degree phase shift from another wave is in phase. If two identical in-phase waves are added together, their waveform is preserved and their amplitude is doubled.
-
-A wave that is shifted 180 degrees is completely out of phase - a mirror image. When two completely out-of-phase waves are added, they cancel one another totally.
-
-When waves are between 0 and 180 degrees out of phase from one another, they will cancel some frequencies but not others. This phenomenon is at the heart of several time-based effects like phasing, flanging, and chorus, and it also affects the sound of synced oscillators.
-
-Back to the two oscillator patch above - to sync these we could save the patch, exit, and reopen the patch, and the oscillators would then be in sync. This would be like a hard reset on the entire patch, but it's not very useful for creating a hard-synced oscillator synthesizer!
-
-To syncronize these oscillators without having to restart the patch, we need to pulse their sync inputs at the same time with the rising edge of a gate signal. A Trigger node will work nicely for this. Notice how the waves went from out of sync to suddenly in sync after the trigger was first pressed (see below).
-
-![Osc in Phase](img/Nodes/OSC/Osc-in-Phase.png)  
-
-Things get more interesting, however, if we use one oscillator to trigger the sync input of the other.
-
-The main oscillator is called the master oscillator and the oscillator being triggered at the sync input is called the slave oscillator.
-
-If both oscillators are running at the same frequency and they are both set sine, nothing happens.
-
-![Osc Sync No Dice](img/Nodes/OSC/Osc-Sync-No-Dice.png)  
-
-If the slave oscillator is running at a slightly different speed, however, look at what happens:
-
-![Osc Sync Cooking with Gas](img/Nodes/OSC/Osc-Sync-Cooking-with-Gas.png)
-
-As you can see above, the waves start in phase with one another, but because the master oscillator is running faster, it moves out of phase with the slave oscillator.  If we mix these oscillators together, we get interesting phase cancellations that add to harmonic complexity (see below).
-
-![Osc Sync On Fire](img/Nodes/OSC/Osc-Sync-on-Fire.png)  
-
-Now look what happens when we mix different wave shapes together:
-
-![Osc Sync On Fire](img/Nodes/OSC/Osc-Sync-the-Nuclear-Option.png)  
-
-If we want to hear what these oscillators sound like, we'll have to adjust them so they're operating in the audible range. Make a patch like the one pictured below, or just download the example at the Audulus Forum.
-
-The knob and expression controlling the second oscillator's frequency will dramatically shift the harmonic content of the sound.
-
-![Osc Sync Detune Knob](img/Nodes/OSC/Osc-Sync-Detune-Knob.png)  
-
-Better still, do away with the detune knob and attach the volume envelope to the sync oscillator's frequency input like so:
-
-![Osc Sync ADSR](img/Nodes/OSC/Osc-Sync-ADSR.png)  
-
-The shp (shape) input only affects the saw and square waves.
-
-Its input range is 0 to 1 which means any default knob node can attach directly to it. You can also send it envelopes as well.
-
-For the square wave, the shape control is the pulse-width modulation (PWM) control. This determines the duty cycle, i.e., the wave's proportion of high (positive) to low (negative) time (see below).  Notice that when the shape knob is turned all the way up that the wave disappears entirely.
-
-![Osc Sync Shape Square](img/Nodes/OSC/Osc-Shape-Square.png)
-
-For the saw wave, the shape control de-phases the wave in way similar to two hard-synced saw oscillators that are locked to the same pitch, but vary in phase. When the shape knob is turned all the way up, the waveform has effectively doubled its period, causing an octave shift (with a loss of some amplitude - see below).
-
-![Osc Sync Shape Saw](img/Nodes/OSC/Osc-Shape-Saw.png)
-
-The Osc node is anti-aliased. This means it is optimized to be an audio oscillator. However, this also may not always work well as an LFO or control signal oscillator.
-
-To understand why this is, first we have to understand what aliasing is; and to understand aliasing, we first have to understand sampling.
-
-When Audulus outputs audio, it does so at the speed of the host's sampling rate. The default for the standalone application is 44.1kHz, or 44,100 samples per second. Each sample is a 32-bit number between -1 and 1.  
-
-At this sampling rate, a saw wave with an amplitude of 1 and a period of 1Hz is represented by a string of 44,100 numbers that begins at -1 and ends at 1.
-
-At the same sampling rate, a saw wave with an amplitude of 1 and a period of 2Hz is reproduced in 22,050 samples.
-
-As you can see in the table below, every time we double to frequency, the number of samples per period of the wave is halved.
-
-Hz  (Limit of Hearing)      | # Samples @ 44.1kHz
-:------------- | :-------------
-`1`   | `44,100`
-`2` | `22,050`
-`4` | `11,025`
-`8` | `5625`
-`16` | `2812`
-`20` (Lower) | `2205`
-`32` | `1406`
-`64`  | `703`
-`128` | `351`
-`512` | `175`
-`1,024` | `87`
-`2,048` | `43`
-`4,096` | `21`
-`8,192` | `10`
-`16,384` | `5`
-`20,000` (Upper) | `2`
-`44,100` | `1`
-
-For a wave to be represented digitally, it needs at least 2 samples - a high sample (speaker pushed out) and a low sample (speaker pulled in). This was determined by Harry Nyquist (below, left) who worked on high-speed telegraphs in the early 1900s, and Claude Shannon (below, right), who helped the world transistion from analog to digital signal communication.  The Nyquist-Shannon sampling theorem, as this rule is so-called, was that bridge.
-
-![Osc Harry Nyquist](img/Nodes/OSC/Osc-Harry-Nyquist.jpg) ![Osc Claude Shannon](img/Nodes/OSC/Osc-Claude-Shannon.png)  
-source: Wikipedia 1, 2
-
-Now that we understand sampling and its limits, we can understand what happens when those limits are broken - namely, aliasing.
-
-Aliasing is a type of distortion that happens when an inadequately high sample rate is used to accurately reproduce a frequency.
-
-To hear what aliasing sounds like, you can create a patch like the one below (or download it here at the forum). This patch reduces the sampling rate of the wave as it passes through from 20kHz all the way down to 20Hz.  As you approach 10kHz and below, the notes on the keyboard will begin to disappear, unable to be reproduced by the inadequate sampling rate.
-
-![Osc Claude Shannon](img/Nodes/OSC/Osc-Rate-Reduction.png)    
-
-Without going into the mathematical *why* of it, at a sampling rate of 44.1kHz, frequencies above 22.05kHz are "reflected" or "mirrored" below it. If these frequencies have enough amplitude and fall within the range of human hearing, we percieve them as inharmonic, ugly-sounding distortion.
-
-Now, finally, we can return to the anti-aliased property of the Osc node. The Osc node is band-limited, meaning it sharply cuts off harmonics above the 20kHz point.  Unlike a low-pass filter, which attenuates higher frequencies at a rate of a particular number of decibels or dB per octave, band-limiting is like taking scissors and snipping off the higher frequencies.
-
-This bandlimiting is what causes the "ringing" that you may have noticed in some of the screenshots (see below).
-
-![Osc Anti-Alias](img/Nodes/OSC/Osc-Anti-Alias.png)
-
-
-This is now a flaw, but a feature of an anti-aliased digital oscillator. If you scroll way back up to the beginning of the Osc entry, you'll see this peak forming in the saw wave with 50 harmonics animation.
-
-This ringing is referred to as the Gibbs Phenomenon - a property of Fourier series discovered by Henry Wilbraham (photo not available) in 1848 and re-discovered by J. Willard Gibbs (below) in 1899.
-
-![Osc J Willy](img/Nodes/OSC/Osc-J-Willy.jpg)
-
-When you stop and think about it, the presence of this ringing makes sense.  For a square wave to move from high to low pressure instantaneously (as it does in its idealized form), you would need an infinite series of harmonics. The maximum frequency that air can reproduce is around 5MHz, or 5,000,000Hz.
-
-https://www.researchgate.net/publication/230702229_Reproduction_of_Virtual_Sound_Sources_Moving_at_Supersonic_Speeds_in_Wave_Field_Synthesis
-
-Five million Hertz may seem really fast, but in reality, 5Mhz is infinitely closer to 0Hz than it is to infinity Hz.
-
-Yeah, take a second and think about that one.
-
-As a parting note on the Osc node, the Gibbs Phenomenon can become a problem when you're using a square or saw wave as control signal, and it is why you should use a Phasor-node based LFO for all of your LFO needs, which outputs an idealized digital waveform.
-
-Even if you offset and attenuate the output of the Osc node to be between 0 and 1, the transitions will ring both lower and higher than 0 and 1, which can cause problems for time-based parameters (which can't be negative) and resonance (which can't be more than 100%).
-
-Also, if you are using a square oscillator as an on/off switch, the ringing can cause the switch to flip open and closed rapidly. The patch below illustrates the problem with two counters. These should be exactly in sync, but as you can see, one switch is triggering the counter twice as often as the other.
-
-![Osc J Willy](img/Nodes/OSC/Osc-Ringing-VS-Debounced.png)
-
-This is a phenomenon that has to be accounted for in digital computer chips as well. The solution to this problem is called debouncing - filtering that can be done either with analog components or in software code.
-
-### Phasor
-
-![Node](img/Nodes/Phasor/Phasor-Node.png)  
-
-Input        | Signal Range
-:------------- | :-------------
-sync   | `Gate`
-frequency   | `0 to Sample Rate/2`
-
-Output        | Signal Range
-:------------- | :-------------
-Radians   | `0 to 2π (~6.28)`
-
-**iOS Symbol**
-
-![icon](img/icons/phasorsynth.png)
-
-**Exposable Element** - None.
-
-**Warnings** - Because the Phasor node is not bandlimited, using it as an audio oscillator will result in aliasing distortion. Also NOTE: This is NOT a "Phaser" effect!
-
-**Typical Use** - Creating low-CPU modulation sources.
-
-
-The **Phasor** node outputs a sawtooth wave that ranges from 0 to 2π. It's used to create oscillators, and is most useful as an LFO (low frequency oscillator).
-
-![Phasor Wave](img/Nodes/Phasor/Phasor-Wave.png)
-
-As you can see in the image above, the expression `Phasor/(2*pi)` is used to bring the 0 to 2π range into a 0 to 1 range that we can see on the Waveform node. So why does the Phasor node output a signal of 0 to 2π? Wouldn't it be easier to work with if it just output a signal of 0 to 1?
-
-Before we answer that question, let's look more deeply at what a phasor is.
-
-For starters, the Phasor node is *not* a phaser effect.
-
-![These Are Not The Phasers You're Looking For](img/Nodes/Phasor/MXR-Phaser.png)  
-source: Wikipedia
-
-"Phasor" is a combination of the words "phase" and "vector." A vector is a type of line that has a beginning point, an end point, and a direction (as opposed to a ray, which has a beginning but no end).
-
-![Vector](img/Nodes/Phasor/Vector.png)
-
-Phase is the measure of a point in a wave cycle at a given time. A sine wave like the one below begins at 0 degrees, rises to 90 degrees, falls to 270 degrees, and completes the cycle at 360 degrees.
-
-![Phase](img/Nodes/Phasor/Phase.gif)
-
-When we combine these two concepts - phase and vector, we get something like this:
-
-![Phasor Animation](img/Nodes/Phasor/Phasor-Animation.gif)
-
-The circle pictured above is the Unit Circle - a circle with a radius of 1, centered at the origin point (0,0). The Phasor node outputs the value of the length of the arc between the point (1,0) and the vector. This measurement is called a radian.
-
-Because the circumference of a circle is `2*pi*radius`, and the radius of the Unit Circle is 1, we get a total possible range of values of 0 to 2π.
-
-If you're still having trouble visualizing this, watch the the animation below:
-
-![Radian Animation](img/Nodes/Phasor/Radian-Animation.gif)
-
-So now that you understand *why* the Phasor node outputs the range 0 to 2π, we can look at why this range is useful for creating all kinds of waves.
-
-A phasor node can be used to create multiple waveshapes with some simple math. Of course, it naturally outputs a sawtooth wave, but how do we create a sine wave? It's easy:
-
-![Phasor Sine](img/Nodes/Phasor/Phasor-Sine.png)
-
-If you take the sine of the output of the Phasor node, you get a sine wave - go figure, right? But why is this?
-
-Well, remember SOH-CAH-TOA? As pictured below, the sine of angle ⍺ (alpha) is the ratio: `Opposite/Hypotenuse`.
-
-![Sine Angle](img/Nodes/Phasor/Sine-Angle.png)
-
-Since we're using the Unit Circle, the hypotenuse always equals 1 (it's the radius of the circle). This makes the math really easy: `Opposite/1 = Opposite`.
-
-The length of this opposite side becomes the set of y coordinates that make up the unit circle. The x coordinates of the unit circle are the solutions of the cosine (`Adjacent/Hypotenuse`).
-
-When we solve the equation `y = sin(x)` (which is the same as `sin(Phasor)` in Audulus) we get an undulating line.
-
-![Sine Quadrants](img/Nodes/Phasor/Sine-Quadrant.png)
-
-The animation below illustrates the relationship of the sine and cosine waves. Sonically, they are identical, but they are phase-shifted by 90 degrees (~1.57 radians).
-
-![Sine Cosine](img/Nodes/Phasor/Sin-Cos.gif)
-
-When creating a multi-output LFO, you might find it useful to use `cos(Phasor)` instead of `sin(Phasor)`.  This is because the cosine of the Phasor node is in phase with the saw wave and other waves you'll create (see below).
-
-![Cosine LFO](img/Nodes/Phasor/Cosine-LFO.png)
-
-To create a square wave LFO using the Phasor node, we need to use a logic expression.
-
-In the image below, the Phasor output has been translated from its normal 0 to 2π range into a 0 to 1 range. All LFOs should operate in a range of 0 to 1 because so many inputs (knobs, crossfade input, level node) all work from 0 to 1 by default.
-
-The expression `Phasor/(2*pi)>.5` is true (outputs a 1) when the 0 to 1 output of the `Phasor/(2*pi)` expression is greater than 0.5. When the output of `Phasor/(2*pi)` is less than 0.5, the expression is false (outputs a 0).
-
-![Square LFO](img/Nodes/Phasor/Phasor-Square.png)
-
-To add pulse-width modulation to this LFO, all we need to do is add a Knob node (see below).
-
-![Square LFO PWM 1](img/Nodes/Phasor/Phasor-Square-PWM1.png)
-
-In the above example, the expression `Phasor/(2*pi)>Knob` is only true for a small period of time.  However, in the example below, the expression is true for a longer period.
-
-![Square LFO PWM 2](img/Nodes/Phasor/Phasor-Square-PWM2.png)
-
-To create a triangle LFO, we need to use some simple algebra.
-
-First, we have to shift the saw LFO downwards so that half of its oscillation is negative.  `Phasor/(2*pi)-.5` shifts the 0 to 1 saw wave down by 0.5, making it oscillate between -0.5 and +0.5.
-
-![Triangle LFO Shift](img/Nodes/Phasor/Phasor-Triangle-Shift.png)
-
-The `abs(x)` expression returns the absolute value of x - usually notated as `|x|`.
-
-`abs(Phasor/(2*pi)-.5)` takes the absolute value of that shifted expression and turns the saw wave into a triangle wave.
-
-![Triangle LFO Abs](img/Nodes/Phasor/Phasor-Triangle-Abs.png)
-
-We can then take this 0 to 0.5 wave and multiply it by 2 to get a triangle wave that oscillates between 0 and 1.
-
-![Triangle LFO](img/Nodes/Phasor/Phasor-Triangle.png)
-
-**Fun Fact:** *Another name for the absolute value is the "modulus," which was the original name of Audulus in an early beta!*
-
-So that's how you can use the Phasor node to create all of the basic LFO shapes.
-
-![LFO Shapes](img/Nodes/Phasor/Phasor-LFO-Shapes.png)
-
-Why go through all the trouble of making a Phasor LFO? There are two reasons:
-
-1) The Phasor node is much more CPU-efficient than the Osc node is. This CPU savings can make a big difference in patches like the one below with multiple LFOs.
-
-![Multiple LFOs](img/Nodes/Phasor/Phasor-Multiple-LFOs.png)
-
-2) The Phasor node creates waves that are not bandlimited, meaning they are "idealized" forms of each wave. This is useful for triggering switches. The little spike you see on the anti-aliased Osc node may cause a logic expression like `x>0` to trigger multiple times. (To understand why this is, refer back to the Osc node description.)
-
-![Phasor Trigger](img/Nodes/Phasor/Phasor-Trigger.png)
-
-Like the Osc node, the Phasor also has a sync input. When the sync input sees the rising edge of Gate signal, the Phasor resets to 0. This can be used to create more complex waves when used in tandem with another Phasor node (see below).
-
-![Phasor Sync](img/Nodes/Phasor/Phasor-Sync.png)
-
-
-### Sample & Hold
-
-![S&H Node](img/Nodes/Sample-and-Hold/SH-Node.png)
-
-
-Input        | Signal Range
-:------------- | :-------------
-trigger   | `Gate`
-in   | `any 32-bit number`
-
-Output        | Signal Range
-:------------- | :-------------
-Sample   | `any 32-bit number`
-
-**iOS Symbol**
-
-![icon](img/icons/sample%20and%20hold.png)
-
-**Exposable Element** - None.
-
-**Warnings** - When using the Sample & Hold node in a feedback configuration (such as a counter) it may be necessary to use the Feedback Delay node to ensure stable functionality.
-
-**Typical Use** - Sampling incoming random values and using those values to modulate filter cutoff, pitch, or volume. Also great for creating downsampling distortion.
-
-When triggered by a Gate signal, the Sample & Hold node will capture the value at its input and hold that value at its output until the node is triggered again. Below, you can see how the Sample & Hold node works with both a noise source and an oscillator.
-
-![S&H Demo](img/Nodes/Sample-and-Hold/SH-Demo.png)
-
-Sample & Hold is most recognizable as a kind of sci-fi bleep-bloop noisemaker. By scaling the output of a sampled noise source to audible Hz values, you can make "computer hard at work" sounds (see below).
-
-![S&H Bleep Bloop](img/Nodes/Sample-and-Hold/SH-Bleep-Bloop.png)
-
-To make things even more interesting, you can add a filter and use a separate random Sample & Hold source to modulate its cutoff (sounds best with a high resonance value - see below).
-
-![S&H Bleep Bloop Filter](img/Nodes/Sample-and-Hold/SH-Bleep-Bloop-Filter.png)
-
-If you want to take it a step further, square the output of the random node a couple times and watch how the filter will tend to stay in the lower pitches more often.
-
-(Click here to download the patch below.)
-
-![S&H Bleep Bloop Bias](img/Nodes/Sample-and-Hold/SH-Bleep-Bloop-Bias.png)
-
-Sample & Hold can be used for much more than just adding randomness to your patches.
-
-In fact, it is one of the most powerful nodes available to you.
-
-Below is a flip-flop. Flip-flops are a fundamental building blocks of computers. They can store information as a 0 or 1.
-
-![S&H Flip-Flop](img/Nodes/Sample-and-Hold/SH-Flip-Flop.gif)
-
-Flip-flops can be used as clock dividers, and when they are cascaded, they become a shift register. Each flip-flop divides the incoming clock speed in half.
-
-![S&H Shift Register](img/Nodes/Sample-and-Hold/SH-Shift-Register.gif)
-
-You can also use Sample & Hold nodes in an array configuration to store multiple 32-bit numbers. This means you can build a sequencer with any number of steps and only need 2 knobs (Step Select and Value) and 1 button (Print Value to Current Step) to program it.
-
-Below is an example of how this would work with only 4 steps for simplicity's sake. The Mono-to-Quad and Quad-to-Mono nodes help compress the patch visually - imagine there are 4 separate Sample & Hold nodes there, one for each step. The light indicates which step is selected. (If it's confusing, jump to the section on Mono-to-Quad/Quad-to-Mono.)
-
-![S&H Step Sample](img/Nodes/Sample-and-Hold/SH-Step-Sample.png)
-
-The only downside to this is that the Sample & Hold node is cleared of its values when the patch is reset (i.e., when you close and reopen the patch). In a future version of Audulus, we will introduce a Data node that will allow you to store values more permanently.
-
-Another use for the Sample & Hold node is as a counter. Below is an example of a counter that counts up to a specified integer, resets to 0, and then counts up again. Counters are essential for creating step sequencers in Audulus.
-
-![S&H Step Sample](img/Nodes/Sample-and-Hold/SH-Count-Up.gif)
-
-The Sample & Hold node can also be configured to detect change in an incoming signal. In the Delta change detector configuration below, the `!=` operation means "does not equal." So if the signal that is coming from the knob (or any other modulation source) does not equal the sampled signal, it will resample the incoming signal until they are equal.
-
-This can be useful for adding a gates to a random sequencer - it would create a gate signal with each new note that could be used to trigger a volume envelope.
-
-![S&H Delta](img/Nodes/Sample-and-Hold/SH-Delta.png)
-
-With a similar configuration, the Sample and Hold node can detect the high and low values of an incoming signal.
-
-![S&H Delta](img/Nodes/Sample-and-Hold/SH-High-Low.png)
-
-There are so many more uses for the Sample & Hold node - you're really only limited by your imagination. Below is an example of the Pulse Looper module, which uses Sample & Hold nodes in an array formation to capture the rhythm of button presses.
-
-![S&H Delta](img/Nodes/Sample-and-Hold/SH-Pulse-Looper.png)
+<br>
 
 ---
 
-## Utilities
 
-### FeedbackDelay
+## util
 
-![Node](img/Nodes/FeedbackDelay/FeedbackDelay-Node.png)  
+**description**
 
-Input        | Signal Range
-:------------- | :-------------
-Signal   | `any 32-bit number`
+`util` nodes are various utilities that do some very essential things. 
 
-Output        | Signal Range
-:------------- | :-------------
-Signal   | `any 32-bit number`
+- The `adc` and `dac` nodes are used to get `audio` and `CV` in and out of Audulus. 
+- The `text` node is used for labeling and commenting inside of patches. 
+- The `timer` node has a variety of uses including creating envelopes and driving automation. 
+- The `zero cross` node analyzes incoming audio and outputs its frequency in `hz`.
 
-**iOS Symbol**
-
-![icon](img/icons/feedbackdelay.png)
-
-**Exposable Element** - None.
-
-**Warnings** - The FeedbackDelay node is *not* used for audio or signal delays. If you want to delay something in time, use the Delay node.
-
-**Typical Use** - Defining precise point of a processing delay in a feedback loop when critical to a patch's functionality.
-
-
-The **FeedbackDelay** node controls where a delay occurs in a feedback loop. Audulus indicates where a feedback delay occurs with a "z" in an input (indicating a Z-transform). If no FeedbackDelay node is present, Audulus will automatically decide where the delay occurs. While this is fine for many applications, in some situations, a misplaced feedback delay will break the patch's functionality.
-
-But why does a feedback delay even need to exist? The answer is simple, but can be hard to visualize at first: a computer cannot process a value before it has been created.
-
-Audulus computes the values at two different speeds: frames and buffers. Frames run at audio rate (44.1kHz) while buffers are executed in groups of 128 frames (~345Hz). Unless you explicitly tell Audulus to process a value sample-by-sample (see the z-1 node), Audulus will process operations in buffers. The feedback delay node is a way of marking explicitly where the order of operations during 1 buffer stops and waits until the next buffer.
-
-To understand more deeply why the FeedbackDelay node is necessary in some cases, first follow along with the steps of a correctly made Delta Change Detector module, and then look at what happens when the module is made incorrectly.  
-
-The Delta Change Detector module outputs a gate when it notices that the incoming value has changed from one buffer to the next. It's useful for adding a gate signal to a random melody being generated by a Sample & Hold node, as a gate will trigger each time a new value appears.
-
-![Node](img/Nodes/FeedbackDelay/FeedbackDelay-Correct.png)  
-
-**Correctly Made Delta Change Detector Module**
-
-**Buffer 1**  
-The Signal input changes from 0 to 1.  Audulus calculates the inequality between the Signal and Sample inputs.  The values are different so the output is 1.  The FeedbackDelay node is between the output and the Sample & Hold trigger.  It prevents the inequality from triggering the node during this buffer.
-
-`Module Output = 1`
-
-**Buffer 2**  
-The Signal input changes from 1 to 2.  The FeedbackDelay node releases the signal from the inequality.  The output of the inequality from the last buffer triggers the Sample & Hold node.  The Sample & Hold node captures the signal input and holds the value at its output.  Audulus calculates the inequality between the Signal and Sample inputs again.  Both the Signal and Sample match, so the inequality outputs a 0.  Again, the Feedback Delay node halts the value until the next buffer.
-
-`Module Output = 0`
-
-**Buffer 3**  
-The Signal input changes from 2 to 3.  The FeedbackDelay node releases the 0 signal and the trigger of the Sample & Hold node goes low.  Audulus calculates the inequality again.  The sampled value from buffer 2 doesn't match the Signal input from buffer 3.  The inequality outputs a 1.  The FeedbackDelay node halts the value until the next buffer.
-
-`Module Output = 1`
-
-**Buffer 4**  
-The Signal input stays at 3.  The FeedbackDelay node releases the 1 and the trigger of the Sample & Hold node goes high.  The Sample & Hold captures the signal input and holds the value at its output.  Audulus calculates the inequality again.  The Signal and Sample match, so the inequality outputs a 0.  The Feedback Delay node halts the value until the next buffer.
-
-`Module Output = 0`
-
-**Buffer 5**  
-The Signal input stays at 3.  The Feedback Delay node releases the 0 and the trigger of the Sample & Hold node goes low.  Audulus calculates the inequality again.  The Signal and Sample match, so the inequality outputs a 0.
-
-`Module Output = 0`
-
-![Node](img/Nodes/FeedbackDelay/FeedbackDelay-Incorrect.png)  
-**Incorrectly Made Delta Change Detector Module**
-
-**Buffer 1**  
-The Signal input changes from 0 to 1.  Audulus calculates the inequality between the Signal and Sample inputs.  The values are different so the output is 1.  The output triggers the Sample & Hold node.  The Sample & Hold node captures the Signal input value and holds it at its output.  The Feedback Delay node halts the value until the next buffer.
-
-`Module Output = 1`
-
-**Buffer 2**  
-The Signal input changes from 1 to 2.  The Feedback Delay node releases the Sample signal.  Audulus calculates the inequality.  The inequality is still true because the Sample (1) and the Signal (2) are still different.  The Sample & Hold node retains the same sample.  The Feedback Delay node halts the output value until the next buffer.
-
-`Module Output = 1`
-
-**Buffer 3**  
-The Signal input changes from 2 to 3.  The Feedback Delay node releases the Sample signal. Audulus calculates the inequality.  The inequality is still true because the Sample (1) and the Signal (3) are still different.  The Sample & Hold node retains the same sample.  The Feedback Delay node halts the output value until the next buffer.
-
-`Module Output = 1`
-
-...and so on. If you understood that, then great! You'll be able to use that knowledge in your designs. If you didn't understand, don't worry. If you ever come across a situation where you are using feedback and something seems to work at first, but when you close and reenter the patch, it no longer works, that just means you need to play around with inserting the FeedbackDelay node at different points within your feedback loop to see what works.
-
-What happened was when you were putting it together, Audulus put the feedback delay in the correct position. But when you reopened the patch, the feedback delay reset and jumped to another spot where it no longer works.
-
-And of course, if you're having trouble with a patch that uses feedback, you can always put your question to the community at the Audulus forum!
-
-
-### Speaker
-
-![Node](img/Nodes/Speaker/Speaker-Node.png)  
-
-Input        | Signal Range
-:------------- | :-------------
-Top - Right / Audio Output 2   | `-1 to 1`
-Bottom - Left / Audio Output 1    | `-1 to 1`
-
-**iOS Symbol**
-
-![icon](img/icons/speaker.png)
-
-**Exposable Element** - None.
-
-**Warnings** - Modular synthesis can cause sudden and *painful* spikes in volume if you don't know what you're doing. The #1 culprit of this is connecting a large signal to a filter's resonance input. Protect your hearing, and be careful when experimenting with headphones on or speakers turned up high.  Also, signals beyond the range of -1 to 1 will be clipped, causing distortion. It is generally best to keep outputs at 50-75% of maximum.
-
-**Typical Use** - Sending audio and/or control voltages out of Audulus.
-
-The **Speaker** node sends two channels of audio to the speakers or plugin outputs. If multiple speaker nodes are present in a patch, then the output of each node is mixed together equally.
-
-![Node](img/Nodes/Speaker/Speaker-Sum.png)
-
-However, it's better to use a single Speaker node with a master volume control to prevent output clipping.
-
-To create a master output volume control, attach one (mono) or two (stereo) Level nodes to the Speaker node's input. A single Knob node can be used to control both Level nodes for a stereo output.
-
-![Node](img/Nodes/Speaker/Speaker-Mono-Stereo.png)
-
-A quick way to create a master output pan control for a stereo signal is to use the same stereo configuration as above, but invert the Knob signal before it attaches to one of the level nodes.
-
-![Node](img/Nodes/Speaker/Speaker-Pan.gif)
-
-The above solution is fine for many situations, but you'll notice it has a dip in volume towards the center (50%). The dip in volume happens because the knob signal in the example above is linear, but our perception of volume is logarithmic. A logarithmic or equal power pan will appear equal in volume across the entire stereo spectrum.
-
-If you watch the example above, both of the level nodes are at 50% in the same moment, whereas in the example below, if one node is at 50%, the other is somewhere near 75%.
-
-![Node](img/Nodes/Speaker/Speaker-Equal-Power-Pan.gif)
-
-There are many ways to make an equal power pan, but this is the most simple. The first equation creates a sweep equal to 1/4 of the Unit Circle. Taking the sine and cosine of this output will result in two logarithmic curves that are 90 degrees out of phase with one another.
-
-![Node](img/Nodes/Speaker/Speaker-Unit-Circle.png)
-
-An output overload detector is useful to have on an audio output. A overload detector will flash when the incoming audio or control signal level exceeds the node's maximum -1 to 1 range.  Creating one is easy.
-
-![Node](img/Nodes/Speaker/Speaker-OL.png)
-
-The expression `abs(Audio)>1` translates to "If the absolute value of the audio signal is greater than 1, then output a 1." When this expression outputs a 1, it will turn the RGB node red. We use the absolute value because it's possible for an audio signal to clip an output only in its negative sweep. Using the absolute value of the audio input will detect peaks in both the positive and negative portions of the wave.
-
-The only problem with this setup is that output overload peaks can happen very quickly - too quickly to see the red light flash. We can turn the on/off flash into a on/fade-out flash with some extra nodes.
-
-![Node](img/Nodes/Speaker/Speaker-OL-Fade.png)
-
-In the above example, when an overloaded audio signal is detected by `abs(Audio)>1`, it triggers the Timer node to restart from 0. The Timer node signal is then inverted by the `1-Timer` expression so that it starts at 1 and counts down in seconds. The `clamp(~)` portion of the `clamp(1-Timer,0,1)` expression constrains the output of the `Timer-1` expression to a range of 0 to 1. This ultimately turns the on/off flash into an on/fade-out flash that takes 1 second to disappear.
-
-We then have to use an Add node to sum the output of the `abs(Audio)>1` signal and the `clamp(1-Timer,0,1)` signal so that if the output is constantly overloaded, the red light will stay constantly lit.
-
-The Speaker node can send both audio and control voltages out of Audulus. To send control voltages to a modular synthesizer, you'll need to use a DC-coupled audio interface like the Expert Sleepers ES-8.
-
-![Node](img/Nodes/Speaker/Speaker-ES8.jpg)
-
-Most audio interfaces are AC-coupled which prevents a constant offset DC voltage from damaging speakers (to understand why this is, look at the DCBlocker node). However, because AC-coupled interfaces cannot output static voltages, they are useless for sending 1 volt-per-octave pitch signals and LFOs.
-
-The Expert Sleepers ES-8 and other DC-coupled audio interfaces will allow you to send accurate pitch and modulation signals from Audulus to your modular. The ES-8 is a particularly good interface to use because its maximum voltage swing of -10 to 10 volts scales easily with the -1 to 1 output range of Audulus. This means that every 0.1 step in Audulus is equal to 1 volt.
-
-Although as of this writing, you can only use the first two inputs and outputs of the ES-8, we will soon implement arbitrary I/O that expands to the number of available inputs and outputs of whatever audio interface you have selected. This also means that if you are using Audulus on a computer and have multiple ES-8 modules, you will be able to create an aggregate device to take advantage of all of their inputs and outputs.
-
-SPECIAL OFFER: If you buy an Expert Sleepers ES-8 from Century Sound Labs, you'll recieve a free copy of Audulus on the platform of your choice!
-
-https://reverb.com/item/3437313-expert-sleepers-es-8-dc-coupled-audio-interface-free-audulus-3-copy
-
-For a more in-depth discussion on how to integrate Audulus with your analog synthesizers using DC-coupled audio interfaces, refer to the Analog Audulus documentation (coming soon).
-
-
-
-### Mic
-
-![Node](img/Nodes/Mic/Mic-Node.png)  
-
-Output        | Signal Range
-:------------- | :-------------
-Top - Right / Audio Input 2   | `-1 to 1`
-Bottom - Left / Audio Input 1   | `-1 to 1`
-
-**iOS Symbol**
-
-![icon](img/icons/mic.png)
-
-**Exposable Element** - None.
-
-**Warnings** - If a Mic node is connected to a Speaker node, it is possible to create a painfully loud feedback loop, especially on iOS. You must isolate the Mic node input from the Speaker node output (usually by plugging in headphones).
-
-**Typical Use** - Routing audio and/or control voltages into Audulus.
-
-The **Mic** node recieves two channels of audio input from your audio device or plugin audio input. If you want to route audio or control voltages from an external instrument into Audulus, you need to use the Mic node.
-
-For example, if you are using Audulus on iOS in an AUM or Audiobus FX slot to create a stereo delay, you would create a patch that looks something like this:
-
-![Node](img/Nodes/Mic/Mic-Stereo-Delay.png)
-
-If the audio input to Audulus is monophonic, it will usually enter through the bottom (left) input, which is input 1.
-
-![Node](img/Nodes/Mic/Mic-Mono-to-Stereo-Delay.png)
-
-If the output track is monophonic (or you just want to use a monophonic effect), just insert the effect between Mic node input 1 and Speaker node output 1.
-
-![Node](img/Nodes/Mic/Mic-Mono-Delay.png)
-
-There are all kinds of effects you can create in Audulus, but one of the most simple is a tremolo. A tremolo effect modulates the volume of a signal, most often with a triangle or sine LFO.
-
-Below is an example of a tremolo with speed and depth controls.
-
-![Node](img/Nodes/Mic/Mic-Tremolo.png)
-
-You can also make creative use of the mic node by attaching it to the amplitude input of an oscillator. Using an EnvFollow node will prevent the amplitude value from going negative.
-
-![Node](img/Nodes/Mic/Mic-Osc-Amplitude.png)
-
-Taking this idea further, you can use the Mic node with a threshold control to trigger an Envelope node to create drum sounds. If you set the threshold control just right, you can lay your iOS device on a table and slap the table to trigger the drum.
-
-![Node](img/Nodes/Mic/Mic-Noise-Drum.png)
-
-### Text
-
-![Node](img/Nodes/Text/Text-Node.png)  
-
-**iOS Symbol**
-
-![icon](img/icons/text.png)
-
-**Exposable Element** - The text itself. Note: The text will move the bounding of a subpatch to how it is formatted internally.
-
-![Text Exposed](img/Nodes/Text/Text-Exposed.png)  
-
-**Typical Use** - Labeling controls and creating visual accents on modules as well as adding patch commentary.
-
-The **Text** node is an editable text block that can be used to label things and write comments. To edit the text, right click or tap on the text and an edit window will appear.
-
-Below is an example of a patch with extensive commentary. Though most advanced users of Audulus can simply "read" a patch and understand what is happening, labeling nodes in a step-by-step manner greatly increases the chance that someone will understand your patch, learn from it, and create their own patches using the principles you've outlined.
-
-![Text Exposed](img/Nodes/Text/Text-Commentary.png)  
-
-Commentary text is displayed in a sans-serif font while text that is exposed to the surface of a subpatch is displayed in a serif font.
-
-![Text Exposed](img/Nodes/Text/Text-Serif-Sans-Serif.png)  
-
-You can change the size of a text block by tapping or clicking on the text and moving the green dot on the right.
-
-![Text Exposed](img/Nodes/Text/Text-Sized.png)  
-
-Knob nodes, input nodes, and output nodes can all be labeled directly by clicking or tapping on the node itself. However, there are times when you may want to condense the labels for a tighter design. Below is an example of two 8-step sequencers - one labeled directly, and one labeled with Text nodes.
-
-![Text Exposed](img/Nodes/Text/Text-Sequencer.png)  
-
-You can get really creative with Text nodes and integrate them into the aesthetic of a module that you create like the sequencer below, where dashes mark different subdivisions of a Spline node.
-
-![Text Exposed](img/Nodes/Text/Text-Creative.png)  
-
-### Timer
-
-![Node](img/Nodes/Timer/Timer-Node.png)  
-
-Input        | Signal Range
-:------------- | :-------------
-Reset   | `Gate (rising edge)`
-
-Output        | Signal Range
-:------------- | :-------------
-Seconds Since Last Reset   | `0 to 68 years`
-
-**iOS Symbol**
-
-![icon](img/icons/timer.png)
-
-**Exposable Element** - None.
-
-**Typical Use** - Lane automation, or used in conjunction with a logic expression that gives a command after n-seconds have passed, e.g., `Timer>10`.
-
-The **Timer** node outputs the time (in seconds) after its input is triggered. You can see how it works by attaching a Trigger node to its input and a Value node to its output. In the example below, approximately 8 seconds passed since the last trigger event.
-
-![Text Exposed](img/Nodes/Timer/Timer-Trigger.png)  
-
-The Timer node may not appear very useful at first, but there are some pretty amazing things you can do with it.
-
-One of the most useful implementations of the Timer node is to use it to turn the Spline node into an automation lane. With enough Spline nodes, you can modulate parameters to mix instrument levels, start and stop clocks, and modulate parameters - all synced to one master Timer node.
-
-The image shows the basic idea: Take the output of the Timer node, divide it by the number of seconds of automation you want, feed the output of that expression to a Spline node, then feed the output of the Spline node to the parameter(s) you wish to automate.
-
-![Text Exposed](img/Nodes/Timer/Timer-Spline.png)
-
-If you want this automation to loop, simply add an Expression node in a feedback configuration with the Timer node's input and write `Timer>=[Max Loop Time]`. When the Timer node's output is greater than or equal to the time you want to loop, this expression will reset the Timer node. If you also use a variable for the `Timer/[Max Loop Time]` expression, you can change just one number to affect the speed of the automation and its loop point.
-
-![Text Exposed](img/Nodes/Timer/Timer-Loop.png)
-
-To add a button to toggle the looping function on and off, simply place a Mult node between the output of the `Timer>=MaxLoopTime` expression and the input of the Timer node's reset input with a Trigger node in toggle mode. You can even go a step further and add an indicator light.
-
-![Text Exposed](img/Nodes/Timer/Timer-Loop-Switch.png)
-
-Another use for the Timer node is to create a fade effect on RGB nodes. To fade a light up, use the expression `Timer/[FadeTime]` and connect the output of the expression to the inputs of an RGB node. In the example below, the light will turn all the way on after 3 seconds.
-
-![Text Exposed](img/Nodes/Timer/Timer-Fade-In.png)
-
-To make a light fade out, just invert the `Timer/[FadeTime]` expression. The light will flash on immediately and then fade out. This is how the overload indicator featured in the Speaker node section is made.
-
-![Text Exposed](img/Nodes/Timer/Timer-Fade-Out.png)
-
-The Timer node can also be used to create a very low-CPU Pulse Looper. The Pulse Looper module allows you to tap in and loop a rhythm using a Trigger node. You can do something similar with a Delay node, but the Delay node has a maximum loop time of 2 seconds. The Pulse Looper has an arbitrarily long maximum loop time, and they can be chained together.
-
-![Text Exposed](img/Nodes/Timer/Timer-Pulse-Looper.png)
-
-You can read all about how it works inside the module, but in short, when you tap or click the button on the module, it samples the current time value (which is looping from 0 to 4 seconds), and when the loop returns around and the sampled value matches the current time, a gate is generated.
-
-![Text Exposed](img/Nodes/Timer/Timer-Pulse-Looper-Explanation.png)
-
-
-### ZeroCross
-
-![Node](img/Nodes/ZeroCross/ZeroCross-Node.png)  
-
-Input        | Signal Range
-:------------- | :-------------
-Audio   | `-1 to 1`
-
-Output        | Signal Range
-:------------- | :-------------
-Fundamental Pitch of the Audio in Hz   | `0 to ~20,000`
-
-**iOS Symbol**
-
-![icon](img/icons/zerocross.png)
-
-**Exposable Element** - None.
-
-**Typical Use** - Pitch detecting an incoming instrument (like a guitar) to control the pitch of an oscillator or filter cutoff.
-
-The **ZeroCross** node can be used to detect the pitch of a simple waveform. It outputs the frequency of zero-crossings of its input signal in Hertz (cycles per second, or Hz).
-
-A zero-crossing is the moment where a wave crosses from positive to negative or negative to positive. The ZeroCross node counts these crossings and divides them by 2 to get the Hz value.
-
-![Node](img/Nodes/ZeroCross/ZeroCross-Waveform.png)  
-
-As you can see in the example below, the Value node displays almost exactly the correct Hz value.
-
-![Node](img/Nodes/ZeroCross/ZeroCross-1Hz.png)
-
-This margin of error is small at low Hz values, but grows with higher Hz values (notice the ~2000Hz difference in the readouts between these two oscillators).
-
-![Node](img/Nodes/ZeroCross/ZeroCross-10000Hz.png)
-
-The good thing is, the entire range of a piano is from about 27Hz to about 4186Hz, with most instruments falling somewhere in the middle. In the example below, the margin of error for the highest note of a piano is only 5-6%, versus the previous example's error of 20+%.
-
-![Node](img/Nodes/ZeroCross/ZeroCross-4186Hz.png)
-
-The reason for this margin of error has to do with sample rate. At a sample rate of 44.1kHz (the default for Audulus in standalone mode), the ZeroCross node has 44,100 samples per second to evaluate the zero-crossings of a 1Hz wave, whereas it only has 4.41 samples per second to evalute the zero-crossings of a 10,000Hz wave.
-
-The ZeroCross node will also have a harder time estimating the pitch of an incoming signal that is harmonically rich, like a distorted electric guitar (to understand harmonics, refer back to the additive synthesis portion of the Osc node documentation). An easy way to make the ZeroCross node track more accurately with guitars, saxophones, and voice is to place a Filter node before it like in the example below.
-
-![Node](img/Nodes/ZeroCross/ZeroCross-Filter.png)
-
-The Filter node is a low-pass filter (LPF), meaning it passes frequencies below its cutoff point unaffected while attenuating frequencies above the cutoff point. An ideal pitch detector would analyze an incoming instrument and only return the fundamental frequency (i.e., the note being played). Inserting an LPF before the ZeroCross node helps the ZeroCross node ignore the high frequency content of a harmonically-rich sound source that inhibits accurate pitch detection.
-
-Another critical point to understand is that the ZeroCross node can only track one note at a time - not chords. The output of the ZeroCross node is a single Hz value. There is no "polyphony" option because you'd need a much more sophisticated algorithm to parse a chord than simply counting the number of times the incoming wave crosses zero. There are programs that do this, but their algorithms are proprietary.
-
-Now, the reason we've so far only discussed the limitations of the ZeroCross node is to give you a better idea of what to expect from it and how to work with its quirks. Some instruments will work better than others, and even with an LPF inserted before it, the ZeroCross node will never track perfectly - but you can still create some amazing sounds with it.
-
-For the sake of these examples, let's assume you want to make a bass guitar synthesizer. (Bass guitars track pretty accurately with the ZeroCross node.)
-
-Below is an example of the most basic configuration you can make - a single oscillator that uses an EnvFollow node to gate its amplitude.
-
-![Node](img/Nodes/ZeroCross/ZeroCross-Bass1.png)
-
-This sounds OK, but we can make the envelope following sound smoother by adding a Filter node after the EnvFollow node.
-
-![Node](img/Nodes/ZeroCross/ZeroCross-Bass2.png)
-
-To make this synth a little more dynamic, we can add an enveloped filter, gated by an amplitude threshold trigger.
-
-![Node](img/Nodes/ZeroCross/ZeroCross-Bass3.png)
-
-To get an even fatter sound, we can add a second oscillator set an octave above the first. Simply multiply the output of the ZeroCross node by 2 and feed that result into the second oscillator's Hz input. The example below goes a step further an adds a detune control, which can widen the sound even more.
-
-![Node](img/Nodes/ZeroCross/ZeroCross-Bass4.png)
-
-Finally, we can add a mix control that allows you to dial in the balance of dry, unaffected bass guitar with the synthesizer sound we've created by using a Crossfade Node.
-
-![Node](img/Nodes/ZeroCross/ZeroCross-Bass5.png)
-
-You can also use a similar configuration to play your analog synthesizers if you have an Expert Sleepers ES-8 DC-coupled audio interface. You just need to convert the Hz signal into Audulus's standardized Octave signal, and send it through the ES-8 interface output module with the o2v (Octave signal to 1 Volt Per Octave) converter - or just use this equation: `(log2(Hz/[ReferencePitch])+4)/10`. In the example below, we can use both the pitch and the filter envelope.
-
-![Node](img/Nodes/ZeroCross/ZeroCross-ES8.png)
-
-## Poly
-
-### MonoToQuad / QuadToMono / MonoToStereo / StereoToMono
-
-![Node](img/Nodes/Poly/Poly-Nodes.png)  
-
-MonoToQuad Input        | Signal Range
-:------------- | :-------------
-in1   | `any 32-bit number`
-in2   | `any 32-bit number`
-in3   | `any 32-bit number`
-in4   | `any 32-bit number`
-
-MonoToQuad Output        | Signal Range
-:------------- | :-------------
-Poly Signal   | `4x any 32-bit number`
-
-QuadToMono Input        | Signal Range
-:------------- | :-------------
-Poly Signal   | `4x any 32-bit number`
-
-QuadToMono Output        | Signal Range
-:------------- | :-------------
-out1   | `any 32-bit number`
-out2   | `any 32-bit number`
-out3   | `any 32-bit number`
-out4   | `any 32-bit number`
-
-MonoToStereo Input        | Signal Range
-:------------- | :-------------
-in1   | `any 32-bit number`
-in2   | `any 32-bit number`
-
-MonoToStereo Output        | Signal Range
-:------------- | :-------------
-Poly Signal   | `2x any 32-bit number`
-
-StereoToMono Input        | Signal Range
-:------------- | :-------------
-Poly Signal   | `2x any 32-bit number`
-
-StereoToMono Output        | Signal Range
-:------------- | :-------------
-out1   | `any 32-bit number`
-out2   | `any 32-bit number`
-
-
-**iOS Symbols**
-
-![icon](img/icons/mono%20to%20quad.png)
-![icon](img/icons/quad%20to%20mono.png)
-![icon](img/icons/mono%20to%20stereo.png)
-![icon](img/icons/stereo%20to%20mono.png)
-
-**Exposable Element** - None.
-
-**Typical Use** - Condensing complex, repetitive designs into smaller packages for a tidier look that can also be easier on your GPU.
-
-The **MonoToQuad** node converts four mono signals to one four-channel polyphonic signal. It is the inverse of the **QuadToMono** node. The **MonoToStereo** node converts two signals to one two-channel polyphonic signal. It is the inverse of the **StereoToMono** node.
-
-People often think these nodes are labeled backwards - they are not! If it helps, think of them as "Mono Signals to Polyphonic Signal" and "Polyphonic Signal to Mono Signals."
-
-Below is an example of a typical use where a stereo signal is routed into one Filter node. Instead of summing the left and right channels, the MonoToStereo and StereoToMono. This allows for parallel processing
-
-These nodes make your designs more condensed and explicit.
-
-You cannot stack these nodes together to condense more mono signals into a larger polyphonic signal.
-
-
-
-### PolyToMono
-
-![Node](img/Nodes/Poly/PolyToMono-Node.png)  
-
-Input        | Signal Range
-:------------- | :-------------
-Poly Signal   | `2x to 16x any 32-bit number`
-
-Output        | Signal Range
-:------------- | :-------------
-Mono Signal   | `any 32-bit number`
-
-**iOS Symbol**
-
-![icon](img/icons/poly%20to%20mono.png)
-
-**Exposable Element** - None.
-
-**Typical Use** - Collapsing a poly signal into a mono signal to save downstream CPU.
-
-The **PolyToMono** node mixes a polyphonic input (denoted by a thick wire) to a monophonic output (thin wire). Each voice is mixed equally.
-
-![Node](img/Nodes/Poly/PolyToMono-Mix.png)
-
-Typically, you'll want to place linear effects (reverb, delay, EQ) after the PolyToMono, since it will sound the same as placing them before but only a single voice needs to be processed. A linear effect is one that does not change its character based on amplitude or frequency response (i.e., loud & soft, and high & low pitches are all effected equally).
-
-On the other hand, nonlinear effects, such as the Distortion node, will have quite a different effect if placed before the PolyToMono versus after.
-
-![Node](img/Nodes/Poly/PolyToMono-LinearNonLinear.png)
-
-It's also a good idea to use a PolyToMono node before your audio output to accurately control the volume of your output.
-
-![Node](img/Nodes/Poly/PolyToMono-Speaker.png)
-
-
-## Sub-Patches
-
-### Patch
-
-![Node](img/Nodes/Patch/Patch-Node.png)
-
-**iOS Symbol**
-
-![icon](img/icons/patch.png)
-
-**Exposable Element** - None.
-
-**Typical Use** - Creating modules, simplifying larger patches by condensing portions of patches into smaller elements.
-
-
-The **Patch** node allows you to contain a patch within a patch. You can even have Sub-Patch nodes within Sub-Patch nodes. Patches are great for condensing otherwise large and unruly patches so that they are easy to "read" and understand what is going on. They're also great for creating your own custom-packed modules, synthesizers, and effects with UIs that have only the relevant controls exposed to the surface of the Patch.
-
-To enter the Patch, tap on the node and then tap "Open" (iOS - you may need to tap the `>` button to expand the menu), or double-click on node (computer). To exit, tap on the icon in the upper left corner (iOS) or press the Escape key (computer).
-
-The Patch node will automatically conform to the dimensions of the elements placed furthest to the top, bottom, left and right.
-
-To edit the arrangement of a Patch's elements, tap or right-click on an empty space in the Patch and press "Edit UI" (User-Interface). You can now move controls, inputs and outputs, and other visual elements around on the patch.
-
-To lock the Patch, tap or right-click on an empty space again and select "Lock UI." Until you lock the Patch, you will not be able to manipulate knobs or buttons.
-
-You can use Patches to create your own custom modules and save them to your module library. On iOS, simply tap on a Patch and select "Enter Into Library." On a computer (in the standalone app only, not the AU/VST plugin), save the module as a separate file into your Audulus library folder, and it will appear in the right click context menu.
-
-It is generally best to not place text or un-truncated Value nodes at the perimeter of a Patch node because they can cause the edge of the patch to bounce when zooming in or out, or when values change.
-
-Below, we'll create an example module using a Patch a multi-shape LFO using the Phasor node. We'll follow the conventions for Patch module design laid out in the Audulus Module library, but feel free to get creative with your own module UIs.
-
-The Phasor node is great way to make an LFO, but it can feel repetitive building a Phasor-based LFO from scratch every time you need one.
-
-Once you've created a basic 0 to 1 Phasor saw wave LFO and attached a Waveform node to its output, select all of the nodes and then tap on one of the nodes and select "Group" (iOS) or right-click and select "Group."
-
-![Node](img/Nodes/Patch/Patch-LFO1.png)
-
-The patch will disappear and be replaced by a Knob node contained within a Patch node.
-
-![Node](img/Nodes/Patch/Patch-LFO2.png)
-
-Enter the Patch and you'll see the Phasor LFO there. Now go ahead and tap/click on the waveform node and select "Expose."
-
-![Node](img/Nodes/Patch/Patch-LFO3.png)
-
-When you exit the Patch, you'll see that the size of the Patch has grown to accomodate the exposed Waveform node.
-
-![Node](img/Nodes/Patch/Patch-LFO4.png)
-
-Now add the rest of the LFO shapes (for more on this, refer back to the Phasor node). It's usually quicker to copy and paste nodes from ones you already have rather than menu-diving to grab new ones. If you copy the `Phasor/(2*pi)` expression and the Waveform node attached to it, you can paste it repeatedly and then simply modify the equations as necessary.
-
-![Node](img/Nodes/Patch/Patch-LFO5.png)
-
-Exit the Patch and you'll notice that the Waveform nodes are all stacked on one another. Whenever you expose an element of a node to a Patch node, that element will appear at the Patch node's (0,0) origin point.
-
-![Node](img/Nodes/Patch/Patch-LFO6.png)
-
-If you open an Audulus file in textEdit, you can see how Audulus keeps track of node position by using coordinates.
-
-![Node](img/Nodes/Patch/Patch-LFO7.png)
-
-When creating a module, it can be useful to move exposed elements up and away from this origin point. This is because if you want to add more exposed elements later they may wind up inconveniently in the middle of your carefully arranged UI.
-
-Now go back into the Patch node and attach an Input node to the Phasor sync input, and attach Output nodes to the outputs of each LFO Expression nodes.
-
-![Node](img/Nodes/Patch/Patch-LFO8.png)
-
-If you exit the Patch node, you'll see that once again the Input and Output nodes have all stacked at the origin point. The nodes stack on one another in the order that they were created. This means the Waveform nodes are "below" the Knob node, and the Knob node is "below" the Input/Output (I/O) nodes, and the Input node is the one "on top" of everything else.
-
-![Node](img/Nodes/Patch/Patch-LFO9.png)
-
-To make any exposed element jump to the "top layer," highlight the node and use a Cut/Paste command series. This is the easiest way to rearrange which exposed element is on top.
-
-Now enter the patch again and attach RGB nodes to the LFO Expression node outputs, and attach a Light node to the sync input of the Phasor node. If you create one RGB node, expose it, then copy and paste it to use with the other LFO outputs (instead of calling up new RGB nodes), the pasted RGB nodes will also be exposed. This is another trick to save you some time from having to individually expose each node
-
-*Note: the distortion in the Waveform nodes in the image below is from when the Patch node was entered - this transition causes a brief pause in rendering the Waveform node, which then catches up to the current value - this does not affect the actual output of the Expression nodes themselves).*
-
-![Node](img/Nodes/Patch/Patch-LFO10.png)
-
-Next, use Text nodes to label the inputs and outputs according to the convention in the module library (g = 0 or 1 gate signal, m = 0 to 1 modulation signal). Expose the Text nodes, and arrange them on the inside of the Patch node so they are near each I/O node for clarity.
-
-![Node](img/Nodes/Patch/Patch-LFO11.png)
-
-To separate the waveforms but keep a compact UI, we can scale the inputs to the Waveform nodes so that they are separated top to bottom. This does not affect the output of the LFO expression nodes, which remains in a 0 to 1 range. We want them to each take up about a 1/4 of the "screen" on the module. The entire range of the Waveform node is from -1 to 1, so if we divide each wave by 2 and then shift the wave up or down in increments of .5, we can spread them out evenly.
-
-![Node](img/Nodes/Patch/Patch-LFO12.png)
-
-If you exit the Patch you'll see that the waveforms are now separated.
-
-![Node](img/Nodes/Patch/Patch-LFO13.png)
-
-Now is a good time to start laying out the module. Put the knobs on the left with the sync Input node, its label, and light node, and put the modulation Output nodes, their labels, and RGB nodes on the right.
-
-![Node](img/Nodes/Patch/Patch-LFO14.png)
-
-It's relatively easy to tell which RGB node fits with what waveshape, but the Output nodes could be mixed up. Go back into the Patch node and temporarily label them so you can arrange them correctly.
-
-![Node](img/Nodes/Patch/Patch-LFO15.png)
-
-We can now arrange the outputs correctly.
-
-![Node](img/Nodes/Patch/Patch-LFO16.png)
-
-But we don't need to keep the labels because it's obvious which wave they go with. Once you've arranged them, enter the Patch node again and delete the names of the outputs.
-
-Since we'll be labeling the Knob nodes inside their perimeter rather than directly below, delete the name of the Knob nodes. You can easily tell which knob is which by how they affect the waveforms when you turn them. Place the speed (Hz) knob on top (because it's the primary control), and the PWM knob below it (it only affects the square wave).
-
-![Node](img/Nodes/Patch/Patch-LFO17.png)
-
-Now let's label both knobs and scale the output of the Hz knob. The expression `Hz^2*20` will scale the Knob to work between 0 and 20Hz in an exponential curve, meaning when the Knob is set to 50%, the Hz output will not be 10 (linear) but 5 (exponential). This makes it easier to dial in slower LFO speeds.
-
-Attach Value nodes to the output of this Expression node and to the PWM knob directly.
-
-![Node](img/Nodes/Patch/Patch-LFO18.png)
-
-If we go back out to the UI of the Patch node, we'll see that the Value nodes look a little messy. The value nodes will display a high precision number, but that's not very useful in this situation.
-
-![Node](img/Nodes/Patch/Patch-LFO19.png)
-
-To adjust the value nodes so they only display the digits we want, we can use a `floor(x)` expression. This expression discards the decimal portion of an incoming signal. We want to turn the PWM readout to 1 to 100 in steps of 1. To do this, we need to first multiply the PWM value by 100, then floor the result - written as `floor(PWM*100)`.
-
-For the Hz readout, we want a definition to the hundredths place. To do this, we need to multiply the Hz output by 100, floor that value, then divide that floored value by 100 - written as `floor(Hz*100)/100`.
-
-![Node](img/Nodes/Patch/Patch-LFO20.png)
-
-Now when we exit the Patch node, we'll see that the Value nodes read in a much more useful range.
-
-![Node](img/Nodes/Patch/Patch-LFO21.png)
-
-It's generally best to place value readouts far enough below a Knob node so that when the Knob grows as you turn it, the value won't be covered.
-
-Finally, give the module a title. It's a good idea to place the title of a module somewhere in the middle above the patch.
-
-![Node](img/Nodes/Patch/Patch-LFO22.png)
-
-On the UI, it fits nicely over here by the Knob nodes.
-
-![Node](img/Nodes/Patch/Patch-LFO23.png)
-
-
-
-
-### Input/Output
-
-![Node](img/Nodes/IO/IO-Nodes.png)  
-
-**iOS Symbol**
-
-![icon](img/icons/input.png)
-![icon](img/icons/output.png)
-
-**Exposable Element** - Input/Output port.
-
-![ADSR Exposed](img/Nodes/IO/IO-Exposed.png)  
-
-**Warnings** - These are not Audio/CV/MIDI Input/Outputs.
-
-**Typical Use** - Sending signals into and out of Patch nodes.
-
-The **Input** and **Output** nodes allow you to route a signal into and out of a Patch node. They are only useful if placed inside of a Patch node. They are *not* audio input and outputs - to route audio and/or control signals into and out of Audulus, use the Mic and Speaker nodes, or the ADC/DAC nodes.
-
-For more on how to use Input and Output nodes, refer back to the Patch node step-by-step example module.
-
-
-### Knob
-
-![Node](img/Nodes/Knob/Knob-Node.png)  
-
-Input        | Signal Range (Default / Maximum)
-:------------- | :-------------
-Wire   | `Any 32-bit Number`
-
-Output        | Signal Range
-:------------- | :-------------
-Signal (Unspecified)   | `Any 32-bit Number`
-
-**iOS Symbol**
-
-![icon](img/icons/knobsubpatch.png)
-
-**Exposable Element** - Knob.
-
-![ADSR Exposed](img/Nodes/Knob/Knob-Exposed.png)  
-
-**Warnings** - Knob nodes will accept any wire signal, including ones that are outside the defined range of the knob. If the Knob is ranged 0 to 1 and you send an audio signal of -1 to 1, the audio signal will pass uneffected, but the wave will only appear to animate the knob for half of the wave cycle.
-
-**Typical Use** - Creating an interactive parameter that can be dialed in directly by tap/click and drag, assigned a MIDI CC, or modulated directly with a wire.
-
-The Knob node is the primary interactive node in Audulus. When paired with other nodes, knobs can sweep a filter, change volume, and even act as a switch.
-
-Knobs can be turned with your finger or mouse by tapping or clicking and holding on the knob.
-
-You can drag the knob left/right or up/down to decrease/increase the knob's value.
-
-When created inside a Patch node, the Knob node exposes a knob to the front-panel of the Patch node.
-
-To rename a Knob node, tap or click on a blank space inside the node (but not directly on the knob itself) then select `Rename.` A dialogue box will appear where you can rename the knob. You can also leave the name blank if you want an unnamed knob, or if you wish to identify the knob with a Text or SVG node inside the perimeter of the knob.
-
-When a Knob node is created, its default range is 0 to 1. To change the default range, click or tap on the knob itself and select either `Set Min` or `Set Max`.
-
-A better way to range your knobs is to leave the Knob node at its default 0 to 1 range and use ranging expressions instead.
-
-The reason for this is that the standardized modulation (m) and gate (g) signals have a range of 0 to 1. If you keep your knobs in their default 0 to 1 range, you can attach m and g signals directly to your knobs and get a predictable and easily controllable behavior.
-
-Below are examples of ways to manipulate Knob node signals using math. The variable `Knob` should be read as the signal from a Knob node with the default range of 0 to 1.
-
-These ranging expressions can be created with either Multiply and Add nodes, or with an Expression node
-
-To create a knob that has a range of 0 to 2, multiply the output of the knob by 2.
-
-`Knob*2` = `0*2 to 1*2` = `0 to 2`
-
-To create a knob that has a range of 1 to 2, add 1 to the output of the knob.
-
-`Knob+1` = `0+1 to 1+1` = `1 to 2`
-
-To create a knob that has a range of 1 to 3, first multiply the output of the knob by 2, then add 1.
-
-`Knob*2+1` = `0*2+1 to 1*2+1` = `0+1 to 2+1` = `1 to 3`
-
-To create a knob that has a range of -1 to 1, first multiply the output of the knob by 2, then subtract 1.
-
-`Knob*2-1` = `0*2-1 to 1*2-1` = `0-1 to 2-1` = `-1 to 1`
-
-By default, the knob has a linear response. You may find it useful to give some knobs an exponential or logarithmic response.
-
-The halfway point of a linear 0 to 1 knob will be 0.5. The halfway point for a 0 to 1 exponential knob will be less than 0.5, while the halfway point for a 0 to 1 logarithmic knob will be greater than 0.5.
-
-Exponential knobs are good for controlling filter cutoff and other frequency (Hz) controlled parameters like pitch.
-
-Logarithmic knobs are good for giving volume faders a smooth response.
-
-You should always apply a curve to a knob before ranging it.
-
-To create an exponential knob, square the output of the knob.
-
-`Knob^2` = `exponential Knob response`
-
-To create a logarithmic knob, square root the output of the knob.
-
-`sqrt(Knob)` = `logarithmic Knob response`
-
-To apply a more extreme curve to a knob, use multiple square or square root functions.
-
-`Knob^2^2^2` = `extremely exponential Knob response`
-
-`sqrt(sqrt(sqrt(Knob)))` = `extremely logarithmic Knob reponse`
-
-In some cases, you may want to be able to smoothly fade between a linear and an exponential or logarithmic response.
-
-The most common application for this would be to fine tune how a filter's frequency knob responds to modulation.
-
-To do this, use a Knob node with a Crossfade node to fade between the A (linear) knob output and the B (shaped) knob output.
-
-Knob nodes can attach to other knob nodes only when one of the knobs is inside another patch. You can use this technique to draw a control out from a patch-within-a-patch.
-
-
-## Math
-
-### Add
-
-![Node](img/Nodes/Add/Add-Node.png)  
-
-Input        | Signal Range (Default / Maximum)
-:------------- | :-------------
-Signal A (Top, Unspecified)   | `Any 32-bit Number`
-Signal B (Bottom, Unspecified)   | `Any 32-bit Number`
-
-Output        | Signal Range
-:------------- | :-------------
-Signal `A+B` (Unspecified)   | `Any 32-bit Number`
-
-**iOS Symbol**
-
-![icon](img/icons/add.png)
-
-**Exposable Element** - None.
-
-**Warnings** - The output of the Add node will not register correctly if the sum of inputs A and B exceeds the 32-bit maximum output value (`2^32` or 2,147,483,647).
-
-**Typical Use** - Combining two signals equally.
-
-The **Add** node combines its two inputs, **a** and **b**. Addition of signals is the same as mixing. Another word for this is "summing."
-
-While you can use the Expression node to sum two signals with the expression `A+B`, the Add node can be a nice, simple, and explicit way to combine two signals.
-
-You can make a small 2-input mixer using two Level nodes attached to the two inputs of the Add node.
-
-![Node](img/Nodes/Add/Add-Mixer.png)  
-
-
-### Expr
-
-![icon](img/icons/expr.png)
-
-The Math Expression Node (**Expr**) allows the entry of a textual
-mathematical expression, like `2*x+y^z`. The node creates an input
-for each variable and a single output for the result of the expression.
-
-It has a variety of uses, including: unit conversion, control-signal
-mapping, wave-shaping or building custom oscillators.
-
-For example, to convert from MIDI note numbers to Hz, use `(440 / 32) * pow(2, (x - 9) / 12)`.
-
-To edit the expression, tap or click on the node and select `Set Expression` from the node's context menu.
-
-The Math Expression Node includes the following operators and functions:
-
-#### Operators
-
-Sytax             | Semantics
-:---------------- | :------------
-`(x)`             | parenthetical grouping
-`-x`              | negation
-`x^y`             | exponentiation
-`x * y, x / y`    | multiplication, division
-`x + y, x - y`    | addition, subtraction
-`x < y, x > y`    | less, greater. 1 if true, 0 if false
-`x <= y, x >= y`  | less than or equal, greater than or equal. 1 if true, 0 if false.
-`x == y`          | equality. 1 if true, 0 if false
-`x ? a : b`       | conditional. b if x is 0, otherwise a
-
-
-#### Functions
-
-Trigonometric functions (angles are in radians)
-
-Syntax         | Semantics
-:------------- | :-------------
-`sin(x)`   | sine
-`cos(x)`   | cosine
-`tan(x)`   | tangent
-`asin(x)`      | arc sine
-`acos(x)`      | arc cosing
-`atan(x)`      | arc tangent
-
-
-Exponential functions
-
-Syntax      | Semantics
-:---------- | :---------------------------------------
-`pow(x,y)`  | `x^y`
-`exp(x)`    | `e^x`
-`ln(x)`     | Natural logarithm
-`log2(x)`   | Base-2 logarithm
-`log10(x)`  | Base-10 logarithm
-`exp2(x)`   | `2^x`
-`sqrt(x)`   | square root
-
-Common functions
-
-Syntax                | Semantics
-:-------------------- | :------------------------------------------------
-`abs(x)`              | absolute value
-`floor(x)`            | rounds down to the nearest integer
-`ceil(x)`             | rounds up to the nearest integer
-`fract(x)`            | x - floor(x)
-`mod(x,y)`            | remainder of x / y
-`min(x,y)`            | returns the lesser of x and y
-`max(x,y)`            | returns the greater of x and y
-`clamp(x,a,b)`        | restricts x to the interval [a, b]
-`step(x, edge)`       | 1 if x \> edge, otherwise 0. Hard step.
-`smoothstep(a, b, x)` | smooth step from 0 to 1 on the interval [a, b]
-
-#### Constants
-
-Syntax                | Semantics
-:-------------------- | :------------------------------------------------
-`pi`                  | [&pi;](http://en.wikipedia.org/wiki/Pi)
-`e`                   | [e](http://en.wikipedia.org/wiki/E_(mathematical_constant)
-
-### Mult
-
-The **mult** node multiplies its two inputs, **a** and **b**.
-
-### Random
-
-The **Random** node outputs random numbers in the range [0, 1].
+<br>
 
 ---
 
-## MIDI
 
-### Keyboard
+### adc
 
-![icon](img/icons/keyboard.png)
+<img src="img/nodes_reference/util/adc/adc_node.png"
+alt="adc node" 
+width="200"/>
 
-The keyboard node converts MIDI note messages as well as interaction with its on-screen keyboard into **Hz** and **velocity** signals.
 
-Pitch is expressed as the fundamental frequency of the note in Hertz.
-MIDI note velocities are scaled to a zero-to-one range.
+output | signal
+:-- | :--
+`adc` | `audio`
 
-The keyboard has two modes:
+control | description
+:-- | :--
+`channel number` | access to 1 of 16 channels indexed from `0`
 
--   *Legato*. Only one note at a time, and notes will not be
-    re-triggered.
--   *Poly (2-16)*. Polyphonic - multiple notes can be played simultaneously. The number of voices is specified in parenthesis: 2, 4, 8, or 16.
+exposable | ❌
+:-- | :--
 
-When in poly mode, the keybaord's pitch and velocity outputs become
-polyphonic, shown as thicker connections. Polyphonic processing can consume considerably more CPU time than monophoic processing. To support polyphony
-efficiently in your patch, use the \#PolyToMono node, which will mix the
-polyphonic signals to monophonic. Also, don't use more voices than you need.
+**description**
 
-### Trigger
+The `adc` node is how you get `audio` and `CV` into Audulus from an external source. An external source could be a microphone, a DAW, or a CV input from a hardware modular synth.
 
-![icon](img/icons/trigger.png)
+The `adc` node outputs an `audio` signal, but in this case, all that means is that incoming signals are clamped between `-1 and 1`. The `adc` node is often used as an `audio` input, but it can also be used to pass a `gate` signal from a modular synth.
 
-The **Trigger** node outputs one when its button is pressed, and zero
-otherwise.
+The `adc` node can access the first 16 inputs of any class-compliant audio interface.
 
-To assign the button to a MIDI key, right-click on the button, select
-*Learn Midi Note* and then press a key on your controller. To unassign
-the MIDI key, select *Unassign Note* from the button's right-click menu.
+The channels are indexed from `0`. Clicking or tapping on the channel number will increment it by 1 up to 15 when it will wrap around to 0 again.
 
-### Pitch Bend
+In most cases, `0` is the left channel and `1` is the right channel.
 
-![icon](img/icons/pitch%20bend.png)
-
-The **Pitch Bend** node outputs the current MIDI pitch bend value.
-
-## Effects
-
-### Delay
-
-![icon](img/icons/delay.png)
-
-The **Delay** node time-delays the input signal by a duration specified
-by the **Time** knob, in seconds. Time may be modulated.
-
-The **Mix** knob controls how much of the output is from the delay.
-
-The **Feedback** knob controls how much of the output is fed back into
-the input, which determines the level of repeats.
-
-### Distortion
-
-![icon](img/icons/distortion.png)
-
-The **Distortion** node adds harmonics to a signal by applying a sigmoid
-function to the signal. As the input signal becomes larger, the sigmoid
-behaves more like a step function.
-
-To create a great rock distortion sound for electric guitar, run a
-[HighPass](#highpass) node before the distortion, to give the guitar some
-tightness and a [LowPass](#lowpass) node after as a tone control. Adjust the
-[HighPass](#highpass) for more of a fuzzy sound. Connect this to a good old tube
-amp and commence rocking.
-
-### Filter
-
-![icon](img/icons/filter.png)
-
-The **Filter** node is a 12db/octave low-pass filter with resonance. To
-change the filter cutoff frequency and resonance, drag on the filter
-graph.
-
-The **Hz** input controls the cutoff frequency of the filter in
-units of Hertz. The filter's cutoff frequency ranges between 20 Hz and
-half the current sample rate (e.g. 22 kHz for standard 44 kHz audio).
-
-Resonance amplifies the frequencies close to the cutoff frequency.
-Resonance may be modulated using the **res** input. Range: 0 to 1.
-
-In the future, this node will be improved with more filter types.
-
-### PitchShift
-
-![icon](img/icons/pitchshift.png)
-
-The **PitchShift** node changes the pitch of its **in** input according
-to the value of its **shift** input. If shift is one, the input signal
-is unchanged. If shift is two, the output will be the input shifted one
-octave up. If shift is 1/2, the output will be the input shifted one
-octave down. Best results are achieved when shift is between 1/2 and 2.
-
-The **PitchShift** node uses the FFT-based phase vocoder algorithm,
-which is polyphonic.
-
-### Reverb
-
-![icon](img/icons/reverb.png)
-
-The **Reverb** node provides a very basic reverb. with decay time
-determined by the **Decay** knob. The **Mix** knob controls the level of
-the reverb.
+<br>
 
 ---
 
-## Level
 
-### Constant
+### dac
 
-![icon](img/icons/constant.png)
+<img src="img/nodes_reference/util/dac/dac_node.png"
+alt="dac node" 
+width="200"/>
 
-The **Constant** node outputs a constant value specified by its knob.
+input | signal
+:-- | :--
+`dac` | `audio`
 
-### EnvFollow
+control | description
+:-- | :--
+`channel number` | access to 1 of 16 channels indexed from `0`
 
-![icon](img/icons/envfollow.png)
+exposable | ❌
+:-- | :--
 
-The **EnvFollow** node is a simple envelope follower with preset attack
-and release.
+**description**
 
-### Level
+The `dac` node is how you get `audio` and `CV` out of Audulus and send it to an external output. An external output could be your headphones, speakers, a DAW, or a CV output to a hardware modular synth.
 
-![icon](img/icons/level.png)
+The `dac` node takes an `audio` signal input, but in this case, all that means is that outgoing signals are clamped between `-1 and 1`. The `dac` node is often used as an `audio` output, but it can also be used to pass a `gate` signal to a modular synth.
 
-The **Level** node applies gain to its input.
+The `dac` node can access the first 16 outputs of any class-compliant audio interface.
 
-### Mapper
+The channels are indexed from `0`. Clicking or tapping on the channel number will increment it by 1 up to 15 when it will wrap around to 0 again.
 
-![icon](img/icons/mapper.png)
+In most cases, `0` is the left channel and `1` is the right channel.
 
-The **Mapper** node transforms input according to a curve. Three control
-points manipulate the curve. For the more technically inclined among
-you, the curve is a quadratic Bezier.
+The `dac` node does not include any DC-offset filtering. A constant DC offset can damage speakers. Most audio interfaces will filter a DC offset, but this offset can still cause distortion by decreasing the amount of headroom you have.
 
-### Spline
+It is best practice to use a `dc blocker` node before a `dac` node unless you explicitly need to send a `mod` or `gate` signal to an external instrument.
 
-![icon](img/icons/spline.png)
-
-The **Spline** node provides an arbitrary piecewise-linear envelope.
-That is, it connects some points with lines to make a function. The
-node's input takes the x-coordinate and output provides the
-y-coordinate.
-
-Among the **Spline** node's uses are pitch envelopes, amplitude
-envelopes, oscillator waveforms, velocity curves, and automation
-control.
-
--   To create a control point, double tap on the function area.
--   To move a control point, drag it.
--   To delete a control point, double tap on it.
-
-The red dot shows the current input and output values.
+<br>
 
 ---
 
-## Mixer
 
-### Crossfade
+### text
 
-![icon](img/icons/crossfade.png)
+<img src="img/nodes_reference/util/text/text_node.png"
+alt="text node" 
+width="200"/>
 
-The **Crossfade** node blends between its two inputs according to the
-value of the **mix** knob.
+exposable | ✅
+:-- | :--
 
-### Mixer4x1
+**description**
 
-![icon](img/icons/mixer4x1.png)
+The `text` node has no inputs or outputs. `text` nodes are used for labeling and commenting inside your patches. Click or tap on the node and open the `inspector panel` (pictured below). You can then type in the text field and text will appear inside the node.
 
-The **Mixer4x1** node mixes its four inputs equally. \#Level nodes may
-be used to vary the level of each channel prior to mixing.
+<img src="img/nodes_reference/util/text/text_inspector.png"
+alt="text inspector panel" 
+width="200"/>
 
----
+option | description
+:-- | :--
+`Align` | Choose from `Left`, `Center`, and `Right` aligned text
+`Exposed` | Check the box to expose this node to the UI of the module it is contained within
 
-## Metering
+The `text` node can be resized by tapping or clicking on the blue ball that appears when selecting the node and dragging the ball left or right.
 
-### Light
+<img src="img/nodes_reference/util/text/text_resize.png"
+alt="text resizing"
+width="200"/>
 
-![icon](img/icons/light.png)
-
-The **Light** node will light up when its input has a value greater than
-zero.
-
-### RGBLight
-
-![icon](img/icons/rgblight.png)
-
-The **RGBLight** node will display a color according to its inputs. Each color
-channel is in the range [0,1].
-
-### Meter
-
-![icon](img/icons/meter.png)
-
-The **Meter** node implements a simple level meter.
-
-This node will be improved with better metering and options in the
-future.
-
-### Value
-
-![icon](img/icons/value.png)
-
-The **Value** node displays the current value of its input.
-
-### Waveform
-
-![icon](img/icons/waveform.png)
-
-The **Waveform** node shows a signal as a horizontally scrolling
-waveform. Hook an output of a node to its input to see what the signal
-looks like over time. Its a great debugging tool.
-
----
-
-## DSP
-
-### BiQuad
-
-![icon](img/icons/biquad.png)
-
-The **BiQuad** node implements a bi-quadratic filter using following
-equation:
+Below are all of the characters that will render correctly in the `text` node.
 
 ```
-out[n] = a1 * in[n] + a2 * in[n-1] + a3 * in[n-2]
-       - ( b1 * out[n-1] + b2 * out[n-2] )
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+abcdefghijklmnopqrstuvwxyz
+ÄÅÃÁÂÀÆæâäáàåãÇçÐðÊËÉÈêëéè
+ÍÎÏÌïîíìÑñÖØÓÔÒÕõöóòôøÜÚÛÙ
+üûúùÝýÿßþÞ
+0123456789
+!"#$%&'()*+,-./:;<=>?@[\]^
+_`{|}~£×¿®¬½¼¡«»©¢¥¤ı¦µ¯´¬
+±¾¶§÷¸°¨•
 ```
+Text size cannot be changed. The `canvas` node can do many manipulations with text that the `text` node cannot.
 
-The coefficients `a1`, `a2`, `a3`, `b1` and `b2` are inputs, allowing the filter
-to be modulated at audio rate.
-
-Cookbook formulas for using the **BiQuad** can be found [here](http://content.audulus.com/Audio-EQ-Cookbook.txt).
-
-### DCBlocker
-
-![icon](img/icons/dcblocker.png)
-
-The **DCBlocker** node prevents a signal from being slowly ofsetted from
-zero.
-
-### HighPass
-
-![icon](img/icons/hipass.png)
-
-The **HighPass** node implements a 12db/octave high-pass filter. Its
-implementation is very simple and efficient.
-
-### LowPass
-
-![icon](img/icons/lowpass.png)
-
-The **LowPass** node implements a 12db/octave low-pass filter. Its
-implementation is very simple and efficient.
-
-### SampleRate
-
-![icon](img/icons/samplerate.png)
-
-The **SampleRate** node outputs the current sample rate. The sample rate
-is usually 44.1kHz but may be higher if the audio interface is running
-at a higher rate.
-
-### UnitDelay
-
-![icon](img/icons/unitdelay.png)
-
-The **UnitDelay** node is a single-sample delay. Like the
-[FeedbackDelay](#Feedbackdelay) node, the UnitDelay can be used to determine where a delay occurs in a feedback loop.
-
-A UnitDelay is required whenever you need to express feedback with a single sample. For example, implementing the following recurrance requires using a UnitDelay:
-
-```
-y[n] = a * x[n] + b * y[n-1]
-```
-
-The `y[n-1]` term is the output delayed by one sample, fed back into the input.
-
-Many types of digital filters (those that incorporate feedback) require using a UnitDelay.
+<br>
 
 ---
 
-## Switch
 
-### Demux8
+### timer
 
-![icon](img/icons/demux8.png)
+<img src="img/nodes_reference/util/timer/timer_node.png"
+alt="timer node"
+width="200"/>
 
-The **Demux8** node is an 8-way demultiplexer. The **sel** input selects
-which of the 8 outputs the input is routed to.
+input | signal
+:-- | :--
+`trigger` | `gate`
 
-### Mux8
+output | signal
+:-- | :--
+`time` | `seconds` since last reset
 
-![icon](img/icons/mux8.png)
+exposable | ❌
+:-- | :--
 
-The **Mux8** node is an 8-way multiplexer. The **sel** input selects
-which of the 8 inputs are routed to the output.
+**description**
+
+The `timer` node outputs a signal in `seconds` since its last reset. The node resets on the rising edge of an incoming `gate` signal.
+
+The `timer` output increases smoothly from second to second. Its functional precision is `1/sampleRate seconds`. For example: at a sample rate of 44.1kHz the precision is `1/44,100` or approximately `0.00002 seconds`.
+
+<br>
+
+---
+
+
+### zero cross
+
+<img src="img/nodes_reference/util/zero_cross/zero_cross_node.png"
+alt="zero cross node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any` but it must cross through or at least touch `0`
+
+output | signal
+:-- | :--
+`out` | `hz`
+
+exposable | ❌
+:-- | :--
+
+**description**
+
+The `zero cross` node counts the time between two zero-crossings and outputs that value as a `hz` signal. To be counted as a zero-crossing, the signal must either pass through `0` or be `= 0` at some point during its cycle.
+
+<br>
+
+---
+
+
+## math
+
+**description**
+
+The `math` nodes are some of the most powerful and versatile nodes. 
+
+- The `expr` node alone has 40 operators and functions which can be combined in many ways. 
+- `sum` and `product` are elegant ways to visually emphasize how signals are combining and can be expanded to have as many inputs as necessary. 
+- The `random` node has a `seed` input that ensures multiple copies of the same module can produce different random results with different `seed` values.
+
+<br>
+
+---
+
+
+### expr
+
+<img src="img/nodes_reference/math/expr/expr_node.png"
+alt="expr node"
+width="200"/>
+
+arithmetic operator | description
+:-- | :--
+`x + y` | addition
+`x - y` | subtraction
+`x * y` | multiplication
+`x / y` | division
+`x^y` | exponentiation
+`-x` | negation
+`(x)` | parenthetical grouping
+
+exponential function | description
+:-- | :--
+`exp(x)` | `e^x`
+`exp2(x)` | `2^x`
+`pow(x, y)` | exponentiation `x^y`
+`sqrt(x)` | square root[^4]
+`ln(x)` | natural log
+`log2(x)` | log base 2
+`log10(x)` | log base 10
+
+
+[^4]: Cube roots and beyond are accessible like this: `x^(1/y)` where `x = radicand` and `y = degree`. 
+
+boolean operator | description
+:-- | :--
+`x == y` | `x` is exactly equal to `y`
+`x != y` | `x` is not `y`
+`x < y` | `x` is less than `y`
+`x <= y` | `x` is less than or equal to `y`
+`x > y` | `x` is greater than `y`
+`x >= y` | `x` is greater than or equal to `y`
+
+common function | description
+:-- | :--
+`abs(x)` | absolute value
+`floor(x)` | round down to integer
+`ceil(x)` | round up to integer
+`fract(x)` | `x - floor(x)`
+`mod(x, y)` | remainder of `x / y`
+`min(x, y)` | returns lesser of `x` and `y`
+`max(x, y)` | returns greater of `x` and `y`
+`clamp(x, a, b)` | restricts `x` to the interval `[a, b]`
+`step(x, edge)` | `1` if `x > edge` otherwise `0`
+`smoothstep(a, b, x)` | smooth step from `0 to 1` at the interval `[a, b]`
+`mix(x, a, b)` | `0 to 1` at `x` smoothly transitions between the interval `[a, b]`
+
+trigonometric function | description
+:-- | :--
+`sin(x)` | sine
+`cos(x)` | cosine
+`tan(x)` | tangent
+`asin(x)` | inverse sine
+`acos(x)` | inverse cosine
+`atan(x)` | inverse tangent
+`sinh(x)` | hyper sine
+`cosh(x)` | hyper cosine
+`tanh(x)` | hyper tangent
+`asinh(x)` | inverse hyper sine
+`acosh(x)` | inverse hyper cosine
+`atanh(x)` | inverse hyper tangent
+
+constant | description
+:-- | :--
+`pi` | π
+`e` | Euler's number
+
+exposable | ❌
+:-- | :--
+
+**description**
+
+The `expr` node is the most versatile node. It does math and basic programming operations.
+
+Double clicking on any input will create an `expr` node.
+
+You enter equations into the `inspector panel`, pictured below. You do not need to add an `=` sign after your expression.
+
+<img src="img/nodes_reference/math/expr/expr_inspector.png"
+alt="expr node inspector panel"
+width="200"/>
+
+You can drag and drop various selected functions into the text field, or if you know their syntax, type them directly into the text box.
+
+Entering letters or words will create variables as inputs, as pictured below.
+
+<img src="img/nodes_reference/math/expr/expr_var.png"
+alt="expr node variables"
+width="200"/>
+
+Variables are case-sensitive, meaning `x` is not the same as `X`. Spaces and underscores are not allowed. For long variables, you can use camel case. For example: `thisIsALongVariable`.
+
+Variables can contain numbers, but they must start with a letter. `input1` will generate an input but `1input` will not. Variables cannot contain symbols.
+
+Certain variable names are reserved, like `mod`, `e`, and `pi`. If you need to use them as variables you can capitalize the first letter, like this: `Mod`, `E`, `Pi`.
+
+You can call a variable multiple times within an expression, like `x * x * x`.
+
+Spaces between variables and operators and within functions are optional. `x*y` is the same as `x * y` and `clamp(x,0,1)` is the same as `clamp(x, 0, 1)`.
+
+Functions can be nested within one another, like `max(0, min(x, 1))`.
+
+Divide-by-zero functions return a `0`. In other rare cases it is possible to create an expression that outputs a `nan` value, or "Not a number." The node producing the `nan` will immediately self-disconnect from your signal chain to prevent damage to speakers. A `nan` will be displayed in the `value` node, as pictured below.
+
+<img src="img/nodes_reference/math/expr/expr_nan.png"
+alt="expr node not a number error"
+width="400"/>
+
+Expressions like the `1/3` in `x * (1/3)` are evaluated once during start-up and replaced by a float in the background of Audulus, saving some compute time.
+
+<br>
+
+---
+
+
+### sum
+
+<img src="img/nodes_reference/math/sum/sum_node.png"
+alt="sum node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+`in` | `any`
+`...` | `any`
+
+output | signal
+:-- | :--
+`sum` | `any`
+
+exposable | ❌
+:-- | :--
+
+**description**
+
+The `sum` node adds two or more signals together.
+
+In the `inspector panel` you can specify how many channels you want to add together. The maximum is `256`.
+
+<img src="img/nodes_reference/math/sum/sum_inspector.png"
+alt="sum inspector"
+width="200"/>
+
+When you increase the number of channels, the number of inputs increases accordingly.
+
+<img src="img/nodes_reference/math/sum/sum_multiple_inputs.png"
+alt="sum multiple inputs"
+width="200"/>
+
+<br>
+
+---
+
+
+### product
+
+<img src="img/nodes_reference/math/product/product_node.png"
+alt="product node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+`in` | `any`
+`...` | `any`
+
+output | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+**description**
+
+The `product` node multiplies two or more signals together.
+
+In the `inspector panel` you can specify how many channels you want to multiply together. The maximum is `256`.
+
+<img src="img/nodes_reference/math/product/product_inspector.png"
+alt="product inspector"
+width="200"/>
+
+When you increase the number of channels, the number of inputs increases accordingly.
+
+<img src="img/nodes_reference/math/product/product_multiple_inputs.png"
+alt="product multiple inputs"
+width="200"/>
+
+<br>
+
+---
+
+
+### random
+
+<img src="img/nodes_reference/math/random/random_node.png"
+alt="random node"
+width="200"/>
+
+output | signal
+:-- | :--
+`out` | `mod`
+
+exposable | ❌
+:-- | :--
+
+The `random` node outputs a new random number between `0 and 1` for every sample. In other words, it produces `white noise.`
+
+The `Seed` value can be changed in the `inspector panel`, pictured below. Changing the `Seed` is necessary in cases where you have two or more `random` nodes in a patch and want them to produce a different string of random numbers.
+
+<img src="img/nodes_reference/math/random/random_inspector.png"
+alt="random node"
+width="200"/>
+
+If the `Seed` remains the same, every time the patch is reopened, the same string of random numbers will be produced.
+
+<br>
+
+---
+
+
+
+## meter
+
+**description**
+
+The `meter` nodes are vital for displaying information about signals.
+
+- The `meter` node is responsive and versatile.
+- The `waveform` node is a simple way to see how signals change over time.
+- The `value` node can help with debugging as well as displaying information on UIs.
+- The `light` and `rgb light` nodes are great for adding visual feedback to modules.
+- The `scope` node is like the `waveform` node, but suited for examining audio rate signals.
+- With the `shader` and `canvas` nodes you can use your own code to create your own beautiful custom meters, visualizers, and UI elements using GLSL and Lua.
+
+<br>
+
+---
+
+
+### meter
+
+<img src="img/nodes_reference/meter/meter/meter_node.png"
+alt="meter node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `audio`
+
+exposable | ✅ 
+:-- | :--
+
+**description**
+
+The `meter` node displays the amplitude of a signal. The input works in a range of `-1 to 1`. However, `0 to 1` will display the same as `0 to -1`, as you can see below:
+
+<img src="img/nodes_reference/meter/meter/meter_negative.png"
+alt="meter negative"
+width="400"/>
+
+In the `inspector panel` the `meter` node can be resized by altering the height and width parameters, as seen below. It is also exposable.
+
+<img src="img/nodes_reference/meter/meter/meter_inspector.png"
+alt="meter inspector"
+width="200"/>
+
+If both `W` and `H` values are `0`, then the node defaults to its standard size. The node can be resized however you want, but it cannot be rotated.
+
+<img src="img/nodes_reference/meter/meter/meter_sizes.png"
+alt="meter sizes"
+width="200"/>
+
+If you wire a `poly` signal to a `meter` node, it automatically creates one meter per channel. 
+
+<img src="img/nodes_reference/meter/meter/meter_poly.png"
+alt="meter poly"
+width="200"/>
+
+<br>
+
+---
+
+
+### waveform
+
+<img src="img/nodes_reference/meter/waveform/waveform_node.png"
+alt="waveform node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `audio`
+
+exposable | ✅
+:-- | :--
+
+**description**
+
+The `waveform` node allows you to see signals change over time. It has a fixed 5-second window and moves from left to right.
+
+Since it works with the `audio` range, the top limit of the node is `1`, the center is `0`, and the bottom is `-1`.
+
+<img src="img/nodes_reference/meter/waveform/waveform_range.png"
+alt="waveform range"
+width="400"/>
+
+The `waveform` node works best with low frequency signals. If you want to examine audio-rate signals, use a `scope` node.
+
+<img src="img/nodes_reference/meter/waveform/waveform_mod_v_audio.png"
+alt="waveform mod vs audio"
+width="200"/>
+
+<br>
+
+---
+
+
+### value
+
+<img src="img/nodes_reference/meter/value/value_node.png"
+alt="value node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+
+exposable | ✅
+:-- | :--
+
+**description**
+
+The `value` node displays the current value of any signal.
+
+In the `inspector panel`, you can set precision from `0` to `0.0000`, and an option to alight `Left`, `Right`, or `Center`. The `value` node is also exposable.
+
+<img src="img/nodes_reference/meter/value/value_inspector.png"
+alt="value inspector"
+width="200"/>
+
+Changing precision can be useful for UI displays. For example, a sequencer's `current step` display should be a whole number, not a decimal.
+
+<img src="img/nodes_reference/meter/value/value_precision.png"
+alt="value precision"
+width="200"/>
+
+If you wire a `poly` signal to a `value` node, it automatically creates one value display per channel. 
+
+<img src="img/nodes_reference/meter/value/value_poly.png"
+alt="value precision"
+width="400"/>
+
+<br>
+
+---
+
+
+### light
+
+<img src="img/nodes_reference/meter/light/light_node.png"
+alt="light node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `gate`
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `light` node turns on when the incoming signal is `high` (any non-zero positive number). Otherwise it stays off.
+
+<img src="img/nodes_reference/meter/light/light_on.png"
+alt="light on"
+width="400"/>
+
+<br>
+
+---
+
+
+### rgb light
+
+<img src="img/nodes_reference/meter/rgb_light/rgb_light_node.png"
+alt="rgb light node"
+width="200"/>
+
+input | signal
+:-- | :--
+`r` | `mod`
+`g` | `mod`
+`b` | `mod`
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `rgb light` node has 3 inputs: one for red `r`, one for green `g`, and one for blue `b`.
+
+<img src="img/nodes_reference/meter/rgb_light/rgb_light_colors.png"
+alt="rgb light colors"
+width="200"/>
+
+Each input works with a `mod` signal. When the signal is `0`, the light is off. When the signal is `1`, the light is fully on.
+
+<img src="img/nodes_reference/meter/rgb_light/rgb_light_brightness.png"
+alt="light node"
+width="400"/>
+
+Colors can be mixed by sending different values to each input.
+
+<img src="img/nodes_reference/meter/rgb_light/rgb_light_mix.png"
+alt="light node"
+width="200"/>
+
+<br>
+
+---
+
+### scope
+
+<img src="img/nodes_reference/meter/scope/scope_node.png"
+alt="scope node"
+width="200"/>
+
+input | signal
+:-- | :--
+`x` | `audio`
+`y` | `audio`
+`r` | `mod`
+`g` | `mod`
+`b` | `mod`
+`s` | `mod`
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `scope` node can visualize high frequency waveforms, phase relationships, and Lissajous curves that you otherwise could not with the `waveform` node.
+
+A cursor draws a dot with a color of `{r, g, b}` at the coordinates `(x, y)` where both `x` and `y` have a range of `-1 to 1`. The point `(0, 0)` is the center of the display.
+
+<img src="img/nodes_reference/meter/scope/scope_circle.png"
+alt="scope circle"
+width="400"/>
+
+The `s` variable is a measure of the persistence of the line drawn where `0` means only the current position of the cursor is shown and `1` means the cursor will draw a line that persists infinitely. `s` values between `0` and `1` will cause the line to fade quickly or gradually over time.
+
+There can be a large difference between what an `s` value of `0.9`, `0.99`, and `0.999` look like, so experiment with what works best for your use.
+
+In the `scope` node's `inspector panel` there are options to change both the `Size` and resolution (`Image Size`) of the scope.
+
+<img src="img/nodes_reference/meter/scope/scope_inspector.png"
+alt="scope inspector"
+width="200"/>
+
+The default size is `W = 200` and `H = 200` with an image size of `W = 512` and `H = 512`. 
+
+For a crisp, clean-looking line, the `Image Size` should be at least double the `Size` parameter. For a more digital-looking, stair-stepped size, the `Image Size` should be the same or smaller than the `Size.`
+
+<img src="img/nodes_reference/meter/scope/scope_size_resolution.png"
+alt="scope sizes"
+width="400"/>
+
+<br>
+
+---
+
+
+### shader
+
+<img src="img/nodes_reference/meter/shader/shader_node.png"
+alt="shader node"
+width="200"/>
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `shader` node is an OpenGL shader that allows you to write your own shader using GLSL, a programming language similar to C.
+
+Although the default example has `r` `g` `b` inputs, you are not limited to just those inputs. You can have 0 inputs or as many as you need to run your code.
+
+You write code in the `inspector panel`.
+
+<img src="img/nodes_reference/meter/shader/shader_code.png"
+alt="shader code"
+width="400"/>
+
+At the bottom of the `inspector panel` you can also find `Size` and `Image Size` parameters.
+
+<img src="img/nodes_reference/meter/shader/shader_inspector.png"
+alt="shader inspector"
+width="200"/>
+
+Error messages, if any, appear above these parameters.
+
+<img src="img/nodes_reference/meter/shader/shader_errors.png"
+alt="shader errors"
+width="200"/>
+
+<br>
+
+---
+
+
+### canvas
+
+<img src="img/nodes_reference/meter/canvas/canvas_node.png"
+alt="canvas node"
+width="200"/>
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `canvas` node is an allows you to draw things using Lua, a simple interpreted programming language.
+
+Although the default example has no inputs or outputs, you can create as many as you'd like by declaring them in the `inspector panel` above the code block.
+
+<img src="img/nodes_reference/meter/canvas/canvas_io.png"
+alt="canvas io"
+width="200"/>
+
+To create inputs and outputs, you must enter each variable with a space in between.
+
+<img src="img/nodes_reference/meter/canvas/canvas_declare_variables.png"
+alt="canvas declare variables"
+width="400"/>
+
+Below the field where you declare variables you can use Lua code to draw things on the `canvas` node.
+
+<img src="img/nodes_reference/meter/canvas/canvas_code.png"
+alt="canvas code"
+width="400"/>
+
+Below the code block are all of the available Lua functions which you can drag and drop into your code.
+
+<img src="img/nodes_reference/meter/canvas/canvas_functions.png"
+alt="canvas functions"
+width="400"/>
+
+Below the functions are options to change the `Size` of the `canvas` node and `Save Data` between patch loads.
+
+<img src="img/nodes_reference/meter/canvas/canvas_inspector.png"
+alt="canvas inspector"
+width="200"/>
+
+Unlike other nodes, the `canvas` node does not run at audio rate, making it unsuitable to be within any audio or time-critical control paths. As the name implies, it is intended to be space to draw things.
+
+<br>
+
+---
+
+
+
+## midi
+
+**description**
+
+The `midi` nodes send and receive MIDI signals in and out of Audulus.
+
+- The `keyboard` allows you to play Audulus synths with an external MIDI controller or feed in MIDI notes from a DAW.
+- The `note send` node sends MIDI notes out of Audulus to hardware or DAWs.
+- The `cc send` node sends MIDI CC messages from Audulus to hardware or or DAWs.
+- The `trigger` node can both act like a button within Audulus and can also receive on/off MIDI messages.
+
+<br>
+
+---
+
+
+
+### keyboard
+
+<img src="img/nodes_reference/midi/keyboard/keyboard_node.png"
+alt="keyboard node"
+width="200"/>
+
+output | signal
+:-- | :--
+`Hz` | `Hz`
+`gate` | `gate`
+
+control | description
+:-- | :--
+`Legato/Poly(2,4,8,16)` | sets the number of voices
+`Omni/(1-16)` | sets the MIDI channel
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `keyboard` node receives input from MIDI keyboards, DAWs, and other input MIDI devices.
+
+It outputs a `Hz` value for the note and a `gate` signal for note on/off. The height of the gate represents the velocity.
+
+There are also two controls on the `keyboard` node. The first cycles through `Legato` and `Poly(2,4,8,16)`. 
+
+`Legato` means only one note (the last played) will be outputted. `Poly 2` means 2 notes can be played at once, `Poly 4` means 4, and so on.
+
+Higher poly counts multiply CPU usage, so only set it to the count you need.
+
+The `Omni/(1-16)` control specifies which incoming MIDI channel is referenced. On `Omni`, any messages from any of the channels will come through. You can also set the keyboard node to listen to a specific channel `1-16`.
+
+<br>
+
+---
+
+
+### note send
+
+<img src="img/nodes_reference/midi/note_send/note_send_node.png"
+alt="note send node"
+width="200"/>
+
+input | signal
+:-- | :--
+`note` | `midi value`
+`gate` | `gate`
+`velocity` | `midi value`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `note send` node sends MIDI note, gate, and velocity data from Audulus to external instruments.
+
+The `note` and `velocity` inputs correspond to the `0-127` integer values expected by MIDI. Inputs are floored, so if the value is between `0` and `1`, `0` is the output.
+
+The `gate` input sends a note on/off signal where `high` is on and `0` is off.
+
+<br>
+
+---
+
+
+### cc send
+
+<img src="img/nodes_reference/midi/cc_send/cc_send_node.png"
+alt="cc send node"
+width="200"/>
+
+input | signal
+:-- | :--
+`value` | `midi value`
+`number` | `midi value`
+`trigger` | `gate`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `cc send` node sends MIDI CC value from Audulus to external instruments.
+
+When the `trigger` input goes high, the signal present at the `value` input is sent to the `number` CC.
+
+<br>
+
+---
+
+
+### trigger
+
+<img src="img/nodes_reference/midi/trigger/trigger_node.png"
+alt="trigger node"
+width="200"/>
+
+control | description
+:-- | :--
+`button` | outputs `gate` when pressed
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `trigger` node outputs a gate when its button is pressed. The button can be clicked, tapped, or assigned to an external hardware MIDI signal in MIDI mapping mode.
+
+<br>
+
+---
+
+
+## level
+
+**description**
+
+The `level` nodes are tools helpful for manipulating the level of a signal.
+
+- You can create custom lines with the `spline` node and trace over them to output a continuous series of custom values.
+- The `mapper` node allows you to shape the response curve of a knob or signal moving through it.
+- The `env follow` node traces the loudness envelope of an incoming signal and outputs it as a `mod` signal.
+
+<br>
+
+---
+
+
+### spline
+
+<img src="img/nodes_reference/level/spline/spline_node.png"
+alt="spline node"
+width="400"/>
+
+input | signal
+:-- | :--
+`in` | `mod`
+
+out | signal
+:-- | :--
+`out` | `mod`
+
+
+control | description
+:-- | :--
+`spline` | create breakpoints to draw spline
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `spline` node allows you to draw a line using two or more breakpoints and then trace over that line using a `mod` input.
+
+Breakpoints are added by double clicking or tapping on the blank field inside the node. Once created, they can be dragged around anywhere inside of the field.
+
+<img src="img/nodes_reference/level/spline/spline_draw.png"
+alt="spline draw"
+width="400"/>
+
+The coordinate system determining the output is `(in, line)`. The bottom left of the field is `(0, 0)` and the top right is `(1, 1)`. The output of the node is the `y` value of the line given `x` input.
+
+In the example below, identical spline nodes are driven by two different LFO shapes. The top is a saw wave and the bottom is a triangle wave.
+
+<img src="img/nodes_reference/level/spline/spline_lfo.png"
+alt="spline lfo"
+width="400"/>
+
+<br>
+
+---
+
+
+### mapper
+
+<img src="img/nodes_reference/level/mapper/mapper_node.png"
+alt="mapper node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `mod`
+
+out | signal
+:-- | :--
+`out` | `mod` [^5]
+
+[^5]: The output of the `mapper` node can overshoot the maximum and minimum of the `mod` signal by `~0.12`.
+
+control | description
+:-- | :--
+`mapper` | move one of three breakpoints up or down to shape curve
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `mapper` node allows you to change the response of an incoming modulation signal depending on the curve drawn in the node's field.
+
+Below are some of the possible shapes you can draw using the mapper node.
+
+<img src="img/nodes_reference/level/mapper/mapper_shapes.png"
+alt="mapper shapes"
+width="400"/>
+
+The coordinate system determining the output is `(in, line)`. The bottom left of the field is `(0, 0)` and the top right is `(1, 1)`. The output of the node is the `y` value of the line given `x` input.
+
+The image below shows how the different shapes transform the incoming saw LFO.
+
+<img src="img/nodes_reference/level/mapper/mapper_lfo.png"
+alt="mapper lfo"
+width="400"/>
+
+As you can see in the above image, the mapper node can overshoot the modulation signal. This exception is a maximum of approximately `+/- 0.12`.
+
+<img src="img/nodes_reference/level/mapper/mapper_overshoot.png"
+alt="mapper overshoot"
+width="400"/>
+
+<br>
+
+---
+
+
+### env follow
+
+<img src="img/nodes_reference/level/env_follow/env_follow_node.png"
+alt="env follow node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `audio`
+
+out | signal
+:-- | :--
+`out` | `mod` [^6]
+
+[^6]: In most cases, the `env follow` node is used to extract an amplitude envelope of an `audio` signal, and `abs(audio) = mod`. However, in reality the `env follow` node outputs `abs(any)` with some minor filtering to smooth transitions between samples.
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `env follow` node extracts an envelope from an incoming audio signal and transforms it into a modulation signal. It does this by taking the absolute value of the incoming signal and applying a small amount of filtering to smooth transitions between samples.
+
+<br>
+
+---
+
+
+## dsp
+
+**description**
+
+DSP is an acronym that means digital signal processing. The `dsp` nodes are essentials for creating filters and manipulating signals at a conceptually low level.
+
+- The `unit delay` node delays a signal by a single sample and marks precisely where a feedback delay happens within a feedback loop.
+- The `biquad` node is a building block for creating custom biquad filters.
+- The `low-pass` and `high-pass` nodes are conveniently packaged, non-resonant filters.
+- The `delay line` node can delay a signal up to 20 seconds.
+- The `dc blocker` node prevents a signal with a DC-offset from harming speakers.
+- The `sample rate` node outputs the current sample rate, useful in many calculations where the precise sample rate is needed.
+- The `resample` node allows you to up- and then down-sample a signal to run certain parts of a module at a higher sample rate.
+- The `memory` node allows you to record, playback, and import audio or control signals.
+
+<br>
+
+---
+
+
+### unit delay
+
+<img src="img/nodes_reference/dsp/unit_delay/unit_delay_node.png"
+alt="unit delay node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `unit delay` node delays an incoming signal by `1` sample. It also explicitly tells Audulus where to insert a single sample feedback delay within a feedback loop. 
+
+If a `unit delay` is not inserted somewhere within a feedback loop, Audulus will guess where to put it. Much of the time this is ok, but in some cases, like when creating analog-modeling filters, you need to be explicit about where the feedback delay goes.
+
+<br>
+
+---
+
+
+### biquad
+
+<img src="img/nodes_reference/dsp/biquad/biquad_node.png"
+alt="biquad node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+`a1` | a1 coefficient
+`a2` | a2 coefficient
+`a3` | a3 coefficient
+`b1` | b1 coefficient
+`b2` | b2 coefficient
+
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `biquad` node allows you to create all different types of biquadratic filters. Refer to [this guide](https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html) for more information. 
+
+You need to calculate the coefficient inputs separately from the node using `expr` nodes.
+
+<br>
+
+---
+
+
+### low-pass
+
+<img src="img/nodes_reference/dsp/low-pass/low-pass_node.png"
+alt="low-pass node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+`alpha` | `mod`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `low pass` node is a simple non-resonant `6dB/oct` low-pass filter. The `alpha` input is the smoothing factor where `1 = no filtering` and `0 = maximum filtering`. 
+
+<br>
+
+---
+
+
+### high-pass
+
+<img src="img/nodes_reference/dsp/high-pass/high-pass_node.png"
+alt="high-pass node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+`alpha` | `mod`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `high pass` node is a simple non-resonant `6dB/oct` high-pass filter. The `alpha` input is the smoothing factor where `1 = maximum filtering` and `0 = no filtering`. 
+
+<br>
+
+---
+
+
+### delay line
+
+<img src="img/nodes_reference/dsp/delay_line/delay_line_node.png"
+alt="delay line node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `any`
+`time` | `seconds`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `delay line` node delays an incoming signal by a set number of seconds, determined by the value at the `time` input.
+
+<br>
+
+---
+
+
+### dc blocker
+
+<img src="img/nodes_reference/dsp/dc_blocker/dc_blocker_node.png"
+alt="dc blocker node"
+width="200"/>
+
+input | signal
+:-- | :--
+`in` | `audio`
+
+out | signal
+:-- | :--
+`out` | `audio`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `dc blocker` node removes any DC offset from an `audio` signal. 
+
+<br>
+
+---
+
+
+### sample rate
+
+<img src="img/nodes_reference/dsp/sample_rate/sample_rate_node.png"
+alt="sample rate node"
+width="200"/>
+
+out | signal
+:-- | :--
+`sample rate` | `Hz`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `sample rate` node outputs the current sample rate in `Hz`.
+
+<br>
+
+---
+
+
+### resample
+
+<img src="img/nodes_reference/dsp/resample/resample_node.png"
+alt="resample node"
+width="200"/>
+
+in | signal
+:-- | :--
+`in` | `any`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `resample` node lets you run a portion of a patch at a higher sample rate, also known as supersampling.
+
+In the `inspector panel` you can choose from different multiples of the base sample rate from `1x` to `16x`. Higher sample rates use more CPU time.
+
+<img src="img/nodes_reference/dsp/resample/resample_inspector.png"
+alt="resample inspector"
+width="200"/>
+
+For example, given a base sample rate of `44.1kHz`, `4x` sample rate would be `176.4kHz`.
+
+To properly use the `resample` node, you have to have two `resample` nodes in your patch, one to mark where you want to begin supersampling and one to mark where you want to downsample back to the original sample rate, as well as a pre-downsampling low-pass filter with a cutoff set to half the base sample rate.
+
+<img src="img/nodes_reference/dsp/resample/resample_example.png"
+alt="resample example"
+width="800"/>
+
+Nodes that are super-sampled have a multiple in parentheses next to their titles, like `Resample (4x)`.
+
+
+<br>
+
+---
+
+
+### memory
+
+<img src="img/nodes_reference/dsp/memory/memory_node.png"
+alt="memory node"
+width="400"/>
+
+in | signal
+:-- | :--
+`read index` | `any` (positive)
+`write index` | `any` (positive)
+`write value` | `any` 
+`write enable` | `gate` 
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `memory` node can read, write, and store `audio` and control signals. Information is stored in the `memory` node as a series of samples.
+
+The `read index` is the sample number currently outputted, indexed from `0`.
+
+The `write index` is the sample number currently selected to be (over)written, indexed from `0`.
+
+The `write value` is the value of the sample to be written.
+
+The `write enable` input will, if held `high`, write the `write value` to the `write index`.
+
+Reading and writing to the `memory` node can happen at different index values at the same time.
+
+You can also import audio to the memory node. On Mac, you do this by dragging an `.AIFF` or `.WAV` file from a Finder window into the space marked `Drop audio file here`. There is also a check box labeled `Save Data` that, when checked, will save the contents of the `memory` node in between patch loads.
+
+<img src="img/nodes_reference/dsp/memory/memory_inspector.png"
+alt="memory inspector"
+width="200"/>
+
+<br>
+
+---
+
+
+## synth
+
+**description**
+
+The `synth` nodes are low-level building blocks specific to audio synthesis.
+
+- The `osc` node outputs one of 4 classic anti-aliased waveforms.
+- The `phasor` node outputs an un-aliased phasor signal from `0 to 2π` useful for creating custom oscillators
+- The `sample & hold` node can sample an input signal, store it, and hold that value at its output.
+- The `adsr` node generates an envelope according to an incoming `gate` signal.
+
+
+<br>
+
+---
+
+
+### osc
+
+<img src="img/nodes_reference/synth/osc/osc_node.png"
+alt="osc node"
+width="200"/>
+
+in | signal
+:-- | :--
+`Hz` | `Hz`
+`amp` | `mod`
+`sync` | `gate` or `audio`
+`shp` | `mod` 
+
+out | signal
+:-- | :--
+`out` | `audio`
+
+control | description
+:-- | :--
+`waveform selector` | selects one of 4 waveforms
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `osc` node outputs as `audio` one of four anti-aliased elemental waveforms, selectable on the panel of the node: sine, square, triangle, and saw.
+
+The `osc` node is intended as an audio-rate oscillator. This means it is anti-aliased. Using the `osc` node as an LFO can lead to some unpredictable behavior with overshooting caused by the anti-aliasing.
+
+The `Hz` input controls the speed of the oscillator from `0` to `sampleRate/2 Hz`. 
+
+The `amp` input uses a `mod` signal to control the amplitude of the wave. For example: An amplitude value of `1` will set the output of the `osc` node to range between `-1 and 1`, whereas a value of `0.5` will oscillate between `-0.5 and 0.5`.
+
+<img src="img/nodes_reference/synth/osc/osc_hz_amp.png"
+alt="osc hz amp"
+width="400"/>
+
+The `sync` input will restart the waveform on the rising edge of an incoming `gate` or `audio` signal. It is a hard sync, meaning it will reset regardless of where it is in its cycle.
+
+<img src="img/nodes_reference/synth/osc/osc_sync.png"
+alt="osc sync"
+width="400"/>
+
+The `shp` input changes the shape of the square and saw waves. For the square wave, `shp` controls the pulse width from `50% to 100%`. For the saw wave, `shp` will transform the saw wave into a supersaw which, when modulated, simulates the chorusing effect of two detuned saw waves.
+
+<img src="img/nodes_reference/synth/osc/osc_shp.png"
+alt="osc shp"
+width="400"/>
+
+The waveform selector is exposable.
+
+
+<br>
+
+---
+
+
+### phasor
+
+<img src="img/nodes_reference/synth/phasor/phasor_node.png"
+alt="phasor node"
+width="200"/>
+
+in | signal
+:-- | :--
+`freq` | `Hz` or `-Hz`
+`sync` | `gate` or `audio`
+
+out | signal
+:-- | :--
+`out` | `0 to 2π`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `phasor` node outputs a phasor from `0 to 2π` with 64-bit internal precision.
+
+The `phasor` node is not anti-aliased, making it suitable for creating custom LFOs. If you want to create a custom VCO with a `phasor` node, refer to the `resample` node section to see how to anti-alias its output. You can use an `expr` node to shape and scale the output of the `phasor` node.
+
+<img src="img/nodes_reference/synth/phasor/phasor_waveforms.png"
+alt="phasor waveforms"
+width="800"/>
+
+The `sync` input will reset the phasor on the rising edge of a `gate` or `audio` signal.
+
+<img src="img/nodes_reference/synth/phasor/phasor_sync.png"
+alt="phasor sync"
+width="800"/>
+
+Positive `Hz` values at the `freq` input will run the `phasor` from `0 to 2π`, while negative `Hz` values will reverse the direction, running from `2π to 0`.
+
+<img src="img/nodes_reference/synth/phasor/phasor_tzfm.png"
+alt="phasor tzfm"
+width="800"/>
+
+
+<br>
+
+---
+
+
+### sample & hold
+
+<img src="img/nodes_reference/synth/sample_and_hold/sample_and_hold_node.png"
+alt="sample and hold node"
+width="200"/>
+
+in | signal
+:-- | :--
+`in` | `any`
+`trigger` | `gate`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `sample & hold` node will sample a value at its input on the rising edge of a `gate` signal at the `trigger` input and hold that value at its output until the `trigger` input is gated again.
+
+You can think of it like a single-sample `memory` node.
+
+In the `inspector panel` you can select the `Save Data` checkbox to save the held value in between patch loads.
+
+<img src="img/nodes_reference/synth/sample_and_hold/sample_and_hold_inspector.png"
+alt="sample and hold inspector"
+width="200"/>
+
+In the example below, on the top, a `phasor`-based sine generator is being sampled at `10Hz`, and underneath, the `sample & hold` node is sampling random values produced by a `random` node.
+
+<img src="img/nodes_reference/synth/sample_and_hold/sample_and_hold_example.png"
+alt="sample and hold example"
+width="800"/>
+
+
+<br>
+
+---
+
+
+### adsr
+
+<img src="img/nodes_reference/synth/adsr/adsr_node.png"
+alt="adsr node"
+width="200"/>
+
+in | signal
+:-- | :--
+`gate` | `gate`
+`a` | `seconds`
+`d` | `seconds`
+`s` | `mod`
+`r` | `seconds`
+
+out | signal
+:-- | :--
+`out` | `mod`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `adsr` node outputs an envelope when the `gate` input is held `high`.
+
+The `a` input is the attack time, `d` is decay time, `s` is sustain level, and `r` is release time.
+
+As long as the `gate` input is held `high`, the output of the `envelope` node increases from `0` to `gate height` over `a` seconds, decreases to the `s` level over `d` seconds, then once the gate goes `low`, decreases from the `s` level back to `0` over `r` seconds.
+
+Below you can see the `envelope` node going through its full cycle superimposed on the incoming `gate` signal.
+
+<img src="img/nodes_reference/synth/adsr/adsr_cycle.png"
+alt="adsr cycle"
+width="800"/>
+
+
+<br>
+
+---
+
+
+## module
+
+**description**
+
+The `module` nodes important elements for creating `modules` and `submodules`.
+
+- The `module` node encases nodes into a `module` or `submodule`.
+- The `input` and `output` nodes allow signals to flow into and out of `modules` and `submodules`.
+- The `knob`, `xy pad`, `slider`, `toggle`, and `touch pad` are all elements you can interact with that you can set up to control what's going inside a `module`.
+
+
+<br>
+
+---
+
+
+### module
+
+<img src="img/nodes_reference/module/module/module_node.png"
+alt="module node"
+width="200"/>
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `module` node lets you encase nodes inside of a UI.
+
+In the `inspector panel`, you have options to name the module, define its size, whether or not it is exposed, when it is exposed if it should hide its `inputs` and `outputs`, and a field to enter a description of what it does.
+
+<img src="img/nodes_reference/module/module/module_inspector.png"
+alt="module inspector"
+width="200"/>
+
+Exposed elements within a `module` node will appear automatically on the UI. You can move them around by clicking or tapping the `lock icon` to enter `Edit Modules` mode.
+
+<img src="img/nodes_reference/module/module/module_move_ui.png"
+alt="module move ui"
+width="400"/>
+
+You can either define an explicit size for the `module` node, or let the UI elements determine the size. In the example below, the first `module` has a dimension of `0x0` and the size of the module is determined by where the `input` and `output` nodes are placed. In the second example, the module has a fixed size of `200x200` and the output can be placed wherever without shrinking the size of the module. In the third example, you can see how with a fixed size, you can even put UI elements outside of modules, which can be useful for both creative and practical purposes.
+
+<img src="img/nodes_reference/module/module/module_size_io.png"
+alt="module size io"
+width="400"/>
+
+There are two classes of things you can create with the `module` nodes: `modules` and `submodules`.
+
+The difference between them is that `modules` are meant to be interacted with while `submodules` are like custom nodes used to create `modules`. Below you can see some `modules` on the left and `submodules` on the right.
+
+<img src="img/nodes_reference/module/module/module_modules_submodules.png"
+alt="module modules submodules"
+width="800"/>
+
+You can open any `module` and see how it works inside. This is the interior of the `8-Step Sequencer` which has in itself a `Begin-End Counter + Direction` `submodule` in the top right. You can also see in the top right of the menu bar a directory showing `root >` `8-Step Sequencer`. This means we are inside of the sequencer.
+
+<img src="img/nodes_reference/module/module/module_sequencer_interior.png"
+alt="module sequencer interior"
+width="800"/>
+
+Below is the inside of the `Begin-End Counter + Direction submodule` that is inside of the `8-Step Sequencer`. Notice that the directory now reads `root >` `8-Step Sequencer >` `Begin-End Counter + Direction`.
+
+<img src="img/nodes_reference/module/module/module_counter_interior.png"
+alt="module counter interior"
+width="800"/>
+
+There is no limit to the number of `module` nodes you can nest in one another, though it is rare to need more than 5 levels.
+
+`Modules` themselves can also be exposed to the UI of `module` nodes. This means you can create synthesizers from individual module elements. Below is a screenshot of a synthesizer `module` on the left made mostly of other `modules` and a few extra `nodes` that you see on the right.
+
+<img src="img/nodes_reference/module/module/module_minisynth.png"
+alt="module minisynth"
+width="800"/>
+
+
+<br>
+
+---
+
+
+### input
+
+<img src="img/nodes_reference/module/input/input_node.png"
+alt="input node"
+width="200"/>
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `input` node is used to get signals into a `module` node. It must be placed inside the `module` node. 
+
+It can be renamed in the `inspector panel`.
+
+<img src="img/nodes_reference/module/input/input_inspector.png"
+alt="input inspector"
+width="200"/>
+
+
+<br>
+
+---
+
+
+### output
+
+<img src="img/nodes_reference/module/output/output_node.png"
+alt="output node"
+width="200"/>
+
+in | signal
+:-- | :--
+`in` | `any`
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `output` node is used to get signals out of a `module` node. It must be placed inside the `module` node. 
+
+It can be renamed in the `inspector panel`.
+
+<img src="img/nodes_reference/module/output/output_inspector.png"
+alt="input inspector"
+width="200"/>
+
+
+<br>
+
+---
+
+
+### knob
+
+<img src="img/nodes_reference/module/knob/knob_node.png"
+alt="knob node"
+width="200"/>
+
+out | signal
+:-- | :--
+`out` | `mod`
+
+control | description
+:-- | :--
+`knob` | move with up/down or left/right motion
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `knob` node is used to modify other nodes. It outputs a `0 to 1` `mod` signal. This signal can be scaled and shaped by `expr`, `mapper`, and `spline` nodes.
+
+There are several options for the `knob` node in the `inspector panel`. You can directly set the `Value`, change the `Style`, `Icon`, color, and `MIDI CC` and `Channel`.
+
+<img src="img/nodes_reference/module/knob/knob_inspector.png"
+alt="knob inspector"
+width="200"/>
+
+There are six `Style` options for the `knob` node that change its shape: `Standard`, `Mini`, `Large`, `Drive`, `Mix`, and `Bipolar`. The three color options are blue, green, and red.
+
+<img src="img/nodes_reference/module/knob/knob_styles.png"
+alt="knob styles"
+width="400"/>
+
+You can also select one of 16 animated `Icon` options: `Cutoff`, `Res`, `Drive`, `Freq`, `Level`, `Offset`, `PW`, `Explog`, `Length`, `Random`, `Density`, `Attack`, `Decay/Release`, `Sustain`, `Waves`.
+
+<img src="img/nodes_reference/module/knob/knob_icons.png"
+alt="knob icons"
+width="800"/>
+
+Wires can be attached directly to knobs. When a wire is attached to a knob, a blue circle appears at the center. The input signal of the wire will be clamped to the `0 to 1` `mod` signal range.
+
+<img src="img/nodes_reference/module/knob/knob_wire.png"
+alt="knob wire"
+width="400"/>
+
+<br>
+
+---
+
+
+### xy pad
+
+<img src="img/nodes_reference/module/xy_pad/xy_pad_node.png"
+alt="xy pad node"
+width="200"/>
+
+out | signal
+:-- | :--
+`x` | `mod`
+`y` | `mod`
+
+control | description
+:-- | :--
+`xy pad` | click or tap anywhere on field
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `xy pad` node outputs two `mod` signals that correspond to the `(x, y)` coordinates of where you click or touch. This point is marked by a colored dot.
+
+<img src="img/nodes_reference/module/xy_pad/xy_pad_values.png"
+alt="xy pad values"
+width="400"/>
+
+In the `inspector panel` you can change the `Size` of the node and its color.
+
+<img src="img/nodes_reference/module/xy_pad/xy_pad_inspector.png"
+alt="xy pad inspector"
+width="200"/>
+
+You can make the node smaller, larger, or rectangular.
+
+<img src="img/nodes_reference/module/xy_pad/xy_pad_size.png"
+alt="xy pad size"
+width="400"/>
+
+
+<br>
+
+---
+
+
+### slider
+
+<img src="img/nodes_reference/module/slider/slider_node.png"
+alt="slider node"
+width="200"/>
+
+out | signal
+:-- | :--
+`out` | `mod`
+
+control | description
+:-- | :--
+`slider` | click or tap to move up or down
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `slider` node is used to modify other nodes. It outputs a `0 to 1` `mod` signal. This signal can be scaled and shaped by `expr`, `mapper`, and `spline` nodes.
+
+When the `slider` node is zeroed (turned all the way down) a square appears in the center of the small circle.
+
+<img src="img/nodes_reference/module/slider/slider_zeroed.png"
+alt="slider node"
+width="400"/>
+
+In the `inspector panel` you can change the color of the slider to blue, green, or red, and assign `MIDI CC` and `Channel`.
+
+<img src="img/nodes_reference/module/slider/slider_inspector.png"
+alt="slider inspector"
+width="200"/>
+
+<img src="img/nodes_reference/module/slider/slider_colors.png"
+alt="slider colors"
+width="200"/>
+
+
+<br>
+
+---
+
+
+### toggle
+
+<img src="img/nodes_reference/module/toggle/toggle_node.png"
+alt="toggle node"
+width="200"/>
+
+out | signal
+:-- | :--
+`out` | `gate`
+
+control | description
+:-- | :--
+`toggle switch` | click or tap to switch
+
+exposable | ✅ automatic
+:-- | :--
+
+
+**description**
+
+The `toggle` node outputs a `0 or 1` gate signal. When the switch is set to the left, the output is `0`, and when it's set to the right, it is `1`.
+
+In the `inspector panel` you can set the color of the switch as blue, green, or red.
+
+<img src="img/nodes_reference/module/toggle/toggle_inspector.png"
+alt="toggle inspector"
+width="200"/>
+
+<img src="img/nodes_reference/module/toggle/toggle_colors.png"
+alt="toggle colors"
+width="200"/>
+
+
+<br>
+
+---
+
+
+### touch pad
+
+<img src="img/nodes_reference/module/touch_pad/touch_pad_node.png"
+alt="touch pad node"
+width="200"/>
+
+out | signal
+:-- | :--
+`x` | `mod`
+`y` | `mod`
+`touch` | `gate`
+
+control | description
+:-- | :--
+`touch pad` | click or tap anywhere on field
+
+exposable | ✅
+:-- | :--
+
+
+**description**
+
+The `touch pad` node outputs two `mod` signals that correspond to the `(x, y)` coordinates of where you click or touch. This point is marked by a blue circle.
+
+<img src="img/nodes_reference/module/touch_pad/touch_pad_values.png"
+alt="touch pad values"
+width="400"/>
+
+In the `inspector panel` you can change the `Size` of the node and the number of `Channels` (for iOS multitouch).
+
+<img src="img/nodes_reference/module/touch_pad/touch_pad_inspector.png"
+alt="touch pad inspector"
+width="200"/>
+
+You can make the node smaller, larger, or rectangular.
+
+<img src="img/nodes_reference/module/touch_pad/touch_pad_size.png"
+alt="xy pad size"
+width="400"/>
+
+
+<br>
+
+---
+
+
+## poly
+
+**description**
+
+The `poly` nodes help create and manage polyphonic signals.
+
+- The `combine` and `split` nodes allow you to merge several mono signals together and then take them back apart.
+- The `poly mix` node takes a poly signal and mixes it down to a mono signal.
+- The `channel index` node outputs a poly signal of integers indexed from `0`.
+- The `channel count` node outputs the current number of polyphony at its input.
+
+<br>
+
+---
+
+
+### combine
+
+<img src="img/nodes_reference/poly/combine/combine_node.png"
+alt="combine node"
+width="200"/>
+
+in | signal
+:-- | :--
+`0` | `any`
+`1` | `any`
+`...` | `any`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `combine` node takes from `2` up to `256` mono signals and combines them into one polyphonic signal.
+
+In the `inspector panel` you can set the number of channels.
+
+<img src="img/nodes_reference/poly/combine/combine_inspector.png"
+alt="combine inspector"
+width="200"/>
+
+<img src="img/nodes_reference/poly/combine/combine_values.png"
+alt="combine values"
+width="400"/>
+
+
+<br>
+
+---
+
+
+### split
+
+<img src="img/nodes_reference/poly/split/split_node.png"
+alt="split node"
+width="200"/>
+
+in | signal
+:-- | :--
+`in` | `any`
+
+out | signal
+:-- | :--
+`0` | `any`
+`1` | `any`
+`...` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `split` node takes a poly signal and splits it into `1` to `256` mono signals.
+
+In the `inspector panel` you can set the number of channels.
+
+<img src="img/nodes_reference/poly/split/split_inspector.png"
+alt="split inspector"
+width="200"/>
+
+<img src="img/nodes_reference/poly/split/split_values.png"
+alt="split values"
+width="400"/>
+
+
+<br>
+
+---
+
+
+### poly mix
+
+<img src="img/nodes_reference/poly/poly_mix/poly_mix_node.png"
+alt="poly mix node"
+width="200"/>
+
+in | signal
+:-- | :--
+`0` | `any`
+`1` | `any`
+`...` | `any`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `split` node takes a poly signal and splits it into `1` to `256` mono signals.
+
+In the `inspector panel` you can set the number of `Channels`.
+
+<img src="img/nodes_reference/poly/split/split_inspector.png"
+alt="split inspector"
+width="200"/>
+
+<img src="img/nodes_reference/poly/split/split_values.png"
+alt="split values"
+width="400"/>
+
+
+<br>
+
+---
+
+
+### channel index
+
+<img src="img/nodes_reference/poly/channel_index/channel_index_node.png"
+alt="channel index node"
+width="200"/>
+
+out | signal
+:-- | :--
+`out` | `integers 1 - 256`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `channel index` node creates a signal with `1` to `256` channels where each channel is an integer index number that is indexed from `0`.
+
+In the `inspector panel` you can set the number of `Channels`.
+
+<img src="img/nodes_reference/poly/channel_index/channel_index_inspector.png"
+alt="channel index inspector"
+width="200"/>
+
+<img src="img/nodes_reference/poly/channel_index/channel_index_values.png"
+alt="channel index values"
+width="400"/>
+
+<br>
+
+---
+
+
+### channel count
+
+<img src="img/nodes_reference/poly/channel_count/channel_count_node.png"
+alt="channel count node"
+width="200"/>
+
+out | signal
+:-- | :--
+`out` | `integers 1 - 256`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `channel count` node outputs the number of channels in a signal as an integer.
+
+<img src="img/nodes_reference/poly/channel_count/channel_count_values.png"
+alt="channel count values"
+width="400"/>
+
+<br>
+
+---
+
+
+## switch
+
+**description**
+
+The `switch` nodes route signals and turn them on or off.
+
+- The `mux` node sends one of several inputs to one output while the `demux` node sends one input to several outputs.
+- The `spigot` node allows you to turn off a section of a patch to prevent it from wasting CPU time when not needed.
+
+<br>
+
+---
+
+
+### mux
+
+<img src="img/nodes_reference/switch/mux/mux_node.png"
+alt="mux node"
+width="200"/>
+
+in | signal
+:-- | :--
+`sel` | `any`
+`0` | `any`
+`1` | `any`
+`...` | `any`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `mux` node routes one of `2` to `256` inputs to a single output according to the `sel` value, which is indexed from `0`.
+
+In the `inspector panel` you can set the number of inputs.
+
+<img src="img/nodes_reference/switch/mux/mux_inspector.png"
+alt="mux inspector"
+width="200"/>
+
+When the `sel` value is equal to or greater than `0` but less than `1`, then the `0` input is sent to the output. When the `sel` value is equal to or greater than `1` but less than `2`, then the `1` input is sent to the output, and so on.
+
+If the `sel` value exceeds the number of inputs, then it will wrap around to the beginning. That means a `mux` node with 2 inputs and a `sel` value of `2` will send the `0` input to the output.
+
+If the `sel` value is negative, the selection wraps around backwards. So a `mux` node with 2 inputs and a `sel` value of `-1` will send the `1` input to the output.
+
+<img src="img/nodes_reference/switch/mux/mux_values.png"
+alt="mux values"
+width="800"/>
+
+<br>
+
+---
+
+
+### demux
+
+<img src="img/nodes_reference/switch/demux/demux_node.png"
+alt="demux node"
+width="200"/>
+
+in | signal
+:-- | :--
+`sel` | `any`
+`in` | `any`
+
+out | signal
+:-- | :--
+`0` | `any`
+`1` | `any`
+`...` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `demux` node routes one signal to `2` or up to `256` outputs according to the `sel` value, which is indexed from `0`.
+
+In the `inspector panel` you can set the number of outputs.
+
+<img src="img/nodes_reference/switch/demux/demux_inspector.png"
+alt="demux inspector"
+width="200"/>
+
+When the `sel` value is equal to or greater than `0` but less than `1`, then the input is sent to the `0` output. When the `sel` value is equal to or greater than `1` but less than `2`, then the input is sent to the `1` output, and so on.
+
+If the `sel` value exceeds the number of outputs, then it will wrap around to the beginning. That means a `demux` node with 2 outputs and a `sel` value of `2` will send the input to the `0` output.
+
+If the `sel` value is negative, the selection wraps around backwards. So a `demux` node with 2 inputs and a `sel` value of `-1` will send the input to the `1` output.
+
+<img src="img/nodes_reference/switch/demux/demux_values.png"
+alt="demux values"
+width="800"/>
+
+<br>
+
+---
+
+
+### spigot
+
+<img src="img/nodes_reference/switch/spigot/spigot_node.png"
+alt="spigot node"
+width="200"/>
+
+in | signal
+:-- | :--
+`active` | `gate`
+`in` | `any`
+
+out | signal
+:-- | :--
+`out` | `any`
+
+exposable | ❌
+:-- | :--
+
+
+**description**
+
+The `spigot` node turns off processing for all nodes to the left of it in the signal path that are not connected to some form of output like a `meter` or `dac` node.
+
+When the `active` input is `0`, nothing passes, and processing is halted. When the `active` input is `high`, the signal passes and everything is processed normally.
+
+<img src="img/nodes_reference/switch/spigot/spigot_values.png"
+alt="spigot values"
+width="400"/>
+
+Nodes that are not processing show `inactive` next to their name when in `timing mode`. As you can see below, the first `osc` node is shut off by the `spigot` node whereas the second is not.
+
+<img src="img/nodes_reference/switch/spigot/spigot_off_on.png"
+alt="spigot off on"
+width="800"/>
+
+Beware that if you have any kind of `meter` or other type of terminal output node connected to a node or series of nodes that you want to turn off using a spigot node, the node will not turn off.
+
+<img src="img/nodes_reference/switch/spigot/spigot_interrupt.png"
+alt="spigot interrupt"
+width="800"/>
+
+<br>
+
+
+
