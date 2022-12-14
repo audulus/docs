@@ -81,9 +81,9 @@ If a node is not connected to an output, it will not be evaluated.
 `util` nodes are various utilities that perform some essential function. 
 
 - The `adc` and `dac` nodes are used to get `audio` and `CV` in and out of Audulus. 
-- The `text` node is used for labeling and commenting. 
-- The `timer` node outputs `seconds` since its last reset. It has a variety of uses including creating envelopes and driving automation. 
-- The `zero cross` node outputs frequency in `hz` determined by analyzing time between points when the input signal crosses 0. Most useful for syncing constant gate signals.
+- The `text` node is used for labeling modules and commenting patches. 
+- The `timer` node outputs time in seconds, useful for a variety of purposes including clocks, envelopes and driving automation. 
+- The `zero cross` node is used to find the frequency in `Hz` of a signal based on when it crosses zero.
 
 <br>
 
@@ -271,10 +271,10 @@ The `zero cross` node counts the time between current and previous zero-crossing
 
 The `math` nodes are some of the most powerful and versatile nodes. 
 
-- The `expr` node is the tool for math expressions. It has 40 available operators and functions. Syntax errors are reported underneath the input text area in the `inspector panel`.
-- The `sum` node adds two or more signals together. Set number of inputs in the `inspector panel`.
-- The `product` node multiplies two or more signals together. Set number of inputs in the `inspector panel`. 
-- The `random` node has a `seed` input that ensures multiple copies of the same module can produce different random results with different `seed` values.
+- The `expr` node has 40 available operators and functions for creating math expressions.
+- The `sum` node adds two or more signals together.
+- The `product` node multiplies two or more signals together.
+- The `random` node outputs random values between 0 and 1.
 
 <br>
 
@@ -362,7 +362,7 @@ The `expr` node is the most versatile node. It does math and basic programming o
 
 Double clicking on any input will create an `expr` node.
 
-You enter equations into the `inspector panel`, pictured below. You do not need to add an `=` sign after your expression.
+You enter equations into the `inspector panel`, pictured below. You do not need to add an `=` sign after your expression. 
 
 <img src="img/nodes_reference/math/expr/expr_inspector.png"
 alt="expr node inspector panel"
@@ -375,6 +375,8 @@ Entering letters or words will create variables as inputs, as pictured below.
 <img src="img/nodes_reference/math/expr/expr_var.png"
 alt="expr node variables"
 width="200"/>
+
+Syntax errors are reported underneath the input text area in the `inspector panel`.
 
 Variables are case-sensitive, meaning `x` is not the same as `X`. Spaces and underscores are not allowed. For long variables, you can use camel case. For example: `thisIsALongVariable`. You can also use underscores for variable names. For example: `_variable_Name`.
 
@@ -516,11 +518,11 @@ If the `Seed` remains the same, every time the patch is reopened, the same strin
 
 The `meter` nodes are vital for displaying information about signals.
 
-- The `meter` node is responsive and versatile.
-- The `waveform` node is a simple way to see how signals change over time.
-- The `value` node can help with debugging as well as displaying information on UIs.
-- The `light` and `rgb light` nodes are great for adding visual feedback to modules.
-- The `scope` node is like the `waveform` node, but suited for examining audio rate signals.
+- The `meter` node displays a green to red bar meter between 0 and 1 for each poly channel.
+- The `waveform` node displays a graph of a waveform. Best for low frequency signals.
+- The `value` node displays numbers, useful for number displays on UIs as well as debugging.
+- The `light` and `rgb light` nodes are great for adding light indicators to modules.
+- The `scope` node behaves like an oscilloscope, well-suited for analyzing audio rate signals.
 - With the `shader` and `canvas` nodes you can use your own code to create your own beautiful custom meters, visualizers, and UI elements using GLSL and Lua.
 
 <br>
