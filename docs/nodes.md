@@ -16,9 +16,9 @@ Nodes can be moved around the canvas, but they cannot be rotated.
 
 You connect nodes together by dragging a wire from an output to an input. You cannot drag a wire from an input to an output. You can connect one output to as many inputs as you want.
 
-You disconnect nodes by unhooking a wire from an input. Wires cannot be disconnected from an output. An input only accepts one wire. To connect multiple wires to one input, you must use an `add` node to first add the signals together.
+You disconnect nodes by unhooking a wire from an input. Wires cannot be disconnected from an output. An input only accepts one wire. To connect multiple wires to one input, use an `add` node to first add the signals together.
 
-Wires can go from any output anywhere to any input anywhere: up, down, left, or right. However, overall signal flow in Audulus is from left to right.
+Wires can go from any red output to any blue input, up, down, left, or right. However, overall signal flow in Audulus is from left to right.
 
 Nodes send and receive signals through wires. Every signal is a number. [^1] Although all signals are numbers, there are several categories of signals. These categories are defined by their range, unit, and how they are used.
 
@@ -40,13 +40,13 @@ signal | range
 [^2]: Audio signals can exceed the `-1 to 1` range, but they will be clipped to that range upon output.
 [^3]: Hz values above `sampleRate/2` can be generated but are limited in use. Negative `hz` signals can be used to flip the phase of the phasor node, useful for through-zero FM.
 
-Some nodes have attributes that are accessible in the `inspector panel`. Every node has an `(x, y)` position attribute in this panel.
+Some nodes have attributes that are accessible in the `inspector panel`. Every node has an `(x, y)` position attribute in this panel which corresponds to its position in the patch bay.
 
-Nodes can be packaged into `modules` and `submodules`. `Modules` are containers for nodes that allow you to create a user interface for you to interact with. `Submodules` are used inside of `modules`. They are like user-created nodes.
+Nodes can be packaged into `modules` and `submodules`. `Modules` are containers for nodes that allow you to create a graphical user interface front panel with knobs, sliders, buttons, ports, etc. `Submodules` are (child) `modules` inside (parent) `modules`. `Submodules` can help keep modules organized and they can be exposed on the front panel of a parent `module`.
 
-Some nodes are exposable, meaning they have some element that can appear on UI of a `module`. Some, like the `knob` node, are automatically exposed while others, like the `text` node, have an option to expose.
+Some nodes can be exposed, meaning they have some element that can appear on the UI of a `module`. Some are automatically exposed, like the nodes in the `module` menu like `knob` node, `slider` node, etc. Others, like the `text` node or `osc` node, have an expose toggle.
 
-If a node is exposable, a node will have an `(x, y)` coordinate for where it is inside the module and another `(x, y)` coordinate for where it is on the UI of the module.
+If a node can be exposed, extra x and y position text boxes will be visible on the Inspector panel where you can manually input its position on the front panel of the `module` UI.
 
 Other nodes have attributes you can change directly on the node.
 
@@ -78,12 +78,12 @@ If a node is not connected to an output, it will not be evaluated.
 
 **description**
 
-`util` nodes are various utilities that do some very essential things. 
+`util` nodes are various utilities that perform some essential function. 
 
 - The `adc` and `dac` nodes are used to get `audio` and `CV` in and out of Audulus. 
-- The `text` node is used for labeling and commenting inside of patches. 
-- The `timer` node has a variety of uses including creating envelopes and driving automation. 
-- The `zero cross` node analyzes incoming audio and outputs its frequency in `hz`.
+- The `text` node is used for labeling modules and commenting patches. 
+- The `timer` node outputs time in seconds, useful for a variety of purposes including clocks, envelopes and driving automation. 
+- The `zero cross` node is used to find the frequency in `Hz` of a signal based on when it crosses zero.
 
 <br>
 
@@ -174,7 +174,7 @@ exposable | ✅
 
 **description**
 
-The `text` node has no inputs or outputs. `text` nodes are used for labeling and commenting inside your patches. Click or tap on the node and open the `inspector panel` (pictured below). You can then type in the text field and text will appear inside the node.
+The `text` node is used for commenting patches and labeling modules. Click or tap on the node and open the `inspector panel` (pictured below). You can then type in the text field and text will appear inside the node. The `text` node can also be exposed to the front panel of a module for labeling.
 
 <img src="img/nodes_reference/util/text/text_inspector.png"
 alt="text inspector panel" 
@@ -258,7 +258,7 @@ exposable | ❌
 
 **description**
 
-The `zero cross` node counts the time between two zero-crossings and outputs that value as a `hz` signal. To be counted as a zero-crossing, the signal must either pass through `0` or be `= 0` at some point during its cycle.
+The `zero cross` node counts the time between current and previous zero-crossings and outputs that value as a `hz` signal. To be counted as a zero-crossing, the signal value must either pass through `0` or be `= 0` at some point during its cycle.
 
 <br>
 
@@ -271,9 +271,10 @@ The `zero cross` node counts the time between two zero-crossings and outputs tha
 
 The `math` nodes are some of the most powerful and versatile nodes. 
 
-- The `expr` node alone has 40 operators and functions which can be combined in many ways. 
-- `sum` and `product` are elegant ways to visually emphasize how signals are combining and can be expanded to have as many inputs as necessary. 
-- The `random` node has a `seed` input that ensures multiple copies of the same module can produce different random results with different `seed` values.
+- The `expr` node has 40 available operators and functions for creating math expressions.
+- The `sum` node adds two or more signals together.
+- The `product` node multiplies two or more signals together.
+- The `random` node outputs random values between 0 and 1.
 
 <br>
 
@@ -361,7 +362,7 @@ The `expr` node is the most versatile node. It does math and basic programming o
 
 Double clicking on any input will create an `expr` node.
 
-You enter equations into the `inspector panel`, pictured below. You do not need to add an `=` sign after your expression.
+You enter equations into the `inspector panel`, pictured below. You do not need to add an `=` sign after your expression. 
 
 <img src="img/nodes_reference/math/expr/expr_inspector.png"
 alt="expr node inspector panel"
@@ -375,9 +376,11 @@ Entering letters or words will create variables as inputs, as pictured below.
 alt="expr node variables"
 width="200"/>
 
-Variables are case-sensitive, meaning `x` is not the same as `X`. Spaces and underscores are not allowed. For long variables, you can use camel case. For example: `thisIsALongVariable`.
+Syntax errors are reported underneath the input text area in the `inspector panel`.
 
-Variables can contain numbers, but they must start with a letter. `input1` will generate an input but `1input` will not. Variables cannot contain symbols.
+Variables are case-sensitive, meaning `x` is not the same as `X`. Spaces and underscores are not allowed. For long variables, you can use camel case. For example: `thisIsALongVariable`. You can also use underscores for variable names. For example: `_variable_Name`.
+
+Variables can contain numbers, but they must start with a letter or underscore. `input1` or `_input1` will generate an input but `1input` will not. Variables cannot contain symbols other than underscore.
 
 Certain variable names are reserved, like `mod`, `e`, and `pi`. If you need to use them as variables you can capitalize the first letter, like this: `Mod`, `E`, `Pi`.
 
@@ -385,7 +388,7 @@ You can call a variable multiple times within an expression, like `x * x * x`.
 
 Spaces between variables and operators and within functions are optional. `x*y` is the same as `x * y` and `clamp(x,0,1)` is the same as `clamp(x, 0, 1)`.
 
-Functions can be nested within one another, like `max(0, min(x, 1))`.
+Functions can be nested, like `max(0, min(x, 1))`.
 
 Divide-by-zero functions return a `0`. In other rare cases it is possible to create an expression that outputs a `nan` value, or "Not a number." The node producing the `nan` will immediately self-disconnect from your signal chain to prevent damage to speakers. A `nan` will be displayed in the `value` node, as pictured below.
 
@@ -515,11 +518,11 @@ If the `Seed` remains the same, every time the patch is reopened, the same strin
 
 The `meter` nodes are vital for displaying information about signals.
 
-- The `meter` node is responsive and versatile.
-- The `waveform` node is a simple way to see how signals change over time.
-- The `value` node can help with debugging as well as displaying information on UIs.
-- The `light` and `rgb light` nodes are great for adding visual feedback to modules.
-- The `scope` node is like the `waveform` node, but suited for examining audio rate signals.
+- The `meter` node displays a green to red bar meter between 0 and 1 for each poly channel.
+- The `waveform` node displays a graph of a waveform. Best for low frequency signals.
+- The `value` node displays numbers, useful for number displays on UIs as well as debugging.
+- The `light` and `rgb light` nodes are great for adding light indicators to modules.
+- The `scope` node behaves like an oscilloscope, well-suited for analyzing audio rate signals.
 - With the `shader` and `canvas` nodes you can use your own code to create your own beautiful custom meters, visualizers, and UI elements using GLSL and Lua.
 
 <br>
@@ -554,7 +557,7 @@ In the `inspector panel` the `meter` node can be resized by altering the height 
 alt="meter inspector"
 width="200"/>
 
-If both `W` and `H` values are `0`, then the node defaults to its standard size. The node can be resized however you want, but it cannot be rotated.
+If both `W` and `H` values are `0`, then the node defaults to its standard size and will automatically resize to fit UI elements. The node can be resized however you want, but it cannot be rotated.
 
 <img src="img/nodes_reference/meter/meter/meter_sizes.png"
 alt="meter sizes"
@@ -628,7 +631,7 @@ In the `inspector panel`, you can set precision from `0` to `0.0000`, and an opt
 alt="value inspector"
 width="200"/>
 
-Changing precision can be useful for UI displays. For example, a sequencer's `current step` display should be a whole number, not a decimal.
+Changing precision can be useful for UI displays. For example, a sequencer's `current step` display makes more sense as a whole number, not a decimal.
 
 <img src="img/nodes_reference/meter/value/value_precision.png"
 alt="value precision"
@@ -696,13 +699,13 @@ The `rgb light` node has 3 inputs: one for red `r`, one for green `g`, and one f
 alt="rgb light colors"
 width="200"/>
 
-Each input works with a `mod` signal. When the signal is `0`, the light is off. When the signal is `1`, the light is fully on.
+Each input is clamped to a value between 0 and 1.
 
 <img src="img/nodes_reference/meter/rgb_light/rgb_light_brightness.png"
 alt="light node"
 width="400"/>
 
-Colors can be mixed by sending different values to each input.
+Any color can be created by sending different values between 0 and 1 to each input. For example, if you send a value of 1 to red and a value of .5 to green, the color of the rgb light will be orange.
 
 <img src="img/nodes_reference/meter/rgb_light/rgb_light_mix.png"
 alt="light node"
@@ -733,7 +736,7 @@ exposable | ✅
 
 **description**
 
-The `scope` node can visualize high frequency waveforms, phase relationships, and Lissajous curves that you otherwise could not with the `waveform` node.
+The `scope` node is akin to an oscilloscope. It can visualize high frequency waveforms, phase relationships, and Lissajous curves that you otherwise could not with the `waveform` node.
 
 A cursor draws a dot with a color of `{r, g, b}` at the coordinates `(x, y)` where both `x` and `y` have a range of `-1 to 1`. The point `(0, 0)` is the center of the display.
 
@@ -741,9 +744,9 @@ A cursor draws a dot with a color of `{r, g, b}` at the coordinates `(x, y)` whe
 alt="scope circle"
 width="400"/>
 
-The `s` variable is a measure of the persistence of the line drawn where `0` means only the current position of the cursor is shown and `1` means the cursor will draw a line that persists infinitely. `s` values between `0` and `1` will cause the line to fade quickly or gradually over time.
+The `p` variable refers to the persistence of the line drawn where `0` means only the current position of the cursor is shown and `1` means the cursor will draw a line that persists infinitely. `p` is akin to feedback where values between `0` and `1` will cause the line to fade quickly or gradually over time.
 
-There can be a large difference between what an `s` value of `0.9`, `0.99`, and `0.999` look like, so experiment with what works best for your use.
+There can be a large difference between what an `p` value of `0.9`, `0.99`, and `0.999` look like, so experiment with what works best for your use.
 
 In the `scope` node's `inspector panel` there are options to change both the `Size` and resolution (`Image Size`) of the scope.
 
@@ -753,7 +756,7 @@ width="200"/>
 
 The default size is `W = 200` and `H = 200` with an image size of `W = 512` and `H = 512`. 
 
-For a crisp, clean-looking line, the `Image Size` should be at least double the `Size` parameter. For a more digital-looking, stair-stepped size, the `Image Size` should be the same or smaller than the `Size.`
+For a crisp, clean look, make `Image Size` at least double that of `Size`. For low-resolution, stair-stepped looks, make `Image Size` smaller than the `Size.`
 
 <img src="img/nodes_reference/meter/scope/scope_size_resolution.png"
 alt="scope sizes"
@@ -776,7 +779,7 @@ exposable | ✅
 
 **description**
 
-The `shader` node is an OpenGL shader that allows you to write your own shader using GLSL, a programming language similar to C.
+The `shader` node is an OpenGL shader that allows you to write your own shader using GLSL, a programming language dedicated to shader graphics.
 
 Although the default example has `r` `g` `b` inputs, you are not limited to just those inputs. You can have 0 inputs or as many as you need to run your code.
 
@@ -815,7 +818,7 @@ exposable | ✅
 
 **description**
 
-The `canvas` node is an allows you to draw things using Lua, a simple interpreted programming language.
+The `canvas` node allows you to draw vector graphics using Lua, a simple interpreted programming language.
 
 Although the default example has no inputs or outputs, you can create as many as you'd like by declaring them in the `inspector panel` above the code block.
 
@@ -835,7 +838,7 @@ Below the field where you declare variables you can use Lua code to draw things 
 alt="canvas code"
 width="400"/>
 
-Below the code block are all of the available Lua functions which you can drag and drop into your code.
+Below the code block are a list of Lua functions for various things, available vector graphic elements, transformations, Audulus theme colors, etc. You can drag and drop these into your code.
 
 <img src="img/nodes_reference/meter/canvas/canvas_functions.png"
 alt="canvas functions"
@@ -847,7 +850,7 @@ Below the functions are options to change the `Size` of the `canvas` node and `S
 alt="canvas inspector"
 width="200"/>
 
-Unlike other nodes, the `canvas` node does not run at audio rate, making it unsuitable to be within any audio or time-critical control paths. As the name implies, it is intended to be space to draw things.
+*Note: unlike other nodes, the `canvas` node runs at a rate determined by graphics settings, not audio. Although it is possible to make ports and pass data to use with audio, the different time base can make it unsuitable for time-critical control paths. As a meter node, its intended purpose is to draw visual things.*
 
 <br>
 
@@ -863,7 +866,7 @@ The `midi` nodes send and receive MIDI signals in and out of Audulus.
 
 - The `keyboard` allows you to play Audulus synths with an external MIDI controller or feed in MIDI notes from a DAW.
 - The `note send` node sends MIDI notes out of Audulus to hardware or DAWs.
-- The `cc send` node sends MIDI CC messages from Audulus to hardware or or DAWs.
+- The `cc send` node sends MIDI CC messages from Audulus to hardware or DAWs.
 - The `trigger` node can both act like a button within Audulus and can also receive on/off MIDI messages.
 
 <br>
@@ -902,7 +905,7 @@ There are also two controls on the `keyboard` node. The first cycles through `Le
 
 `Legato` means only one note (the last played) will be outputted. `Poly 2` means 2 notes can be played at once, `Poly 4` means 4, and so on.
 
-Higher poly counts multiply CPU usage, so only set it to the count you need.
+Poly settings relate directly to the poly nodes in Audulus. Higher poly counts multiply CPU usage, so only set it to the count you need. You also might need a `poly mix` node at some point further down in your signal path to mix the poly signal into a 1-channel signal.
 
 The `Omni/(1-16)` control specifies which incoming MIDI channel is referenced. On `Omni`, any messages from any of the channels will come through. You can also set the keyboard node to listen to a specific channel `1-16`.
 
@@ -996,9 +999,9 @@ The `trigger` node outputs a gate when its button is pressed. The button can be 
 
 The `level` nodes are tools helpful for manipulating the level of a signal.
 
-- You can create custom lines with the `spline` node and trace over them to output a continuous series of custom values.
-- The `mapper` node allows you to shape the response curve of a knob or signal moving through it.
-- The `env follow` node traces the loudness envelope of an incoming signal and outputs it as a `mod` signal.
+- The `spline` node transforms a `mod` signal to follow the line you draw.
+- The `mapper` node can change the range and curve of a signal. Similar to the spline node with a simpler set of points.[^5]
+- The `env follow` node follows the amplitude (loudness) of an incoming signal and outputs it as a `mod` envelope signal.
 
 <br>
 
@@ -1032,7 +1035,7 @@ exposable | ✅
 
 The `spline` node allows you to draw a line using two or more breakpoints and then trace over that line using a `mod` input.
 
-Breakpoints are added by double clicking or tapping on the blank field inside the node. Once created, they can be dragged around anywhere inside of the field.
+Breakpoints are added by double clicking or tapping on the blank field inside the node. Once created, they can be dragged around anywhere inside the field.
 
 <img src="img/nodes_reference/level/spline/spline_draw.png"
 alt="spline draw"
@@ -1141,7 +1144,7 @@ DSP is an acronym that means digital signal processing. The `dsp` nodes are esse
 
 - The `unit delay` node delays a signal by a single sample and marks precisely where a feedback delay happens within a feedback loop.
 - The `biquad` node is a building block for creating custom biquad filters.
-- The `low-pass` and `high-pass` nodes are conveniently packaged, non-resonant filters.
+- The `low-pass` and `high-pass` nodes are conveniently packaged, 1-pole non-resonant filters.
 - The `delay line` node can delay a signal up to 20 seconds.
 - The `dc blocker` node prevents a signal with a DC-offset from harming speakers.
 - The `sample rate` node outputs the current sample rate, useful in many calculations where the precise sample rate is needed.
@@ -1175,7 +1178,7 @@ exposable | ❌
 
 The `unit delay` node delays an incoming signal by `1` sample. It also explicitly tells Audulus where to insert a single sample feedback delay within a feedback loop. 
 
-If a `unit delay` is not inserted somewhere within a feedback loop, Audulus will guess where to put it. Much of the time this is ok, but in some cases, like when creating analog-modeling filters, you need to be explicit about where the feedback delay goes.
+If a `unit delay` is not inserted somewhere within a feedback loop, Audulus will guess where to put it. Much of the time this is ok, but in some cases, like when creating audio filters, you need to be explicit about where the feedback delay goes.
 
 <br>
 
@@ -1208,9 +1211,9 @@ exposable | ❌
 
 **description**
 
-The `biquad` node allows you to create all different types of biquadratic filters. Refer to [this guide](https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html) for more information. 
+The `biquad` node allows you to create all different types of biquadratic filters. The filters included in the module library are based on [this classic set](https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html). 
 
-You need to calculate the coefficient inputs separately from the node using `expr` nodes.
+Calculate the coefficients for biquad node inputs using `expr` nodes.
 
 <br>
 
@@ -1238,7 +1241,7 @@ exposable | ❌
 
 **description**
 
-The `low pass` node is a simple non-resonant `6dB/oct` low-pass filter. The `alpha` input is the smoothing factor where `1 = no filtering` and `0 = maximum filtering`. 
+The `low pass` node is a simple non-resonant 1-pole `6dB/oct` low-pass filter. The `alpha` input is the smoothing factor where `1 = no filtering` and `0 = maximum filtering`. 
 
 <br>
 
@@ -1266,7 +1269,7 @@ exposable | ❌
 
 **description**
 
-The `high pass` node is a simple non-resonant `6dB/oct` high-pass filter. The `alpha` input is the smoothing factor where `1 = maximum filtering` and `0 = no filtering`. 
+The `high pass` node is a simple non-resonant 1-pole `6dB/oct` high-pass filter. The `alpha` input is the smoothing factor where `1 = maximum filtering` and `0 = no filtering`. 
 
 <br>
 
@@ -1379,7 +1382,7 @@ In the `inspector panel` you can choose from different multiples of the base sam
 alt="resample inspector"
 width="200"/>
 
-For example, given a base sample rate of `44.1kHz`, `4x` sample rate would be `176.4kHz`.
+For example, given a base sample rate of `44.1 kHz`, `4x` sample rate would be `176.4 kHz`.
 
 To properly use the `resample` node, you have to have two `resample` nodes in your patch, one to mark where you want to begin supersampling and one to mark where you want to downsample back to the original sample rate, as well as a pre-downsampling low-pass filter with a cutoff set to half the base sample rate.
 
@@ -1432,6 +1435,8 @@ Reading and writing to the `memory` node can happen at different index values at
 
 You can also import audio to the memory node. On Mac, you do this by dragging an `.AIFF` or `.WAV` file from a Finder window into the space marked `Drop audio file here`. There is also a check box labeled `Save Data` that, when checked, will save the contents of the `memory` node in between patch loads.
 
+You can also set the memory node buffer size with the Samples pulldown in the `inspector panel`. This can reduce the file size for patches when you do not need the maximum buffer size.
+
 <img src="img/nodes_reference/dsp/memory/memory_inspector.png"
 alt="memory inspector"
 width="200"/>
@@ -1448,7 +1453,7 @@ width="200"/>
 The `synth` nodes are low-level building blocks specific to audio synthesis.
 
 - The `osc` node outputs one of 4 classic anti-aliased waveforms.
-- The `phasor` node outputs an un-aliased phasor signal from `0 to 2π` useful for creating custom oscillators
+- The `phasor` node outputs an un-aliased phasor signal from `0 to 2π` useful for creating custom oscillators, clocks, etc.
 - The `sample & hold` node can sample an input signal, store it, and hold that value at its output.
 - The `adsr` node generates an envelope according to an incoming `gate` signal.
 
@@ -1491,7 +1496,7 @@ The `osc` node is intended as an audio-rate oscillator. This means it is anti-al
 
 The `Hz` input controls the speed of the oscillator from `0` to `sampleRate/2 Hz`. 
 
-The `amp` input uses a `mod` signal to control the amplitude of the wave. For example: An amplitude value of `1` will set the output of the `osc` node to range between `-1 and 1`, whereas a value of `0.5` will oscillate between `-0.5 and 0.5`.
+The `amp` input controls the amplitude of the waveform. For example: An amplitude value of `1` will set the output of the `osc` node to range between `-1 and 1`, whereas a value of `0.5` will oscillate between `-0.5 and 0.5`.
 
 <img src="img/nodes_reference/synth/osc/osc_hz_amp.png"
 alt="osc hz amp"
@@ -1589,7 +1594,7 @@ The `sample & hold` node will sample a value at its input on the rising edge of 
 
 You can think of it like a single-sample `memory` node.
 
-In the `inspector panel` you can select the `Save Data` checkbox to save the held value in between patch loads.
+In the `inspector panel` you can select the `Save Data` checkbox to save the held value in between patch loads. This is good for control signals like counters when you wish to save the setting with your patch. 
 
 <img src="img/nodes_reference/synth/sample_and_hold/sample_and_hold_inspector.png"
 alt="sample and hold inspector"
@@ -1685,13 +1690,13 @@ In the `inspector panel`, you have options to name the module, define its size, 
 alt="module inspector"
 width="200"/>
 
-Exposed elements within a `module` node will appear automatically on the UI. You can move them around by clicking or tapping the `lock icon` to enter `Edit Modules` mode.
+Exposed elements within a `module` node will appear automatically on the UI. On ipadOS you can move them around by clicking or tapping the `lock icon` to enter `Edit Module` mode. On macOS select `Edit Module` with cmd-E or via View menu > Edit Module. 
 
 <img src="img/nodes_reference/module/module/module_move_ui.png"
 alt="module move ui"
 width="400"/>
 
-You can either define an explicit size for the `module` node, or let the UI elements determine the size. In the example below, the first `module` has a dimension of `0x0` and the size of the module is determined by where the `input` and `output` nodes are placed. In the second example, the module has a fixed size of `200x200` and the output can be placed wherever without shrinking the size of the module. In the third example, you can see how with a fixed size, you can even put UI elements outside of modules, which can be useful for both creative and practical purposes.
+By default, a `module` resizes to fit all exposed UI elements. You can define an explicit size for a `module` by setting W/H to something other than 0. In the example below, the first `module` has a dimension of `0x0` and the size of the module is determined by where the `input` and `output` nodes are placed. In the second example, the module has a fixed size of `200x200` and the output can be placed wherever without shrinking the size of the module. In the third example, you can see how with a fixed size, you can even put UI elements outside of modules, which can be useful for both creative and practical purposes.
 
 <img src="img/nodes_reference/module/module/module_size_io.png"
 alt="module size io"
@@ -1811,7 +1816,7 @@ exposable | ✅ automatic
 
 **description**
 
-The `knob` node is used to modify other nodes. It outputs a `0 to 1` `mod` signal. This signal can be scaled and shaped by `expr`, `mapper`, and `spline` nodes.
+The `knob` node is used to modify other nodes. It outputs a `0 to 1` `mod` signal. This signal can be scaled and shaped by math nodes like `expr`, or level nodes like `mapper`, and `spline` nodes.
 
 There are several options for the `knob` node in the `inspector panel`. You can directly set the `Value`, change the `Style`, `Icon`, color, and `MIDI CC` and `Channel`.
 
@@ -1819,7 +1824,7 @@ There are several options for the `knob` node in the `inspector panel`. You can 
 alt="knob inspector"
 width="200"/>
 
-There are six `Style` options for the `knob` node that change its shape: `Standard`, `Mini`, `Large`, `Drive`, `Mix`, and `Bipolar`. The three color options are blue, green, and red.
+There are six `Style` options for the `knob` node that change its shape: `Standard`, `Mini`, `Large`, `Drive`, `Mix`, and `Bipolar`. The three color options are azure, green, and red.
 
 <img src="img/nodes_reference/module/knob/knob_styles.png"
 alt="knob styles"
@@ -1915,7 +1920,7 @@ When the `slider` node is zeroed (turned all the way down) a square appears in t
 alt="slider node"
 width="400"/>
 
-In the `inspector panel` you can change the color of the slider to blue, green, or red, and assign `MIDI CC` and `Channel`.
+In the `inspector panel` you can change the color of the slider to azure, green, or red, and assign `MIDI CC` and `Channel`.
 
 <img src="img/nodes_reference/module/slider/slider_inspector.png"
 alt="slider inspector"
@@ -1953,7 +1958,7 @@ exposable | ✅ automatic
 
 The `toggle` node outputs a `0 or 1` gate signal. When the switch is set to the left, the output is `0`, and when it's set to the right, it is `1`.
 
-In the `inspector panel` you can set the color of the switch as blue, green, or red.
+In the `inspector panel` you can set the color of the switch as azure, green, or red.
 
 <img src="img/nodes_reference/module/toggle/toggle_inspector.png"
 alt="toggle inspector"
@@ -2019,12 +2024,12 @@ width="400"/>
 
 **description**
 
-The `poly` nodes help create and manage polyphonic signals.
+The `poly` nodes create and manage multi-channel "polyphonic" signals. Poly channels can be composed of audio or control signal types.
 
-- The `combine` and `split` nodes allow you to merge several mono signals together and then take them back apart.
-- The `poly mix` node takes a poly signal and mixes it down to a mono signal.
+- The `combine` and `split` nodes allow you to merge several mono signals into one cable or separate a poly signal into its repsective channels.
+- The `poly mix` node mixes a multi-channel poly signal down to a 1-channel signal.
 - The `channel index` node outputs a poly signal of integers indexed from `0`.
-- The `channel count` node outputs the current number of polyphony at its input.
+- The `channel count` node outputs the current number of poly channels at its input.
 
 <br>
 
@@ -2053,7 +2058,7 @@ exposable | ❌
 
 **description**
 
-The `combine` node takes from `2` up to `256` mono signals and combines them into one polyphonic signal.
+The `combine` node takes from `2` up to `256` mono signals and combines them into one multi-channel "polyphonic" signal.
 
 In the `inspector panel` you can set the number of channels.
 
@@ -2093,7 +2098,7 @@ exposable | ❌
 
 **description**
 
-The `split` node takes a poly signal and splits it into `1` to `256` mono signals.
+The `split` node takes a multi-channel poly signal and splits it into `1` to `256` mono signals.
 
 In the `inspector panel` you can set the number of channels.
 
@@ -2133,18 +2138,7 @@ exposable | ❌
 
 **description**
 
-The `split` node takes a poly signal and splits it into `1` to `256` mono signals.
-
-In the `inspector panel` you can set the number of `Channels`.
-
-<img src="img/nodes_reference/poly/split/split_inspector.png"
-alt="split inspector"
-width="200"/>
-
-<img src="img/nodes_reference/poly/split/split_values.png"
-alt="split values"
-width="400"/>
-
+The `poly mix` node sums all channels of a poly signal.
 
 <br>
 
@@ -2167,7 +2161,7 @@ exposable | ❌
 
 **description**
 
-The `channel index` node creates a signal with `1` to `256` channels where each channel is an integer index number that is indexed from `0`.
+The `channel index` node creates a poly signal with `1` to `256` channel index integers from 0 to n-1 channels. Used in combination with the `channel count` and math `expr` nodes, this node is good for performing iterative math operations across poly signals.
 
 In the `inspector panel` you can set the number of `Channels`.
 
@@ -2217,8 +2211,9 @@ width="400"/>
 
 The `switch` nodes route signals and turn them on or off.
 
-- The `mux` node sends one of several inputs to one output while the `demux` node sends one input to several outputs.
-- The `spigot` node allows you to turn off a section of a patch to prevent it from wasting CPU time when not needed.
+- The `mux` node sends one of several inputs to one output.
+- The `demux` node sends one input to one of several outputs.
+- The `spigot` node allows you to turn off a section of a patch to prevent it from using CPU resources when not needed.
 
 <br>
 
@@ -2352,7 +2347,7 @@ Nodes that are not processing show `inactive` next to their name when in `timing
 alt="spigot off on"
 width="800"/>
 
-Beware that if you have any kind of `meter` or other type of terminal output node connected to a node or series of nodes that you want to turn off using a spigot node, the node will not turn off.
+Beware that if you have any kind of `meter` or other type of terminal output node connected to a node or series of nodes that you want to turn off using a spigot node, the node will continuously wake up `spigot` node and not turn off.
 
 <img src="img/nodes_reference/switch/spigot/spigot_interrupt.png"
 alt="spigot interrupt"
