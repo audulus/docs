@@ -1147,7 +1147,7 @@ DSP is an acronym that means digital signal processing. The `dsp` nodes are esse
 - The `sample rate` node outputs the current sample rate, useful in many calculations where the precise sample rate is needed.
 - The `resample` node allows you to up- and then down-sample a signal to run certain parts of a module at a higher sample rate.
 - The `memory` node allows you to record, playback, and import audio or control signals.
-- With the `dsp` node, you can write code for low-level signal processing using the Lua programming langauge.
+- The `dsp` node allows you to write code for low-level signal processing using the Lua programming langauge.
 <br>
 
 ---
