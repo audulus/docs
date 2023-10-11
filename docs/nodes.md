@@ -815,7 +815,7 @@ exposable | ✅
 
 **description**
 
-The `canvas` node is an allows you to draw things using Lua, a simple interpreted programming language.
+The `canvas` node allows you to draw things using Lua, a simple interpreted programming language.
 
 Although the default example has no inputs or outputs, you can create as many as you'd like by declaring them in the `inspector panel` above the code block.
 
@@ -1147,7 +1147,7 @@ DSP is an acronym that means digital signal processing. The `dsp` nodes are esse
 - The `sample rate` node outputs the current sample rate, useful in many calculations where the precise sample rate is needed.
 - The `resample` node allows you to up- and then down-sample a signal to run certain parts of a module at a higher sample rate.
 - The `memory` node allows you to record, playback, and import audio or control signals.
-
+- With the `dsp` node, you can write code for low-level signal processing using the Lua programming langauge.
 <br>
 
 ---
@@ -1440,6 +1440,20 @@ width="200"/>
 
 ---
 
+### dsp
+
+<img src="img/nodes_reference/dsp/memory/dsp_node.png"
+alt="dsp node"
+width="400"/>
+
+exposable | ❌
+:-- | :--
+
+**description**
+
+The `dsp` node is an allows you to write code for signal processing using Lua, a simple interpreted programming language.
+
+You can create inputs and outputs using the fields in the inspector panel. Inputs and outputs are global arrays of samples. You must define a function called `process` which takes a sample count to process and operates on the global arrays. Define constants and any storage you need between calls to process above the process function. A global variable, sampleRate, is set to the current sample rate and is available outside the process function. Another global variable, `storage` is an array of samples that is saved in the patch, indended to save audio, sequencer data, etc.
 
 ## synth
 
