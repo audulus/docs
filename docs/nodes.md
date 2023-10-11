@@ -1442,7 +1442,7 @@ width="200"/>
 
 ### dsp
 
-<img src="img/nodes_reference/dsp/memory/dsp_node.png"
+<img src="img/nodes_reference/dsp/dsp_node.png"
 alt="dsp node"
 width="400"/>
 
