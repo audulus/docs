@@ -2,3 +2,6 @@ site
 .DS_Store
 **/.DS_Store
 help/.DS_Store
+.DS_Store
+docs/.DS_Store
+docs/img/.DS_Store
